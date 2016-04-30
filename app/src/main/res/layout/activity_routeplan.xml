@@ -1,0 +1,34 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <android.support.v7.widget.Toolbar
+        xmlns:app1="http://schemas.android.com/apk/res/com.wxxiaomi.electricbicycle"
+
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/titleBlue"
+        android:minHeight="?attr/actionBarSize"
+         />
+    <com.baidu.mapapi.map.MapView
+        android:layout_below="@+id/toolbar"
+        android:id="@+id/map"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:clickable="true" />
+
+    <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|bottom"
+            android:src="@mipmap/ic_navigation_black_24dp"
+            android:id="@+id/btn_nav"
+             android:layout_alignParentBottom="true"
+             android:layout_alignParentRight="true"
+             android:layout_marginBottom="50dp"
+            />
+    
+
+</RelativeLayout>

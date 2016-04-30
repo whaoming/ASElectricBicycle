@@ -1,0 +1,73 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/titleBlue"
+    android:orientation="vertical" >
+
+    <android.support.v7.widget.Toolbar
+        xmlns:app1="http://schemas.android.com/apk/res/com.wxxiaomi.electricbicycle"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/titleBlue"
+        android:minHeight="?attr/actionBarSize"
+       />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+             android:layout_height="match_parent"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:orientation="vertical" >
+
+            <!-- 这里放置头像 -->
+
+            <com.wxxiaomi.ming.electricbicycle.view.custom.CircularImageView
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/iv_head"
+                android:layout_width="68dp"
+                android:layout_height="68dp"
+                android:src="@mipmap/tou" />
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/til_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                 >
+
+                <EditText
+                    android:hint="帐号名称"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/til_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+               >
+
+                <EditText
+                      android:hint="一句话描述"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textShortMessage" />
+            </android.support.design.widget.TextInputLayout>
+
+            <Button
+                android:textColor="@color/titleBlue"
+                android:id="@+id/btn_ok"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/selector_demo"
+                android:text="确定" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

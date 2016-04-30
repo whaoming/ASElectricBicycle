@@ -1,0 +1,102 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <com.baidu.mapapi.map.TextureMapView
+        android:id="@+id/mpaview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <RelativeLayout
+        android:id="@+id/ll_nearbyview"
+        android:layout_width="match_parent"
+        android:layout_height="53dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="27dp"
+        android:background="@drawable/home_head"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp" >
+
+        <com.wxxiaomi.ming.electricbicycle.view.custom.CircularImageView
+            android:id="@+id/iv_my_head"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_margin="4dp"
+            android:src="@mipmap/tou" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@+id/temp"
+            android:layout_toRightOf="@+id/iv_my_head"
+            android:gravity="center_vertical"
+            android:textColor="#666666"
+            android:textColorHint="#666666"
+            android:textSize="14sp" />
+
+        <RelativeLayout
+            android:id="@+id/temp"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true" >
+
+            <ImageButton
+                android:id="@+id/iv_contact"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:layout_margin="4dp"
+                android:background="@drawable/selector_homeact_smallbtn"
+                android:src="@mipmap/ic_group_black_32dp" />
+
+            <TextView
+                android:id="@+id/unread_msg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="2dp"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/ease_unread_count_bg"
+                android:gravity="center"
+                android:text="7"
+                android:textColor="@android:color/white"
+                android:textSize="12sp" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <android.support.design.widget.CoordinatorLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/sn_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <android.support.design.widget.CoordinatorLayout
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/layout1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="com.wxxiaomi.ming.electricbicycle.view.custom.HomeSnackBarBehavior" >
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/btn_go"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|right"
+                android:layout_margin="1dp"
+                android:layout_marginBottom="10dp"
+                app:layout_behavior="com.wxxiaomi.ming.electricbicycle.view.custom.HomeButtonBehavior"
+                android:src="@mipmap/icon_landing_arrow"
+                app:borderWidth="0dp" />
+
+            <include
+                android:id="@+id/ll_nearby_view"
+                layout="@layout/view_home_nearinfo" />
+        </android.support.design.widget.CoordinatorLayout>
+    </android.support.design.widget.CoordinatorLayout>
+
+</RelativeLayout>

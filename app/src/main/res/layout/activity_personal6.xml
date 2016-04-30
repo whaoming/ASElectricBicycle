@@ -1,0 +1,61 @@
+<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar1"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/titleBlue" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/titleBlue" >
+
+        <com.wxxiaomi.ming.electricbicycle.view.custom.CircularImageView
+            android:id="@+id/iv_my_head"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_centerInParent="true"
+            android:layout_margin="8dp"
+            android:src="@mipmap/tou" />
+    </RelativeLayout>
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tab_FindFragment_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/titleBlue"
+        app:tabIndicatorColor="#ffffff"
+        app:tabSelectedTextColor="#ffffff"
+        app:tabTextColor="#ffffff" />
+
+    <android.support.design.widget.CoordinatorLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/layout1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vp_FindFragment_pager"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+             />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/btn_go"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_margin="1dp"
+            android:layout_marginBottom="10dp"
+            app:layout_behavior="com.wxxiaomi.ming.electricbicycle.view.custom.PersonalActButtonBehavior"
+            android:src="@mipmap/icon_landing_arrow"
+            app:borderWidth="0dp" />
+        
+    </android.support.design.widget.CoordinatorLayout>
+
+</LinearLayout>

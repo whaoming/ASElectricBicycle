@@ -1,0 +1,35 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+   <EditText 
+       android:id="@+id/et_username"
+       android:hint="请输入账号"
+       android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+       />
+   
+   <EditText 
+       android:id="@+id/et_password"
+       android:hint="请输入密码"
+       android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+       />
+   <EditText 
+      
+       android:id="@+id/et_name"
+       android:hint="请输入用户名"
+       android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+       />
+   <Button 
+       android:id="@+id/btn_ok"
+       android:text="确定"
+       android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+       />
+
+</LinearLayout>

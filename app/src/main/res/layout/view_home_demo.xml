@@ -1,0 +1,16 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_nearbyview"
+    android:layout_width="62dp"
+    android:layout_height="62dp"
+    android:background="@drawable/home_nearby_person"
+     >
+
+    
+
+<ImageView 
+    android:id="@+id/tv_demoiv"
+        android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    />
+</LinearLayout>

@@ -1,0 +1,64 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "24.0.0 rc3"
+
+
+    dexOptions {
+        javaMaxHeapSize "4g"
+        preDexLibraries = false
+    }
+    defaultConfig {
+        applicationId "com.wxxiaomi.ming.electricbicycle"
+        minSdkVersion 16
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDir 'libs'
+        }
+
+        instrumentTest.setRoot('tests')
+
+        // Move the build types to build-types/<type>
+        // For instance, build-types/debug/java, build-types/debug/AndroidManifest.xml, ...
+        // This moves them out of them default location under src/<type>/... which would
+        // conflict with src/ being used by the main source set.
+        // Adding new build types or product flavors should be accompanied
+        // by a similar customization.
+        debug.setRoot('build-types/debug')
+        release.setRoot('build-types/release')
+
+    }
+}
+
+
+
+dependencies {
+
+    compile 'com.android.support:design:23.3.0'
+
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile project(':easeui')
+   /** compile files('libs/commons-lang3-3.0-beta.jar')
+    *   compile files('libs/locSDK_6.12.jar')
+    compile files('libs/httpmime-4.1.2.jar')
+    compile files('libs/gson-2.2.1.jar')
+    compile files('libs/volley.jar')
+    compile files('libs/zxing.jar')
+    compile files('libs/android-support-multidex.jar')
+    compile files('libs/BaiduNaviSDK_3.1.0.jar')*/
+   compile 'com.google.android.gms:play-services-appindexing:8.1.0'
+
+}
