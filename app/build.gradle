@@ -51,6 +51,7 @@ dependencies {
 
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile project(':easeui')
+    compile project(':chatwidget')
    /** compile files('libs/commons-lang3-3.0-beta.jar')
     *   compile files('libs/locSDK_6.12.jar')
     compile files('libs/httpmime-4.1.2.jar')

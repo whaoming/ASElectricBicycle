@@ -1,13 +1,13 @@
 package com.wxxiaomi.ming.electricbicycle.view.em.adapter;
 
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.ViewHolder;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,14 +23,14 @@ import com.wxxiaomi.ming.electricbicycle.view.activity.UserInfoActivity;
 import com.wxxiaomi.ming.electricbicycle.view.em.row.MyEaseChatRow2;
 import com.wxxiaomi.ming.electricbicycle.view.em.row.MyEaseChatRowText2;
 
+import java.util.List;
+
 
 public class ChatRowItemAdapter extends RecyclerView.Adapter<ViewHolder> {
 
-	// private List<InviteMessage> infos;
 	private Context context;
 	private EMConversation conversation;
 	private String toChatUsername;
-//	EMMessage[] messages = null;
 	private final static int TXT = 11;
 	private final static int LOCATION = 22;
 	private final static int FILE = 33;
@@ -41,7 +41,6 @@ public class ChatRowItemAdapter extends RecyclerView.Adapter<ViewHolder> {
 	protected final int HANDLER_MESSAGE_REFRESH_LIST = 123;
 	protected final int HANDLER_MESSAGE_SELECT_LAST = 456;
 	protected final int HANDLER_MESSAGE_SEEK_TO = 789;
-//	private List<EMMessage> allMessages;
 	private ChatRowItemAdapter instance;
 	private User.UserCommonInfo toChatUserInfo;
 
@@ -53,23 +52,27 @@ public class ChatRowItemAdapter extends RecyclerView.Adapter<ViewHolder> {
 		this.conversation = EMClient.getInstance().chatManager()
 				.getConversation(toChatUsername,EMConversationType.Chat,true);
 		this.listView = listView;
-		messages = (EMMessage[]) conversation.getAllMessages().toArray(
-				new EMMessage[0]);
 		conversation.markAllMessagesAsRead();
-//		allMessages = conversation.getAllMessages();
 		instance = this;
 		this.toChatUserInfo = toChatUserInfo;
-		refresh();
+//		if(conversation.getLastMessage()!=null){
+//			conversation.loadMoreMsgFromDB(conversation.getLastMessage().getMsgId(), 10);
+//		}
+//		messages = conversation.getAllMessages().toArray(
+//				new EMMessage[0]);
+//		conversation.markAllMessagesAsRead();
 	}
 
 	protected final int DEMO = 65465;
 	protected EMMessage[] messages;
 
 
-	@SuppressLint("HandlerLeak") Handler handler = new Handler() {
-
+	Handler handler = new Handler() {
 		private void refreshList() {
-			messages = (EMMessage[]) conversation.getAllMessages().toArray(
+			if(conversation.getLastMessage()!=null){
+				conversation.loadMoreMsgFromDB(conversation.getLastMessage().getMsgId(), 10);
+			}
+			messages = conversation.getAllMessages().toArray(
 					new EMMessage[0]);
 			conversation.markAllMessagesAsRead();
 			notifyDataSetChanged();
@@ -95,7 +98,16 @@ public class ChatRowItemAdapter extends RecyclerView.Adapter<ViewHolder> {
 				break;
 			// notifyDataSetChanged();
 			case DEMO:
-				notifyDataSetChanged();
+				//notifyDataSetChanged();
+				if(conversation.getLastMessage()!=null){
+					conversation.loadMoreMsgFromDB(conversation.getLastMessage().getMsgId(), 10);
+				}
+				messages = conversation.getAllMessages().toArray(
+						new EMMessage[0]);
+				conversation.markAllMessagesAsRead();
+				notifyItemInserted(messages.length-1);
+//				notifyItemRangeInserted(getItemCount()+1);
+				listView.scrollToPosition(messages.length - 1);
 				break;
 			default:
 				break;
@@ -105,22 +117,6 @@ public class ChatRowItemAdapter extends RecyclerView.Adapter<ViewHolder> {
 	};
 
 	public void refresh() {
-		// handler.sendEmptyMessage(what)
-		// messages = (EMMessage[]) conversation.getAllMessages().toArray(new
-		// EMMessage[0]);
-		// conversation.markAllMessagesAsRead();
-		// notifyDataSetChanged();
-		// listView.scrollToPosition(messages.length);
-		// new Thread(){
-		//
-		// public void run() {
-		// messages = (EMMessage[]) conversation.getAllMessages().toArray(new
-		// EMMessage[0]);
-		// conversation.markAllMessagesAsRead();
-		// notifyDataSetChanged();
-		//
-		// };
-		// }.start();
 		if (handler.hasMessages(HANDLER_MESSAGE_REFRESH_LIST)) {
 			return;
 		}
@@ -133,11 +129,6 @@ public class ChatRowItemAdapter extends RecyclerView.Adapter<ViewHolder> {
 	 * 刷新页面, 选择最后一个
 	 */
 	public void refreshSelectLast() {
-		// avoid refresh too frequently when receiving large amount offline
-		// messages
-		if (handler.hasMessages(HANDLER_MESSAGE_REFRESH_LIST)) {
-			return;
-		}
 		final int TIME_DELAY_REFRESH_SELECT_LAST = 100;
 		handler.removeMessages(HANDLER_MESSAGE_REFRESH_LIST);
 		handler.removeMessages(HANDLER_MESSAGE_SELECT_LAST);
@@ -147,13 +138,15 @@ public class ChatRowItemAdapter extends RecyclerView.Adapter<ViewHolder> {
 				TIME_DELAY_REFRESH_SELECT_LAST);
 	}
 
+	public void scrollToBottom(){
+		handler.sendEmptyMessage(DEMO);
+	}
+
 	/**
 	 * 获取消息的类型
 	 */
 	@Override
 	public int getItemViewType(int position) {
-
-//		EMMessage emMessage = allMessages.get(position);
 		EMMessage emMessage = messages[position];
 		int type = 0;
 		switch (emMessage.getType()) {
@@ -192,23 +185,19 @@ public class ChatRowItemAdapter extends RecyclerView.Adapter<ViewHolder> {
 
 	@Override
 	public void onBindViewHolder(ViewHolder viewHolder, int position) {
-//		Log.i("wang", "onBindViewHolder");
 		EMMessage emMessage = messages[position];
 		switch (emMessage.getType()) {
 		case TXT:
 			SendTxtViewHolder holder = (SendTxtViewHolder) viewHolder;
 			holder.demo.init(emMessage,position,instance,toChatUserInfo,context);
-			holder.demo.setOnHeadClickListener(new MyEaseChatRow2.HeadOnClickListener() {
+			holder.demo.setOnHeadClickListener(new MyEaseChatRow2.RowClickListener() {
 				@Override
-				public void click() {
-//					Intent intent = new Intent(context,UserInfoActivity.class);
-//					context.startActivity(intent);
+				public void onHeadClick() {
 					Bundle bundle = new Bundle();
 					bundle.putSerializable("userInfo", toChatUserInfo);
 					Intent intent4 = new Intent(context, UserInfoActivity.class);
 					intent4.putExtra("value", bundle);
 					context.startActivity(intent4);
-					
 				}
 			});
 			break;
@@ -266,7 +255,6 @@ public class ChatRowItemAdapter extends RecyclerView.Adapter<ViewHolder> {
 	}
 
 	public EMMessage getItem(int i) {
-		// TODO Auto-generated method stub
 		return messages[i];
 	}
 

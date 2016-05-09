@@ -1,18 +1,22 @@
 package com.wxxiaomi.ming.electricbicycle.view.activity;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.app.Activity;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.Message;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.baidu.mapapi.BMapManager;
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.BitmapDescriptor;
 import com.baidu.mapapi.map.BitmapDescriptorFactory;
@@ -28,13 +32,11 @@ import com.baidu.mapapi.search.route.PlanNode;
 import com.baidu.mapapi.search.route.RoutePlanSearch;
 import com.baidu.mapapi.search.route.TransitRouteResult;
 import com.baidu.mapapi.search.route.WalkingRouteResult;
+import com.baidu.navisdk.adapter.BNOuterTTSPlayerCallback;
 import com.baidu.navisdk.adapter.BNRoutePlanNode;
 import com.baidu.navisdk.adapter.BNaviSettingManager;
 import com.baidu.navisdk.adapter.BaiduNaviManager;
-import com.baidu.platform.comapi.location.CoordinateType;
-import com.google.android.gms.appindexing.Action;
-import com.google.android.gms.appindexing.AppIndex;
-import com.google.android.gms.common.api.GoogleApiClient;
+
 import com.wxxiaomi.ming.electricbicycle.GlobalParams;
 import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.view.activity.base.BaseActivity;
@@ -57,14 +59,12 @@ public class RoutePlanActivity extends BaseActivity implements
 	BaiduMap mBaidumap = null;
 
 	private Toolbar toolbar;
-	/**
-	 * ATTENTION: This was auto-generated to implement the App Indexing API.
-	 * See https://g.co/AppIndexing/AndroidStudio for more information.
-	 */
-	private GoogleApiClient client;
+	private String mSDCardPath = null;
+	private static final String APP_FOLDER_NAME = "ElectricBicycle";
 
 	@Override
 	protected void initView() {
+
 		setContentView(R.layout.activity_routeplan);
 		mMapView = (MapView) findViewById(R.id.map);
 		mBaidumap = mMapView.getMap();
@@ -72,7 +72,7 @@ public class RoutePlanActivity extends BaseActivity implements
 		btn_nav.setOnClickListener(this);
 		mSearch = RoutePlanSearch.newInstance();
 		mSearch.setOnGetRoutePlanResultListener(this);
-		showLoading1Dialog("正在加载路线");
+		//showLoading1Dialog("正在加载路线");
 		toolbar = (Toolbar) findViewById(R.id.toolbar);
 		toolbar.setTitle("路线");
 		setSupportActionBar(toolbar);
@@ -82,14 +82,35 @@ public class RoutePlanActivity extends BaseActivity implements
 	}
 
 	@Override
+	protected void handler(Message msg) {
+		super.handler(msg);
+		switch (msg.what){
+			case 9638:
+
+				PlanNode enNode = PlanNode.withLocation(GlobalParams.poiInf.location);
+				PlanNode sNode = PlanNode.withLocation(new LatLng(
+						GlobalParams.latitude, GlobalParams.longitude));
+				mSearch.bikingSearch((new BikingRoutePlanOption()).from(sNode).to(
+						enNode));
+				//closeLoading1Dialog();
+				break;
+			case 1111:
+
+
+		}
+	}
+
+	@Override
 	protected void initData() {
-		initNav();
-		PlanNode enNode = PlanNode.withLocation(GlobalParams.poiInf.location);
-		PlanNode sNode = PlanNode.withLocation(new LatLng(
-				GlobalParams.latitude, GlobalParams.longitude));
-		mSearch.bikingSearch((new BikingRoutePlanOption()).from(sNode).to(
-				enNode));
-		closeLoading1Dialog();
+		if (initDirs()) {
+			initNav();
+		}
+		handler.sendEmptyMessage(9638);
+
+//		Intent intent = new Intent(this,LoginActivity.class);
+//		startActivity(intent);
+//		handler.sendEmptyMessage(9638);
+		//closeLoading1Dialog();
 	}
 
 	@Override
@@ -97,7 +118,10 @@ public class RoutePlanActivity extends BaseActivity implements
 		switch (v.getId()) {
 			case R.id.btn_nav:
 				// 开始导航
+				Log.i("wang","开始导航");
 				routeplanToNavi(1);
+//				Intent intent = new Intent(this,LoginActivity.class);
+//				startActivity(intent);
 				break;
 
 			default:
@@ -106,50 +130,74 @@ public class RoutePlanActivity extends BaseActivity implements
 
 	}
 
+	private boolean initDirs() {
+		mSDCardPath = getSdcardDir();
+		if (mSDCardPath == null) {
+			return false;
+		}
+		File f = new File(mSDCardPath, APP_FOLDER_NAME);
+		if (!f.exists()) {
+			try {
+				f.mkdir();
+			} catch (Exception e) {
+				e.printStackTrace();
+				return false;
+			}
+		}
+		return true;
+	}
+
 	private void initNav() {
-		BaiduNaviManager.getInstance().init(this, getSdcardDir(),
-				"BNSDKSimpleDemo", new BaiduNaviManager.NaviInitListener() {
+		BaiduNaviManager.getInstance().init(this, mSDCardPath, APP_FOLDER_NAME
+				, new BaiduNaviManager.NaviInitListener() {
 					@Override
 					public void onAuthResult(int status, String msg) {
 						if (0 == status) {
-							// authinfo = "key校验成功!";
 							Log.i("wang", "key校验成功");
 						} else {
-							// authinfo = "key校验失败, " + msg;
 							Log.i("wang", "key校验失敗:" + msg);
 						}
-						// BNDemoMainActivity.this.runOnUiThread(new Runnable()
-						// {
-						//
-						// @Override
-						// public void run() {
-						// Toast.makeText(BNDemoMainActivity.this, authinfo,
-						// Toast.LENGTH_LONG).show();
-						// }
-						// });
+
 					}
 
 					public void initSuccess() {
-						// Toast.makeText(BNDemoMainActivity.this,
-						// "百度导航引擎初始化成功", Toast.LENGTH_SHORT).show();
-						// initSetting();
+						// Toast.ma
 						Log.i("wang", "百度导航引擎初始化成功");
 						initSetting();
 					}
 
 					public void initStart() {
 						Log.i("wang", "百度导航引擎初始化开始");
-						// Toast.makeText(BNDemoMainActivity.this,
-						// "百度导航引擎初始化开始", Toast.LENGTH_SHORT).show();
+						// Toast.make初始化开始", Toast.LENGTH_SHORT).show();
 					}
 
 					public void initFailed() {
 						Log.i("wang", "百度导航引擎初始化失败");
-						// Toast.makeText(BNDemoMainActivity.this,
-						// "百度导航引擎初始化失败", Toast.LENGTH_SHORT).show();
+						// Toast.makeT擎初始化失败", Toast.LENGTH_SHORT).show();
 					}
-				}, null, null, null);
+				}, null, ttsHandler, null);
 	}
+
+	/**
+	 * 内部TTS播报状态回传handler
+	 */
+	private Handler ttsHandler = new Handler() {
+		public void handleMessage(Message msg) {
+			int type = msg.what;
+			switch (type) {
+				case BaiduNaviManager.TTSPlayMsgType.PLAY_START_MSG: {
+					//showToastMsg("Handler : TTS play start");
+					break;
+				}
+				case BaiduNaviManager.TTSPlayMsgType.PLAY_END_MSG: {
+					//showToastMsg("Handler : TTS play end");
+					break;
+				}
+				default :
+					break;
+			}
+		}
+	};
 
 	protected void initSetting() {
 		BNaviSettingManager
@@ -192,54 +240,7 @@ public class RoutePlanActivity extends BaseActivity implements
 				new DemoRoutePlanListener(sNode));
 	}
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
 
-		// ATTENTION: This was auto-generated to implement the App Indexing API.
-		// See https://g.co/AppIndexing/AndroidStudio for more information.
-		client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
-	}
-
-	@Override
-	public void onStart() {
-		super.onStart();
-
-		// ATTENTION: This was auto-generated to implement the App Indexing API.
-		// See https://g.co/AppIndexing/AndroidStudio for more information.
-		client.connect();
-		Action viewAction = Action.newAction(
-				Action.TYPE_VIEW, // TODO: choose an action type.
-				"RoutePlan Page", // TODO: Define a title for the content shown.
-				// TODO: If you have web page content that matches this app activity's content,
-				// make sure this auto-generated web page URL is correct.
-				// Otherwise, set the URL to null.
-				Uri.parse("http://host/path"),
-				// TODO: Make sure this auto-generated app URL is correct.
-				Uri.parse("android-app://com.wxxiaomi.ming.electricbicycle.view.activity/http/host/path")
-		);
-		AppIndex.AppIndexApi.start(client, viewAction);
-	}
-
-	@Override
-	public void onStop() {
-		super.onStop();
-
-		// ATTENTION: This was auto-generated to implement the App Indexing API.
-		// See https://g.co/AppIndexing/AndroidStudio for more information.
-		Action viewAction = Action.newAction(
-				Action.TYPE_VIEW, // TODO: choose an action type.
-				"RoutePlan Page", // TODO: Define a title for the content shown.
-				// TODO: If you have web page content that matches this app activity's content,
-				// make sure this auto-generated web page URL is correct.
-				// Otherwise, set the URL to null.
-				Uri.parse("http://host/path"),
-				// TODO: Make sure this auto-generated app URL is correct.
-				Uri.parse("android-app://com.wxxiaomi.ming.electricbicycle.view.activity/http/host/path")
-		);
-		AppIndex.AppIndexApi.end(client, viewAction);
-		client.disconnect();
-	}
 
 	public class DemoRoutePlanListener implements BaiduNaviManager.RoutePlanListener {
 		private BNRoutePlanNode mBNRoutePlanNode = null;
@@ -250,16 +251,17 @@ public class RoutePlanActivity extends BaseActivity implements
 
 		@Override
 		public void onJumpToNavigator() {
+			Log.i("wang","跳转拉");
 			/*
 			 * 设置途径点以及resetEndNode会回调该接口
 			 */
-			// for (Activity ac : activityList) {
-			// if (ac.getClass().getName().endsWith("BNDemoGuideActivity")) {
-			// return;
-			// }
-			// }
-			// Log.i("wang", "onJumpToNavigator()");
-			Intent intent = new Intent(ct, BaiduGuideActivity.class);
+//			 for (Activity ac : activityList) {
+//			 if (ac.getClass().getName().endsWith("BNDemoGuideActivity")) {
+//			 return;
+//			 }
+//			 }
+			Log.i("wang", "onJumpToNavigator()");
+			Intent intent = new Intent(RoutePlanActivity.this, BaiduGuideActivity.class);
 			Bundle bundle = new Bundle();
 			bundle.putSerializable("routePlanNode",
 					(BNRoutePlanNode) mBNRoutePlanNode);
@@ -362,7 +364,7 @@ public class RoutePlanActivity extends BaseActivity implements
 
 	@Override
 	protected void onDestroy() {
-		mSearch.destroy();
+//		mSearch.destroy();
 		mMapView.onDestroy();
 		super.onDestroy();
 	}
@@ -375,4 +377,64 @@ public class RoutePlanActivity extends BaseActivity implements
 		}
 		return super.onOptionsItemSelected(item);
 	}
+
+	private BNOuterTTSPlayerCallback mTTSCallback = new BNOuterTTSPlayerCallback() {
+
+		@Override
+		public void stopTTS() {
+			// TODO Auto-generated method stub
+			Log.e("test_TTS", "stopTTS");
+		}
+
+		@Override
+		public void resumeTTS() {
+			// TODO Auto-generated method stub
+			Log.e("test_TTS", "resumeTTS");
+		}
+
+		@Override
+		public void releaseTTSPlayer() {
+			// TODO Auto-generated method stub
+			Log.e("test_TTS", "releaseTTSPlayer");
+		}
+
+		@Override
+		public int playTTSText(String speech, int bPreempt) {
+			// TODO Auto-generated method stub
+			Log.e("test_TTS", "playTTSText" + "_" + speech + "_" + bPreempt);
+
+			return 1;
+		}
+
+		@Override
+		public void phoneHangUp() {
+			// TODO Auto-generated method stub
+			Log.e("test_TTS", "phoneHangUp");
+		}
+
+		@Override
+		public void phoneCalling() {
+			// TODO Auto-generated method stub
+			Log.e("test_TTS", "phoneCalling");
+		}
+
+		@Override
+		public void pauseTTS() {
+			// TODO Auto-generated method stub
+			Log.e("test_TTS", "pauseTTS");
+		}
+
+		@Override
+		public void initTTSPlayer() {
+			// TODO Auto-generated method stub
+			Log.e("test_TTS", "initTTSPlayer");
+		}
+
+		@Override
+		public int getTTSState() {
+			// TODO Auto-generated method stub
+			Log.e("test_TTS", "getTTSState");
+			return 1;
+		}
+	};
 }

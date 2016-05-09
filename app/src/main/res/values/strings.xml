@@ -9,5 +9,6 @@
     <string name="drawer_open">open</string>
     <string name="drawer_close">close</string>
     <string name="title_activity_friend_add">FriendAddActivity</string>
+    <string name="send_locat">发送位置</string>
 
 </resources>

@@ -1,7 +1,6 @@
 package com.wxxiaomi.ming.electricbicycle;
 
 public interface ConstantValue {
-	
 	/**
 	 * 百度地图api key
 	 */

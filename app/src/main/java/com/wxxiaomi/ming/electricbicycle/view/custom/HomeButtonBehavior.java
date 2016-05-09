@@ -30,7 +30,10 @@ public class HomeButtonBehavior extends
 			FloatingActionButton child, View dependency) {
 		if (dependency instanceof Snackbar.SnackbarLayout) {
 			return false;
-		} else {
+		}else if(dependency instanceof FloatingActionButton){
+			return false;
+		}
+		else {
 			child.setTag(false);
 		}
 		return true;
@@ -59,9 +62,9 @@ public class HomeButtonBehavior extends
 		final List<View> dependencies = parent.getDependencies(fab);
 		for (int i = 0, z = dependencies.size(); i < z; i++) {
 			final View view = dependencies.get(i);
-			Log.i("wang",
-					"ViewCompat.getTranslationY(view)="
-							+ ViewCompat.getTranslationY(view));
+//			Log.i("wang",
+//					"ViewCompat.getTranslationY(view)="
+//							+ ViewCompat.getTranslationY(view));
 			if (ViewCompat.getTranslationY(view) < 0) {
 				isSN = true;
 			}

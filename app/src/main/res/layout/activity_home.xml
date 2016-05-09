@@ -1,5 +1,4 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
@@ -87,8 +86,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|right"
-                android:layout_margin="1dp"
-                android:layout_marginBottom="10dp"
+                android:layout_margin="10dp"
+
+                app:layout_behavior="com.wxxiaomi.ming.electricbicycle.view.custom.HomeButtonBehavior"
+                android:src="@mipmap/icon_landing_arrow"
+                app:borderWidth="0dp" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/btn_locat"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="bottom|left"
+                android:layout_margin="10dp"
+
                 app:layout_behavior="com.wxxiaomi.ming.electricbicycle.view.custom.HomeButtonBehavior"
                 android:src="@mipmap/icon_landing_arrow"
                 app:borderWidth="0dp" />

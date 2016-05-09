@@ -159,7 +159,6 @@ public final class EaseUI {
     
     /**
      * 设置用户属性提供者
-     * @param provider
      */
     public void setUserProfileProvider(EaseUserProfileProvider userProvider){
         this.userProvider = userProvider;

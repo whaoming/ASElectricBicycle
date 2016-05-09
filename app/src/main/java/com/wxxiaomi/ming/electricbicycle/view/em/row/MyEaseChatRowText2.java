@@ -1,10 +1,13 @@
 package com.wxxiaomi.ming.electricbicycle.view.em.row;
 
 import com.hyphenate.chat.EMMessage;
+import com.hyphenate.chat.EMTextMessageBody;
+import com.hyphenate.easeui.utils.EaseSmileUtils;
 import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.view.em.adapter.ChatRowItemAdapter;
 
 
+import android.text.Spannable;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -19,8 +22,9 @@ public class MyEaseChatRowText2 extends MyEaseChatRow2 {
 	@Override
 	public void onDataInit(EMMessage emMessage1, ChatRowItemAdapter adapter) {
 		this.emMessage = emMessage1;
-//		Log.i("wang", "onDataInit->emMessage:"+emMessage.getBody().toString());
-		contentView.setText(emMessage.getBody().toString());
+		EMTextMessageBody txtBody = (EMTextMessageBody) emMessage.getBody();
+		Spannable span = EaseSmileUtils.getSmiledText(context, txtBody.getMessage());
+		contentView.setText(span, TextView.BufferType.SPANNABLE);
 		this.adapter = adapter;
 		if (emMessage.direct() == EMMessage.Direct.SEND) {
 			setMessageSendCallback();
@@ -58,7 +62,7 @@ public class MyEaseChatRowText2 extends MyEaseChatRow2 {
 
 	@Override
 	public void updateView() {
-		adapter.refreshSelectLast();
+		adapter.refresh();
 	}
 
 }

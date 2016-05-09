@@ -2,12 +2,14 @@ package com.wxxiaomi.ming.electricbicycle.view.activity;
 
 import java.util.List;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Message;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
@@ -55,6 +57,7 @@ import com.wxxiaomi.ming.electricbicycle.view.activity.base.BaseActivity;
 import com.wxxiaomi.ming.electricbicycle.view.custom.CircularImageView;
 import com.wxxiaomi.ming.electricbicycle.view.em.EmInterface.FriendReqDetailListener;
 import com.wxxiaomi.ming.electricbicycle.view.em.EmInterface.MsgGetListener;
+import com.wxxiaomi.ming.electricbicycle.view.em.EmInterface.RemoteLoginListener;
 import com.wxxiaomi.ming.electricbicycle.view.em.EmManager;
 
 
@@ -95,6 +98,7 @@ public class HomeActivity2 extends BaseActivity {
 	 * 导航按钮
 	 */
 	private FloatingActionButton btn_go;
+	private FloatingActionButton btn_locat;
 
 	/**
 	 * 地图引擎，负责与服务器打交道的工具
@@ -167,6 +171,8 @@ public class HomeActivity2 extends BaseActivity {
 	 */
 	private final int UPDATEUNREAD = 158;
 
+	private final int SHOWREMOTEDIALOG = 2121;
+
 //
 
 	@Override
@@ -188,10 +194,19 @@ public class HomeActivity2 extends BaseActivity {
 		iv_contact = (ImageButton) findViewById(R.id.iv_contact);
 		tv_name = (TextView) findViewById(R.id.tv_name);
 		btn_go = (FloatingActionButton) findViewById(R.id.btn_go);
+
+		btn_locat = (FloatingActionButton) findViewById(R.id.btn_locat);
+		btn_locat.setOnClickListener(this);
 		iv_my_head = (CircularImageView) findViewById(R.id.iv_my_head);
 		iv_my_head.setOnClickListener(this);
 		mCurrentMode = LocationMode.NORMAL;
-		mBaiduMap = mMapView.getMap();
+		try{
+			Log.i("wang","获取百度地图");
+			mBaiduMap = mMapView.getMap();
+		}catch (Exception e){
+			Log.i("wang","获取百度地图异常");
+		}
+
 		btn_go.setOnClickListener(this);
 		iv_contact.setOnClickListener(this);
 
@@ -238,7 +253,18 @@ public class HomeActivity2 extends BaseActivity {
 				unread_msg_number.setVisibility(View.GONE);
 			}
 			break;
-
+			case SHOWREMOTEDIALOG:
+				msgDialog = new AlertDialog.Builder(ct, R.style.MingDialog).setMessage("账号被登录").setPositiveButton("确定", new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						EmManager.getInstance().logout();
+						Intent intent = new Intent(ct,LoginActivity.class);
+						startActivity(intent);
+						finish();
+					}
+				}).create();
+				msgDialog.show();
+				break;
 		default:
 			break;
 		}
@@ -249,7 +275,10 @@ public class HomeActivity2 extends BaseActivity {
 		initAnimation();
 		setZoomInVis();
 		imageEngine = new ImageEngineImpl(ct);
-		initLocationPars();
+			Log.i("wang","初始化定位");
+			initLocationPars();
+
+
 		mBaiduMap.setOnMapClickListener(new OnMapClickListener() {
 			@Override
 			public boolean onMapPoiClick(MapPoi arg0) {
@@ -262,6 +291,7 @@ public class HomeActivity2 extends BaseActivity {
 				setNearPersonViewHid(false);
 			}
 		});
+
 		initMapMarkerClickListener();
 		tv_name.setText(GlobalParams.user.userCommonInfo.name);
 	}
@@ -323,7 +353,13 @@ public class HomeActivity2 extends BaseActivity {
 					@Override
 					public void success(ReceiceData<NearByPerson> result) {
 						// TODO Auto-generated method stub
-						processNearByData(result.infos.userLocatList);
+						try{
+							Log.i("wang","开始绘制地图上的人");
+							processNearByData(result.infos.userLocatList);
+						}catch (Exception e){
+							Log.i("wang","在绘制地图上的附近的人的时候出错");
+						}
+
 					}
 
 					@Override
@@ -486,13 +522,16 @@ public class HomeActivity2 extends BaseActivity {
 					.longitude(location.getLongitude()).build();
 			mBaiduMap.setMyLocationData(locData);
 			if (isFirstLoc) {
+				Log.i("wang","获取自己的位置");
 				isFirstLoc = false;
-				LatLng ll = new LatLng(location.getLatitude(),
-						location.getLongitude());
-				MapStatus.Builder builder = new MapStatus.Builder();
-				builder.target(ll).zoom(18.0f);
-				mBaiduMap.animateMapStatus(MapStatusUpdateFactory
-						.newMapStatus(builder.build()));
+//				LatLng ll = new LatLng(location.getLatitude(),
+
+//						location.getLongitude());
+//				MapStatus.Builder builder = new MapStatus.Builder();
+//				builder.target(ll).zoom(18.0f);
+//				mBaiduMap.animateMapStatus(MapStatusUpdateFactory
+//						.newMapStatus(builder.build()));
+				scrollToMyLocat();
 				getNearByFromServer(latitude, longitude);
 			}
 		}
@@ -501,6 +540,16 @@ public class HomeActivity2 extends BaseActivity {
 		}
 	}
 
+
+	public void scrollToMyLocat(){
+		LatLng ll = new LatLng(GlobalParams.latitude,
+				GlobalParams.longitude);
+		MapStatus.Builder builder = new MapStatus.Builder();
+		builder.target(ll).zoom(18.0f);
+		mBaiduMap.animateMapStatus(MapStatusUpdateFactory
+				.newMapStatus(builder.build()));
+		//mBaiduMap.an
+	}
 
 	@Override
 	protected void onPause() {
@@ -567,6 +616,30 @@ public class HomeActivity2 extends BaseActivity {
 				
 			}
 		});
+
+		EmManager.getInstance().registerRemoteLoginListener(new RemoteLoginListener() {
+			@Override
+			public void remoteLogin(int error) {
+				if(RemoteLoginListener.USER_REMOVED == error){
+					showRemoteLoginDialog();
+				} else if (RemoteLoginListener.USER_LOGIN_ANOTHER_DEVICE == error) {
+
+
+				}else{
+
+				}
+			}
+		});
+	}
+	AlertDialog msgDialog ;
+	/**
+	 * 显示他人登录dialog
+	 */
+	private void showRemoteLoginDialog() {
+
+
+		handler.sendEmptyMessage(SHOWREMOTEDIALOG);
+		//msgDialog.show();
 	}
 
 	@Override
@@ -574,14 +647,15 @@ public class HomeActivity2 extends BaseActivity {
 		// EMClient.getInstance().chatManager()
 		// .removeMessageListener(messageListener);
 		// 退出时销毁定位
-
+		EmManager.getInstance().logout();
 		mLocClient.stop();
 		// 关闭定位图层
 		mBaiduMap.setMyLocationEnabled(false);
 		mMapView.onDestroy();
 		mMapView = null;
-		EMClient.getInstance().logout(true);
-		Log.i("wang","HomeActivity調用onStop，退出登录");
+		//EMClient.getInstance().logout(true);
+		//Log.i("wang","HomeActivity調用onStop，退出登录");
+
 		super.onDestroy();
 	}
 
@@ -611,6 +685,10 @@ public class HomeActivity2 extends BaseActivity {
 			intent4.putExtra("value", bundle);
 			startActivity(intent4);
 			break;
+			case R.id.btn_locat:
+				Log.i("wang","点击了locatbutton");
+				scrollToMyLocat();
+				break;
 		default:
 			break;
 		}

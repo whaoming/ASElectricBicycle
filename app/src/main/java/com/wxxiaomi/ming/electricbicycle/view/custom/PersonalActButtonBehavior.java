@@ -24,14 +24,19 @@ public class PersonalActButtonBehavior extends
 	@Override
 	public boolean layoutDependsOn(CoordinatorLayout parent,
 			FloatingActionButton child, View dependency) {
-		
-		return true;
+		if(dependency instanceof  FloatingActionButton){
+			return false;
+		}else{
+			return true;
+		}
+
+
 	}
 
 	@Override
 	public boolean onDependentViewChanged(CoordinatorLayout parent,
 			final FloatingActionButton child, View dependency) {
-		Log.i("wang", "onDependentViewChanged");
+//		Log.i("wang", "onDependentViewChanged");
 		List<View> dependencies = parent.getDependencies(child);
 		for (int i = 0, z = dependencies.size(); i < z; i++) {
 			final View view = dependencies.get(i);

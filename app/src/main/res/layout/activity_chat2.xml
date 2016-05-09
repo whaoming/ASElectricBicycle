@@ -16,31 +16,14 @@
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
         android:cacheColorHint="@null"
-        android:layout_above="@+id/ll_msg"
+        android:layout_above="@+id/input_menu"
         android:scrollbars="none" />
 
-    <LinearLayout
-        android:id="@+id/ll_msg"
+    <com.wxxiaomi.ming.chatwidget.weidgt.ChatInputMenu
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:orientation="horizontal" >
-
-        <EditText
-            android:id="@+id/et_msg"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="4"
-            android:hint="请输入消息"
-            android:textColor="#000000"
-            android:textColorHint="#000000" />
-
-        <Button
-            android:id="@+id/btn_send"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="发送" />
-    </LinearLayout>
+        android:id="@+id/input_menu"
+        />
 
 </RelativeLayout>

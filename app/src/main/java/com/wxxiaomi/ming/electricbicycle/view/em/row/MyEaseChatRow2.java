@@ -35,7 +35,7 @@ public abstract class MyEaseChatRow2 {
 	ChatRowItemAdapter adapter;
 	User.UserCommonInfo userInfo;
 	Context context;
-	HeadOnClickListener headOnClickListener;
+	RowClickListener headOnClickListener;
 
 	public MyEaseChatRow2(View view1) {
 		this.view = view1;
@@ -85,11 +85,10 @@ public abstract class MyEaseChatRow2 {
 			Glide.with(context).load(userInfo.head).into(userAvatarView);
 		}
 		userAvatarView.setOnClickListener(new OnClickListener() {
-
 			@Override
 			public void onClick(View v) {
 				if (headOnClickListener != null) {
-					headOnClickListener.click();
+					headOnClickListener.onHeadClick();
 				}
 
 			}
@@ -104,7 +103,7 @@ public abstract class MyEaseChatRow2 {
 
 			@Override
 			public void onSuccess() {
-				Log.i("wang", "onSuccess()");
+				//Log.i("wang", "onSuccess()");
 				updateView();
 			}
 
@@ -134,12 +133,12 @@ public abstract class MyEaseChatRow2 {
 
 	public abstract void updateView();
 
-	public void setOnHeadClickListener(HeadOnClickListener headOnClickListener){
+	public void setOnHeadClickListener(RowClickListener headOnClickListener){
 		this.headOnClickListener = headOnClickListener;
 	}
 	
-	public interface HeadOnClickListener {
-		void click();
+	public interface RowClickListener {
+		void onHeadClick();
 	}
 
 }

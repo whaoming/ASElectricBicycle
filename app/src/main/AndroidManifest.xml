@@ -51,6 +51,15 @@
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="2to346qHei1zkbu5YPAYDfv5m5iW3fAT" />
+        <meta-data
+            android:name="BaiduMobAd_CELL_LOCATION"
+            android:value="true" />
+        <meta-data
+            android:name="BaiduMobAd_GPS_LOCATION"
+            android:value="true" />
+        <meta-data
+            android:name="BaiduMobAd_WIFI_LOCATION"
+            android:value="true" />
         <!-- 声明sdk所需的service SDK核心功能 -->
         <service
             android:name="com.hyphenate.chat.EMChatService"
@@ -81,7 +90,7 @@
         </activity>
         <activity
             android:name=".view.activity.ScanCodeActivity1"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".view.activity.RoutePlanActivity"
             android:screenOrientation="portrait"></activity>
@@ -93,6 +102,10 @@
             android:screenOrientation="portrait"></activity>
         <activity
             android:name=".view.activity.BaiduGuideActivity"
+
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name="com.wxxiaomi.ming.electricbicycle.view.activity.ErrorDemoActivity"
             android:screenOrientation="portrait"></activity>
         <activity
             android:name=".view.activity.BaiduNavActivity"

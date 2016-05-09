@@ -1,0 +1,8 @@
+<resources>
+
+    <string name="app_name">ChatActiivityDemo</string>
+    <string name="attach_take_pic">attach_location</string>
+    <string name="attach_picture">attach_location</string>
+    <string name="attach_location">attach_location</string>
+
+</resources>

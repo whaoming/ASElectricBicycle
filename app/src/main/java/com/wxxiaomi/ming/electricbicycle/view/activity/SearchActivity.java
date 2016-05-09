@@ -33,6 +33,7 @@ import com.baidu.mapapi.search.sug.SuggestionResult.SuggestionInfo;
 import com.baidu.mapapi.search.sug.SuggestionSearch;
 import com.baidu.mapapi.search.sug.SuggestionSearchOption;
 import com.wxxiaomi.ming.electricbicycle.AppManager;
+import com.wxxiaomi.ming.electricbicycle.EBApplication;
 import com.wxxiaomi.ming.electricbicycle.GlobalParams;
 import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.view.activity.base.BaseActivity;
@@ -105,7 +106,7 @@ public class SearchActivity extends BaseActivity implements
 				GlobalParams.poiInf = poiInf;
 				Intent intent = new Intent(ct,
 						RoutePlanActivity.class);
-//				closeLoading1Dialog();
+				closeLoading1Dialog();
 				startActivity(intent);
 			}
 		});

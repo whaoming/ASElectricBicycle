@@ -145,7 +145,7 @@ public class BaiduNavActivity extends BaseActivity {
 //					return;
 //				}
 //			}
-			Intent intent = new Intent(ct, BaiduGuideActivity.class);
+			Intent intent = new Intent(ct, BaiduNavActivity.class);
 			Bundle bundle = new Bundle();
 			bundle.putSerializable("routePlanNode", (BNRoutePlanNode) mBNRoutePlanNode);
 			intent.putExtras(bundle);
