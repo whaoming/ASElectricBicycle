@@ -123,12 +123,6 @@ public abstract class BaseActivity extends AppCompatActivity implements
 		msgDialog.show();
 	}
 	
-//	private void closeMsgDialog(){
-//		if(msgDialog != null){
-//			msgDialog.dismiss();
-//		}
-//	}
-	
 	LoadingDialog dialog;
 	/**
 	 * 显示加载dialog

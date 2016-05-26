@@ -24,14 +24,14 @@ public class EBApplication extends Application {
 	public void onCreate() {
 		MultiDex.install(this);
 		// TODO Auto-generated method stub
-		super.onCreate();
+
 		Log.i("wang", "进入application-oncreate()");
 		// EMHelper.getInstance().init(this);
 		 applicationContext = this;
 		instance = this;
-
+		SDKInitializer.initialize(getApplicationContext());
 		 initEM();
-		 SDKInitializer.initialize(this);
+		super.onCreate();
 		
 	}
 	

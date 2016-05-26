@@ -39,6 +39,12 @@ public abstract class BaseAdapter extends RecyclerView.Adapter<ViewHolder> {
         this.context = context;
     }
 
+//    private OnItemClickListener onItemClickListener;
+//
+//    public void setOnItemClickListener(OnItemClickListener onItemClickListener){
+//        this.onItemClickListener = onItemClickListener;
+//    }
+
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -114,7 +120,6 @@ public abstract class BaseAdapter extends RecyclerView.Adapter<ViewHolder> {
 	public void setLoadingComplete(){
 		loadingComplete = true;
 		notifyDataSetChanged();
-//		Log.i("wang","在NearFriendRecommendAdapter中完成数据获取后userInfos.size="+userInfos.size());
 	}
 
     public abstract ViewHolder onCreateViewHolderOnChild(ViewGroup parent, int viewType);
@@ -122,7 +127,9 @@ public abstract class BaseAdapter extends RecyclerView.Adapter<ViewHolder> {
     public abstract void onBindViewHolderOnChild(ViewHolder holder, int position);
 
     public abstract int getItemCountOnChild();
-//    public abstract int getItemViewTypeOnChild(int position);
 
+    public  interface OnItemClickListener<T>{
+        void onItemClick(T t);
+    }
 
 }

@@ -12,7 +12,6 @@ import com.baidu.navisdk.adapter.NaviModuleFactory;
 import com.baidu.navisdk.adapter.NaviModuleImpl;
 import com.baidu.navisdk.adapter.BNRoutePlanNode.CoordinateType;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -20,19 +19,16 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
 import com.wxxiaomi.ming.electricbicycle.R;
 
 /**
  * 诱导界面
- *
  * @author sunhao04
  *
  */
 public class BaiduGuideActivity extends AppCompatActivity {
 
-   // private final String TAG = BNDemoGuideActivity.class.getName();
     private BNRoutePlanNode mBNRoutePlanNode = null;
     private BaiduNaviCommonModule mBaiduNaviCommonModule = null;
 
