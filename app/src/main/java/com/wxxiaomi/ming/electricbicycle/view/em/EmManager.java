@@ -184,7 +184,6 @@ public class EmManager {
 					Log.i("wang", "EmManager提示新消息:"
 							+ messages.get(0).toString());
 					msgGetListener.OnMsgReceive(message);
-
 				}
 
 			}

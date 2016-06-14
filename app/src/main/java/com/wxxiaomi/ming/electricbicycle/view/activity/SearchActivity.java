@@ -139,7 +139,6 @@ public class SearchActivity extends BaseActivity implements
 		});
 
 		et_serach.setOnEditorActionListener(new OnEditorActionListener() {
-
 			@Override
 			public boolean onEditorAction(TextView v, int actionId,
 					KeyEvent event) {

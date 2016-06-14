@@ -48,6 +48,7 @@ public class TempUserDaoImpl implements TempUserDao {
 
 	@Override
 	public User.UserCommonInfo getPersonByEmname(String emname) {
+		Log.i("wang","获取一个临时用户，emname："+emname);
 		SQLiteDatabase db = helper.getReadableDatabase();
 		if(db.isOpen()){
 			Cursor cursor = db.query(TempUserDao.TABLE_NAME

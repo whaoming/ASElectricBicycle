@@ -17,6 +17,7 @@ import com.wxxiaomi.ming.electricbicycle.bean.Bicycle;
 import com.wxxiaomi.ming.electricbicycle.bean.format.common.ReceiceData;
 import com.wxxiaomi.ming.electricbicycle.engine.BicycleEngineImpl;
 import com.wxxiaomi.ming.electricbicycle.engine.common.ResultByGetDataListener;
+import com.wxxiaomi.ming.electricbicycle.ui.activity.LoginActivity1;
 import com.wxxiaomi.ming.electricbicycle.view.activity.base.BaseActivity;
 
 
@@ -112,7 +113,7 @@ public class WelcomeActivity extends BaseActivity {
 			startActivityForResult(intent, SCANNIN_GREQUEST_CODE);
 			break;
 		case R.id.ll_login:
-			Intent intent2 = new Intent(ct, LoginActivity.class);
+			Intent intent2 = new Intent(ct, LoginActivity1.class);
 			startActivity(intent2);
 			break;
 

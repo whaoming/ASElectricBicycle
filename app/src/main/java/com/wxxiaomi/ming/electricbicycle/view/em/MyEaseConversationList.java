@@ -22,9 +22,9 @@ import android.widget.ListView;
 
 public class MyEaseConversationList extends ListView {
     
-    protected int primaryColor;
-    protected int secondaryColor;
-    protected int timeColor;
+//    protected int primaryColor;
+//    protected int secondaryColor;
+//    protected int timeColor;
     protected int primarySize;
     protected int secondarySize;
     protected float timeSize;
@@ -52,12 +52,12 @@ public class MyEaseConversationList extends ListView {
     private void init(Context context, AttributeSet attrs) {
         this.context = context;
         TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.EaseConversationList);
-        primaryColor = ta.getColor(R.styleable.EaseConversationList_cvsListPrimaryTextColor, R.color.list_itease_primary_color);
-        secondaryColor = ta.getColor(R.styleable.EaseConversationList_cvsListSecondaryTextColor, R.color.list_itease_secondary_color);
-        timeColor = ta.getColor(R.styleable.EaseConversationList_cvsListTimeTextColor, R.color.list_itease_secondary_color);
-        primarySize = ta.getDimensionPixelSize(R.styleable.EaseConversationList_cvsListPrimaryTextSize, 0);
-        secondarySize = ta.getDimensionPixelSize(R.styleable.EaseConversationList_cvsListSecondaryTextSize, 0);
-        timeSize = ta.getDimension(R.styleable.EaseConversationList_cvsListTimeTextSize, 0);
+//        primaryColor = ta.getColor(R.styleable.EaseConversationList_cvsListPrimaryTextColor, R.color.list_itease_primary_color);
+//        secondaryColor = ta.getColor(R.styleable.EaseConversationList_cvsListSecondaryTextColor, R.color.list_itease_secondary_color);
+//        timeColor = ta.getColor(R.styleable.EaseConversationList_cvsListTimeTextColor, R.color.list_itease_secondary_color);
+//        primarySize = ta.getDimensionPixelSize(R.styleable.EaseConversationList_cvsListPrimaryTextSize, 0);
+//        secondarySize = ta.getDimensionPixelSize(R.styleable.EaseConversationList_cvsListSecondaryTextSize, 0);
+//        timeSize = ta.getDimension(R.styleable.EaseConversationList_cvsListTimeTextSize, 0);
         
         ta.recycle();
         
@@ -158,6 +158,7 @@ public class MyEaseConversationList extends ListView {
     }
     
     public void refresh() {
+        Log.i("wang","列表刷新方法");
     	if(!handler.hasMessages(MSG_REFRESH_ADAPTER_DATA)){
     		handler.sendEmptyMessage(MSG_REFRESH_ADAPTER_DATA);
     	}

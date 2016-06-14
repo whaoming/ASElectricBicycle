@@ -90,53 +90,64 @@
         </activity>
         <activity
             android:name=".view.activity.ScanCodeActivity1"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.RoutePlanActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.BicycleWelcomeInfoActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.SearchActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.BaiduGuideActivity"
-
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.wxxiaomi.ming.electricbicycle.view.activity.ErrorDemoActivity"
-            android:screenOrientation="portrait"></activity>
+            android:name=".view.activity.ErrorDemoActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.BaiduNavActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.ChatActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.HomeActivity2"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.LoginActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.LoginActivity1"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.SplashActivity1"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.HomeActivity3"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.ContactActivity1"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.RegisterTwoActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.RegisterOneActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.PersonalActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.UserInfoActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.ContactActivity2"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.ChatActivity2"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
 
         <meta-data
             android:name="com.google.android.gms.version"
@@ -145,6 +156,10 @@
         <activity
             android:name=".view.activity.FriendAddActivity"
             android:label="@string/title_activity_friend_add"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".ui.activity.SearchActiity1"
+            android:label="@string/title_activity_search_actiity1"
             android:theme="@style/AppTheme"></activity>
     </application>
 

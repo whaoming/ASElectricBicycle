@@ -19,4 +19,10 @@
     <declare-styleable name="Theme">
         <attr name="circularImageViewStyle" format="reference"/>
     </declare-styleable>
+
+    <attr name="textColor" format="color"></attr>
+    <attr name="textColorHighlight" format="color"></attr>
+    <attr name="cardViewColor" format="color"></attr>
+    <attr name="backgroundColor" format="color"></attr>
+    <attr name="dialogCardColor" format="color"></attr>
 </resources>

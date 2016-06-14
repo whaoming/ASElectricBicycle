@@ -75,8 +75,7 @@ public class ChatActivity extends EaseBaseActivity {
 	public void onBackPressed() {
 		chatFragment.onBackPressed();
 		if (EasyUtils.isSingleActivity(this)) {
-			// Intent intent = new Intent(this, MainActivity.class);
-			// startActivity(intent);
+
 		}
 	}
 

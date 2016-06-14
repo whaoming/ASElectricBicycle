@@ -76,12 +76,12 @@
         "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\drawable\\abc_dialog_material_background_dark.xml"
     },
     {
-        "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\release\\drawable\\ease_btn_cancel_bj.xml",
-        "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeui\\res\\drawable\\ease_btn_cancel_bj.xml"
-    },
-    {
         "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\release\\drawable\\abc_spinner_textfield_background_material.xml",
         "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\drawable\\abc_spinner_textfield_background_material.xml"
+    },
+    {
+        "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\release\\drawable\\ease_btn_cancel_bj.xml",
+        "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeui\\res\\drawable\\ease_btn_cancel_bj.xml"
     },
     {
         "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\release\\drawable\\ease_msg_state_failed_resend.xml",
@@ -176,12 +176,12 @@
         "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\drawable\\abc_btn_radio_material.xml"
     },
     {
-        "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\release\\drawable\\abc_textfield_search_material.xml",
-        "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\drawable\\abc_textfield_search_material.xml"
-    },
-    {
         "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\release\\drawable\\ease_chatting_setmode_keyboard_btn.xml",
         "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeui\\res\\drawable\\ease_chatting_setmode_keyboard_btn.xml"
+    },
+    {
+        "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\release\\drawable\\abc_textfield_search_material.xml",
+        "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\drawable\\abc_textfield_search_material.xml"
     },
     {
         "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\release\\drawable\\abc_text_cursor_material.xml",

@@ -4,6 +4,7 @@ import com.wxxiaomi.ming.electricbicycle.bean.User;
 
 import java.util.List;
 
+import rx.Observable;
 
 
 public interface UserDao {

@@ -63,7 +63,6 @@ import com.wxxiaomi.ming.electricbicycle.view.em.EmManager;
 
 /**
  * 主页面
- * 
  * @author Mr.W
  */
 public class HomeActivity2 extends BaseActivity {

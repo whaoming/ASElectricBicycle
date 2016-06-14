@@ -62,6 +62,19 @@
             android:background="@drawable/selector_demo"
             android:text="确定"
             android:textColor="@color/titleBlue" />
+
+        <TextView
+
+            android:layout_marginRight="5dp"
+            android:textSize="14sp"
+            android:textColor="#ffffff"
+            android:layout_marginTop="8dp"
+            android:text="开发者选项"
+            android:gravity="right"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
     </LinearLayout>
+
+
 
 </LinearLayout>

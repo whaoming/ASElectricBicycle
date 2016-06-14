@@ -316,12 +316,12 @@
         "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeui\\res\\drawable-hdpi\\ease_chatto_voice_playing_f3.png"
     },
     {
-        "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ee_26.png",
-        "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeui\\res\\drawable-hdpi\\ee_26.png"
-    },
-    {
         "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ee_23.png",
         "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeui\\res\\drawable-hdpi\\ee_23.png"
+    },
+    {
+        "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ee_26.png",
+        "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeui\\res\\drawable-hdpi\\ee_26.png"
     },
     {
         "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ease_show_head_toast_bg.9.png",

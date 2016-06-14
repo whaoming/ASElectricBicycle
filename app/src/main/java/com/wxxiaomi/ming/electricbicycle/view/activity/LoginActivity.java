@@ -184,7 +184,6 @@ public class LoginActivity extends BaseActivity {
 						EMClient.getInstance().groupManager().loadAllGroups();
 						EMClient.getInstance().chatManager()
 								.loadAllConversations();
-
 						Log.i("wang", "登陆em服务器成功");
 						EMClient.getInstance().updateCurrentUserNick(
 								userInfo.username);

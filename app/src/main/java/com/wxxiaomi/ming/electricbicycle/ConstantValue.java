@@ -18,7 +18,7 @@ public interface ConstantValue {
 //	public static String SERVER_URL = "http://10.0.2.2:8080/ElectricBicycleServer/";
 //	public static String SERVER_URL = "http://210.38.162.23:8080/ElectricBicycleServer/";
 //	public static String SERVER_URL = "http://192.168.56.1:8080/ElectricBicycleServer/";
-	public static String SERVER_URL = "http://192.168.56.1:8080/ElectricBicycleServer/";
+	public static String SERVER_URL = "http://192.168.191.1:8080/ElectricBicycleServer/";
 //	public static String SERVER_URL = "http:/10.15.75.175:8080/ElectricBicycleServer/";
 	
 	/**

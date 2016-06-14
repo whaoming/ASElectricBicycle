@@ -14,7 +14,6 @@ package com.wxxiaomi.ming.electricbicycle.view.activity;//package com.wxxiaomi.e
 //
 //import com.wxxiaomi.electricbicycle.R;
 //import com.wxxiaomi.electricbicycle.bean.User.UserCommonInfo;
-//import com.wxxiaomi.electricbicycle.dao.impl.UserDaoImpl;
 //import com.wxxiaomi.electricbicycle.view.activity.base.BaseActivity;
 //
 ///**

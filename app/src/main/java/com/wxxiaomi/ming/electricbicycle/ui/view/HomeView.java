@@ -1,0 +1,27 @@
+package com.wxxiaomi.ming.electricbicycle.ui.view;
+
+import android.os.Bundle;
+
+import com.baidu.mapapi.model.LatLng;
+import com.wxxiaomi.ming.electricbicycle.ui.view.base.BaseView;
+
+/**
+ * Created by 12262 on 2016/6/6.
+ */
+public interface HomeView extends BaseView {
+    void showSnackBar(String content);
+
+    /**
+     * 设置缩放控件不可见
+     */
+//    void setZoomInVis();
+//    void initAnimation();
+    void addMaker(LatLng point,int position);
+//    void initMapMarkerClickListener();
+    void scrollToMyLocat();
+    void updateUnreadLabel(int count);
+    void showRemoteLoginDialog();
+    boolean isNearViewVis();
+    void editNearViewState(boolean hide,boolean repeatShow);
+    void runActivity(Class clazz,Bundle bundle);
+}

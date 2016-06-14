@@ -84,12 +84,12 @@
         "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\drawable-hdpi-v4\\abc_ic_clear_mtrl_alpha.png"
     },
     {
-        "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_scrubber_control_to_pressed_mtrl_000.png",
-        "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\drawable-hdpi-v4\\abc_scrubber_control_to_pressed_mtrl_000.png"
-    },
-    {
         "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ease_settings_normal.png",
         "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeui\\res\\drawable-hdpi\\ease_settings_normal.png"
+    },
+    {
+        "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_scrubber_control_to_pressed_mtrl_000.png",
+        "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\drawable-hdpi-v4\\abc_scrubber_control_to_pressed_mtrl_000.png"
     },
     {
         "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ease_record_animate_06.png",
@@ -496,12 +496,12 @@
         "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\drawable-hdpi-v4\\abc_cab_background_top_mtrl_alpha.9.png"
     },
     {
-        "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ease_msg_state_fail_resend_pressed.png",
-        "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeui\\res\\drawable-hdpi\\ease_msg_state_fail_resend_pressed.png"
-    },
-    {
         "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ab_share_pack_mtrl_alpha.9.png",
         "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\drawable-hdpi-v4\\abc_ab_share_pack_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ease_msg_state_fail_resend_pressed.png",
+        "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeui\\res\\drawable-hdpi\\ease_msg_state_fail_resend_pressed.png"
     },
     {
         "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ee_4.png",

@@ -239,14 +239,12 @@ public class UserEngineImpl {
 						// processJsonResult(response.toString());
 						if(response!=null){
 							Gson gson = new Gson();
-							
 							ReceiceData<Login> result = gson.fromJson(
 									response.toString(),
 									new TypeToken<ReceiceData<Login>>() {
 									}.getType());
 							lis.success(result);
 						}else{
-							
 							lis.error("连接不上服务器");
 						}
 						

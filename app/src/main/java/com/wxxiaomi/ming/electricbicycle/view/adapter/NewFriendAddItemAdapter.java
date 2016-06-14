@@ -78,10 +78,12 @@ public class NewFriendAddItemAdapter extends RecyclerView.Adapter<ViewHolder> {
 		for (InviteMessage msg : infos) {
 			User.UserCommonInfo personByEmname = impl.getPersonByEmname(msg
 					.getFrom());
+//			Log.i("wang","personByEmname="+personByEmname.toString());
 			if (personByEmname != null) {
 				userInfos.add(personByEmname);
 			}
 		}
+		Log.i("wang","userInfos.size()="+userInfos.size());
 		this.lis = lis;
 	}
 
@@ -138,7 +140,7 @@ public class NewFriendAddItemAdapter extends RecyclerView.Adapter<ViewHolder> {
 
 	@Override
 	public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
-		Log.i("wang","NewFriendAddItemAdapter->onCreateViewHolder");
+		Log.i("wang","NewFriendAddItemAdapter->onCreateViewHolder，viewType="+viewType);
 		switch (viewType){
 			case 123:
 				//没有数据
