@@ -36,7 +36,7 @@ lz自己封装的一个实用性很强的mvp基础框架
 ###走在潮流前线的动画效果
 通过自定义的CoordinatorLayout behavior实现控件联动
 
-![这里写图片描述](http://img.blog.csdn.net/20160617115953014)
+![这里写图片描述](http://img.blog.csdn.net/20160617131459852)
 
 双层CoordinatorLayout嵌套(在控件的底部其实还有一个snackBar一起联动)，但是自定义控件的behavior实现方式跟snackBar完全不相同
 
