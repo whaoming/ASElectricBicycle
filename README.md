@@ -40,7 +40,9 @@ lz自己封装的一个实用性很强的mvp基础框架
 ###服务器代码
 服务器使用JavaWeb+Tomcat7.0，完全自己编写，使用servlet回应，与客户端的交互采用json的数据格式
 (服务器也需要集成环信的im，客户端的用户注册功能是由服务器来完成的)
+
 ![这里写图片描述](http://img.blog.csdn.net/20160617111507607)
+
 > 传送门：https://github.com/122627018/ElectricBicycleServer
 
 
