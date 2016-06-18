@@ -38,7 +38,7 @@ lz自己封装的一个实用性很强的mvp基础框架
 
 
 
-![alt text](https://github.com/122627018/ASElectricBicycle/blob/master/demo1.gif)
+![这里写图片描述](https://github.com/122627018/ASElectricBicycle/blob/master/demo1.gif)
 
 双层CoordinatorLayout嵌套(在控件的底部其实还有一个snackBar一起联动)，但是自定义控件的behavior实现方式跟snackBar完全不相同
 
