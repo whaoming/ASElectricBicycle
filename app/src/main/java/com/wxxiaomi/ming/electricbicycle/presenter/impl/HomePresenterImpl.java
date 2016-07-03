@@ -17,12 +17,14 @@ import com.wxxiaomi.ming.electricbicycle.GlobalParams;
 import com.wxxiaomi.ming.electricbicycle.api.exception.ApiException;
 import com.wxxiaomi.ming.electricbicycle.bean.User;
 import com.wxxiaomi.ming.electricbicycle.bean.format.NearByPerson;
-import com.wxxiaomi.ming.electricbicycle.model.impl.RxEmModelImpl2;
-import com.wxxiaomi.ming.electricbicycle.model.impl.UserModelImpl;
-import com.wxxiaomi.ming.electricbicycle.presenter.HomePresenter;
+import com.wxxiaomi.ming.electricbicycle.dao.impl.UserDaoImpl2;
+import com.wxxiaomi.ming.electricbicycle.model.impl.EmEngine;
+import com.wxxiaomi.ming.electricbicycle.presenter.base.BasePresenterImpl;
+import com.wxxiaomi.ming.electricbicycle.presenter.callback.HomePresenter;
 import com.wxxiaomi.ming.electricbicycle.presenter.base.BasePresenter;
 import com.wxxiaomi.ming.electricbicycle.support.rx.MyObserver;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.ContactActivity1;
+import com.wxxiaomi.ming.electricbicycle.ui.activity.PersonalAct1;
 import com.wxxiaomi.ming.electricbicycle.ui.view.HomeView;
 import com.wxxiaomi.ming.electricbicycle.view.activity.PersonalActivity;
 import com.wxxiaomi.ming.electricbicycle.view.activity.SearchActivity;
@@ -39,7 +41,7 @@ import rx.schedulers.Schedulers;
 /**
  * Created by 12262 on 2016/6/6.
  */
-public class HomePresenterImpl extends BasePresenter<HomeView, UserModelImpl> implements HomePresenter {
+public class HomePresenterImpl extends BasePresenterImpl<HomeView> implements HomePresenter<HomeView> {
 
     private LocationClient mLocClient;
     /**
@@ -58,8 +60,11 @@ public class HomePresenterImpl extends BasePresenter<HomeView, UserModelImpl> im
     private User.UserCommonInfo currentNearPerson;
     private List<NearByPerson.UserLocatInfo> userLocatList;
 
-    public HomePresenterImpl(HomeView homeView) {
-        super(homeView);
+    @Override
+    public void attach(HomeView mView) {
+        super.attach(mView);
+        initMap(mView.getMap());
+        initViewData();
     }
 
     @Override
@@ -75,7 +80,7 @@ public class HomePresenterImpl extends BasePresenter<HomeView, UserModelImpl> im
         mBaiduMap.setMyLocationConfigeration(new MyLocationConfiguration(
                 mCurrentMode, true, null));
         // 定位初始化
-        mLocClient = new LocationClient(view.getContext());
+        mLocClient = new LocationClient(mView.getContext());
         mLocClient.registerLocationListener(myListener);
         LocationClientOption option = new LocationClientOption();
         option.setOpenGps(true); // 打开gps
@@ -87,7 +92,7 @@ public class HomePresenterImpl extends BasePresenter<HomeView, UserModelImpl> im
 
     @Override
     public void initViewData() {
-        RxEmModelImpl2.getInstance().init();
+        EmEngine.getInstance().init();
     }
 
     @Override
@@ -97,7 +102,7 @@ public class HomePresenterImpl extends BasePresenter<HomeView, UserModelImpl> im
         Log.i("wang",tempUser.toString());
         boolean isSame = (currentNearPerson == tempUser);
         currentNearPerson = tempUser;
-        view.editNearViewState(view.isNearViewVis(),isSame);
+        mView.editNearViewState(mView.isNearViewVis(),isSame);
     }
 
     @Override
@@ -106,64 +111,36 @@ public class HomePresenterImpl extends BasePresenter<HomeView, UserModelImpl> im
         tv_description.setText("生活就像海洋,只有意志坚定的人才能到彼岸");
     }
 
-    @Override
-    public void onResume() {
-        updateUnreadLabel();
-//        RxEmModelImpl.getInstance().handleEMListener()
-//                .subscribe(new MyObserver<Integer>() {
-//                    @Override
-//                    protected void onError(ApiException ex) {
-//
-//                    }
-//
-//                    @Override
-//                    public void onCompleted() {
-//
-//                    }
-//
-//                    @Override
-//                    public void onNext(Integer integer) {
-//                        Log.i("wang","在HomePresenter中收到消息数：="+integer);
-//                        updateUnreadLabel();
-//                    }
-//                });
-        RxEmModelImpl2.getInstance().setAllMsgLis(new RxEmModelImpl2.AllMsgListener() {
-            @Override
-            public void AllMsgReceive() {
-                updateUnreadLabel();
-            }
-        });
-    }
 
     @Override
     public void goBtnOnClick() {
-        view.runActivity(SearchActivity.class,null);
+        mView.runActivity(SearchActivity.class,null);
     }
 
     @Override
     public void contactBtnOnClick() {
-        view.runActivity(ContactActivity1.class,null);
+        mView.runActivity(ContactActivity1.class,null);
     }
 
     @Override
     public void headBtnOnClick() {
-        view.runActivity(PersonalActivity.class,null);
+        mView.runActivity(PersonalAct1.class,null);
     }
 
     @Override
     public void locatBtnOnClick() {
-        view.scrollToMyLocat();
+        mView.scrollToMyLocat();
     }
 
     @Override
     public void nearHeadBtnOnClick() {
         Bundle bundle = new Bundle();
                 bundle.putSerializable("userInfo", currentNearPerson);
-        view.runActivity(UserInfoActivity.class,bundle);
+        mView.runActivity(UserInfoActivity.class,bundle);
     }
 
     public void updateUnreadLabel(){
-        RxEmModelImpl2.getInstance().getUnreadMsgCount()
+        EmEngine.getInstance().getUnreadMsgCount()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new MyObserver<Integer>() {
@@ -180,21 +157,31 @@ public class HomePresenterImpl extends BasePresenter<HomeView, UserModelImpl> im
                     @Override
                     public void onNext(Integer integer) {
 
-                        view.updateUnreadLabel(integer);
+                        mView.updateUnreadLabel(integer);
                     }
                 });
     }
 
-    @Override
-    public void onViewCreate() {
-
-    }
 
     @Override
-    public void onViewDestory() {
-        RxEmModelImpl2.getInstance().logout();
+    public void dettach() {
+        EmEngine.getInstance().logout();
         mLocClient.stop();
         mBaiduMap.setMyLocationEnabled(false);
+        super.dettach();
+    }
+
+
+
+    @Override
+    public void onResume() {
+        updateUnreadLabel();
+        EmEngine.getInstance().setAllMsgLis(new EmEngine.AllMsgListener() {
+            @Override
+            public void AllMsgReceive() {
+                updateUnreadLabel();
+            }
+        });
     }
 
     /**
@@ -221,7 +208,7 @@ public class HomePresenterImpl extends BasePresenter<HomeView, UserModelImpl> im
             if (isFirstLoc) {
                 Log.i("wang", "获取自己的位置");
                 isFirstLoc = false;
-                view.scrollToMyLocat();
+                mView.scrollToMyLocat();
                 getNearByFromServer(latitude, longitude);
             }
         }
@@ -232,7 +219,7 @@ public class HomePresenterImpl extends BasePresenter<HomeView, UserModelImpl> im
 
     public void getNearByFromServer(final double latitude,
                                     final double longitude){
-        model.getNearPeople(GlobalParams.user.id,latitude,longitude)
+        UserDaoImpl2.getInstance().getNearPeople(GlobalParams.user.id,latitude,longitude)
                 .flatMap(new Func1<NearByPerson, Observable<Boolean>>() {
                     @Override
                     public Observable<Boolean> call(NearByPerson nearByPerson) {
@@ -240,7 +227,7 @@ public class HomePresenterImpl extends BasePresenter<HomeView, UserModelImpl> im
                        for(int i=0;i<nearByPerson.userLocatList.size();i++){
                            NearByPerson.UserLocatInfo user = nearByPerson.userLocatList.get(i);
                            LatLng point = new LatLng(user.locat[0], user.locat[1]);
-                           view.addMaker(point,i);
+                           mView.addMaker(point,i);
                        }
                         return Observable.just(true);
                     }

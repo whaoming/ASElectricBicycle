@@ -2,7 +2,6 @@ package com.wxxiaomi.ming.electricbicycle.ui.activity;
 
 
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -11,14 +10,12 @@ import android.view.View;
 
 import com.wxxiaomi.ming.electricbicycle.AppManager;
 import com.wxxiaomi.ming.electricbicycle.R;
-import com.wxxiaomi.ming.electricbicycle.presenter.SplashPre;
-import com.wxxiaomi.ming.electricbicycle.presenter.base.BasePre;
+import com.wxxiaomi.ming.electricbicycle.presenter.callback.SplashPre;
 import com.wxxiaomi.ming.electricbicycle.presenter.impl.SplashImpl;
 import com.wxxiaomi.ming.electricbicycle.ui.view.SlpashView;
-import com.wxxiaomi.ming.electricbicycle.util.SharePrefUtil;
 import com.wxxiaomi.ming.electricbicycle.view.activity.RegisterOneActivity;
 import com.wxxiaomi.ming.electricbicycle.view.activity.WelcomeActivity;
-import com.wxxiaomi.ming.electricbicycle.ui.base.BaseActivity;
+import com.wxxiaomi.ming.electricbicycle.ui.base.BaseMvpActivity;
 
 /**
  * 入口activity
@@ -26,22 +23,20 @@ import com.wxxiaomi.ming.electricbicycle.ui.base.BaseActivity;
  * @author Mr.W
  * 
  */
-public class SplashActivity1 extends BaseActivity<SplashPre> implements SlpashView{
+public class SplashActivity1 extends BaseMvpActivity<SlpashView,SplashPre<SlpashView>> implements SlpashView{
 
 	@Override
 	public void initView(Bundle savedInstanceState) {
 		setContentView(R.layout.activity_main);
 		AppManager.getAppManager().addActivity(this);
-	}
-
-	@Override
-	public void initData() {
 		presenter.loadConfig();
 	}
 
+
+
 	@Override
 	protected SplashPre initPre() {
-		return null;
+		return new SplashImpl();
 	}
 
 	@Override

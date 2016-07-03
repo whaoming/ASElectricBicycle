@@ -20,7 +20,6 @@ import android.view.animation.DecelerateInterpolator;
 import android.widget.FrameLayout;
 
 import com.wxxiaomi.ming.electricbicycle.R;
-import com.wxxiaomi.ming.electricbicycle.presenter.base.BasePre;
 import com.wxxiaomi.ming.electricbicycle.support.Settings;
 
 
@@ -31,7 +30,7 @@ import com.wxxiaomi.ming.electricbicycle.support.Settings;
 /**
  * this file was written by @NashLegend {https://github.com/NashLegend}  -- MummyDing
  */
-public abstract class SwipeBackActivity extends BaseActivity {
+public abstract class SwipeBackActivity extends BaseMvpActivity {
 
     private SwipeLayout swipeLayout;
 

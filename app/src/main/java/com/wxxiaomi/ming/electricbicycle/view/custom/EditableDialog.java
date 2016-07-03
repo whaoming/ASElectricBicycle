@@ -36,7 +36,6 @@ public class EditableDialog {
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
 						lis.onClick(dialog,et_et.getText().toString().trim());
-//						dismiss();
 					}
 				}).create();
 		return this;
@@ -70,7 +69,6 @@ public class EditableDialog {
 	}
 	public EditableDialog setMessage(String msg){
 		dialog.setMessage(msg);
-//		dialog.
 		return this;
 	}
 }

@@ -2,6 +2,7 @@ package com.wxxiaomi.ming.electricbicycle.ui.view;
 
 import android.os.Bundle;
 
+import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.model.LatLng;
 import com.wxxiaomi.ming.electricbicycle.ui.view.base.BaseView;
 
@@ -24,4 +25,6 @@ public interface HomeView extends BaseView {
     boolean isNearViewVis();
     void editNearViewState(boolean hide,boolean repeatShow);
     void runActivity(Class clazz,Bundle bundle);
+
+    BaiduMap getMap();
 }

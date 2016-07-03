@@ -1,7 +1,7 @@
 package com.wxxiaomi.ming.electricbicycle.presenter.impl;
 
-import com.wxxiaomi.ming.electricbicycle.model.impl.UserModelImpl;
-import com.wxxiaomi.ming.electricbicycle.presenter.SplashPre;
+import com.wxxiaomi.ming.electricbicycle.presenter.base.BasePresenterImpl;
+import com.wxxiaomi.ming.electricbicycle.presenter.callback.SplashPre;
 import com.wxxiaomi.ming.electricbicycle.presenter.base.BasePresenter;
 import com.wxxiaomi.ming.electricbicycle.ui.view.SlpashView;
 import com.wxxiaomi.ming.electricbicycle.util.SharePrefUtil;
@@ -9,20 +9,10 @@ import com.wxxiaomi.ming.electricbicycle.util.SharePrefUtil;
 /**
  * Created by 12262 on 2016/5/28.
  */
-public class SplashImpl extends BasePresenter<SlpashView,UserModelImpl> implements SplashPre {
+public class SplashImpl extends BasePresenterImpl<SlpashView> implements SplashPre<SlpashView> {
 
-    public SplashImpl(SlpashView slpashView) {
-        super(slpashView);
-    }
 
-    @Override
-    public void onViewCreate() {
-    }
 
-    @Override
-    public void onViewDestory() {
-
-    }
     @Override
     public void loadConfig() {
         new Thread(new Runnable() {
@@ -39,18 +29,18 @@ public class SplashImpl extends BasePresenter<SlpashView,UserModelImpl> implemen
                 }
                 // 是否是第一次使用此程序
                 boolean isFirstRun = SharePrefUtil.getBoolean(
-                        view.getContext(), "firstRun", true);
+                        mView.getContext(), "firstRun", true);
                 if (isFirstRun) {
                     // 第一次使用
 //                    Intent intent = ne
-                    view.runWelcomeAct();
-                    SharePrefUtil.saveBoolean(view.getContext(), "firstGo",
+                    mView.runWelcomeAct();
+                    SharePrefUtil.saveBoolean(mView.getContext(), "firstGo",
                             false);
 //                    finish();
                 } else {
                     // 检测本地是否得到账号
                     boolean isRemUser = SharePrefUtil.getBoolean(
-                            view.getContext(), "isRemUser", false);
+                            mView.getContext(), "isRemUser", false);
                     if (isRemUser) {
                         // 本地有记住账号,实现登录功能
                         /**
@@ -60,7 +50,7 @@ public class SplashImpl extends BasePresenter<SlpashView,UserModelImpl> implemen
                          */
                     } else {
                         // 检测不到本地账号的话就去注册页面(里面有登录功能)
-                        view.runRegisterAct();
+                        mView.runRegisterAct();
 //                        startActivity(intent);
 //                        finish();
                     }
@@ -69,5 +59,15 @@ public class SplashImpl extends BasePresenter<SlpashView,UserModelImpl> implemen
 
             }
         }).start();
+    }
+
+    @Override
+    public void attach(SlpashView mView) {
+
+    }
+
+    @Override
+    public void dettach() {
+
     }
 }

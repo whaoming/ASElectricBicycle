@@ -11,9 +11,9 @@ import android.view.View;
 import android.widget.Button;
 
 import com.wxxiaomi.ming.electricbicycle.R;
-import com.wxxiaomi.ming.electricbicycle.presenter.LoginPresenter;
+import com.wxxiaomi.ming.electricbicycle.presenter.callback.LoginPresenter;
 import com.wxxiaomi.ming.electricbicycle.presenter.impl.LoginPresenterImpl;
-import com.wxxiaomi.ming.electricbicycle.ui.base.BaseActivity;
+import com.wxxiaomi.ming.electricbicycle.ui.base.BaseMvpActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.view.LoginView;
 import com.wxxiaomi.ming.electricbicycle.util.MyUtils;
 
@@ -24,7 +24,7 @@ import com.wxxiaomi.ming.electricbicycle.util.MyUtils;
  * @author Mr.W
  * 
  */
-public class LoginActivity1 extends BaseActivity<LoginPresenter> implements LoginView {
+public class LoginActivity1 extends BaseMvpActivity<LoginView,LoginPresenter<LoginView>> implements LoginView {
 
 	private TextInputLayout til_username;
 	private TextInputLayout til_password;
@@ -43,17 +43,12 @@ public class LoginActivity1 extends BaseActivity<LoginPresenter> implements Logi
 		assert getSupportActionBar() != null;
 		getSupportActionBar().setHomeButtonEnabled(true); // 设置返回键可用
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-	}
-
-	@Override
-	protected void initData() {
 		assert til_username.getEditText() != null;
 		til_username.getEditText().addTextChangedListener(new TextWatcher() {
 
 			@Override
 			public void onTextChanged(CharSequence s, int start, int before,
-					int count) {
+									  int count) {
 				til_username.setError("");
 				til_username.setEnabled(false);
 
@@ -61,7 +56,7 @@ public class LoginActivity1 extends BaseActivity<LoginPresenter> implements Logi
 
 			@Override
 			public void beforeTextChanged(CharSequence s, int start, int count,
-					int after) {
+										  int after) {
 				// TODO Auto-generated method stub
 			}
 
@@ -75,7 +70,7 @@ public class LoginActivity1 extends BaseActivity<LoginPresenter> implements Logi
 
 			@Override
 			public void onTextChanged(CharSequence s, int start, int before,
-					int count) {
+									  int count) {
 				// TODO Auto-generated method stub
 				til_password.setError("");
 				til_password.setEnabled(false);
@@ -83,7 +78,7 @@ public class LoginActivity1 extends BaseActivity<LoginPresenter> implements Logi
 
 			@Override
 			public void beforeTextChanged(CharSequence s, int start, int count,
-					int after) {
+										  int after) {
 				// TODO Auto-generated method stub
 
 			}
@@ -96,9 +91,10 @@ public class LoginActivity1 extends BaseActivity<LoginPresenter> implements Logi
 		});
 	}
 
+
 	@Override
 	protected LoginPresenter initPre() {
-		return new LoginPresenterImpl(this);
+		return new LoginPresenterImpl();
 	}
 
 

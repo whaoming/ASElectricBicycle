@@ -19,6 +19,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMConversation;
 import com.wxxiaomi.ming.electricbicycle.R;
+import com.wxxiaomi.ming.electricbicycle.ui.activity.ChatActivity1;
 import com.wxxiaomi.ming.electricbicycle.view.activity.ChatActivity2;
 import com.wxxiaomi.ming.electricbicycle.view.em.MyEaseConversationList;
 import com.wxxiaomi.ming.electricbicycle.view.fragment.base.BaseFragment;
@@ -48,7 +49,7 @@ public class LatelyFriendFragment extends BaseFragment {
 					int position, long id) {
 				EMConversation conversation = conversationListView.getItem(position);
                 String username = conversation.getUserName();
-                Intent intent = new Intent(getActivity(), ChatActivity2.class);
+                Intent intent = new Intent(getActivity(), ChatActivity1.class);
                 intent.putExtra("userId", username);
                 startActivity(intent);
 			}

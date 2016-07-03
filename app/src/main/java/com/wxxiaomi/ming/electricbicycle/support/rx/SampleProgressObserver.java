@@ -17,6 +17,8 @@ public abstract class SampleProgressObserver<T> extends MyObserver<T>{
     private LoadingDialog dialog;
     private AlertDialog msgDialog;
     private Context context;
+    private String content;
+    private boolean showMsg;
 
 
     public SampleProgressObserver(Context context) {
@@ -42,6 +44,17 @@ public abstract class SampleProgressObserver<T> extends MyObserver<T>{
     @Override
     public void onCompleted() {
         dialog.dismiss();
+        if(showMsg)
+        {
+            msgDialog = new AlertDialog.Builder(context, R.style.MingDialog).setMessage(content).setPositiveButton("确定", null).create();
+            msgDialog.show();
+        }
+
+    }
+
+    protected void showMsg(String content){
+        showMsg = true;
+        this.content = content;
     }
 
 }

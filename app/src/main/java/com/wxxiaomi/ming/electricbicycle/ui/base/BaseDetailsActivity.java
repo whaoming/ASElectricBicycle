@@ -27,7 +27,6 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import com.wxxiaomi.ming.electricbicycle.EBApplication;
 import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.event.EventModel;
-import com.wxxiaomi.ming.electricbicycle.presenter.base.BasePre;
 import com.wxxiaomi.ming.electricbicycle.support.utils.common.DisplayUtil;
 import com.wxxiaomi.ming.electricbicycle.support.utils.common.TimeUtil;
 import com.wxxiaomi.ming.electricbicycle.ui.view.base.BaseDetailView;
@@ -266,6 +265,6 @@ public abstract class BaseDetailsActivity extends SwipeBackActivity implements B
     }
 
     protected abstract String getShareInfo();
-    public abstract BasePre initPresenter() ;
+//    public abstract BasePre initPresenter() ;
 
 }

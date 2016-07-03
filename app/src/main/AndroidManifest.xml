@@ -89,7 +89,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".view.activity.ScanCodeActivity1"
+            android:name=".ui.activity.ScanCodeActivity1"
             android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.RoutePlanActivity"
@@ -103,11 +103,9 @@
         <activity
             android:name=".view.activity.BaiduGuideActivity"
             android:screenOrientation="portrait" />
+
         <activity
-            android:name=".view.activity.ErrorDemoActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".view.activity.BaiduNavActivity"
+            android:name=".ui.activity.BaiduNavActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.ChatActivity"
@@ -121,6 +119,10 @@
         <activity
             android:name=".ui.activity.LoginActivity1"
             android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.activity.PersonalAct1"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.SplashActivity1"
             android:screenOrientation="portrait" />
@@ -129,6 +131,13 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.ContactActivity1"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.ChatActivity1"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.activity.FriendAddActivity1"
             android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.RegisterTwoActivity"

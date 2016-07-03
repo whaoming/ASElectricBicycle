@@ -98,4 +98,25 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
     public void testGetTempUser(){
 
     }
+
+    public void  testGetUserByNameFromServer(){
+        EBApplication.applicationContext = getContext();
+        UserDaoImpl2.getInstance().getUserCommonInfoByName("王先生")
+                .subscribe(new MyObserver<InitUserInfo>() {
+                    @Override
+                    protected void onError(ApiException ex) {
+                        Log.i("wang",ex.getDisplayMessage());
+                    }
+
+                    @Override
+                    public void onCompleted() {
+
+                    }
+
+                    @Override
+                    public void onNext(InitUserInfo initUserInfo) {
+                        Log.i("wang",initUserInfo.friendList.get(0).toString());
+                    }
+                });
+    }
 }

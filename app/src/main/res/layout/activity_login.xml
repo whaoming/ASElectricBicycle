@@ -9,10 +9,11 @@
 
     <android.support.v7.widget.Toolbar
         xmlns:app1="http://schemas.android.com/apk/res/com.wxxiaomi.electricbicycle"
+
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
+        android:background="@color/titleBlue"
         android:minHeight="?attr/actionBarSize"
         />
 

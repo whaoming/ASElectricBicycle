@@ -19,11 +19,9 @@ android {
 }
 
 dependencies {
-    //compile fileTree(include: '*.jar', dir: 'libs')
+
     compile 'com.android.support:appcompat-v7:23.3.0'
-    //compile project(':easeui')
-    //compile 'com.android.support:support-v4:23.3.0'
+
     provided files('libs/glide-3.6.1.jar')
-   // compile project(':mylibrary')
-    //compile project(':easeui')
+
 }

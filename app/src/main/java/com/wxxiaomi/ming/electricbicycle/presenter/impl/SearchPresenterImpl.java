@@ -11,16 +11,16 @@ import com.baidu.mapapi.search.sug.SuggestionResult;
 import com.baidu.mapapi.search.sug.SuggestionSearch;
 import com.baidu.mapapi.search.sug.SuggestionSearchOption;
 import com.wxxiaomi.ming.electricbicycle.GlobalParams;
-import com.wxxiaomi.ming.electricbicycle.model.impl.UserModelImpl;
-import com.wxxiaomi.ming.electricbicycle.presenter.SearchPresenter;
-import com.wxxiaomi.ming.electricbicycle.presenter.base.BasePresenter;
+
+import com.wxxiaomi.ming.electricbicycle.presenter.base.BasePresenterImpl;
+import com.wxxiaomi.ming.electricbicycle.presenter.callback.SearchPresenter;
 import com.wxxiaomi.ming.electricbicycle.ui.view.SearchView;
 import com.wxxiaomi.ming.electricbicycle.view.adapter.PoiSearchResultAdapter;
 
 /**
  * Created by 12262 on 2016/6/9.
  */
-public class SearchPresenterImpl extends BasePresenter<SearchView,UserModelImpl> implements SearchPresenter,OnGetSuggestionResultListener {
+public class SearchPresenterImpl extends BasePresenterImpl<SearchView> implements SearchPresenter<SearchView>,OnGetSuggestionResultListener {
 
     private SuggestionSearch mSuggestionSearch = null;
     private PoiSearch mPoiSearch = null;
@@ -29,10 +29,6 @@ public class SearchPresenterImpl extends BasePresenter<SearchView,UserModelImpl>
      */
     private PoiSearchResultAdapter sugAdapter;
 
-
-    public SearchPresenterImpl(SearchView searchView) {
-        super(searchView);
-    }
 
     @Override
     public void initPoi() {
@@ -53,7 +49,7 @@ public class SearchPresenterImpl extends BasePresenter<SearchView,UserModelImpl>
                         }
                         if (result.error == SearchResult.ERRORNO.NO_ERROR) {
                             GlobalParams.poiInf = result.getAllPoi().get(0);
-                           view.runRoutePlanAct();
+                           mView.runRoutePlanAct();
                             return;
                         }
                         if (result.error == SearchResult.ERRORNO.AMBIGUOUS_KEYWORD) {
@@ -92,24 +88,16 @@ public class SearchPresenterImpl extends BasePresenter<SearchView,UserModelImpl>
                         .keyword(content).city("梅州"));
     }
 
-    @Override
-    public void onViewCreate() {
 
-    }
-
-    @Override
-    public void onViewDestory() {
-
-    }
 
     @Override
     public void onGetSuggestionResult(SuggestionResult suggestionResult) {
         sugAdapter.clear();
         if (suggestionResult == null || suggestionResult.getAllSuggestions() == null) {
-            view.setNoResult(true);
+            mView.setNoResult(true);
             return;
         }
-        view.setNoResult(false);
+        mView.setNoResult(false);
         for (SuggestionResult.SuggestionInfo info : suggestionResult.getAllSuggestions()) {
             if (info.key != null) {
                 sugAdapter.addInfo(info);

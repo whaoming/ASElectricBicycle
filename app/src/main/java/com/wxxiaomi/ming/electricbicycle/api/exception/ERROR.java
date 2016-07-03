@@ -28,4 +28,6 @@ public class ERROR {
     public static final int EM_GETCONTACT_ERROR = 1004;
 
     public static final int EM_AGREEINVITE_ERROR = 1005;
+    //添加了联系人出错
+    public static final int EM_ADDCONNTACT_ERROR = 1006;
 }

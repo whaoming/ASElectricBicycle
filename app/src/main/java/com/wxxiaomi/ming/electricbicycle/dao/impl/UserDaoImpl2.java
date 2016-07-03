@@ -12,6 +12,7 @@ import com.wxxiaomi.ming.electricbicycle.bean.User;
 import com.wxxiaomi.ming.electricbicycle.bean.format.InitUserInfo;
 import com.wxxiaomi.ming.electricbicycle.bean.format.Login;
 import com.wxxiaomi.ming.electricbicycle.bean.format.NearByPerson;
+import com.wxxiaomi.ming.electricbicycle.bean.format.Register;
 import com.wxxiaomi.ming.electricbicycle.dao.TempUserDao;
 import com.wxxiaomi.ming.electricbicycle.dao.UserDao;
 import com.wxxiaomi.ming.electricbicycle.dao.util.DbOpenHelper;
@@ -163,7 +164,7 @@ public class UserDaoImpl2 {
 	}
 
 	/**
-	 * 根据emname取得某一位好友
+	 * 根据emname从数据库取得某一位好友
 	 */
 	synchronized public Observable<User.UserCommonInfo> getFriendInfoByEmname(final String emname) {
 		return Observable.create(new Observable.OnSubscribe<User.UserCommonInfo>() {
@@ -201,8 +202,6 @@ public class UserDaoImpl2 {
 		});
 	}
 
-
-	
 	/**
 	 * 删除好友
 	 */
@@ -357,4 +356,13 @@ public class UserDaoImpl2 {
 			}
 		});
 	}
+
+	public Observable<InitUserInfo> getUserCommonInfoByName(String name){
+		return HttpMethods.getInstance().getUserCommonInfoByName(name);
+	}
+
+	public Observable<Register> registerUser(String username, String password){
+		return HttpMethods.getInstance().registerUser(username, password);
+	}
+
 }

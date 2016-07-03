@@ -4,6 +4,8 @@ package com.wxxiaomi.ming.electricbicycle.api.exception;
  * Created by 12262 on 2016/5/31.
  */
 public class ServerException extends RuntimeException {
+
+
     private int code;
     private String msg;
 

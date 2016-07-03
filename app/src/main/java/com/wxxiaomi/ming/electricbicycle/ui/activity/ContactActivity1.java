@@ -21,9 +21,9 @@ import android.widget.TextView;
 
 import com.wxxiaomi.ming.electricbicycle.GlobalParams;
 import com.wxxiaomi.ming.electricbicycle.R;
-import com.wxxiaomi.ming.electricbicycle.presenter.ContactPresenter;
+import com.wxxiaomi.ming.electricbicycle.presenter.callback.ContactPresenter;
 import com.wxxiaomi.ming.electricbicycle.presenter.impl.ContactPresenterImpl;
-import com.wxxiaomi.ming.electricbicycle.ui.base.BaseActivity;
+import com.wxxiaomi.ming.electricbicycle.ui.base.BaseMvpActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.view.ContactView;
 import com.wxxiaomi.ming.electricbicycle.view.adapter.IndexFragmentTabAdapter;
 import com.wxxiaomi.ming.electricbicycle.view.adapter.NewFriendAddItemAdapter;
@@ -38,7 +38,7 @@ import java.util.List;
 /**
  * Created by 12262 on 2016/6/9.
  */
-public class ContactActivity1 extends BaseActivity<ContactPresenter> implements ContactView,FragmentCallback {
+public class ContactActivity1 extends BaseMvpActivity<ContactView,ContactPresenter<ContactView>> implements ContactView,FragmentCallback {
 
     private Toolbar toolbar;
     private TabLayout tabLayout;
@@ -101,16 +101,14 @@ public class ContactActivity1 extends BaseActivity<ContactPresenter> implements 
         viewPager.setAdapter(fAdapter);
         viewPager.requestDisallowInterceptTouchEvent(true);
         tabLayout.setupWithViewPager(viewPager);
+
+//        presenter.initDrawerData();
     }
 
-    @Override
-    protected void initData() {
-        presenter.initDrawerData();
-    }
 
     @Override
     protected ContactPresenter initPre() {
-        return new ContactPresenterImpl(this);
+        return new ContactPresenterImpl();
     }
 
     @Override
@@ -125,11 +123,6 @@ public class ContactActivity1 extends BaseActivity<ContactPresenter> implements 
         }
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        presenter.onActResume();
-    }
 
     @Override
     public void updateUnReadMsg(int count) {

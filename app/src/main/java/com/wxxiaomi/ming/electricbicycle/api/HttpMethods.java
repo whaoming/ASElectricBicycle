@@ -3,15 +3,20 @@ package com.wxxiaomi.ming.electricbicycle.api;
 import android.util.Log;
 
 import com.wxxiaomi.ming.electricbicycle.ConstantValue;
+import com.wxxiaomi.ming.electricbicycle.api.exception.ApiException;
+import com.wxxiaomi.ming.electricbicycle.api.exception.ERROR;
 import com.wxxiaomi.ming.electricbicycle.api.exception.ExceptionEngine;
 import com.wxxiaomi.ming.electricbicycle.api.exception.ServerException;
 import com.wxxiaomi.ming.electricbicycle.api.service.DemoService;
 import com.wxxiaomi.ming.electricbicycle.bean.format.InitUserInfo;
 import com.wxxiaomi.ming.electricbicycle.bean.format.Login;
 import com.wxxiaomi.ming.electricbicycle.bean.format.NearByPerson;
+import com.wxxiaomi.ming.electricbicycle.bean.format.Register;
 import com.wxxiaomi.ming.electricbicycle.bean.format.common.Result;
 
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.List;
 
 import retrofit2.Retrofit;
@@ -49,19 +54,19 @@ public class HttpMethods {
     }
 
     //在访问HttpMethods时创建单例
-    private static class SingletonHolder{
+    private static class SingletonHolder {
         private static final HttpMethods INSTANCE = new HttpMethods();
     }
 
     //获取单例
-    public static HttpMethods getInstance(){
+    public static HttpMethods getInstance() {
         return SingletonHolder.INSTANCE;
     }
 
     /**
      * 用于获取豆瓣电影Top250的数据
      */
-    public Observable<InitUserInfo> getTopMovie(String username, String password){
+    public Observable<InitUserInfo> getTopMovie(String username, String password) {
         return demoService.initUserInfo(username, password)
                 .map(new ServerResultFunc<InitUserInfo>())
                 .onErrorResumeNext(new Func1<Throwable, Observable<? extends InitUserInfo>>() {
@@ -75,7 +80,7 @@ public class HttpMethods {
                 .observeOn(AndroidSchedulers.mainThread());
     }
 
-    public Observable<Login> login(String username, String password){
+    public Observable<Login> login(String username, String password) {
         return demoService.readBaidu(username, password)
                 .map(new ServerResultFunc<Login>())
                 .onErrorResumeNext(new HttpResultFunc<Login>())
@@ -84,10 +89,10 @@ public class HttpMethods {
                 .observeOn(AndroidSchedulers.mainThread());
     }
 
-    public Observable<InitUserInfo> getUserListByEmList(List<String> emnamelist){
+    public Observable<InitUserInfo> getUserListByEmList(List<String> emnamelist) {
         String temp = "";
-        for(String e : emnamelist){
-            temp += e+"<>";
+        for (String e : emnamelist) {
+            temp += e + "<>";
         }
         return demoService.getUserListByEmList(temp)
                 .map(new ServerResultFunc<InitUserInfo>())
@@ -97,18 +102,14 @@ public class HttpMethods {
                 .observeOn(AndroidSchedulers.mainThread());
     }
 
-    public Observable<InitUserInfo> getUserCommonInfoByEmname(String emname){
-        Log.i("wang","HttpMethods中getUserCommonInfoByEmname,emname="+emname);
-        emname = emname+"<>";
+    public Observable<InitUserInfo> getUserCommonInfoByEmname(String emname) {
+        emname = emname + "<>";
         return demoService.getUserListByEmList(emname)
                 .map(new ServerResultFunc<InitUserInfo>())
                 .onErrorResumeNext(new HttpResultFunc<InitUserInfo>());
-//                .subscribeOn(Schedulers.io())
-//                .unsubscribeOn(Schedulers.io());
-//                .observeOn(AndroidSchedulers.mainThread());
     }
 
-    public Observable<NearByPerson> getNearByFromServer(int userid, double latitude, double longitude){
+    public Observable<NearByPerson> getNearByFromServer(int userid, double latitude, double longitude) {
         return demoService.getNearByFromServer(userid, latitude, longitude)
                 .map(new ServerResultFunc<NearByPerson>())
                 .onErrorResumeNext(new HttpResultFunc<NearByPerson>())
@@ -117,12 +118,29 @@ public class HttpMethods {
                 .observeOn(AndroidSchedulers.mainThread());
     }
 
+    public Observable<InitUserInfo> getUserCommonInfoByName(String name) {
+        return demoService.getUserCommonInfoByName(name)
+                .map(new ServerResultFunc<InitUserInfo>())
+                .onErrorResumeNext(new HttpResultFunc<InitUserInfo>())
+                .subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    public Observable<Register> registerUser(String username, String password) {
+        return demoService.registerUser(username, password)
+                .map(new ServerResultFunc<Register>())
+                .onErrorResumeNext(new HttpResultFunc<Register>())
+                .subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
     private class ServerResultFunc<T> implements Func1<Result<T>, T> {
         @Override
         public T call(Result<T> httpResult) {
-            Log.i("wang","ServerResultFunc");
             if (httpResult.state != 200) {
-                throw new ServerException(httpResult.state,httpResult.error);
+                throw new ServerException(httpResult.state, httpResult.error);
             }
             return httpResult.infos;
         }

@@ -18,6 +18,7 @@ import com.wxxiaomi.ming.electricbicycle.bean.format.common.ReceiceData;
 import com.wxxiaomi.ming.electricbicycle.engine.BicycleEngineImpl;
 import com.wxxiaomi.ming.electricbicycle.engine.common.ResultByGetDataListener;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.LoginActivity1;
+import com.wxxiaomi.ming.electricbicycle.ui.activity.ScanCodeActivity1;
 import com.wxxiaomi.ming.electricbicycle.view.activity.base.BaseActivity;
 
 

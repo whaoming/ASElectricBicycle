@@ -162,7 +162,6 @@ public class RegisterTwoActivity extends BaseActivity {
 	/**
 	 * 绑定车子
 	 * @param carid2
-	 * @param id
 	 */
 	protected void bundCar(int carid2, int userid) {
 		engine.BundCar(userid, carid2, new ResultByGetDataListener<String>() {

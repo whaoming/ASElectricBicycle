@@ -16,13 +16,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.wxxiaomi.ming.electricbicycle.R;
-import com.wxxiaomi.ming.electricbicycle.presenter.SearchPresenter;
-import com.wxxiaomi.ming.electricbicycle.ui.base.BaseActivity;
+import com.wxxiaomi.ming.electricbicycle.presenter.callback.SearchPresenter;
+import com.wxxiaomi.ming.electricbicycle.presenter.impl.SearchPresenterImpl;
+import com.wxxiaomi.ming.electricbicycle.ui.base.BaseMvpActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.view.SearchView;
 import com.wxxiaomi.ming.electricbicycle.view.activity.RoutePlanActivity;
 import com.wxxiaomi.ming.electricbicycle.view.adapter.PoiSearchResultAdapter;
 
-public class SearchActiity1 extends BaseActivity<SearchPresenter> implements SearchView{
+public class SearchActiity1 extends BaseMvpActivity<SearchView,SearchPresenter<SearchView>> implements SearchView{
 
     private Toolbar toolbar;
     private RecyclerView mRecyclerView;
@@ -48,10 +49,6 @@ public class SearchActiity1 extends BaseActivity<SearchPresenter> implements Sea
         getSupportActionBar().setHomeButtonEnabled(true); // 设置返回键可用
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         tv_noresult = (TextView) findViewById(R.id.tv_noresult);
-    }
-
-    @Override
-    protected void initData() {
         et_serach.addTextChangedListener(new TextWatcher() {
 
             @Override
@@ -97,9 +94,10 @@ public class SearchActiity1 extends BaseActivity<SearchPresenter> implements Sea
         });
     }
 
+
     @Override
     protected SearchPresenter initPre() {
-        return null;
+        return new SearchPresenterImpl();
     }
 
     @Override

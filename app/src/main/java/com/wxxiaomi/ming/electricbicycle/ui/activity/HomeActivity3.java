@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.OvershootInterpolator;
@@ -26,24 +25,17 @@ import com.baidu.mapapi.map.TextureMapView;
 import com.baidu.mapapi.model.LatLng;
 import com.wxxiaomi.ming.electricbicycle.GlobalParams;
 import com.wxxiaomi.ming.electricbicycle.R;
-import com.wxxiaomi.ming.electricbicycle.presenter.HomePresenter;
+import com.wxxiaomi.ming.electricbicycle.presenter.callback.HomePresenter;
 import com.wxxiaomi.ming.electricbicycle.presenter.impl.HomePresenterImpl;
-import com.wxxiaomi.ming.electricbicycle.ui.base.BaseActivity;
+import com.wxxiaomi.ming.electricbicycle.ui.base.BaseMvpActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.view.HomeView;
-import com.wxxiaomi.ming.electricbicycle.view.activity.ContactActivity2;
-import com.wxxiaomi.ming.electricbicycle.view.activity.PersonalActivity;
-import com.wxxiaomi.ming.electricbicycle.view.activity.SearchActivity;
-import com.wxxiaomi.ming.electricbicycle.view.activity.UserInfoActivity;
 import com.wxxiaomi.ming.electricbicycle.view.custom.CircularImageView;
-import com.wxxiaomi.ming.electricbicycle.view.em.EmManager;
-
-import java.util.List;
 
 /**
  * Created by 12262 on 2016/6/6.
  * 主页面
  */
-public class HomeActivity3 extends BaseActivity<HomePresenter> implements HomeView {
+public class HomeActivity3 extends BaseMvpActivity<HomeView,HomePresenter<HomeView>> implements HomeView {
 
     private CoordinatorLayout sn_layout;
 
@@ -123,20 +115,16 @@ public class HomeActivity3 extends BaseActivity<HomePresenter> implements HomeVi
         setZoomInVis();
         initMapMarkerClickListener();
         tv_name.setText(GlobalParams.user.userCommonInfo.name);
-//        presenter = new HomePresenterImpl(this);
-        presenter.initMap(mBaiduMap);
-
+//        presenter.initMap(mBaiduMap);
+//        presenter.initViewData();
     }
 
-    @Override
-    protected void initData() {
-        presenter.initViewData();
-    }
 
     @Override
     protected HomePresenter initPre() {
-        return new HomePresenterImpl(this);
+        return new HomePresenterImpl();
     }
+
 
     @Override
     public void onClick(View v) {
@@ -323,6 +311,11 @@ public class HomeActivity3 extends BaseActivity<HomePresenter> implements HomeVi
     }
 
     @Override
+    public BaiduMap getMap() {
+        return mBaiduMap;
+    }
+
+    @Override
     protected void onPause() {
         mMapView.onPause();
         super.onPause();
@@ -331,7 +324,6 @@ public class HomeActivity3 extends BaseActivity<HomePresenter> implements HomeVi
     @Override
     protected void onResume() {
         super.onResume();
-        presenter.onResume();
         mMapView.onResume();
     }
 

@@ -83,7 +83,6 @@ public class UserInfoActivity extends BaseActivity {
                                             dialog.dismiss();
                                             showErrorDialog("已發送好友申請");
                                         } catch (HyphenateException e) {
-                                            // TODO Auto-generated catch block
                                             e.printStackTrace();
                                             Log.i("wang", "添加好友出错");
                                         }
@@ -91,8 +90,6 @@ public class UserInfoActivity extends BaseActivity {
                                 })
                                 ;
                         dialog.show();
-                       //
-                        //Hyphenate
 
                 }
 

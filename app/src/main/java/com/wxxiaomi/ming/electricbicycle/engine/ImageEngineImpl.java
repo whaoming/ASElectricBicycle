@@ -3,6 +3,7 @@ package com.wxxiaomi.ming.electricbicycle.engine;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.util.LruCache;
 import android.widget.ImageView;
 
