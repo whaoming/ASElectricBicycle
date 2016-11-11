@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:padding="5dp" >
 <!-- com.wxxiaomi.electricbicycle.view.custom.CircularImageView -->
-    <com.wxxiaomi.ming.electricbicycle.view.custom.CircularImageView
+    <com.wxxiaomi.ming.electricbicycle.core.weight.custom.CircularImageView
         android:layout_centerVertical="true"
         android:id="@+id/iv_head"
         android:layout_width="58dp"

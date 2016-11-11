@@ -44,13 +44,20 @@ public class EmDaoImpl {
                             @Override
                             public void onSuccess() {
                                 // ** 第一次登录或者之前logout后再登录，加载所有本地群和回话
-                                EMClient.getInstance().groupManager().loadAllGroups();
-                                EMClient.getInstance().chatManager()
-                                        .loadAllConversations();
-                                Log.i("wang", "登陆em服务器成功");
-                                EMClient.getInstance().updateCurrentUserNick(
-                                        username);
-                                subscriber.onNext(true);
+                                try {
+                                    EMClient.getInstance().groupManager().loadAllGroups();
+                                    EMClient.getInstance().chatManager()
+                                            .loadAllConversations();
+                                    Log.i("wang", "登陆em服务器成功");
+                                    EMClient.getInstance().updateCurrentUserNick(
+                                            username);
+                                    subscriber.onNext(true);
+                                }catch (Exception e){
+                                    e.printStackTrace();
+                                    ApiException ex = new ApiException(e, 333);
+                                    ex.setDisplayMessage("em驱动器登录失败");
+                                    subscriber.onError(ex);
+                                }
                             }
 
                             @Override
@@ -60,12 +67,11 @@ public class EmDaoImpl {
 
                             @Override
                             public void onError(final int code, final String message) {
-                                Log.i("wang", "login: onError: " + code + "---message="
+                                Log.i("wang", "登录em login: onError(错误): " + code + "---message="
                                         + message);
 //                                closeLoading1Dialog();
 //                                showErrorDialog("登陆聊天服务器失败，请尝试重新登陆");
                                 ApiException apiException = new ApiException(null, code);
-
                                 apiException.setDisplayMessage(message);
                                 subscriber.onError(apiException);
                             }

@@ -2,6 +2,7 @@ package com.wxxiaomi.ming.electricbicycle.dao;
 
 
 import com.wxxiaomi.ming.electricbicycle.bean.User;
+import com.wxxiaomi.ming.electricbicycle.bean.UserCommonInfo;
 
 public interface TempUserDao {
 
@@ -15,11 +16,11 @@ public interface TempUserDao {
 	 * 保存一个用户
 	 * @param userInfo
 	 */
-	void savaPerson(User.UserCommonInfo userInfo);
+	void savaPerson(UserCommonInfo userInfo);
 	
 	/**
 	 * 根据emname获取一个用户
 	 * @param emname
 	 */
-	User.UserCommonInfo getPersonByEmname(String emname);
+	UserCommonInfo getPersonByEmname(String emname);
 }

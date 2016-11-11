@@ -19,7 +19,7 @@
         android:paddingLeft="4dp"
         android:paddingRight="4dp" >
 
-        <com.wxxiaomi.ming.electricbicycle.view.custom.CircularImageView
+        <com.wxxiaomi.ming.electricbicycle.core.weight.custom.CircularImageView
             android:id="@+id/iv_my_head"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -39,8 +39,37 @@
             android:textSize="14sp" />
 
         <RelativeLayout
+            android:layout_toLeftOf="@+id/temp"
+            android:id="@+id/rl_topic"
+            android:layout_width="55dp"
+            android:layout_height="match_parent"
+             >
+
+            <ImageButton
+                android:id="@+id/ib_topic"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:layout_margin="4dp"
+                android:background="@drawable/selector_homeact_smallbtn"
+                android:src="@mipmap/ic_group_black_32dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="2dp"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/ease_unread_count_bg"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@android:color/white"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
             android:id="@+id/temp"
-            android:layout_width="60dp"
+            android:layout_width="55dp"
             android:layout_height="match_parent"
             android:layout_alignParentRight="true" >
 
@@ -49,7 +78,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_centerInParent="true"
-                android:layout_margin="4dp"
+                android:layout_margin="3dp"
                 android:background="@drawable/selector_homeact_smallbtn"
                 android:src="@mipmap/ic_group_black_32dp" />
 
@@ -68,6 +97,8 @@
         </RelativeLayout>
     </RelativeLayout>
 
+
+
     <android.support.design.widget.CoordinatorLayout
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/sn_layout"
@@ -79,7 +110,7 @@
             android:id="@+id/layout1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_behavior="com.wxxiaomi.ming.electricbicycle.view.custom.HomeSnackBarBehavior" >
+            app:layout_behavior="com.wxxiaomi.ming.electricbicycle.core.weight.custom.HomeSnackBarBehavior" >
 
             <android.support.design.widget.FloatingActionButton
                 android:id="@+id/btn_go"
@@ -87,8 +118,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|right"
                 android:layout_margin="10dp"
-
-                app:layout_behavior="com.wxxiaomi.ming.electricbicycle.view.custom.HomeButtonBehavior"
+                app:layout_behavior="com.wxxiaomi.ming.electricbicycle.core.weight.custom.HomeButtonBehavior"
                 android:src="@mipmap/icon_landing_arrow"
                 app:borderWidth="0dp" />
 
@@ -98,8 +128,7 @@
                 android:layout_height="40dp"
                 android:layout_gravity="bottom|left"
                 android:layout_margin="10dp"
-
-                app:layout_behavior="com.wxxiaomi.ming.electricbicycle.view.custom.HomeButtonBehavior"
+                app:layout_behavior="com.wxxiaomi.ming.electricbicycle.core.weight.custom.HomeButtonBehavior"
                 android:src="@mipmap/icon_landing_arrow"
                 app:borderWidth="0dp" />
 

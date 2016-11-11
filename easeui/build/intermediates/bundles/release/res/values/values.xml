@@ -48,7 +48,10 @@
     <declare-styleable name="EaseContactList"><attr format="color" name="ctsListPrimaryTextColor"/><attr format="dimension" name="ctsListPrimaryTextSize"/><attr format="boolean" name="ctsListShowSiderBar"/><attr format="reference|color" name="ctsListInitialLetterBg"/><attr format="color" name="ctsListInitialLetterColor"/></declare-styleable>
     <declare-styleable name="EaseConversationList"><attr format="color" name="cvsListPrimaryTextColor"/><attr format="color" name="cvsListSecondaryTextColor"/><attr format="color" name="cvsListTimeTextColor"/><attr format="dimension" name="cvsListPrimaryTextSize"/><attr format="dimension" name="cvsListSecondaryTextSize"/><attr format="dimension" name="cvsListTimeTextSize"/></declare-styleable>
     <declare-styleable name="EaseEmojiconMenu"><attr format="integer" name="bigEmojiconRows"/><attr format="integer" name="emojiconColumns"/></declare-styleable>
-    <declare-styleable name="EaseSwitchButton"><attr format="reference" name="switchOpenImage"/><attr format="reference" name="switchCloseImage"/><attr name="switchStatus"><enum name="open" value="0"/><enum name="close" value="1"/></attr></declare-styleable>
+    <declare-styleable name="EaseSwitchButton"><attr format="reference" name="switchOpenImage"/><attr format="reference" name="switchCloseImage"/><attr name="switchStatus">
+            <enum name="open" value="0"/>
+            <enum name="close" value="1"/>
+        </attr></declare-styleable>
     <declare-styleable name="EaseTitleBar"><attr format="string" name="titleBarTitle"/><attr format="reference" name="titleBarLeftImage"/><attr format="reference" name="titleBarRightImage"/><attr format="reference|color" name="titleBarBackground"/></declare-styleable>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>

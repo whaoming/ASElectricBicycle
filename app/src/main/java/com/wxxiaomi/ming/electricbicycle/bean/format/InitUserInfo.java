@@ -1,6 +1,6 @@
 package com.wxxiaomi.ming.electricbicycle.bean.format;
 
-import com.wxxiaomi.ming.electricbicycle.bean.User;
+import com.wxxiaomi.ming.electricbicycle.bean.UserCommonInfo;
 
 import java.util.List;
 
@@ -12,5 +12,5 @@ import java.util.List;
  *
  */
 public class InitUserInfo {
-	public List<User.UserCommonInfo> friendList;
+	public List<UserCommonInfo> friendList;
 }

@@ -2,12 +2,8 @@ package com.wxxiaomi.ming.electricbicycle.support.rx;
 
 import android.content.Context;
 import android.content.DialogInterface;
-import android.util.Log;
 
-import com.hyphenate.chat.EMClient;
-import com.hyphenate.exceptions.HyphenateException;
-import com.wxxiaomi.ming.electricbicycle.api.exception.ApiException;
-import com.wxxiaomi.ming.electricbicycle.view.custom.EditableDialog;
+import com.wxxiaomi.ming.electricbicycle.core.weight.custom.EditableDialog;
 
 import rx.Observable;
 import rx.Subscriber;

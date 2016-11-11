@@ -32,14 +32,14 @@
                 android:layout_height="wrap_content"
                 android:src="@mipmap/ic_camera_alt_black_18dp" />
 
-            <com.wxxiaomi.ming.electricbicycle.view.custom.CircularImageView
+            <com.wxxiaomi.ming.electricbicycle.core.weight.custom.CircularImageView
                 android:layout_marginLeft="20dp"
                 android:id="@+id/iv_my_head"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:src="@mipmap/tou" />
 
-            <com.wxxiaomi.ming.electricbicycle.view.custom.CircularImageView
+            <com.wxxiaomi.ming.electricbicycle.core.weight.custom.CircularImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_margin="4dp"

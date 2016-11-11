@@ -1,1 +1,1 @@
-include ':app', ':easeui', ':chatwidget'
+include ':app', ':easeui', ':chatwidget', ':takephoto_library'

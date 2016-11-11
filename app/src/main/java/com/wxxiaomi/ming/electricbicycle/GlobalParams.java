@@ -12,7 +12,7 @@ import com.wxxiaomi.ming.electricbicycle.bean.User;
  */
 public class GlobalParams {
 	public static String username;
-	public static User user = null;
+	//public static User user = null;
 	
 	/**
 	 * 记录此时登陆的账号是否是第一次登陆

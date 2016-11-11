@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:background="@color/titleBlue" >
 
-        <com.wxxiaomi.ming.electricbicycle.view.custom.CircularImageView
+        <com.wxxiaomi.ming.electricbicycle.core.weight.custom.CircularImageView
             android:id="@+id/iv_my_head"
             android:layout_width="75dp"
             android:layout_height="75dp"
@@ -52,7 +52,7 @@
             android:layout_gravity="bottom|right"
             android:layout_margin="1dp"
             android:layout_marginBottom="10dp"
-            app:layout_behavior="com.wxxiaomi.ming.electricbicycle.view.custom.PersonalActButtonBehavior"
+            app:layout_behavior="com.wxxiaomi.ming.electricbicycle.core.weight.custom.PersonalActButtonBehavior"
             android:src="@mipmap/icon_landing_arrow"
             app:borderWidth="0dp" />
         

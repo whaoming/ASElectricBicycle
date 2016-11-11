@@ -65,7 +65,7 @@
             android:textColor="@color/titleBlue" />
 
         <TextView
-
+            android:id="@+id/tv_debug"
             android:layout_marginRight="5dp"
             android:textSize="14sp"
             android:textColor="#ffffff"

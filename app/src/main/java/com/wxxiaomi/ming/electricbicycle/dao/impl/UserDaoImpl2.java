@@ -9,6 +9,7 @@ import android.util.Log;
 import com.wxxiaomi.ming.electricbicycle.EBApplication;
 import com.wxxiaomi.ming.electricbicycle.api.HttpMethods;
 import com.wxxiaomi.ming.electricbicycle.bean.User;
+import com.wxxiaomi.ming.electricbicycle.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.bean.format.InitUserInfo;
 import com.wxxiaomi.ming.electricbicycle.bean.format.Login;
 import com.wxxiaomi.ming.electricbicycle.bean.format.NearByPerson;
@@ -17,9 +18,12 @@ import com.wxxiaomi.ming.electricbicycle.dao.TempUserDao;
 import com.wxxiaomi.ming.electricbicycle.dao.UserDao;
 import com.wxxiaomi.ming.electricbicycle.dao.util.DbOpenHelper;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
 import rx.Observable;
 import rx.Subscriber;
 
@@ -28,6 +32,7 @@ public class UserDaoImpl2 {
 
 	Context context;
 	DbOpenHelper helper;
+	private static UserDaoImpl2 INSTANCE;
 
 	private UserDaoImpl2() {
 		super();
@@ -35,14 +40,18 @@ public class UserDaoImpl2 {
 		helper = DbOpenHelper.getInstance(context);
 	}
 
-	//在访问HttpMethods时创建单例
-	private static class SingletonHolder {
-		private static final UserDaoImpl2 INSTANCE = new UserDaoImpl2();
-	}
+//	private static class SingletonHolder {
+////		private static final UserDaoImpl2 INSTANCE = new UserDaoImpl2();
+//	}
 
 	//获取单例
 	public static UserDaoImpl2 getInstance() {
-		return SingletonHolder.INSTANCE;
+		if(INSTANCE==null){
+			synchronized (UserDaoImpl2.class) {
+				INSTANCE = new UserDaoImpl2();
+			}
+		}
+		return INSTANCE;
 	}
 
 	/**
@@ -93,13 +102,13 @@ public class UserDaoImpl2 {
 	/**
 	 * 保存好友列表
 	 */
-	synchronized public int saveFriendList(List<User.UserCommonInfo> userList) {
+	synchronized public int saveFriendList(List<UserCommonInfo> userList) {
 		SQLiteDatabase db = helper.getWritableDatabase();
 		if (db.isOpen()) {
 //			 db.delete(UserDao1.TABLE_NAME, null, null);
-			for (User.UserCommonInfo user : userList) {
+			for (UserCommonInfo user : userList) {
 				ContentValues values = new ContentValues();
-				values.put(UserDao.COLUMN_NAME_ID, user.userid);
+				values.put(UserDao.COLUMN_NAME_ID, user.id);
 				values.put(UserDao.COLUMN_NAME_NAME, user.name);
 				values.put(UserDao.COLUMN_NAME_EMNAME, user.emname);
 				values.put(UserDao.COLUMN_NAME_HEAD, user.head);
@@ -113,13 +122,13 @@ public class UserDaoImpl2 {
 	/**
 	 * 获取好友列表
 	 */
-	synchronized public List<User.UserCommonInfo> getFriendList() {
+	synchronized public List<UserCommonInfo> getFriendList() {
 		SQLiteDatabase db = helper.getReadableDatabase();
-		List<User.UserCommonInfo> list = new ArrayList<User.UserCommonInfo>();
+		List<UserCommonInfo> list = new ArrayList<UserCommonInfo>();
 		if (db.isOpen()) {
 			Cursor cursor = db.rawQuery("select * from " + UserDao.TABLE_NAME + " desc", null);
 			while (cursor.moveToNext()) {
-				User.UserCommonInfo info = new User.UserCommonInfo();
+				UserCommonInfo info = new UserCommonInfo();
 				int id = cursor.getInt(cursor.getColumnIndex(UserDao.COLUMN_NAME_ID));
 				String name = cursor.getString(cursor.getColumnIndex(UserDao.COLUMN_NAME_NAME));
 				String emname = cursor.getString(cursor.getColumnIndex(UserDao.COLUMN_NAME_EMNAME));
@@ -128,7 +137,7 @@ public class UserDaoImpl2 {
 				info.name = name;
 				info.emname = emname;
 				info.head = head;
-				info.userid = id;
+				info.id = id;
 
 				list.add(info);
 			}
@@ -139,7 +148,7 @@ public class UserDaoImpl2 {
 	/**
 	 * 更新好友列表
 	 */
-	synchronized public Observable<Integer> updateFriendList(final List<User.UserCommonInfo> userList) {
+	synchronized public Observable<Integer> updateFriendList(final List<UserCommonInfo> userList) {
 		return Observable.create(new Observable.OnSubscribe<Integer>() {
 
 			@Override
@@ -147,10 +156,10 @@ public class UserDaoImpl2 {
 				SQLiteDatabase db = helper.getWritableDatabase();
 				if (db.isOpen()) {
 //			 db.delete(UserDao1.TABLE_NAME, null, null);
-					for (User.UserCommonInfo user : userList) {
+					for (UserCommonInfo user : userList) {
 						Log.i("wang", "新插入的好友:" + user.toString());
 						ContentValues values = new ContentValues();
-						values.put(UserDao.COLUMN_NAME_ID, user.userid);
+						values.put(UserDao.COLUMN_NAME_ID, user.id);
 						values.put(UserDao.COLUMN_NAME_NAME, user.name);
 						values.put(UserDao.COLUMN_NAME_EMNAME, user.emname);
 						values.put(UserDao.COLUMN_NAME_HEAD, user.head);
@@ -166,10 +175,10 @@ public class UserDaoImpl2 {
 	/**
 	 * 根据emname从数据库取得某一位好友
 	 */
-	synchronized public Observable<User.UserCommonInfo> getFriendInfoByEmname(final String emname) {
-		return Observable.create(new Observable.OnSubscribe<User.UserCommonInfo>() {
+	synchronized public Observable<UserCommonInfo> getFriendInfoByEmname(final String emname) {
+		return Observable.create(new Observable.OnSubscribe<UserCommonInfo>() {
 			@Override
-			public void call(Subscriber<? super User.UserCommonInfo> subscriber) {
+			public void call(Subscriber<? super UserCommonInfo> subscriber) {
 				SQLiteDatabase db = helper.getReadableDatabase();
 				if (db.isOpen()) {
 					//参数1：表名
@@ -190,8 +199,8 @@ public class UserDaoImpl2 {
 						String emname1 = cursor.getString(cursor.getColumnIndex(UserDao.COLUMN_NAME_EMNAME));
 						String head = cursor.getString(cursor.getColumnIndex(UserDao.COLUMN_NAME_HEAD));
 //	                System.out.println("query------->" + "姓名："+name+" "+"年龄："+age+" "+"性别："+sex);
-						User.UserCommonInfo info = new User.UserCommonInfo();
-						info.userid = id;
+						UserCommonInfo info = new UserCommonInfo();
+						info.id = id;
 						info.emname = emname1;
 						info.head = head;
 						info.name = name;
@@ -284,10 +293,10 @@ public class UserDaoImpl2 {
 	 * @param emname
 	 * @return
 	 */
-	public Observable<User.UserCommonInfo> getTempuser(final String emname){
-		return Observable.create(new Observable.OnSubscribe<User.UserCommonInfo>() {
+	public Observable<UserCommonInfo> getTempuser(final String emname){
+		return Observable.create(new Observable.OnSubscribe<UserCommonInfo>() {
 			@Override
-			public void call(Subscriber<? super User.UserCommonInfo> subscriber) {
+			public void call(Subscriber<? super UserCommonInfo> subscriber) {
 				//参数1：表名
 				//参数2：要想显示的列
 				//参数3：where子句
@@ -300,7 +309,7 @@ public class UserDaoImpl2 {
 //								, UserDao.COLUMN_NAME_EMNAME, UserDao.COLUMN_NAME_HEAD},
 //						UserDao.COLUMN_NAME_EMNAME + "=?", new String[]{emname}, null, null, null);
 				SQLiteDatabase db = helper.getReadableDatabase();
-				User.UserCommonInfo info = null;
+				UserCommonInfo info = null;
 				if(db.isOpen()){
 					Cursor cursor = db.query(TempUserDao.TABLE_NAME
 							, new String[]{TempUserDao.COLUMN_NAME_ID,TempUserDao.COLUMN_NAME_NAME
@@ -311,8 +320,8 @@ public class UserDaoImpl2 {
 						String name = cursor.getString(cursor.getColumnIndex(TempUserDao.COLUMN_NAME_NAME));
 						String emname1 = cursor.getString(cursor.getColumnIndex(TempUserDao.COLUMN_NAME_EMNAME));
 						String head = cursor.getString(cursor.getColumnIndex(TempUserDao.COLUMN_NAME_HEAD));
-						info = new User.UserCommonInfo();
-						info.userid = id;
+						info = new UserCommonInfo();
+						info.id = id;
 						info.emname = emname1;
 						info.head = head;
 						info.name = name;
@@ -328,7 +337,7 @@ public class UserDaoImpl2 {
 	 * @param user
 	 * @return
      */
-	synchronized public Observable<Integer> savaPerson(final User.UserCommonInfo user){
+	synchronized public Observable<Integer> savaPerson(final UserCommonInfo user){
 		if(isMyFriend(user.emname)){
 			return Observable.just(0);
 		}
@@ -340,7 +349,7 @@ public class UserDaoImpl2 {
 				SQLiteDatabase db = helper.getWritableDatabase();
 				if(db.isOpen()){
 					ContentValues values = new ContentValues();
-					values.put(TempUserDao.COLUMN_NAME_ID, user.userid);
+					values.put(TempUserDao.COLUMN_NAME_ID, user.id);
 					values.put(TempUserDao.COLUMN_NAME_NAME, user.name);
 					values.put(TempUserDao.COLUMN_NAME_EMNAME, user.emname);
 					values.put(TempUserDao.COLUMN_NAME_HEAD, user.head);
@@ -363,6 +372,12 @@ public class UserDaoImpl2 {
 
 	public Observable<Register> registerUser(String username, String password){
 		return HttpMethods.getInstance().registerUser(username, password);
+	}
+
+	public Observable<String> upLoadHead(String fileName,String filePath){
+		RequestBody requestBody = RequestBody.create(MediaType.parse("image/*"), new File(filePath));
+
+		return HttpMethods.getInstance().upLoadHead(fileName,requestBody);
 	}
 
 }

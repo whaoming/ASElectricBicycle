@@ -10,6 +10,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import com.wxxiaomi.ming.electricbicycle.bean.User;
+import com.wxxiaomi.ming.electricbicycle.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.dao.UserDao;
 import com.wxxiaomi.ming.electricbicycle.dao.util.DbOpenHelper;
 
@@ -67,13 +68,13 @@ public class UserDaoImpl implements UserDao {
 	 * 保存好友列表
 	 */
 	@Override
-	synchronized public int saveFriendList(List<User.UserCommonInfo> userList) {
+	synchronized public int saveFriendList(List<UserCommonInfo> userList) {
 		SQLiteDatabase db = helper.getWritableDatabase();
 		if(db.isOpen()){
 //			 db.delete(UserDao1.TABLE_NAME, null, null);
-			 for (User.UserCommonInfo user : userList) {
+			 for (UserCommonInfo user : userList) {
 	                ContentValues values = new ContentValues();
-	                values.put(UserDao.COLUMN_NAME_ID, user.userid);
+	                values.put(UserDao.COLUMN_NAME_ID, user.id);
 	                    values.put(UserDao.COLUMN_NAME_NAME, user.name);
 	                    values.put(UserDao.COLUMN_NAME_EMNAME, user.emname);
 	                    values.put(UserDao.COLUMN_NAME_HEAD, user.head);
@@ -88,13 +89,13 @@ public class UserDaoImpl implements UserDao {
 	 * 获取好友列表
 	 */
 	@Override
-	synchronized public List<User.UserCommonInfo> getFriendList() {
+	synchronized public List<UserCommonInfo> getFriendList() {
 		SQLiteDatabase db = helper.getReadableDatabase();
-		 List<User.UserCommonInfo> list = new ArrayList<User.UserCommonInfo>();
+		 List<UserCommonInfo> list = new ArrayList<UserCommonInfo>();
 		 if(db.isOpen()){
 			 Cursor cursor = db.rawQuery("select * from " + UserDao.TABLE_NAME + " desc",null);
 			  while(cursor.moveToNext()){
-				  User.UserCommonInfo info = new User.UserCommonInfo();
+				  UserCommonInfo info = new UserCommonInfo();
 				  int id = cursor.getInt(cursor.getColumnIndex(UserDao.COLUMN_NAME_ID));
 	                String name = cursor.getString(cursor.getColumnIndex(UserDao.COLUMN_NAME_NAME));
 	                String emname = cursor.getString(cursor.getColumnIndex(UserDao.COLUMN_NAME_EMNAME));
@@ -103,7 +104,7 @@ public class UserDaoImpl implements UserDao {
 	                info.name = name;
 	                info.emname = emname;
 	                info.head = head;
-	                info.userid = id;
+	                info.id = id;
 	                
 	                list.add(info);
 			  }
@@ -115,14 +116,14 @@ public class UserDaoImpl implements UserDao {
 	 * 更新好友列表
 	 */
 	@Override
-	synchronized public boolean updateFriendList(List<User.UserCommonInfo> userList) {
+	synchronized public boolean updateFriendList(List<UserCommonInfo> userList) {
 		SQLiteDatabase db = helper.getWritableDatabase();
 		if(db.isOpen()){
 //			 db.delete(UserDao1.TABLE_NAME, null, null);
-			 for (User.UserCommonInfo user : userList) {
+			 for (UserCommonInfo user : userList) {
 				 Log.i("wang", "新插入的好友:"+user.toString());
 	                ContentValues values = new ContentValues();
-	                values.put(UserDao.COLUMN_NAME_ID, user.userid);
+	                values.put(UserDao.COLUMN_NAME_ID, user.id);
 	                    values.put(UserDao.COLUMN_NAME_NAME, user.name);
 	                    values.put(UserDao.COLUMN_NAME_EMNAME, user.emname);
 	                    values.put(UserDao.COLUMN_NAME_HEAD, user.head);
@@ -136,7 +137,7 @@ public class UserDaoImpl implements UserDao {
 	 * 根据emname取得某一位好友
 	 */
 	@Override
-	synchronized public User.UserCommonInfo getFriendInfoByEmname(String emname) {
+	synchronized public UserCommonInfo getFriendInfoByEmname(String emname) {
 		SQLiteDatabase db = helper.getReadableDatabase();
 		 if(db.isOpen()){
 			 //参数1：表名    
@@ -157,8 +158,8 @@ public class UserDaoImpl implements UserDao {
 	                String emname1 = cursor.getString(cursor.getColumnIndex(UserDao.COLUMN_NAME_EMNAME));  
 	                String head = cursor.getString(cursor.getColumnIndex(UserDao.COLUMN_NAME_HEAD));  
 //	                System.out.println("query------->" + "姓名："+name+" "+"年龄："+age+" "+"性别："+sex);  
-	                User.UserCommonInfo info = new User.UserCommonInfo();
-	                info.userid = id;
+	                UserCommonInfo info = new UserCommonInfo();
+	                info.id = id;
 	                info.emname = emname1;
 	                info.head = head;
 	                info.name = name;

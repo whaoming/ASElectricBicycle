@@ -41,7 +41,7 @@ public class ExceptionEngine {
                 case BAD_GATEWAY:
                 case SERVICE_UNAVAILABLE:
                 default:
-                    ex.setDisplayMessage("网络错误");  //均视为网络错误
+                    ex.setDisplayMessage("服务器无响应");  //均视为网络错误
                     break;
             }
             return ex;

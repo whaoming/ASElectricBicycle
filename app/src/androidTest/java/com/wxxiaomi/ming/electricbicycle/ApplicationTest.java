@@ -10,6 +10,7 @@ import com.wxxiaomi.ming.electricbicycle.api.exception.ApiException;
 import com.wxxiaomi.ming.electricbicycle.bean.User;
 import com.wxxiaomi.ming.electricbicycle.bean.format.InitUserInfo;
 import com.wxxiaomi.ming.electricbicycle.bean.format.Login;
+import com.wxxiaomi.ming.electricbicycle.bean.format.Register;
 import com.wxxiaomi.ming.electricbicycle.dao.impl.InviteMessgeDaoImpl2;
 import com.wxxiaomi.ming.electricbicycle.dao.impl.UserDaoImpl;
 import com.wxxiaomi.ming.electricbicycle.dao.impl.UserDaoImpl2;
@@ -18,6 +19,7 @@ import com.wxxiaomi.ming.electricbicycle.support.rx.MyObserver;
 import java.util.List;
 
 import rx.Observable;
+import rx.Observer;
 import rx.Subscriber;
 import rx.functions.Func1;
 
@@ -39,7 +41,7 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
     }
 
     public void testLoginFromServer(){
-        HttpMethods.getInstance().login("122627018", "987987")
+        HttpMethods.getInstance().login("122627018", "987987987")
         .subscribe(new MyObserver<Login>() {
             @Override
             protected void onError(ApiException ex) {
@@ -116,6 +118,30 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
                     @Override
                     public void onNext(InitUserInfo initUserInfo) {
                         Log.i("wang",initUserInfo.friendList.get(0).toString());
+                    }
+                });
+    }
+
+    public void testRegister(){
+        Log.i("wang","testRegister");
+        EBApplication.applicationContext = getContext();
+//        UserDaoImpl2.getInstance().registerUser("201610290803","987987987")
+        HttpMethods.getInstance().registerUser("201610290837","987987987")
+                .subscribe(new Observer<Register>() {
+
+                    @Override
+                    public void onCompleted() {
+                        Log.i("wang","onCompleted()");
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Log.i("wang","发生错误拉:"+e.toString());
+                    }
+
+                    @Override
+                    public void onNext(Register register) {
+                        Log.i("wang","onNext:"+register.toString());
                     }
                 });
     }

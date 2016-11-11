@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import com.wxxiaomi.ming.electricbicycle.bean.User;
+import com.wxxiaomi.ming.electricbicycle.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.dao.TempUserDao;
 import com.wxxiaomi.ming.electricbicycle.dao.util.DbOpenHelper;
 
@@ -23,14 +24,14 @@ public class TempUserDaoImpl implements TempUserDao {
 	}
 
 	@Override
-	public void savaPerson(User.UserCommonInfo user) {
+	public void savaPerson(UserCommonInfo user) {
 //		Log.i("wang", "TempDeoLmpl插入临时用户:"+user.toString());
 		int id;
 		SQLiteDatabase db = helper.getWritableDatabase();
 		if(db.isOpen()){
 //			Log.i("wang", "db.isopen()");
 			 ContentValues values = new ContentValues();
-             values.put(TempUserDao.COLUMN_NAME_ID, user.userid);
+             values.put(TempUserDao.COLUMN_NAME_ID, user.id);
                  values.put(TempUserDao.COLUMN_NAME_NAME, user.name);
                  values.put(TempUserDao.COLUMN_NAME_EMNAME, user.emname);
                  values.put(TempUserDao.COLUMN_NAME_HEAD, user.head);
@@ -47,7 +48,7 @@ public class TempUserDaoImpl implements TempUserDao {
 	}
 
 	@Override
-	public User.UserCommonInfo getPersonByEmname(String emname) {
+	public UserCommonInfo getPersonByEmname(String emname) {
 		Log.i("wang","获取一个临时用户，emname："+emname);
 		SQLiteDatabase db = helper.getReadableDatabase();
 		if(db.isOpen()){
@@ -61,8 +62,8 @@ public class TempUserDaoImpl implements TempUserDao {
 	                String emname1 = cursor.getString(cursor.getColumnIndex(TempUserDao.COLUMN_NAME_EMNAME));  
 	                String head = cursor.getString(cursor.getColumnIndex(TempUserDao.COLUMN_NAME_HEAD));  
 //	                System.out.println("query------->" + "姓名："+name+" "+"年龄："+age+" "+"性别："+sex);  
-	                User.UserCommonInfo info = new User.UserCommonInfo();
-	                info.userid = id;
+	                UserCommonInfo info = new UserCommonInfo();
+	                info.id = id;
 	                info.emname = emname1;
 	                info.head = head;
 	                info.name = name;
