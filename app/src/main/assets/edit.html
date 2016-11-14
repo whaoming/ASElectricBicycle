@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--   <title>我的生活</title> -->
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- <link rel="shortcut icon" href="/favicon.ico"> -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+    <link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="./css/cus.css"> 
+    <link rel="stylesheet" type="text/css" href="./css/webuploader.css">
+    <script src="./diyUpload/jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="./diyUpload/css/webuploader.css">
+<link rel="stylesheet" type="text/css" href="./diyUpload/css/diyUpload.css">
+<script type="text/javascript" src="./diyUpload/js/webuploader.html5only.min.js"></script>
+<script type="text/javascript" src="./diyUpload/js/diyUpload.js"></script>
+
+<!--引入JS-->
+<style type="text/css">
+    #box{ margin:10px auto; width:100%; min-height:500px; }
+
+</style>
+
+    
+</head>
+
+<body>
+    <!--  <img class="image-roll" src="./images/test.jpg" alt=""> -->
+    <!-- 你的html代码 -->
+    <!-- page集合的容器，里面放多个平行的.page，其他.page作为内联页面由路由控制展示 -->
+    <div class="page-group"  >
+        <!-- 单个page ,第一个.page默认被展示-->
+        <div class="page">
+          <header class="bar bar-nav w-color">
+                <a class="icon  pull-left t-color title-txt back">取消</a>
+                
+                <h1 class="title">新帖子</h1>
+                <a class="icon  pull-right o-color title-txt " id="btn_publish" onclick="submitData();">发布</a>
+            </header>
+             <div class="content-block" style="background: #fff!important;height:200px;padding-top:40px">
+               
+                <div class="left-con">
+              
+                    
+
+                    <div class="list-block" style="margin:0">
+                        <ul>
+                           <li class="align-top">
+       
+            <div class="item-input" style="padding-top:30px">
+              <textarea id="info_content" placeholder="开始写帖子吧..."></textarea>
+               <p> 
+   
+ 
+            </div>
+        
+      </li>
+                        </ul>
+                    </div>
+      <div id="box">
+    <div id="test" ></div>
+</div>
+
+
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <script type='text/javascript' src='http://g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='http://g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='http://g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+    <script type="text/javascript" src="./css/webuploader.js"></script>
+    <script>
+    $.init();
+    </script>
+<script type="text/javascript">
+
+/*
+* 服务器地址,成功返回,失败返回参数格式依照jquery.ajax习惯;
+* 其他参数同WebUploader
+*/
+
+$('#test').diyUpload({
+	url : 'server/fileupload.php',
+	success : function (data) {
+		console.info(data);
+	},
+	error : function (err) {
+		console.info(err);
+	}
+});
+
+$('#as').diyUpload({
+	url : 'server/fileupload.php',
+	success : function (data) {
+		console.info(data);
+	},
+	error : function (err) {
+		console.info(err);
+	},
+	buttonText : '选择文件',
+	chunked : true,
+	// 分片大小
+	chunkSize : 512 * 1024,
+	//最大上传的文件数量, 总文件大小,单个文件大小(单位字节);
+	fileNumLimit : 50,
+	fileSizeLimit : 500000 * 102400,
+	fileSingleSizeLimit : 50000 * 50000,
+	accept : {}
+});
+
+$(document).ready(function () {
+	$("#btn_publish").click(function () {
+		//var data = $("#info_content").val();
+
+	});
+});
+
+
+
+//加载数据的函数
+
+</script>
+<script type="text/javascript" src="js/JsBridge.js"></script>
+    <script type="text/javascript">
+    connectWebViewJavascriptBridge(function(bridge) {
+        bridge.init(function(message, responseCallback) {
+            document.getElementById("content").innerHTML = ("bridge.init");
+            console.log('JS got a message', message);
+            var data = {
+                'Javascript Responds': '测试中文!'
+            };
+            console.log('JS responding with', data);
+            responseCallback(data);
+        });
+        bridge.registerHandler("bridgeInit", function(data, responseCallback) {
+            showLog("测试log");
+        });
+   });
+
+function getUserId(callBack) {
+showLog("getUserId被调用了");
+    var result = 0;
+    var pars = "asd";
+        window.WebViewJavascriptBridge.callHandler(
+            'getUserId'
+            , pars
+            , function(data) {
+                showLog("getUserId-data="+data)
+                result=  data;
+                callBack(data);
+            }
+        );
+}
+
+
+
+function submitData() {
+    showLoading();
+    showLog("submitData被调用了");
+    getUserId(request)
+}
+
+function request(userid){
+var content = $("#info_content").val();
+	var time = getNowFormatDate();
+	showLog("request->userid="+userid);
+	var head = "";
+	var pars = "url=android/topic_submitTopic&userid=" + userid + "&content=" + content + "&time="+time+"&head="+head;
+    showLog("pars="+pars);
+    window.WebViewJavascriptBridge.callHandler(
+            'sendGet'
+            , pars
+            , function(responseData) {
+                showLog("js中取得结果："+responseData);
+                closeLoading();
+                finish();
+            }
+        );
+}
+
+function showLoading(){
+    window.WebViewJavascriptBridge.callHandler(
+            'showLoading'
+            , "sasd"
+            , function(responseData) {}
+    );
+}
+
+function closeLoading(){
+    window.WebViewJavascriptBridge.callHandler(
+            'closeLoading'
+            , "sasd"
+            , function(responseData) {}
+    );
+}
+
+function finish(){
+ window.WebViewJavascriptBridge.callHandler(
+            'finish'
+            , "sasd"
+            , function(responseData) {}
+    );
+}
+  </script>
+   
+</body>
+
+</html>

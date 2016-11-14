@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+</head>
+
+
+<body>
+<div><div id='info'><p id='content'>还未收到消息</p></div></div>
+
+
+<p>
+    <input type="button" id="enter2" value="上传数据" onclick="testClick()"/>
+</p>
+
+<h1>换行</h1>
+<br/>
+<script src="js/JsBridge.js" type="text/javascript"></script>
+</body>
+
+<script type="text/javascript">
+   // 第一连接时初始化bridage
+   connectWebViewJavascriptBridge(function(bridge) {
+        bridge.init(function(message, responseCallback) {
+            document.getElementById("content").innerHTML = ("bridge.init");
+            console.log('JS got a message', message);
+            var data = {
+                'Javascript Responds': '测试中文!'
+            };
+            console.log('JS responding with', data);
+            responseCallback(data);
+        });
+        bridge.registerHandler("bridgeInit", function(data, responseCallback) {
+            document.getElementById("content").innerHTML = (data);
+        });
+   });
+
+    function testClick(){
+        var data = "js中的数据";
+        window.WebViewJavascriptBridge.callHandler(
+            'listTopic'
+            , data
+            , function(responseData) {
+
+            }
+        );
+     }
+     testClick();
+</script>
+
+</html>

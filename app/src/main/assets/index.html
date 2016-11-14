@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--   <title>我的生活</title> -->
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- <link rel="shortcut icon" href="/favicon.ico"> -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+    <link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="./css/cus.css">
+</head>
+
+<body>
+<script src="js/JsBridge.js" type="text/javascript"></script>
+<div class="page-group">
+    <!-- 单个page ,第一个.page默认被展示-->
+    <div class="page page-current" id="index">
+        <div class="edit" id="btn_edit" onclick="onEditClick();event.cancelBubble=true;">
+            <img style="width:50px" src="./images/edit.png">
+        </div>
+        <!-- content应该拥有"pull-to-refresh-content"类,表示启用下拉刷新 -->
+        <div class="content pull-to-refresh-content infinite-scroll infinite-scroll-bottom" data-ptr-distance="55" data-distance="100">
+            <!-- 默认的下拉刷新层 -->
+            <div class="pull-to-refresh-layer">
+                <div class="preloader"></div>
+                <div class="pull-to-refresh-arrow"></div>
+            </div>
+            <!-- 下面是正文 -->
+
+            <div class="swiper-container" data-space-between='10'>
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img class="image-roll" src="./images/01.jpg" alt=""></div>
+                    <div class="swiper-slide"><img class="image-roll" src="./images/02.jpg" alt=""></div>
+                    <div class="swiper-slide"><img class="image-roll" src="./images/03.jpg" alt=""></div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+            <div class="head-new">
+                <div class="head-new-left">
+                    <img class="head-img" src="./images/head-new.png" alt="">
+                </div>
+                <div class="head-new-right">
+                    <div class="text-head">
+                        社区头条新闻测试，社区头条新闻测试社区头条
+                    </div>
+                </div>
+            </div>
+            <div class="buttons-tab">
+                <a href="#tab1" class="tab-link active button">社区事件</a>
+                <a href="#tab2" class="tab-link button">社区话题</a>
+            </div>
+            <div class="content-block">
+                <div class="tabs">
+                    <div id="tab1" class="tab active">
+                        <div class="content-block bcolor">
+                            <div class="list-content">
+                                <div class="list-container" style="list-style-type:none;">
+
+                                </div>
+                                <div class="infinite-scroll-preloader">
+                                    <div class="preloader"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tab2" class="tab">
+                        <div class="content-block bcolor">
+                            <div class="list-content">
+                                <div style="list-style-type:none;">
+
+                                    <li class="card facebook-card">
+                                        <a href="/topic.html"  >
+                                            <div class="card-header no-border">
+                                                <div class="facebook-avatar"><img class="item-img" src="./images/item0.jpg" width="54" height="54"></div>
+                                                <div class="total-num"><span>2万／82万</span></div>
+                                                <div class="facebook-name o-color" >健康养生</div>
+                                                <div class="facebook-date ">传播健康养生知识，提高生活质量</div>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li class="card facebook-card">
+                                        <div class="card-header no-border">
+                                            <div class="facebook-avatar"><img class="item-img" src="./images/item0.jpg" width="54" height="54"></div>
+                                            <div class="total-num"><span>2万／82万</span></div>
+                                            <div class="facebook-name o-color">健康养生</div>
+                                            <div class="facebook-date ">传播健康养生知识，提高生活质量</div>
+                                        </div>
+                                    </li>
+                                    <li class="card facebook-card">
+                                        <div class="card-header no-border">
+                                            <div class="facebook-avatar"><img class="item-img" src="./images/item0.jpg" width="54" height="54"></div>
+                                            <div class="total-num"><span>2万／82万</span></div>
+                                            <div class="facebook-name o-color">健康养生</div>
+                                            <div class="facebook-date ">传播健康养生知识，提高生活质量</div>
+                                        </div>
+                                    </li>
+                                    <li class="card facebook-card">
+                                        <div class="card-header no-border">
+                                            <div class="facebook-avatar"><img class="item-img" src="./images/item0.jpg" width="54" height="54"></div>
+                                            <div class="total-num"><span>2万／82万</span></div>
+                                            <div class="facebook-name o-color">健康养生</div>
+                                            <div class="facebook-date ">传播健康养生知识，提高生活质量</div>
+                                        </div>
+                                    </li>
+                                    <li class="card facebook-card">
+                                        <div class="card-header no-border">
+                                            <div class="facebook-avatar"><img class="item-img" src="./images/item0.jpg" width="54" height="54"></div>
+                                            <div class="total-num"><span>2万／82万</span></div>
+                                            <div class="facebook-name o-color">健康养生</div>
+                                            <div class="facebook-date ">传播健康养生知识，提高生活质量</div>
+                                        </div>
+                                    </li>
+                                    <li class="card facebook-card">
+                                        <div class="card-header no-border">
+                                            <div class="facebook-avatar"><img class="item-img" src="./images/item0.jpg" width="54" height="54"></div>
+                                            <div class="total-num"><span>2万／82万</span></div>
+                                            <div class="facebook-name o-color">健康养生</div>
+                                            <div class="facebook-date ">传播健康养生知识，提高生活质量</div>
+                                        </div>
+                                    </li>
+                                    <li class="card facebook-card">
+                                        <div class="card-header no-border">
+                                            <div class="facebook-avatar"><img class="item-img" src="./images/item0.jpg" width="54" height="54"></div>
+                                            <div class="total-num"><span>2万／82万</span></div>
+                                            <div class="facebook-name o-color">健康养生</div>
+                                            <div class="facebook-date ">传播健康养生知识，提高生活质量</div>
+                                        </div>
+                                    </li>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--  -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="page">
+    </div>
+    <div class="panel-overlay"></div>
+    <!-- Left Panel with Reveal effect -->
+
+
+    <a href="/mycenter.html" class="close-panel">
+        <div>
+            <div class="left-head-1">
+                <img class="left-user-1" src="./images/left-user.jpg">
+                <div style="margin-left:0px;color:#fff;font-size:15px;margin-top:10px">第六空白</div>
+            </div>
+            <img style="width:100%" src="./images/left-head.png">
+        </div>
+    </a>
+
+</div>
+</div>
+</div>
+<script type='text/javascript' src='http://g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+<script type="text/javascript">
+
+
+        $.config = {
+        // 路由功能开关过滤器，返回 false 表示当前点击链接不使用路由
+        routerFilter: function($link) {
+            // 某个区域的 a 链接不想使用路由功能
+            if ($link.is('.page-current a')) {
+                return false;
+            }
+
+            return true;
+        }
+    };
+    </script>
+<script type='text/javascript' src='http://g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='http://g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+<script>
+    $.init();
+</script>
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        $(".text-c").each(function() {
+            height = $(this).height();
+            if (height > 72) {
+                $(this).addClass("height-a");
+                $(this).after("<p class=\"morecon\" >点开更多内容&nbsp&nbsp&or;</p>");
+            }
+        });
+
+        $(".morecon").click(function() {
+            $(this).parent().children(".text-c").removeClass("height-a");
+            $(this).parent().children(".text-c").addClass("dong");
+            //$(this).parent().children(".text-c").css("height","auto");
+            $(this).css("display", "none");
+        });
+    });
+
+    $(document).on('refresh', '.pull-to-refresh-content', function(e) {
+        // 模拟2s的加载过程
+        setTimeout(function() {
+            var cardNumber = $(e.target).find('.card').length + 1;
+            var cardHTML = '<div class="card">' +
+                '<div class="card-header">card' + cardNumber + '</div>' +
+                '<div class="card-content">' +
+                '<div class="card-content-inner">' +
+                '这里是第' + cardNumber + '个card，下拉刷新会出现第' + (cardNumber + 1) + '个card。' +
+                '</div>' +
+                '</div>' +
+                '</div>';
+            $(e.target).find('.card-container').prepend(cardHTML);
+            // 加载完毕需要重置
+            $.pullToRefreshDone('.pull-to-refresh-content');
+        }, 2000);
+    });
+   
+    /*=== 默认为 standalone ===*/
+    $(function(){
+
+
+  /*=== Popup ===*/
+  var myPhotoBrowserPopup = $.photoBrowser({
+      photos : [
+          './images/t_01.jpg',
+          './images/t_02.jpg',
+          './images/t_03.jpg',
+      ],
+      type: 'popup'
+  });
+  $(document).on('click','.pb-popup',function () {
+    myPhotoBrowserPopup.open();
+  });
+
+
+});
+
+
+   
+    
+   $(document).on('click','.create-actions', function () {
+      var buttons1 = [
+        {
+          text: '确定删除',
+          label: true
+        },
+        {
+          text: '确定',
+          bold: true,
+          color: 'danger',
+          onClick: function() {
+          
+          }
+        },
+      
+      ];
+      var buttons2 = [
+        {
+          text: '取消',
+          bg: 'danger'
+        }
+      ];
+      var groups = [buttons1, buttons2];
+      $.actions(groups);
+  })
+    $(".add_zan").click(function(){
+   var zan_new = 231;
+   var zan_new = zan_new + 1;   
+   $(this).find(".zan_num").text(zan_new);
+   $(this).find(".zan_num").addClass("o-color");
+   $("#zan_t").show(1000);
+})
+ $(".message_o").click(function(){
+    $("#search").val("@李女士");
+ })
+ </script>
+<script src="js/JsBridge.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // 加载flag
+    var loading = false;
+    var isComplete = false;
+    var last = 0;
+    function addItemss(datas) {
+    	var number = datas.infos.length;
+    	// 生成新条目的HTML
+    	var html = '';
+    	for (var i = last + 1; i <= number + last; i++) {
+    		html += '<li class="card facebook-card" data-me='+JSON.stringify(datas.infos[i - 1 - last])+' onClick="onItemClick(this)">' +
+    		'<div class="card-header no-border">' +
+    		'<div style="float:right">' +
+    		'<span style="color:#f97711;font-size:13px;">置顶</span>' +
+    		'</div>' +
+    		'<div class="facebook-avatar" data-me='+JSON.stringify(datas.infos[i - 1 - last].userCommonInfo)+' onclick="onHeadClick(this);event.cancelBubble=true;"><img src="./images/user.png" width="44" height="44"></div>' +
+    		'<div class="facebook-name">' + datas.infos[i - 1 - last].userCommonInfo.name + '</div>' +
+    		'<div class="facebook-date">' + datas.infos[i - 1 - last].time + '</div>' +
+    		'</div>' +
+    		'<div class="text-c">' + datas.infos[i - 1 - last].content + '</div>' +
+    		'<div class="card-content"><img class="img-c" src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg">' +
+    		'<img class="img-c" src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg">' +
+    		'<img class="img-c" src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg"></div>' +
+    		'<div class="card-footer no-border" style="    width: 220px;padding-left:5px;background-color:#fff">' +
+    		'<div class="foot-c"><a href="#"><i class="fa fa-eye icon-c"></i>231</a></div>' +
+    		'<div class="foot-c"><a href="#"><i class="fa fa-thumbs-o-up icon-c"></i>231</a></div>' +
+    		'<div class="foot-c"><a href="#"><i class="fa fa-comment-o icon-c"></i>231</a></div>' +
+    		'</div>' +
+    		'</li>'
+    	}
+    	last += number;
+    	// 添加新条目
+    	$('.infinite-scroll-bottom .list-container').append(html);
+		loading=false;
+    }
+   // 第一连接时初始化bridage
+   connectWebViewJavascriptBridge(function(bridge) {
+        bridge.init(function(message, responseCallback) {
+            document.getElementById("content").innerHTML = ("bridge.init");
+            console.log('JS got a message', message);
+            var data = {
+                'Javascript Responds': '测试中文!'
+            };
+            console.log('JS responding with', data);
+            responseCallback(data);
+        });
+        bridge.registerHandler("bridgeInit", function(data, responseCallback) {
+            getData2(0);
+        });
+   });
+     // 最多可加载的条目
+    var maxItems = 100;
+
+   // 注册'infinite'事件处理函数
+    $(document).on('infinite', '.infinite-scroll-bottom', function() {
+        // 如果正在加载，则退出
+        if (loading) return;
+        // 设置flag
+        loading = true;
+        // 添加新条目
+        getData2(last);
+    });
+    function getData(pageStart){
+        showLog("是我是我的");
+        showLog("window.WebViewJavascriptBridge==null?"+window.WebViewJavascriptBridge==null?true:false);
+        window.WebViewJavascriptBridge.callHandler(
+            'listMoreTopic'
+            , pageStart
+            , function(responseData) {
+                loading = false;
+                var result = eval("("+responseData+")");
+                addItemss(result);
+                if(pageStart!=0&&result.infos.length==0)
+				{
+					isComplete = true;
+					$.detachInfiniteScroll($('.infinite-scroll'));
+			        $('.infinite-scroll-preloader').remove();
+				}
+                 // 更新最后加载的序号
+                //last = $('.list-container li').length;
+                //容器发生改变,如果是js滚动，需要刷新滚动
+                $.refreshScroller();
+            }
+        );
+     }
+
+     function getData2(pageStart){
+         var pars = "url=android/topic_list&start="+pageStart;
+         window.WebViewJavascriptBridge.callHandler(
+            'sendGet'
+            , pars
+            , function(responseData) {
+                loading = false;
+                var result = eval("("+responseData+")");
+                addItemss(result);
+                if(pageStart!=0&&result.infos.length==0)
+				{
+					isComplete = true;
+					$.detachInfiniteScroll($('.infinite-scroll'));
+			        $('.infinite-scroll-preloader').remove();
+				}
+                 // 更新最后加载的序号
+                //last = $('.list-container li').length;
+                //容器发生改变,如果是js滚动，需要刷新滚动
+                $.refreshScroller();
+            }
+        );
+     }
+
+     function onItemClick(ItemInfo){
+        var info = ItemInfo.getAttribute("data-me");
+        window.WebViewJavascriptBridge.callHandler(
+            'runTopicDetail'
+            , info
+            , function(responseData) {}
+        );
+     }
+
+    function onHeadClick(view){
+        var userInfo = view.getAttribute("data-me");
+        window.WebViewJavascriptBridge.callHandler(
+            'onHeadClick'
+            , userInfo
+            , function(responseData) {}
+        );
+    }
+
+    function onEditClick(){
+		var data = "asd";
+		window.WebViewJavascriptBridge.callHandler(
+            'runTopicEdit'
+            , data
+            , function(responseData) {}
+        );
+	}
+
+</script>
+
+</body>
+
+</html>

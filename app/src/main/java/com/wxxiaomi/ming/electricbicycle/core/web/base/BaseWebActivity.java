@@ -35,17 +35,18 @@ import rx.Observer;
 public abstract class BaseWebActivity extends AppCompatActivity {
     protected final int SHOW_LOADING_DIALOG = 1;
     protected final int CLOSE_LOADING_DIALOG = 2;
-    protected final  int SHOW_MSG_DIALOG = 3;
+    protected final int SHOW_MSG_DIALOG = 3;
     protected final int CLOSE_MSG_DIALOG = 4;
 
     protected BridgeWebView mWebView;
-    protected Handler handler = new Handler(){
+    protected Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            switch (msg.what){
+            switch (msg.what) {
                 case SHOW_LOADING_DIALOG:
-                    dialog.show();;
+                    dialog.show();
+                    ;
                     break;
                 case CLOSE_LOADING_DIALOG:
                     dialog.dismiss();
@@ -68,7 +69,6 @@ public abstract class BaseWebActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         int webViewId = initViewAndReutrnWebViewId(savedInstanceState);
-        Log.i("wang","弹出progressDialog");
         mWebView = (BridgeWebView) findViewById(webViewId);
         mWebView.setWebViewClient(new MyWebViewClient(mWebView));
         dialog = new ProgressDialog(BaseWebActivity.this);
@@ -76,7 +76,7 @@ public abstract class BaseWebActivity extends AppCompatActivity {
         dialog.setMessage("正在加载");
         dialog.show();
         alertDialog = new AlertDialog.Builder(this)
-                .setPositiveButton("确定",null)
+                .setPositiveButton("确定", null)
                 .create();
 
         /**
@@ -120,7 +120,6 @@ public abstract class BaseWebActivity extends AppCompatActivity {
                         .subscribe(new Observer<String>() {
                             @Override
                             public void onCompleted() {
-
                             }
 
                             @Override
@@ -143,12 +142,13 @@ public abstract class BaseWebActivity extends AppCompatActivity {
             @Override
             public void handler(String data, CallBackFunction function) {
                 //将data转化成UserInfo
-                java.lang.reflect.Type type = new TypeToken<UserCommonInfo>() {}.getType();
+                java.lang.reflect.Type type = new TypeToken<UserCommonInfo>() {
+                }.getType();
                 UserCommonInfo userCommonInfo = new Gson().fromJson(data, type);
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("userInfo", userCommonInfo);
-                Intent intent = new Intent(BaseWebActivity.this,UserInfoAct.class);
-                intent.putExtra("value",bundle);
+                Intent intent = new Intent(BaseWebActivity.this, UserInfoAct.class);
+                intent.putExtra("value", bundle);
                 startActivity(intent);
             }
         });
@@ -172,7 +172,7 @@ public abstract class BaseWebActivity extends AppCompatActivity {
             @Override
             public void handler(String data, CallBackFunction function) {
                 //将data转化成UserInfo
-               Log.i("wang","js->log:"+data);
+                Log.i("wang", "js->log:" + data);
             }
         });
 
@@ -183,13 +183,15 @@ public abstract class BaseWebActivity extends AppCompatActivity {
          */
         mWebView.callHandler("bridgeInit", initValue, new CallBackFunction() {
             @Override
-            public void onCallBack(String data) {}
+            public void onCallBack(String data) {
+            }
         });
         mWebView.send("hello");
     }
 
     /**
      * 解析url
+     *
      * @param data
      * @return
      */
@@ -197,7 +199,7 @@ public abstract class BaseWebActivity extends AppCompatActivity {
         Map<String, String> pars = parseData(data);
         String url = pars.get("url");
         pars.remove("url");
-        return WebMethods.getInstance().sendget(url,pars);
+        return WebMethods.getInstance().sendget(url, pars);
     }
 
     /**
@@ -207,7 +209,7 @@ public abstract class BaseWebActivity extends AppCompatActivity {
 
         @Override
         public void onPageFinished(WebView view, String url) {
-            if(dialog.isShowing()){
+            if (dialog.isShowing()) {
                 dialog.dismiss();
             }
             super.onPageFinished(view, url);
@@ -221,32 +223,34 @@ public abstract class BaseWebActivity extends AppCompatActivity {
     }
 
     protected abstract int initViewAndReutrnWebViewId(Bundle savedInstanceState);
+
     protected abstract void initData();
 
     /**
      * 对js传过来的String类型的参数进行解析成Map
+     *
      * @param data
      * @return
      */
-    protected Map<String,String> parseData(String data){
-        Map<String,String> datas = new HashMap<>();
+    protected Map<String, String> parseData(String data) {
+        Map<String, String> datas = new HashMap<>();
         String[] split = data.split("&");
-        for(String item : split){
-            datas.put(item.substring(0,item.indexOf("=")),item.substring(item.indexOf("=")+1,item.length()));
+        for (String item : split) {
+            datas.put(item.substring(0, item.indexOf("=")), item.substring(item.indexOf("=") + 1, item.length()));
         }
         return datas;
     }
 
-    protected void showLoadingDialog(){
+    protected void showLoadingDialog() {
         handler.sendEmptyMessage(SHOW_LOADING_DIALOG);
     }
 
-    protected void closeLoadingDialog(){
+    protected void closeLoadingDialog() {
         handler.sendEmptyMessage(CLOSE_LOADING_DIALOG);
     }
 
 
-    protected void showErrorDialog(String content){
+    protected void showErrorDialog(String content) {
         message = content;
         handler.sendEmptyMessage(SHOW_MSG_DIALOG);
     }
