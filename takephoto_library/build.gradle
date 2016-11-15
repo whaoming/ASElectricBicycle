@@ -1,0 +1,27 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.0"
+
+    defaultConfig {
+        minSdkVersion 9
+        targetSdkVersion 25
+        versionCode 34
+        versionName "3.0.4"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+//    compile fileTree(include: ['*.jar'], dir: 'libs')
+    //compile 'com.android.support:support-v4:25.0.0'
+    compile 'com.soundcloud.android.crop:lib_crop:1.0.0'
+    compile 'com.darsh.multipleimageselect:multipleimageselect:1.0.4'
+}
+//apply from: "bintrayUpload.gradle"

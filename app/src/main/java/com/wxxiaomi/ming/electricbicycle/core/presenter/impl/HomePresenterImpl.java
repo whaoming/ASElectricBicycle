@@ -1,5 +1,6 @@
 package com.wxxiaomi.ming.electricbicycle.core.presenter.impl;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
@@ -16,11 +17,10 @@ import com.baidu.mapapi.model.LatLng;
 import com.bumptech.glide.Glide;
 import com.wxxiaomi.ming.electricbicycle.GlobalParams;
 import com.wxxiaomi.ming.electricbicycle.api.exception.ApiException;
-import com.wxxiaomi.ming.electricbicycle.bean.User;
 import com.wxxiaomi.ming.electricbicycle.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.bean.format.NearByPerson;
 import com.wxxiaomi.ming.electricbicycle.core.base.BasePreImpl;
-import com.wxxiaomi.ming.electricbicycle.core.web.TopicWebActivity;
+import com.wxxiaomi.ming.electricbicycle.core.web.SimpleWebActivity;
 import com.wxxiaomi.ming.electricbicycle.dao.impl.UserDaoImpl2;
 import com.wxxiaomi.ming.electricbicycle.model.impl.EmEngine;
 import com.wxxiaomi.ming.electricbicycle.core.presenter.HomePresenter;
@@ -150,7 +150,11 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
     @Override
     public void topicBtnOnClick() {
         Log.i("wang","话题按钮被点击了");
-        mView.runActivity(TopicWebActivity.class,null);
+        //mView.runActivity(TopicWebActivity.class,null);
+//        ForwardAction action = new ForwardAction();
+        Intent intent = new Intent(mView.getContext(), SimpleWebActivity.class);
+        intent.putExtra("url","file:///android_asset/topicList.html");
+        mView.getContext().startActivity(intent);
     }
 
     public void updateUnreadLabel(){

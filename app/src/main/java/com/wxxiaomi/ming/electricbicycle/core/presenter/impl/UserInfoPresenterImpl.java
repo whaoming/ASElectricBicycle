@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.google.gson.Gson;
 import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.bean.User;
 import com.wxxiaomi.ming.electricbicycle.bean.UserCommonInfo;
@@ -58,19 +59,21 @@ public class UserInfoPresenterImpl extends BasePreImpl<UserInfoView> implements 
 
     @Override
     public void init() {
-
-    }
-
-    @Override
-    public void attach(UserInfoView mView) {
-        super.attach(mView);
         Intent intent = mView.getIntent();
-        userInfo = (UserCommonInfo) intent.getBundleExtra("value").get("userInfo");
+        Bundle bundle = intent.getBundleExtra("value");
+        if(bundle==null){
+            String value = intent.getStringExtra("value");
+            userInfo = new Gson().fromJson(value,UserCommonInfo.class);
+        } else {
+            userInfo = (UserCommonInfo) bundle.get("userInfo");
+        }
         isMyFriendFlag = UserDaoImpl2.getInstance().isMyFriend(userInfo.emname);
-        if(isMyFriendFlag)
+        if (isMyFriendFlag)
             mView.setBtnView(mView.getContext().getResources().getDrawable(R.mipmap.ic_mode_edit_black_18dp));
         else
             mView.setBtnView(mView.getContext().getResources().getDrawable(R.mipmap.ic_common_add_press));
         mView.setViewData(userInfo);
     }
+
+
 }

@@ -148,7 +148,14 @@
             android:name=".core.ui.activity.RoutePlanActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".core.ui.activity.BaiduNavActivity"
+        android:name=".core.ui.activity.BaiduNavActivity"
+        android:screenOrientation="portrait" />
+        <activity
+            android:name=".core.web.SimpleWebActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".core.web.WebTabsActivity"
             android:screenOrientation="portrait" />
         <!-- <activity -->
         <!-- android:name=".view.activity.RegisterTwoActivity" -->

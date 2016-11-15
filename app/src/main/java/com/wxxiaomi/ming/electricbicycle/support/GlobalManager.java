@@ -46,4 +46,6 @@ public class GlobalManager {
     public boolean isUserNull(){
         return user==null;
     }
+
+
 }
