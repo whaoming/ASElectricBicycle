@@ -6,13 +6,17 @@
     android:background="@color/common_bg"
     android:orientation="vertical">
 
-	<com.hyphenate.easeui.widget.EaseTitleBar 
+	<com.hyphenate.easeui.widget.EaseTitleBar
+		android:visibility="gone"
+	    android:id="@+id/title_bar"
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
 	    hyphenate:titleBarTitle="@string/session"
 	    />
     
-    <include layout="@layout/ease_search_bar" />
+    <include
+		android:visibility="gone"
+		layout="@layout/ease_search_bar" />
     
     <FrameLayout
         android:layout_width="match_parent"

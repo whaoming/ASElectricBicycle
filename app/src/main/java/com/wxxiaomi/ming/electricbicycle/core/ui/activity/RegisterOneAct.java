@@ -18,6 +18,7 @@ import com.wxxiaomi.ming.electricbicycle.support.util.MyUtils;
 
 /**
  * Created by 12262 on 2016/6/25.
+ * 注册页面
  */
 public class RegisterOneAct extends BaseActivity<RegisterOneView,RegisterOnePresenter> implements RegisterOneView<RegisterOnePresenter>{
 
@@ -39,50 +40,50 @@ public class RegisterOneAct extends BaseActivity<RegisterOneView,RegisterOnePres
         btn_ok.setOnClickListener(this);
         toolbar = (Toolbar) this.findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        til_username.getEditText().addTextChangedListener(new TextWatcher() {
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                til_username.setError("");
-                til_username.setEnabled(false);
-
-            }
-
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count,
-                                          int after) {
-                // TODO Auto-generated method stub
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                // TODO Auto-generated method stub
-
-            }
-        });
-        til_password.getEditText().addTextChangedListener(new TextWatcher() {
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                til_password.setError("");
-                til_password.setEnabled(false);
-
-            }
-
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count,
-                                          int after) {
-                // TODO Auto-generated method stub
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                // TODO Auto-generated method stub
-
-            }
-        });
+//        til_username.getEditText().addTextChangedListener(new TextWatcher() {
+//
+//            @Override
+//            public void onTextChanged(CharSequence s, int start, int before, int count) {
+//                til_username.setError("");
+//                til_username.setEnabled(false);
+//
+//            }
+//
+//            @Override
+//            public void beforeTextChanged(CharSequence s, int start, int count,
+//                                          int after) {
+//                // TODO Auto-generated method stub
+//
+//            }
+//
+//            @Override
+//            public void afterTextChanged(Editable s) {
+//                // TODO Auto-generated method stub
+//
+//            }
+//        });
+//        til_password.getEditText().addTextChangedListener(new TextWatcher() {
+//
+//            @Override
+//            public void onTextChanged(CharSequence s, int start, int before, int count) {
+//                til_password.setError("");
+//                til_password.setEnabled(false);
+//
+//            }
+//
+//            @Override
+//            public void beforeTextChanged(CharSequence s, int start, int count,
+//                                          int after) {
+//                // TODO Auto-generated method stub
+//
+//            }
+//
+//            @Override
+//            public void afterTextChanged(Editable s) {
+//                // TODO Auto-generated method stub
+//
+//            }
+//        });
     }
 
     @Override

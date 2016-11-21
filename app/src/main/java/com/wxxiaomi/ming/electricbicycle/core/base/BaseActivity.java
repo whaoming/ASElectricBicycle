@@ -22,6 +22,7 @@ public abstract class BaseActivity<V,T extends BasePre> extends AppCompatActivit
             presenter.attach((V) this);
             presenter.init();
         }
+
     }
 
     protected abstract void initView(Bundle savedInstanceState);

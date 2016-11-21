@@ -9,6 +9,7 @@ import android.util.Log;
 import com.baidu.mapapi.SDKInitializer;
 import com.hyphenate.chat.EMOptions;
 import com.hyphenate.easeui.controller.EaseUI;
+import com.wxxiaomi.ming.electricbicycle.core.em.MyUserProvider;
 
 /**
  * 程序入口
@@ -48,6 +49,7 @@ public class EBApplication extends Application {
             e.printStackTrace();
             Log.i("wang", "初始化em引擎失败");
         }
+        EaseUI.getInstance().setUserProfileProvider(new MyUserProvider());
 
     }
 

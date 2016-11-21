@@ -1,6 +1,5 @@
 package com.wxxiaomi.ming.electricbicycle.core.presenter.impl;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -22,7 +21,7 @@ import com.wxxiaomi.ming.electricbicycle.core.base.BaseActivity;
 import com.wxxiaomi.ming.electricbicycle.core.base.BasePreImpl;
 import com.wxxiaomi.ming.electricbicycle.core.presenter.PersonalPresenter;
 import com.wxxiaomi.ming.electricbicycle.core.ui.PersonaView;
-import com.wxxiaomi.ming.electricbicycle.dao.impl.UserDaoImpl2;
+import com.wxxiaomi.ming.electricbicycle.dao.UserService;
 import com.wxxiaomi.ming.electricbicycle.support.GlobalManager;
 import com.wxxiaomi.ming.electricbicycle.support.rx.SampleProgressObserver;
 
@@ -101,7 +100,7 @@ public class PersonalPreImpl extends BasePreImpl<PersonaView> implements Persona
 
     @Override
     public void takeSuccess(final TResult result) {
-        UserDaoImpl2.getInstance().upLoadHead(GlobalManager.getInstance().getUser().userCommonInfo.id+"",result.getImage().getPath())
+        UserService.getInstance().upLoadHead(GlobalManager.getInstance().getUser().userCommonInfo.id+"",result.getImage().getPath())
                 .subscribe(new SampleProgressObserver<String>(mView.getContext()) {
                     @Override
                     public void onNext(String s) {

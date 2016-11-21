@@ -6,9 +6,9 @@ import com.wxxiaomi.ming.electricbicycle.GlobalParams;
 import com.wxxiaomi.ming.electricbicycle.bean.format.InitUserInfo;
 import com.wxxiaomi.ming.electricbicycle.bean.format.NearByPerson;
 import com.wxxiaomi.ming.electricbicycle.core.base.BasePreImpl;
-import com.wxxiaomi.ming.electricbicycle.dao.impl.UserDaoImpl2;
 
 import com.wxxiaomi.ming.electricbicycle.core.presenter.FriendAddPresenter;
+import com.wxxiaomi.ming.electricbicycle.dao.UserService;
 import com.wxxiaomi.ming.electricbicycle.support.GlobalManager;
 import com.wxxiaomi.ming.electricbicycle.support.rx.SampleProgressObserver;
 import com.wxxiaomi.ming.electricbicycle.core.ui.activity.UserInfoAct;
@@ -17,6 +17,8 @@ import com.wxxiaomi.ming.electricbicycle.core.weight.adapter.NearFriendRecommend
 
 import java.util.ArrayList;
 import java.util.List;
+
+import rx.functions.Action1;
 
 
 /**
@@ -29,23 +31,19 @@ public class FriendAddPresenterImpl extends BasePreImpl<FriendAddView> implement
 
     @Override
     public void init() {
-
-    }
-
-    @Override
-    public void attach(FriendAddView mView) {
-        super.attach(mView);
         tempNearUserList = new ArrayList<NearByPerson.UserLocatInfo>();
         adapter = new NearFriendRecommendAdapter1(mView.getContext(),tempNearUserList);
         mView.setListAdaper(adapter);
         getNearFriend();
     }
 
+
     private void getNearFriend() {
-        UserDaoImpl2.getInstance().getNearPeople(GlobalManager.getInstance().getUser().id,GlobalParams.latitude, GlobalParams.longitude)
-                .subscribe(new SampleProgressObserver<NearByPerson>(mView.getContext()) {
+
+        UserService.getInstance().getNearPeople(GlobalManager.getInstance().getUser().id,GlobalParams.latitude, GlobalParams.longitude)
+                .subscribe(new Action1<NearByPerson>() {
                     @Override
-                    public void onNext(NearByPerson nearByPerson) {
+                    public void call(NearByPerson nearByPerson) {
                         tempNearUserList.addAll(nearByPerson.userLocatList);
                         adapter.setLoadingComplete();
                     }
@@ -54,7 +52,7 @@ public class FriendAddPresenterImpl extends BasePreImpl<FriendAddView> implement
 
     @Override
     public void onFindClick(String name) {
-        UserDaoImpl2.getInstance().getUserCommonInfoByName(name)
+        UserService.getInstance().getUserByNameFWeb(name)
                 .subscribe(new SampleProgressObserver<InitUserInfo>(mView.getContext()) {
                     @Override
                     public void onNext(InitUserInfo initUserInfo) {

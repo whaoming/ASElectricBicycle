@@ -46,45 +46,45 @@ public class LoginActivity extends BaseActivity<LoginView,LoginPresenter> implem
 		getSupportActionBar().setHomeButtonEnabled(true); // 设置返回键可用
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		assert til_username.getEditText() != null;
-		til_username.getEditText().addTextChangedListener(new TextWatcher() {
-
-			@Override
-			public void onTextChanged(CharSequence s, int start, int before,
-									  int count) {
-				til_username.setError("");
-				til_username.setEnabled(false);
-			}
-
-			@Override
-			public void beforeTextChanged(CharSequence s, int start, int count,
-										  int after) {
-			}
-
-			@Override
-			public void afterTextChanged(Editable s) {
-			}
-		});
-		assert til_password.getEditText() != null;
-		til_password.getEditText().addTextChangedListener(new TextWatcher() {
-
-			@Override
-			public void onTextChanged(CharSequence s, int start, int before,
-									  int count) {
-				// TODO Auto-generated method stub
-				til_password.setError("");
-				til_password.setEnabled(false);
-			}
-
-			@Override
-			public void beforeTextChanged(CharSequence s, int start, int count,
-										  int after) {
-
-			}
-
-			@Override
-			public void afterTextChanged(Editable s) {
-			}
-		});
+//		til_username.getEditText().addTextChangedListener(new TextWatcher() {
+//
+//			@Override
+//			public void onTextChanged(CharSequence s, int start, int before,
+//									  int count) {
+//				til_username.setError("");
+//				til_username.setEnabled(false);
+//			}
+//
+//			@Override
+//			public void beforeTextChanged(CharSequence s, int start, int count,
+//										  int after) {
+//			}
+//
+//			@Override
+//			public void afterTextChanged(Editable s) {
+//			}
+//		});
+//		assert til_password.getEditText() != null;
+//		til_password.getEditText().addTextChangedListener(new TextWatcher() {
+//
+//			@Override
+//			public void onTextChanged(CharSequence s, int start, int before,
+//									  int count) {
+//				// TODO Auto-generated method stub
+//				til_password.setError("");
+//				til_password.setEnabled(false);
+//			}
+//
+//			@Override
+//			public void beforeTextChanged(CharSequence s, int start, int count,
+//										  int after) {
+//
+//			}
+//
+//			@Override
+//			public void afterTextChanged(Editable s) {
+//			}
+//		});
 		tv_debug = (TextView) findViewById(R.id.tv_debug);
 		tv_debug.setOnClickListener(this);
 	}

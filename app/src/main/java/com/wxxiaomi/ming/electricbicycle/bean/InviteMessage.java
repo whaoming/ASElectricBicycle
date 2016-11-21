@@ -2,12 +2,14 @@ package com.wxxiaomi.ming.electricbicycle.bean;
 
 public class InviteMessage {
 	
-	private int id;
+		private int id;
 	
-	//时间
+		//时间
 		private long time;
 		//添加理由
 		private String reason;
+
+
 		
 		private String from;
 		public long getTime() {

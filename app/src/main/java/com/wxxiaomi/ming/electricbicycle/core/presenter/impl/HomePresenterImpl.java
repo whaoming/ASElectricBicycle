@@ -21,9 +21,10 @@ import com.wxxiaomi.ming.electricbicycle.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.bean.format.NearByPerson;
 import com.wxxiaomi.ming.electricbicycle.core.base.BasePreImpl;
 import com.wxxiaomi.ming.electricbicycle.core.web.SimpleWebActivity;
-import com.wxxiaomi.ming.electricbicycle.dao.impl.UserDaoImpl2;
-import com.wxxiaomi.ming.electricbicycle.model.impl.EmEngine;
 import com.wxxiaomi.ming.electricbicycle.core.presenter.HomePresenter;
+import com.wxxiaomi.ming.electricbicycle.dao.UserService;
+import com.wxxiaomi.ming.electricbicycle.service.EmEngine;
+import com.wxxiaomi.ming.electricbicycle.service.listener.AllMsgListener;
 import com.wxxiaomi.ming.electricbicycle.support.GlobalManager;
 import com.wxxiaomi.ming.electricbicycle.support.rx.MyObserver;
 import com.wxxiaomi.ming.electricbicycle.core.ui.activity.ContactActivity;
@@ -100,7 +101,7 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
 
     @Override
     public void initViewData() {
-        EmEngine.getInstance().init();
+
     }
 
     @Override
@@ -195,7 +196,7 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
         Glide.with(mView.getContext()).load(GlobalManager.getInstance().getUser().userCommonInfo.head)
                 .into( mView.getHeadView());
         updateUnreadLabel();
-        EmEngine.getInstance().setAllMsgLis(new EmEngine.AllMsgListener() {
+        EmEngine.getInstance().setAllMsgLis(new AllMsgListener() {
             @Override
             public void AllMsgReceive() {
                 updateUnreadLabel();
@@ -238,7 +239,7 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
 
     public void getNearByFromServer(final double latitude,
                                     final double longitude){
-        UserDaoImpl2.getInstance().getNearPeople(GlobalManager.getInstance().getUser().id,latitude,longitude)
+        UserService.getInstance().getNearPeople(GlobalManager.getInstance().getUser().id,latitude,longitude)
                 .flatMap(new Func1<NearByPerson, Observable<Boolean>>() {
                     @Override
                     public Observable<Boolean> call(NearByPerson nearByPerson) {

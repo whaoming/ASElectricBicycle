@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
+    android:background="#ffffff"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
@@ -14,44 +14,23 @@
         android:background="@color/titleBlue"
         />
 
-    <RelativeLayout
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:padding="10dp"
-        android:background="@color/titleBlue"
-        android:layout_width="match_parent"
-        android:layout_height="150dp">
-        <android.support.design.widget.TextInputLayout
-            android:layout_alignParentTop="true"
-            android:id="@+id/til_username"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
-            <EditText
-                android:drawableLeft="@mipmap/demo_xiejinhao2"
-                android:drawablePadding="10dp"
-                android:hint="请输入好友名称"
-                android:id="@+id/et_username"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"
-                android:textColor="@color/white" >
-            </EditText>
-        </android.support.design.widget.TextInputLayout>
-        <Button
-            android:layout_below="@+id/til_username"
-            android:id="@+id/btn_ok"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/selector_demo"
-            android:text="确定"
-            android:textColor="@color/titleBlue" />
-    </RelativeLayout>
+  <EditText
+      android:gravity="center_vertical"
+      android:textColor="#80000000"
+      android:background="#10666666"
+        android:paddingLeft="15dp"
+      android:textColorHint="#80000000"
+      android:drawablePadding="15dp"
+      android:id="@+id/et_name"
+      android:imeOptions="actionSearch"
+      android:drawableLeft="@mipmap/ic_launcher"
+      android:hint="搜索好友"
+      android:textSize="17sp"
+      android:layout_width="match_parent"
+      android:layout_height="65dp" />
 
     <android.support.v7.widget.RecyclerView
+        android:background="#ffffff"
         android:id="@+id/list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

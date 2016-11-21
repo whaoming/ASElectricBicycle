@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView.ViewHolder;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
 import com.wxxiaomi.ming.electricbicycle.R;
@@ -39,11 +40,8 @@ public abstract class BaseAdapter extends RecyclerView.Adapter<ViewHolder> {
         this.context = context;
     }
 
-//    private OnItemClickListener onItemClickListener;
-//
-//    public void setOnItemClickListener(OnItemClickListener onItemClickListener){
-//        this.onItemClickListener = onItemClickListener;
-//    }
+    private String loadingText = "正在加载中";
+    private String loadFailText = "加载失败";
 
 
     @Override
@@ -66,9 +64,12 @@ public abstract class BaseAdapter extends RecyclerView.Adapter<ViewHolder> {
             if(!loadingComplete){
                 //正在加载中
                 holder.rl_loading.setVisibility(View.VISIBLE);
+                holder.pb_loading.setVisibility(View.VISIBLE);
+//                holder.rl_loading.settext
                 holder.rl_fail.setVisibility(View.GONE);
                 holder.rl_nodata.setVisibility(View.GONE);
             }else if(loadingComplete && loadingFail){
+
                 holder.rl_loading.setVisibility(View.GONE);
                 holder.rl_fail.setVisibility(View.VISIBLE);
                 holder.rl_nodata.setVisibility(View.GONE);
@@ -97,12 +98,14 @@ public abstract class BaseAdapter extends RecyclerView.Adapter<ViewHolder> {
         public RelativeLayout rl_fail;
         public RelativeLayout rl_loading;
         public RelativeLayout rl_nodata;
+        public ProgressBar pb_loading;
 
         public OtherStateViewHolder(View view) {
             super(view);
             rl_fail = (RelativeLayout) view.findViewById(R.id.rl_fail);
             rl_loading = (RelativeLayout) view.findViewById(R.id.rl_loading);
             rl_nodata = (RelativeLayout) view.findViewById(R.id.rl_nodata);
+            pb_loading = (ProgressBar) view.findViewById(R.id.pb_loading);
         }
     }
 

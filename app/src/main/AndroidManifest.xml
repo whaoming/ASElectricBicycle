@@ -91,6 +91,10 @@
         <activity
             android:name=".core.ui.activity.ScanCodeActivity"
             android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".core.em.ChatActivity"
+            android:screenOrientation="portrait" />
         <!-- <activity -->
         <!-- android:name=".view.activity.RoutePlanActivity" -->
         <!-- android:screenOrientation="portrait" /> -->

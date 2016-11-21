@@ -18,6 +18,10 @@ public class HttpMethodsTest extends TestCase {
         // EBApplication.getInstance().onCreate();;
     }
 
+    public void testPublishTopic(){
+
+    }
+
 
 
 }
