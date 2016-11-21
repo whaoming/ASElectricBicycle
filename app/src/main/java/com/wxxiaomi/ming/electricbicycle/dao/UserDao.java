@@ -1,6 +1,7 @@
 package com.wxxiaomi.ming.electricbicycle.dao;
 
 import com.wxxiaomi.ming.electricbicycle.bean.User;
+import com.wxxiaomi.ming.electricbicycle.bean.UserCommonInfo;
 
 import java.util.List;
 
@@ -19,27 +20,27 @@ public interface UserDao {
 	 * @param userList
 	 * @return 修改的行数
 	 */
-	int saveFriendList(List<User.UserCommonInfo> userList);
+	int saveFriendList(List<UserCommonInfo> userList);
 	
 	/**
 	 * 取得好友列表
 	 * @return
 	 */
-	List<User.UserCommonInfo> getFriendList();
+	List<UserCommonInfo> getFriendList();
 	
 	/**
 	 * 更新好友列表
 	 * @param userList
 	 * @return
 	 */
-	boolean updateFriendList(List<User.UserCommonInfo> userList);
+	boolean updateFriendList(List<UserCommonInfo> userList);
 	
 	/**
 	 * 根据emname取出一个好友
 	 * @param emname
 	 * @return
 	 */
-	User.UserCommonInfo getFriendInfoByEmname(String emname);
+	UserCommonInfo getFriendInfoByEmname(String emname);
 	
 	/**
 	 * 根据emname删除对应好友

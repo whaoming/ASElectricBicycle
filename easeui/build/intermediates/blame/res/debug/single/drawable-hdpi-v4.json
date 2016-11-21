@@ -304,16 +304,16 @@
         "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeui\\res\\drawable-hdpi\\ease_record_animate_13.png"
     },
     {
-        "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ease_search_clear_pressed.png",
-        "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeui\\res\\drawable-hdpi\\ease_search_clear_pressed.png"
-    },
-    {
         "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ee_1.png",
         "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeui\\res\\drawable-hdpi\\ee_1.png"
     },
     {
         "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_scrubber_control_to_pressed_mtrl_005.png",
         "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\drawable-hdpi-v4\\abc_scrubber_control_to_pressed_mtrl_005.png"
+    },
+    {
+        "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ease_search_clear_pressed.png",
+        "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeui\\res\\drawable-hdpi\\ease_search_clear_pressed.png"
     },
     {
         "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ease_chatto_voice_playing_f1.png",

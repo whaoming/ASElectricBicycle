@@ -9,7 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
+//import com.bumptech.glide.Glide;
 import com.wxxiaomi.ming.chatwidget.R;
 import com.wxxiaomi.ming.chatwidget.bean.Emojicon;
 import com.wxxiaomi.ming.chatwidget.bean.Emojicon.Type;
@@ -50,9 +50,9 @@ public class EmojiconGridAdapter extends ArrayAdapter<Emojicon> {
 			if (emojicon.getIcon() != 0) {
 				imageView.setImageResource(emojicon.getIcon());
 			} else if (emojicon.getIconPath() != null) {
-				Glide.with(getContext()).load(emojicon.getIconPath())
-						.placeholder(R.mipmap.ease_default_expression)
-						.into(imageView);
+//				Glide.with(getContext()).load(emojicon.getIconPath())
+//						.placeholder(R.mipmap.ease_default_expression)
+//						.into(imageView);
 			}
 		}
 

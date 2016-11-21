@@ -1,74 +1,72 @@
-     <LinearLayout
-          xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-            android:visibility="gone"
-           
+    android:layout_width="match_parent"
+    android:layout_height="140dp"
+    android:layout_gravity="bottom"
+    android:background="#ffffff"
+    android:baselineAligned="false"
+    android:orientation="horizontal"
+    android:paddingTop="10dp"
+    android:visibility="gone">
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:layout_weight="1">
+
+        <com.wxxiaomi.ming.electricbicycle.core.weight.custom.CircularImageView
+            android:id="@+id/near_iv_head"
             android:layout_width="match_parent"
-            android:layout_height="140dp"
-            android:layout_gravity="bottom"
-            android:background="#ffffff"
-            android:baselineAligned="false"
-            android:orientation="horizontal"
-            android:paddingTop="10dp" >
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:src="@mipmap/tou" />
+    </RelativeLayout>
 
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_margin="5dp"
-                android:layout_weight="1" >
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="4">
 
-                <com.wxxiaomi.ming.electricbicycle.view.custom.CircularImageView
-                    android:id="@+id/near_iv_head"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="3dp"
-                    android:src="@mipmap/tou" />
-            </RelativeLayout>
+        <TextView
+            android:id="@+id/tv_near_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="8dp"
+            android:text="Dandelion Chocolate"
+            android:textColor="#666666"
+            android:textSize="20sp" />
 
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="4" >
+        <TextView
+            android:id="@+id/tv_near_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_near_name"
+            android:layout_marginBottom="6dp"
+            android:text="description"
+            android:textColor="#80666666"
+            android:textSize="14sp" />
 
-                <TextView
-                    android:id="@+id/tv_near_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="4dp"
-                    android:layout_marginTop="8dp"
-                    android:text="Dandelion Chocolate"
-                    android:textColor="#666666"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/tv_near_description"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/tv_near_name"
-                    android:layout_marginBottom="6dp"
-                    android:text="description"
-                    android:textColor="#80666666"
-                    android:textSize="14sp" />
-
-                 <View
+        <View
             android:id="@+id/gexian"
-           android:layout_marginTop="15dp"
-           android:layout_marginBottom="2dp"
-           android:layout_marginRight="5dp"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_above="@+id/tv_near_time"
+            android:layout_marginBottom="2dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="15dp"
             android:background="#20000000" />
 
         <TextView
-            android:layout_alignParentBottom="true"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="10dp"
             android:id="@+id/tv_near_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="2dp"
             android:text="12min away"
             android:textColor="@color/titleBlue"
             android:textSize="12sp" />
-            </RelativeLayout>
-        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

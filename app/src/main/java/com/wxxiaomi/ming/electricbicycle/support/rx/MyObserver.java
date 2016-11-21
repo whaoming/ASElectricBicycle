@@ -17,6 +17,7 @@ public abstract class MyObserver<T> extends Subscriber<T> {
         if(e instanceof ApiException){
             onError((ApiException)e);
         }else{
+            e.printStackTrace();
             onError(new ApiException(e,123));
         }
     }

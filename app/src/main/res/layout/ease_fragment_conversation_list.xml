@@ -8,7 +8,7 @@
 
 
 
-    <com.wxxiaomi.ming.electricbicycle.view.em.MyEaseConversationList
+    <com.wxxiaomi.ming.electricbicycle.core.weight.em.MyEaseConversationList
         android:id="@+id/list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

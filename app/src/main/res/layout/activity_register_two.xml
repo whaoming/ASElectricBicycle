@@ -26,7 +26,7 @@
 
             <!-- 这里放置头像 -->
 
-            <com.wxxiaomi.ming.electricbicycle.view.custom.CircularImageView
+            <com.wxxiaomi.ming.electricbicycle.core.weight.custom.CircularImageView
                 android:layout_gravity="center_horizontal"
                 android:id="@+id/iv_head"
                 android:layout_width="68dp"

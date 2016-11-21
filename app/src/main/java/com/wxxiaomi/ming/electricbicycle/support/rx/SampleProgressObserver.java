@@ -7,7 +7,7 @@ import android.util.Log;
 
 import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.api.exception.ApiException;
-import com.wxxiaomi.ming.electricbicycle.view.custom.LoadingDialog;
+import com.wxxiaomi.ming.electricbicycle.core.weight.custom.LoadingDialog;
 
 /**
  * Created by 12262 on 2016/6/5.
@@ -18,7 +18,7 @@ public abstract class SampleProgressObserver<T> extends MyObserver<T>{
     private AlertDialog msgDialog;
     private Context context;
     private String content;
-    private boolean showMsg;
+    private boolean showMsg = true;
 
 
     public SampleProgressObserver(Context context) {
@@ -28,26 +28,27 @@ public abstract class SampleProgressObserver<T> extends MyObserver<T>{
 
     @Override
     public void onStart() {
+        //Log.i("wang","SampleProgressObserver-onStart()");
         dialog.show();
         super.onStart();
     }
 
     @Override
     protected void onError(ApiException ex) {
-        Log.i("wang","SampleProgressObserver-onError-"+ex.getDisplayMessage());
-        ex.printStackTrace();;
+        //Log.i("wang","SampleProgressObserver-onError-"+ex.getDisplayMessage());
+        //ex.printStackTrace();;
         dialog.dismiss();
+        showMsg = false;
         msgDialog = new AlertDialog.Builder(context, R.style.MingDialog).setMessage(ex.getDisplayMessage()).setPositiveButton("确定", null).create();
         msgDialog.show();
     }
 
     @Override
     public void onCompleted() {
-        dialog.dismiss();
+       // Log.i("wang","SampleProgressObserver-onCompleted()");
         if(showMsg)
         {
-            msgDialog = new AlertDialog.Builder(context, R.style.MingDialog).setMessage(content).setPositiveButton("确定", null).create();
-            msgDialog.show();
+            dialog.dismiss();
         }
 
     }
@@ -55,6 +56,9 @@ public abstract class SampleProgressObserver<T> extends MyObserver<T>{
     protected void showMsg(String content){
         showMsg = true;
         this.content = content;
+        dialog.dismiss();
+        msgDialog = new AlertDialog.Builder(context, R.style.MingDialog).setMessage(content).setPositiveButton("确定", null).create();
+        msgDialog.show();
     }
 
 }

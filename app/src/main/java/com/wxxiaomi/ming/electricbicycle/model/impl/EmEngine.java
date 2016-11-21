@@ -11,11 +11,12 @@ import com.wxxiaomi.ming.electricbicycle.api.exception.ApiException;
 import com.wxxiaomi.ming.electricbicycle.api.exception.ERROR;
 import com.wxxiaomi.ming.electricbicycle.bean.InviteMessage;
 import com.wxxiaomi.ming.electricbicycle.bean.User;
+import com.wxxiaomi.ming.electricbicycle.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.bean.format.InitUserInfo;
 import com.wxxiaomi.ming.electricbicycle.dao.impl.EmDaoImpl;
 import com.wxxiaomi.ming.electricbicycle.dao.impl.InviteMessgeDaoImpl2;
 import com.wxxiaomi.ming.electricbicycle.dao.impl.UserDaoImpl2;
-import com.wxxiaomi.ming.electricbicycle.view.em.EmManager;
+import com.wxxiaomi.ming.electricbicycle.core.weight.em.EmManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -126,10 +127,10 @@ public class EmEngine {
                 //1.先从服务器获取用户公共信息
                 //2.然后存到本地数据库
                 checkTempUser(emEvent.getUsername())
-                        .flatMap(new Func1<User.UserCommonInfo, Observable<Integer>>() {
+                        .flatMap(new Func1<UserCommonInfo, Observable<Integer>>() {
                             @Override
-                            public Observable<Integer> call(User.UserCommonInfo userCommonInfo) {
-                                List<User.UserCommonInfo> list = new ArrayList<User.UserCommonInfo>();
+                            public Observable<Integer> call(UserCommonInfo userCommonInfo) {
+                                List<UserCommonInfo> list = new ArrayList<UserCommonInfo>();
                                 list.add(userCommonInfo);
                                 return UserDaoImpl2.getInstance().updateFriendList(list);
                             }
@@ -162,15 +163,15 @@ public class EmEngine {
                             }
                         });
                 //从服务器获取用户公共信息并存到本地服务器
-                Observable<User.UserCommonInfo> userCommonInfoObservable = checkTempUser(emEvent.getUsername());
-                Observable.zip(integerObservable, userCommonInfoObservable, objectObservable2, new Func3<Integer, User.UserCommonInfo, Integer, User.UserCommonInfo>() {
+                Observable<UserCommonInfo> userCommonInfoObservable = checkTempUser(emEvent.getUsername());
+                Observable.zip(integerObservable, userCommonInfoObservable, objectObservable2, new Func3<Integer, UserCommonInfo, Integer, UserCommonInfo>() {
 
                     @Override
-                    public User.UserCommonInfo call(Integer integer, User.UserCommonInfo userCommonInfo, Integer integer2) {
+                    public UserCommonInfo call(Integer integer, UserCommonInfo userCommonInfo, Integer integer2) {
                         return userCommonInfo;
                     }
                 })
-                .subscribe(new Subscriber<User.UserCommonInfo>() {
+                .subscribe(new Subscriber<UserCommonInfo>() {
                     @Override
                     public void onCompleted() {
 
@@ -182,7 +183,7 @@ public class EmEngine {
                     }
 
                     @Override
-                    public void onNext(User.UserCommonInfo userCommonInfo) {
+                    public void onNext(UserCommonInfo userCommonInfo) {
                         if(inviteMsgLis != null){
                             inviteMsgLis.InviteMsgReceive();
                         }
@@ -242,24 +243,24 @@ public class EmEngine {
      * @param emname
      * @return
      */
-    public Observable<User.UserCommonInfo> checkTempUser(final String emname) {
+    public Observable<UserCommonInfo> checkTempUser(final String emname) {
         return UserDaoImpl2.getInstance().getTempuser(emname)
-                .flatMap(new Func1<User.UserCommonInfo, Observable<User.UserCommonInfo>>() {
+                .flatMap(new Func1<UserCommonInfo, Observable<UserCommonInfo>>() {
                     @Override
-                    public Observable<User.UserCommonInfo> call(User.UserCommonInfo userCommonInfo) {
+                    public Observable<UserCommonInfo> call(UserCommonInfo userCommonInfo) {
                         if (userCommonInfo != null) {
                             return Observable.just(userCommonInfo);
                         }else {
                             Log.i("wang","在未连接服务器获取之前临时用表无此用户信息:"+emname);
                             return UserDaoImpl2.getInstance().getUserCommonInfoByEmname(emname)
-                                    .flatMap(new Func1<InitUserInfo, Observable<User.UserCommonInfo>>() {
+                                    .flatMap(new Func1<InitUserInfo, Observable<UserCommonInfo>>() {
                                         @Override
-                                        public Observable<User.UserCommonInfo> call(InitUserInfo initUserInfo) {
+                                        public Observable<UserCommonInfo> call(InitUserInfo initUserInfo) {
                                             Observable<Integer> integerObservable = UserDaoImpl2.getInstance().savaPerson(initUserInfo.friendList.get(0));
-                                            Observable<User.UserCommonInfo> just = Observable.just(initUserInfo.friendList.get(0));
-                                            return Observable.zip(integerObservable, just, new Func2<Integer, User.UserCommonInfo, User.UserCommonInfo>() {
+                                            Observable<UserCommonInfo> just = Observable.just(initUserInfo.friendList.get(0));
+                                            return Observable.zip(integerObservable, just, new Func2<Integer, UserCommonInfo, UserCommonInfo>() {
                                                 @Override
-                                                public User.UserCommonInfo call(Integer integer, User.UserCommonInfo userCommonInfo) {
+                                                public UserCommonInfo call(Integer integer, UserCommonInfo userCommonInfo) {
                                                     return userCommonInfo;
                                                 }
                                             });

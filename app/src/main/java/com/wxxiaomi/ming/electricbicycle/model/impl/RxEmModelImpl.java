@@ -2,19 +2,16 @@ package com.wxxiaomi.ming.electricbicycle.model.impl;
 
 import android.util.Log;
 
-import com.hyphenate.EMCallBack;
-import com.hyphenate.EMContactListener;
-import com.hyphenate.EMMessageListener;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMMessage;
-import com.wxxiaomi.ming.electricbicycle.api.exception.ApiException;
 import com.wxxiaomi.ming.electricbicycle.bean.InviteMessage;
 import com.wxxiaomi.ming.electricbicycle.bean.User;
+import com.wxxiaomi.ming.electricbicycle.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.bean.format.InitUserInfo;
 import com.wxxiaomi.ming.electricbicycle.dao.impl.EmDaoImpl;
 import com.wxxiaomi.ming.electricbicycle.dao.impl.InviteMessgeDaoImpl2;
 import com.wxxiaomi.ming.electricbicycle.dao.impl.UserDaoImpl2;
-import com.wxxiaomi.ming.electricbicycle.view.em.EmManager;
+import com.wxxiaomi.ming.electricbicycle.core.weight.em.EmManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,7 +64,7 @@ public class RxEmModelImpl {
                         .flatMap(new Func1<InitUserInfo, Observable<Integer>>() {
                             @Override
                             public Observable<Integer> call(InitUserInfo userCommonInfo) {
-                                List<User.UserCommonInfo> list = new ArrayList<User.UserCommonInfo>();
+                                List<UserCommonInfo> list = new ArrayList<UserCommonInfo>();
                                 list.add(userCommonInfo.friendList.get(0));
                                 return UserDaoImpl2.getInstance().updateFriendList(list);
                             }
@@ -167,12 +164,12 @@ public class RxEmModelImpl {
         EmManager.getInstance().logout();
     }
 
-    public Observable<Integer> agreeInvite(final User.UserCommonInfo userInfo){
+    public Observable<Integer> agreeInvite(final UserCommonInfo userInfo){
         return EmDaoImpl.getInstance().agreeInvite(userInfo.emname)
                 .flatMap(new Func1<Boolean, Observable<Integer>>() {
                     @Override
                     public Observable<Integer> call(Boolean aBoolean) {
-                        List<User.UserCommonInfo> list  = new ArrayList<User.UserCommonInfo>();
+                        List<UserCommonInfo> list  = new ArrayList<UserCommonInfo>();
                         list.add(userInfo);
                        return  UserDaoImpl2.getInstance().updateFriendList(list);
                     }

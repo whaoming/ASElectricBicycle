@@ -15,7 +15,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <!-- 获取运营商信息，用于支持提供运营商信息相关的接口 -->
-
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
@@ -80,7 +80,7 @@
         </receiver>
 
         <activity
-            android:name=".view.activity.WelcomeActivity"
+            android:name=".core.ui.activity.WelcomeActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -89,87 +89,111 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.activity.ScanCodeActivity1"
+            android:name=".core.ui.activity.ScanCodeActivity"
+            android:screenOrientation="portrait" />
+        <!-- <activity -->
+        <!-- android:name=".view.activity.RoutePlanActivity" -->
+        <!-- android:screenOrientation="portrait" /> -->
+        <!-- <activity -->
+        <!-- android:name=".view.activity.BicycleWelcomeInfoActivity" -->
+        <!-- android:screenOrientation="portrait" /> -->
+        <!-- <activity -->
+        <!-- android:name=".view.activity.SearchActivity" -->
+        <!-- android:screenOrientation="portrait" /> -->
+        <!-- <activity -->
+        <!-- android:name=".view.activity.BaiduGuideActivity" -->
+        <!-- android:screenOrientation="portrait" /> -->
+
+
+        <!-- <activity -->
+        <!-- android:name=".ui.activity.BaiduNavActivity" -->
+        <!-- android:screenOrientation="portrait" /> -->
+        <!-- <activity -->
+        <!-- android:name=".view.activity.ChatActivity" -->
+        <!-- android:screenOrientation="portrait" /> -->
+        <!-- <activity -->
+        <!-- android:name=".view.activity.HomeActivity2" -->
+        <!-- android:screenOrientation="portrait" /> -->
+        <!-- <activity -->
+        <!-- android:name=".view.activity.LoginActivity" -->
+        <!-- android:screenOrientation="portrait" /> -->
+        <activity
+            android:name=".core.ui.activity.LoginActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".view.activity.RoutePlanActivity"
+            android:name=".core.ui.activity.PersonalAct"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".view.activity.BicycleWelcomeInfoActivity"
+            android:name=".core.ui.activity.SplashActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".view.activity.SearchActivity"
+            android:name=".core.ui.activity.HomeActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".view.activity.BaiduGuideActivity"
+            android:name=".core.ui.activity.ContactActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".core.ui.activity.ChatActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".core.ui.activity.FriendAddActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".core.ui.activity.UserInfoAct"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".core.ui.activity.RegisterOneAct"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".core.ui.activity.RoutePlanActivity"
+            android:screenOrientation="portrait" />
+        <activity
+        android:name=".core.ui.activity.BaiduNavActivity"
+        android:screenOrientation="portrait" />
+        <activity
+            android:name=".core.web.SimpleWebActivity"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.activity.BaiduNavActivity"
+            android:name=".core.web.WebTabsActivity"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".view.activity.ChatActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".view.activity.HomeActivity2"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".view.activity.LoginActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".ui.activity.LoginActivity1"
-            android:screenOrientation="portrait" />
+        <!-- <activity -->
+        <!-- android:name=".view.activity.RegisterTwoActivity" -->
+        <!-- android:screenOrientation="portrait" /> -->
+        <!-- <activity -->
+        <!-- android:name=".view.activity.RegisterOneActivity" -->
+        <!-- android:screenOrientation="portrait" /> -->
+        <!-- <activity -->
+        <!-- android:name=".view.activity.PersonalActivity" -->
+        <!-- android:screenOrientation="portrait" /> -->
+        <!-- <activity -->
+        <!-- android:name=".view.activity.UserInfoActivity" -->
+        <!-- android:screenOrientation="portrait" /> -->
+        <!-- <activity -->
+        <!-- android:name=".view.activity.ContactActivity2" -->
+        <!-- android:screenOrientation="portrait" /> -->
+        <!-- <activity -->
+        <!-- android:name=".view.activity.ChatActivity2" -->
+        <!-- android:screenOrientation="portrait" /> -->
 
-        <activity
-            android:name=".ui.activity.PersonalAct1"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".ui.activity.SplashActivity1"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".ui.activity.HomeActivity3"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".ui.activity.ContactActivity1"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".ui.activity.ChatActivity1"
-            android:screenOrientation="portrait" />
 
-        <activity
-            android:name=".ui.activity.FriendAddActivity1"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".view.activity.RegisterTwoActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".view.activity.RegisterOneActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".view.activity.PersonalActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".view.activity.UserInfoActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".view.activity.ContactActivity2"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".view.activity.ChatActivity2"
-            android:screenOrientation="portrait" />
+        <!-- <meta-data -->
+        <!-- android:name="com.google.android.gms.version" -->
+        <!-- android:value="@integer/google_play_services_version" /> -->
 
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
 
+        <!-- <activity -->
+        <!-- android:name=".view.activity.FriendAddActivity" -->
+        <!-- android:label="@string/title_activity_friend_add" -->
+        <!-- android:theme="@style/AppTheme" /> -->
         <activity
-            android:name=".view.activity.FriendAddActivity"
-            android:label="@string/title_activity_friend_add"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".ui.activity.SearchActiity1"
+            android:name=".core.ui.activity.SearchActiity"
             android:label="@string/title_activity_search_actiity1"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
+        <activity android:name=".core.web.TopicWebActivity" />
+        <activity android:name=".core.web.TopicDetailWebActivty" />
+        <activity android:name=".core.web.TestBaseActivity" />
+        <activity android:name=".core.web.TopicPersonalActivity"></activity>
     </application>
 
 </manifest>

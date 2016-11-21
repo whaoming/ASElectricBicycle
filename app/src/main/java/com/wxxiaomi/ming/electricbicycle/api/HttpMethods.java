@@ -3,8 +3,6 @@ package com.wxxiaomi.ming.electricbicycle.api;
 import android.util.Log;
 
 import com.wxxiaomi.ming.electricbicycle.ConstantValue;
-import com.wxxiaomi.ming.electricbicycle.api.exception.ApiException;
-import com.wxxiaomi.ming.electricbicycle.api.exception.ERROR;
 import com.wxxiaomi.ming.electricbicycle.api.exception.ExceptionEngine;
 import com.wxxiaomi.ming.electricbicycle.api.exception.ServerException;
 import com.wxxiaomi.ming.electricbicycle.api.service.DemoService;
@@ -15,10 +13,11 @@ import com.wxxiaomi.ming.electricbicycle.bean.format.Register;
 import com.wxxiaomi.ming.electricbicycle.bean.format.common.Result;
 
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 import java.util.List;
 
+import okhttp3.OkHttpClient;
+import okhttp3.RequestBody;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -40,16 +39,27 @@ public class HttpMethods {
 
     //构造方法私有
     private HttpMethods() {
+
         //手动创建一个OkHttpClient并设置超时时间
 //        OkHttpClient.Builder httpClientBuilder = new OkHttpClient.Builder();
 //        httpClientBuilder.connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS);
+        if(ConstantValue.isDeBug){
+            OkHttpClient okHttpClient = new OkHttpClient.Builder().addInterceptor
+                    (new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)).build();
+            retrofit = new Retrofit.Builder()
+                    .baseUrl(BASE_URL)
+                    .client(okHttpClient)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                    .build();
+        }else{
+            retrofit = new Retrofit.Builder()
+                    .baseUrl(BASE_URL)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                    .build();
+        }
 
-        retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
-//                .client(httpClientBuilder.build())
-                .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-                .build();
         demoService = retrofit.create(DemoService.class);
     }
 
@@ -67,6 +77,7 @@ public class HttpMethods {
      * 用于获取豆瓣电影Top250的数据
      */
     public Observable<InitUserInfo> getTopMovie(String username, String password) {
+
         return demoService.initUserInfo(username, password)
                 .map(new ServerResultFunc<InitUserInfo>())
                 .onErrorResumeNext(new Func1<Throwable, Observable<? extends InitUserInfo>>() {
@@ -78,6 +89,8 @@ public class HttpMethods {
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
+//                .subscribe()
+
     }
 
     public Observable<Login> login(String username, String password) {
@@ -94,6 +107,7 @@ public class HttpMethods {
         for (String e : emnamelist) {
             temp += e + "<>";
         }
+//        Observable.create()
         return demoService.getUserListByEmList(temp)
                 .map(new ServerResultFunc<InitUserInfo>())
                 .onErrorResumeNext(new HttpResultFunc<InitUserInfo>())
@@ -128,6 +142,7 @@ public class HttpMethods {
     }
 
     public Observable<Register> registerUser(String username, String password) {
+        Log.i("wang","HttpMethods->registerUser");
         return demoService.registerUser(username, password)
                 .map(new ServerResultFunc<Register>())
                 .onErrorResumeNext(new HttpResultFunc<Register>())
@@ -136,10 +151,26 @@ public class HttpMethods {
                 .observeOn(AndroidSchedulers.mainThread());
     }
 
+    public Observable<String> upLoadHead(String fileName, RequestBody imgs){
+        return demoService.uploadImage(fileName,imgs)
+                .map(new ServerResultFunc<String>())
+                .onErrorResumeNext(new HttpResultFunc<String>())
+                .subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+
+
     private class ServerResultFunc<T> implements Func1<Result<T>, T> {
         @Override
         public T call(Result<T> httpResult) {
-            if (httpResult.state != 200) {
+            Log.i("wang","HttpMethods->ServerResultFunc,httpResult==null?"+(httpResult==null));
+//            Log.i("wang","httpResult.toString()="+httpResult.toString());
+            if(httpResult==null){
+                throw new ServerException(404, "获取结构为空");
+            }
+           else if (httpResult.state != 200) {
                 throw new ServerException(httpResult.state, httpResult.error);
             }
             return httpResult.infos;
@@ -149,7 +180,12 @@ public class HttpMethods {
     private class HttpResultFunc<T> implements Func1<Throwable, Observable<T>> {
         @Override
         public Observable<T> call(Throwable throwable) {
+            Log.i("wang","HttpMethod发现异常拉"+throwable.toString());
+            throwable.printStackTrace();
             return Observable.error(ExceptionEngine.handleException(throwable));
         }
     }
+
+
+
 }

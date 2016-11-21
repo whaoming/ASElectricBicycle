@@ -9,16 +9,37 @@
 
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/nightBackgroundColor</item>
-        <item name="cardViewColor">@color/cardViewColor</item>
-        <item name="textColor">@color/textColor</item>
-        <item name="textColorHighlight">@color/textColorHighlight</item>
-        <item name="backgroundColor">@color/backgroundColor</item>
-        <item name="windowActionBarOverlay">true</item>-->
-        <item name="android:windowActionBarOverlay">true</item>
-        <item name="android:actionBarStyle">@style/MyActionBar</item>
+
+
+        <item name="android:textColorPrimary">@color/colorPrimary</item>
+        <item name="android:textColorPrimaryInverse">@color/colorPrimary</item>
+        <item name="android:textColorSecondary">@color/colorPrimary</item>
+        <item name="android:textColorSecondaryInverse">@color/colorPrimary</item>
+        <item name="android:textColorTertiary">@color/colorPrimary</item>
+        <item name="android:textColorTertiaryInverse">@color/colorPrimary</item>
+        <item name="android:textColorPrimaryDisableOnly">@color/colorPrimary</item>
+        <item name="android:textColorPrimaryInverseDisableOnly">@color/colorPrimary</item>
+        <item name="android:textColorHint">@color/colorPrimary</item>
+        <item name="android:textColorHintInverse">@color/colorPrimary</item>
+        <item name="android:textColorHighlight">@color/colorPrimary</item>
+        <item name="android:textColorLink">?attr/colorAccent</item>
+        <item name="colorAccent">#50ffffff</item>
+        <!--
+        <item name="android:colorAccent">@color/colorPrimary</item>
+       <item name="textColorPrimary">@color/colorPrimary</item>
+
+       <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+       <item name="colorAccent">@color/nightBackgroundColor</item>
+       <item name="cardViewColor">@color/cardViewColor</item>
+       <item name="textColor">@color/textColor</item>
+       <item name="textColorHighlight">@color/textColorHighlight</item>
+       <item name="backgroundColor">@color/backgroundColor</item>
+       <item name="windowActionBarOverlay">true</item>
+       <item name="android:windowActionBarOverlay">true</item>
+       <item name="android:actionBarStyle">@style/MyActionBar</item>
+       <item name="android:textColorSecondary">#ffffff</item>
+       -->
+        <!-- textColorSecondary->textview默认字体颜色->无效-->
         <!-- Support library compatibility -->
         <item name="actionBarStyle">@style/MyActionBar</item>
         <item name="android:windowContentOverlay">@null</item>

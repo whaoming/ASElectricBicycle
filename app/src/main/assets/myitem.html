@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--   <title>我的生活</title> -->
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- <link rel="shortcut icon" href="/favicon.ico"> -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+    <link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/font-awesome/css/font-awesome.css">
+     <link rel="stylesheet" type="text/css" href="./css/cus.css"> 
+    
+</head>
+
+<body>
+    <!--  <img class="image-roll" src="./images/test.jpg" alt=""> -->
+    <!-- 你的html代码 -->
+    <!-- page集合的容器，里面放多个平行的.page，其他.page作为内联页面由路由控制展示 -->
+    <div class="page-group">
+        <!-- 单个page ,第一个.page默认被展示-->
+        <div class="page" id='details'>
+            <!-- 标题栏 -->
+
+            <!-- 工具栏 -->
+            <!-- 这里是页面内容区 -->
+            <div class="content infinite-scroll  infinite-scroll-bottom  " style="background-color:#fff;">
+            
+            <div class="list-container">
+
+
+                
+            </div>
+              <div class="infinite-scroll-preloader">
+              <div class="preloader"></div>
+              </div>
+
+      
+                
+            </div>
+  
+  
+        
+
+
+
+        </div>
+    </div>
+                          <div class="popup popup-about">
+  <div class="content-block" >
+    <img style="width:100%" src="./images/share2.jpg">
+    <p style="text-align:center"><a href="#" class="close-popup">关闭</a></p>
+  
+  </div>
+</div>
+    <script type='text/javascript' src='http://g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='http://g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='http://g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+    <script>
+    $.init();
+    </script>
+    <script type="text/javascript">
+    $(document).on('click','.open-about', function () {
+  $.popup('.popup-about');
+});
+    $(document).on('click', '.create-actions', function() {
+        var buttons1 = [{
+                text: '确定删除',
+                label: true
+            }, {
+                text: '确定',
+                bold: true,
+                color: 'danger',
+                onClick: function() {
+
+                }
+            },
+
+        ];
+        var buttons2 = [{
+            text: '取消',
+            bg: 'danger'
+        }];
+        var groups = [buttons1, buttons2];
+        $.actions(groups);
+    });
+    </script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $(".text-c").each(function() {
+            height = $(this).height();
+            if (height > 72) {
+                $(this).addClass("height-a");
+                $(this).after("<p class=\"morecon\" >点开更多内容&nbsp&nbsp&or;</p>");
+            }
+        });
+
+
+        $(".morecon").click(function() {
+            $(this).parent().children(".text-c").removeClass("height-a");
+            $(this).parent().children(".text-c").addClass("dong");
+            //$(this).parent().children(".text-c").css("height","auto");
+
+
+            $(this).css("display", "none");
+
+        });
+
+    });
+    // 加载flag
+    var loading = false;
+    // 最多可加载的条目
+    var maxItems = 100;
+
+    // 每次加载添加多少条目
+    var itemsPerLoad = 2;
+
+    function addItems(number, lastIndex) {
+        // 生成新条目的HTML
+        var test_1 = $("#test_1").html();
+        var html = '';
+        for (var i = lastIndex + 1; i <= lastIndex + number; i++) {
+            html += '<div id="test_1" class="card facebook-card" style="padding-left:10px">' +test_1+'</div>'
+                
+        }
+        // 添加新条目
+        $('.infinite-scroll-bottom .list-container').append(html);
+
+    }
+    //预先加载20条
+    //addItems(itemsPerLoad, 0);
+
+    // 上次加载的序号
+
+    var lastIndex = 1;
+
+    // 注册'infinite'事件处理函数
+    $(document).on('infinite', '.infinite-scroll-bottom', function() {
+
+        // 如果正在加载，则退出
+        if (loading) return;
+
+        // 设置flag
+        loading = true;
+
+        // 模拟1s的加载过程
+        setTimeout(function() {
+            // 重置加载flag
+            loading = false;
+
+            if (lastIndex >= maxItems) {
+                // 加载完毕，则注销无限加载事件，以防不必要的加载
+                $.detachInfiniteScroll($('.infinite-scroll'));
+                // 删除加载提示符
+                $('.infinite-scroll-preloader').remove();
+                return;
+            }
+
+            // 添加新条目
+            //addItems(itemsPerLoad, lastIndex);
+            // 更新最后加载的序号
+            lastIndex = $('.list-container li').length;
+            //容器发生改变,如果是js滚动，需要刷新滚动
+            $.refreshScroller();
+        }, 1000);
+    });
+
+    $(document).on('refresh', '.pull-to-refresh-content', function(e) {
+        // 模拟2s的加载过程
+        setTimeout(function() {
+            var cardNumber = $(e.target).find('.card').length + 1;
+            var cardHTML = '<div class="card">' +
+                '<div class="card-header">card' + cardNumber + '</div>' +
+                '<div class="card-content">' +
+                '<div class="card-content-inner">' +
+                '这里是第' + cardNumber + '个card，下拉刷新会出现第' + (cardNumber + 1) + '个card。' +
+                '</div>' +
+                '</div>' +
+                '</div>';
+
+            $(e.target).find('.card-container').prepend(cardHTML);
+            // 加载完毕需要重置
+            $.pullToRefreshDone('.pull-to-refresh-content');
+        }, 2000);
+    });
+    </script>
+<script src="js/JsBridge.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+
+    connectWebViewJavascriptBridge(function(bridge) {
+        bridge.init(function(message, responseCallback) {
+            var data = {
+                'Javascript Responds': '测试中文!'
+            };
+            responseCallback(data);
+        });
+        bridge.registerHandler("bridgeInit", function(data, responseCallback) {
+            showLog("init函数");
+            sendRequest();
+        });
+   });
+
+	var lastIndex = 0;
+	function addMyItems(datas) {
+	    showLog("window.WebViewJavascriptBridge=null?"+window.WebViewJavascriptBridge==null?true:false);
+	    showLog("addMyItems,datas.infos.length="+datas.infos.length);
+        // 生成新条目的HTML
+        var number = datas.infos.length;
+		showLog("number="+number);
+        var html = '';
+        for (var i = lastIndex + 1; i <= lastIndex + number; i++) {
+			  html +=
+					'<div id="test_1" class="card facebook-card" style="padding-left:10px">'
+                    +'<div class="card-header no-border"><div style="float:right"><a href="#" class="create-actions">'
+					+'<span class="icon icon-remove " style="color:#f97711;font-size:20px;"></span></a><a href="#" class="open-about">'
+                    +'<span class="icon icon-share" style="padding-left:20px;color:#f97711;font-size:20px;"></span>'
+                     +'</a></div><div class="facebook-avatar"><img src="./images/user.png" width="44" height="44"></div>'
+                     +'<div class="facebook-name">'+datas.infos[i-1-lastIndex].userCommonInfo.name+'</div><div class="facebook-date">'+datas.infos[i-1-lastIndex].time+'</div>'
+                   +'</div><div class="text-c">'+datas.infos[i-1-lastIndex].content+'</div>'
+                   +'<div class="card-content"><img class="img-c" src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg">'
+                   +'<img class="img-c" src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg">'
+                   +'<img class="img-c" src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg"></div>'
+                   +'<div class="card-footer no-border" style="    width: 220px;padding-left:5px;background-color:#fff">'
+                    +' <div class="foot-c"><a href="#"><i class="fa fa-eye icon-c"></i>231</a></div>+<div class="foot-c"><a href="#"><i class="fa fa-thumbs-o-up icon-c"></i>231</a></div>'
+                    +'<div class="foot-c"><a href="#"><i class="fa fa-comment-o icon-c"></i>231</a></div></div></div>'
+
+        };
+		//console.log("html="+html);
+        // 添加新条目
+        $(".infinite-scroll-bottom .list-container").append(html);
+
+    }
+
+	function getUserId(callback) {
+		 window.WebViewJavascriptBridge.callHandler(
+            'getUserId'
+            , "asd"
+            , function(data) {
+                showLog("getUserId-data="+data)
+                callback(data);
+            }
+        );
+	}
+
+	function getMyTopic(userid){
+	    showLog("getMyTopic函数，userid="+userid);
+		var pars = "url=android/topic_myTopic&userid="+ userid;
+		window.WebViewJavascriptBridge.callHandler(
+            'sendGet'
+            , pars
+            , function(data) {
+                showLog("js中取得结果："+data);
+                //closeLoading();
+                var result = eval("("+data+")");
+                addMyItems(result);
+            }
+        );
+	}
+
+	function sendRequest(){
+		showLog("开始获取数据");
+		getUserId(getMyTopic);
+	}
+
+</script>
+</body>
+
+</html>

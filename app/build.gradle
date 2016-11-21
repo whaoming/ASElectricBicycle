@@ -1,8 +1,8 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "24.0.0 rc3"
+    compileSdkVersion 25
+    buildToolsVersion "25.0.0"
 
 
     dexOptions {
@@ -28,47 +28,53 @@ android {
         main {
             jniLibs.srcDir 'libs'
         }
-
         instrumentTest.setRoot('tests')
-
-        // Move the build types to build-types/<type>
-        // For instance, build-types/debug/java, build-types/debug/AndroidManifest.xml, ...
-        // This moves them out of them default location under src/<type>/... which would
-        // conflict with src/ being used by the main source set.
-        // Adding new build types or product flavors should be accompanied
-        // by a similar customization.
         debug.setRoot('build-types/debug')
         release.setRoot('build-types/release')
 
     }
+
 }
 
-
+repositories {
+    jcenter()
+    maven { url "https://jitpack.io" }
+}
 
 dependencies {
 
-    compile 'com.android.support:design:23.3.0'
+    compile 'com.android.support:design:25.0.0'
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile project(':easeui')
     compile project(':chatwidget')
-    compile 'com.android.support:cardview-v7:23.1.1'
+    compile 'com.android.support:cardview-v7:25.0.0'
     compile 'io.reactivex:rxjava:1.0.14'
     compile 'io.reactivex:rxandroid:1.0.1'
-   /** compile files('libs/commons-lang3-3.0-beta.jar')
-    *   compile files('libs/locSDK_6.12.jar')
-    compile files('libs/httpmime-4.1.2.jar')
-    compile files('libs/gson-2.2.1.jar')
-    compile files('libs/volley.jar')
-    compile files('libs/zxing.jar')
-    compile files('libs/android-support-multidex.jar')
-    compile files('libs/BaiduNaviSDK_3.1.0.jar')*/
-   compile 'com.google.android.gms:play-services-appindexing:8.1.0'
-    compile 'com.facebook.fresco:fresco:0.9.0+'
+    compile 'com.google.android.gms:play-services-appindexing:8.1.0'
+    //compile 'com.facebook.fresco:fresco:0.9.0+'
     compile 'com.miguelcatalan:materialsearchview:1.4.0'
 
-    compile 'com.squareup.retrofit2:retrofit:2.0.0-beta4'
-    compile 'com.squareup.retrofit2:converter-gson:2.0.0-beta4'
-    compile 'com.squareup.retrofit2:adapter-rxjava:2.0.0-beta4'
+    compile 'com.squareup.retrofit2:retrofit:2.0.1'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.1'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.0.1'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.1.2'
+    compile 'com.squareup.okhttp3:okhttp:3.1.2'
+    compile 'com.squareup.retrofit2:converter-scalars:2.0.0'
+    compile 'com.github.lzyzsd:jsbridge:1.0.4'
+//  compile ('com.jph.takephoto:takephoto_library:3.0.4'){
+//     // exclude 'com.google.android:support-v4'
+//
+//  }
 
+    //单元测试Mock
+    //testCompile "org.mockito:mockito-core:1.+"
+    //androidTestCompile 'com.google.dexmaker:dexmaker-mockito:1.0'
 
+//    androidTestCompile "org.mockito:mockito-core:1.10.19"
+//    androidTestCompile "com.google.dexmaker:dexmaker:1.2"
+//    androidTestCompile "com.google.dexmaker:dexmaker-mockito:1.2"
+
+//    classpath 'me.tatarka:gradle-retrolambda:3.2.2'
+    //testCompile 'org.mockito:mockito-core:1.9.5'
+    compile project(path: ':takephoto_library')
 }

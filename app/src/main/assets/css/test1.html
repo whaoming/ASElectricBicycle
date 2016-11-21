@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--   <title>我的生活</title> -->
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- <link rel="shortcut icon" href="/favicon.ico"> -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+    <link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/font-awesome/css/font-awesome.css">
+    
+<body>
+    <!--  <img class="image-roll" src="./images/test.jpg" alt=""> -->
+    <!-- 你的html代码 -->
+    <!-- page集合的容器，里面放多个平行的.page，其他.page作为内联页面由路由控制展示 -->
+    <div class="page-group">
+        <!-- 单个page ,第一个.page默认被展示-->
+        <div class="page page-current">
+        <div class="content" data-type="">
+    <p>其他内容区域</p>
+    <p>其他内容区域</p>
+    ...
+    <p>其他内容区域</p>
+    <div class="buttons-tab fixed-tab" data-offset="44">
+      <a href="#tab1" class="tab-link active button">全部</a>
+      <a href="#tab2" class="tab-link button">待付款</a>
+      <a href="#tab3" class="tab-link button">待发货</a>
+    </div>
+
+    <div class="tabs">
+      <div id="tab1" class="tab active">
+        <div class="content-block">
+          <div class="buttons-row">
+            <a href="#tab1-1" class="tab-link active button">Tab 1</a>
+            <a href="#tab1-2" class="tab-link button">Tab 2</a>
+            <a href="#tab1-3" class="tab-link button">Tab 3</a>
+          </div>
+          <div class="tabs">
+            <p class='tab active' id='tab1-1'>This is tab 1-1 content</p>
+            <p class='tab' id='tab1-2'>This is tab 1-2 content</p>
+            <p class='tab' id='tab1-3'>13855589778</p>
+          </div>
+        </div>
+      </div>
+      <div id="tab2" class="tab infinite-scroll">
+          <div class="list-block">
+            <ul class="list-container">
+              <li class="item-content"><div class="item-inner"><div class="item-title">条目</div></div></li>
+             ....
+              <li class="item-content"><div class="item-inner"><div class="item-title">条目</div></div></li>
+            </ul>
+          </div>
+          <!-- 加载提示符 -->
+          <div class="infinite-scroll-preloader">
+            <div class="preloader">
+            </div>
+          </div>
+      </div>
+      <div id="tab3"  class="tab infinite-scroll">
+          <div class="list-block">
+            <ul class="list-container">
+              <li class="item-content"><div class="item-inner"><div class="item-title">条目</div></div></li>
+             ....
+              <li class="item-content"><div class="item-inner"><div class="item-title">条目</div></div></li>
+            </ul>
+          </div>
+          <!-- 加载提示符 -->
+          <div class="infinite-scroll-preloader">
+            <div class="preloader">
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+         
+        </div>
+    </div>
+    <script type='text/javascript' src='http://g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='http://g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='http://g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+    <script type="text/javascript">
+    $(document).on("pageInit", function() {
+      //多个标签页下的无限滚动
+      var loading = false;
+      // 每次加载添加多少条目
+      var itemsPerLoad = 20;
+      // 最多可加载的条目
+      var maxItems = 100;
+      var lastIndex = $('.list-container li')[0].length;
+      function addItems(number, lastIndex) {
+        // 生成新条目的HTML
+        var html = '';
+        for (var i = lastIndex + 1; i <= lastIndex + number; i++) {
+          html += '<li class="item-content" onClick="alert(1)"><div class="item-inner"><div class="item-title">新条目</div></div></li>';
+        }
+        // 添加新条目
+        $('.infinite-scroll.active .list-container').append(html);
+      }
+      $(page).on('infinite', function() {
+        // 如果正在加载，则退出
+        if (loading) return;
+        // 设置flag
+        loading = true;
+        var tabIndex = 0;
+        if($(this).find('.infinite-scroll.active').attr('id') == "tab2"){
+          tabIndex = 0;
+        }
+        if($(this).find('.infinite-scroll.active').attr('id') == "tab3"){
+          tabIndex = 1;
+        }
+        lastIndex = $('.list-container').eq(tabIndex).find('li').length;
+        // 模拟1s的加载过程
+        setTimeout(function() {
+          // 重置加载flag
+          loading = false;
+          if (lastIndex >= maxItems) {
+            // 加载完毕，则注销无限加载事件，以防不必要的加载:$.detachInfiniteScroll($('.infinite-scroll').eq(tabIndex));多个无线滚动请自行根据自己代码逻辑判断注销时机
+            // 删除加载提示符
+            $('.infinite-scroll-preloader').eq(tabIndex).hide();
+            return;
+          }
+          addItems(itemsPerLoad,lastIndex);
+          // 更新最后加载的序号
+          lastIndex =  $('.list-container').eq(tabIndex).find('li').length;
+          $.refreshScroller();
+        }, 1000);
+      });
+  });
+
+  </script>
+    <script>
+    $.init();
+    </script>
+</body>
+
+</html>

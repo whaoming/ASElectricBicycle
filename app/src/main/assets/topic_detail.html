@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="generator"
+    content="HTML Tidy for HTML5 (experimental) for Windows https://github.com/w3c/tidy-html5/tree/c63cc39" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!--   <title>我的生活</title> -->
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
+    <!-- <link rel="shortcut icon" href="/favicon.ico"> -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/sm.min.css" />
+    <link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css" />
+    <link rel="stylesheet" type="text/css" href="./css/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="./css/cus.css" />
+    <title></title>
+  </head>
+  <body>
+  <!--  <img class="image-roll" src="./images/test.jpg" alt=""> -->
+  <!-- 你的html代码 -->
+  <!-- page集合的容器，里面放多个平行的.page，其他.page作为内联页面由路由控制展示 -->
+  <div class="page-group">
+    <!-- 单个page ,第一个.page默认被展示-->
+    <div class="page" id='details'>
+      <!-- 标题栏 -->
+
+      <div class="bar" style="bottom:0">
+        <div class="searchbar">
+          <a class="searchbar-cancel">留言</a>
+          <div class="search-input">
+            <input type="search" id='search' placeholder='请输入留言' />
+          </div>
+        </div>
+      </div>
+      <!-- 工具栏 -->
+      <!-- 这里是页面内容区 -->
+      <div class="content infinite-scroll infinite-scroll-bottom" style="background-color:#fff;margin-bottom:50px">
+        <div class="card facebook-card" style="padding-left:10px">
+          <div class="card-header no-border">
+            <div id="zan_t" style="position:absolute;right:-10px;top:-10px;display:none">
+              <img style="width:50px;opacity:0.4" src="./images/zan.png" />
+            </div>
+            <div class="facebook-avatar" id="info_head_parent" onclick="onHeadClick(this)">
+              <img src="./images/user.png" width="44" height="44" />
+            </div>
+            <div class="facebook-name" id="info_name"></div>
+            <div class="facebook-date" id="info_time">&nbsp&nbsp&nbsp&nbsp&nbsp来自
+            <span style="color:#f97711">健康养生话题</span></div>
+          </div>
+          <div class="text-c" id="info_content"></div>
+          <a href="#" class="pb-popup">
+            <div class="card-content">
+            <img class="img-c" src="http://img.alicdn.com/tps/i3/TB1kt4wHVXXXXb_XVXX0HY8HXXX-1024-1024.jpeg" /> 
+            <img class="img-c" src="http://img.alicdn.com/tps/i1/TB1SKhUHVXXXXb7XXXX0HY8HXXX-1024-1024.jpeg" /> 
+            <img class="img-c" src="http://img.alicdn.com/tps/i4/TB1AdxNHVXXXXasXpXX0HY8HXXX-1024-1024.jpeg" /></div>
+          </a>
+          <div class="card-footer no-border" style=" width: 220px;padding-left:5px;background-color:#fff">
+            <div class="foot-c">231</div>
+            <div class="add_zan">
+              <div class="foot-c">
+                <span class="zan_num">231</span>
+              </div>
+            </div>
+            <div class="foot-c">231</div>
+          </div>
+        </div>
+        <div class="card facebook-card message_o" style="padding-left:10px">
+          <div class="card-header no-border" style="padding-bottom:0px">
+            <div class="facebook-avatar">
+              <img src="./images/user.png" width="44" height="44" />
+            </div>
+            <div class="facebook-name">李女士</div>
+            <div class="facebook-date">一天前</div>
+          </div>
+          <div class="text-c-1">
+          留言测试留言测试留言测试留言测试留言测试留言测试留言测试留言测试留言测试留言测试留言测试留言测试</div>
+        </div>
+        <div class="card facebook-card" style="padding-left:10px">
+          <div class="card-header no-border" style="padding-bottom:0px">
+            <div class="facebook-avatar">
+              <img src="./images/user.png" width="44" height="44" />
+            </div>
+            <div class="facebook-name">李女士</div>
+            <div class="facebook-date">一天前</div>
+          </div>
+          <div class="text-c-1" id="myContent">
+          留言测试留言测试留言测试留言测试留言测试留言测试留言测试留言测试留言测试留言测试留言测试留言测试</div>
+        </div>
+        <div class="card facebook-card" style="padding-left:10px">
+          <div class="card-header no-border" style="padding-bottom:0px">
+            <div class="facebook-avatar">
+              <img src="./images/user.png" width="44" height="44" />
+            </div>
+            <div class="facebook-name">李女士</div>
+            <div class="facebook-date">一天前</div>
+          </div>
+          <div class="text-c-1">
+          留言测试留言测试留言测试留言测试留言测试留言测试留言测试留言测试留言测试留言测试留言测试留言测试</div>
+        </div>
+      </div>
+  
+         
+
+    </div>
+  </div>
+  <script type='text/javascript' src='http://g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script> 
+  <script type='text/javascript' src='http://g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script> 
+  <script type='text/javascript' src='http://g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script> 
+  <script>
+    $.init();
+	</script>
+  <script src="js/JsBridge.js" type="text/javascript"></script>
+	
+  <script type="text/javascript">
+    connectWebViewJavascriptBridge(function(bridge) {
+        bridge.init(function(message, responseCallback) {
+            document.getElementById("content").innerHTML = ("bridge.init");
+            console.log('JS got a message', message);
+            var data = {
+                'Javascript Responds': '测试中文!'
+            };
+            console.log('JS responding with', data);
+            responseCallback(data);
+        });
+        bridge.registerHandler("bridgeInit", function(data, responseCallback) {
+            var result = eval("("+data+")");
+            adapterStartData(result);
+        });
+   });
+
+   function adapterStartData(infos){
+     // $("#myContent").html(infos);
+     $("#info_head_parent").attr("data-me",JSON.stringify(infos.userCommonInfo));
+      $("#info_name").html(infos.userCommonInfo.name);
+      $("#info_time").html(infos.time);
+      $("#info_content").html(infos.content);
+   }
+
+   function onHeadClick(view){
+        var userInfo = view.getAttribute("data-me");
+        window.WebViewJavascriptBridge.callHandler(
+            'onHeadClick'
+            , userInfo
+            , function(responseData) {}
+        );
+     }
+  </script>
+</body>
+</html>
