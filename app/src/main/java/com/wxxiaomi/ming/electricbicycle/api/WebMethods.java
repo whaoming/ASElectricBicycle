@@ -36,6 +36,17 @@ public class WebMethods {
         demoService = retrofit.create(DemoService.class);
     }
 
+    public Observable<String> sendPost(String url, Map<String, String> pars) {
+        Log.i("wang","httpMethod->sendPost被调用了,url="+url);
+        for(Map.Entry<String,String> item : pars.entrySet()){
+            Log.i("wang","key:"+item.getKey()+"--value:"+item.getValue());
+        }
+        return demoService.sendPost(url,pars)
+                .subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
     //在访问HttpMethods时创建单例
     private static class SingletonHolder {
         private static final WebMethods INSTANCE = new WebMethods();

@@ -165,16 +165,29 @@ function submitData() {
 
 function request(userid){
     var content = $("#info_content").val();
-	var time = getNowFormatDate();
-
-	var head = "";
-	var pars = "url=android/topic_submitTopic&userid=" + userid + "&content=" + content + "&time="+time+"&head="+head;
-
-    sendGetRequest(pars,function(responseData){
+	var pics = "";
+	var locat = "ws4wpf4wk48t";
+	var locat_tag = "科技馆";
+	showLog("我在这里啊哈");
+	var obj = {
+	        "id":0,
+	        "time":"2016.16.4",
+	        "userid":userid,
+	        "content":content,
+	        "pics": pics,
+	        "locat":locat,
+	        "locat_tag":locat_tag,
+	        "title":"标题",
+	        "hot":0,
+	        "ccount":0
+	    };
+	    showLog("JSON.stringify(obj):"+JSON.stringify(obj));
+	var pars = "url=android/topic_submitTopic&topic="+JSON.stringify(obj);
+	showLog("pars:"+pars);
+    sendPostRequest(pars,function(responseData){
         loadComplete();
         Myfinish(1);
     });
-
 }
 
 

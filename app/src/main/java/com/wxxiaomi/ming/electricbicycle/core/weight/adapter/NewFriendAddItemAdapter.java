@@ -18,21 +18,23 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.hyphenate.easeui.utils.EaseUserUtils;
 import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.bean.InviteMessage;
 import com.wxxiaomi.ming.electricbicycle.bean.User;
 import com.wxxiaomi.ming.electricbicycle.bean.UserCommonInfo;
-import com.wxxiaomi.ming.electricbicycle.dao.impl.InviteMessgeDaoImpl;
-import com.wxxiaomi.ming.electricbicycle.dao.impl.TempUserDaoImpl;
 import com.wxxiaomi.ming.electricbicycle.core.ui.activity.UserInfoAct;
 import com.wxxiaomi.ming.electricbicycle.core.weight.custom.CircularImageView;
+import com.wxxiaomi.ming.electricbicycle.dao.UserService;
+import com.wxxiaomi.ming.electricbicycle.service.EmEngine;
+
+import rx.functions.Action1;
 
 
 public class NewFriendAddItemAdapter extends RecyclerView.Adapter<ViewHolder> {
 
 	private List<InviteMessage> infos;
 	private Context context;
-	private List<UserCommonInfo> userInfos;
 	ItemAddOnClick lis;
 
 	public List<InviteMessage> getInfoList() {
@@ -40,27 +42,17 @@ public class NewFriendAddItemAdapter extends RecyclerView.Adapter<ViewHolder> {
 	}
 
 	public void refersh() {
-		TempUserDaoImpl impl = new TempUserDaoImpl(context);
-		InviteMessgeDaoImpl dao = new InviteMessgeDaoImpl();
-		List<InviteMessage> msgs = dao.getMessagesList();
-		List<UserCommonInfo> tempList = new ArrayList<UserCommonInfo>();
-		for (InviteMessage msg : msgs) {
-			UserCommonInfo personByEmname = impl.getPersonByEmname(msg
-					.getFrom());
-			if (personByEmname != null) {
-				tempList.add(personByEmname);
-			}
-		}
+
+		//获取全部的邀请消息
+		List<InviteMessage> msgs = EmEngine.getInstance().getInviteMsgList();
 		infos.clear();
 		infos.addAll(msgs);
-		userInfos.clear();
-		userInfos.addAll(tempList);
 		notifyDataSetChanged();
 	}
 
 	@Override
 	public int getItemViewType(int position) {
-		if(userInfos.size() == 0){
+		if(infos.size() == 0){
 			return 123;
 		}else{
 			return 321;
@@ -74,17 +66,6 @@ public class NewFriendAddItemAdapter extends RecyclerView.Adapter<ViewHolder> {
 		infos = new ArrayList<InviteMessage>();
 		this.context = context;
 		this.infos = info;
-		TempUserDaoImpl impl = new TempUserDaoImpl(context);
-		userInfos = new ArrayList<UserCommonInfo>();
-		for (InviteMessage msg : infos) {
-			UserCommonInfo personByEmname = impl.getPersonByEmname(msg
-					.getFrom());
-//			Log.i("wang","personByEmname="+personByEmname.toString());
-			if (personByEmname != null) {
-				userInfos.add(personByEmname);
-			}
-		}
-		Log.i("wang","userInfos.size()="+userInfos.size());
 		this.lis = lis;
 	}
 
@@ -97,9 +78,9 @@ public class NewFriendAddItemAdapter extends RecyclerView.Adapter<ViewHolder> {
 
 	}
 
-	public void update() {
-		notifyItemChanged(infos.size());
-	}
+	//public void update() {
+//		notifyItemChanged(infos.size());
+//	}
 
 	@Override
 	public int getItemCount() {
@@ -111,25 +92,26 @@ public class NewFriendAddItemAdapter extends RecyclerView.Adapter<ViewHolder> {
 		if(viewHolder instanceof ItemViewHolder){
 			InviteMessage info = infos.get(position);
 			ItemViewHolder holder = (ItemViewHolder) viewHolder;
-			final UserCommonInfo userCommonInfo = userInfos.get(position);
-			holder.tv_name.setText(userCommonInfo.name);
+//			final UserCommonInfo userCommonInfo = userInfos.get(position);
+			EaseUserUtils.setUserNick(infos.get(position).getFrom(),holder.tv_name);
+//			holder.tv_name.setText(userCommonInfo.name);
 			holder.tv_reason.setText(info.getReason());
-			holder.rl_item.setOnClickListener(new OnClickListener() {
-				@Override
-				public void onClick(View v) {
-					Bundle bundle = new Bundle();
-					bundle.putSerializable("userInfo", userCommonInfo);
-					Intent intent4 = new Intent(context, UserInfoAct.class);
-					intent4.putExtra("value", bundle);
-					context.startActivity(intent4);
-				}
-			});
-			Glide.with(context).load(userCommonInfo.head).into(holder.iv_head);
+//			holder.rl_item.setOnClickListener(new OnClickListener() {
+//				@Override
+//				public void onClick(View v) {
+//					Bundle bundle = new Bundle();
+//					bundle.putSerializable("userInfo", userCommonInfo);
+//					Intent intent4 = new Intent(context, UserInfoAct.class);
+//					intent4.putExtra("value", bundle);
+//					context.startActivity(intent4);
+//				}
+//			});
+			EaseUserUtils.setUserHead(context,infos.get(position).getFrom(),holder.iv_head);
 			holder.ib_contact.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View v) {
 					// 添加好友
-					lis.onClick(userCommonInfo);
+					lis.onClick(infos.get(position).getFrom());
 				}
 			});
 		}else if(viewHolder instanceof NoDataViewHolder){
@@ -222,7 +204,7 @@ public class NewFriendAddItemAdapter extends RecyclerView.Adapter<ViewHolder> {
 	}
 
 	public interface ItemAddOnClick {
-		void onClick(UserCommonInfo userInfo);
+		void onClick(String userEmName);
 	}
 
 }

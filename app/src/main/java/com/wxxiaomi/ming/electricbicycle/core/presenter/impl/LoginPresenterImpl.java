@@ -3,21 +3,19 @@ package com.wxxiaomi.ming.electricbicycle.core.presenter.impl;
 import android.support.design.widget.TextInputLayout;
 
 import com.wxxiaomi.ming.electricbicycle.ConstantValue;
-import com.wxxiaomi.ming.electricbicycle.GlobalParams;
 import com.wxxiaomi.ming.electricbicycle.bean.User;
 import com.wxxiaomi.ming.electricbicycle.bean.format.Login;
 import com.wxxiaomi.ming.electricbicycle.core.base.BasePreImpl;
 import com.wxxiaomi.ming.electricbicycle.core.ui.activity.HomeActivity;
-import com.wxxiaomi.ming.electricbicycle.dao.impl.UserDaoImpl2;
-import com.wxxiaomi.ming.electricbicycle.model.impl.EmEngine;
 import com.wxxiaomi.ming.electricbicycle.core.presenter.LoginPresenter;
+import com.wxxiaomi.ming.electricbicycle.dao.UserService;
+import com.wxxiaomi.ming.electricbicycle.service.EmEngine;
 import com.wxxiaomi.ming.electricbicycle.support.GlobalManager;
 import com.wxxiaomi.ming.electricbicycle.support.rx.SampleProgressObserver;
 import com.wxxiaomi.ming.electricbicycle.core.ui.LoginView;
 import com.wxxiaomi.ming.electricbicycle.support.util.MyUtils;
 
 import rx.Observable;
-import rx.Observer;
 import rx.functions.Func1;
 
 /**
@@ -67,7 +65,7 @@ public class LoginPresenterImpl extends BasePreImpl<LoginView> implements LoginP
     }
 
     private void sendRequest(String username, String password) {
-        Observable<Login> flag = UserDaoImpl2.getInstance().Login(username, password);
+        Observable<Login> flag = UserService.getInstance().Login(username, password);
         if (ConstantValue.isEMOpen) {
             flag
                     //登录到em服务器
@@ -89,6 +87,7 @@ public class LoginPresenterImpl extends BasePreImpl<LoginView> implements LoginP
                         @Override
                         public void onNext(Integer flag) {
 //                            GlobalParams.user = tempUser;
+                            EmEngine.getInstance().init();
                             GlobalManager.getInstance().savaUser(tempUser);
                             mView.runActivity(HomeActivity.class, null, true);
                         }

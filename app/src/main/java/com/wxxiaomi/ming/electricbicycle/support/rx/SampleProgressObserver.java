@@ -1,12 +1,14 @@
 package com.wxxiaomi.ming.electricbicycle.support.rx;
 
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
 
 import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.api.exception.ApiException;
+import com.wxxiaomi.ming.electricbicycle.core.web.base.BaseWebActivity;
 import com.wxxiaomi.ming.electricbicycle.core.weight.custom.LoadingDialog;
 
 /**
@@ -14,7 +16,7 @@ import com.wxxiaomi.ming.electricbicycle.core.weight.custom.LoadingDialog;
  */
 public abstract class SampleProgressObserver<T> extends MyObserver<T>{
 
-    private LoadingDialog dialog;
+    private ProgressDialog dialog;
     private AlertDialog msgDialog;
     private Context context;
     private String content;
@@ -22,13 +24,16 @@ public abstract class SampleProgressObserver<T> extends MyObserver<T>{
 
 
     public SampleProgressObserver(Context context) {
-        dialog = new LoadingDialog(context).builder().setMessage("正在加载中");
+//        dialog = new LoadingDialog(context).builder().setMessage("正在加载中");
+        dialog = new ProgressDialog(context);
+        dialog.setTitle("请等待");//设置标题
+        dialog.setMessage("正在加载");
+        msgDialog = new AlertDialog.Builder(context, R.style.MingDialog).setPositiveButton("确定", null).create();
         this.context = context;
     }
 
     @Override
     public void onStart() {
-        //Log.i("wang","SampleProgressObserver-onStart()");
         dialog.show();
         super.onStart();
     }
@@ -37,9 +42,11 @@ public abstract class SampleProgressObserver<T> extends MyObserver<T>{
     protected void onError(ApiException ex) {
         //Log.i("wang","SampleProgressObserver-onError-"+ex.getDisplayMessage());
         //ex.printStackTrace();;
-        dialog.dismiss();
+        if(dialog.isShowing()) {
+            dialog.dismiss();
+        }
         showMsg = false;
-        msgDialog = new AlertDialog.Builder(context, R.style.MingDialog).setMessage(ex.getDisplayMessage()).setPositiveButton("确定", null).create();
+        msgDialog.setMessage(ex.getDisplayMessage());
         msgDialog.show();
     }
 

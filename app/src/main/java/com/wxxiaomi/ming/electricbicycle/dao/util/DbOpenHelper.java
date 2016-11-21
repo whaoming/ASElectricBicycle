@@ -19,8 +19,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.wxxiaomi.ming.electricbicycle.GlobalParams;
+import com.wxxiaomi.ming.electricbicycle.dao.FriendDao;
 import com.wxxiaomi.ming.electricbicycle.dao.InviteMessgeDao;
-import com.wxxiaomi.ming.electricbicycle.dao.TempUserDao;
 import com.wxxiaomi.ming.electricbicycle.dao.UserDao;
 
 
@@ -50,11 +50,11 @@ public class DbOpenHelper extends SQLiteOpenHelper{
 			+ InviteMessgeDao.COLUMN_NAME_TIME + " TEXT); ";
 	
 	private static final String TEMP_USERNAME_TABLE_CREATE = "CREATE TABLE "
-			+ TempUserDao.TABLE_NAME + " ("
-			+ TempUserDao.COLUMN_NAME_NAME + " TEXT, "
-			+ TempUserDao.COLUMN_NAME_HEAD + " TEXT, "
-			+ TempUserDao.COLUMN_NAME_EMNAME + " TEXT, "
-			+ TempUserDao.COLUMN_NAME_ID + " TEXT PRIMARY KEY);";
+			+ FriendDao.TABLE_NAME + " ("
+			+ FriendDao.COLUMN_NAME_NAME + " TEXT, "
+			+ FriendDao.COLUMN_NAME_HEAD + " TEXT, "
+			+ FriendDao.COLUMN_NAME_EMNAME + " TEXT, "
+			+ FriendDao.COLUMN_NAME_ID + " TEXT PRIMARY KEY);";
 	
 	
 //			

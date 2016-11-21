@@ -18,24 +18,24 @@ public class WebMethodsTest extends TestCase {
         // EBApplication.getInstance().onCreate();;
     }
     public void testListTopic() throws Exception {
-        WebMethods.getInstance().listTopic()
-                .subscribe(new Observer<String>() {
-                    @Override
-                    public void onCompleted() {
-
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        e.printStackTrace();
-                        Log.i("wang","出错拉");
-                    }
-
-                    @Override
-                    public void onNext(String s) {
-                        Log.i("wang","result="+s);
-                    }
-                });
+//        WebMethods.getInstance().listTopic()
+//                .subscribe(new Observer<String>() {
+//                    @Override
+//                    public void onCompleted() {
+//
+//                    }
+//
+//                    @Override
+//                    public void onError(Throwable e) {
+//                        e.printStackTrace();
+//                        Log.i("wang","出错拉");
+//                    }
+//
+//                    @Override
+//                    public void onNext(String s) {
+//                        Log.i("wang","result="+s);
+//                    }
+//                });
     }
 
 }

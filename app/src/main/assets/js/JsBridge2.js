@@ -108,6 +108,16 @@ function sendGetRequest(data,callback){
     );
 }
 
+function sendPostRequest(data,callback){
+    window.WebViewJavascriptBridge.callHandler(
+        'sendPost'
+        , data
+        , function(data) {
+            callback(data);
+        }
+    );
+}
+
 function showLog(data){
     window.WebViewJavascriptBridge.callHandler(
         'showLog'

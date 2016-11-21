@@ -1,26 +1,32 @@
 package com.wxxiaomi.ming.electricbicycle.core.presenter.impl;
 
+import android.content.Intent;
 import android.util.Log;
 
 import com.wxxiaomi.ming.electricbicycle.bean.InviteMessage;
-import com.wxxiaomi.ming.electricbicycle.bean.User;
 import com.wxxiaomi.ming.electricbicycle.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.core.base.BasePreImpl;
-import com.wxxiaomi.ming.electricbicycle.model.impl.EmEngine;
 
+import com.wxxiaomi.ming.electricbicycle.core.em.ChatActivity;
+import com.wxxiaomi.ming.electricbicycle.core.em.Constant;
 import com.wxxiaomi.ming.electricbicycle.core.presenter.ContactPresenter;
 import com.wxxiaomi.ming.electricbicycle.core.ui.activity.FriendAddActivity;
 import com.wxxiaomi.ming.electricbicycle.core.ui.ContactView;
 import com.wxxiaomi.ming.electricbicycle.core.weight.adapter.NewFriendAddItemAdapter;
-import com.wxxiaomi.ming.electricbicycle.core.weight.em.EmManager;
+import com.wxxiaomi.ming.electricbicycle.dao.impl.InviteMessgeDaoImpl;
+import com.wxxiaomi.ming.electricbicycle.service.EmEngine;
+import com.wxxiaomi.ming.electricbicycle.service.listener.FriendMessageListener;
+import com.wxxiaomi.ming.electricbicycle.service.listener.InviteMessageListener;
 
 import java.util.List;
 
+import rx.Observer;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 
 /**
  * Created by 12262 on 2016/6/9.
+ * 联系人界面
  */
 public class ContactPresenterImpl extends BasePreImpl<ContactView> implements ContactPresenter<ContactView> {
 
@@ -28,32 +34,20 @@ public class ContactPresenterImpl extends BasePreImpl<ContactView> implements Co
 
     @Override
     public void init() {
-
-    }
-
-    @Override
-    public void attach(ContactView mView) {
-        super.attach(mView);
         initDrawerData();
     }
 
     @Override
     public void initDrawerData() {
-        EmEngine.getInstance().getUnreadInviteCountTotal()
-                .subscribe(new Action1<Integer>() {
-                    @Override
-                    public void call(Integer count) {
-                        mView.updateUnReadMsg(count);
-                    }
-                });
-        List<InviteMessage> inviteMsgList = EmManager.getInstance().getInviteMsgList();
-        Log.i("wang","inviteMsgList.size()="+inviteMsgList.size());
+
+        refreshInviteUI();
+        List<InviteMessage> inviteMsgList = EmEngine.getInstance().getInviteMsgList();
         adapter = new NewFriendAddItemAdapter(mView.getContext(), inviteMsgList
                 , new NewFriendAddItemAdapter.ItemAddOnClick() {
             @Override
-            public void onClick(UserCommonInfo userInfo) {
+            public void onClick(String userEmName) {
                 // 添加某个好友
-                addFriend(userInfo);
+                addFriend(userEmName);
             }
 
 
@@ -61,37 +55,78 @@ public class ContactPresenterImpl extends BasePreImpl<ContactView> implements Co
         mView.setInviteListAdapter(adapter);
     }
 
-    private void addFriend(UserCommonInfo userInfo) {
+    private void addFriend(final String emname) {
+        EmEngine.getInstance().agreeInvite(emname)
+                .subscribe(new Observer<Boolean>() {
+                    @Override
+                    public void onCompleted() {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onNext(Boolean aBoolean) {
+                        Log.i("wang","添加好友成功");
+                        Intent intent = new Intent(mView.getContext(), ChatActivity.class);
+                        intent.putExtra(Constant.EXTRA_USER_ID, emname);
+                        intent.putExtra("isAdd",true);
+                        mView.getContext().startActivity(intent);
+                        mView.refershChildUI();
+                    }
+                });
     }
 
     @Override
     public void onViewResume() {
-        EmEngine.getInstance().setFriendMsgLis(new EmEngine.FriendMessageListener() {
+        //设置好友发来的消息监听
+        EmEngine.getInstance().setFriendMsgLis(new FriendMessageListener() {
             @Override
             public void FriendMsgReceive() {
                 mView.refershChildUI();
             }
         });
-        EmEngine.getInstance().setInviteMsgLis(new EmEngine.InviteMessageListener() {
+        //设置邀请消息的监听
+        EmEngine.getInstance().setInviteMsgLis(new InviteMessageListener() {
             @Override
             public void InviteMsgReceive() {
-                EmEngine.getInstance().getUnreadInviteCountTotal()
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(new Action1<Integer>() {
-                            @Override
-                            public void call(Integer integer) {
-                                Log.i("wang","contactPresenter4645464");
-                                mView.updateUnReadMsg(integer);
-                            }
-                        });
+                adapter.refersh();
+                refreshInviteUI();
             }
-        });
+        })
+
+        ;
+    }
+
+    public void refreshInviteUI(){
+        EmEngine.getInstance().getUnreadInviteCountTotal()
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Action1<Integer>() {
+                    @Override
+                    public void call(Integer integer) {
+                        mView.updateUnReadMsg(integer);
+                    }
+                });
     }
 
 
     @Override
     public void onAddFriendBtnClick() {
         mView.runActivity(FriendAddActivity.class,null);
+    }
+
+    @Override
+    public void onDrawClick() {
+        InviteMessgeDaoImpl.getInstance().saveUnreadMessageCount(0)
+                .subscribe(new Action1<Integer>() {
+                    @Override
+                    public void call(Integer integer) {
+                        mView.updateUnReadMsg(0);
+                    }
+                });
     }
 
 

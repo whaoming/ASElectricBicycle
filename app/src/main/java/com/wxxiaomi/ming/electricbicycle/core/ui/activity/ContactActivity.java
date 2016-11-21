@@ -19,16 +19,16 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.wxxiaomi.ming.electricbicycle.GlobalParams;
 import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.core.base.BaseActivity;
+//import com.wxxiaomi.ming.electricbicycle.core.em2.ConversationListFragment;
+import com.wxxiaomi.ming.electricbicycle.core.em.ContactListFragment;
+import com.wxxiaomi.ming.electricbicycle.core.em.ConversationListFragment;
 import com.wxxiaomi.ming.electricbicycle.core.presenter.ContactPresenter;
 import com.wxxiaomi.ming.electricbicycle.core.presenter.impl.ContactPresenterImpl;
 import com.wxxiaomi.ming.electricbicycle.core.ui.ContactView;
 import com.wxxiaomi.ming.electricbicycle.core.weight.adapter.IndexFragmentTabAdapter;
 import com.wxxiaomi.ming.electricbicycle.core.weight.adapter.NewFriendAddItemAdapter;
-import com.wxxiaomi.ming.electricbicycle.core.weight.fragment.LatelyFriendFragment;
-import com.wxxiaomi.ming.electricbicycle.core.weight.fragment.MyFriendFragment;
 import com.wxxiaomi.ming.electricbicycle.core.weight.fragment.base.BaseFragment;
 import com.wxxiaomi.ming.electricbicycle.core.weight.fragment.base.FragmentCallback;
 import com.wxxiaomi.ming.electricbicycle.support.GlobalManager;
@@ -47,16 +47,18 @@ public class ContactActivity extends BaseActivity<ContactView,ContactPresenter> 
     private FragmentStatePagerAdapter fAdapter;
     private List<Fragment> list_fragment;
     private List<String> list_title;
+    private ConversationListFragment demoFragment;
+    private ContactListFragment contactFragment;
 
     private DrawerLayout mDrawerLayout;
     private RecyclerView mRecyclerView;
     private LinearLayout drawer;
     private LinearLayoutManager mLayoutManager;
 
-    private LatelyFriendFragment latelyFriendFragment;
+//    private LatelyFriendFragment latelyFriendFragment;
 
     //	private EditText et_serach;
-    private MyFriendFragment myFriendFragment;
+   // private MyFriendFragment myFriendFragment;
     private RelativeLayout drawer_ll;
     private ImageButton iv_contact;
 
@@ -65,6 +67,7 @@ public class ContactActivity extends BaseActivity<ContactView,ContactPresenter> 
 
     @Override
     protected void initView(Bundle savedInstanceState) {
+
         setContentView(R.layout.activity_contact2);
         tabLayout = (TabLayout) findViewById(R.id.tab_FindFragment_title);
         tabLayout.setTabMode(TabLayout.MODE_FIXED);
@@ -79,7 +82,9 @@ public class ContactActivity extends BaseActivity<ContactView,ContactPresenter> 
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.dl_left);
+
         drawer = (LinearLayout) findViewById(R.id.drawer);
+        drawer.setOnClickListener(this);
         drawer_ll = (RelativeLayout)drawer.findViewById(R.id.drawer_ll);
         drawer_ll.setOnClickListener(this);
         mRecyclerView = (RecyclerView) drawer.findViewById(R.id.list);
@@ -88,10 +93,14 @@ public class ContactActivity extends BaseActivity<ContactView,ContactPresenter> 
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
         list_fragment = new ArrayList<Fragment>();
-        latelyFriendFragment = new LatelyFriendFragment();
-        myFriendFragment = new MyFriendFragment();
-        list_fragment.add(latelyFriendFragment);
-        list_fragment.add(myFriendFragment);
+//        latelyFriendFragment = new LatelyFriendFragment();
+        contactFragment = new ContactListFragment();
+        demoFragment = new ConversationListFragment();
+       // myFriendFragment = new MyFriendFragment();
+        list_fragment.add(demoFragment);
+        list_fragment.add(contactFragment);
+//        list_fragment.add(myFriendFragment);
+        //list_fragment.add(myFriendFragment);
         list_title = new ArrayList<String>();
         list_title.add("最近联系人");
         list_title.add("我的好友");
@@ -103,7 +112,6 @@ public class ContactActivity extends BaseActivity<ContactView,ContactPresenter> 
         viewPager.requestDisallowInterceptTouchEvent(true);
         tabLayout.setupWithViewPager(viewPager);
 
-//        presenter.initDrawerData();
     }
 
     @Override
@@ -119,8 +127,11 @@ public class ContactActivity extends BaseActivity<ContactView,ContactPresenter> 
                 presenter.onAddFriendBtnClick();
                 break;
             case R.id.iv_contact:
+                presenter.onDrawClick();
                 mDrawerLayout.openDrawer(Gravity.RIGHT);
                 break;
+
+
         }
     }
 
@@ -152,8 +163,9 @@ public class ContactActivity extends BaseActivity<ContactView,ContactPresenter> 
 
     @Override
     public void refershChildUI() {
-        latelyFriendFragment.Refresh();
-        myFriendFragment.refersh();
+//        latelyFriendFragment.Refresh();
+        //myFriendFragment.refersh();
+        demoFragment.refresh();
     }
 
 

@@ -66,38 +66,38 @@ public class SearchPresenterImpl extends BasePreImpl<SearchView> implements Sear
     }
 
     private void setPoiSearchListener(){
-        mPoiSearch
-                .setOnGetPoiSearchResultListener(new OnGetPoiSearchResultListener() {
-                    @Override
-                    public void onGetPoiResult(PoiResult result) {
-                        if (result == null
-                                || result.error == SearchResult.ERRORNO.RESULT_NOT_FOUND) {
-//                            showErrorDialog("未找到结果");
-                        }
-                        if (result.error == SearchResult.ERRORNO.NO_ERROR) {
-                            GlobalParams.poiInf = result.getAllPoi().get(0);
-                           mView.runRoutePlanAct();
-                            return;
-                        }
-                        if (result.error == SearchResult.ERRORNO.AMBIGUOUS_KEYWORD) {
-                            // 当输入关键字在本市没有找到，但在其他城市找到时，返回包含该关键字信息的城市列表
-                        }
-                    }
-
-                    @Override
-                    public void onGetPoiDetailResult(PoiDetailResult result) {
-                        if (result.error != SearchResult.ERRORNO.NO_ERROR) {
-                            // 抱歉，未找到结果
-//                            showErrorDialog("抱歉未找到结果");
-                        } else {
-//                            Log.i("wang",
-//                                    "PoiSearchDemo.this, result.getName()  + result.getAddress()="
-//                                            + result.getName() + ": "
-//                                            + result.getAddress());
-                        }
-
-                    }
-                });
+//        mPoiSearch
+//                .setOnGetPoiSearchResultListener(new OnGetPoiSearchResultListener() {
+//                    @Override
+//                    public void onGetPoiResult(PoiResult result) {
+//                        if (result == null
+//                                || result.error == SearchResult.ERRORNO.RESULT_NOT_FOUND) {
+////                            showErrorDialog("未找到结果");
+//                        }
+//                        if (result.error == SearchResult.ERRORNO.NO_ERROR) {
+//                            GlobalParams.poiInf = result.getAllPoi().get(0);
+//                           mView.runRoutePlanAct();
+//                            return;
+//                        }
+//                        if (result.error == SearchResult.ERRORNO.AMBIGUOUS_KEYWORD) {
+//                            // 当输入关键字在本市没有找到，但在其他城市找到时，返回包含该关键字信息的城市列表
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onGetPoiDetailResult(PoiDetailResult result) {
+//                        if (result.error != SearchResult.ERRORNO.NO_ERROR) {
+//                            // 抱歉，未找到结果
+////                            showErrorDialog("抱歉未找到结果");
+//                        } else {
+////                            Log.i("wang",
+////                                    "PoiSearchDemo.this, result.getName()  + result.getAddress()="
+////                                            + result.getName() + ": "
+////                                            + result.getAddress());
+//                        }
+//
+//                    }
+//                });
     }
 
     @Override

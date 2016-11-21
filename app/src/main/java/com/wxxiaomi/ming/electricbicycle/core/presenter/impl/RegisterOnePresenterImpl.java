@@ -4,19 +4,14 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.wxxiaomi.ming.electricbicycle.ConstantValue;
-import com.wxxiaomi.ming.electricbicycle.GlobalParams;
 import com.wxxiaomi.ming.electricbicycle.bean.format.Register;
 import com.wxxiaomi.ming.electricbicycle.core.MainActivity;
-import com.wxxiaomi.ming.electricbicycle.core.base.BasePre;
 import com.wxxiaomi.ming.electricbicycle.core.base.BasePreImpl;
-import com.wxxiaomi.ming.electricbicycle.dao.impl.UserDaoImpl2;
 import com.wxxiaomi.ming.electricbicycle.core.presenter.RegisterOnePresenter;
+import com.wxxiaomi.ming.electricbicycle.dao.UserService;
 import com.wxxiaomi.ming.electricbicycle.support.GlobalManager;
 import com.wxxiaomi.ming.electricbicycle.support.rx.SampleProgressObserver;
-import com.wxxiaomi.ming.electricbicycle.core.ui.activity.RegisterTwoAct;
 import com.wxxiaomi.ming.electricbicycle.core.ui.RegisterOneView;
-
-import rx.Observable;
 
 
 /**
@@ -34,7 +29,7 @@ public class RegisterOnePresenterImpl extends BasePreImpl<RegisterOneView> imple
 
     @Override
     public void onLoginClick(String username, String password) {
-        UserDaoImpl2.getInstance().registerUser(username,password)
+        UserService.getInstance().registerUser(username,password)
                 .subscribe(new SampleProgressObserver<Register>(mView.getContext()) {
                     @Override
                     public void onNext(Register register) {

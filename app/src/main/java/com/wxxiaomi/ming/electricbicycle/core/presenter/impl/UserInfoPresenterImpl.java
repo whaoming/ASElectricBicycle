@@ -6,14 +6,12 @@ import android.os.Bundle;
 
 import com.google.gson.Gson;
 import com.wxxiaomi.ming.electricbicycle.R;
-import com.wxxiaomi.ming.electricbicycle.bean.User;
 import com.wxxiaomi.ming.electricbicycle.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.core.base.BasePreImpl;
-import com.wxxiaomi.ming.electricbicycle.dao.impl.UserDaoImpl2;
-import com.wxxiaomi.ming.electricbicycle.model.impl.EmEngine;
 import com.wxxiaomi.ming.electricbicycle.core.presenter.UserInfoPresenter;
+import com.wxxiaomi.ming.electricbicycle.dao.UserService;
+import com.wxxiaomi.ming.electricbicycle.service.EmEngine;
 import com.wxxiaomi.ming.electricbicycle.support.rx.SampleProgressObserver;
-import com.wxxiaomi.ming.electricbicycle.core.ui.activity.ChatActivity;
 import com.wxxiaomi.ming.electricbicycle.core.ui.UserInfoView;
 
 import com.wxxiaomi.ming.electricbicycle.core.weight.custom.EditableDialog;
@@ -30,7 +28,7 @@ public class UserInfoPresenterImpl extends BasePreImpl<UserInfoView> implements 
         if(isMyFriendFlag){
             Bundle bundle = new Bundle();
             bundle.putString("userId",userInfo.emname);
-            mView.runActivity(ChatActivity.class,bundle,false);
+//            mView.runActivity(ChatActivity.class,bundle,false);
         }else{
             /**
              * 添加好友的逻辑：
@@ -67,7 +65,7 @@ public class UserInfoPresenterImpl extends BasePreImpl<UserInfoView> implements 
         } else {
             userInfo = (UserCommonInfo) bundle.get("userInfo");
         }
-        isMyFriendFlag = UserDaoImpl2.getInstance().isMyFriend(userInfo.emname);
+        isMyFriendFlag = UserService.getInstance().isMyFriend(userInfo.emname);
         if (isMyFriendFlag)
             mView.setBtnView(mView.getContext().getResources().getDrawable(R.mipmap.ic_mode_edit_black_18dp));
         else

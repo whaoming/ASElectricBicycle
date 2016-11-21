@@ -43,16 +43,23 @@
     <color name="orange">#FFA500</color>
     <color name="top_bar_normal_bg">#00acff</color>
     <color name="voip_interface_text_color">#bababa</color>
+    <declare-styleable name="CircularImageView"><attr format="boolean" name="border"/><attr format="dimension" name="border_width"/><attr format="color" name="border_color"/><attr format="boolean" name="shadow"/><attr format="color" name="shadow_color"/><attr format="float" name="shadow_radius"/></declare-styleable>
     <declare-styleable name="EaseChatExtendMenu"><attr format="integer" name="numColumns"/></declare-styleable>
     <declare-styleable name="EaseChatMessageList"><attr format="reference" name="msgListMyBubbleBackground"/><attr format="reference" name="msgListOtherBubbleBackground"/><attr format="boolean" name="msgListShowUserAvatar"/><attr format="boolean" name="msgListShowUserNick"/></declare-styleable>
     <declare-styleable name="EaseContactList"><attr format="color" name="ctsListPrimaryTextColor"/><attr format="dimension" name="ctsListPrimaryTextSize"/><attr format="boolean" name="ctsListShowSiderBar"/><attr format="reference|color" name="ctsListInitialLetterBg"/><attr format="color" name="ctsListInitialLetterColor"/></declare-styleable>
     <declare-styleable name="EaseConversationList"><attr format="color" name="cvsListPrimaryTextColor"/><attr format="color" name="cvsListSecondaryTextColor"/><attr format="color" name="cvsListTimeTextColor"/><attr format="dimension" name="cvsListPrimaryTextSize"/><attr format="dimension" name="cvsListSecondaryTextSize"/><attr format="dimension" name="cvsListTimeTextSize"/></declare-styleable>
     <declare-styleable name="EaseEmojiconMenu"><attr format="integer" name="bigEmojiconRows"/><attr format="integer" name="emojiconColumns"/></declare-styleable>
+    <declare-styleable name="EaseImageView"><attr format="color" name="ease_border_color"/><attr format="dimension" name="ease_border_width"/><attr format="integer" name="ease_press_alpha"/><attr format="color" name="ease_press_color"/><attr format="dimension" name="ease_radius"/><attr format="enum" name="ease_shape_type">
+            <enum name="none" value="0"/>
+            <enum name="round" value="1"/>
+            <enum name="rectangle" value="2"/>
+        </attr></declare-styleable>
     <declare-styleable name="EaseSwitchButton"><attr format="reference" name="switchOpenImage"/><attr format="reference" name="switchCloseImage"/><attr name="switchStatus">
             <enum name="open" value="0"/>
             <enum name="close" value="1"/>
         </attr></declare-styleable>
     <declare-styleable name="EaseTitleBar"><attr format="string" name="titleBarTitle"/><attr format="reference" name="titleBarLeftImage"/><attr format="reference" name="titleBarRightImage"/><attr format="reference|color" name="titleBarBackground"/></declare-styleable>
+    <declare-styleable name="Theme"><attr format="reference" name="circularImageViewStyle"/></declare-styleable>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="call_button_padding_left">25dp</dimen>
@@ -144,7 +151,6 @@
     <string name="Recording_without_permission">Recording without permission</string>
     <string name="Refused">Refused</string>
     <string name="Registered_successfully">Registered successfully</string>
-    <string name="Registration_failed">Registration failed:</string>
     <string name="Remove_the_notification">Remove the notification</string>
     <string name="Removed_from_the_failure">Removed fail</string>
     <string name="Request_add_buddy_failure">Request add buddy failure:</string>
@@ -183,6 +189,7 @@
     <string name="add_public_group_chat">Add public group</string>
     <string name="address_book">Address book</string>
     <string name="agree">Agree</string>
+    <string name="all_members">All members</string>
     <string name="answer">Answer</string>
     <string name="are_empty_group_of_news">Clearing messages</string>
     <string name="attach_file">File</string>
@@ -246,7 +253,7 @@
     <string name="dl_update_nick">update nickname</string>
     <string name="dl_update_photo">update photo</string>
     <string name="dl_waiting">waiting...</string>
-    <string name="downwaiting">Downloading the file, please try again later</string>
+    <string name="downwaiting">Downloading the file, please wait a moment</string>
     <string name="dynamic_expression">[Dynamic expression]</string>
     <string name="ease_user_remove">This user has been removed</string>
     <string name="error_send_invalid_content">The message content is not allowed to be sent!</string>
@@ -273,7 +280,7 @@
     <string name="have_you_removed">Have you removed from his buddy list</string>
     <string name="illegal_user_name">Illegal user name</string>
     <string name="input_new_nick_hint">Input a new nick</string>
-    <string name="is_down_please_wait">Downloading video, please try again later</string>
+    <string name="is_down_please_wait">Downloading video, please wait a moment</string>
     <string name="is_modify_the_group_name">Modifying the group name..</string>
     <string name="is_quit_the_group_chat">Exiting group</string>
     <string name="join_public_group">Join public group</string>
@@ -315,7 +322,6 @@
     <string name="recording_video">Record video</string>
     <string name="refreshing_group_list">Refreshing group list</string>
     <string name="register">Register</string>
-    <string name="registration_failed_without_permission">Registration failed, without permission!</string>
     <string name="relay_call">Relay</string>
     <string name="release_to_cancel">Finger release to cancel sending</string>
     <string name="remove_group_of">Remove group of shielding failure, please check the network or try again later</string>
@@ -361,6 +367,7 @@
     <string name="voice">Voice</string>
     <string name="voice_call">[Voice call]</string>
     <string name="voice_prefix">[Voice]</string>
+    <string name="were_mentioned">You were montioned</string>
     <string name="yangshengqi">Use speaker</string>
     <string name="you_are_group">You have been kicked off from the group</string>
     <style name="AnimBottom" parent="@android:style/Animation">

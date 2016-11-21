@@ -110,7 +110,7 @@ public abstract class BaseWebActivity extends AppCompatActivity {
         mWebView.registerHandler("sendPost", new BridgeHandler() {
             @Override
             public void handler(String data, final CallBackFunction function) {
-                parseGetRequest(data)
+                parsePostRequest(data)
                         .subscribe(new Observer<String>() {
                             @Override
                             public void onCompleted() {
@@ -202,6 +202,19 @@ public abstract class BaseWebActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    /**
+     * 向服务器post一段json数据
+     * @param data
+     * @return
+     */
+    private Observable<String> parsePostRequest(String data) {
+        Log.i("wang","parsePostRequest,data:"+data);
+        Map<String, String> pars = parseData(data);
+        String url = pars.get("url");
+        pars.remove("url");
+        return WebMethods.getInstance().sendPost(url, pars);
     }
 
     /**
