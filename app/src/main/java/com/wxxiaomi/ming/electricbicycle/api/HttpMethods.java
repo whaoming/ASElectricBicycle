@@ -29,6 +29,7 @@ import rx.schedulers.Schedulers;
 /**
  * Created by 12262 on 2016/5/31.
  * 111111
+ * 2222222222
  */
 public class HttpMethods {
     public static final String BASE_URL = ConstantValue.SERVER_URL;
