@@ -95,8 +95,7 @@ public class UserService {
                     }
                 })
                 .subscribeOn(Schedulers.io())
-                .unsubscribeOn(Schedulers.io())
-                ;
+                .unsubscribeOn(Schedulers.io());
         return Observable.concat(userMemoryCache,userLocal,userNet)
                 .first(new Func1<UserCommonInfo, Boolean>() {
                     @Override

@@ -172,7 +172,6 @@ public class EmEngine {
                 //从服务器获取用户公共信息并存到本地服务器
                 Observable<UserCommonInfo> userCommonInfoObservable = UserService.getInstance().getUserInfoByEname((emEvent.getUsername()));
 
-
                 Observable.zip(integerObservable, userCommonInfoObservable, objectObservable2, new Func3<Integer, UserCommonInfo, Integer, UserCommonInfo>() {
 
                     @Override
