@@ -15,16 +15,17 @@ import com.baidu.mapapi.map.MyLocationConfiguration;
 import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.model.LatLng;
 import com.bumptech.glide.Glide;
+import com.wxxiaomi.ming.electricbicycle.ConstantValue;
 import com.wxxiaomi.ming.electricbicycle.GlobalParams;
 import com.wxxiaomi.ming.electricbicycle.api.exception.ApiException;
 import com.wxxiaomi.ming.electricbicycle.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.bean.format.NearByPerson;
 import com.wxxiaomi.ming.electricbicycle.core.base.BasePreImpl;
-import com.wxxiaomi.ming.electricbicycle.core.web.SimpleWebActivity;
 import com.wxxiaomi.ming.electricbicycle.core.presenter.HomePresenter;
+import com.wxxiaomi.ming.electricbicycle.core.web.TestWebActivity;
 import com.wxxiaomi.ming.electricbicycle.dao.UserService;
-import com.wxxiaomi.ming.electricbicycle.service.EmEngine;
-import com.wxxiaomi.ming.electricbicycle.service.listener.AllMsgListener;
+import com.wxxiaomi.ming.electricbicycle.service.em.EmEngine;
+import com.wxxiaomi.ming.electricbicycle.service.em.listener.AllMsgListener;
 import com.wxxiaomi.ming.electricbicycle.support.GlobalManager;
 import com.wxxiaomi.ming.electricbicycle.support.rx.MyObserver;
 import com.wxxiaomi.ming.electricbicycle.core.ui.activity.ContactActivity;
@@ -153,8 +154,8 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
         Log.i("wang","话题按钮被点击了");
         //mView.runActivity(TopicWebActivity.class,null);
 //        ForwardAction action = new ForwardAction();
-        Intent intent = new Intent(mView.getContext(), SimpleWebActivity.class);
-        intent.putExtra("url","file:///android_asset/topicList.html");
+        Intent intent = new Intent(mView.getContext(), TestWebActivity.class);
+        intent.putExtra("url", ConstantValue.SERVER_URL+"/app/topicList_1.html");
         mView.getContext().startActivity(intent);
     }
 

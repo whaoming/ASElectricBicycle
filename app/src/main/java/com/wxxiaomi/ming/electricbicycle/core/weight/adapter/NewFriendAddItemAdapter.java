@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.ViewHolder;
 import android.util.Log;
@@ -17,18 +15,11 @@ import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.hyphenate.easeui.utils.EaseUserUtils;
 import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.bean.InviteMessage;
-import com.wxxiaomi.ming.electricbicycle.bean.User;
-import com.wxxiaomi.ming.electricbicycle.bean.UserCommonInfo;
-import com.wxxiaomi.ming.electricbicycle.core.ui.activity.UserInfoAct;
 import com.wxxiaomi.ming.electricbicycle.core.weight.custom.CircularImageView;
-import com.wxxiaomi.ming.electricbicycle.dao.UserService;
-import com.wxxiaomi.ming.electricbicycle.service.EmEngine;
-
-import rx.functions.Action1;
+import com.wxxiaomi.ming.electricbicycle.service.em.EmEngine;
 
 
 public class NewFriendAddItemAdapter extends RecyclerView.Adapter<ViewHolder> {

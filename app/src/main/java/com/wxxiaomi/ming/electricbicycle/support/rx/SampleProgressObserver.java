@@ -8,8 +8,6 @@ import android.util.Log;
 
 import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.api.exception.ApiException;
-import com.wxxiaomi.ming.electricbicycle.core.web.base.BaseWebActivity;
-import com.wxxiaomi.ming.electricbicycle.core.weight.custom.LoadingDialog;
 
 /**
  * Created by 12262 on 2016/6/5.

@@ -9,7 +9,7 @@ import com.wxxiaomi.ming.electricbicycle.core.base.BasePreImpl;
 import com.wxxiaomi.ming.electricbicycle.core.ui.activity.HomeActivity;
 import com.wxxiaomi.ming.electricbicycle.core.presenter.LoginPresenter;
 import com.wxxiaomi.ming.electricbicycle.dao.UserService;
-import com.wxxiaomi.ming.electricbicycle.service.EmEngine;
+import com.wxxiaomi.ming.electricbicycle.service.em.EmEngine;
 import com.wxxiaomi.ming.electricbicycle.support.GlobalManager;
 import com.wxxiaomi.ming.electricbicycle.support.rx.SampleProgressObserver;
 import com.wxxiaomi.ming.electricbicycle.core.ui.LoginView;
@@ -17,6 +17,7 @@ import com.wxxiaomi.ming.electricbicycle.support.util.MyUtils;
 
 import rx.Observable;
 import rx.functions.Func1;
+import rx.schedulers.Schedulers;
 
 /**
  * Created by 12262 on 2016/6/5.
@@ -83,6 +84,7 @@ public class LoginPresenterImpl extends BasePreImpl<LoginView> implements LoginP
                             return EmEngine.getInstance().updateFriend();
                         }
                     })
+                    .subscribeOn(Schedulers.io())
                     .subscribe(new SampleProgressObserver<Integer>(mView.getContext()) {
                         @Override
                         public void onNext(Integer flag) {

@@ -19,14 +19,13 @@ import com.hyphenate.chat.EMConversation.EMConversationType;
 import com.hyphenate.chat.EMMessage;
 import com.hyphenate.easeui.model.EaseAtMessageHelper;
 import com.hyphenate.easeui.ui.EaseConversationListFragment;
-import com.hyphenate.easeui.widget.EaseConversationList;
 import com.hyphenate.easeui.widget.EaseConversationList.EaseConversationListHelper;
 import com.hyphenate.util.NetUtils;
 import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.dao.UserService;
-import com.wxxiaomi.ming.electricbicycle.service.EmEngine;
-import com.wxxiaomi.ming.electricbicycle.service.listener.FriendMessageListener;
+import com.wxxiaomi.ming.electricbicycle.service.em.EmEngine;
+import com.wxxiaomi.ming.electricbicycle.service.em.listener.FriendMessageListener;
 
 import java.util.List;
 

@@ -10,7 +10,7 @@ import com.wxxiaomi.ming.electricbicycle.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.core.base.BasePreImpl;
 import com.wxxiaomi.ming.electricbicycle.core.presenter.UserInfoPresenter;
 import com.wxxiaomi.ming.electricbicycle.dao.UserService;
-import com.wxxiaomi.ming.electricbicycle.service.EmEngine;
+import com.wxxiaomi.ming.electricbicycle.service.em.EmEngine;
 import com.wxxiaomi.ming.electricbicycle.support.rx.SampleProgressObserver;
 import com.wxxiaomi.ming.electricbicycle.core.ui.UserInfoView;
 

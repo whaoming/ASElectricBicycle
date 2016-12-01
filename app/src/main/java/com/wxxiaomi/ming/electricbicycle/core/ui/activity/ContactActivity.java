@@ -19,6 +19,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.squareup.leakcanary.RefWatcher;
+import com.wxxiaomi.ming.electricbicycle.EBApplication;
 import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.core.base.BaseActivity;
 //import com.wxxiaomi.ming.electricbicycle.core.em2.ConversationListFragment;
@@ -172,5 +174,12 @@ public class ContactActivity extends BaseActivity<ContactView,ContactPresenter> 
     @Override
     public void onFragmentCallback(BaseFragment fragment, int id, Bundle args) {
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        RefWatcher refWatcher = EBApplication.sRefWatcher;
+        refWatcher.watch(this);
     }
 }

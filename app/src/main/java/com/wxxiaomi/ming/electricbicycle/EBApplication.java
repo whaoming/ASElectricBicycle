@@ -9,7 +9,11 @@ import android.util.Log;
 import com.baidu.mapapi.SDKInitializer;
 import com.hyphenate.chat.EMOptions;
 import com.hyphenate.easeui.controller.EaseUI;
+import com.squareup.leakcanary.LeakCanary;
+import com.squareup.leakcanary.RefWatcher;
 import com.wxxiaomi.ming.electricbicycle.core.em.MyUserProvider;
+import com.wxxiaomi.ming.electricbicycle.service.aliyun.OssEngine;
+import com.wxxiaomi.ming.electricbicycle.service.cache.DiskCache;
 
 /**
  * 程序入口
@@ -19,16 +23,26 @@ import com.wxxiaomi.ming.electricbicycle.core.em.MyUserProvider;
 public class EBApplication extends Application {
     public static Context applicationContext;
     private static EBApplication instance;
+    public  static RefWatcher sRefWatcher;
 
     @Override
     public void onCreate() {
+        super.onCreate();
         MultiDex.install(this);
         Log.i("wang", "进入application-oncreate()");
         applicationContext = this;
         instance = this;
         SDKInitializer.initialize(getApplicationContext());
+        DiskCache.getInstance().open(getApplicationContext());
+        OssEngine.getInstance().initOssEngine(getApplicationContext());
         initEM();
-        super.onCreate();
+        if (LeakCanary.isInAnalyzerProcess(this)) {
+            // This process is dedicated to LeakCanary for heap analysis.
+            // You should not init your app in this process.
+            return;
+        }
+        sRefWatcher = LeakCanary.install(this);
+
 
     }
 

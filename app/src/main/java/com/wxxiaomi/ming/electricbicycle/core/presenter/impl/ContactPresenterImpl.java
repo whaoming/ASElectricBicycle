@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.util.Log;
 
 import com.wxxiaomi.ming.electricbicycle.bean.InviteMessage;
-import com.wxxiaomi.ming.electricbicycle.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.core.base.BasePreImpl;
 
 import com.wxxiaomi.ming.electricbicycle.core.em.ChatActivity;
@@ -14,9 +13,9 @@ import com.wxxiaomi.ming.electricbicycle.core.ui.activity.FriendAddActivity;
 import com.wxxiaomi.ming.electricbicycle.core.ui.ContactView;
 import com.wxxiaomi.ming.electricbicycle.core.weight.adapter.NewFriendAddItemAdapter;
 import com.wxxiaomi.ming.electricbicycle.dao.impl.InviteMessgeDaoImpl;
-import com.wxxiaomi.ming.electricbicycle.service.EmEngine;
-import com.wxxiaomi.ming.electricbicycle.service.listener.FriendMessageListener;
-import com.wxxiaomi.ming.electricbicycle.service.listener.InviteMessageListener;
+import com.wxxiaomi.ming.electricbicycle.service.em.EmEngine;
+import com.wxxiaomi.ming.electricbicycle.service.em.listener.FriendMessageListener;
+import com.wxxiaomi.ming.electricbicycle.service.em.listener.InviteMessageListener;
 
 import java.util.List;
 
