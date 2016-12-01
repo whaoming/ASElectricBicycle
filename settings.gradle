@@ -1,2 +1,2 @@
-include ':app', ':takephoto_library'
+include ':app', ':gallerypick'
 include ':easeUI'
