@@ -26,7 +26,7 @@ import android.os.Looper;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.DecodeHintType;
 import com.google.zxing.ResultPointCallback;
-import com.wxxiaomi.ming.electricbicycle.core.ui.activity.ScanCodeActivity;
+import com.wxxiaomi.ming.electricbicycle.core.ui.view.activity.ScanCodeActivity;
 
 
 /**

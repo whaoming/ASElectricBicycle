@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-import com.wxxiaomi.ming.electricbicycle.bean.UserCommonInfo;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.dao.FriendDao;
 import com.wxxiaomi.ming.electricbicycle.dao.util.DbOpenHelper;
 

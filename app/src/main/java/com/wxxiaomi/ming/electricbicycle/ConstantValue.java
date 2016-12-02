@@ -5,7 +5,7 @@ public interface ConstantValue {
 	/**
 	 * 是否开启聊天服务器
 	 */
-	static final boolean isEMOpen = true;
+	static final boolean isEMOpen = false;
 	/**
 	 * 是否开启调试模式
 	 */

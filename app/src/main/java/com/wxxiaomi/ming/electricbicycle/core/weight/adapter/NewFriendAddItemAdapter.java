@@ -17,9 +17,9 @@ import android.widget.TextView;
 
 import com.hyphenate.easeui.utils.EaseUserUtils;
 import com.wxxiaomi.ming.electricbicycle.R;
-import com.wxxiaomi.ming.electricbicycle.bean.InviteMessage;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.InviteMessage;
 import com.wxxiaomi.ming.electricbicycle.core.weight.custom.CircularImageView;
-import com.wxxiaomi.ming.electricbicycle.service.em.EmEngine;
+import com.wxxiaomi.ming.electricbicycle.support.easemob.EmEngine;
 
 
 public class NewFriendAddItemAdapter extends RecyclerView.Adapter<ViewHolder> {

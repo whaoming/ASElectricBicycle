@@ -11,9 +11,9 @@ import com.hyphenate.chat.EMOptions;
 import com.hyphenate.easeui.controller.EaseUI;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
-import com.wxxiaomi.ming.electricbicycle.core.em.MyUserProvider;
-import com.wxxiaomi.ming.electricbicycle.service.aliyun.OssEngine;
-import com.wxxiaomi.ming.electricbicycle.service.cache.DiskCache;
+import com.wxxiaomi.ming.electricbicycle.support.easemob.ui.MyUserProvider;
+import com.wxxiaomi.ming.electricbicycle.support.aliyun.OssEngine;
+import com.wxxiaomi.ming.electricbicycle.support.cache.DiskCache;
 
 /**
  * 程序入口

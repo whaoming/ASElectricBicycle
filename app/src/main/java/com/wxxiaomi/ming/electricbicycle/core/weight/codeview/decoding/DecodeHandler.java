@@ -30,7 +30,7 @@ import com.google.zxing.ReaderException;
 import com.google.zxing.Result;
 import com.google.zxing.common.HybridBinarizer;
 import com.wxxiaomi.ming.electricbicycle.R;
-import com.wxxiaomi.ming.electricbicycle.core.ui.activity.ScanCodeActivity;
+import com.wxxiaomi.ming.electricbicycle.core.ui.view.activity.ScanCodeActivity;
 import com.wxxiaomi.ming.electricbicycle.core.weight.codeview.camera.CameraManager;
 import com.wxxiaomi.ming.electricbicycle.core.weight.codeview.camera.PlanarYUVLuminanceSource;
 

@@ -6,11 +6,12 @@ import com.wxxiaomi.ming.electricbicycle.ConstantValue;
 import com.wxxiaomi.ming.electricbicycle.api.exception.ExceptionEngine;
 import com.wxxiaomi.ming.electricbicycle.api.exception.ServerException;
 import com.wxxiaomi.ming.electricbicycle.api.service.DemoService;
-import com.wxxiaomi.ming.electricbicycle.bean.format.InitUserInfo;
-import com.wxxiaomi.ming.electricbicycle.bean.format.Login;
-import com.wxxiaomi.ming.electricbicycle.bean.format.NearByPerson;
-import com.wxxiaomi.ming.electricbicycle.bean.format.Register;
-import com.wxxiaomi.ming.electricbicycle.bean.format.common.Result;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.OptionLogs;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.format.InitUserInfo;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.format.Login;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.format.NearByPerson;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.format.Register;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.format.common.Result;
 
 
 import java.util.List;
@@ -157,6 +158,15 @@ public class HttpMethods {
         return demoService.uploadImage(fileName,imgs)
                 .map(new ServerResultFunc<String>())
                 .onErrorResumeNext(new HttpResultFunc<String>())
+                .subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    public Observable<List<OptionLogs>> optionLogs(int userid){
+        return demoService.optionLogs(userid)
+                .map(new ServerResultFunc<List<OptionLogs>>())
+                .onErrorResumeNext(new HttpResultFunc<List<OptionLogs>>())
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());

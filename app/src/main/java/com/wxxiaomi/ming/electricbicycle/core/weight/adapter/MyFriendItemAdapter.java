@@ -14,8 +14,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.wxxiaomi.ming.electricbicycle.R;
-import com.wxxiaomi.ming.electricbicycle.bean.User;
-import com.wxxiaomi.ming.electricbicycle.bean.UserCommonInfo;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.core.weight.custom.CircularImageView;
 
 

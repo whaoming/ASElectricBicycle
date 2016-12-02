@@ -30,7 +30,7 @@ import android.util.Log;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.Result;
 import com.wxxiaomi.ming.electricbicycle.R;
-import com.wxxiaomi.ming.electricbicycle.core.ui.activity.ScanCodeActivity;
+import com.wxxiaomi.ming.electricbicycle.core.ui.view.activity.ScanCodeActivity;
 import com.wxxiaomi.ming.electricbicycle.core.weight.codeview.camera.CameraManager;
 import com.wxxiaomi.ming.electricbicycle.core.weight.codeview.view.ViewfinderResultPointCallback;
 

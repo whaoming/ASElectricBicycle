@@ -8,10 +8,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.wxxiaomi.ming.electricbicycle.support.util.AppManager;
+import com.wxxiaomi.ming.electricbicycle.common.util.AppManager;
 import com.wxxiaomi.ming.electricbicycle.R;
-import com.wxxiaomi.ming.electricbicycle.core.ui.activity.RegisterOneAct;
-import com.wxxiaomi.ming.electricbicycle.support.util.SharePrefUtil;
+import com.wxxiaomi.ming.electricbicycle.core.ui.view.activity.RegisterOneAct;
+import com.wxxiaomi.ming.electricbicycle.common.util.SharePrefUtil;
 
 
 /**

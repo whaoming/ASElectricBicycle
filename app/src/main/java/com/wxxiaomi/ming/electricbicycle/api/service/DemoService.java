@@ -1,16 +1,17 @@
 package com.wxxiaomi.ming.electricbicycle.api.service;
 
 
-import com.wxxiaomi.ming.electricbicycle.bean.format.InitUserInfo;
-import com.wxxiaomi.ming.electricbicycle.bean.format.Login;
-import com.wxxiaomi.ming.electricbicycle.bean.format.NearByPerson;
-import com.wxxiaomi.ming.electricbicycle.bean.format.Register;
-import com.wxxiaomi.ming.electricbicycle.bean.format.common.Result;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.OptionLogs;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.format.InitUserInfo;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.format.Login;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.format.NearByPerson;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.format.Register;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.format.common.Result;
 
+import java.util.List;
 import java.util.Map;
 
 import okhttp3.RequestBody;
-import retrofit2.Call;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -50,6 +51,9 @@ public interface DemoService {
 //    @GET("ActionServlet?action=register")
     @GET("android/user_register")
     Observable<Result<Register>> registerUser(@Query("username") String username, @Query("password") String password);
+
+    @GET("android/user_optionlog")
+    Observable<Result<List<OptionLogs>>> optionLogs(@Query("userid") int userid);
 
     /**
      *

@@ -15,9 +15,9 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.wxxiaomi.ming.electricbicycle.R;
-import com.wxxiaomi.ming.electricbicycle.bean.format.NearByPerson;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.format.NearByPerson;
 
-import com.wxxiaomi.ming.electricbicycle.core.ui.activity.UserInfoAct;
+import com.wxxiaomi.ming.electricbicycle.core.ui.view.activity.UserInfoAct;
 import com.wxxiaomi.ming.electricbicycle.core.weight.custom.CircularImageView;
 
 import java.util.List;

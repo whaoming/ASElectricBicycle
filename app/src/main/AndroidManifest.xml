@@ -81,7 +81,7 @@
         </receiver>
 
         <activity
-            android:name=".core.ui.activity.WelcomeActivity"
+            android:name=".core.ui.view.activity.WelcomeActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -90,11 +90,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".core.ui.activity.ScanCodeActivity"
+            android:name=".core.ui.view.activity.ScanCodeActivity"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".core.em.ChatActivity"
+            android:name=".support.easemob.ui.ChatActivity"
             android:screenOrientation="portrait" />
         <!-- <activity -->
         <!-- android:name=".view.activity.RoutePlanActivity" -->
@@ -123,37 +123,37 @@
         <!-- android:name=".view.activity.LoginActivity" -->
         <!-- android:screenOrientation="portrait" /> -->
         <activity
-            android:name=".core.ui.activity.LoginActivity"
+            android:name=".core.ui.view.activity.LoginActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".core.ui.activity.PersonalAct"
+            android:name=".core.ui.view.activity.PersonalAct"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".core.ui.activity.SplashActivity"
+            android:name=".core.ui.view.activity.SplashActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".core.ui.activity.HomeActivity"
+            android:name=".core.ui.view.activity.HomeActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".core.ui.activity.ContactActivity"
+            android:name=".core.ui.view.activity.ContactActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".core.ui.activity.FriendAddActivity"
+            android:name=".core.ui.view.activity.FriendAddActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".core.ui.activity.UserInfoAct"
+            android:name=".core.ui.view.activity.UserInfoAct"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".core.ui.activity.RegisterOneAct"
+            android:name=".core.ui.view.activity.RegisterOneAct"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".core.ui.activity.RoutePlanActivity"
+            android:name=".core.ui.view.activity.RoutePlanActivity"
             android:screenOrientation="portrait" />
         <activity
-        android:name=".core.ui.activity.BaiduNavActivity"
+        android:name=".core.ui.view.activity.BaiduNavActivity"
         android:screenOrientation="portrait" />
         <activity
-            android:name=".core.web.TestWebActivity"
+            android:name=".support.web.TestWebActivity"
             android:screenOrientation="portrait" />
 
         <activity android:name="com.squareup.leakcanary.internal.DisplayLeakActivity"
@@ -192,7 +192,7 @@
         <!-- android:label="@string/title_activity_friend_add" -->
         <!-- android:theme="@style/AppTheme" /> -->
         <activity
-            android:name=".core.ui.activity.SearchActiity"
+            android:name=".core.ui.view.activity.SearchActiity"
             android:label="@string/title_activity_search_actiity1"
             android:theme="@style/AppTheme" />
     </application>

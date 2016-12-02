@@ -1,10 +1,6 @@
 package com.wxxiaomi.ming.electricbicycle.dao;
 
-import android.content.ContentValues;
-import android.database.sqlite.SQLiteDatabase;
-
-import com.wxxiaomi.ming.electricbicycle.bean.UserCommonInfo;
-import com.wxxiaomi.ming.electricbicycle.dao.UserDao;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo;
 
 import java.util.List;
 

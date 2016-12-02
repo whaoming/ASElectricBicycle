@@ -1,6 +1,6 @@
 package com.wxxiaomi.ming.electricbicycle.dao;
 
-import com.wxxiaomi.ming.electricbicycle.bean.InviteMessage;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.InviteMessage;
 
 import java.util.List;
 

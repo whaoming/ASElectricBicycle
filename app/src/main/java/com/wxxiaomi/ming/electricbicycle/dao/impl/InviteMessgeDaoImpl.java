@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import com.wxxiaomi.ming.electricbicycle.EBApplication;
-import com.wxxiaomi.ming.electricbicycle.bean.InviteMessage;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.InviteMessage;
 import com.wxxiaomi.ming.electricbicycle.dao.InviteMessgeDao;
 import com.wxxiaomi.ming.electricbicycle.dao.util.DbOpenHelper;
 

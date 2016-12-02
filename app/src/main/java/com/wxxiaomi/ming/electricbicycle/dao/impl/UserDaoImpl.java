@@ -7,11 +7,11 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import com.wxxiaomi.ming.electricbicycle.api.HttpMethods;
-import com.wxxiaomi.ming.electricbicycle.bean.UserCommonInfo;
-import com.wxxiaomi.ming.electricbicycle.bean.format.InitUserInfo;
-import com.wxxiaomi.ming.electricbicycle.bean.format.Login;
-import com.wxxiaomi.ming.electricbicycle.bean.format.NearByPerson;
-import com.wxxiaomi.ming.electricbicycle.bean.format.Register;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.format.InitUserInfo;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.format.Login;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.format.NearByPerson;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.format.Register;
 import com.wxxiaomi.ming.electricbicycle.dao.UserDao;
 import com.wxxiaomi.ming.electricbicycle.dao.util.DbOpenHelper;
 

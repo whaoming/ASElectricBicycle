@@ -2,7 +2,6 @@ package com.wxxiaomi.ming.electricbicycle;
 
 
 import com.baidu.mapapi.search.core.PoiInfo;
-import com.wxxiaomi.ming.electricbicycle.bean.User;
 
 
 /**

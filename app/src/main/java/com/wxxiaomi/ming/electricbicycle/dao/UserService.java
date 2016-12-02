@@ -4,12 +4,12 @@ package com.wxxiaomi.ming.electricbicycle.dao;
 import android.util.Log;
 
 import com.wxxiaomi.ming.electricbicycle.EBApplication;
-import com.wxxiaomi.ming.electricbicycle.bean.UserCommonInfo;
-import com.wxxiaomi.ming.electricbicycle.bean.format.InitUserInfo;
-import com.wxxiaomi.ming.electricbicycle.bean.format.Login;
-import com.wxxiaomi.ming.electricbicycle.bean.format.NearByPerson;
-import com.wxxiaomi.ming.electricbicycle.bean.format.Register;
-import com.wxxiaomi.ming.electricbicycle.core.em.LRUCache;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.format.InitUserInfo;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.format.Login;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.format.NearByPerson;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.format.Register;
+import com.wxxiaomi.ming.electricbicycle.support.easemob.ui.LRUCache;
 import com.wxxiaomi.ming.electricbicycle.dao.impl.FriendDaoImpl;
 import com.wxxiaomi.ming.electricbicycle.dao.impl.UserDaoImpl;
 
