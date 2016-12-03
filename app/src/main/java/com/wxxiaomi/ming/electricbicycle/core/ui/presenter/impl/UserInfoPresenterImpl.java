@@ -85,7 +85,7 @@ public class UserInfoPresenterImpl extends BasePreImpl<UserInfoView> implements 
                 .subscribe(new Action1<List<OptionLogs>>() {
                     @Override
                     public void call(List<OptionLogs> optionLogses) {
-                        OptionAdapter adapter = new OptionAdapter(optionLogses);
+                        OptionAdapter adapter = new OptionAdapter(optionLogses,mView.getContext());
                         mView.setAdapter(adapter);
                     }
                 });

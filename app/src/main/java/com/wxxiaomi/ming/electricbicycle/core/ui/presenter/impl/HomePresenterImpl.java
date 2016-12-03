@@ -67,15 +67,11 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
 
     @Override
     public void init() {
-
-    }
-
-    @Override
-    public void attach(HomeView mView) {
-        super.attach(mView);
         initMap(mView.getMap());
         initViewData();
     }
+
+
 
     @Override
     public void initMap(BaiduMap mBaiduMap) {

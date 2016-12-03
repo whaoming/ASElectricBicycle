@@ -64,12 +64,12 @@
         "source": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\src\\main\\res\\drawable\\ease_recording_text_hint_bg.xml"
     },
     {
-        "merged": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable\\ease_btn_cancel_pressed_shape.xml",
-        "source": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\src\\main\\res\\drawable\\ease_btn_cancel_pressed_shape.xml"
-    },
-    {
         "merged": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable\\ease_recording_hint_bg.xml",
         "source": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\src\\main\\res\\drawable\\ease_recording_hint_bg.xml"
+    },
+    {
+        "merged": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable\\ease_btn_cancel_pressed_shape.xml",
+        "source": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\src\\main\\res\\drawable\\ease_btn_cancel_pressed_shape.xml"
     },
     {
         "merged": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable\\ease_mm_listitem_grey.xml",
