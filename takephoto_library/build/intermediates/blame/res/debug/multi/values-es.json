@@ -1,0 +1,482 @@
+[
+    {
+        "outputFile": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\takephoto_library\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-es\\values-es.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 100,
+                    "endColumn": 116,
+                    "endOffset": 212
+                },
+                "from": {
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\takephoto_library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 229,
+                        "endColumn": 116,
+                        "endOffset": 341
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 217,
+                    "endColumn": 107,
+                    "endOffset": 320
+                },
+                "from": {
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\takephoto_library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 346,
+                        "endColumn": 107,
+                        "endOffset": 449
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 325,
+                    "endColumn": 122,
+                    "endOffset": 443
+                },
+                "from": {
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\takephoto_library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 454,
+                        "endColumn": 122,
+                        "endOffset": 572
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 448,
+                    "endColumn": 112,
+                    "endOffset": 556
+                },
+                "from": {
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\takephoto_library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 577,
+                        "endColumn": 112,
+                        "endOffset": 685
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 561,
+                    "endColumn": 107,
+                    "endOffset": 664
+                },
+                "from": {
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\takephoto_library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 690,
+                        "endColumn": 107,
+                        "endOffset": 793
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 669,
+                    "endColumn": 84,
+                    "endOffset": 749
+                },
+                "from": {
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\takephoto_library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 798,
+                        "endColumn": 84,
+                        "endOffset": 878
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 8,
+                    "startColumn": 4,
+                    "startOffset": 754,
+                    "endColumn": 100,
+                    "endOffset": 850
+                },
+                "from": {
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\takephoto_library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 883,
+                        "endColumn": 100,
+                        "endOffset": 979
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 9,
+                    "startColumn": 4,
+                    "startOffset": 855,
+                    "endColumn": 127,
+                    "endOffset": 978
+                },
+                "from": {
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\takephoto_library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 11,
+                        "startColumn": 4,
+                        "startOffset": 984,
+                        "endColumn": 127,
+                        "endOffset": 1107
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 10,
+                    "startColumn": 4,
+                    "startOffset": 983,
+                    "endColumn": 75,
+                    "endOffset": 1054
+                },
+                "from": {
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\takephoto_library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 12,
+                        "startColumn": 4,
+                        "startOffset": 1112,
+                        "endColumn": 75,
+                        "endOffset": 1183
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 11,
+                    "startColumn": 4,
+                    "startOffset": 1059,
+                    "endColumn": 75,
+                    "endOffset": 1130
+                },
+                "from": {
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\takephoto_library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 13,
+                        "startColumn": 4,
+                        "startOffset": 1188,
+                        "endColumn": 75,
+                        "endOffset": 1259
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 12,
+                    "startColumn": 4,
+                    "startOffset": 1135,
+                    "endColumn": 81,
+                    "endOffset": 1212
+                },
+                "from": {
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\takephoto_library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 4,
+                        "startOffset": 1264,
+                        "endColumn": 81,
+                        "endOffset": 1341
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 13,
+                    "startColumn": 4,
+                    "startOffset": 1217,
+                    "endColumn": 106,
+                    "endOffset": 1319
+                },
+                "from": {
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\takephoto_library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 4,
+                        "startOffset": 1346,
+                        "endColumn": 106,
+                        "endOffset": 1448
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 14,
+                    "startColumn": 4,
+                    "startOffset": 1324,
+                    "endColumn": 99,
+                    "endOffset": 1419
+                },
+                "from": {
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\takephoto_library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 4,
+                        "startOffset": 1453,
+                        "endColumn": 99,
+                        "endOffset": 1548
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 15,
+                    "startColumn": 4,
+                    "startOffset": 1424,
+                    "endColumn": 98,
+                    "endOffset": 1518
+                },
+                "from": {
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\takephoto_library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 4,
+                        "startOffset": 1553,
+                        "endColumn": 98,
+                        "endOffset": 1647
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 16,
+                    "startColumn": 4,
+                    "startOffset": 1523,
+                    "endColumn": 107,
+                    "endOffset": 1626
+                },
+                "from": {
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\takephoto_library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 4,
+                        "startOffset": 1652,
+                        "endColumn": 107,
+                        "endOffset": 1755
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 17,
+                    "startColumn": 4,
+                    "startOffset": 1631,
+                    "endColumn": 106,
+                    "endOffset": 1733
+                },
+                "from": {
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\takephoto_library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 4,
+                        "startOffset": 1760,
+                        "endColumn": 106,
+                        "endOffset": 1862
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 18,
+                    "startColumn": 4,
+                    "startOffset": 1738,
+                    "endColumn": 106,
+                    "endOffset": 1840
+                },
+                "from": {
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\takephoto_library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 4,
+                        "startOffset": 1867,
+                        "endColumn": 106,
+                        "endOffset": 1969
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 19,
+                    "startColumn": 4,
+                    "startOffset": 1845,
+                    "endColumn": 121,
+                    "endOffset": 1962
+                },
+                "from": {
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\takephoto_library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 21,
+                        "startColumn": 4,
+                        "startOffset": 1974,
+                        "endColumn": 121,
+                        "endOffset": 2091
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 20,
+                    "startColumn": 4,
+                    "startOffset": 1967,
+                    "endColumn": 99,
+                    "endOffset": 2062
+                },
+                "from": {
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\takephoto_library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 22,
+                        "startColumn": 4,
+                        "startOffset": 2096,
+                        "endColumn": 99,
+                        "endOffset": 2191
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 21,
+                    "startColumn": 4,
+                    "startOffset": 2067,
+                    "endColumn": 73,
+                    "endOffset": 2136
+                },
+                "from": {
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\takephoto_library\\build\\intermediates\\exploded-aar\\com.soundcloud.android.crop\\lib_crop\\1.0.0\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 100,
+                        "endColumn": 73,
+                        "endOffset": 169
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 22,
+                    "startColumn": 4,
+                    "startOffset": 2141,
+                    "endColumn": 46,
+                    "endOffset": 2183
+                },
+                "from": {
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\takephoto_library\\build\\intermediates\\exploded-aar\\com.soundcloud.android.crop\\lib_crop\\1.0.0\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 174,
+                        "endColumn": 46,
+                        "endOffset": 216
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 23,
+                    "startColumn": 4,
+                    "startOffset": 2188,
+                    "endColumn": 72,
+                    "endOffset": 2256
+                },
+                "from": {
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\takephoto_library\\build\\intermediates\\exploded-aar\\com.soundcloud.android.crop\\lib_crop\\1.0.0\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 221,
+                        "endColumn": 72,
+                        "endOffset": 289
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 24,
+                    "startColumn": 4,
+                    "startOffset": 2261,
+                    "endColumn": 58,
+                    "endOffset": 2315
+                },
+                "from": {
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\takephoto_library\\build\\intermediates\\exploded-aar\\com.soundcloud.android.crop\\lib_crop\\1.0.0\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 294,
+                        "endColumn": 58,
+                        "endOffset": 348
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 25,
+                    "startColumn": 4,
+                    "startOffset": 2320,
+                    "endColumn": 56,
+                    "endOffset": 2372
+                },
+                "from": {
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\takephoto_library\\build\\intermediates\\exploded-aar\\com.soundcloud.android.crop\\lib_crop\\1.0.0\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 353,
+                        "endColumn": 56,
+                        "endOffset": 405
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 26,
+                    "startColumn": 4,
+                    "startOffset": 2377,
+                    "endColumn": 100,
+                    "endOffset": 2473
+                },
+                "from": {
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\takephoto_library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 23,
+                        "startColumn": 4,
+                        "startOffset": 2196,
+                        "endColumn": 100,
+                        "endOffset": 2292
+                    }
+                }
+            }
+        ]
+    }
+]

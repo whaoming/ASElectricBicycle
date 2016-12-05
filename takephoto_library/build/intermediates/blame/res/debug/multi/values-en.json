@@ -1,0 +1,254 @@
+[
+    {
+        "outputFile": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\takephoto_library\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-en\\values-en.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 52,
+                    "endOffset": 103
+                },
+                "from": {
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\takephoto_library\\src\\main\\res\\values-en\\strings.xml",
+                    "position": {
+                        "startLine": 1,
+                        "startColumn": 4,
+                        "startOffset": 17,
+                        "endColumn": 52,
+                        "endOffset": 65
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 108,
+                    "endColumn": 90,
+                    "endOffset": 194
+                },
+                "from": {
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\takephoto_library\\src\\main\\res\\values-en\\strings.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 511,
+                        "endColumn": 90,
+                        "endOffset": 597
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 199,
+                    "endColumn": 62,
+                    "endOffset": 257
+                },
+                "from": {
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\takephoto_library\\src\\main\\res\\values-en\\strings.xml",
+                    "position": {
+                        "startLine": 11,
+                        "startColumn": 4,
+                        "startOffset": 603,
+                        "endColumn": 62,
+                        "endOffset": 661
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 262,
+                    "endColumn": 82,
+                    "endOffset": 340
+                },
+                "from": {
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\takephoto_library\\src\\main\\res\\values-en\\strings.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 427,
+                        "endColumn": 82,
+                        "endOffset": 505
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 345,
+                    "endColumn": 72,
+                    "endOffset": 413
+                },
+                "from": {
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\takephoto_library\\src\\main\\res\\values-en\\strings.xml",
+                    "position": {
+                        "startLine": 12,
+                        "startColumn": 4,
+                        "startOffset": 667,
+                        "endColumn": 72,
+                        "endOffset": 735
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 418,
+                    "endColumn": 60,
+                    "endOffset": 474
+                },
+                "from": {
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\takephoto_library\\src\\main\\res\\values-en\\strings.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 259,
+                        "endColumn": 60,
+                        "endOffset": 315
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 8,
+                    "startColumn": 4,
+                    "startOffset": 479,
+                    "endColumn": 104,
+                    "endOffset": 579
+                },
+                "from": {
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\takephoto_library\\src\\main\\res\\values-en\\strings.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 321,
+                        "endColumn": 104,
+                        "endOffset": 421
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 9,
+                    "startColumn": 4,
+                    "startOffset": 584,
+                    "endColumn": 51,
+                    "endOffset": 631
+                },
+                "from": {
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\takephoto_library\\src\\main\\res\\values-en\\strings.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 163,
+                        "endColumn": 51,
+                        "endOffset": 210
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 10,
+                    "startColumn": 4,
+                    "startOffset": 636,
+                    "endColumn": 109,
+                    "endOffset": 741
+                },
+                "from": {
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\takephoto_library\\src\\main\\res\\values-en\\strings.xml",
+                    "position": {
+                        "startLine": 13,
+                        "startColumn": 4,
+                        "startOffset": 741,
+                        "endColumn": 109,
+                        "endOffset": 846
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 11,
+                    "startColumn": 4,
+                    "startOffset": 746,
+                    "endColumn": 129,
+                    "endOffset": 871
+                },
+                "from": {
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\takephoto_library\\src\\main\\res\\values-en\\strings.xml",
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 4,
+                        "startOffset": 965,
+                        "endColumn": 129,
+                        "endOffset": 1090
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 12,
+                    "startColumn": 4,
+                    "startOffset": 876,
+                    "endColumn": 111,
+                    "endOffset": 983
+                },
+                "from": {
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\takephoto_library\\src\\main\\res\\values-en\\strings.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 4,
+                        "startOffset": 852,
+                        "endColumn": 111,
+                        "endOffset": 959
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 13,
+                    "startColumn": 4,
+                    "startOffset": 988,
+                    "endColumn": 41,
+                    "endOffset": 1025
+                },
+                "from": {
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\takephoto_library\\src\\main\\res\\values-en\\strings.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 216,
+                        "endColumn": 41,
+                        "endOffset": 253
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 14,
+                    "startColumn": 4,
+                    "startOffset": 1030,
+                    "endColumn": 66,
+                    "endOffset": 1092
+                },
+                "from": {
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\takephoto_library\\src\\main\\res\\values-en\\strings.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 95,
+                        "endColumn": 66,
+                        "endOffset": 157
+                    }
+                }
+            }
+        ]
+    }
+]

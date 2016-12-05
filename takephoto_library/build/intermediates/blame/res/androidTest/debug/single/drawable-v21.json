@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\takephoto_library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-v21\\abc_btn_colored_material.xml",
+        "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\takephoto_library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-v21\\abc_btn_colored_material.xml"
+    },
+    {
+        "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\takephoto_library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-v21\\crop__selectable_background.xml",
+        "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\takephoto_library\\build\\intermediates\\exploded-aar\\com.soundcloud.android.crop\\lib_crop\\1.0.0\\res\\drawable-v21\\crop__selectable_background.xml"
+    },
+    {
+        "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\takephoto_library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-v21\\abc_action_bar_item_background_material.xml",
+        "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\takephoto_library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-v21\\abc_action_bar_item_background_material.xml"
+    }
+]

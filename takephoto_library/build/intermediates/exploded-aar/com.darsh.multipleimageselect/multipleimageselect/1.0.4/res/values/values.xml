@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="multiple_image_select_accent">#4CAF50</color>
+    <color name="multiple_image_select_albumTextBackground">#99FFFFFF</color>
+    <color name="multiple_image_select_buttonText">#FFFFFF</color>
+    <color name="multiple_image_select_divider">#B6B6B6</color>
+    <color name="multiple_image_select_imageSelectBackground">#000000</color>
+    <color name="multiple_image_select_primary">#2E7D32</color>
+    <color name="multiple_image_select_primaryDark">#1B5E20</color>
+    <color name="multiple_image_select_primaryLight">#C8E6C9</color>
+    <color name="multiple_image_select_primaryText">#212121</color>
+    <color name="multiple_image_select_secondaryText">#727272</color>
+    <color name="multiple_image_select_toolbarPrimaryText">#FFFFFF</color>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <string name="add">ADD</string>
+    <string name="album_view">Select photo album</string>
+    <string name="app_name">Multiple Image Select</string>
+    <string name="error_null_cursor">Oops, something went wrong!</string>
+    <string name="grant_permission">Grant Permission</string>
+    <string name="image_view">Tap to select images</string>
+    <string name="limit_exceeded">Can select a maximum of %d images</string>
+    <string name="permission_denied_albums">Allow access to photos, media and files on your device to view albums</string>
+    <string name="permission_denied_images">Allow access to photos, media and files on your device to view images</string>
+    <string name="selected">selected</string>
+    <style name="CustomActionModeStyle" parent="Base.Widget.AppCompat.ActionMode">
+        <item name="background">@color/multiple_image_select_primary</item>
+    </style>
+    <style name="CustomToolbarTheme" parent="Base.ThemeOverlay.AppCompat.ActionBar">
+        <item name="android:textColorPrimary">@color/multiple_image_select_toolbarPrimaryText</item>
+    </style>
+    <style name="MultipleImageSelectTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/multiple_image_select_primary</item>
+        <item name="colorPrimaryDark">@color/multiple_image_select_primaryDark</item>
+        <item name="colorAccent">@color/multiple_image_select_accent</item>
+
+        <item name="actionModeStyle">@style/CustomActionModeStyle</item>
+        <item name="windowActionModeOverlay">true</item>
+    </style>
+</resources>
