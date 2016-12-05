@@ -14,6 +14,7 @@ import com.wxxiaomi.ming.electricbicycle.common.rx.SampleProgressObserver;
 import com.wxxiaomi.ming.electricbicycle.core.ui.view.activity.UserInfoAct;
 import com.wxxiaomi.ming.electricbicycle.core.ui.view.FriendAddView;
 import com.wxxiaomi.ming.electricbicycle.core.weight.adapter.NearFriendRecommendAdapter1;
+import com.wxxiaomi.ming.electricbicycle.support.baidumap.LocationUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,7 +41,9 @@ public class FriendAddPresenterImpl extends BasePreImpl<FriendAddView> implement
 
     private void getNearFriend() {
 
-        UserService.getInstance().getNearPeople(GlobalManager.getInstance().getUser().id,GlobalParams.latitude, GlobalParams.longitude)
+        UserService.getInstance().getNearPeople(GlobalManager.getInstance().getUser().id
+                , LocationUtil.getInstance().getLatitude()
+                , LocationUtil.getInstance().getLongitude())
                 .subscribe(new Action1<NearByPerson>() {
                     @Override
                     public void call(NearByPerson nearByPerson) {

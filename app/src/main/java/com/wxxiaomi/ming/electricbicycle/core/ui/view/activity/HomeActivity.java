@@ -1,6 +1,7 @@
 package com.wxxiaomi.ming.electricbicycle.core.ui.view.activity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -24,6 +25,9 @@ import com.baidu.mapapi.map.Marker;
 import com.baidu.mapapi.map.MarkerOptions;
 import com.baidu.mapapi.map.TextureMapView;
 import com.baidu.mapapi.model.LatLng;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.animation.GlideAnimation;
+import com.bumptech.glide.request.target.SimpleTarget;
 import com.wxxiaomi.ming.electricbicycle.GlobalParams;
 import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.core.ui.base.BaseActivity;
@@ -32,6 +36,7 @@ import com.wxxiaomi.ming.electricbicycle.core.ui.presenter.impl.HomePresenterImp
 import com.wxxiaomi.ming.electricbicycle.core.ui.view.HomeView;
 import com.wxxiaomi.ming.electricbicycle.core.weight.custom.CircularImageView;
 import com.wxxiaomi.ming.electricbicycle.common.GlobalManager;
+import com.wxxiaomi.ming.electricbicycle.support.baidumap.LocationUtil;
 
 /**
  * Created by 12262 on 2016/6/6.
@@ -117,7 +122,7 @@ public class HomeActivity extends BaseActivity<HomeView,HomePresenter> implement
         btn_go.setOnClickListener(this);
         iv_contact.setOnClickListener(this);
         initAnimation();
-        setZoomInVis();
+//        setZoomInVis();
         initMapMarkerClickListener();
         tv_name.setText(GlobalManager.getInstance().getUser().userCommonInfo.name);
     }
@@ -162,18 +167,18 @@ public class HomeActivity extends BaseActivity<HomeView,HomePresenter> implement
         Snackbar.make(sn_layout, content, Snackbar.LENGTH_LONG).show();
     }
 
-    public void setZoomInVis() {
-        int childCount = mMapView.getChildCount();
-        View zoom = null;
-        for (int i = 0; i < childCount; i++) {
-            View child = mMapView.getChildAt(i);
-            if (child instanceof ZoomControls) {
-                zoom = child;
-                break;
-            }
-        }
-        zoom.setVisibility(View.GONE);
-    }
+//    public void setZoomInVis() {
+//        int childCount = mMapView.getChildCount();
+//        View zoom = null;
+//        for (int i = 0; i < childCount; i++) {
+//            View child = mMapView.getChildAt(i);
+//            if (child instanceof ZoomControls) {
+//                zoom = child;
+//                break;
+//            }
+//        }
+//        zoom.setVisibility(View.GONE);
+//    }
 
     public void initAnimation() {
         mShowAction = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0.0f,
@@ -190,14 +195,21 @@ public class HomeActivity extends BaseActivity<HomeView,HomePresenter> implement
     }
 
     @Override
-    public void addMaker(LatLng point,int posttion) {
-        BitmapDescriptor bdA = BitmapDescriptorFactory
-                .fromResource(R.mipmap.ic_person_pin_black_36dp);
-        MarkerOptions ooA = new MarkerOptions().position(point).icon(bdA)
-                .zIndex(9).draggable(true);
-        ooA.animateType(MarkerOptions.MarkerAnimateType.drop);
-        Marker mMarker = (Marker) (mBaiduMap.addOverlay(ooA));
-        mMarker.setZIndex(posttion);
+    public void addMaker(final LatLng point, final int posttion) {
+        Glide.with(this).load("https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=870609829,3308433796&fm=116&gp=0.jpg").asBitmap().into(new SimpleTarget<Bitmap>() {
+            @Override
+            public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
+                View view = getLayoutInflater().inflate(R.layout.view_near_img,null);
+                CircularImageView imgView = (CircularImageView) view.findViewById(R.id.iv_head);
+                imgView.setImageBitmap(resource);
+                BitmapDescriptor bdA = BitmapDescriptorFactory.fromView(view);
+                MarkerOptions ooA = new MarkerOptions().position(point).icon(bdA)
+                        .zIndex(9).draggable(true);
+                ooA.animateType(MarkerOptions.MarkerAnimateType.drop);
+                Marker mMarker = (Marker) (mBaiduMap.addOverlay(ooA));
+                mMarker.setZIndex(posttion);
+            }
+        });
     }
 
     public void initMapMarkerClickListener() {
@@ -233,8 +245,8 @@ public class HomeActivity extends BaseActivity<HomeView,HomePresenter> implement
 
     @Override
     public void scrollToMyLocat() {
-        LatLng ll = new LatLng(GlobalParams.latitude,
-                GlobalParams.longitude);
+        LatLng ll = new LatLng(LocationUtil.getInstance().getLatitude(),
+                LocationUtil.getInstance().getLongitude());
         MapStatus.Builder builder = new MapStatus.Builder();
         builder.target(ll).zoom(18.0f);
         mBaiduMap.animateMapStatus(MapStatusUpdateFactory

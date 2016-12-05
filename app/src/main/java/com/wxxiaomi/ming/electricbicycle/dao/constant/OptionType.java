@@ -1,5 +1,8 @@
 package com.wxxiaomi.ming.electricbicycle.dao.constant;
 
+/**
+ * 用户动态的类型
+ */
 public class OptionType {
 
 	/**

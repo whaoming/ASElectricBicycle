@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.wxxiaomi.ming.electricbicycle.ConstantValue;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.User;
+import com.wxxiaomi.ming.electricbicycle.support.baidumap.LocationUtil;
 
 /**
  * Created by 12262 on 2016/11/3.
@@ -45,6 +46,14 @@ public class GlobalManager {
 
     public boolean isUserNull(){
         return user==null;
+    }
+
+    public String getUserCurrentInfo(){
+        String result = "{\"userid\":\""+getUser().userCommonInfo.id+"\"" +
+                        ",\"name\":\""+getUser().userCommonInfo.name+"\"" +
+                        ",\"locat\":\""+ LocationUtil.getInstance().getLocat()+"\"" +
+                        ",\"locat_tag\":\""+LocationUtil.getInstance().getLocatTag()+"\"}";
+        return result;
     }
 
 

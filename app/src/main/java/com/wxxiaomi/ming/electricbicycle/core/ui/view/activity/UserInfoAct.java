@@ -17,7 +17,8 @@ import com.wxxiaomi.ming.electricbicycle.core.ui.presenter.impl.UserInfoPresente
 import com.wxxiaomi.ming.electricbicycle.core.ui.view.UserInfoView;
 
 /**
- * Created by 12262 on 2016/7/3.
+ * Created by whaoming on 2016/7/3.
+ * 用户信息页面
  */
 public class UserInfoAct extends BaseActivity<UserInfoView,UserInfoPresenter> implements UserInfoView<UserInfoPresenter>{
 

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/titleBlue"
+    android:scaleType="centerCrop"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:layout_alignParentTop="true"
+        android:id="@+id/iv_my_head"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_centerInParent="true"
+        android:layout_margin="8dp"
+        android:src="@mipmap/tou" />
+    <TextView
+        android:id="@+id/tv_description"
+        android:layout_below="@+id/iv_my_head"
+        android:textColor="#ffffff"
+        android:text="只有努力，才能看起来毫不费力"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:id="@+id/ll_info"
+        android:layout_below="@+id/tv_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <include layout="@layout/view_layout_circle"/>
+    </LinearLayout>
+    <ImageView
+        android:layout_below="@+id/ll_info"
+        android:src="@mipmap/default_news_top_bg_0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>

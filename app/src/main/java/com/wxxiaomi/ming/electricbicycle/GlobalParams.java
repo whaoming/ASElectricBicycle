@@ -1,7 +1,6 @@
 package com.wxxiaomi.ming.electricbicycle;
 
 
-import com.baidu.mapapi.search.core.PoiInfo;
 
 
 /**
@@ -29,11 +28,11 @@ public class GlobalParams {
 	/**
 	 * 测试用,當前位置
 	 */
-	public static double latitude ;
-	public static double longitude ;
+//	public static double latitude ;
+//	public static double longitude ;
 	
 	/**
 	 * 获取路线的结果,终点
 	 */
-	public static PoiInfo poiInf;
+//	public static PoiInfo poiInf;
 }

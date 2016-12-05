@@ -229,6 +229,13 @@ public abstract class ComBuildImpl extends BuilderDetail {
                 function.onCallBack(json);
             }
         });
+
+        mWebView.registerHandler("usrSimInfo", new BridgeHandler() {
+            @Override
+            public void handler(String data, CallBackFunction function) {
+                function.onCallBack(GlobalManager.getInstance().getUserCurrentInfo());
+            }
+        });
     }
 
     @Override

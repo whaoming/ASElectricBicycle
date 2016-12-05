@@ -191,9 +191,11 @@ public class TimelineView extends View {
 
         if(total_size == 1) {
             return LineType.ONLYONE;
-        } else if(position == 0) {
+        }
+        else if(position == 0) {
             return LineType.BEGIN;
-        } else if(position == total_size - 1) {
+        }
+        else if(position == total_size - 1) {
             return LineType.END;
         } else {
             return LineType.NORMAL;

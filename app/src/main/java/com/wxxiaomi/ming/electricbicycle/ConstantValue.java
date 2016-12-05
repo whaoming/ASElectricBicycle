@@ -5,7 +5,7 @@ public interface ConstantValue {
 	/**
 	 * 是否开启聊天服务器
 	 */
-	static final boolean isEMOpen = false;
+	static final boolean isEMOpen = true;
 	/**
 	 * 是否开启调试模式
 	 */
@@ -29,12 +29,8 @@ public interface ConstantValue {
 	/**
 	 * 校园网wifi笔记本
 	 */
-//	public static String SERVER_URL = "http://10.0.2.2:8080/ElectricBicycleServer/";
-//	public static String SERVER_URL = "http://210.38.162.23:8080/ElectricBicycleServer/";
-//	public static String SERVER_URL = "http://192.168.56.1:8080/ElectricBicycleServer/";
 	public static String SERVER_URL = "http://192.168.1.46:8080/ElectricBicycleServer/";
-//	public static String SERVER_URL = "http:/10.15.75.175:8080/ElectricBicycleServer/";
-	
+
 	/**
 	 * 登录操作的url
 	 */

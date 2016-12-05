@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.baidu.location.Address;
 import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
@@ -22,6 +23,7 @@ import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.format.NearByPerson;
 import com.wxxiaomi.ming.electricbicycle.core.ui.base.BasePreImpl;
 import com.wxxiaomi.ming.electricbicycle.core.ui.presenter.HomePresenter;
+import com.wxxiaomi.ming.electricbicycle.support.baidumap.LocationUtil;
 import com.wxxiaomi.ming.electricbicycle.support.web.TestWebActivity;
 import com.wxxiaomi.ming.electricbicycle.dao.UserService;
 import com.wxxiaomi.ming.electricbicycle.support.easemob.EmEngine;
@@ -30,7 +32,6 @@ import com.wxxiaomi.ming.electricbicycle.common.GlobalManager;
 import com.wxxiaomi.ming.electricbicycle.common.rx.MyObserver;
 import com.wxxiaomi.ming.electricbicycle.core.ui.view.activity.ContactActivity;
 import com.wxxiaomi.ming.electricbicycle.core.ui.view.activity.PersonalAct;
-import com.wxxiaomi.ming.electricbicycle.core.ui.view.activity.SearchActiity;
 import com.wxxiaomi.ming.electricbicycle.core.ui.view.activity.UserInfoAct;
 import com.wxxiaomi.ming.electricbicycle.core.ui.view.HomeView;
 
@@ -40,11 +41,13 @@ import java.util.List;
 
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Action1;
 import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 
 /**
  * Created by 12262 on 2016/6/6.
+ * 主界面
  */
 public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePresenter<HomeView> {
 
@@ -77,21 +80,23 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
     public void initMap(BaiduMap mBaiduMap) {
         this.mBaiduMap = mBaiduMap;
         myListener = new MyLocationListenner();
-        mCurrentMode = MyLocationConfiguration.LocationMode.NORMAL;
         mBaiduMap.setMyLocationEnabled(true);
-        /**
-         * mode - 定位图层显示方式, 默认为 LocationMode.NORMAL 普通态 enableDirection -
-         * 是否允许显示方向信息 customMarker - 设置用户自定义定位图标，可以为 null
-         */
-        mBaiduMap.setMyLocationConfigeration(new MyLocationConfiguration(
-                mCurrentMode, true, null));
         // 定位初始化
         mLocClient = new LocationClient(mView.getContext());
         mLocClient.registerLocationListener(myListener);
         LocationClientOption option = new LocationClientOption();
-        option.setOpenGps(true); // 打开gps
-        option.setCoorType("bd09ll"); // 设置坐标类型
-        option.setScanSpan(2000);
+        option.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy);
+        option.setCoorType("bd09ll");//可选，默认gcj02，设置返回的定位结果坐标系
+        int span=1000;
+        option.setScanSpan(span);//可选，默认0，即仅定位一次，设置发起定位请求的间隔需要大于等于1000ms才是有效的
+        option.setIsNeedAddress(true);//可选，设置是否需要地址信息，默认不需要
+        option.setOpenGps(true);//可选，默认false,设置是否使用gps
+        option.setLocationNotify(true);//可选，默认false，设置是否当GPS有效时按照1S/1次频率输出GPS结果
+        option.setIsNeedLocationDescribe(true);//可选，默认false，设置是否需要位置语义化结果，可以在BDLocation.getLocationDescribe里得到，结果类似于“在北京天安门附近”
+        option.setIsNeedLocationPoiList(true);//可选，默认false，设置是否需要POI结果，可以在BDLocation.getPoiList里得到
+        option.setIgnoreKillProcess(false);//可选，默认true，定位SDK内部是一个SERVICE，并放到了独立进程，设置是否在stop的时候杀死这个进程，默认不杀死
+        option.SetIgnoreCacheException(false);//可选，默认false，设置是否收集CRASH信息，默认收集
+        option.setEnableSimulateGps(false);//可选，默认false，设置是否需要过滤GPS仿真结果，默认需要
         mLocClient.setLocOption(option);
         mLocClient.start();
     }
@@ -120,7 +125,7 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
 
     @Override
     public void goBtnOnClick() {
-        mView.runActivity(SearchActiity.class,null);
+//        mView.runActivity(SearchActiity.class,null);
     }
 
     @Override
@@ -148,8 +153,6 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
     @Override
     public void topicBtnOnClick() {
         Log.i("wang","话题按钮被点击了");
-        //mView.runActivity(TopicWebActivity.class,null);
-//        ForwardAction action = new ForwardAction();
         Intent intent = new Intent(mView.getContext(), TestWebActivity.class);
         intent.putExtra("url", ConstantValue.SERVER_URL+"/app/topicList_1.html");
         mView.getContext().startActivity(intent);
@@ -191,7 +194,7 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
     @Override
     public void onViewResume() {
         Glide.with(mView.getContext()).load(GlobalManager.getInstance().getUser().userCommonInfo.head)
-                .into( mView.getHeadView());
+                .into(mView.getHeadView());
         updateUnreadLabel();
         EmEngine.getInstance().setAllMsgLis(new AllMsgListener() {
             @Override
@@ -213,14 +216,16 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
             }
             double latitude = location.getLatitude();
             double longitude = location.getLongitude();
-            // 测试用
-            GlobalParams.latitude = latitude;
-            GlobalParams.longitude = longitude;
+            Address address = location.getAddress();
+            String locat_tag = location.getLocationDescribe();
+            LocationUtil.getInstance().init(latitude,longitude,address,locat_tag);
             MyLocationData locData = new MyLocationData.Builder()
                     .accuracy(0)
                     // 此处设置开发者获取到的方向信息，顺时针0-360
-                    .direction(100).latitude(location.getLatitude())
-                    .longitude(location.getLongitude()).build();
+                    .direction(100)
+                    .latitude(latitude)
+                    .longitude(longitude)
+                    .build();
             mBaiduMap.setMyLocationData(locData);
             if (isFirstLoc) {
                 Log.i("wang", "获取自己的位置");
@@ -237,33 +242,46 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
     public void getNearByFromServer(final double latitude,
                                     final double longitude){
         UserService.getInstance().getNearPeople(GlobalManager.getInstance().getUser().id,latitude,longitude)
-                .flatMap(new Func1<NearByPerson, Observable<Boolean>>() {
+                .subscribe(new Action1<NearByPerson>() {
                     @Override
-                    public Observable<Boolean> call(NearByPerson nearByPerson) {
+                    public void call(NearByPerson nearByPerson) {
                         userLocatList = nearByPerson.userLocatList;
                        for(int i=0;i<nearByPerson.userLocatList.size();i++){
                            NearByPerson.UserLocatInfo user = nearByPerson.userLocatList.get(i);
                            LatLng point = new LatLng(user.point[0], user.point[1]);
                            mView.addMaker(point,i);
                        }
-                        return Observable.just(true);
-                    }
-                })
-                .subscribe(new MyObserver<Boolean>() {
-                    @Override
-                    protected void onError(ApiException ex) {
-
-                    }
-
-                    @Override
-                    public void onCompleted() {
-
-                    }
-
-                    @Override
-                    public void onNext(Boolean aBoolean) {
-
                     }
                 });
+//                .flatMap(new Func1<NearByPerson, Observable<Boolean>>() {
+//                    @Override
+//                    public Observable<Boolean> call(NearByPerson nearByPerson) {
+//                        userLocatList = nearByPerson.userLocatList;
+//                       for(int i=0;i<nearByPerson.userLocatList.size();i++){
+//                           NearByPerson.UserLocatInfo user = nearByPerson.userLocatList.get(i);
+//                           LatLng point = new LatLng(user.point[0], user.point[1]);
+//                           mView.addMaker(point,i);
+//                       }
+//                        return Observable.just(true);
+//                    }
+//                })
+//                .subscribe(new MyObserver<Boolean>() {
+//                    @Override
+//                    protected void onError(ApiException ex) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onCompleted() {
+//
+//                    }
+//
+//                    @Override
+//                    public void onNext(Boolean aBoolean) {
+//
+//                    }
+//                });
     }
+
+//    public List<Topic>
 }
