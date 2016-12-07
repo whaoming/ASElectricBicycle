@@ -36,24 +36,24 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
     }
 
     public void testLoginFromServer(){
-        HttpMethods.getInstance().login("122627018", "987987987")
-        .subscribe(new MyObserver<Login>() {
-            @Override
-            protected void onError(ApiException ex) {
-                Log.i("wang",ex.getDisplayMessage());
-            }
-
-            @Override
-            public void onCompleted() {
-
-            }
-
-            @Override
-            public void onNext(Login login) {
-                Log.i("wang","login success");
-            }
-        })
-        ;
+//        HttpMethods.getInstance().login("122627018", "987987987")
+//        .subscribe(new MyObserver<Login>() {
+//            @Override
+//            protected void onError(ApiException ex) {
+//                Log.i("wang",ex.getDisplayMessage());
+//            }
+//
+//            @Override
+//            public void onCompleted() {
+//
+//            }
+//
+//            @Override
+//            public void onNext(Login login) {
+//                Log.i("wang","login success");
+//            }
+//        })
+//        ;
     }
 
     public void testGetFriendListFromDatabase(){
@@ -119,26 +119,26 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
 
     public void testRegister(){
         Log.i("wang","testRegister");
-        EBApplication.applicationContext = getContext();
-//        UserDaoImpl2.getInstance().registerUser("201610290803","987987987")
-        HttpMethods.getInstance().registerUser("201610290837","987987987")
-                .subscribe(new Observer<Register>() {
-
-                    @Override
-                    public void onCompleted() {
-                        Log.i("wang","onCompleted()");
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        Log.i("wang","发生错误拉:"+e.toString());
-                    }
-
-                    @Override
-                    public void onNext(Register register) {
-                        Log.i("wang","onNext:"+register.toString());
-                    }
-                });
+//        EBApplication.applicationContext = getContext();
+////        UserDaoImpl2.getInstance().registerUser("201610290803","987987987")
+//        HttpMethods.getInstance().registerUser("201610290837","987987987")
+//                .subscribe(new Observer<Register>() {
+//
+//                    @Override
+//                    public void onCompleted() {
+//                        Log.i("wang","onCompleted()");
+//                    }
+//
+//                    @Override
+//                    public void onError(Throwable e) {
+//                        Log.i("wang","发生错误拉:"+e.toString());
+//                    }
+//
+//                    @Override
+//                    public void onNext(Register register) {
+//                        Log.i("wang","onNext:"+register.toString());
+//                    }
+//                });
     }
 
 

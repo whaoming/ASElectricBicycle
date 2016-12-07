@@ -3,12 +3,18 @@ package com.wxxiaomi.ming.electricbicycle.dao;
 
 import android.util.Log;
 
+import com.google.gson.Gson;
 import com.wxxiaomi.ming.electricbicycle.EBApplication;
+import com.wxxiaomi.ming.electricbicycle.api.HttpMethods;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.Comment;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.Option;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.Topic;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.format.InitUserInfo;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.format.Login;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.format.NearByPerson;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.format.Register;
+import com.wxxiaomi.ming.electricbicycle.dao.constant.OptionType;
 import com.wxxiaomi.ming.electricbicycle.support.easemob.ui.LRUCache;
 import com.wxxiaomi.ming.electricbicycle.dao.impl.FriendDaoImpl;
 import com.wxxiaomi.ming.electricbicycle.dao.impl.UserDaoImpl;
@@ -172,6 +178,35 @@ public class UserService {
                 subscriber.onCompleted();
             }
         });
+    }
+
+    public Observable<List<Option>> getUserOptions(final int userid){
+        return HttpMethods.getInstance().getOption(userid)
+                .flatMap(new Func1<List<Option>, Observable<List<Option>>>() {
+                    @Override
+                    public Observable<List<Option>> call(List<Option> options) {
+                        //对Option解析里面的东西
+                        for(Option option:options){
+                            switch (option.obj_type){
+                                case OptionType.FOOT_PRINT:
+                                case OptionType.PHOTO_PUBLISH:
+                                    break;
+                                case OptionType.TOPIC_PUBLISH:
+                                    Topic topic = new Gson().fromJson(option.json_obj,Topic.class);
+                                    option.dobj = topic;
+                                    break;
+                                case OptionType.TOPIC_COMMENT:
+                                    Topic topic1 = new Gson().fromJson(option.json_parent,Topic.class);
+                                    Comment comment = new Gson().fromJson(option.json_obj,Comment.class);
+                                    option.dobj = comment;
+                                    option.dparent = topic1;
+                                    break;
+                            }
+                        }
+
+                        return Observable.just(options);
+                    }
+                });
     }
 
 

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffff"
+    android:layout_marginBottom="20dp"
+    android:baselineAligned="false"
+    android:orientation="horizontal">
+
+    <com.wxxiaomi.ming.electricbicycle.core.weight.timelineview.LatestTimeLine
+        android:id="@+id/time_marker"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:me_below_text="评论"
+        app:me_line_color="#9ccc65"
+        app:me_line_size="2dp"
+        app:me_text_color="#bbbbbb"
+        app:me_text_size="10sp"
+        app:me_up_text="08-26" />
+
+
+    <android.support.v7.widget.CardView
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:layout_marginRight="7dp"
+        android:layout_marginBottom="7dp"
+        android:layout_marginLeft="7dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/iv_img"
+                android:scaleType="fitXY"
+                android:src="@mipmap/demo10"
+                android:background="@drawable/border"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <RelativeLayout
+                android:background="#ffffff"
+                android:layout_below="@+id/iv_img"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/tv_content"
+                    android:padding="10dp"
+                    android:textColor="#666666"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="听说今天这里发生了很大的火灾gggg，不知道真的假的" />
+                <RelativeLayout
+                    android:id="@+id/rl_option_content"
+                    android:layout_marginTop="8dp"
+                    android:padding="8dp"
+                    android:layout_below="@+id/tv_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+                    <ImageView
+                        android:id="@+id/iv_zan"
+                        android:layout_alignParentLeft="true"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@mipmap/ic_about_black" />
+                    <ImageView
+                        android:layout_toRightOf="@+id/iv_zan"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@mipmap/ic_about_black" />
+                    <TextView
+                        android:id="@+id/tv_locat_tag"
+                        android:layout_margin="5dp"
+                        android:textSize="10sp"
+                        android:layout_centerVertical="true"
+                        android:textColor="#bbbbbb"
+                        android:layout_alignParentRight="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="科技馆" />
+                </RelativeLayout>
+                <View
+                    android:id="@+id/line"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@+id/rl_option_content"
+                    android:background="#bbbbbb"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.1dp"/>
+                <RelativeLayout
+                    android:id="@+id/rl_comment_content"
+                    android:layout_margin="3dp"
+                    android:padding="3dp"
+                    android:layout_below="@+id/line"
+                    android:layout_alignParentBottom="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <com.wxxiaomi.ming.electricbicycle.core.weight.custom.CircularImageView
+                        android:layout_marginLeft="10dp"
+                        android:layout_alignParentLeft="true"
+                        android:id="@+id/iv_user_head"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:src="@mipmap/tou" />
+                    <TextView
+                        android:id="@+id/tv_user_comment"
+                        android:layout_centerVertical="true"
+                        android:textSize="11sp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@+id/iv_user_head"
+                        android:textColor="#666666"
+                        android:text="wang:我知道"
+                        android:gravity="center_vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </RelativeLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+
+
+
+
+</LinearLayout>

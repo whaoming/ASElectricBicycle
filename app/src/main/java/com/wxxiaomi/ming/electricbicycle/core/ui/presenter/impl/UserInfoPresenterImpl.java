@@ -9,6 +9,8 @@ import com.google.gson.Gson;
 import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.api.HttpMethods;
 import com.wxxiaomi.ming.electricbicycle.core.weight.adapter.OptionAdapter;
+import com.wxxiaomi.ming.electricbicycle.core.weight.adapter.OptionAdapter2;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.Option;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.OptionLogs;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.core.ui.base.BasePreImpl;
@@ -81,11 +83,21 @@ public class UserInfoPresenterImpl extends BasePreImpl<UserInfoView> implements 
             mView.setBtnView(mView.getContext().getResources().getDrawable(R.mipmap.ic_common_add_press));
         mView.setViewData(userInfo);
 
-        HttpMethods.getInstance().optionLogs(25)
-                .subscribe(new Action1<List<OptionLogs>>() {
+//        HttpMethods.getInstance().optionLogs(25)
+//                .subscribe(new Action1<List<OptionLogs>>() {
+//                    @Override
+//                    public void call(List<OptionLogs> optionLogses) {
+//                        OptionAdapter adapter = new OptionAdapter(optionLogses,mView.getContext());
+//                        mView.setAdapter(adapter);
+//                    }
+//                });
+        UserService.getInstance().getUserOptions(25)
+                .subscribe(new Action1<List<Option>>() {
                     @Override
-                    public void call(List<OptionLogs> optionLogses) {
-                        OptionAdapter adapter = new OptionAdapter(optionLogses,mView.getContext());
+                    public void call(List<Option> options) {
+//                        OptionAdapter adapter = new OptionAdapter(optionLogses,mView.getContext());
+//                        mView.setAdapter(adapter);
+                        OptionAdapter2 adapter = new OptionAdapter2(options,mView.getContext());
                         mView.setAdapter(adapter);
                     }
                 });

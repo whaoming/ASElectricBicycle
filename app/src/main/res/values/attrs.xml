@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    
-    <declare-styleable name="roundedimageview"> 
-        <attr name="border_thickness" format="dimension" /> 
-        <attr name="border_inside_color" format="color" /> 
-        <attr name="border_outside_color" format="color"></attr> 
-    </declare-styleable> 
+
+    <declare-styleable name="roundedimageview">
+        <attr name="border_thickness" format="dimension" />
+        <attr name="border_inside_color" format="color" />
+        <attr name="border_outside_color" format="color"></attr>
+    </declare-styleable>
     
      <declare-styleable name="CircularImageView">
         <attr name="border" format="boolean"/>
@@ -41,5 +41,50 @@
             <enum name="vertical" value="1"/>
         </attr>
         <attr name="markerInCenter" format="boolean"/>
+    </declare-styleable>
+
+
+
+
+
+    <!--下面的文字text-->
+    <attr name="below_text" format="string" />
+    <!--下面的文字大小-->
+    <attr name="below_text_size" format="dimension" />
+    <!--下面的文字颜色-->
+    <attr name="below_text_color" format="color" />
+    <!--边框的颜色-->
+
+    <!--里面填充的颜色-->
+    <attr name="fill_color" format="color" />
+    <!--对应的图标-->
+    <attr name="icon_img" format="reference" />
+    <!--边框的大小 -->
+    <attr name="border_size" format="dimension" />
+
+    <declare-styleable name="MyCustomView">
+        <attr name="below_text" />
+        <attr name="below_text_size" />
+        <attr name="below_text_color" />
+        <attr name="icon_img" />
+        <attr name="border_color"/>
+        <attr name="fill_color"/>
+        <attr name="border_size" />
+    </declare-styleable>
+
+    <declare-styleable name="LatestTimeLine">
+        <attr name="me_point_color" format="color"/>
+        <attr name="me_point_size" format="dimension" />
+        <attr name="me_text_color" format="color"/>
+        <attr name="me_text_size" format="dimension"/>
+        <attr name="me_line_color" format="color"/>
+        <attr name="me_line_size" format="dimension"/>
+
+        <attr name="me_below_text" format="string"/>
+        <attr name="me_up_text" format="string"/>
+        <attr name="me_padding_left" format="dimension"/>
+        <attr name="me_pading_bewteen" format="dimension"/>
+        <attr name="me_padding_Right" format="dimension"/>
+        <attr name="me_mMarkerSize" format="dimension"/>
     </declare-styleable>
 </resources>

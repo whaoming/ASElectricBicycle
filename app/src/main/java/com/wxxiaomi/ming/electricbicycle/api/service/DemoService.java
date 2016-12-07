@@ -1,6 +1,7 @@
 package com.wxxiaomi.ming.electricbicycle.api.service;
 
 
+import com.wxxiaomi.ming.electricbicycle.dao.bean.Option;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.OptionLogs;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.format.InitUserInfo;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.format.Login;
@@ -68,6 +69,11 @@ public interface DemoService {
 
     @GET("android/topic_list")
     Observable<String> listTopic(@Query("start") int start);
+
+    @GET("android/user_optionlog")
+    Observable<Result<List<Option>>> listOption(@Query("userid") int userid);
+
+
 
     @GET
     Observable<String> sendGet(@Url String url, @QueryMap Map<String,String> options);
