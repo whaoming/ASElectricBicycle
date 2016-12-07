@@ -15,6 +15,9 @@ android {
         targetSdkVersion 22
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
+       // testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
     buildTypes {
@@ -42,51 +45,49 @@ repositories {
 }
 
 dependencies {
-
     compile 'com.android.support:design:25.0.0'
     compile fileTree(include: ['*.jar'], dir: 'libs')
-
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
     compile 'com.android.support:cardview-v7:25.0.0'
     compile 'io.reactivex:rxjava:1.0.14'
     compile 'io.reactivex:rxandroid:1.0.1'
     compile 'com.google.android.gms:play-services-appindexing:8.1.0'
     //compile 'com.facebook.fresco:fresco:0.9.0+'
     compile 'com.miguelcatalan:materialsearchview:1.4.0'
-
     compile 'com.squareup.retrofit2:retrofit:2.0.1'
     compile 'com.squareup.retrofit2:converter-gson:2.0.1'
     compile 'com.squareup.retrofit2:adapter-rxjava:2.0.1'
-
     compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
     compile 'com.squareup.okhttp3:okhttp:3.4.1'
-
-
-
     compile 'com.squareup.retrofit2:converter-scalars:2.0.0'
-
     compile 'com.github.lzyzsd:jsbridge:1.0.4'
-//  compile ('com.jph.takephoto:takephoto_library:3.0.4'){
-//     // exclude 'com.google.android:support-v4'
-//
-//  }
-
+    //  compile ('com.jph.takephoto:takephoto_library:3.0.4'){
+    //     // exclude 'com.google.android:support-v4'
+    //
+    //  }
     //单元测试Mock
     //testCompile "org.mockito:mockito-core:1.+"
     //androidTestCompile 'com.google.dexmaker:dexmaker-mockito:1.0'
-
-//    androidTestCompile "org.mockito:mockito-core:1.10.19"
-//    androidTestCompile "com.google.dexmaker:dexmaker:1.2"
-//    androidTestCompile "com.google.dexmaker:dexmaker-mockito:1.2"
-
-//    classpath 'me.tatarka:gradle-retrolambda:3.2.2'
+    //    androidTestCompile "org.mockito:mockito-core:1.10.19"
+    //    androidTestCompile "com.google.dexmaker:dexmaker:1.2"
+    //    androidTestCompile "com.google.dexmaker:dexmaker-mockito:1.2"
+    //    classpath 'me.tatarka:gradle-retrolambda:3.2.2'
     //testCompile 'org.mockito:mockito-core:1.9.5'
     compile project(':easeUI')
-
     compile 'com.jakewharton:disklrucache:2.0.2'
-
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
     testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
     compile 'com.github.bumptech.glide:glide:3.6.1'
     compile project(path: ':gallerypick')
+    //    testCompile 'junit:junit:4.12'
+    //    androidTestCompile 'org.testng:testng:6.9.6'
+    //    androidTestCompile 'junit:junit:4.12'
+    //compile 'junit:junit:4.12'
+    //testCompile 'junit:junit:4.12'
+    // androidTestCompile 'com.android.support.test:runner:0.3'
+    //compile 'com.android.support.test:runner:0.5'
+    testCompile 'junit:junit:4.12'
 }

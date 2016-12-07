@@ -2,6 +2,7 @@ package com.wxxiaomi.ming.electricbicycle.core.ui.view.activity;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -22,24 +23,32 @@ import com.wxxiaomi.ming.electricbicycle.core.ui.view.UserInfoView;
  */
 public class UserInfoAct extends BaseActivity<UserInfoView,UserInfoPresenter> implements UserInfoView<UserInfoPresenter>{
 
-    private Toolbar toolbar;
+    private Toolbar toolbar1;
     private FloatingActionButton btn_add;
     private RecyclerView mRecyclerView;
+    private CollapsingToolbarLayout collapsing_toolbar;
 
     @Override
     protected void initView(Bundle savedInstanceState) {
         setContentView(R.layout.activity_userinfo2);
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+
         // 标题的文字需在setSupportActionBar之前，不然会无效
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setHomeButtonEnabled(true); // 设置返回键可用
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         btn_add = (FloatingActionButton) findViewById(R.id.btn_add);
 
         btn_add.setOnClickListener(this);
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         mRecyclerView.setLayoutManager(new FullyLinearLayoutManager(this));
         mRecyclerView.setNestedScrollingEnabled(false);
+        toolbar1 = (Toolbar) findViewById(R.id.toolbar1);
+        collapsing_toolbar = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
+        toolbar1.setTitle("");
+        collapsing_toolbar.setTitle("我是标题");
+
+        setSupportActionBar(toolbar1);
+
+//        getSupportActionBar().setHomeButtonEnabled(true); // 设置返回键可用
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     @Override
@@ -47,7 +56,7 @@ public class UserInfoAct extends BaseActivity<UserInfoView,UserInfoPresenter> im
         return new UserInfoPresenterImpl();
     }
     @Override
-    public void setAdapter(OptionAdapter adapter){
+    public void setAdapter(RecyclerView.Adapter adapter){
         mRecyclerView.setAdapter(adapter);
     }
 
@@ -66,7 +75,7 @@ public class UserInfoAct extends BaseActivity<UserInfoView,UserInfoPresenter> im
 
     @Override
     public void setViewData(UserCommonInfo info) {
-        toolbar.setTitle(info.name);
+        //toolbar.setTitle(info.name);
     }
 
     @Override

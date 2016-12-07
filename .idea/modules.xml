@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ASElectricBicycle.iml" filepath="$PROJECT_DIR$/ASElectricBicycle.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ElectricBicycle.iml" filepath="$PROJECT_DIR$/ElectricBicycle.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/easeui/easeUI.iml" filepath="$PROJECT_DIR$/easeui/easeUI.iml" />
       <module fileurl="file://$PROJECT_DIR$/gallerypick/gallerypick.iml" filepath="$PROJECT_DIR$/gallerypick/gallerypick.iml" />

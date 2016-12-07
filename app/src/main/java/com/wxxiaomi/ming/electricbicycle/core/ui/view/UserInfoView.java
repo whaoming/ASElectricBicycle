@@ -2,6 +2,7 @@ package com.wxxiaomi.ming.electricbicycle.core.ui.view;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.support.v7.widget.RecyclerView;
 
 import com.wxxiaomi.ming.electricbicycle.core.weight.adapter.OptionAdapter;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo;
@@ -16,5 +17,5 @@ public interface UserInfoView<T extends BasePre> extends BaseView<T> {
     Intent getIntent();
     void setViewData(UserCommonInfo info);
     void setBtnView(Drawable drawable);
-    void setAdapter(OptionAdapter adapter);
+    void setAdapter(RecyclerView.Adapter adapter);
 }
