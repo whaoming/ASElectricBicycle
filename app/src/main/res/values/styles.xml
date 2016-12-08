@@ -9,21 +9,29 @@
 
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
+        <!--<item name="android:textColorPrimaryInverse">@color/colorPrimary</item>-->
+        <!--<item name="android:textColorTertiary">@color/colorPrimary</item>-->
+        <!--<item name="android:textColorTertiaryInverse">@color/colorPrimary</item>-->
+        <!--<item name="android:textColorPrimaryDisableOnly">@color/colorPrimary</item>-->
+        <!--<item name="android:textColorPrimaryInverseDisableOnly">@color/colorPrimary</item>-->
+        <!--<item name="android:textColorHint">@color/colorPrimary</item>-->
+        <!--<item name="android:textColorHintInverse">@color/colorPrimary</item>-->
+        <!--<item name="android:textColorHighlight">@color/colorPrimary</item>-->
+        <!--<item name="android:textColorLink">?attr/colorAccent</item>-->
+        <!-- 这个改了edittext的下划线颜色会改变-->
+        <!--<item name="android:textColorSecondaryInverse">@color/titleBlue</item>-->
+        <!--后退按钮的颜色,还有各种线的颜色-->
+        <!--<item name="android:textColorSecondary">@color/colorPrimary</item>-->
 
-
+        <!--toolbar标题 字体的颜色-->
         <item name="android:textColorPrimary">@color/colorPrimary</item>
-        <item name="android:textColorPrimaryInverse">@color/colorPrimary</item>
-        <item name="android:textColorSecondary">@color/colorPrimary</item>
-        <item name="android:textColorSecondaryInverse">@color/colorPrimary</item>
-        <item name="android:textColorTertiary">@color/colorPrimary</item>
-        <item name="android:textColorTertiaryInverse">@color/colorPrimary</item>
-        <item name="android:textColorPrimaryDisableOnly">@color/colorPrimary</item>
-        <item name="android:textColorPrimaryInverseDisableOnly">@color/colorPrimary</item>
-        <item name="android:textColorHint">@color/colorPrimary</item>
-        <item name="android:textColorHintInverse">@color/colorPrimary</item>
-        <item name="android:textColorHighlight">@color/colorPrimary</item>
-        <item name="android:textColorLink">?attr/colorAccent</item>
-        <item name="colorAccent">#50ffffff</item>
+        <!-- 就是好像edittext的下划线的颜色-->
+        <item name="colorAccent">@color/titleBlue</item>
+        <!-- 状态栏的颜色-->
+        <item name="colorPrimaryDark">@color/titleBlue</item>
+
+        <item name="actionBarStyle">@style/MyActionBar</item>
+        <item name="android:windowContentOverlay">@null</item>
         <!--
         <item name="android:colorAccent">@color/colorPrimary</item>
        <item name="textColorPrimary">@color/colorPrimary</item>
@@ -41,8 +49,11 @@
        -->
         <!-- textColorSecondary->textview默认字体颜色->无效-->
         <!-- Support library compatibility -->
-        <item name="actionBarStyle">@style/MyActionBar</item>
-        <item name="android:windowContentOverlay">@null</item>
+
+    </style>
+
+    <style name="mingBar">
+        <item name="android:textColorSecondary">@color/colorPrimary</item>
     </style>
 
     <style name="DialogTheme" parent="@android:style/Theme.DeviceDefault.Light.Dialog.NoActionBar">
@@ -359,6 +370,7 @@
 
     <!-- ActionBar styles -->
     <style name="MyActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <item name="android:textColorSecondary">@color/colorPrimary</item>
         <item name="android:background">@android:color/transparent</item>
         <item name="android:titleTextStyle">@style/Theme.YourTheme.Styled.ActionBar.TitleTextStyle
         </item>

@@ -38,8 +38,8 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:supportsRtl="true"
         android:largeHeap="true"
+        android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <service
             android:name="com.baidu.location.f"
@@ -81,7 +81,7 @@
         </receiver>
 
         <activity
-            android:name=".core.ui.view.activity.WelcomeActivity"
+            android:name=".core.SplashActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -92,7 +92,6 @@
         <activity
             android:name=".core.ui.view.activity.ScanCodeActivity"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".support.easemob.ui.ChatActivity"
             android:screenOrientation="portrait" />
@@ -129,9 +128,6 @@
             android:name=".core.ui.view.activity.PersonalAct"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".core.ui.view.activity.SplashActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".core.ui.view.activity.HomeActivity"
             android:screenOrientation="portrait" />
         <activity
@@ -143,24 +139,22 @@
         <activity
             android:name=".core.ui.view.activity.UserInfoAct"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".core.ui.view.activity.RegisterOneAct"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".core.ui.view.activity.RoutePlanActivity"
-            android:screenOrientation="portrait" />
-        <activity
-        android:name=".core.ui.view.activity.BaiduNavActivity"
-        android:screenOrientation="portrait" />
+        <!-- <activity -->
+        <!-- android:name=".core.ui.view.activity.RegisterOneAct" -->
+        <!-- android:screenOrientation="portrait" /> -->
+        <!-- <activity -->
+        <!-- android:name=".core.ui.view.activity.RoutePlanActivity" -->
+        <!-- android:screenOrientation="portrait" /> -->
+        <!-- <activity -->
+        <!-- android:name=".core.ui.view.activity.BaiduNavActivity" -->
+        <!-- android:screenOrientation="portrait" /> -->
         <activity
             android:name=".support.web.TestWebActivity"
             android:screenOrientation="portrait" />
+        <activity android:name="com.squareup.leakcanary.internal.DisplayLeakActivity" />
 
-        <activity android:name="com.squareup.leakcanary.internal.DisplayLeakActivity"
-            />
-        <service android:name="com.squareup.leakcanary.internal.HeapAnalyzerService"/>
-        <service android:name="com.squareup.leakcanary.DisplayLeakService"/>
-
+        <service android:name="com.squareup.leakcanary.internal.HeapAnalyzerService" />
+        <service android:name="com.squareup.leakcanary.DisplayLeakService" />
 
         <!-- <activity -->
         <!-- android:name=".view.activity.RegisterTwoActivity" -->
@@ -191,10 +185,12 @@
         <!-- android:name=".view.activity.FriendAddActivity" -->
         <!-- android:label="@string/title_activity_friend_add" -->
         <!-- android:theme="@style/AppTheme" /> -->
-        <activity
-            android:name=".core.ui.view.activity.SearchActiity"
-            android:label="@string/title_activity_search_actiity1"
-            android:theme="@style/AppTheme" />
+        <!-- <activity -->
+        <!-- android:name=".core.ui.view.activity.SearchActiity" -->
+        <!-- android:label="@string/title_activity_search_actiity1" -->
+        <!-- android:theme="@style/AppTheme" /> -->
+        <activity android:name=".core.ui.view.activity.MyInfoEditActivity" />
+        <activity android:name=".core.ui.view.activity.RegisterActivity"></activity>
     </application>
 
 </manifest>

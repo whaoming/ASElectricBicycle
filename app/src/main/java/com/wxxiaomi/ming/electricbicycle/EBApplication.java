@@ -28,14 +28,8 @@ public class EBApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        MultiDex.install(this);
-        Log.i("wang", "进入application-oncreate()");
         applicationContext = this;
         instance = this;
-        SDKInitializer.initialize(getApplicationContext());
-        DiskCache.getInstance().open(getApplicationContext());
-        OssEngine.getInstance().initOssEngine(getApplicationContext());
-        initEM();
         if (LeakCanary.isInAnalyzerProcess(this)) {
             // This process is dedicated to LeakCanary for heap analysis.
             // You should not init your app in this process.
@@ -50,22 +44,7 @@ public class EBApplication extends Application {
         return instance;
     }
 
-    private void initEM() {
-        EMOptions options = new EMOptions();
-        // 默认添加好友时，是不需要验证的，改成需要验证
-        options.setAcceptInvitationAlways(false);
-        // 初始化
-        try {
-            EaseUI.getInstance().init(this, options);
-            Log.i("wang", "初始化em引擎成功");
-        } catch (Exception e) {
 
-            e.printStackTrace();
-            Log.i("wang", "初始化em引擎失败");
-        }
-        EaseUI.getInstance().setUserProfileProvider(new MyUserProvider());
-
-    }
 
     @Override
     protected void attachBaseContext(Context base) {

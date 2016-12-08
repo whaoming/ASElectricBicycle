@@ -82,8 +82,6 @@ public class PhotoTakeUtil {
                 openTakeWindow();
             }
         });
-//                .subscribeOn(Schedulers.io())
-//                .observeOn(Schedulers.io());
     }
 
     /**

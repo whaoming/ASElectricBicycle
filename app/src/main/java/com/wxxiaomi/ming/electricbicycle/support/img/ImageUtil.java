@@ -187,7 +187,7 @@ public class ImageUtil {
                         try {
                             if (degree != 0) bitmap = rotateBitmap(bitmap, degree);
                             ByteArrayOutputStream bos = new ByteArrayOutputStream();
-                            bitmap.compress(Bitmap.CompressFormat.PNG, 70, bos);
+                            bitmap.compress(Bitmap.CompressFormat.PNG, 50, bos);
                             byte[] bytes = bos.toByteArray();
                             subscriber.onNext(bytes);
                         } catch (Exception e) {
@@ -201,10 +201,6 @@ public class ImageUtil {
     /**
      * 压缩指定路径图片，并将其保存在缓存目录中，通过isDelSrc判定是否删除源文件，并获取到缓存后的图片路径
      *
-     * @param srcPath
-     * @param rqsW
-     * @param rqsH
-     * @param isDelSrc
      * @return
      */
 //    public final static String compressBitmap(String srcPath, int rqsW, int rqsH, boolean isDelSrc) {
@@ -224,4 +220,23 @@ public class ImageUtil {
 //        }
 //        return desPath;
 //    }
+
+    /**
+     * 将本地图片转化为byte数组
+     * @param imgPath
+     * @return
+     */
+    public static Observable<byte[]> File2Byte(final String imgPath){
+        return Observable.create(new Observable.OnSubscribe<byte[]>() {
+            @Override
+            public void call(Subscriber<? super byte[]> subscriber) {
+                Bitmap bmp = BitmapFactory.decodeFile(imgPath);
+                ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                bmp.compress(Bitmap.CompressFormat.PNG, 100, stream);
+                byte[] byteArray = stream.toByteArray();
+                subscriber.onNext(byteArray);
+                subscriber.onCompleted();
+            }
+        });
+    }
 }

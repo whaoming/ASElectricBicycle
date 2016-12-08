@@ -20,15 +20,19 @@ public interface PersonalPresenter<V extends BaseView> extends BasePre<V> {
 
     /**
      * 更新头像控件
-     * @param iv
+//     * @param iv
      */
-    void updateHeadView(ImageView iv);
+//    void updateHeadView(ImageView iv);
 
-    void onCreate(Bundle savedInstanceState, BaseActivity act);
+//    void onCreate(Bundle savedInstanceState, BaseActivity act);
 
-    void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults);
+//    void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults);
 
-    void onActivityResult(int requestCode, int resultCode, Intent data);
+//    void onActivityResult(int requestCode, int resultCode, Intent data);
 
-    void onSaveInstanceState(Bundle outState);
+//    void onSaveInstanceState(Bundle outState);
+
+    void onSettingClick();
+
+    void onEditClick();
 }

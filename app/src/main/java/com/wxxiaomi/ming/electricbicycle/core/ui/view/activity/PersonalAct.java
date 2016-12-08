@@ -2,13 +2,19 @@ package com.wxxiaomi.ming.electricbicycle.core.ui.view.activity;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.PersistableBundle;
+import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -18,7 +24,9 @@ import com.wxxiaomi.ming.electricbicycle.core.ui.base.BaseActivity;
 
 import com.wxxiaomi.ming.electricbicycle.core.ui.presenter.PersonalPresenter;
 //import com.wxxiaomi.ming.electricbicycle.core.ui.presenter.impl.PersonalPreImpl;
+import com.wxxiaomi.ming.electricbicycle.core.ui.presenter.UserInfoPresenter;
 import com.wxxiaomi.ming.electricbicycle.core.ui.presenter.impl.PersonalPreImpl;
+import com.wxxiaomi.ming.electricbicycle.core.ui.presenter.impl.UserInfoPresenterImpl;
 import com.wxxiaomi.ming.electricbicycle.core.ui.view.PersonaView;
 import com.wxxiaomi.ming.electricbicycle.core.weight.adapter.IndexFragmentTabAdapter;
 import com.wxxiaomi.ming.electricbicycle.core.weight.custom.CircularImageView;
@@ -28,6 +36,9 @@ import com.wxxiaomi.ming.electricbicycle.core.ui.fragment.UserInfoPageFragment;
 import com.wxxiaomi.ming.electricbicycle.core.ui.fragment.base.BaseFragment;
 import com.wxxiaomi.ming.electricbicycle.core.ui.fragment.base.FragmentCallback;
 import com.wxxiaomi.ming.electricbicycle.common.GlobalManager;
+import com.wxxiaomi.ming.electricbicycle.core.weight.custom.FullyLinearLayoutManager;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo;
+import com.wxxiaomi.ming.electricbicycle.support.myglide.ImgShower;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,67 +47,35 @@ import java.util.List;
  * Created by 12262 on 2016/6/21.
  * 个人页面
  */
-public class PersonalAct extends BaseActivity<PersonaView, PersonalPresenter> implements FragmentCallback, PersonaView<PersonalPresenter> {
+public class PersonalAct extends BaseActivity<PersonaView, PersonalPresenter> implements PersonaView<PersonalPresenter> {
 
-    private Toolbar toolbar;
-    private TabLayout tabLayout;
-    private ViewPager viewPager;
-    private FragmentStatePagerAdapter fAdapter;
-    private List<Fragment> list_fragment;
-    private List<String> list_title;
-    private CircularImageView iv_my_head;
+
+    private Toolbar toolbar1;
+    private FloatingActionButton btn_add;
+    private RecyclerView mRecyclerView;
+    private CollapsingToolbarLayout collapsing_toolbar;
+    private ImageView iv_my_head;
 
     @Override
     protected void initView(Bundle savedInstanceState) {
-        presenter.onCreate(savedInstanceState,this);
-        setContentView(R.layout.activity_personal6);
-        tabLayout = (TabLayout) findViewById(R.id.tab_FindFragment_title);
-        tabLayout.setTabMode(TabLayout.MODE_FIXED);
-        viewPager = (ViewPager) findViewById(R.id.vp_FindFragment_pager);
-        toolbar = (Toolbar) this.findViewById(R.id.toolbar1);
-        toolbar.setTitleTextColor(Color.parseColor("#ffffff"));
-        toolbar.setTitle(GlobalManager.getInstance().getUser().userCommonInfo.name);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setHomeButtonEnabled(true);
+        setContentView(R.layout.activity_userinfo2);
+        // 标题的文字需在setSupportActionBar之前，不然会无效
+        btn_add = (FloatingActionButton) findViewById(R.id.btn_add);
+
+        btn_add.setOnClickListener(this);
+        mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        mRecyclerView.setLayoutManager(new FullyLinearLayoutManager(this));
+        mRecyclerView.setNestedScrollingEnabled(false);
+        toolbar1 = (Toolbar) findViewById(R.id.toolbar1);
+        collapsing_toolbar = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
+        toolbar1.setTitle("");
+        collapsing_toolbar.setTitle("我是标题");
+        iv_my_head = (ImageView) findViewById(R.id.iv_my_head);
+        ImgShower.showHead(this,iv_my_head,"");
+        setSupportActionBar(toolbar1);
+        getSupportActionBar().setHomeButtonEnabled(true); // 设置返回键可用
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        list_fragment = new ArrayList<Fragment>();
-        list_fragment.add(new UserInfoPageFragment());
-        list_fragment.add(new MyCarPageFragment());
-        list_fragment.add(new SettingPageFragment());
-        list_title = new ArrayList<String>();
-        list_title.add("个人主页");
-        list_title.add("我的车子");
-        list_title.add("设置");
-        tabLayout.addTab(tabLayout.newTab().setText(list_title.get(0)));
-        tabLayout.addTab(tabLayout.newTab().setText(list_title.get(1)));
-        tabLayout.addTab(tabLayout.newTab().setText(list_title.get(2)));
-        fAdapter = new IndexFragmentTabAdapter(getSupportFragmentManager(),
-                list_fragment, list_title);
-        viewPager.setAdapter(fAdapter);
-        viewPager.requestDisallowInterceptTouchEvent(true);
-        tabLayout.setupWithViewPager(viewPager);
-        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-
-            @Override
-            public void onPageSelected(int arg0) {
-
-            }
-
-            @Override
-            public void onPageScrolled(int arg0, float arg1, int arg2) {
-
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int arg0) {
-
-            }
-        });
-        iv_my_head = (CircularImageView) findViewById(R.id.iv_my_head);
-        iv_my_head.setOnClickListener(this);
     }
-
 
     @Override
     public PersonalPresenter getPresenter() {
@@ -105,45 +84,50 @@ public class PersonalAct extends BaseActivity<PersonaView, PersonalPresenter> im
 
 
     @Override
+    public void setAdapter(RecyclerView.Adapter adapter){
+        mRecyclerView.setAdapter(adapter);
+    }
+
+
+
+    @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.iv_my_head:
-                presenter.onHeadBrnClick();
+        switch (v.getId())
+        {
+            case R.id.btn_add:
+                ///添加好友按钮
+//                presenter.onAddBtnClick();
                 break;
         }
     }
 
     @Override
-    public void onFragmentCallback(BaseFragment fragment, int id, Bundle args) {
-
+    public void setViewData(UserCommonInfo info) {
+        //toolbar.setTitle(info.name);
     }
 
     @Override
-    public void updateHeadView() {
-
+    public void setBtnView(Drawable drawable) {
+        btn_add.setImageDrawable(drawable);
     }
 
     @Override
-    public ImageView getHeadView() {
-        return iv_my_head;
-    }
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_act_personal, menu);//加载menu文件到布局
 
-
-    @Override
-    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
-        presenter.onSaveInstanceState(outState);
-        super.onSaveInstanceState(outState, outPersistentState);
+        return true;
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        presenter.onActivityResult(requestCode, resultCode, data);
-        super.onActivityResult(requestCode, resultCode, data);
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        presenter.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.action_edit:
+                presenter.onEditClick();
+                break;
+            case R.id.action_setting:
+                presenter.onSettingClick();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
