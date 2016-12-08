@@ -75,7 +75,6 @@ public class SplashActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		AppManager.getAppManager().addActivity(this);
-
 		tv_tv = (TextView) findViewById(R.id.tv_tv);
 		init();
 	}
@@ -132,7 +131,7 @@ public class SplashActivity extends Activity {
 		options.setAcceptInvitationAlways(false);
 		// 初始化
 		try {
-			EaseUI.getInstance().init(this, options);
+			EaseUI.getInstance().init(getApplicationContext(), options);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
