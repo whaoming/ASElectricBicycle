@@ -15,11 +15,14 @@ import com.wxxiaomi.ming.electricbicycle.dao.bean.format.Login;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.format.NearByPerson;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.format.Register;
 import com.wxxiaomi.ming.electricbicycle.dao.constant.OptionType;
+import com.wxxiaomi.ming.electricbicycle.support.aliyun.OssEngine;
 import com.wxxiaomi.ming.electricbicycle.support.easemob.ui.LRUCache;
 import com.wxxiaomi.ming.electricbicycle.dao.impl.FriendDaoImpl;
 import com.wxxiaomi.ming.electricbicycle.dao.impl.UserDaoImpl;
+import com.wxxiaomi.ming.electricbicycle.support.img.ImageUtil;
 
 import java.util.List;
+import java.util.UUID;
 
 import rx.Observable;
 import rx.Subscriber;
@@ -145,9 +148,9 @@ public class UserService {
         return  userDao.Login(username, password);
     }
 
-    public Observable<String> upLoadHead(String fileName,String filePath){
-        return userDao.upLoadHead(fileName, filePath);
-    }
+//    public Observable<String> upLoadHead(String fileName,String filePath){
+//        return userDao.upLoadHead(fileName, filePath);
+//    }
 
     public Observable<Register> registerUser(String username, String password){
         return userDao.registerUser(username, password);
@@ -156,14 +159,6 @@ public class UserService {
     public boolean isMyFriend(String emname){
         return friendDao.isMyFriend(emname);
     }
-
-//    public UserCommonInfo getFriendLocal(String emname){
-//        UserCommonInfo info = friendDao.getFriendLocal(emname);
-//        if(info==null){
-//            return userDao.getUserLocalNoRx(emname);
-//        }
-//        return info;
-//    }
 
     public Observable<UserCommonInfo> getUserMemoryCache(final String emname){
         return Observable.create(new Observable.OnSubscribe<UserCommonInfo>() {
@@ -209,6 +204,16 @@ public class UserService {
                 });
     }
 
+    public Observable<String> upLoadHeadImg(String imgPath){
+//        ImageUtil.File2Byte(imgPath)
+//                .flatMap(new Func1<byte[], Observable<?>>() {
+//                    @Override
+//                    public Observable<?> call(byte[] bytes) {
+//                        return null;
+//                    }
+//                })
 
+        return OssEngine.getInstance().uploadImage(UUID.randomUUID().toString()+".jpg",imgPath);
+    }
 
 }

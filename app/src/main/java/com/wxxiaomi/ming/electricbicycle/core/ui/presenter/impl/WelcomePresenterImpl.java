@@ -5,7 +5,6 @@ import com.wxxiaomi.ming.electricbicycle.core.ui.base.BasePreImpl;
 import com.wxxiaomi.ming.electricbicycle.core.ui.presenter.WelcomePre;
 import com.wxxiaomi.ming.electricbicycle.core.ui.view.WelcomeView;
 import com.wxxiaomi.ming.electricbicycle.core.ui.view.activity.LoginActivity;
-import com.wxxiaomi.ming.electricbicycle.core.ui.view.activity.RegisterOneAct;
 
 /**
  * Created by 12262 on 2016/10/28.
@@ -22,7 +21,7 @@ public class WelcomePresenterImpl extends BasePreImpl<WelcomeView> implements We
         if(ConstantValue.openScan){
 
         }else{
-            mView.runActivity(RegisterOneAct.class,null,false);
+//            mView.runActivity(RegisterOneAct.class,null,false);
         }
     }
 
