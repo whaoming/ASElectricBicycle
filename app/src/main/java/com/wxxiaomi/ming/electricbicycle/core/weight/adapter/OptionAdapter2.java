@@ -52,7 +52,7 @@ public class OptionAdapter2 extends RecyclerView.Adapter<RecyclerView.ViewHolder
             switch (flag){
                 case OptionType.TOPIC_PUBLISH:
                     Topic topic = (Topic)option.dobj;
-                    if("".equals(topic.pics)){
+                    if(topic.pics==null ||  "".equals(topic.pics)){
                         holder.iv_img.setVisibility(View.GONE);
                     }else{
                         holder.iv_img.setVisibility(View.VISIBLE);

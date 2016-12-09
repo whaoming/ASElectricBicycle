@@ -29,11 +29,10 @@ public interface ConstantValue {
 	/**
 	 * 校园网wifi笔记本
 	 */
-	public static String SERVER_URL = "http://192.168.1.46:8080/ElectricBicycleServer/";
+	public static String SERVER_URL = "http://192.168.1.105:8080/ElectricBicycleServer/";
 
 	/**
 	 * 登录操作的url
 	 */
-	public static String LOGIN_URL = "ActionServlet?action=login";
-	public static String OSS_MY_URL = "http://192.168.1.46:8080/OssTokenGetServer/Oss";
+	public static String OSS_MY_URL = "http://192.168.1.105:8080/OssTokenGetServer/Oss";
 }
