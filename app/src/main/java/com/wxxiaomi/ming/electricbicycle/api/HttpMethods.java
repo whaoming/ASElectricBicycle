@@ -15,16 +15,21 @@ import com.wxxiaomi.ming.electricbicycle.dao.bean.format.Register;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.format.common.Result;
 
 
-
+import java.io.IOException;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
+import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
+import okhttp3.Request;
 import okhttp3.RequestBody;
+import okhttp3.Response;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import rx.Observable;
+import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Func1;
 import rx.schedulers.Schedulers;
@@ -42,6 +47,7 @@ public class HttpMethods {
     private Retrofit retrofit;
     private DemoService demoService;
 
+
     //构造方法私有
     private HttpMethods() {
 
@@ -49,8 +55,28 @@ public class HttpMethods {
 //        OkHttpClient.Builder httpClientBuilder = new OkHttpClient.Builder();
 //        httpClientBuilder.connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS);
         if(ConstantValue.isDeBug){
-            OkHttpClient okHttpClient = new OkHttpClient.Builder().addInterceptor
-                    (new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)).build();
+            OkHttpClient.Builder builder = new OkHttpClient.Builder();
+            //输出每次返回的json数据的字符串
+            builder.addInterceptor
+                    (new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY));
+            builder.addInterceptor
+                    (new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.HEADERS));
+            builder.addInterceptor(new Interceptor() {
+                @Override
+                public Response intercept(Chain chain) throws IOException {
+
+                    Request newRequest = chain.request().newBuilder()
+                            .addHeader("token","I.m token,yeah!")
+                            .build();
+                    Response response = chain.proceed(newRequest);
+//                    if(response.header("token")!=null){
+//                        Log.i("wang","服务器返回的header中发现token："+response.header("token"));
+//                        throw new IOException("服务器返回的header中发现token："+response.header("token"));
+//                    }
+                    return response;
+                }
+            });
+            OkHttpClient okHttpClient = builder.build();
             retrofit = new Retrofit.Builder()
                     .baseUrl(BASE_URL)
                     .client(okHttpClient)
@@ -98,9 +124,25 @@ public class HttpMethods {
 
     }
 
+    public Observable<Login> login2(String username,String password){
+        return demoService.readBaidu2(username, password)
+                .flatMap(new Func1<retrofit2.Response<Login>, Observable<Login>>() {
+                    @Override
+                    public Observable<Login> call(retrofit2.Response<Login> loginResponse) {
+                        String token = loginResponse.headers().get("token");
+                        Log.i("wang","服务器响应头发现token："+token);
+                        return Observable.just(loginResponse.body());
+                    }
+                })
+                .subscribeOn(Schedulers.io())
+                ;
+    }
+
     public Observable<Login> login(String username, String password) {
         return demoService.readBaidu(username, password)
                 .map(new ServerResultFunc<Login>())
+                .retryWhen(new TokenOutTime(3,1))
+
                 .onErrorResumeNext(new HttpResultFunc<Login>())
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io())
@@ -183,6 +225,22 @@ public class HttpMethods {
                 .observeOn(AndroidSchedulers.mainThread());
     }
 
+    public Observable<String> demodemo(){
+        Log.i("wang","demodemo呗调用了");
+        return Observable.create(new Observable.OnSubscribe<String>() {
+            @Override
+            public void call(Subscriber<? super String> subscriber) {
+                try {
+                    Thread.sleep(3000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                Log.i("wang","我他妈呗执行了");
+                subscriber.onNext("我获取到token啦");
+            }
+        });
+    }
+
 
 
     private class ServerResultFunc<T> implements Func1<Result<T>, T> {
@@ -192,6 +250,9 @@ public class HttpMethods {
 //            Log.i("wang","httpResult.toString()="+httpResult.toString());
             if(httpResult==null){
                 throw new ServerException(404, "获取结构为空");
+            }else if(httpResult.state == 401){
+                Log.i("wang","httpResult.state == 401");
+                throw new ServerException(401, "token过期");
             }
            else if (httpResult.state != 200) {
                 throw new ServerException(httpResult.state, httpResult.error);
@@ -206,6 +267,36 @@ public class HttpMethods {
             Log.i("wang","HttpMethod发现异常拉"+throwable.toString());
             throwable.printStackTrace();
             return Observable.error(ExceptionEngine.handleException(throwable));
+        }
+    }
+
+    private class TokenOutTime implements  Func1<Observable<? extends Throwable>, Observable<?>>{
+        private  int maxRetries;
+        private  int retryDelayMillis;
+        private int retryCount = 0;
+
+        public TokenOutTime(int maxRetries, int retryDelayMillis){
+            this.maxRetries = maxRetries;
+            this.retryDelayMillis = retryDelayMillis;
+        }
+        @Override
+        public Observable<?> call(Observable<? extends Throwable> observable) {
+            return observable.flatMap(new Func1<Throwable, Observable<?>>() {
+                @Override
+                public Observable<?> call(Throwable throwable) {
+
+                    ServerException ex = (ServerException)throwable;
+                    if(ex.getCode() == 401){
+                        //重新获取token，并返回这个
+                        if (++retryCount <= maxRetries) {
+                        Log.i("wang","TokenOutTime->ex.getCode() == 401");
+                        return demodemo()
+                                .timer(retryDelayMillis,TimeUnit.SECONDS);
+                        }
+                    }
+                    return Observable.error(throwable);
+                }
+            });
         }
     }
 

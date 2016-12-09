@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.wxxiaomi.ming.electricbicycle.R;
+import com.wxxiaomi.ming.electricbicycle.common.util.AppManager;
 
 import static com.wxxiaomi.ming.electricbicycle.R.id.ll_towbtn_view;
 
@@ -22,7 +23,9 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        AppManager.getAppManager().addActivity(this);
         setContentView(R.layout.activity_register2);
+
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("注册");
         setSupportActionBar(toolbar);
@@ -39,5 +42,12 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 startActivity(intent);
                 break;
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        AppManager.getAppManager().finishActivity(this);
+        super.onDestroy();
+
     }
 }

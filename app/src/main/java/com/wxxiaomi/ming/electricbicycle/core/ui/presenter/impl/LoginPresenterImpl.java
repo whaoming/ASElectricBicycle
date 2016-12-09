@@ -3,27 +3,26 @@ package com.wxxiaomi.ming.electricbicycle.core.ui.presenter.impl;
 import android.support.design.widget.TextInputLayout;
 
 import com.wxxiaomi.ming.electricbicycle.ConstantValue;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.User;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.format.Login;
+import com.wxxiaomi.ming.electricbicycle.api.HttpMethods;
+import com.wxxiaomi.ming.electricbicycle.common.util.AppManager;
+import com.wxxiaomi.ming.electricbicycle.core.ui.view.activity.RegisterActivity;
 import com.wxxiaomi.ming.electricbicycle.core.ui.base.BasePreImpl;
 import com.wxxiaomi.ming.electricbicycle.core.ui.view.activity.HomeActivity;
 import com.wxxiaomi.ming.electricbicycle.core.ui.presenter.LoginPresenter;
 import com.wxxiaomi.ming.electricbicycle.dao.UserService;
-import com.wxxiaomi.ming.electricbicycle.support.easemob.EmEngine;
-import com.wxxiaomi.ming.electricbicycle.common.GlobalManager;
 import com.wxxiaomi.ming.electricbicycle.common.rx.SampleProgressObserver;
 import com.wxxiaomi.ming.electricbicycle.core.ui.view.LoginView;
 import com.wxxiaomi.ming.electricbicycle.common.util.MyUtils;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.format.Login;
 
-import rx.Observable;
-import rx.functions.Func1;
-import rx.schedulers.Schedulers;
+import rx.functions.Action1;
+
 
 /**
  * Created by 12262 on 2016/6/5.
+ * 登陆页面的控制器
  */
 public class LoginPresenterImpl extends BasePreImpl<LoginView> implements LoginPresenter<LoginView> {
-    private User tempUser;
 
     @Override
     public void init() {
@@ -66,48 +65,27 @@ public class LoginPresenterImpl extends BasePreImpl<LoginView> implements LoginP
     }
 
     private void sendRequest(String username, String password) {
-        Observable<Login> flag = UserService.getInstance().Login(username, password);
-        if (ConstantValue.isEMOpen) {
-            flag
-                    //登录到em服务器
-                    .flatMap(new Func1<Login, Observable<Boolean>>() {
-                        @Override
-                        public Observable<Boolean> call(Login login) {
-                            tempUser = login.userInfo;
-                            return EmEngine.getInstance().LoginFromEm(login.userInfo.username, login.userInfo.password);
-                        }
-                    })
-                    //更新好友列表
-                    .flatMap(new Func1<Boolean, Observable<Integer>>() {
-                        @Override
-                        public Observable<Integer> call(Boolean aBoolean) {
-                            return EmEngine.getInstance().updateFriend();
-                        }
-                    })
-                    .subscribeOn(Schedulers.io())
-                    .subscribe(new SampleProgressObserver<Integer>(mView.getContext()) {
-                        @Override
-                        public void onNext(Integer flag) {
-//                            GlobalParams.user = tempUser;
-                            EmEngine.getInstance().init();
-                            GlobalManager.getInstance().savaUser(tempUser);
-                            mView.runActivity(HomeActivity.class, null, true);
-                        }
-                    })
-            ;
-        } else {
-            flag.subscribe(new SampleProgressObserver<Login>(mView.getContext()) {
-                @Override
-                public void onNext(Login login) {
-                    GlobalManager.getInstance().savaUser(login.userInfo);
-                    mView.runActivity(HomeActivity.class, null, true);
-                }
-            });
-        }
+        UserService.getInstance().Login(username, password,ConstantValue.isEMOpen)
+                .subscribe(new SampleProgressObserver<Integer>(mView.getContext()) {
+                    @Override
+                    public void onNext(Integer integer) {
+                        AppManager.getAppManager().finishActivity(RegisterActivity.class);
+                        mView.runActivity(HomeActivity.class, null, true);
+                    }
+                });
+//        HttpMethods.getInstance().login2(username, password)
+//                .subscribe(new Action1<Login>() {
+//                    @Override
+//                    public void call(Login login) {
+//
+//                    }
+//                });
     }
 
     @Override
     public void onDebugBtnClick() {
         sendRequest("122627018","987987987");
     }
+
+
 }

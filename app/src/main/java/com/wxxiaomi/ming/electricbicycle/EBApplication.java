@@ -30,12 +30,26 @@ public class EBApplication extends Application {
         super.onCreate();
         applicationContext = this;
         instance = this;
+        SDKInitializer.initialize(getApplicationContext());
+        initEM();
         if (LeakCanary.isInAnalyzerProcess(this)) {
-            // This process is dedicated to LeakCanary for heap analysis.
-            // You should not init your app in this process.
             return;
         }
         sRefWatcher = LeakCanary.install(this);
+
+
+    }
+
+    private void initEM() {
+        EMOptions options = new EMOptions();
+        // 默认添加好友时，是不需要验证的，改成需要验证
+        options.setAcceptInvitationAlways(false);
+        // 初始化
+        try {
+            EaseUI.getInstance().init(getApplicationContext(), options);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
     }

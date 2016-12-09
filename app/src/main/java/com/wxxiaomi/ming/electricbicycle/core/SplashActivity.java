@@ -85,7 +85,7 @@ public class SplashActivity extends Activity {
 	 */
 	private void init() {
 		final CountDownLatch order = new CountDownLatch(2);
-		SDKInitializer.initialize(getApplicationContext());
+
 		handler.sendEmptyMessage(1);
 		new Thread(){
 			@Override
@@ -95,7 +95,7 @@ public class SplashActivity extends Activity {
 				handler.sendEmptyMessage(2);
 				OssEngine.getInstance().initOssEngine(getApplicationContext());
 				handler.sendEmptyMessage(3);
-				initEM();
+				EaseUI.getInstance().setUserProfileProvider(new MyUserProvider());
 				handler.sendEmptyMessage(4);
 				order.countDown();
 			}
@@ -125,19 +125,7 @@ public class SplashActivity extends Activity {
 		}.start();
 	}
 
-	private void initEM() {
-		EMOptions options = new EMOptions();
-		// 默认添加好友时，是不需要验证的，改成需要验证
-		options.setAcceptInvitationAlways(false);
-		// 初始化
-		try {
-			EaseUI.getInstance().init(getApplicationContext(), options);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		EaseUI.getInstance().setUserProfileProvider(new MyUserProvider());
 
-	}
 
 	@Override
 	protected void onDestroy() {
