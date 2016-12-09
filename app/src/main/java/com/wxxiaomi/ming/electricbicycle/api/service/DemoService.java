@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 import okhttp3.RequestBody;
+import retrofit2.Response;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -29,6 +30,9 @@ import rx.Observable;
  */
 public interface DemoService {
 //    @GET("ActionServlet?action=login")
+
+    @GET("android/user_login")
+    Observable<Response<Login>> readBaidu2(@Query("username") String username, @Query("password") String password);
 
     @GET("android/user_login")
     Observable<Result<Login>> readBaidu(@Query("username") String username, @Query("password") String password);
@@ -81,4 +85,6 @@ public interface DemoService {
     @FormUrlEncoded
     @POST
     Observable<String> sendPost(@Url String url, @FieldMap Map<String, String> options);
+
+//    Observable<Response<>>
 }

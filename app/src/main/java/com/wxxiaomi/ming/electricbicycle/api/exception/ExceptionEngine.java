@@ -4,6 +4,7 @@ import com.google.gson.JsonParseException;
 
 import org.json.JSONException;
 
+import java.io.IOException;
 import java.net.ConnectException;
 import java.net.SocketTimeoutException;
 import java.text.ParseException;
@@ -64,8 +65,12 @@ public class ExceptionEngine {
             ex = new ApiException(e, ERROR.NETWORD_ERROR);
             ex.setDisplayMessage("连接服务器失败");  //均视为网络错误
             return ex;
-        }
-        else {
+        } else if (e instanceof IOException) {
+            e.printStackTrace();
+            ex = new ApiException(e, ERROR.UNKNOWN);
+            ex.setDisplayMessage("未知错误");          //未知错误
+            return ex;
+        } else {
             ex = new ApiException(e, ERROR.UNKNOWN);
             ex.setDisplayMessage("未知错误");          //未知错误
             return ex;

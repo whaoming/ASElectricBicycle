@@ -326,17 +326,17 @@ public class EmEngine {
      * 4.存到数据库->UserDaoImpl2.getInstance().updateFriendList(initUserInfo.friendList);
      * @return
      */
-    public Observable<Integer> updateFriend() {
-        return getContactFromEm()
-                //核对数据库好友列表，多的删除，少的数据库获取
-                .flatMap(new Func1<List<String>, Observable<Integer>>() {
-                    @Override
-                    public Observable<Integer> call(List<String> usernames) {
-                        return UserService.getInstance().UpdateFriendList(usernames);
-                    }
-                });
-//
-    }
+//    public Observable<Integer> updateFriend() {
+//        return getContactFromEm()
+//                //核对数据库好友列表，多的删除，少的数据库获取
+//                .flatMap(new Func1<List<String>, Observable<Integer>>() {
+//                    @Override
+//                    public Observable<Integer> call(List<String> usernames) {
+//                        return UserService.getInstance().UpdateFriendList(usernames);
+//                    }
+//                });
+////
+//    }
 
     /**
      * 设置邀请类的消息回调接口

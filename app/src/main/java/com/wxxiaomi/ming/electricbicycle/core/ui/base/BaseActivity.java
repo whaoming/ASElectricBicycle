@@ -7,6 +7,8 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.wxxiaomi.ming.electricbicycle.common.util.AppManager;
+
 /**
  * Created by 12262 on 2016/10/18.
  * activity公共基类
@@ -16,6 +18,7 @@ public abstract class BaseActivity<V,T extends BasePre> extends AppCompatActivit
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        AppManager.getAppManager().addActivity(this);
         presenter = getPresenter();
         initView(savedInstanceState);
         if(presenter!=null) {
@@ -53,7 +56,9 @@ public abstract class BaseActivity<V,T extends BasePre> extends AppCompatActivit
             presenter.onViewDestory();
             presenter = null;
         }
+        AppManager.getAppManager().finishActivity(this);
         super.onDestroy();
+
     }
 
     @Override

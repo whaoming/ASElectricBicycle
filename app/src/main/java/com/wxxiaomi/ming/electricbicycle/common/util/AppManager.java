@@ -4,6 +4,7 @@ import java.util.Stack;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
+import android.util.Log;
 
 
 public class AppManager {
@@ -56,7 +57,9 @@ public class AppManager {
 		 * 结束指定的Activity
 		 */
 		public void finishActivity(Activity activity) {
+
 			if (activity != null) {
+				Log.i("mingtask","appManager:"+activity.getLocalClassName()+"被销毁了");
 				activityStack.remove(activity);
 				activity.finish();
 				activity = null;
