@@ -9,16 +9,15 @@ import com.wxxiaomi.ming.electricbicycle.api.exception.ServerException;
 import com.wxxiaomi.ming.electricbicycle.api.service.DemoService;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.Option;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.OptionLogs;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.format.InitUserInfo;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.format.Login;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.format.NearByPerson;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.format.Register;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.format.common.Result;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.User;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.UserLocatInfo;
+
+import com.wxxiaomi.ming.electricbicycle.dao.common.Result;
 
 
 import java.io.IOException;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
@@ -30,7 +29,6 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import rx.Observable;
-import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Func1;
 import rx.schedulers.Schedulers;
@@ -113,12 +111,12 @@ public class HttpMethods {
     /**
      * 用于获取豆瓣电影Top250的数据
      */
-    public Observable<InitUserInfo> getTopMovie(String username, String password) {
+    public Observable<List<UserCommonInfo>> getTopMovie(String username, String password) {
         return demoService.initUserInfo(username, password)
-                .map(new ServerResultFunc<InitUserInfo>())
-                .onErrorResumeNext(new Func1<Throwable, Observable<? extends InitUserInfo>>() {
+                .map(new ServerResultFunc<List<UserCommonInfo>>())
+                .onErrorResumeNext(new Func1<Throwable, Observable<? extends List<UserCommonInfo>>>() {
                     @Override
-                    public Observable<? extends InitUserInfo> call(Throwable throwable) {
+                    public Observable<? extends List<UserCommonInfo>> call(Throwable throwable) {
                         return Observable.error(ExceptionEngine.handleException(throwable));
                     }
                 })
@@ -126,77 +124,77 @@ public class HttpMethods {
                 .unsubscribeOn(Schedulers.io());
     }
 
-    public Observable<Login> login2(String username,String password){
-        return demoService.readBaidu2(username, password)
-                .flatMap(new Func1<retrofit2.Response<Login>, Observable<Login>>() {
-                    @Override
-                    public Observable<Login> call(retrofit2.Response<Login> loginResponse) {
-                        String token = loginResponse.headers().get("token");
-                        Log.i("wang","服务器响应头发现token："+token);
-                        return Observable.just(loginResponse.body());
-                    }
-                })
-                .subscribeOn(Schedulers.io())
-                ;
-    }
+//    public Observable<Login> login2(String username,String password){
+//        return demoService.readBaidu2(username, password)
+//                .flatMap(new Func1<retrofit2.Response<Login>, Observable<Login>>() {
+//                    @Override
+//                    public Observable<Login> call(retrofit2.Response<Login> loginResponse) {
+//                        String token = loginResponse.headers().get("token");
+//                        Log.i("wang","服务器响应头发现token："+token);
+//                        return Observable.just(loginResponse.body());
+//                    }
+//                })
+//                .subscribeOn(Schedulers.io())
+//                ;
+//    }
 
-    public Observable<Login> login(String username, String password) {
+    public Observable<User> login(String username, String password) {
         return demoService.readBaidu(username, password)
-                .map(new ServerResultFunc<Login>())
+                .map(new ServerResultFunc<User>())
                 .retryWhen(new TokenOutTime(3,1))
-                .onErrorResumeNext(new HttpResultFunc<Login>())
+                .onErrorResumeNext(new HttpResultFunc<User>())
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io());
     }
 
-    public Observable<InitUserInfo> getUserListByEmList(List<String> emnamelist) {
+    public Observable<List<UserCommonInfo>> getUserListByEmList(List<String> emnamelist) {
         String temp = "";
         for (String e : emnamelist) {
             temp += e + "<>";
         }
 //        Observable.create()
         return demoService.getUserListByEmList(temp)
-                .map(new ServerResultFunc<InitUserInfo>())
+                .map(new ServerResultFunc<List<UserCommonInfo>>())
                 .retryWhen(new TokenOutTime(3,1))
-                .onErrorResumeNext(new HttpResultFunc<InitUserInfo>())
+                .onErrorResumeNext(new HttpResultFunc<List<UserCommonInfo>>())
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io());
     }
 
-    public Observable<InitUserInfo> getUserCommonInfoByEmname(String emname) {
+    public Observable<List<UserCommonInfo>> getUserCommonInfoByEmname(String emname) {
         emname = emname + "<>";
         return demoService.getUserListByEmList(emname)
-                .map(new ServerResultFunc<InitUserInfo>())
-                .onErrorResumeNext(new HttpResultFunc<InitUserInfo>());
+                .map(new ServerResultFunc<List<UserCommonInfo>>())
+                .onErrorResumeNext(new HttpResultFunc<List<UserCommonInfo>>());
     }
 
-    public Observable<NearByPerson> getNearByFromServer(int userid, double latitude, double longitude) {
+    public Observable<List<UserLocatInfo>> getNearByFromServer(int userid, double latitude, double longitude) {
         return demoService.getNearByFromServer(userid, latitude, longitude)
-                .map(new ServerResultFunc<NearByPerson>())
-                .onErrorResumeNext(new HttpResultFunc<NearByPerson>())
+                .map(new ServerResultFunc<List<UserLocatInfo>>())
+                .onErrorResumeNext(new HttpResultFunc<List<UserLocatInfo>>())
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
     }
 
-    public Observable<InitUserInfo> getUserCommonInfoByName(String name) {
+    public Observable<List<UserCommonInfo>> getUserCommonInfoByName(String name) {
         return demoService.getUserCommonInfoByName(name)
-                .map(new ServerResultFunc<InitUserInfo>())
-                .onErrorResumeNext(new HttpResultFunc<InitUserInfo>())
+                .map(new ServerResultFunc<List<UserCommonInfo>>())
+                .onErrorResumeNext(new HttpResultFunc<List<UserCommonInfo>>())
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
     }
 
-    public Observable<Register> registerUser(String username, String password) {
-        Log.i("wang","HttpMethods->registerUser");
-        return demoService.registerUser(username, password)
-                .map(new ServerResultFunc<Register>())
-                .onErrorResumeNext(new HttpResultFunc<Register>())
-                .subscribeOn(Schedulers.io())
-                .unsubscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread());
-    }
+//    public Observable<Register> registerUser(String username, String password) {
+//        Log.i("wang","HttpMethods->registerUser");
+//        return demoService.registerUser(username, password)
+//                .map(new ServerResultFunc<Register>())
+//                .onErrorResumeNext(new HttpResultFunc<Register>())
+//                .subscribeOn(Schedulers.io())
+//                .unsubscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread());
+//    }
 
     public Observable<String> upLoadHead(String fileName, RequestBody imgs){
         return demoService.uploadImage(fileName,imgs)
@@ -226,24 +224,10 @@ public class HttpMethods {
     }
 
     public Observable<String> demodemo(){
-  //      Log.i("wang","demodemo呗调用了");
-//        return Observable.create(new Observable.OnSubscribe<String>() {
-//            @Override
-//            public void call(Subscriber<? super String> subscriber) {
-////                try {
-////                    Thread.sleep(3000);
-////                } catch (InterruptedException e) {
-////                    e.printStackTrace();
-////                }
-//                //GlobalParams.token =
-//                Log.i("wang","我不管，反正我是获取token的函数");
-//                subscriber.onNext("我获取到token啦");
-//            }
-//        });
         return login("122627018","987987987")
-                .flatMap(new Func1<Login, Observable<String>>() {
+                .flatMap(new Func1<User, Observable<String>>() {
                     @Override
-                    public Observable<String> call(Login login) {
+                    public Observable<String> call(User login) {
                         Log.i("wang","再次登录成功");
                         return Observable.just("asd");
                     }

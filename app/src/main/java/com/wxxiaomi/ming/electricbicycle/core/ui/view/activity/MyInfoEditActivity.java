@@ -3,7 +3,6 @@ package com.wxxiaomi.ming.electricbicycle.core.ui.view.activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -11,18 +10,13 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.wxxiaomi.ming.electricbicycle.R;
-import com.wxxiaomi.ming.electricbicycle.api.WebMethods;
-import com.wxxiaomi.ming.electricbicycle.common.util.ParsMakeUtil;
-import com.wxxiaomi.ming.electricbicycle.dao.UserService;
+import com.wxxiaomi.ming.electricbicycle.dao.db.UserService;
 import com.wxxiaomi.ming.electricbicycle.support.aliyun.OssEngine;
-import com.wxxiaomi.ming.electricbicycle.support.cache.CacheEngine;
 import com.wxxiaomi.ming.electricbicycle.support.img.PhotoTakeUtil;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import rx.Observable;
-import rx.Observer;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 import rx.functions.Func1;

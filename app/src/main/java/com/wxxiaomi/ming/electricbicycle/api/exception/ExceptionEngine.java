@@ -1,5 +1,7 @@
 package com.wxxiaomi.ming.electricbicycle.api.exception;
 
+import android.util.Log;
+
 import com.google.gson.JsonParseException;
 
 import org.json.JSONException;
@@ -29,7 +31,9 @@ public class ExceptionEngine {
 
     public static ApiException handleException(Throwable e){
         ApiException ex;
-        if (e instanceof HttpException){             //HTTP错误
+        if (e instanceof HttpException){
+            Log.i("wang","e instanceof HttpException");
+            //HTTP错误
             HttpException httpException = (HttpException) e;
             ex = new ApiException(e, ERROR.HTTP_ERROR);
             switch(httpException.code()){

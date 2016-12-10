@@ -23,7 +23,7 @@ import com.hyphenate.easeui.widget.EaseConversationList.EaseConversationListHelp
 import com.hyphenate.util.NetUtils;
 import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo;
-import com.wxxiaomi.ming.electricbicycle.dao.UserService;
+import com.wxxiaomi.ming.electricbicycle.dao.db.UserService;
 import com.wxxiaomi.ming.electricbicycle.support.easemob.EmEngine;
 import com.wxxiaomi.ming.electricbicycle.support.easemob.listener.FriendMessageListener;
 

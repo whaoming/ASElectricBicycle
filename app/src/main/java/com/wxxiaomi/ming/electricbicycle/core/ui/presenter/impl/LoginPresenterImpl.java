@@ -3,19 +3,17 @@ package com.wxxiaomi.ming.electricbicycle.core.ui.presenter.impl;
 import android.support.design.widget.TextInputLayout;
 
 import com.wxxiaomi.ming.electricbicycle.ConstantValue;
-import com.wxxiaomi.ming.electricbicycle.api.HttpMethods;
 import com.wxxiaomi.ming.electricbicycle.common.util.AppManager;
 import com.wxxiaomi.ming.electricbicycle.core.ui.view.activity.RegisterActivity;
 import com.wxxiaomi.ming.electricbicycle.core.ui.base.BasePreImpl;
 import com.wxxiaomi.ming.electricbicycle.core.ui.view.activity.HomeActivity;
 import com.wxxiaomi.ming.electricbicycle.core.ui.presenter.LoginPresenter;
-import com.wxxiaomi.ming.electricbicycle.dao.UserService;
+import com.wxxiaomi.ming.electricbicycle.dao.db.UserService;
 import com.wxxiaomi.ming.electricbicycle.common.rx.SampleProgressObserver;
 import com.wxxiaomi.ming.electricbicycle.core.ui.view.LoginView;
 import com.wxxiaomi.ming.electricbicycle.common.util.MyUtils;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.format.Login;
 
-import rx.functions.Action1;
+import rx.android.schedulers.AndroidSchedulers;
 
 
 /**
@@ -66,6 +64,7 @@ public class LoginPresenterImpl extends BasePreImpl<LoginView> implements LoginP
 
     private void sendRequest(String username, String password) {
         UserService.getInstance().Login(username, password,ConstantValue.isEMOpen)
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new SampleProgressObserver<Integer>(mView.getContext()) {
                     @Override
                     public void onNext(Integer integer) {

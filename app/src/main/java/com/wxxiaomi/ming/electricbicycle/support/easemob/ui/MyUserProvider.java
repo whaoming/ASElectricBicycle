@@ -9,7 +9,7 @@ import com.bumptech.glide.Glide;
 import com.hyphenate.easeui.controller.EaseUI;
 import com.hyphenate.easeui.domain.EaseUser;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo;
-import com.wxxiaomi.ming.electricbicycle.dao.UserService;
+import com.wxxiaomi.ming.electricbicycle.dao.db.UserService;
 import com.wxxiaomi.ming.electricbicycle.common.GlobalManager;
 
 import rx.functions.Action1;

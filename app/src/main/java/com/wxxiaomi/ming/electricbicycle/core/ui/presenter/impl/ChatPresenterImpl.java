@@ -12,7 +12,7 @@
 //import com.wxxiaomi.ming.electricbicycle.dao.bean.User;
 //import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo;
 //import com.wxxiaomi.ming.electricbicycle.core.ui.base.BasePreImpl;
-//import com.wxxiaomi.ming.electricbicycle.dao.impl.UserDaoImpl2;
+//import com.wxxiaomi.ming.electricbicycle.dao.db.impl.UserDaoImpl2;
 //import com.wxxiaomi.ming.electricbicycle.core.ui.presenter.ChatPresenter;
 //import com.wxxiaomi.ming.electricbicycle.core.ui.ChatView;
 //import com.wxxiaomi.ming.electricbicycle.core.weight.em.adapter.ChatRowItemAdapter;

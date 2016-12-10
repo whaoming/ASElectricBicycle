@@ -4,19 +4,12 @@ import android.app.Application;
 import android.test.ApplicationTestCase;
 import android.util.Log;
 
-import com.wxxiaomi.ming.electricbicycle.api.HttpMethods;
-import com.wxxiaomi.ming.electricbicycle.api.exception.ApiException;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.OptionLogs;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.format.Login;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.format.Register;
-import com.wxxiaomi.ming.electricbicycle.dao.UserService;
-import com.wxxiaomi.ming.electricbicycle.common.rx.MyObserver;
+import com.wxxiaomi.ming.electricbicycle.dao.db.UserService;
 
 import java.util.List;
-
-import rx.Observer;
-import rx.functions.Action1;
 
 /**
  * <a href="http://d.android.com/tools/testing/testing_android.html">Testing Fundamentals</a>

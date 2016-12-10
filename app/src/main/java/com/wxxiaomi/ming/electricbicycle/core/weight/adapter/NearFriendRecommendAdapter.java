@@ -15,10 +15,10 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.wxxiaomi.ming.electricbicycle.R;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.format.NearByPerson;
 
 import com.wxxiaomi.ming.electricbicycle.core.ui.view.activity.UserInfoAct;
 import com.wxxiaomi.ming.electricbicycle.core.weight.custom.CircularImageView;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.UserLocatInfo;
 
 import java.util.List;
 
@@ -33,7 +33,7 @@ import java.util.List;
 public class NearFriendRecommendAdapter extends RecyclerView.Adapter<ViewHolder> {
 
 	private Context context;
-	private List<NearByPerson.UserLocatInfo> userInfos;
+	private List<UserLocatInfo> userInfos;
 	//private final int LOADINGDATAING = 1;
 	//private final int LOADINGFAIL = 2;
 	//private final int NODATA = 3;
@@ -68,7 +68,7 @@ public class NearFriendRecommendAdapter extends RecyclerView.Adapter<ViewHolder>
 		Log.i("wang","在NearFriendRecommendAdapter中完成数据获取后userInfos.size="+userInfos.size());
 	}
 
-	public NearFriendRecommendAdapter(Context context, List<NearByPerson.UserLocatInfo> userInfos) {
+	public NearFriendRecommendAdapter(Context context, List<UserLocatInfo> userInfos) {
 		super();
 		this.context = context;
 		this.userInfos = userInfos;
@@ -109,7 +109,8 @@ public class NearFriendRecommendAdapter extends RecyclerView.Adapter<ViewHolder>
 	public void onBindViewHolder(ViewHolder viewHolder, final int position) {
 		if(viewHolder instanceof ItemViewHolder){
 			ItemViewHolder holder = (ItemViewHolder) viewHolder;
-			final NearByPerson.UserLocatInfo userCommonInfo = userInfos.get(position);
+			final UserLocatInfo userCommonInfo = userInfos.get(position);
+//			final UserLocatInfo userCommonInfo = userInfos.get(position);
 			holder.tv_name.setText(userCommonInfo.userCommonInfo.name);
 			holder.tv_reason.setText("用户描述");
 			holder.rl_item.setOnClickListener(new OnClickListener() {

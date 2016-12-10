@@ -17,15 +17,14 @@ import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.model.LatLng;
 import com.bumptech.glide.Glide;
 import com.wxxiaomi.ming.electricbicycle.ConstantValue;
-import com.wxxiaomi.ming.electricbicycle.GlobalParams;
 import com.wxxiaomi.ming.electricbicycle.api.exception.ApiException;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.format.NearByPerson;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.UserLocatInfo;
 import com.wxxiaomi.ming.electricbicycle.core.ui.base.BasePreImpl;
 import com.wxxiaomi.ming.electricbicycle.core.ui.presenter.HomePresenter;
 import com.wxxiaomi.ming.electricbicycle.support.baidumap.LocationUtil;
 import com.wxxiaomi.ming.electricbicycle.support.web.TestWebActivity;
-import com.wxxiaomi.ming.electricbicycle.dao.UserService;
+import com.wxxiaomi.ming.electricbicycle.dao.db.UserService;
 import com.wxxiaomi.ming.electricbicycle.support.easemob.EmEngine;
 import com.wxxiaomi.ming.electricbicycle.support.easemob.listener.AllMsgListener;
 import com.wxxiaomi.ming.electricbicycle.common.GlobalManager;
@@ -39,10 +38,8 @@ import com.wxxiaomi.ming.electricbicycle.core.weight.custom.CircularImageView;
 
 import java.util.List;
 
-import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
-import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 
 /**
@@ -66,7 +63,7 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
      * 当前所点击的附近的人的信息
      */
     private UserCommonInfo currentNearPerson;
-    private List<NearByPerson.UserLocatInfo> userLocatList;
+    private List<UserLocatInfo> userLocatList;
 
     @Override
     public void init() {
@@ -242,12 +239,12 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
     public void getNearByFromServer(final double latitude,
                                     final double longitude){
         UserService.getInstance().getNearPeople(GlobalManager.getInstance().getUser().id,latitude,longitude)
-                .subscribe(new Action1<NearByPerson>() {
+                .subscribe(new Action1<List<UserLocatInfo>>() {
                     @Override
-                    public void call(NearByPerson nearByPerson) {
-                        userLocatList = nearByPerson.userLocatList;
-                       for(int i=0;i<nearByPerson.userLocatList.size();i++){
-                           NearByPerson.UserLocatInfo user = nearByPerson.userLocatList.get(i);
+                    public void call(List<UserLocatInfo> nearByPerson) {
+                        userLocatList = nearByPerson;
+                       for(int i=0;i<nearByPerson.size();i++){
+                           UserLocatInfo user = nearByPerson.get(i);
                            LatLng point = new LatLng(user.point[0], user.point[1]);
                            mView.addMaker(point,i);
                        }

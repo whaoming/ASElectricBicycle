@@ -3,19 +3,15 @@ package com.wxxiaomi.ming.electricbicycle.core.ui.presenter.impl;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 
 import com.google.gson.Gson;
 import com.wxxiaomi.ming.electricbicycle.R;
-import com.wxxiaomi.ming.electricbicycle.api.HttpMethods;
-import com.wxxiaomi.ming.electricbicycle.core.weight.adapter.OptionAdapter;
 import com.wxxiaomi.ming.electricbicycle.core.weight.adapter.OptionAdapter2;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.Option;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.OptionLogs;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.core.ui.base.BasePreImpl;
 import com.wxxiaomi.ming.electricbicycle.core.ui.presenter.UserInfoPresenter;
-import com.wxxiaomi.ming.electricbicycle.dao.UserService;
+import com.wxxiaomi.ming.electricbicycle.dao.db.UserService;
 import com.wxxiaomi.ming.electricbicycle.support.easemob.EmEngine;
 import com.wxxiaomi.ming.electricbicycle.common.rx.SampleProgressObserver;
 import com.wxxiaomi.ming.electricbicycle.core.ui.view.UserInfoView;
@@ -24,7 +20,6 @@ import com.wxxiaomi.ming.electricbicycle.core.weight.custom.EditableDialog;
 
 import java.util.List;
 
-import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 
 /**

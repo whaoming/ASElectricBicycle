@@ -12,7 +12,7 @@ import com.wxxiaomi.ming.electricbicycle.core.ui.presenter.ContactPresenter;
 import com.wxxiaomi.ming.electricbicycle.core.ui.view.activity.FriendAddActivity;
 import com.wxxiaomi.ming.electricbicycle.core.ui.view.ContactView;
 import com.wxxiaomi.ming.electricbicycle.core.weight.adapter.NewFriendAddItemAdapter;
-import com.wxxiaomi.ming.electricbicycle.dao.impl.InviteMessgeDaoImpl;
+import com.wxxiaomi.ming.electricbicycle.dao.db.impl.InviteMessgeDaoImpl;
 import com.wxxiaomi.ming.electricbicycle.support.easemob.EmEngine;
 import com.wxxiaomi.ming.electricbicycle.support.easemob.listener.FriendMessageListener;
 import com.wxxiaomi.ming.electricbicycle.support.easemob.listener.InviteMessageListener;
