@@ -8,6 +8,7 @@
     >
 
     <android.support.design.widget.AppBarLayout
+        android:visibility="gone"
         android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -38,21 +39,21 @@
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
 
-    <com.wxxiaomi.ming.electricbicycle.core.weight.custom.MyNestedScrollView
+    <com.wxxiaomi.ming.electricbicycle.ui.weight.custom.MyNestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recyclerView"
+        <com.mylhyl.crlayout.SwipeRefreshRecyclerView
+            xmlns:crl="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/swipeRefresh"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clipToPadding="false"
-            android:paddingLeft="8dp"
-            android:paddingRight="8dp"
-             />
+            android:layout_height="match_parent"
+            crl:load_animator="true"
+            tools:context="com.wxxiaomi.ming.electricbicycle.ui.activity.PersonalAct"/>
 
-    </com.wxxiaomi.ming.electricbicycle.core.weight.custom.MyNestedScrollView>
+    </com.wxxiaomi.ming.electricbicycle.ui.weight.custom.MyNestedScrollView>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/btn_add"

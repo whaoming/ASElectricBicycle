@@ -81,7 +81,7 @@ public class FriendDaoImpl implements FriendDao {
     @Override
     public List<UserCommonInfo> getFriendList() {
         SQLiteDatabase db = helper.getReadableDatabase();
-		List<UserCommonInfo> list = new ArrayList<UserCommonInfo>();
+		List<UserCommonInfo> list = new ArrayList<>();
 		if (db.isOpen()) {
 			Cursor cursor = db.rawQuery("select * from " + FriendDao.TABLE_NAME + " desc", null);
 			while (cursor.moveToNext()) {
@@ -95,7 +95,6 @@ public class FriendDaoImpl implements FriendDao {
 				info.emname = emname;
 				info.head = head;
 				info.id = id;
-
 				list.add(info);
 			}
 		}

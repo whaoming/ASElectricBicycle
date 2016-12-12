@@ -83,4 +83,7 @@ dependencies {
     compile 'com.github.bumptech.glide:glide:3.6.1'
     compile project(path: ':gallerypick')
     testCompile 'junit:junit:4.12'
+
+    //开源关于listview的轮子- -!
+    compile 'com.mylhyl:commonrefreshlayout:2.0'
 }

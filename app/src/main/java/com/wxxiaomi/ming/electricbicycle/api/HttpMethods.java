@@ -3,10 +3,13 @@ package com.wxxiaomi.ming.electricbicycle.api;
 import android.util.Log;
 
 import com.wxxiaomi.ming.electricbicycle.ConstantValue;
+import com.wxxiaomi.ming.electricbicycle.EBApplication;
 import com.wxxiaomi.ming.electricbicycle.GlobalParams;
 import com.wxxiaomi.ming.electricbicycle.api.exception.ExceptionEngine;
 import com.wxxiaomi.ming.electricbicycle.api.exception.ServerException;
 import com.wxxiaomi.ming.electricbicycle.api.service.DemoService;
+import com.wxxiaomi.ming.electricbicycle.common.util.SharedPreferencesUtils;
+import com.wxxiaomi.ming.electricbicycle.common.util.UniqueUtil;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.Option;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.OptionLogs;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.User;
@@ -29,6 +32,7 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import rx.Observable;
+import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Func1;
 import rx.schedulers.Schedulers;
@@ -72,10 +76,11 @@ public class HttpMethods {
 
                     if(response.header("token")!=null){
                         Log.i("wang","返回的头部中发现了token");
-                        if(test){
                             GlobalParams.token = response.header("token");
-                        }
-                        test = !test;
+                    }
+                    String long_token = response.header("long_token");
+                    if(long_token!=null){
+                        SharedPreferencesUtils.setParam(EBApplication.applicationContext,ConstantValue.LONGTOKEN,long_token);
                     }
                     return response;
                 }
@@ -138,8 +143,8 @@ public class HttpMethods {
 //                ;
 //    }
 
-    public Observable<User> login(String username, String password) {
-        return demoService.readBaidu(username, password)
+    public Observable<User> login(String username, String password,String num) {
+        return demoService.readBaidu(username, password,num)
                 .map(new ServerResultFunc<User>())
                 .retryWhen(new TokenOutTime(3,1))
                 .onErrorResumeNext(new HttpResultFunc<User>())
@@ -217,23 +222,37 @@ public class HttpMethods {
     public Observable<List<Option>> getOption(int userid){
         return demoService.listOption(userid)
                 .map(new ServerResultFunc<List<Option>>())
+                .retryWhen(new TokenOutTime(3,1))
                 .onErrorResumeNext(new HttpResultFunc<List<Option>>())
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
     }
 
-    public Observable<String> demodemo(){
-        return login("122627018","987987987")
-                .flatMap(new Func1<User, Observable<String>>() {
-                    @Override
-                    public Observable<String> call(User login) {
-                        Log.i("wang","再次登录成功");
-                        return Observable.just("asd");
-                    }
-                })
-                .subscribeOn(Schedulers.io())
-                ;
+    /**
+     * 向服务器发送长token，获取短token
+     * 还要发送设备唯一id
+     * @return
+     */
+    public Observable<String> Token_Long2Short(){
+
+        UniqueUtil util = new UniqueUtil(EBApplication.applicationContext);
+        String uniqueID = util.getUniqueID();
+        String long_token = (String) SharedPreferencesUtils.getParam(EBApplication.applicationContext,ConstantValue.LONGTOKEN,"");
+        Log.i("wang","Token_Long2Short,long_token:"+long_token+",uniqueID:"+uniqueID);
+        return demoService.getSToken(long_token,uniqueID)
+                .map(new ServerResultFunc<String>())
+        .onErrorResumeNext(new HttpResultFunc<String>());
+//        return login("122627018","987987987",)
+//                .flatMap(new Func1<User, Observable<String>>() {
+//                    @Override
+//                    public Observable<String> call(User login) {
+//                        Log.i("wang","再次登录成功");
+//                        return Observable.just("asd");
+//                    }
+//                })
+//                .subscribeOn(Schedulers.io())
+//                ;
     }
 
 
@@ -246,8 +265,9 @@ public class HttpMethods {
             if(httpResult==null){
                 throw new ServerException(404, "获取结构为空");
             }else if(httpResult.state == 401){
-
-                throw new ServerException(401, "token过期");
+                throw new ServerException(401, "短token过期，重新获取长token");
+            }else if(httpResult.state == 402){
+                throw new ServerException(402, "token过期,需要重新登陆");
             }
            else if (httpResult.state != 200) {
                 throw new ServerException(httpResult.state, httpResult.error);
@@ -287,7 +307,7 @@ public class HttpMethods {
                             //重新获取token，并返回这个
                             if (++retryCount <= maxRetries) {
                                 Log.i("wang","正在准备发送重新获取token的请求");
-                                return demodemo()
+                                return Token_Long2Short()
                                         ;
                             }
                         }

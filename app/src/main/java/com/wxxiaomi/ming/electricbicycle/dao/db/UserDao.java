@@ -49,7 +49,7 @@ public interface UserDao {
      * @param password
      * @return
      */
-    Observable<User> Login(String username, String password);
+    Observable<User> Login(String username, String password,String num);
 
     /**
      * 判断是否存在当前临时用户表中

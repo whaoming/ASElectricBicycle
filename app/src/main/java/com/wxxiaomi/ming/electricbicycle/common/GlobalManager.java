@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.wxxiaomi.ming.electricbicycle.ConstantValue;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.User;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.support.baidumap.LocationUtil;
 
 /**
@@ -14,6 +15,7 @@ import com.wxxiaomi.ming.electricbicycle.support.baidumap.LocationUtil;
 public class GlobalManager {
 
     private User user;
+    private UserCommonInfo userInfo;
 
     private static GlobalManager INSTANCE;
 
@@ -28,6 +30,10 @@ public class GlobalManager {
         return INSTANCE;
     }
 
+    public void savaUserInfo(UserCommonInfo info){
+        this.userInfo = info;
+    }
+
     public void updateUserHead(String path){
         if(user!=null){
             user.userCommonInfo.head = ConstantValue.SERVER_URL + path;
@@ -35,8 +41,6 @@ public class GlobalManager {
     }
 
     public void savaUser(User user){
-        //user.userCommonInfo.head = ConstantValue.SERVER_URL + user.userCommonInfo.head.replace("\\","");
-        //Log.i("wang","修改之后的head="+user.userCommonInfo.head);
         this.user = user;
     }
 

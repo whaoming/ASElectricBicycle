@@ -61,8 +61,8 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public Observable<User> Login(String username, String password) {
-        return HttpMethods.getInstance().login(username, password);
+    public Observable<User> Login(String username, String password,String num) {
+        return HttpMethods.getInstance().login(username, password,num);
     }
 
     @Override

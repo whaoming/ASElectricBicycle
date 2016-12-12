@@ -31,9 +31,12 @@ import rx.Observable;
 public interface DemoService {
 //    @GET("ActionServlet?action=login")
 
+    @GET("android/user_longToken")
+    Observable<Result<String>> getSToken(@Query("long_token")String long_token,@Query("phoneId")String phoneId);
+
 
     @GET("android/user_login")
-    Observable<Result<User>> readBaidu(@Query("username") String username, @Query("password") String password);
+    Observable<Result<User>> readBaidu(@Query("username") String username, @Query("password") String password,@Query("uniqueNum") String uniqueNum);
 
     @GET("ActionServlet?action=inituserinfo")
     Observable<Result<List<UserCommonInfo>>> initUserInfo(@Query("username") String username, @Query("password") String password);

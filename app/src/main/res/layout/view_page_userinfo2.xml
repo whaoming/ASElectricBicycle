@@ -11,7 +11,7 @@
     android:background="#173C6F"
     android:orientation="vertical"
    >
-    <com.wxxiaomi.ming.electricbicycle.core.weight.custom.CircularImageView
+    <com.wxxiaomi.ming.electricbicycle.ui.weight.custom.CircularImageView
         android:layout_marginTop="?attr/actionBarSize"
         android:layout_alignParentTop="true"
         android:id="@+id/iv_my_head"
@@ -30,6 +30,7 @@
         android:layout_height="wrap_content">
 
         <TextView
+            android:id="@+id/tv_name"
             android:textStyle="bold"
             android:padding="5dp"
             android:textColor="#ffffff"
@@ -39,7 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
         <TextView
-
+            android:id="@+id/tv_locat"
             android:padding="5dp"
             android:textColor="#80ffffff"
             android:textSize="12sp"
@@ -48,7 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
         <TextView
-
+            android:id="@+id/tv_description"
             android:padding="5dp"
             android:textColor="#80ffffff"
             android:textSize="12sp"

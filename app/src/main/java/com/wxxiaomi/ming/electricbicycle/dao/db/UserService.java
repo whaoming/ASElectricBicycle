@@ -15,6 +15,7 @@ import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.UserLocatInfo;
 
 import com.wxxiaomi.ming.electricbicycle.dao.constant.OptionType;
+import com.wxxiaomi.ming.electricbicycle.dao.db.impl.AppDaoImpl;
 import com.wxxiaomi.ming.electricbicycle.support.aliyun.OssEngine;
 import com.wxxiaomi.ming.electricbicycle.support.easemob.EmEngine;
 import com.wxxiaomi.ming.electricbicycle.support.easemob.ui.LRUCache;
@@ -160,8 +161,8 @@ public class UserService {
         return userDao.getUserCommonInfoByName(name);
     }
 
-    public Observable<User> Login(String username, String password) {
-        return userDao.Login(username, password);
+    public Observable<User> Login(String username, String password,String num) {
+        return userDao.Login(username, password,num);
     }
 
 
@@ -221,17 +222,16 @@ public class UserService {
         return OssEngine.getInstance().uploadImage(UUID.randomUUID().toString() + ".jpg", imgPath);
     }
 
-    public Observable<Integer> Login(String username, String password, boolean isEmOpen) {
+    public Observable<Integer> Login(String username, String password, boolean isEmOpen,String uniqueNum) {
         //登陆服务器
-//        final String[] u = {""};
-//        final String[] p = {""};
-//
-        //登陆服务器
-        return  UserService.getInstance().Login(username, password)
+        return  Login(username, password,uniqueNum)
                 .flatMap(new Func1<User, Observable<Boolean>>() {
                     @Override
                     public Observable<Boolean> call(User user) {
                         GlobalManager.getInstance().savaUser(user);
+                        //存到数据库
+                        AppDao dao = new AppDaoImpl(EBApplication.applicationContext);
+                        dao.savaUser(user);
                         return EmEngine.getInstance().LoginFromEm(user.username, user.password);
                     }
                 })

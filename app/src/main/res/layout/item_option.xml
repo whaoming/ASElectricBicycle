@@ -8,7 +8,7 @@
     android:baselineAligned="false"
     android:orientation="horizontal">
 
-    <com.wxxiaomi.ming.electricbicycle.core.weight.timelineview.LatestTimeLine
+    <com.wxxiaomi.ming.electricbicycle.ui.weight.timelineview.LatestTimeLine
         android:id="@+id/time_marker"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -99,7 +99,7 @@
                     android:layout_alignParentBottom="true"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-                    <com.wxxiaomi.ming.electricbicycle.core.weight.custom.CircularImageView
+                    <com.wxxiaomi.ming.electricbicycle.ui.weight.custom.CircularImageView
                         android:layout_marginLeft="10dp"
                         android:layout_alignParentLeft="true"
                         android:id="@+id/iv_user_head"

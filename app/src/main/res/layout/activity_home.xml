@@ -1,4 +1,6 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
@@ -19,7 +21,7 @@
         android:paddingLeft="4dp"
         android:paddingRight="4dp" >
 
-        <com.wxxiaomi.ming.electricbicycle.core.weight.custom.CircularImageView
+        <com.wxxiaomi.ming.electricbicycle.ui.weight.custom.CircularImageView
             android:id="@+id/iv_my_head"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -97,8 +99,6 @@
         </RelativeLayout>
     </RelativeLayout>
 
-
-
     <android.support.design.widget.CoordinatorLayout
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/sn_layout"
@@ -110,7 +110,7 @@
             android:id="@+id/layout1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_behavior="com.wxxiaomi.ming.electricbicycle.core.weight.custom.HomeSnackBarBehavior" >
+            app:layout_behavior="com.wxxiaomi.ming.electricbicycle.ui.weight.custom.HomeSnackBarBehavior" >
 
             <android.support.design.widget.FloatingActionButton
                 android:id="@+id/btn_go"
@@ -118,18 +118,18 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|right"
                 android:layout_margin="10dp"
-                app:layout_behavior="com.wxxiaomi.ming.electricbicycle.core.weight.custom.HomeButtonBehavior"
-                android:src="@mipmap/icon_landing_arrow"
+                app:layout_behavior="com.wxxiaomi.ming.electricbicycle.ui.weight.custom.HomeButtonBehavior"
+                android:src="@mipmap/ic_search_white_24dp"
                 app:borderWidth="0dp" />
 
             <android.support.design.widget.FloatingActionButton
                 android:id="@+id/btn_locat"
-                android:layout_width="40dp"
+                android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:layout_gravity="bottom|left"
                 android:layout_margin="10dp"
-                app:layout_behavior="com.wxxiaomi.ming.electricbicycle.core.weight.custom.HomeButtonBehavior"
-                android:src="@mipmap/icon_landing_arrow"
+                app:layout_behavior="com.wxxiaomi.ming.electricbicycle.ui.weight.custom.HomeButtonBehavior"
+                android:src="@mipmap/ic_room_white_24dp"
                 app:borderWidth="0dp" />
 
             <include

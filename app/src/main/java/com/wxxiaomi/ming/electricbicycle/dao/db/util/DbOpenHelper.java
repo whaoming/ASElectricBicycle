@@ -19,6 +19,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.wxxiaomi.ming.electricbicycle.GlobalParams;
+import com.wxxiaomi.ming.electricbicycle.dao.db.AppDao;
 import com.wxxiaomi.ming.electricbicycle.dao.db.FriendDao;
 import com.wxxiaomi.ming.electricbicycle.dao.db.InviteMessgeDao;
 import com.wxxiaomi.ming.electricbicycle.dao.db.UserDao;
@@ -55,6 +56,17 @@ public class DbOpenHelper extends SQLiteOpenHelper{
 			+ FriendDao.COLUMN_NAME_HEAD + " TEXT, "
 			+ FriendDao.COLUMN_NAME_EMNAME + " TEXT, "
 			+ FriendDao.COLUMN_NAME_ID + " TEXT PRIMARY KEY);";
+
+
+	private static final String USER_RECORD_TABLE_CREATE = "CREATE TABLE "
+			+ AppDao.TABLE_NAME + " ("
+			+ AppDao.COLUMN_NAME_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+			+ AppDao.COLUMN_NAME_USERNAME + " TEXT, "
+			+ AppDao.COLUMN_NAME_PASSWORD + " TEXT, "
+			+ AppDao.COLUMN_NAME_INFO_ID + " INTEGER, "
+			+ AppDao.COLUMN_NAME_INFO_EMNAME + " INTEGER, "
+			+ AppDao.COLUMN_NAME_INFO_HEAD + " INTEGER, "
+			+ AppDao.COLUMN_NAME_INFO_NAME + " TEXT); ";
 	
 	
 //			
@@ -95,6 +107,7 @@ public class DbOpenHelper extends SQLiteOpenHelper{
 		db.execSQL(USERNAME_TABLE_CREATE);
 		db.execSQL(INIVTE_MESSAGE_TABLE_CREATE);
 		db.execSQL(TEMP_USERNAME_TABLE_CREATE);
+		db.execSQL(USER_RECORD_TABLE_CREATE);
 //		db.execSQL(CREATE_PREF_TABLE);
 //		db.execSQL(ROBOT_TABLE_CREATE);
 		

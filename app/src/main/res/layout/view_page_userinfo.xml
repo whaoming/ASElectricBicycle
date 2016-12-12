@@ -29,7 +29,7 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <com.wxxiaomi.ming.electricbicycle.core.weight.custom.RoundView
+        <com.wxxiaomi.ming.electricbicycle.ui.weight.custom.RoundView
             android:layout_margin="3dp"
             android:layout_width="0dp"
             android:layout_weight="1"
@@ -40,7 +40,7 @@
             ming:fill_color="#50000000"
             ming:below_text_color="#ffffff"
             />
-        <com.wxxiaomi.ming.electricbicycle.core.weight.custom.RoundView
+        <com.wxxiaomi.ming.electricbicycle.ui.weight.custom.RoundView
             android:layout_margin="3dp"
             android:layout_width="0dp"
             android:layout_weight="1"
@@ -51,7 +51,7 @@
             ming:fill_color="#50000000"
             ming:below_text_color="#ffffff"
             />
-        <com.wxxiaomi.ming.electricbicycle.core.weight.custom.RoundView
+        <com.wxxiaomi.ming.electricbicycle.ui.weight.custom.RoundView
             android:layout_margin="3dp"
             android:layout_width="0dp"
             android:layout_weight="1"
