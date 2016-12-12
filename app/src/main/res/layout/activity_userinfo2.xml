@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#ffffff"
     android:id="@+id/main_content"
@@ -38,21 +39,32 @@
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
 
-    <com.wxxiaomi.ming.electricbicycle.core.weight.custom.MyNestedScrollView
+    <!--<com.wxxiaomi.ming.electricbicycle.ui.weight.custom.MyNestedScrollView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--app:layout_behavior="@string/appbar_scrolling_view_behavior">-->
+
+        <!--<android.support.v7.widget.RecyclerView-->
+            <!--xmlns:tools="http://schemas.android.com/tools"-->
+            <!--android:id="@+id/recyclerView"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--tools:context="com.wxxiaomi.ming.electricbicycle.ui.activity.PersonalAct"/>-->
+
+    <!--</com.wxxiaomi.ming.electricbicycle.ui.weight.custom.MyNestedScrollView>-->
+
+    <com.wxxiaomi.ming.electricbicycle.ui.weight.pull2refreshreview.PullToRefreshRecyclerView
+        android:id="@+id/mRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recyclerView"
+        <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clipToPadding="false"
-            android:paddingLeft="8dp"
-            android:paddingRight="8dp"
-             />
-
-    </com.wxxiaomi.ming.electricbicycle.core.weight.custom.MyNestedScrollView>
+            android:layout_height="match_parent"
+            >
+        </android.support.v4.widget.NestedScrollView>
+    </com.wxxiaomi.ming.electricbicycle.ui.weight.pull2refreshreview.PullToRefreshRecyclerView>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/btn_add"

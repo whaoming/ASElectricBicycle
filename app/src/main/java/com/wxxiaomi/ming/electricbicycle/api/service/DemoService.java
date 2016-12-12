@@ -3,11 +3,11 @@ package com.wxxiaomi.ming.electricbicycle.api.service;
 
 import com.wxxiaomi.ming.electricbicycle.dao.bean.Option;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.OptionLogs;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.format.InitUserInfo;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.format.Login;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.format.NearByPerson;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.format.Register;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.format.common.Result;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.User;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.UserLocatInfo;
+
+import com.wxxiaomi.ming.electricbicycle.dao.common.Result;
 
 import java.util.List;
 import java.util.Map;
@@ -31,31 +31,32 @@ import rx.Observable;
 public interface DemoService {
 //    @GET("ActionServlet?action=login")
 
-    @GET("android/user_login")
-    Observable<Response<Login>> readBaidu2(@Query("username") String username, @Query("password") String password);
+    @GET("android/user_longToken")
+    Observable<Result<String>> getSToken(@Query("long_token")String long_token,@Query("phoneId")String phoneId);
+
 
     @GET("android/user_login")
-    Observable<Result<Login>> readBaidu(@Query("username") String username, @Query("password") String password);
+    Observable<Result<User>> readBaidu(@Query("username") String username, @Query("password") String password,@Query("uniqueNum") String uniqueNum);
 
     @GET("ActionServlet?action=inituserinfo")
-    Observable<Result<InitUserInfo>> initUserInfo(@Query("username") String username, @Query("password") String password);
+    Observable<Result<List<UserCommonInfo>>> initUserInfo(@Query("username") String username, @Query("password") String password);
 
 //    @GET("ActionServlet?action=getuserinfolistbyemname")
     @GET("android/user_infosbyems")
-    Observable<Result<InitUserInfo>> getUserListByEmList(@Query("emnamelist") String emnamelist);
+    Observable<Result<List<UserCommonInfo>>> getUserListByEmList(@Query("emnamelist") String emnamelist);
 
 //    @GET("ActionServlet?action=getnearby")
 
     @GET("android/lbs_near")
-    Observable<Result<NearByPerson>> getNearByFromServer(@Query("userid") int userid, @Query("latitude") double latitude, @Query("longitude") double longitude);
+    Observable<Result<List<UserLocatInfo>>> getNearByFromServer(@Query("userid") int userid, @Query("latitude") double latitude, @Query("longitude") double longitude);
 
 //    @GET("ActionServlet?action=userinfobyname")
     @GET("android/user_userinfobyname")
-    Observable<Result<InitUserInfo>> getUserCommonInfoByName(@Query("name") String name);
+    Observable<Result<List<UserCommonInfo>>> getUserCommonInfoByName(@Query("name") String name);
 
 //    @GET("ActionServlet?action=register")
-    @GET("android/user_register")
-    Observable<Result<Register>> registerUser(@Query("username") String username, @Query("password") String password);
+//    @GET("android/user_register")
+//    Observable<Result<Register>> registerUser(@Query("username") String username, @Query("password") String password);
 
     @GET("android/user_optionlog")
     Observable<Result<List<OptionLogs>>> optionLogs(@Query("userid") int userid);

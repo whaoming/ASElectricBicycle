@@ -1,13 +1,5 @@
 package com.wxxiaomi.ming.electricbicycle;
 
-import android.util.Log;
-
-import com.wxxiaomi.ming.electricbicycle.dao.UserService;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo;
-
-
-import java.util.List;
-
 //import org.junit.Test;
 //
 //import static org.junit.Assert.*;

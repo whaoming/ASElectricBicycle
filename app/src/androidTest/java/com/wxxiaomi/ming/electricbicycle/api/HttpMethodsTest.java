@@ -3,7 +3,7 @@ package com.wxxiaomi.ming.electricbicycle.api;
 import android.util.Log;
 
 import com.wxxiaomi.ming.electricbicycle.common.util.RxUnitTestTools;
-import com.wxxiaomi.ming.electricbicycle.dao.UserService;
+import com.wxxiaomi.ming.electricbicycle.dao.db.UserService;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.Option;
 
 import java.util.List;

@@ -3,22 +3,24 @@ package com.wxxiaomi.ming.electricbicycle.api;
 import android.util.Log;
 
 import com.wxxiaomi.ming.electricbicycle.ConstantValue;
+import com.wxxiaomi.ming.electricbicycle.EBApplication;
 import com.wxxiaomi.ming.electricbicycle.GlobalParams;
 import com.wxxiaomi.ming.electricbicycle.api.exception.ExceptionEngine;
 import com.wxxiaomi.ming.electricbicycle.api.exception.ServerException;
 import com.wxxiaomi.ming.electricbicycle.api.service.DemoService;
+import com.wxxiaomi.ming.electricbicycle.common.util.SharedPreferencesUtils;
+import com.wxxiaomi.ming.electricbicycle.common.util.UniqueUtil;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.Option;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.OptionLogs;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.format.InitUserInfo;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.format.Login;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.format.NearByPerson;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.format.Register;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.format.common.Result;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.User;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.UserLocatInfo;
+
+import com.wxxiaomi.ming.electricbicycle.dao.common.Result;
 
 
 import java.io.IOException;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
@@ -74,10 +76,11 @@ public class HttpMethods {
 
                     if(response.header("token")!=null){
                         Log.i("wang","返回的头部中发现了token");
-                        if(test){
                             GlobalParams.token = response.header("token");
-                        }
-                        test = !test;
+                    }
+                    String long_token = response.header("long_token");
+                    if(long_token!=null){
+                        SharedPreferencesUtils.setParam(EBApplication.applicationContext,ConstantValue.LONGTOKEN,long_token);
                     }
                     return response;
                 }
@@ -113,12 +116,12 @@ public class HttpMethods {
     /**
      * 用于获取豆瓣电影Top250的数据
      */
-    public Observable<InitUserInfo> getTopMovie(String username, String password) {
+    public Observable<List<UserCommonInfo>> getTopMovie(String username, String password) {
         return demoService.initUserInfo(username, password)
-                .map(new ServerResultFunc<InitUserInfo>())
-                .onErrorResumeNext(new Func1<Throwable, Observable<? extends InitUserInfo>>() {
+                .map(new ServerResultFunc<List<UserCommonInfo>>())
+                .onErrorResumeNext(new Func1<Throwable, Observable<? extends List<UserCommonInfo>>>() {
                     @Override
-                    public Observable<? extends InitUserInfo> call(Throwable throwable) {
+                    public Observable<? extends List<UserCommonInfo>> call(Throwable throwable) {
                         return Observable.error(ExceptionEngine.handleException(throwable));
                     }
                 })
@@ -126,77 +129,77 @@ public class HttpMethods {
                 .unsubscribeOn(Schedulers.io());
     }
 
-    public Observable<Login> login2(String username,String password){
-        return demoService.readBaidu2(username, password)
-                .flatMap(new Func1<retrofit2.Response<Login>, Observable<Login>>() {
-                    @Override
-                    public Observable<Login> call(retrofit2.Response<Login> loginResponse) {
-                        String token = loginResponse.headers().get("token");
-                        Log.i("wang","服务器响应头发现token："+token);
-                        return Observable.just(loginResponse.body());
-                    }
-                })
-                .subscribeOn(Schedulers.io())
-                ;
-    }
+//    public Observable<Login> login2(String username,String password){
+//        return demoService.readBaidu2(username, password)
+//                .flatMap(new Func1<retrofit2.Response<Login>, Observable<Login>>() {
+//                    @Override
+//                    public Observable<Login> call(retrofit2.Response<Login> loginResponse) {
+//                        String token = loginResponse.headers().get("token");
+//                        Log.i("wang","服务器响应头发现token："+token);
+//                        return Observable.just(loginResponse.body());
+//                    }
+//                })
+//                .subscribeOn(Schedulers.io())
+//                ;
+//    }
 
-    public Observable<Login> login(String username, String password) {
-        return demoService.readBaidu(username, password)
-                .map(new ServerResultFunc<Login>())
+    public Observable<User> login(String username, String password,String num) {
+        return demoService.readBaidu(username, password,num)
+                .map(new ServerResultFunc<User>())
                 .retryWhen(new TokenOutTime(3,1))
-                .onErrorResumeNext(new HttpResultFunc<Login>())
+                .onErrorResumeNext(new HttpResultFunc<User>())
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io());
     }
 
-    public Observable<InitUserInfo> getUserListByEmList(List<String> emnamelist) {
+    public Observable<List<UserCommonInfo>> getUserListByEmList(List<String> emnamelist) {
         String temp = "";
         for (String e : emnamelist) {
             temp += e + "<>";
         }
 //        Observable.create()
         return demoService.getUserListByEmList(temp)
-                .map(new ServerResultFunc<InitUserInfo>())
+                .map(new ServerResultFunc<List<UserCommonInfo>>())
                 .retryWhen(new TokenOutTime(3,1))
-                .onErrorResumeNext(new HttpResultFunc<InitUserInfo>())
+                .onErrorResumeNext(new HttpResultFunc<List<UserCommonInfo>>())
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io());
     }
 
-    public Observable<InitUserInfo> getUserCommonInfoByEmname(String emname) {
+    public Observable<List<UserCommonInfo>> getUserCommonInfoByEmname(String emname) {
         emname = emname + "<>";
         return demoService.getUserListByEmList(emname)
-                .map(new ServerResultFunc<InitUserInfo>())
-                .onErrorResumeNext(new HttpResultFunc<InitUserInfo>());
+                .map(new ServerResultFunc<List<UserCommonInfo>>())
+                .onErrorResumeNext(new HttpResultFunc<List<UserCommonInfo>>());
     }
 
-    public Observable<NearByPerson> getNearByFromServer(int userid, double latitude, double longitude) {
+    public Observable<List<UserLocatInfo>> getNearByFromServer(int userid, double latitude, double longitude) {
         return demoService.getNearByFromServer(userid, latitude, longitude)
-                .map(new ServerResultFunc<NearByPerson>())
-                .onErrorResumeNext(new HttpResultFunc<NearByPerson>())
+                .map(new ServerResultFunc<List<UserLocatInfo>>())
+                .onErrorResumeNext(new HttpResultFunc<List<UserLocatInfo>>())
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
     }
 
-    public Observable<InitUserInfo> getUserCommonInfoByName(String name) {
+    public Observable<List<UserCommonInfo>> getUserCommonInfoByName(String name) {
         return demoService.getUserCommonInfoByName(name)
-                .map(new ServerResultFunc<InitUserInfo>())
-                .onErrorResumeNext(new HttpResultFunc<InitUserInfo>())
+                .map(new ServerResultFunc<List<UserCommonInfo>>())
+                .onErrorResumeNext(new HttpResultFunc<List<UserCommonInfo>>())
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
     }
 
-    public Observable<Register> registerUser(String username, String password) {
-        Log.i("wang","HttpMethods->registerUser");
-        return demoService.registerUser(username, password)
-                .map(new ServerResultFunc<Register>())
-                .onErrorResumeNext(new HttpResultFunc<Register>())
-                .subscribeOn(Schedulers.io())
-                .unsubscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread());
-    }
+//    public Observable<Register> registerUser(String username, String password) {
+//        Log.i("wang","HttpMethods->registerUser");
+//        return demoService.registerUser(username, password)
+//                .map(new ServerResultFunc<Register>())
+//                .onErrorResumeNext(new HttpResultFunc<Register>())
+//                .subscribeOn(Schedulers.io())
+//                .unsubscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread());
+//    }
 
     public Observable<String> upLoadHead(String fileName, RequestBody imgs){
         return demoService.uploadImage(fileName,imgs)
@@ -219,37 +222,37 @@ public class HttpMethods {
     public Observable<List<Option>> getOption(int userid){
         return demoService.listOption(userid)
                 .map(new ServerResultFunc<List<Option>>())
+                .retryWhen(new TokenOutTime(3,1))
                 .onErrorResumeNext(new HttpResultFunc<List<Option>>())
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
     }
 
-    public Observable<String> demodemo(){
-  //      Log.i("wang","demodemo呗调用了");
-//        return Observable.create(new Observable.OnSubscribe<String>() {
-//            @Override
-//            public void call(Subscriber<? super String> subscriber) {
-////                try {
-////                    Thread.sleep(3000);
-////                } catch (InterruptedException e) {
-////                    e.printStackTrace();
-////                }
-//                //GlobalParams.token =
-//                Log.i("wang","我不管，反正我是获取token的函数");
-//                subscriber.onNext("我获取到token啦");
-//            }
-//        });
-        return login("122627018","987987987")
-                .flatMap(new Func1<Login, Observable<String>>() {
-                    @Override
-                    public Observable<String> call(Login login) {
-                        Log.i("wang","再次登录成功");
-                        return Observable.just("asd");
-                    }
-                })
-                .subscribeOn(Schedulers.io())
-                ;
+    /**
+     * 向服务器发送长token，获取短token
+     * 还要发送设备唯一id
+     * @return
+     */
+    public Observable<String> Token_Long2Short(){
+
+        UniqueUtil util = new UniqueUtil(EBApplication.applicationContext);
+        String uniqueID = util.getUniqueID();
+        String long_token = (String) SharedPreferencesUtils.getParam(EBApplication.applicationContext,ConstantValue.LONGTOKEN,"");
+        Log.i("wang","Token_Long2Short,long_token:"+long_token+",uniqueID:"+uniqueID);
+        return demoService.getSToken(long_token,uniqueID)
+                .map(new ServerResultFunc<String>())
+        .onErrorResumeNext(new HttpResultFunc<String>());
+//        return login("122627018","987987987",)
+//                .flatMap(new Func1<User, Observable<String>>() {
+//                    @Override
+//                    public Observable<String> call(User login) {
+//                        Log.i("wang","再次登录成功");
+//                        return Observable.just("asd");
+//                    }
+//                })
+//                .subscribeOn(Schedulers.io())
+//                ;
     }
 
 
@@ -262,8 +265,9 @@ public class HttpMethods {
             if(httpResult==null){
                 throw new ServerException(404, "获取结构为空");
             }else if(httpResult.state == 401){
-
-                throw new ServerException(401, "token过期");
+                throw new ServerException(401, "短token过期，重新获取长token");
+            }else if(httpResult.state == 402){
+                throw new ServerException(402, "token过期,需要重新登陆");
             }
            else if (httpResult.state != 200) {
                 throw new ServerException(httpResult.state, httpResult.error);
@@ -303,7 +307,7 @@ public class HttpMethods {
                             //重新获取token，并返回这个
                             if (++retryCount <= maxRetries) {
                                 Log.i("wang","正在准备发送重新获取token的请求");
-                                return demodemo()
+                                return Token_Long2Short()
                                         ;
                             }
                         }

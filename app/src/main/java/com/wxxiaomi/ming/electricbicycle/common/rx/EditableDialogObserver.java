@@ -3,7 +3,7 @@ package com.wxxiaomi.ming.electricbicycle.common.rx;
 import android.content.Context;
 import android.content.DialogInterface;
 
-import com.wxxiaomi.ming.electricbicycle.core.weight.custom.EditableDialog;
+import com.wxxiaomi.ming.electricbicycle.ui.weight.custom.EditableDialog;
 
 import rx.Observable;
 import rx.Subscriber;

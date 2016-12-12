@@ -1,5 +1,8 @@
 package com.wxxiaomi.ming.electricbicycle.common.util;
 
+import android.content.Context;
+import android.telephony.TelephonyManager;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -17,4 +20,6 @@ public class MyUtils {
         }
         return false;
 	}
+
+
 }

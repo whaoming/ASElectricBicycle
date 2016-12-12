@@ -15,7 +15,7 @@ import android.view.ViewGroup;
 
 import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.support.web.TestFragment;
-import com.wxxiaomi.ming.electricbicycle.core.weight.adapter.IndexFragmentTabAdapter;
+import com.wxxiaomi.ming.electricbicycle.ui.weight.adapter.IndexFragmentTabAdapter;
 import com.wxxiaomi.ming.webmodule.action.forward.ManyH5Action;
 import com.wxxiaomi.ming.webmodule.builder.Builder;
 

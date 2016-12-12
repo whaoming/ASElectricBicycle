@@ -25,7 +25,8 @@ public class GlobalParams {
 	 * 初始化是否成功
 	 */
 	public static boolean isInitSuccess = true;
-	
+	public static String long_token;
+
 	/**
 	 * 测试用,當前位置
 	 */
