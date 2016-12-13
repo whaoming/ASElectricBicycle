@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewTreeObserver;
@@ -58,12 +59,13 @@ public class PullToRefreshRecyclerView extends SwipeRefreshLayout implements Prv
 
     private PullToRefreshRecyclerViewUtil mPtrrvUtil;
 
-    public interface PagingableListener{
+    public interface PagingableListener {
         void onLoadMoreItems();
     }
 
-    public interface OnScrollListener{
+    public interface OnScrollListener {
         void onScrollStateChanged(RecyclerView recyclerView, int newState);
+
         void onScrolled(RecyclerView recyclerView, int dx, int dy);
 
         //old-method, like listview 's onScroll ,but it's no use ,right ? by linhonghong 2015.10.29
@@ -71,7 +73,7 @@ public class PullToRefreshRecyclerView extends SwipeRefreshLayout implements Prv
     }
 
     public PullToRefreshRecyclerView(Context context) {
-        this(context,null);
+        this(context, null);
     }
 
     public PullToRefreshRecyclerView(Context context, AttributeSet attrs) {
@@ -82,20 +84,20 @@ public class PullToRefreshRecyclerView extends SwipeRefreshLayout implements Prv
     /**
      * main
      */
-    private void setup(){
+    private void setup() {
         setupExtra();
         initView();
         setLinster();
     }
 
-    public void setRefreshing(boolean refreshing){
+    public void setRefreshing(boolean refreshing) {
         super.setRefreshing(refreshing);
     }
 
     /**
      * initView
      */
-    private void initView(){
+    private void initView() {
         mRootRelativeLayout = (RelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.ptrrv_root_view, null);
 
         this.addView(mRootRelativeLayout);
@@ -103,11 +105,11 @@ public class PullToRefreshRecyclerView extends SwipeRefreshLayout implements Prv
 //        this.setColorSchemeResources(R.color.swap_holo_green_bright, R.color.swap_holo_bule_bright,
 //                R.color.swap_holo_green_bright, R.color.swap_holo_bule_bright);
 
-        mRecyclerView = (RecyclerView)mRootRelativeLayout.findViewById(R.id.recycler_view);
+        mRecyclerView = (RecyclerView) mRootRelativeLayout.findViewById(R.id.recycler_view);
 
         mRecyclerView.setHasFixedSize(true);
 
-        if(!mIsSwipeEnable) {
+        if (!mIsSwipeEnable) {
             this.setEnabled(false);
         }
 
@@ -116,13 +118,13 @@ public class PullToRefreshRecyclerView extends SwipeRefreshLayout implements Prv
     /**
      * Init
      */
-    private void setupExtra(){
+    private void setupExtra() {
         isLoading = false;
         hasMoreItems = false;
         mPtrrvUtil = new PullToRefreshRecyclerViewUtil();
     }
 
-    private void setLinster(){
+    private void setLinster() {
         mInterOnScrollListener = new InterOnScrollListener();
         mRecyclerView.addOnScrollListener(mInterOnScrollListener);
     }
@@ -144,7 +146,7 @@ public class PullToRefreshRecyclerView extends SwipeRefreshLayout implements Prv
 
     @Override
     public void setEmptyView(View emptyView) {
-        if(mEmptyView != null) {
+        if (mEmptyView != null) {
             mRootRelativeLayout.removeView(mEmptyView);
         }
         mEmptyView = emptyView;
@@ -153,10 +155,10 @@ public class PullToRefreshRecyclerView extends SwipeRefreshLayout implements Prv
     @Override
     public void setAdapter(RecyclerView.Adapter adapter) {
         mRecyclerView.setAdapter(adapter);
-        if(mAdapterObserver == null){
+        if (mAdapterObserver == null) {
             mAdapterObserver = new AdapterObserver();
         }
-        if(adapter != null){
+        if (adapter != null) {
             adapter.registerAdapterDataObserver(mAdapterObserver);
             mAdapterObserver.onChanged();
         }
@@ -175,13 +177,13 @@ public class PullToRefreshRecyclerView extends SwipeRefreshLayout implements Prv
     @Override
     public void addHeaderView(View view) {
         //2015.11.17 finish method
-        if(mHeader != null){
+        if (mHeader != null) {
             mRootRelativeLayout.removeView(mHeader);
         }
 
         mHeader = view;
 
-        if(mHeader == null){
+        if (mHeader == null) {
             return;
         }
 
@@ -216,7 +218,7 @@ public class PullToRefreshRecyclerView extends SwipeRefreshLayout implements Prv
             getRecyclerView().removeItemDecoration(mRootHeader);
             mRootHeader = null;
         }
-        if(mHeader != null){
+        if (mHeader != null) {
             mRootRelativeLayout.removeView(mHeader);
             mHeader = null;
         }
@@ -244,7 +246,7 @@ public class PullToRefreshRecyclerView extends SwipeRefreshLayout implements Prv
 
     @Override
     public RecyclerView.LayoutManager getLayoutManager() {
-        if(mRecyclerView != null) {
+        if (mRecyclerView != null) {
             return mRecyclerView.getLayoutManager();
         }
         return null;
@@ -253,11 +255,11 @@ public class PullToRefreshRecyclerView extends SwipeRefreshLayout implements Prv
     @Override
     public void onFinishLoading(boolean hasMoreItems, boolean needSetSelection) {
 
-        if(getLayoutManager() == null){
+        if (getLayoutManager() == null) {
             return;
         }
 
-        if(!hasMoreItems && mLoadMoreFooter != null){
+        if (!hasMoreItems && mLoadMoreFooter != null) {
             //if it's last line, minus the extra height of loadmore
             mCurScroll = mCurScroll - mLoadMoreFooter.getLoadMorePadding();
         }
@@ -277,15 +279,15 @@ public class PullToRefreshRecyclerView extends SwipeRefreshLayout implements Prv
         }
     }
 
-    public int findFirstVisibleItemPosition(){
+    public int findFirstVisibleItemPosition() {
         return mPtrrvUtil.findFirstVisibleItemPosition(getLayoutManager());
     }
 
-    public int findLastVisibleItemPosition(){
+    public int findLastVisibleItemPosition() {
         return mPtrrvUtil.findLastVisibleItemPosition(getLayoutManager());
     }
 
-    public int findFirstCompletelyVisibleItemPosition(){
+    public int findFirstCompletelyVisibleItemPosition() {
         return mPtrrvUtil.findFirstCompletelyVisibleItemPosition(getLayoutManager());
     }
 
@@ -308,7 +310,7 @@ public class PullToRefreshRecyclerView extends SwipeRefreshLayout implements Prv
 
     @Override
     public void setLayoutManager(RecyclerView.LayoutManager layoutManager) {
-        if(mRecyclerView != null){
+        if (mRecyclerView != null) {
             mRecyclerView.setLayoutManager(layoutManager);
         }
     }
@@ -323,20 +325,20 @@ public class PullToRefreshRecyclerView extends SwipeRefreshLayout implements Prv
 
     }
 
-    public void setLoadmoreString(String str){
-        if(mLoadMoreFooter != null){
+    public void setLoadmoreString(String str) {
+        if (mLoadMoreFooter != null) {
             mLoadMoreFooter.setLoadmoreString(str);
         }
     }
 
     private void setHasMoreItems(boolean hasMoreItems) {
         this.hasMoreItems = hasMoreItems;
-        if(mLoadMoreFooter == null){
-            mLoadMoreFooter = new DefaultLoadMoreView(getContext(),getRecyclerView());
+        if (mLoadMoreFooter == null) {
+            mLoadMoreFooter = new DefaultLoadMoreView(getContext(), getRecyclerView());
         }
-        if(!this.hasMoreItems) {
+        if (!this.hasMoreItems) {
             //remove loadmore
-            mRecyclerView.removeItemDecoration(mLoadMoreFooter);
+//            mRecyclerView.removeItemDecoration(mLoadMoreFooter);
         } else {
             //add loadmore
             mRecyclerView.removeItemDecoration(mLoadMoreFooter);
@@ -344,31 +346,42 @@ public class PullToRefreshRecyclerView extends SwipeRefreshLayout implements Prv
         }
     }
 
-    private class InterOnScrollListener extends RecyclerView.OnScrollListener{
+    private class InterOnScrollListener extends RecyclerView.OnScrollListener {
 
         @Override
         public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
             super.onScrollStateChanged(recyclerView, newState);
             //do super before callback
-            if(mOnScrollLinstener != null){
-                mOnScrollLinstener.onScrollStateChanged(recyclerView,newState);
+            if (mOnScrollLinstener != null) {
+                mOnScrollLinstener.onScrollStateChanged(recyclerView, newState);
             }
         }
 
         @Override
         public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
             super.onScrolled(recyclerView, dx, dy);
+//            Log.i("wang", "滑动滑动");
+            if (dy > 0) {
+//                int lastVisiblePosition = recyclerView.getLastVisiblePosition();
+//                if (lastVisiblePosition + 1 == recyclerView.getAdapter().getItemCount()) {
+
+//
+//                }
+            }
+//            setLoadingMore(true);
+//                    mLoadMorePosition = lastVisiblePosition;
+//                    mListener.onLoadMore();
             //do super before callback
-            if(getLayoutManager() == null){
+            if (getLayoutManager() == null) {
                 //here layoutManager is null
                 return;
             }
 
             mCurScroll = dy + mCurScroll;
-            if(mHeader != null) {
+            if (mHeader != null) {
                 if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.HONEYCOMB) {
                     mHeader.setTranslationY(-mCurScroll);
-                }else {
+                } else {
 //                    ViewHelper.setTranslationY(mHeader, -mCurScroll);
                 }
             }
@@ -381,7 +394,7 @@ public class PullToRefreshRecyclerView extends SwipeRefreshLayout implements Prv
             lastVisibleItem = findLastVisibleItemPosition();
 //            lastVisibleItem = mLinearLayoutManager.findLastCompletelyVisibleItemPosition();
 
-            if(mIsSwipeEnable) {
+            if (mIsSwipeEnable) {
                 if (findFirstCompletelyVisibleItemPosition() != 0) {
                     //here has a bug, if the item is too big , use findFirstCompletelyVisibleItemPosition will cannot swipe
                     PullToRefreshRecyclerView.this.setEnabled(false);
@@ -390,18 +403,17 @@ public class PullToRefreshRecyclerView extends SwipeRefreshLayout implements Prv
                 }
             }
 
-            if(totalItemCount < mLoadMoreCount){
-                setHasMoreItems(false);
-                isLoading = false;
-            }else if (!isLoading && hasMoreItems && ((lastVisibleItem + 1) == totalItemCount)) {
+             if (!isLoading&& ((lastVisibleItem + 1) == totalItemCount)) {
                 if (mPagingableListener != null) {
+                    Log.i("wang", "滑到底啦");
                     isLoading = true;
+                    mRecyclerView.addItemDecoration(mLoadMoreFooter);
                     mPagingableListener.onLoadMoreItems();
                 }
 
             }
 
-            if(mOnScrollLinstener != null){
+            if (mOnScrollLinstener != null) {
                 mOnScrollLinstener.onScrolled(recyclerView, dx, dy);
                 mOnScrollLinstener.onScroll(recyclerView, firstVisibleItem, visibleItemCount, totalItemCount);
             }
@@ -409,30 +421,29 @@ public class PullToRefreshRecyclerView extends SwipeRefreshLayout implements Prv
 
     }
 
-    private class AdapterObserver extends RecyclerView.AdapterDataObserver{
+    private class AdapterObserver extends RecyclerView.AdapterDataObserver {
         @Override
         public void onChanged() {
             super.onChanged();
             //adapter has change
-            if(mRecyclerView == null){
+            if (mRecyclerView == null) {
                 //here must be wrong ,recyclerView is null????
                 return;
             }
 
-            RecyclerView.Adapter<?> adapter =  mRecyclerView.getAdapter();
-            if(adapter != null && mEmptyView != null) {
-                if(adapter.getItemCount() == 0) {
-                    if(mIsSwipeEnable) {
+            RecyclerView.Adapter<?> adapter = mRecyclerView.getAdapter();
+            if (adapter != null && mEmptyView != null) {
+                if (adapter.getItemCount() == 0) {
+                    if (mIsSwipeEnable) {
                         PullToRefreshRecyclerView.this.setEnabled(false);
                     }
-                    if(mEmptyView.getParent() != mRootRelativeLayout) {
+                    if (mEmptyView.getParent() != mRootRelativeLayout) {
                         mRootRelativeLayout.addView(mEmptyView);
                     }
                     mEmptyView.setVisibility(View.VISIBLE);
                     mRecyclerView.setVisibility(View.GONE);
-                }
-                else {
-                    if(mIsSwipeEnable) {
+                } else {
+                    if (mIsSwipeEnable) {
                         PullToRefreshRecyclerView.this.setEnabled(true);
                     }
                     mEmptyView.setVisibility(View.GONE);

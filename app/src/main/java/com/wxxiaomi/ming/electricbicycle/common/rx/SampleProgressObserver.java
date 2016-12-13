@@ -39,6 +39,7 @@ public abstract class SampleProgressObserver<T> extends MyObserver<T>{
     protected void onError(ApiException ex) {
         //Log.i("wang","SampleProgressObserver-onError-"+ex.getDisplayMessage());
         //ex.printStackTrace();;
+        ex.printStackTrace();
         if(dialog.isShowing()) {
             dialog.dismiss();
         }

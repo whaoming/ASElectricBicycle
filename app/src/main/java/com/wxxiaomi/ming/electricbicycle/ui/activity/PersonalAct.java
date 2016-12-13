@@ -4,8 +4,10 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,9 +22,10 @@ import com.wxxiaomi.ming.electricbicycle.ui.presenter.PersonalPresenter;
 //import com.wxxiaomi.ming.electricbicycle.core.presenter.impl.PersonalPreImpl;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.impl.PersonalPreImpl;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.view.PersonaView;
-import com.wxxiaomi.ming.electricbicycle.ui.weight.custom.FullyLinearLayoutManager;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.support.myglide.ImgShower;
+import com.wxxiaomi.ming.electricbicycle.ui.weight.pull2refreshreview.PullToRefreshRecyclerView;
+import com.wxxiaomi.ming.electricbicycle.ui.weight.pull2refreshreview.footer.DefaultLoadMoreView;
 
 /**
  * Created by 12262 on 2016/6/21.
@@ -33,7 +36,7 @@ public class PersonalAct extends BaseActivity<PersonaView, PersonalPresenter> im
 
     private Toolbar toolbar1;
     private FloatingActionButton btn_add;
-    private RecyclerView mRecyclerView;
+    private PullToRefreshRecyclerView mRecyclerView;
     private CollapsingToolbarLayout collapsing_toolbar;
     private ImageView iv_my_head;
     private TextView tv_name;
@@ -47,15 +50,9 @@ public class PersonalAct extends BaseActivity<PersonaView, PersonalPresenter> im
         setContentView(R.layout.activity_userinfo2);
         // 标题的文字需在setSupportActionBar之前，不然会无效
         btn_add = (FloatingActionButton) findViewById(R.id.btn_add);
-
         btn_add.setOnClickListener(this);
-        mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        mRecyclerView.setLayoutManager(new FullyLinearLayoutManager(this));
-        mRecyclerView.setNestedScrollingEnabled(false);
-//        swipeRefreshRecyclerView = (SwipeRefreshRecyclerView) findViewById(R.id.swipeRefresh);
-//        swipeRefreshRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
-//        swipeRefreshRecyclerView.getScrollView().setNestedScrollingEnabled(false);
-//        swipeRefreshRecyclerView.getScrollView().setNestedScrollingEnabled(false);
+        mRecyclerView = (PullToRefreshRecyclerView) findViewById(R.id.mRecyclerView);
+        initRefreshView();
         toolbar1 = (Toolbar) findViewById(R.id.toolbar1);
         collapsing_toolbar = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
         toolbar1.setTitle("");
@@ -69,16 +66,28 @@ public class PersonalAct extends BaseActivity<PersonaView, PersonalPresenter> im
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
+    private void initRefreshView() {
+        DefaultLoadMoreView defaultLoadMoreView = new DefaultLoadMoreView(this, mRecyclerView.getRecyclerView());
+        defaultLoadMoreView.setLoadmoreString("加载更多");
+        defaultLoadMoreView.setLoadMorePadding(100);
+        mRecyclerView.setSwipeEnable(false);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mRecyclerView.setNestedScrollingEnabled(false);
+//        mRecyclerView.setPagingableListener(new PullToRefreshRecyclerView.PagingableListener() {
+//            @Override
+//            public void onLoadMoreItems() {
+//                Log.i("wang","onLoadMoreItems");
+//            }
+//        });
+        mRecyclerView.setLoadMoreFooter(defaultLoadMoreView);
+
+    }
+
     @Override
     public PersonalPresenter getPresenter() {
         return new PersonalPreImpl();
     }
 
-
-//    @Override
-//    public void setAdapter(RecyclerView.Adapter adapter){
-//        mRecyclerView.setAdapter(adapter);
-//    }
 
     @Override
     public ImageView getHeadView(){
@@ -86,7 +95,7 @@ public class PersonalAct extends BaseActivity<PersonaView, PersonalPresenter> im
     }
 
     @Override
-    public RecyclerView getListView() {
+    public PullToRefreshRecyclerView getListView() {
         return mRecyclerView;
     }
 

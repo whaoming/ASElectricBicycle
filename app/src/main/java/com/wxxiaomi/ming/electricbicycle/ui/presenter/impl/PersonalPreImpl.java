@@ -12,6 +12,7 @@ import com.wxxiaomi.ming.electricbicycle.ui.presenter.PersonalPresenter;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.view.PersonaView;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.MyInfoEditActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.adapter.OptionAdapter2;
+import com.wxxiaomi.ming.electricbicycle.ui.weight.pull2refreshreview.PullToRefreshRecyclerView;
 
 import java.util.List;
 
@@ -22,17 +23,14 @@ import rx.functions.Action1;
  */
 
 public class PersonalPreImpl extends BasePreImpl<PersonaView> implements PersonalPresenter<PersonaView>{
-    RecyclerView listView;
+    private PullToRefreshRecyclerView listView;
 
     @Override
     public void init() {
-//        Log.i("wang","head:"+GlobalManager.getInstance().getUser().userCommonInfo.head);
         ImgShower.showHead(mView.getContext(), mView.getHeadView(), GlobalManager.getInstance().getUser().userCommonInfo.head);
         mView.setViewData(GlobalManager.getInstance().getUser().userCommonInfo);
         listView = mView.getListView();
-//        listView.setOnListLoadListener(this);
-//        listView.setOnRefreshListener(this);
-//        listView.setEmptyText("数据又没有了!");
+        listView.setRefreshing(true);
         requestOptionData();
     }
 
@@ -42,8 +40,8 @@ public class PersonalPreImpl extends BasePreImpl<PersonaView> implements Persona
                     @Override
                     public void call(List<Option> options) {
                         OptionAdapter2 adapter = new OptionAdapter2(options,mView.getContext());
-                        Log.i("wang","asdasd");
                         listView.setAdapter(adapter);
+                        listView.setRefreshing(false);
                     }
                 });
     }

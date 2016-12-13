@@ -1,6 +1,7 @@
 package com.wxxiaomi.ming.electricbicycle.ui.presenter.impl;
 
 import android.support.design.widget.TextInputLayout;
+import android.util.Log;
 
 import com.wxxiaomi.ming.electricbicycle.ConstantValue;
 import com.wxxiaomi.ming.electricbicycle.common.util.AppManager;
@@ -71,7 +72,8 @@ public class LoginPresenterImpl extends BasePreImpl<LoginView> implements LoginP
                 .subscribe(new SampleProgressObserver<Integer>(mView.getContext()) {
                     @Override
                     public void onNext(Integer integer) {
-                        AppManager.getAppManager().finishActivity(RegisterActivity.class);
+                        Log.i("wang","integer:"+integer);
+//                        AppManager.getAppManager().finishActivity(RegisterActivity.class);
                         mView.runActivity(HomeActivity.class, null, true);
                     }
                 });

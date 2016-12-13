@@ -5,8 +5,6 @@ import android.test.ApplicationTestCase;
 import android.util.Log;
 
 import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.format.Login;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.format.Register;
 import com.wxxiaomi.ming.electricbicycle.dao.db.UserService;
 
 import java.util.List;
@@ -22,6 +20,8 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
 
 
     }
+
+
 
     public void testInitMapSdk(){
         Log.i("wang","testInitMapSdk()");

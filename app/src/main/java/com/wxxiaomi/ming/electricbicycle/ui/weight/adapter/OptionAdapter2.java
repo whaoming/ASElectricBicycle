@@ -24,12 +24,10 @@ public class OptionAdapter2 extends RecyclerView.Adapter<RecyclerView.ViewHolder
     private List<Option> list;
     private Context mContext;
     private int linePading;
-    private int count;
 
     public OptionAdapter2(List<Option> feedList, Context context) {
         list = feedList;
         this.mContext = context;
-        count = list.size();
     }
 
     @Override
@@ -43,39 +41,39 @@ public class OptionAdapter2 extends RecyclerView.Adapter<RecyclerView.ViewHolder
         if (viewHolder instanceof LatestViewHolder) {
             LatestViewHolder holder = (LatestViewHolder) viewHolder;
             Option option = list.get(position);
-
-            int flag = option.obj_type;
-            switch (flag){
-                case OptionType.TOPIC_PUBLISH:
-                    Topic topic = (Topic)option.dobj;
+            if(option!=null){
+                int flag = option.obj_type;
+                switch (flag){
+                    case OptionType.TOPIC_PUBLISH:
+                        Topic topic = (Topic)option.dobj;
 //                    if(topic.pics==null ||  "".equals(topic.pics)){
 //                        holder.iv_img.setVisibility(View.GONE);
 //                    }else{
 //                        holder.iv_img.setVisibility(View.VISIBLE);
 //                        Glide.with(mContext).load(topic.picss[0]).into( holder.iv_img);
 //                    }
-                    holder.tv_content.setText(topic.content);
-                    holder.rl_comment_content.setVisibility(View.GONE);
-                    holder.line.setVisibility(View.GONE);
-                    holder.tv_locat_tag.setText(topic.locat_tag);
-                    break;
-                case OptionType.TOPIC_COMMENT:
-                    Topic t = (Topic)option.dparent;
-                    Comment c = (Comment)option.dobj;
-                    if("".equals(t.pics)){
-                        holder.iv_img.setVisibility(View.GONE);
-                    }else{
-                        holder.iv_img.setVisibility(View.VISIBLE);
-                        Glide.with(mContext).load(t.picss[0]).into( holder.iv_img);
-                    }
-                    holder.rl_comment_content.setVisibility(View.VISIBLE);
-                    holder.line.setVisibility(View.VISIBLE);
-                    holder.tv_user_comment.setText("wang:"+c.content);
-                    Log.i("wang","c.from_head:"+c.from_head);
-                    Glide.with(mContext).load(c.from_head).into(holder.iv_user_head);
-                    holder.tv_locat_tag.setText(t.locat_tag);
-                    break;
-            }
+                        holder.tv_content.setText(topic.content);
+                        holder.rl_comment_content.setVisibility(View.GONE);
+                        holder.line.setVisibility(View.GONE);
+                        holder.tv_locat_tag.setText(topic.locat_tag);
+                        break;
+                    case OptionType.TOPIC_COMMENT:
+                        Topic t = (Topic)option.dparent;
+                        Comment c = (Comment)option.dobj;
+                        if("".equals(t.pics)){
+                            holder.iv_img.setVisibility(View.GONE);
+                        }else{
+                            holder.iv_img.setVisibility(View.VISIBLE);
+                            Glide.with(mContext).load(t.picss[0]).into( holder.iv_img);
+                        }
+                        holder.rl_comment_content.setVisibility(View.VISIBLE);
+                        holder.line.setVisibility(View.VISIBLE);
+                        holder.tv_user_comment.setText("wang:"+c.content);
+                        Log.i("wang","c.from_head:"+c.from_head);
+                        Glide.with(mContext).load(c.from_head).into(holder.iv_user_head);
+                        holder.tv_locat_tag.setText(t.locat_tag);
+                        break;
+                }
 //            Log.i("wang","flag:"+flag);
 //            switch (flag) {
 //                case OptionType.FOOT_PRINT:
@@ -131,12 +129,14 @@ public class OptionAdapter2 extends RecyclerView.Adapter<RecyclerView.ViewHolder
 //
 //
 //            }
+            }
+
         }
     }
 
     @Override
     public int getItemCount() {
-        return count;
+        return list.size();
     }
 
 //    public void setOption(TextView tv){

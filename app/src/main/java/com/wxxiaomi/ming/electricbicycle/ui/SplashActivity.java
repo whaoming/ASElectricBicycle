@@ -45,6 +45,7 @@ import rx.schedulers.Schedulers;
  * @author Mr.W
  */
 public class SplashActivity extends Activity {
+    private boolean isLogin = false;
 
     private TextView tv_tv;
     final CountDownLatch order = new CountDownLatch(3);
@@ -74,10 +75,18 @@ public class SplashActivity extends Activity {
 //					startActivity(intent);
 //					finish();
 //                    autoLogin();
-                    Intent intent = new Intent(SplashActivity.this, HomeActivity.class);
-                    startActivity(intent);
-                    finish();
-                    break;
+                    if(isLogin){
+                        Intent intent = new Intent(SplashActivity.this, HomeActivity.class);
+                        startActivity(intent);
+                        finish();
+                        break;
+                    }else{
+                        Intent intent = new Intent(SplashActivity.this, RegisterActivity.class);
+                        startActivity(intent);
+                        finish();
+                        break;
+                    }
+
             }
         }
     };
@@ -103,6 +112,7 @@ public class SplashActivity extends Activity {
      */
     private void autoLogin() {
         String ltoken = (String) SharedPreferencesUtils.getParam(EBApplication.applicationContext, ConstantValue.LONGTOKEN, "");
+        Log.i("wang", "从本地取得的ltoken：" + ltoken);
         if (!"".equals(ltoken)) {
             HttpMethods.getInstance().Token_Long2Short()
                     .map(new Func1<String, User>() {
@@ -144,15 +154,17 @@ public class SplashActivity extends Activity {
                     .subscribe(new Action1<Integer>() {
                         @Override
                         public void call(Integer integer) {
+                            isLogin = true;
                             order.countDown();
                         }
                     })
             ;
 
         } else {
-            Intent intent = new Intent(SplashActivity.this, RegisterActivity.class);
-            startActivity(intent);
-            finish();
+            isLogin = false;
+            order.countDown();
+            Log.i("wang", "从本地取不到ltoken");
+
         }
 
     }

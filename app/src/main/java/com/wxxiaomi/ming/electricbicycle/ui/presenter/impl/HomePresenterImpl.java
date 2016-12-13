@@ -242,12 +242,15 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
                 .subscribe(new Action1<List<UserLocatInfo>>() {
                     @Override
                     public void call(List<UserLocatInfo> nearByPerson) {
-                        userLocatList = nearByPerson;
-                       for(int i=0;i<nearByPerson.size();i++){
-                           UserLocatInfo user = nearByPerson.get(i);
-                           LatLng point = new LatLng(user.point[0], user.point[1]);
-                           mView.addMaker(point,i);
-                       }
+                        if(nearByPerson!=null){
+                            userLocatList = nearByPerson;
+                            for(int i=0;i<nearByPerson.size();i++){
+                                UserLocatInfo user = nearByPerson.get(i);
+                                LatLng point = new LatLng(user.point[0], user.point[1]);
+                                mView.addMaker(point,i);
+                            }
+                        }
+
                     }
                 });
 //

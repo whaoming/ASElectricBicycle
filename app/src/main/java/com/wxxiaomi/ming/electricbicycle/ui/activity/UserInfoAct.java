@@ -59,6 +59,7 @@ public class UserInfoAct extends BaseActivity<UserInfoView,UserInfoPresenter> im
         DefaultLoadMoreView defaultLoadMoreView = new DefaultLoadMoreView(this, mRecyclerView.getRecyclerView());
         defaultLoadMoreView.setLoadmoreString("加载更多");
         defaultLoadMoreView.setLoadMorePadding(100);
+
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setNestedScrollingEnabled(false);
         mRecyclerView.setPagingableListener(new PullToRefreshRecyclerView.PagingableListener() {
@@ -68,6 +69,7 @@ public class UserInfoAct extends BaseActivity<UserInfoView,UserInfoPresenter> im
             }
         });
         mRecyclerView.setLoadMoreFooter(defaultLoadMoreView);
+        mRecyclerView.setRefreshing(true);;
 
     }
 
@@ -78,7 +80,8 @@ public class UserInfoAct extends BaseActivity<UserInfoView,UserInfoPresenter> im
     @Override
     public void setAdapter(RecyclerView.Adapter adapter){
         mRecyclerView.setAdapter(adapter);
-        mRecyclerView.onFinishLoading(true, false);
+//        mRecyclerView.setRefreshing(false);
+//        mRecyclerView.onFinishLoading(true, false);
 
     }
 

@@ -21,6 +21,7 @@ import com.wxxiaomi.ming.electricbicycle.dao.common.Result;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
@@ -72,6 +73,7 @@ public class HttpMethods {
                             .addHeader("token",GlobalParams.token)
                             .build();
                     Log.i("wang","currentThread:"+Thread.currentThread().getName());
+//                    newRequest.toString();
                     Response response = chain.proceed(newRequest);
 
                     if(response.header("token")!=null){
@@ -143,6 +145,31 @@ public class HttpMethods {
 //                ;
 //    }
 
+    public Observable<String> updateUserInfo(Map<String,String> pars){
+        return demoService.updateUserInfo(pars)
+                .map(new ServerResultFunc<String>())
+//                .retryWhen(new TokenOutTime(3,1))
+                .onErrorResumeNext(new Func1<Throwable, Observable<? extends String>>() {
+                    @Override
+                    public Observable<? extends String> call(Throwable throwable) {
+                        return Observable.error(ExceptionEngine.handleException(throwable));
+                    }
+                });
+
+    }
+
+    public Observable<String> updateUserInfo2(String name){
+        return demoService.updateUserInfo2(name)
+                .map(new ServerResultFunc<String>())
+//                .retryWhen(new TokenOutTime(3,1))
+                .onErrorResumeNext(new Func1<Throwable, Observable<? extends String>>() {
+                    @Override
+                    public Observable<? extends String> call(Throwable throwable) {
+                        return Observable.error(ExceptionEngine.handleException(throwable));
+                    }
+                });
+    }
+
     public Observable<User> login(String username, String password,String num) {
         return demoService.readBaidu(username, password,num)
                 .map(new ServerResultFunc<User>())
@@ -170,12 +197,14 @@ public class HttpMethods {
         emname = emname + "<>";
         return demoService.getUserListByEmList(emname)
                 .map(new ServerResultFunc<List<UserCommonInfo>>())
+                .retryWhen(new TokenOutTime(3,1))
                 .onErrorResumeNext(new HttpResultFunc<List<UserCommonInfo>>());
     }
 
     public Observable<List<UserLocatInfo>> getNearByFromServer(int userid, double latitude, double longitude) {
         return demoService.getNearByFromServer(userid, latitude, longitude)
                 .map(new ServerResultFunc<List<UserLocatInfo>>())
+                .retryWhen(new TokenOutTime(3,1))
                 .onErrorResumeNext(new HttpResultFunc<List<UserLocatInfo>>())
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io())
@@ -185,6 +214,7 @@ public class HttpMethods {
     public Observable<List<UserCommonInfo>> getUserCommonInfoByName(String name) {
         return demoService.getUserCommonInfoByName(name)
                 .map(new ServerResultFunc<List<UserCommonInfo>>())
+                .retryWhen(new TokenOutTime(3,1))
                 .onErrorResumeNext(new HttpResultFunc<List<UserCommonInfo>>())
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io())
@@ -204,6 +234,7 @@ public class HttpMethods {
     public Observable<String> upLoadHead(String fileName, RequestBody imgs){
         return demoService.uploadImage(fileName,imgs)
                 .map(new ServerResultFunc<String>())
+                .retryWhen(new TokenOutTime(3,1))
                 .onErrorResumeNext(new HttpResultFunc<String>())
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io())
@@ -213,6 +244,7 @@ public class HttpMethods {
     public Observable<List<OptionLogs>> optionLogs(int userid){
         return demoService.optionLogs(userid)
                 .map(new ServerResultFunc<List<OptionLogs>>())
+                .retryWhen(new TokenOutTime(3,1))
                 .onErrorResumeNext(new HttpResultFunc<List<OptionLogs>>())
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io())
@@ -239,20 +271,9 @@ public class HttpMethods {
         UniqueUtil util = new UniqueUtil(EBApplication.applicationContext);
         String uniqueID = util.getUniqueID();
         String long_token = (String) SharedPreferencesUtils.getParam(EBApplication.applicationContext,ConstantValue.LONGTOKEN,"");
-        Log.i("wang","Token_Long2Short,long_token:"+long_token+",uniqueID:"+uniqueID);
         return demoService.getSToken(long_token,uniqueID)
                 .map(new ServerResultFunc<String>())
         .onErrorResumeNext(new HttpResultFunc<String>());
-//        return login("122627018","987987987",)
-//                .flatMap(new Func1<User, Observable<String>>() {
-//                    @Override
-//                    public Observable<String> call(User login) {
-//                        Log.i("wang","再次登录成功");
-//                        return Observable.just("asd");
-//                    }
-//                })
-//                .subscribeOn(Schedulers.io())
-//                ;
     }
 
 

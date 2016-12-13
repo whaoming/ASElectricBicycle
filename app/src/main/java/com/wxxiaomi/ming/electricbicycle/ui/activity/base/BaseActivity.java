@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.wxxiaomi.ming.electricbicycle.common.util.AppManager;
@@ -70,5 +71,15 @@ public abstract class BaseActivity<V,T extends BasePre> extends AppCompatActivit
     @Override
     public void onClick(View v) {
         
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

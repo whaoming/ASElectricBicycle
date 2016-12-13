@@ -14,6 +14,7 @@ import java.util.Map;
 
 import okhttp3.RequestBody;
 import retrofit2.Response;
+import retrofit2.http.Field;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -29,11 +30,17 @@ import rx.Observable;
  * Created by 12262 on 2016/5/31.
  */
 public interface DemoService {
-//    @GET("ActionServlet?action=login")
+
+    Observable<Result<String>> updateUserInfo();
+    @FormUrlEncoded
+    @POST("android/user_updateuserinfo")
+    Observable<Result<String>> updateUserInfo(@FieldMap Map<String, String> options);
+    @FormUrlEncoded
+    @POST("android/user_updateuserinfo")
+    Observable<Result<String>> updateUserInfo2(@Field("name") String name);
 
     @GET("android/user_longToken")
     Observable<Result<String>> getSToken(@Query("long_token")String long_token,@Query("phoneId")String phoneId);
-
 
     @GET("android/user_login")
     Observable<Result<User>> readBaidu(@Query("username") String username, @Query("password") String password,@Query("uniqueNum") String uniqueNum);
@@ -41,16 +48,12 @@ public interface DemoService {
     @GET("ActionServlet?action=inituserinfo")
     Observable<Result<List<UserCommonInfo>>> initUserInfo(@Query("username") String username, @Query("password") String password);
 
-//    @GET("ActionServlet?action=getuserinfolistbyemname")
     @GET("android/user_infosbyems")
     Observable<Result<List<UserCommonInfo>>> getUserListByEmList(@Query("emnamelist") String emnamelist);
-
-//    @GET("ActionServlet?action=getnearby")
 
     @GET("android/lbs_near")
     Observable<Result<List<UserLocatInfo>>> getNearByFromServer(@Query("userid") int userid, @Query("latitude") double latitude, @Query("longitude") double longitude);
 
-//    @GET("ActionServlet?action=userinfobyname")
     @GET("android/user_userinfobyname")
     Observable<Result<List<UserCommonInfo>>> getUserCommonInfoByName(@Query("name") String name);
 

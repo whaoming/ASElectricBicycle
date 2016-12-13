@@ -92,6 +92,7 @@ public class UserInfoPresenterImpl extends BasePreImpl<UserInfoView> implements 
                     @Override
                     public void call(List<Option> options) {
                         OptionAdapter2 adapter = new OptionAdapter2(options,mView.getContext());
+
                         mView.setAdapter(adapter);
                     }
                 });
