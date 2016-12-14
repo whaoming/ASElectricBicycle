@@ -27,13 +27,13 @@ public class HttpMethodsTest {
     @org.junit.Test
     public void testUpdateUserInfo(){
         Map<String,String> pars = new HashMap<>();
-//        UserCommonInfo info = new UserCommonInfo();
-//        info.head = "Im.head";
-//        info.emname = "asd";
-//        info.name = "asd";
-        pars.put("userInfo","Mr.M");
+        UserCommonInfo info = new UserCommonInfo();
+        info.head = "Im.head";
+        info.emname = "asd";
+        info.name = "asd";
+        pars.put("name","Mr.M");
         pars.put("head","asdasdsa");
-        HttpMethods.getInstance().updateUserInfo(pars)
+        HttpMethods.getInstance().updateUserInfo3(info)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<String>() {
                     @Override

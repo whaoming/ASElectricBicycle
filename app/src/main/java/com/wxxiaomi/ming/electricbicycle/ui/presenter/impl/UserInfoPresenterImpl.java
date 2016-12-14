@@ -3,16 +3,17 @@ package com.wxxiaomi.ming.electricbicycle.ui.presenter.impl;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.google.gson.Gson;
 import com.wxxiaomi.ming.electricbicycle.R;
+import com.wxxiaomi.ming.electricbicycle.support.easemob.EmHelper2;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.adapter.OptionAdapter2;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.Option;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.base.BasePreImpl;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.UserInfoPresenter;
 import com.wxxiaomi.ming.electricbicycle.dao.db.UserService;
-import com.wxxiaomi.ming.electricbicycle.support.easemob.EmEngine;
 import com.wxxiaomi.ming.electricbicycle.common.rx.SampleProgressObserver;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.view.UserInfoView;
 
@@ -28,35 +29,23 @@ import rx.functions.Action1;
  */
 public class UserInfoPresenterImpl extends BasePreImpl<UserInfoView> implements UserInfoPresenter<UserInfoView> {
     private UserCommonInfo userInfo;
-    private boolean isMyFriendFlag;
+    private boolean isMyFriendFlag = false;
+    private EditableDialog dialog;
 
     @Override
     public void onAddBtnClick() {
+        Log.i("wang","添加好友按钮");
         if(isMyFriendFlag){
             Bundle bundle = new Bundle();
             bundle.putString("userId",userInfo.emname);
 //            mView.runActivity(ChatActivity.class,bundle,false);
         }else{
+
             /**
              * 添加好友的逻辑：
              * 点击添加好友，先从服务器
              */
-            EditableDialog dialog = new EditableDialog(mView.getContext()).builder()
-                    .setHint("理由")
-                    .setTitle("添加好友")
-                    .setOnPositiveButtonClick(new EditableDialog.PositiveButtonOnClick() {
-                        @Override
-                        public void onClick(DialogInterface dialog, String content) {
-                            EmEngine.getInstance().addContact(userInfo.emname,content)
-                                    .subscribe(new SampleProgressObserver<Boolean>(mView.getContext()) {
-                                        @Override
-                                        public void onNext(Boolean aBoolean) {
-                                            showMsg("成功添加好友");
-                                        }
-                                    });
-                        }
-                    })
-                    ;
+          
             dialog.show();
 
         }
@@ -72,7 +61,7 @@ public class UserInfoPresenterImpl extends BasePreImpl<UserInfoView> implements 
         } else {
             userInfo = (UserCommonInfo) bundle.get("userInfo");
         }
-        isMyFriendFlag = UserService.getInstance().isMyFriend(userInfo.emname);
+//        isMyFriendFlag = UserService.getInstance().isMyFriend(userInfo.emname);
         if (isMyFriendFlag)
             mView.setBtnView(mView.getContext().getResources().getDrawable(R.mipmap.ic_mode_edit_black_18dp));
         else
@@ -96,6 +85,23 @@ public class UserInfoPresenterImpl extends BasePreImpl<UserInfoView> implements 
                         mView.setAdapter(adapter);
                     }
                 });
+
+       dialog = new EditableDialog(mView.getContext()).builder()
+                .setHint("理由")
+                .setTitle("添加好友")
+                .setOnPositiveButtonClick(new EditableDialog.PositiveButtonOnClick() {
+                    @Override
+                    public void onClick(DialogInterface dialog, String content) {
+                        EmHelper2.getInstance().addContact(userInfo.emname,content)
+                                .subscribe(new SampleProgressObserver<Boolean>(mView.getContext()) {
+                                    @Override
+                                    public void onNext(Boolean aBoolean) {
+                                        showMsg("成功添加好友");
+                                    }
+                                });
+                    }
+                })
+                ;
     }
 
 

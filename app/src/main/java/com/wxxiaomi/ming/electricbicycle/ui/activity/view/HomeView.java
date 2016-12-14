@@ -2,6 +2,7 @@ package com.wxxiaomi.ming.electricbicycle.ui.activity.view;
 
 import android.os.Bundle;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.model.LatLng;
@@ -29,4 +30,8 @@ public interface HomeView<T extends BasePre> extends BaseView<T> {
     BaiduMap getMap();
 
     ImageView getHeadView();
+
+    TextView getTvNameView();
+
+
 }

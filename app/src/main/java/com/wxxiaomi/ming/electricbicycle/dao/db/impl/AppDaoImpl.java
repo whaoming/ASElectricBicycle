@@ -76,5 +76,16 @@ public class AppDaoImpl implements AppDao {
         return true;
     }
 
-
+    @Override
+    public Integer updateUserInfo(String name, String head,String emname) {
+        SQLiteDatabase db = helper.getWritableDatabase();
+        if (db.isOpen()) {
+            ContentValues updatedValues = new ContentValues();
+            updatedValues.put(AppDao.COLUMN_NAME_INFO_NAME, name);
+            updatedValues.put(AppDao.COLUMN_NAME_INFO_HEAD, head);
+            String where = AppDao.COLUMN_NAME_INFO_EMNAME + "=" + emname;
+            db.update(AppDao.TABLE_NAME, updatedValues, where, null);
+        }
+        return 1;
+    }
 }

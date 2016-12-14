@@ -24,7 +24,7 @@ import com.wxxiaomi.ming.electricbicycle.ui.weight.pull2refreshreview.footer.Def
  * Created by whaoming on 2016/7/3.
  * 用户信息页面
  */
-public class UserInfoAct extends BaseActivity<UserInfoView,UserInfoPresenter> implements UserInfoView<UserInfoPresenter>{
+public class UserInfoAct extends BaseActivity<UserInfoView, UserInfoPresenter> implements UserInfoView<UserInfoPresenter> {
 
     private Toolbar toolbar1;
     private FloatingActionButton btn_add;
@@ -65,11 +65,12 @@ public class UserInfoAct extends BaseActivity<UserInfoView,UserInfoPresenter> im
         mRecyclerView.setPagingableListener(new PullToRefreshRecyclerView.PagingableListener() {
             @Override
             public void onLoadMoreItems() {
-                Log.i("wang","onLoadMoreItems");
+                Log.i("wang", "onLoadMoreItems");
             }
         });
         mRecyclerView.setLoadMoreFooter(defaultLoadMoreView);
-        mRecyclerView.setRefreshing(true);;
+        mRecyclerView.setRefreshing(true);
+        ;
 
     }
 
@@ -77,8 +78,9 @@ public class UserInfoAct extends BaseActivity<UserInfoView,UserInfoPresenter> im
     public UserInfoPresenter getPresenter() {
         return new UserInfoPresenterImpl();
     }
+
     @Override
-    public void setAdapter(RecyclerView.Adapter adapter){
+    public void setAdapter(RecyclerView.Adapter adapter) {
         mRecyclerView.setAdapter(adapter);
 //        mRecyclerView.setRefreshing(false);
 //        mRecyclerView.onFinishLoading(true, false);
@@ -86,16 +88,16 @@ public class UserInfoAct extends BaseActivity<UserInfoView,UserInfoPresenter> im
     }
 
 
-
     @Override
     public void onClick(View v) {
-        switch (v.getId())
-        {
+        switch (v.getId()) {
             case R.id.btn_add:
                 ///添加好友按钮
+                Log.i("wang", "按钮被按下了");
                 presenter.onAddBtnClick();
                 break;
         }
+        super.onClick(v);
     }
 
     @Override

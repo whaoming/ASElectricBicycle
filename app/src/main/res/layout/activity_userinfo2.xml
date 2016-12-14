@@ -73,7 +73,6 @@
         android:layout_margin="5dp"
         android:clickable="true"
         android:src="@drawable/ic_launcher"
-        android:visibility="gone"
        />
 
 </android.support.design.widget.CoordinatorLayout>

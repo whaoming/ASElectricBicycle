@@ -22,9 +22,6 @@ import com.hyphenate.easeui.ui.EaseConversationListFragment;
 import com.hyphenate.easeui.widget.EaseConversationList.EaseConversationListHelper;
 import com.hyphenate.util.NetUtils;
 import com.wxxiaomi.ming.electricbicycle.R;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo;
-import com.wxxiaomi.ming.electricbicycle.dao.db.UserService;
-import com.wxxiaomi.ming.electricbicycle.support.easemob.EmEngine;
 import com.wxxiaomi.ming.electricbicycle.support.easemob.listener.FriendMessageListener;
 
 import java.util.List;
@@ -37,7 +34,6 @@ public class ConversationListFragment extends EaseConversationListFragment {
     @Override
     protected void initView() {
         super.initView();
-
         View errorView = (LinearLayout) View.inflate(getActivity(), R.layout.em_chat_neterror_item, null);
         errorItemContainer.addView(errorView);
         errorText = (TextView) errorView.findViewById(R.id.tv_connect_errormsg);
@@ -159,18 +155,18 @@ public class ConversationListFragment extends EaseConversationListFragment {
 
     @Override
     public void onResume() {
-        List<UserCommonInfo> list = UserService.getInstance().getFriendList();
-        for(UserCommonInfo info : list){
-            Log.i("wang","好友情况："+info.toString());
-        }
+//        List<UserCommonInfo> list = UserService.getInstance().getFriendList();
+//        for(UserCommonInfo info : list){
+//            Log.i("wang","好友情况："+info.toString());
+//        }
 
-        EmEngine.getInstance().setFriendMsgLis(new FriendMessageListener() {
-            @Override
-            public void FriendMsgReceive() {
-                Log.i("wang","fragment中收到消息了");
-                refresh();
-            }
-        });
+//        EmEngine.getInstance().setFriendMsgLis(new FriendMessageListener() {
+//            @Override
+//            public void FriendMsgReceive() {
+//                Log.i("wang","fragment中收到消息了");
+//                refresh();
+//            }
+//        });
         super.onResume();
     }
 }

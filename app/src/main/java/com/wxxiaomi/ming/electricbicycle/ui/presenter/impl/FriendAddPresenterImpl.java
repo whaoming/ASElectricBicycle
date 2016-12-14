@@ -47,8 +47,11 @@ public class FriendAddPresenterImpl extends BasePreImpl<FriendAddView> implement
                 .subscribe(new Action1<List<UserLocatInfo>>() {
                     @Override
                     public void call(List<UserLocatInfo> nearByPerson) {
-                        tempNearUserList.addAll(nearByPerson);
-                        adapter.setLoadingComplete();
+                        if(nearByPerson!=null){
+                            tempNearUserList.addAll(nearByPerson);
+                            adapter.setLoadingComplete();
+                        }
+
                     }
                 });
     }

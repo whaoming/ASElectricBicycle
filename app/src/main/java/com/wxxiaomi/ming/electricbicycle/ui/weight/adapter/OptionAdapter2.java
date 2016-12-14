@@ -46,16 +46,22 @@ public class OptionAdapter2 extends RecyclerView.Adapter<RecyclerView.ViewHolder
                 switch (flag){
                     case OptionType.TOPIC_PUBLISH:
                         Topic topic = (Topic)option.dobj;
+                        if(topic!=null){
+                            if(topic.content!=null){
+                                holder.tv_content.setText(topic.content);
+                            }
+
+                            holder.rl_comment_content.setVisibility(View.GONE);
+                            holder.line.setVisibility(View.GONE);
+                            holder.tv_locat_tag.setText(topic.locat_tag);
+                        }
 //                    if(topic.pics==null ||  "".equals(topic.pics)){
 //                        holder.iv_img.setVisibility(View.GONE);
 //                    }else{
 //                        holder.iv_img.setVisibility(View.VISIBLE);
 //                        Glide.with(mContext).load(topic.picss[0]).into( holder.iv_img);
 //                    }
-                        holder.tv_content.setText(topic.content);
-                        holder.rl_comment_content.setVisibility(View.GONE);
-                        holder.line.setVisibility(View.GONE);
-                        holder.tv_locat_tag.setText(topic.locat_tag);
+
                         break;
                     case OptionType.TOPIC_COMMENT:
                         Topic t = (Topic)option.dparent;

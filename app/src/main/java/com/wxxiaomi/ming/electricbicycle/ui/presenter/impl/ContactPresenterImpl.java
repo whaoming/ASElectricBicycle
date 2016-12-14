@@ -1,9 +1,15 @@
 package com.wxxiaomi.ming.electricbicycle.ui.presenter.impl;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
 import com.wxxiaomi.ming.electricbicycle.dao.bean.InviteMessage;
+import com.wxxiaomi.ming.electricbicycle.support.easemob.EmConstant;
+import com.wxxiaomi.ming.electricbicycle.support.easemob.EmHelper2;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.base.BasePreImpl;
 
 import com.wxxiaomi.ming.electricbicycle.support.easemob.ui.ChatActivity;
@@ -13,9 +19,6 @@ import com.wxxiaomi.ming.electricbicycle.ui.activity.FriendAddActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.view.ContactView;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.adapter.NewFriendAddItemAdapter;
 import com.wxxiaomi.ming.electricbicycle.dao.db.impl.InviteMessgeDaoImpl;
-import com.wxxiaomi.ming.electricbicycle.support.easemob.EmEngine;
-import com.wxxiaomi.ming.electricbicycle.support.easemob.listener.FriendMessageListener;
-import com.wxxiaomi.ming.electricbicycle.support.easemob.listener.InviteMessageListener;
 
 import java.util.List;
 
@@ -30,17 +33,37 @@ import rx.functions.Action1;
 public class ContactPresenterImpl extends BasePreImpl<ContactView> implements ContactPresenter<ContactView> {
 
     private NewFriendAddItemAdapter adapter;
+    private LocalBroadcastManager broadcastManager;
+    private BroadcastReceiver broadcastReceiver;
 
     @Override
     public void init() {
         initDrawerData();
+        registerBroadcastReceiver();
+    }
+
+    private void registerBroadcastReceiver() {
+        broadcastManager = LocalBroadcastManager.getInstance(mView.getContext());
+        IntentFilter intentFilter = new IntentFilter();
+        //联系人事件
+        intentFilter.addAction(EmConstant.ACTION_CONTACT_CHANAGED);
+        intentFilter.addAction(EmConstant.ACTION_GROUP_CHANAGED);
+        broadcastReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+//                updateUnreadLabel();
+                Log.i("wang"," 通过广播接受者收什么鬼信息了");
+//                mView.refershChildUI();
+                refreshInviteUI();
+            }
+        };
+        broadcastManager.registerReceiver(broadcastReceiver, intentFilter);
     }
 
     @Override
     public void initDrawerData() {
-
-        refreshInviteUI();
-        List<InviteMessage> inviteMsgList = EmEngine.getInstance().getInviteMsgList();
+//        refreshInviteUI();
+        List<InviteMessage> inviteMsgList = EmHelper2.getInstance().getInviteMsgList();
         adapter = new NewFriendAddItemAdapter(mView.getContext(), inviteMsgList
                 , new NewFriendAddItemAdapter.ItemAddOnClick() {
             @Override
@@ -55,7 +78,7 @@ public class ContactPresenterImpl extends BasePreImpl<ContactView> implements Co
     }
 
     private void addFriend(final String emname) {
-        EmEngine.getInstance().agreeInvite(emname)
+        EmHelper2.getInstance().agreeInvite(emname)
                 .subscribe(new Observer<Boolean>() {
                     @Override
                     public void onCompleted() {
@@ -81,34 +104,41 @@ public class ContactPresenterImpl extends BasePreImpl<ContactView> implements Co
 
     @Override
     public void onViewResume() {
+        refreshInviteUI();
+        mView.refershChildUI();
         //设置好友发来的消息监听
-        EmEngine.getInstance().setFriendMsgLis(new FriendMessageListener() {
+        EmHelper2.getInstance().setMessageListener(new EmHelper2.MyMessageListener() {
             @Override
-            public void FriendMsgReceive() {
+            public void onMessageReceive() {
                 mView.refershChildUI();
             }
         });
+
+//        EmEngine.getInstance().setFriendMsgLis(new FriendMessageListener() {
+//            @Override
+//            public void FriendMsgReceive() {
+//                mView.refershChildUI();
+//            }
+//        });
         //设置邀请消息的监听
-        EmEngine.getInstance().setInviteMsgLis(new InviteMessageListener() {
-            @Override
-            public void InviteMsgReceive() {
-                adapter.refersh();
-                refreshInviteUI();
-            }
-        })
+//        EmEngine.getInstance().setInviteMsgLis(new InviteMessageListener() {
+//            @Override
+//            public void InviteMsgReceive() {
+//                adapter.refersh();
+//                refreshInviteUI();
+//            }
+//        })
 
         ;
     }
 
     public void refreshInviteUI(){
-        EmEngine.getInstance().getUnreadInviteCountTotal()
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Action1<Integer>() {
-                    @Override
-                    public void call(Integer integer) {
-                        mView.updateUnReadMsg(integer);
-                    }
-                });
+        EmHelper2.getInstance().getUnreadInviteCountTotal().subscribe(new Action1<Integer>() {
+            @Override
+            public void call(Integer integer) {
+                mView.updateUnReadMsg(integer);
+            }
+        });
     }
 
 
@@ -126,6 +156,16 @@ public class ContactPresenterImpl extends BasePreImpl<ContactView> implements Co
                         mView.updateUnReadMsg(0);
                     }
                 });
+    }
+
+    @Override
+    public void onViewDestory() {
+//        EmEngine.getInstance().logout();
+        unregisterBroadcastReceiver();
+    }
+
+    private void unregisterBroadcastReceiver() {
+        broadcastManager.unregisterReceiver(broadcastReceiver);
     }
 
 

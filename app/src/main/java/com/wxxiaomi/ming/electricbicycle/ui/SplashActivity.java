@@ -18,6 +18,7 @@ import com.wxxiaomi.ming.electricbicycle.common.GlobalManager;
 import com.wxxiaomi.ming.electricbicycle.common.util.AppManager;
 import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.common.util.SharedPreferencesUtils;
+import com.wxxiaomi.ming.electricbicycle.support.easemob.EmHelper2;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.HomeActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.RegisterActivity;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.User;
@@ -26,8 +27,6 @@ import com.wxxiaomi.ming.electricbicycle.dao.db.UserService;
 import com.wxxiaomi.ming.electricbicycle.dao.db.impl.AppDaoImpl;
 import com.wxxiaomi.ming.electricbicycle.support.aliyun.OssEngine;
 import com.wxxiaomi.ming.electricbicycle.support.cache.DiskCache;
-import com.wxxiaomi.ming.electricbicycle.support.easemob.EmEngine;
-import com.wxxiaomi.ming.electricbicycle.support.easemob.ui.MyUserProvider;
 
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
@@ -130,14 +129,14 @@ public class SplashActivity extends Activity {
                         public Observable<Boolean> call(User user) {
                             Log.i("wang", user.toString());
                             GlobalManager.getInstance().savaUser(user);
-                            return EmEngine.getInstance().LoginFromEm(user.username, user.password);
+                            return EmHelper2.getInstance().LoginFromEm(user.username, user.password);
                         }
                     })
                     //从服务器获取好友列表
                     .flatMap(new Func1<Boolean, Observable<List<String>>>() {
                         @Override
                         public Observable<List<String>> call(Boolean aBoolean) {
-                            return EmEngine.getInstance().getContactFromEm();
+                            return EmHelper2.getInstance().getContactFromEm();
                         }
                     })
                     .flatMap(new Func1<List<String>, Observable<Integer>>() {
@@ -185,7 +184,6 @@ public class SplashActivity extends Activity {
                 handler.sendEmptyMessage(2);
                 OssEngine.getInstance().initOssEngine(getApplicationContext());
                 handler.sendEmptyMessage(3);
-                EaseUI.getInstance().setUserProfileProvider(new MyUserProvider());
                 handler.sendEmptyMessage(4);
                 order.countDown();
             }

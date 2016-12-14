@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.OvershootInterpolator;
@@ -33,7 +34,6 @@ import com.wxxiaomi.ming.electricbicycle.ui.presenter.HomePresenter;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.impl.HomePresenterImpl;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.view.HomeView;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.custom.CircularImageView;
-import com.wxxiaomi.ming.electricbicycle.common.GlobalManager;
 import com.wxxiaomi.ming.electricbicycle.support.baidumap.LocationUtil;
 
 /**
@@ -122,7 +122,7 @@ public class HomeActivity extends BaseActivity<HomeView,HomePresenter> implement
         initAnimation();
 //        setZoomInVis();
         initMapMarkerClickListener();
-        tv_name.setText(GlobalManager.getInstance().getUser().userCommonInfo.name);
+
     }
 
     @Override
@@ -165,18 +165,6 @@ public class HomeActivity extends BaseActivity<HomeView,HomePresenter> implement
         Snackbar.make(sn_layout, content, Snackbar.LENGTH_LONG).show();
     }
 
-//    public void setZoomInVis() {
-//        int childCount = mMapView.getChildCount();
-//        View zoom = null;
-//        for (int i = 0; i < childCount; i++) {
-//            View child = mMapView.getChildAt(i);
-//            if (child instanceof ZoomControls) {
-//                zoom = child;
-//                break;
-//            }
-//        }
-//        zoom.setVisibility(View.GONE);
-//    }
 
     public void initAnimation() {
         mShowAction = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0.0f,
@@ -252,11 +240,17 @@ public class HomeActivity extends BaseActivity<HomeView,HomePresenter> implement
     }
 
     @Override
-    public void updateUnreadLabel(int count) {
-//        Log.i("wang","view-updateUnreadLabel-count="+count);
+    public void updateUnreadLabel(final int count) {
+        Log.i("wang","view-updateUnreadLabel-count="+count);
         if (count > 0) {
-            unread_msg_number.setVisibility(View.VISIBLE);
-            unread_msg_number.setText(count+"s");
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    unread_msg_number.setVisibility(View.VISIBLE);
+                    unread_msg_number.setText(count+"s");
+                }
+            });
+
 //            Log.i("wang","view-updateUnreadLabel-countdvdfdfdfdfdf="+count);
         } else {
             unread_msg_number.setVisibility(View.GONE);
@@ -321,6 +315,11 @@ public class HomeActivity extends BaseActivity<HomeView,HomePresenter> implement
     @Override
     public ImageView getHeadView() {
         return iv_my_head;
+    }
+
+    @Override
+    public TextView getTvNameView() {
+        return tv_name;
     }
 
     @Override

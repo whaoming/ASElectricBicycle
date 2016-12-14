@@ -170,6 +170,17 @@ public class HttpMethods {
                 });
     }
 
+    public Observable<String> updateUserInfo3(UserCommonInfo name){
+        return demoService.updateUserInfo3(name)
+                .map(new ServerResultFunc<String>())
+                .onErrorResumeNext(new Func1<Throwable, Observable<? extends String>>() {
+                    @Override
+                    public Observable<? extends String> call(Throwable throwable) {
+                        return Observable.error(ExceptionEngine.handleException(throwable));
+                    }
+                });
+    }
+
     public Observable<User> login(String username, String password,String num) {
         return demoService.readBaidu(username, password,num)
                 .map(new ServerResultFunc<User>())

@@ -36,13 +36,6 @@ public class MyUserProvider implements EaseUI.EaseUserProfileProvider {
         final EaseUser info = new EaseUser(username);
         if(!username.equals(GlobalManager.getInstance().getUser().userCommonInfo.emname)) {
             Log.i("wang","我在MyUserProvider的if里面");
-//            if(userCache.containsKey(username)){
-//                Log.i("wang","从缓存中取到emname:"+username);
-//                return userCache.get(username);
-//            }else {
-                //这里不能是getFriend,而是应该从临时用户里面取，然后再又好友里面取
-
-//                UserCommonInfo item = UserService.getInstance().getFriendLocal(username);
                 info.setNick("asd");
                 info.setAvatar("http://appdpwallpaper.u.qiniudn.com/wp-content/uploads/sites/48/2015/04/38.jpg");
 //            }
@@ -57,23 +50,27 @@ public class MyUserProvider implements EaseUI.EaseUserProfileProvider {
 
     @Override
     public void showImg(final Context ct, String username, final ImageView imageView) {
-            UserService.getInstance().getUserInfoByEname(username)
-                    .subscribe(new Action1<UserCommonInfo>() {
-                        @Override
-                        public void call(UserCommonInfo userCommonInfo) {
-                            Glide.with(ct).load(userCommonInfo.head).into(imageView);
-                        }
-                    });
+//            UserService.getInstance().getUserInfoByEname(username)
+//                    .subscribe(new Action1<UserCommonInfo>() {
+//                        @Override
+//                        public void call(UserCommonInfo userCommonInfo) {
+//                            Glide.with(ct).load(userCommonInfo.head).into(imageView);
+//                        }
+//                    });
         }
 
     @Override
     public void setUserNick(String username, final TextView textView) {
-        UserService.getInstance().getUserInfoByEname(username)
-                .subscribe(new Action1<UserCommonInfo>() {
-                    @Override
-                    public void call(UserCommonInfo userCommonInfo) {
-                        textView.setText(userCommonInfo.name);
-                    }
-                });
+//        if("admin".equals(username)){
+            textView.setText("admin");
+//        }else {
+//            UserService.getInstance().getUserInfoByEname(username)
+//                    .subscribe(new Action1<UserCommonInfo>() {
+//                        @Override
+//                        public void call(UserCommonInfo userCommonInfo) {
+//                            textView.setText(userCommonInfo.name);
+//                        }
+//                    });
+//        }
     }
 }
