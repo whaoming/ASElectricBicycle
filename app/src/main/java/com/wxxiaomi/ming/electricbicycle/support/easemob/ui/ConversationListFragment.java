@@ -159,10 +159,10 @@ public class ConversationListFragment extends EaseConversationListFragment {
 
     @Override
     public void onResume() {
-        List<UserCommonInfo> list = UserService.getInstance().getFriendList();
-        for(UserCommonInfo info : list){
-            Log.i("wang","好友情况："+info.toString());
-        }
+//        List<UserCommonInfo> list = UserService.getInstance().getFriendList();
+//        for(UserCommonInfo info : list){
+//            Log.i("wang","好友情况："+info.toString());
+//        }
 
         EmEngine.getInstance().setFriendMsgLis(new FriendMessageListener() {
             @Override

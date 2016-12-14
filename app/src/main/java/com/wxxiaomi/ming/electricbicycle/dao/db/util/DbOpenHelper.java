@@ -86,7 +86,7 @@ public class DbOpenHelper extends SQLiteOpenHelper{
 	 * 用来定义数据库的名称,数据库查询的结果集,数据库的版本号
 	 * @param context
 	 */
-	private DbOpenHelper(Context context) {
+	public DbOpenHelper(Context context) {
 		super(context, getUserDatabaseName(), null, DATABASE_VERSION);
 	}
 	

@@ -185,7 +185,6 @@ public class SplashActivity extends Activity {
                 handler.sendEmptyMessage(2);
                 OssEngine.getInstance().initOssEngine(getApplicationContext());
                 handler.sendEmptyMessage(3);
-                EaseUI.getInstance().setUserProfileProvider(new MyUserProvider());
                 handler.sendEmptyMessage(4);
                 order.countDown();
             }

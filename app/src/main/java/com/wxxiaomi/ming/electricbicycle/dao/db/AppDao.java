@@ -20,4 +20,6 @@ public interface AppDao {
     User getLocalUser(int userid);
 
     boolean savaUser(User user);
+
+    Integer updateUserInfo(String name,String head,String emname);
 }

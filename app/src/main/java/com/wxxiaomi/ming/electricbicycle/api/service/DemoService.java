@@ -14,6 +14,7 @@ import java.util.Map;
 
 import okhttp3.RequestBody;
 import retrofit2.Response;
+import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
@@ -31,7 +32,8 @@ import rx.Observable;
  */
 public interface DemoService {
 
-    Observable<Result<String>> updateUserInfo();
+    @POST("android/user_updateuserinfo")
+    Observable<Result<String>> updateUserInfo3(@Body UserCommonInfo userinfo);
     @FormUrlEncoded
     @POST("android/user_updateuserinfo")
     Observable<Result<String>> updateUserInfo(@FieldMap Map<String, String> options);

@@ -1,7 +1,11 @@
 package com.wxxiaomi.ming.electricbicycle.ui.presenter.impl;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
+import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 import android.widget.TextView;
 
@@ -15,21 +19,18 @@ import com.baidu.mapapi.map.Marker;
 import com.baidu.mapapi.map.MyLocationConfiguration;
 import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.model.LatLng;
-import com.bumptech.glide.Glide;
 import com.wxxiaomi.ming.electricbicycle.ConstantValue;
-import com.wxxiaomi.ming.electricbicycle.api.exception.ApiException;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.UserLocatInfo;
+import com.wxxiaomi.ming.electricbicycle.support.easemob.EmConstant;
+import com.wxxiaomi.ming.electricbicycle.support.easemob.EmHelper2;
 import com.wxxiaomi.ming.electricbicycle.support.myglide.ImgShower;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.base.BasePreImpl;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.HomePresenter;
 import com.wxxiaomi.ming.electricbicycle.support.baidumap.LocationUtil;
 import com.wxxiaomi.ming.electricbicycle.support.web.TestWebActivity;
 import com.wxxiaomi.ming.electricbicycle.dao.db.UserService;
-import com.wxxiaomi.ming.electricbicycle.support.easemob.EmEngine;
-import com.wxxiaomi.ming.electricbicycle.support.easemob.listener.AllMsgListener;
 import com.wxxiaomi.ming.electricbicycle.common.GlobalManager;
-import com.wxxiaomi.ming.electricbicycle.common.rx.MyObserver;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.ContactActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.PersonalAct;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.UserInfoAct;
@@ -39,9 +40,7 @@ import com.wxxiaomi.ming.electricbicycle.ui.weight.custom.CircularImageView;
 
 import java.util.List;
 
-import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
-import rx.schedulers.Schedulers;
 
 /**
  * Created by 12262 on 2016/6/6.
@@ -65,14 +64,38 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
      */
     private UserCommonInfo currentNearPerson;
     private List<UserLocatInfo> userLocatList;
+    private LocalBroadcastManager broadcastManager;
+    private BroadcastReceiver broadcastReceiver;
 
     @Override
     public void init() {
         initMap(mView.getMap());
         initViewData();
+        registerBroadcastReceiver();
     }
 
+    /**
+     * 注册消息监听的广播接收者
+     */
+    private void registerBroadcastReceiver() {
+        broadcastManager = LocalBroadcastManager.getInstance(mView.getContext());
+        IntentFilter intentFilter = new IntentFilter();
+        //联系人事件
+        intentFilter.addAction(EmConstant.ACTION_CONTACT_CHANAGED);
+        intentFilter.addAction(EmConstant.ACTION_GROUP_CHANAGED);
+//        intentFilter.addAction(RPConstant.REFRESH_GROUP_RED_PACKET_ACTION);
+        broadcastReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                updateUnreadLabel();
+            }
+        };
+        broadcastManager.registerReceiver(broadcastReceiver, intentFilter);
+    }
 
+    private void unregisterBroadcastReceiver(){
+        broadcastManager.unregisterReceiver(broadcastReceiver);
+    }
 
     @Override
     public void initMap(BaiduMap mBaiduMap) {
@@ -116,6 +139,7 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
 
     @Override
     public void adapterNerarView(CircularImageView imageView, TextView tv_name, TextView tv_description) {
+        ImgShower.showHead(mView.getContext(),imageView,currentNearPerson.head);
         tv_name.setText(currentNearPerson.name);
         tv_description.setText("生活就像海洋,只有意志坚定的人才能到彼岸");
     }
@@ -150,55 +174,57 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
 
     @Override
     public void topicBtnOnClick() {
-        Log.i("wang","话题按钮被点击了");
         Intent intent = new Intent(mView.getContext(), TestWebActivity.class);
         intent.putExtra("url", ConstantValue.SERVER_URL+"/app/topicList_1.html");
         mView.getContext().startActivity(intent);
     }
 
     public void updateUnreadLabel(){
-        EmEngine.getInstance().getUnreadMsgCount()
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeOn(Schedulers.io())
-                .subscribe(new MyObserver<Integer>() {
-                    @Override
-                    protected void onError(ApiException ex) {
-
-                    }
-
-                    @Override
-                    public void onCompleted() {
-
-                    }
-
-                    @Override
-                    public void onNext(Integer integer) {
-
-                        mView.updateUnreadLabel(integer);
-                    }
-                });
+        int allUnreadCount = EmHelper2.getInstance().getAllUnreadCount();
+        mView.updateUnreadLabel(allUnreadCount);
+//        EmEngine.getInstance().getUnreadMsgCount()
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribeOn(Schedulers.io())
+//                .subscribe(new MyObserver<Integer>() {
+//                    @Override
+//                    protected void onError(ApiException ex) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onCompleted() {
+//
+//                    }
+//
+//                    @Override
+//                    public void onNext(Integer integer) {
+//
+//                        mView.updateUnreadLabel(integer);
+//                    }
+//                });
     }
 
 
     @Override
     public void onViewDestory() {
-        EmEngine.getInstance().logout();
+//        EmEngine.getInstance().logout();
+        unregisterBroadcastReceiver();
         mLocClient.stop();
         mBaiduMap.setMyLocationEnabled(false);
     }
 
-
-
     @Override
     public void onViewResume() {
+        mView.getTvNameView().setText(GlobalManager.getInstance().getUser().userCommonInfo.name);
+        //还要更新控件
         ImgShower.showHead(mView.getContext(),mView.getHeadView(),GlobalManager.getInstance().getUser().userCommonInfo.head);
         updateUnreadLabel();
-        EmEngine.getInstance().setAllMsgLis(new AllMsgListener() {
-            @Override
-            public void AllMsgReceive() {
-                updateUnreadLabel();
-            }
-        });
+//        EmEngine.getInstance().setAllMsgLis(new AllMsgListener() {
+//            @Override
+//            public void AllMsgReceive() {
+//                updateUnreadLabel();
+//            }
+//        });
     }
 
     /**

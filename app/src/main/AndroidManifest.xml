@@ -73,7 +73,7 @@
                 <data android:scheme="package" />
             </intent-filter>
             <!-- 可选filter -->
-            -
+
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.intent.action.USER_PRESENT" />

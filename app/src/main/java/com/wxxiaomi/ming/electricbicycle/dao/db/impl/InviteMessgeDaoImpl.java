@@ -76,7 +76,6 @@ public class InviteMessgeDaoImpl {
                     values.put(InviteMessgeDao.COLUMN_NAME_REASON, message.getReason());
                     values.put(InviteMessgeDao.COLUMN_NAME_TIME, message.getTime());
                     db.replace(InviteMessgeDao.TABLE_NAME, null, values);
-
                     Cursor cursor = db.rawQuery("select last_insert_rowid() from " + InviteMessgeDao.TABLE_NAME,null);
                     if(cursor.moveToFirst()){
                         id = cursor.getInt(0);

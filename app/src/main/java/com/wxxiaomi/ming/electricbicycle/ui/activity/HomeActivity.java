@@ -33,7 +33,6 @@ import com.wxxiaomi.ming.electricbicycle.ui.presenter.HomePresenter;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.impl.HomePresenterImpl;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.view.HomeView;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.custom.CircularImageView;
-import com.wxxiaomi.ming.electricbicycle.common.GlobalManager;
 import com.wxxiaomi.ming.electricbicycle.support.baidumap.LocationUtil;
 
 /**
@@ -122,7 +121,7 @@ public class HomeActivity extends BaseActivity<HomeView,HomePresenter> implement
         initAnimation();
 //        setZoomInVis();
         initMapMarkerClickListener();
-        tv_name.setText(GlobalManager.getInstance().getUser().userCommonInfo.name);
+
     }
 
     @Override
@@ -165,18 +164,6 @@ public class HomeActivity extends BaseActivity<HomeView,HomePresenter> implement
         Snackbar.make(sn_layout, content, Snackbar.LENGTH_LONG).show();
     }
 
-//    public void setZoomInVis() {
-//        int childCount = mMapView.getChildCount();
-//        View zoom = null;
-//        for (int i = 0; i < childCount; i++) {
-//            View child = mMapView.getChildAt(i);
-//            if (child instanceof ZoomControls) {
-//                zoom = child;
-//                break;
-//            }
-//        }
-//        zoom.setVisibility(View.GONE);
-//    }
 
     public void initAnimation() {
         mShowAction = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0.0f,
@@ -321,6 +308,11 @@ public class HomeActivity extends BaseActivity<HomeView,HomePresenter> implement
     @Override
     public ImageView getHeadView() {
         return iv_my_head;
+    }
+
+    @Override
+    public TextView getTvNameView() {
+        return tv_name;
     }
 
     @Override

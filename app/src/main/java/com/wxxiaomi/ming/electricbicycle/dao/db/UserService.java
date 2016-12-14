@@ -23,7 +23,9 @@ import com.wxxiaomi.ming.electricbicycle.dao.db.impl.FriendDaoImpl;
 import com.wxxiaomi.ming.electricbicycle.dao.db.impl.UserDaoImpl;
 
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import rx.Observable;
@@ -251,90 +253,28 @@ public class UserService {
                         return UpdateFriendList(strings);
                     }
                 });
-//                .doOnNext(new Action1<Login>() {
-//                    @Override
-//                    public void call(Login login) {
-//                        u[0] = login.userInfo.username;
-//                        p[0] = login.userInfo.password;
-//                    }
-//                });
-//        Observable<Boolean> booleanObservable = EmEngine.getInstance().LoginFromEm(u[0], p[0]);
-//        return Observable.concat(flag,booleanObservable)
-//                .filter(new Func1<Object, Boolean>() {
-//                    @Override
-//                    public Boolean call(Object o) {
-//                        if(o instanceof  Login){
-//                            return true;
-//                        }else{
-//                            return false;
-//                        }
-//                    }
-//                })
-//                .map(new Func1<Object, User>() {
-//                    @Override
-//                    public User call(Object login) {
-//                        Login o = (Login)(login);
-//                        return o.userInfo;
-//                    }
-//                });
+    }
 
-//        flag.map(new Func1<Login, Login>() {
-//            @Override
-//            public Login call(Login login) {
-//                return login;
-//            }
-//        });
-//        flag.switchMap(new Func1<Login, Observable<?>>() {
-//            @Override
-//            public Observable<?> call(Login login) {
-//                return null;
-//            }
-//        },ne)
-
-//        EmEngine.getInstance().LoginFromEm(login.userInfo.username, login.userInfo.password);
-//        flag.jo
-//        flag.doOnNext(new Action1<Login>() {
-//            @Override
-//            public void call(Login login) {
-//
-//            }
-//        })
-
-
-//        flag.doOnEach(new Action1<Notification<? super Login>>() {
-//            @Override
-//            public void call(Notification<? super Login> notification) {
-//                notificat
-//            }
-//        })
-//        flag.start
-//        if(isEmOpen){
-//            flag.doOnNext(new Action1<Login>() {
-//                @Override
-//                public void call(Login login) {
-//
-//                }
-//            })
-//            return  flag
-        //登录到em服务器
-//                    .flatMap(new Func1<Login, Observable<Boolean>>() {
-//                        @Override
-//                        public Observable<Boolean> call(Login login) {
-//                            info = login.userInfo;
-//                            return EmEngine.getInstance().LoginFromEm(login.userInfo.username, login.userInfo.password);
-//                        }
-//                    })
-//                    //更新好友列表
-//                    .flatMap(new Func1<Boolean, Observable<Integer>>() {
-//                        @Override
-//                        public Observable<Integer> call(Boolean aBoolean) {
-//                            return EmEngine.getInstance().updateFriend();
-//                        }
-//                    })
-//                    .subscribeOn(Schedulers.io());
-//        }else{
-//            return flag;
-//        }
+    public Observable<Integer> updateUserInfo(final String name, final String head, final String emname){
+        Map<String,String> pars = new HashMap<>();
+        pars.put("name",name);
+        pars.put("head",head);
+        pars.put("emname",emname);
+        return HttpMethods.getInstance().updateUserInfo(pars)
+                .map(new Func1<String, Integer>() {
+                    @Override
+                    public Integer call(String s) {
+                        GlobalManager.getInstance().getUser().userCommonInfo.name = name;
+                        GlobalManager.getInstance().getUser().userCommonInfo.head = head;
+                        return 1;
+                    }
+                }).map(new Func1<Integer, Integer>() {
+                    @Override
+                    public Integer call(Integer integer) {
+                        AppDao dao = new AppDaoImpl(EBApplication.applicationContext);
+                        return dao.updateUserInfo(name, head, emname);
+                    }
+                });
     }
 
 }

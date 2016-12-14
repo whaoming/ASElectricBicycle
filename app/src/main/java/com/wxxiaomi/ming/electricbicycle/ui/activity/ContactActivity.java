@@ -23,7 +23,6 @@ import com.squareup.leakcanary.RefWatcher;
 import com.wxxiaomi.ming.electricbicycle.EBApplication;
 import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.base.BaseActivity;
-//import com.wxxiaomi.ming.electricbicycle.core.em2.ConversationListFragment;
 import com.wxxiaomi.ming.electricbicycle.support.easemob.ui.ContactListFragment;
 import com.wxxiaomi.ming.electricbicycle.support.easemob.ui.ConversationListFragment;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.ContactPresenter;
@@ -37,6 +36,9 @@ import com.wxxiaomi.ming.electricbicycle.common.GlobalManager;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import rx.Observable;
+import rx.Subscriber;
 
 /**
  * Created by 12262 on 2016/6/9.
@@ -95,14 +97,11 @@ public class ContactActivity extends BaseActivity<ContactView,ContactPresenter> 
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
         list_fragment = new ArrayList<Fragment>();
-//        latelyFriendFragment = new LatelyFriendFragment();
         contactFragment = new ContactListFragment();
         demoFragment = new ConversationListFragment();
-       // myFriendFragment = new MyFriendFragment();
         list_fragment.add(demoFragment);
         list_fragment.add(contactFragment);
-//        list_fragment.add(myFriendFragment);
-        //list_fragment.add(myFriendFragment);
+
         list_title = new ArrayList<String>();
         list_title.add("最近联系人");
         list_title.add("我的好友");
@@ -113,13 +112,22 @@ public class ContactActivity extends BaseActivity<ContactView,ContactPresenter> 
         viewPager.setAdapter(fAdapter);
         viewPager.requestDisallowInterceptTouchEvent(true);
         tabLayout.setupWithViewPager(viewPager);
-
+//        LocalBroadcastManager
     }
 
     @Override
     public ContactPresenter getPresenter() {
         return new ContactPresenterImpl();
     }
+
+//    public String sd(){
+//        Observable.create(new Observable.OnSubscribe<String>() {
+//            @Override
+//            public void call(Subscriber<? super String> subscriber) {
+//                return "asd";
+//            }
+//        });
+//    }
 
 
 
