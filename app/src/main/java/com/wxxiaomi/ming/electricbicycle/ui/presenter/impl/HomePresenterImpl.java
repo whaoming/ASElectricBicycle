@@ -2,6 +2,7 @@ package com.wxxiaomi.ming.electricbicycle.ui.presenter.impl;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
@@ -22,9 +23,10 @@ import com.baidu.mapapi.model.LatLng;
 import com.wxxiaomi.ming.electricbicycle.ConstantValue;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.UserLocatInfo;
-import com.wxxiaomi.ming.electricbicycle.support.easemob.EmConstant;
+import com.wxxiaomi.ming.electricbicycle.support.easemob.common.EmConstant;
 import com.wxxiaomi.ming.electricbicycle.support.easemob.EmHelper2;
-import com.wxxiaomi.ming.electricbicycle.support.myglide.ImgShower;
+import com.wxxiaomi.ming.electricbicycle.support.common.myglide.ImgShower;
+import com.wxxiaomi.ming.electricbicycle.ui.activity.LoginActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.base.BasePreImpl;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.HomePresenter;
 import com.wxxiaomi.ming.electricbicycle.support.baidumap.LocationUtil;
@@ -109,7 +111,7 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
         LocationClientOption option = new LocationClientOption();
         option.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy);
         option.setCoorType("bd09ll");//可选，默认gcj02，设置返回的定位结果坐标系
-        int span=1000;
+        int span=5000;
         option.setScanSpan(span);//可选，默认0，即仅定位一次，设置发起定位请求的间隔需要大于等于1000ms才是有效的
         option.setIsNeedAddress(true);//可选，设置是否需要地址信息，默认不需要
         option.setOpenGps(true);//可选，默认false,设置是否使用gps
@@ -180,6 +182,18 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
         mView.getContext().startActivity(intent);
     }
 
+    @Override
+    public void onNewIntent(Intent intent) {
+        Log.i("wang","onNewIntent");
+        mView.buildAlertDialog("确定", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                mView.runActivity(LoginActivity.class,null,true);
+            }
+        }, null, null, "提示", "您的账号在别的设备中登陆");
+        mView.showDialog();
+    }
+
     public void updateUnreadLabel(){
         int allUnreadCount = EmHelper2.getInstance().getAllUnreadCount();
         mView.updateUnreadLabel(allUnreadCount);
@@ -212,6 +226,7 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
         unregisterBroadcastReceiver();
         mLocClient.stop();
         mBaiduMap.setMyLocationEnabled(false);
+        EmHelper2.getInstance().setMessageListener(null);
     }
 
     @Override
@@ -247,6 +262,7 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
             }
             double latitude = location.getLatitude();
             double longitude = location.getLongitude();
+            Log.i("wang", "获取到自己的位置latitude："+latitude+",longitude:"+longitude);
             Address address = location.getAddress();
             String locat_tag = location.getLocationDescribe();
             LocationUtil.getInstance().init(latitude,longitude,address,locat_tag);
@@ -259,7 +275,7 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
                     .build();
             mBaiduMap.setMyLocationData(locData);
             if (isFirstLoc) {
-                Log.i("wang", "获取自己的位置");
+
                 isFirstLoc = false;
                 mView.scrollToMyLocat();
                 getNearByFromServer(latitude, longitude);

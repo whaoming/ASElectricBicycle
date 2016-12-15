@@ -1,4 +1,4 @@
-package com.wxxiaomi.ming.electricbicycle.support.cache;
+package com.wxxiaomi.ming.electricbicycle.support.common.cache;
 
 
 

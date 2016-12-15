@@ -8,6 +8,10 @@
 
 
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!--<item name="android:alertDialogTheme">@style/Theme.AppCompat.Dialog</item>-->
+        <!--<item name="android:alertDialogStyle">@style/Theme.AppCompat.Dialog</item>-->
+        <!--<item name="android:dialogTheme">@style/Theme.AppCompat.Dialog</item>-->
+
         <!-- Customize your theme here. -->
         <!--<item name="android:textColorPrimaryInverse">@color/colorPrimary</item>-->
         <!--<item name="android:textColorTertiary">@color/colorPrimary</item>-->
@@ -56,7 +60,7 @@
         <item name="android:textColorSecondary">@color/colorPrimary</item>
     </style>
 
-    <style name="DialogTheme" parent="@android:style/Theme.DeviceDefault.Light.Dialog.NoActionBar">
+    <style name="DialogTheme" parent="@android:style/Theme.DeviceDefault.Dialog.NoActionBar">
         <item name="android:theme">@style/Theme.AppCompat.Light.NoActionBar</item>
         <item name="android:windowBackground">@drawable/transparent_pic</item>
         <item name="dialogCardColor">@color/colorPrimary</item>

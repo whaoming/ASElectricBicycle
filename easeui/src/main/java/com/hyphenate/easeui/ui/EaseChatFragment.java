@@ -76,7 +76,6 @@ public class EaseChatFragment extends EaseBaseFragment implements EMMessageListe
     protected static final int REQUEST_CODE_CAMERA = 2;
     protected static final int REQUEST_CODE_LOCAL = 3;
 
-
     /**
      * params to fragment
      */
@@ -128,16 +127,11 @@ public class EaseChatFragment extends EaseBaseFragment implements EMMessageListe
         list.add(content);
     }
 
-
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
-
         fragmentArgs = getArguments();
-        // check if single chat or group chat
         chatType = fragmentArgs.getInt(EaseConstant.EXTRA_CHAT_TYPE, EaseConstant.CHATTYPE_SINGLE);
-        // userId you are chat with or group id
         toChatUsername = fragmentArgs.getString(EaseConstant.EXTRA_USER_ID);
-
         super.onActivityCreated(savedInstanceState);
     }
 
@@ -276,7 +270,6 @@ public class EaseChatFragment extends EaseBaseFragment implements EMMessageListe
             }
             conversation.loadMoreMsgFromDB(msgId, pagesize - msgCount);
         }
-        
     }
     
     protected void onMessageListInit(){
@@ -626,7 +619,7 @@ public class EaseChatFragment extends EaseBaseFragment implements EMMessageListe
      * handle the click event for extend menu
      *
      */
-    class MyItemClickListener implements EaseChatExtendMenu.EaseChatExtendMenuItemClickListener{
+    public class MyItemClickListener implements EaseChatExtendMenu.EaseChatExtendMenuItemClickListener{
 
         @Override
         public void onClick(int itemId, View view) {
@@ -986,7 +979,7 @@ public class EaseChatFragment extends EaseBaseFragment implements EMMessageListe
      * listen the group event
      * 
      */
-    class GroupListener extends EaseGroupRemoveListener {
+    public class GroupListener extends EaseGroupRemoveListener {
 
         @Override
         public void onUserRemoved(final String groupId, String groupName) {

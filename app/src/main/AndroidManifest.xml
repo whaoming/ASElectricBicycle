@@ -69,7 +69,6 @@
 
     <!--<uses-permission android:name="com.hyphenate.chatuidemo.permission.MIPUSH_RECEIVE" />-->
 
-    <!-- 摄影机 -->
     <application
         android:name=".EBApplication"
         android:allowBackup="true"
@@ -79,54 +78,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-
-
-        <!-- gcm end -->
-
-
-        <!-- mi push -->
-        <!--<service-->
-            <!--android:name="com.xiaomi.mipush.sdk.PushMessageHandler"-->
-            <!--android:enabled="true"-->
-            <!--android:exported="true"-->
-            <!--tools:ignore="ExportedService" />-->
-        <!--<service-->
-            <!--android:name="com.xiaomi.mipush.sdk.MessageHandleService"-->
-            <!--android:enabled="true" />-->
-
-        <!--<receiver-->
-            <!--android:name="com.hyphenate.chat.EMMipushReceiver"-->
-            <!--android:exported="true"-->
-            <!--tools:ignore="ExportedReceiver">-->
-            <!--<intent-filter>-->
-                <!--<action android:name="com.xiaomi.mipush.RECEIVE_MESSAGE" />-->
-            <!--</intent-filter>-->
-            <!--<intent-filter>-->
-                <!--<action android:name="com.xiaomi.mipush.MESSAGE_ARRIVED" />-->
-            <!--</intent-filter>-->
-            <!--<intent-filter>-->
-                <!--<action android:name="com.xiaomi.mipush.ERROR" />-->
-            <!--</intent-filter>-->
-        <!--</receiver>-->
-        <!-- mi push end -->
-
-
-        <!-- huawei push 第三方相关 :接收Push消息（注册、Push消息、Push连接状态、标签，LBS上报结果）广播 -->
-
-
-
-        <!-- PushSDK:PushSDK接收外部请求事件入口 -->
-
-
-        <!-- PushSDK:Push服务 -->
-        <!--<service-->
-            <!--android:name="com.huawei.android.pushagent.PushService"-->
-            <!--android:process=":pushservice"></service>-->
-
-        <!-- huawei push end -->
-
-
-
+        <service
+            android:name="com.hyphenate.chat.EMChatService"
+            android:exported="true" />
+        <meta-data
+            android:name="EASEMOB_APPKEY"
+            android:value="122627018#huanxindemowithming" />
 
 
         <service
@@ -134,9 +91,7 @@
             android:enabled="true"
             android:process=":remote" />
         <!-- 设置环信应用的appkey -->
-        <meta-data
-            android:name="EASEMOB_APPKEY"
-            android:value="122627018#huanxindemowithming" />
+
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="GGB2vANaF687GBICtVGSdPB2jE1lZMlr" />
@@ -150,9 +105,7 @@
             android:name="BaiduMobAd_WIFI_LOCATION"
             android:value="true" />
         <!-- 声明sdk所需的service SDK核心功能 -->
-        <service
-            android:name="com.hyphenate.chat.EMChatService"
-            android:exported="true" />
+
         <!-- 声明sdk所需的receiver -->
         <receiver android:name="com.hyphenate.chat.EMMonitorReceiver">
             <intent-filter>
@@ -217,9 +170,11 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.HomeActivity"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.ContactActivity"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.FriendAddActivity"

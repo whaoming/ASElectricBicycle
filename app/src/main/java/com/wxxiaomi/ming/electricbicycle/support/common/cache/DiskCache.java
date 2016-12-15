@@ -1,4 +1,4 @@
-package com.wxxiaomi.ming.electricbicycle.support.cache;
+package com.wxxiaomi.ming.electricbicycle.support.common.cache;
 
 import android.content.Context;
 import android.content.pm.PackageInfo;
@@ -31,6 +31,7 @@ import rx.schedulers.Schedulers;
 public class DiskCache {
     private Context context;
     DiskLruCache mDiskLruCache = null;
+//    DiskLruCache userDiskLruCache = null;
     public static DiskCache INSTANCE;
 
     private DiskCache() {
@@ -114,7 +115,6 @@ public class DiskCache {
                 try {
                     DiskLruCache.Snapshot snapshot1 = mDiskLruCache.get(key);
                     if (snapshot1 == null) {
-                        Log.i("wang", "存入缓存");
                         DiskLruCache.Editor editor = mDiskLruCache.edit(key);
                         in = new BufferedInputStream(new ByteArrayInputStream(obj), 8 * 1024);
                         OutputStream outputStream = editor.newOutputStream(0);

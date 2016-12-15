@@ -14,7 +14,7 @@
 //import com.wxxiaomi.ming.electricbicycle.dao.db.InviteMessgeDao;
 //import com.wxxiaomi.ming.electricbicycle.dao.db.impl.InviteMessgeDaoImpl;
 //import com.wxxiaomi.ming.electricbicycle.dao.db.impl.InviteMessgeDaoImpl2;
-//import com.wxxiaomi.ming.electricbicycle.support.easemob.ui.MyUserProvider;
+//import com.wxxiaomi.ming.electricbicycle.support.easemob.provider.MyUserProvider;
 //
 //import java.util.HashMap;
 //import java.util.List;

@@ -1,4 +1,4 @@
-package com.wxxiaomi.ming.electricbicycle.support.easemob.ui;
+package com.wxxiaomi.ming.electricbicycle.support.easemob.provider;
 
 import android.content.Context;
 import android.util.Log;
@@ -11,6 +11,12 @@ import com.hyphenate.easeui.domain.EaseUser;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.dao.db.UserService;
 import com.wxxiaomi.ming.electricbicycle.common.GlobalManager;
+import com.wxxiaomi.ming.electricbicycle.support.common.cache.LRUCache;
+import com.wxxiaomi.ming.electricbicycle.support.common.myglide.ImgShower;
+import com.wxxiaomi.ming.electricbicycle.support.img.ImageUtil;
+
+import java.util.HashMap;
+import java.util.List;
 
 import rx.functions.Action1;
 
@@ -19,7 +25,7 @@ import rx.functions.Action1;
  */
 
 public class MyUserProvider implements EaseUI.EaseUserProfileProvider {
-//    static LRUCache<UserCommonInfo> userCache = new LRUCache<>(5);
+    static LRUCache<EaseUser> userCache = new LRUCache<>(20);
 //    static Map<String,EaseUser> userCache = new HashMap<>();
 
 //    synchronized public static void  putUser(UserCommonInfo info){
@@ -30,39 +36,34 @@ public class MyUserProvider implements EaseUI.EaseUserProfileProvider {
 //        userCache.put(info.emname,user);
 //    }
 
+    public void initCache(List<UserCommonInfo> infos) {
+        for (UserCommonInfo info : infos) {
+            EaseUser user = new EaseUser(info.emname);
+            user.setNick(info.name);
+            user.setAvatar(info.head);
+            userCache.put(info.emname, user);
+        }
+        EaseUser user = new EaseUser(GlobalManager.getInstance().getUser().userCommonInfo.emname);
+        user.setNick(GlobalManager.getInstance().getUser().userCommonInfo.name);
+        user.setAvatar(GlobalManager.getInstance().getUser().userCommonInfo.head);
+        userCache.put(user.getUsername(), user);
+    }
+
     @Override
     synchronized public EaseUser getUser(String username) {
-        Log.i("wang","进入MyUserProvider->getUser,username:"+username);
-        final EaseUser info = new EaseUser(username);
-        if(!username.equals(GlobalManager.getInstance().getUser().userCommonInfo.emname)) {
-            Log.i("wang","我在MyUserProvider的if里面");
-                info.setNick("asd");
-                info.setAvatar("http://appdpwallpaper.u.qiniudn.com/wp-content/uploads/sites/48/2015/04/38.jpg");
-//            }
-        }else{
-            info.setAvatar("https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3972100125,3086204015&fm=116&gp=0.jpg");
-            info.setNick(GlobalManager.getInstance().getUser().userCommonInfo.name);
-        }
-
-        Log.i("wang","MyUserProvider->getUser的结果info:"+info.toString());
-        return info;
+            return userCache.get(username);
     }
 
     @Override
     public void showImg(final Context ct, String username, final ImageView imageView) {
-//            UserService.getInstance().getUserInfoByEname(username)
-//                    .subscribe(new Action1<UserCommonInfo>() {
-//                        @Override
-//                        public void call(UserCommonInfo userCommonInfo) {
-//                            Glide.with(ct).load(userCommonInfo.head).into(imageView);
-//                        }
-//                    });
-        }
+
+        ImgShower.showHead(ct,imageView,userCache.get(username).getAvatar());
+    }
 
     @Override
     public void setUserNick(String username, final TextView textView) {
 //        if("admin".equals(username)){
-            textView.setText("admin");
+        textView.setText(userCache.get(username).getNick());
 //        }else {
 //            UserService.getInstance().getUserInfoByEname(username)
 //                    .subscribe(new Action1<UserCommonInfo>() {

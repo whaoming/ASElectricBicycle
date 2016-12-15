@@ -54,7 +54,6 @@ public class FriendAddActivity extends BaseActivity<FriendAddView,FriendAddPrese
         return new FriendAddPresenterImpl();
     }
 
-
     @Override
     public void setListAdaper(NearFriendRecommendAdapter1 adapter) {
         mRecyclerView.setAdapter(adapter);

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -13,6 +14,8 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -33,6 +36,7 @@ import com.wxxiaomi.ming.electricbicycle.ui.weight.adapter.NewFriendAddItemAdapt
 import com.wxxiaomi.ming.electricbicycle.ui.fragment.base.BaseFragment;
 import com.wxxiaomi.ming.electricbicycle.ui.fragment.base.FragmentCallback;
 import com.wxxiaomi.ming.electricbicycle.common.GlobalManager;
+import com.wxxiaomi.ming.electricbicycle.ui.weight.custom.MsgActionProvider;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,15 +63,8 @@ public class ContactActivity extends BaseActivity<ContactView,ContactPresenter> 
     private LinearLayout drawer;
     private LinearLayoutManager mLayoutManager;
 
-//    private LatelyFriendFragment latelyFriendFragment;
-
-    //	private EditText et_serach;
-   // private MyFriendFragment myFriendFragment;
     private RelativeLayout drawer_ll;
-    private ImageButton iv_contact;
-
-    private TextView unread_msg;
-    private TextView tv_title;
+    private MsgActionProvider mActionProvider;
 
     @Override
     protected void initView(Bundle savedInstanceState) {
@@ -76,12 +73,8 @@ public class ContactActivity extends BaseActivity<ContactView,ContactPresenter> 
         tabLayout = (TabLayout) findViewById(R.id.tab_FindFragment_title);
         tabLayout.setTabMode(TabLayout.MODE_FIXED);
         viewPager = (ViewPager) findViewById(R.id.vp_FindFragment_pager);
-        iv_contact = (ImageButton) findViewById(R.id.iv_contact);
-        iv_contact.setOnClickListener(this);
-        unread_msg = (TextView) findViewById(R.id.unread_msg);
-        tv_title = (TextView) findViewById(R.id.tv_title);
         toolbar = (Toolbar) this.findViewById(R.id.toolbar1);
-        tv_title.setText(GlobalManager.getInstance().getUser().userCommonInfo.name);
+        toolbar.setTitle(GlobalManager.getInstance().getUser().userCommonInfo.name);
         setSupportActionBar(toolbar);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -95,13 +88,11 @@ public class ContactActivity extends BaseActivity<ContactView,ContactPresenter> 
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-
         list_fragment = new ArrayList<Fragment>();
         contactFragment = new ContactListFragment();
         demoFragment = new ConversationListFragment();
         list_fragment.add(demoFragment);
         list_fragment.add(contactFragment);
-
         list_title = new ArrayList<String>();
         list_title.add("最近联系人");
         list_title.add("我的好友");
@@ -119,40 +110,19 @@ public class ContactActivity extends BaseActivity<ContactView,ContactPresenter> 
         return new ContactPresenterImpl();
     }
 
-//    public String sd(){
-//        Observable.create(new Observable.OnSubscribe<String>() {
-//            @Override
-//            public void call(Subscriber<? super String> subscriber) {
-//                return "asd";
-//            }
-//        });
-//    }
-
-
-
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.drawer_ll:
                 presenter.onAddFriendBtnClick();
                 break;
-            case R.id.iv_contact:
-                presenter.onDrawClick();
-                mDrawerLayout.openDrawer(Gravity.RIGHT);
-                break;
-
-
         }
     }
-
 
     @Override
     public void updateUnReadMsg(int count) {
         Log.i("wang","更新邀请信息："+count);
-        if(count>0){
-            unread_msg.setText(count+"s");
-            unread_msg.setVisibility(View.VISIBLE);
-        }else{
-            unread_msg.setVisibility(View.GONE);
+        if (mActionProvider!=null) {
+            mActionProvider.setBadge(count);
         }
     }
 
@@ -172,15 +142,34 @@ public class ContactActivity extends BaseActivity<ContactView,ContactPresenter> 
 
     @Override
     public void refershChildUI() {
-//        latelyFriendFragment.Refresh();
-        //myFriendFragment.refersh();
         demoFragment.refresh();
     }
 
-
     @Override
     public void onFragmentCallback(BaseFragment fragment, int id, Bundle args) {
+    }
 
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        mActionProvider.setIcon(R.mipmap.ic_add_white_24dp);
+        presenter.refershInviteUI();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_msg_notify, menu);
+
+        MenuItem menuItem = menu.findItem(R.id.menu_pic);
+        mActionProvider = (MsgActionProvider) MenuItemCompat.getActionProvider(menuItem);
+        mActionProvider.setOnClickListener(0, new MsgActionProvider.OnClickListener() {
+            @Override
+            public void onClick(int what) {
+                presenter.onDrawClick();
+                mDrawerLayout.openDrawer(Gravity.RIGHT);
+            }
+        });// 设置点击监听。
+        return true;
     }
 
     @Override

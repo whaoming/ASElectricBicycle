@@ -1,5 +1,6 @@
 package com.wxxiaomi.ming.electricbicycle.ui.presenter;
 
+import android.content.Intent;
 import android.widget.TextView;
 
 import com.baidu.mapapi.map.BaiduMap;
@@ -35,4 +36,6 @@ public interface HomePresenter<V extends BaseView> extends BasePre<V> {
     void nearHeadBtnOnClick();
 
     void topicBtnOnClick();
+
+    void onNewIntent(Intent intent);
 }

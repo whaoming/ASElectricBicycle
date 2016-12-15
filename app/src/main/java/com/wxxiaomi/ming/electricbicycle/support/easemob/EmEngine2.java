@@ -23,7 +23,7 @@
 //import com.wxxiaomi.ming.electricbicycle.support.easemob.listener.AllMsgListener;
 //import com.wxxiaomi.ming.electricbicycle.support.easemob.listener.FriendMessageListener;
 //import com.wxxiaomi.ming.electricbicycle.support.easemob.listener.InviteMessageListener;
-//import com.wxxiaomi.ming.electricbicycle.support.easemob.ui.MyUserProvider;
+//import com.wxxiaomi.ming.electricbicycle.support.easemob.provider.MyUserProvider;
 //
 //import java.util.ArrayList;
 //import java.util.List;

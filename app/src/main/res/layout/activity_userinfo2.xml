@@ -23,7 +23,6 @@
             app:expandedTitleMarginStart="10dp"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
             <include
-
                 app:layout_collapseMode="parallax"
                 app:layout_collapseParallaxMultiplier="0.7"
                 layout="@layout/view_page_userinfo2"/>
@@ -38,20 +37,6 @@
 
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
-
-    <!--<com.wxxiaomi.ming.electricbicycle.ui.weight.custom.MyNestedScrollView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--app:layout_behavior="@string/appbar_scrolling_view_behavior">-->
-
-        <!--<android.support.v7.widget.RecyclerView-->
-            <!--xmlns:tools="http://schemas.android.com/tools"-->
-            <!--android:id="@+id/recyclerView"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent"-->
-            <!--tools:context="com.wxxiaomi.ming.electricbicycle.ui.activity.PersonalAct"/>-->
-
-    <!--</com.wxxiaomi.ming.electricbicycle.ui.weight.custom.MyNestedScrollView>-->
 
     <com.wxxiaomi.ming.electricbicycle.ui.weight.pull2refreshreview.PullToRefreshRecyclerView
         android:id="@+id/mRecyclerView"
@@ -70,9 +55,11 @@
         android:id="@+id/btn_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
+        android:layout_margin="8dp"
         android:clickable="true"
-        android:src="@drawable/ic_launcher"
+        android:layout_gravity="right|bottom"
+        android:src="@mipmap/ic_add_white_24dp"
+        app:borderWidth="0dp"
        />
 
 </android.support.design.widget.CoordinatorLayout>

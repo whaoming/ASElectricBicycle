@@ -17,7 +17,7 @@ import com.github.lzyzsd.jsbridge.CallBackFunction;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.wxxiaomi.ming.electricbicycle.api.WebMethods;
-import com.wxxiaomi.ming.electricbicycle.support.cache.CacheEngine;
+import com.wxxiaomi.ming.electricbicycle.support.common.cache.CacheEngine;
 import com.wxxiaomi.ming.electricbicycle.common.GlobalManager;
 import com.wxxiaomi.ming.electricbicycle.common.util.ParsMakeUtil;
 import com.wxxiaomi.ming.webmodule.action.dialog.AlertAction;

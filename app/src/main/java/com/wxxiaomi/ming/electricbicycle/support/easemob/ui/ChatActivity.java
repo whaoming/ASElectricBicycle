@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 
 import com.hyphenate.easeui.ui.EaseChatFragment;
 import com.hyphenate.util.EasyUtils;
@@ -15,8 +16,9 @@ import com.wxxiaomi.ming.electricbicycle.R;
  */
 public class ChatActivity extends AppCompatActivity{
     public static ChatActivity activityInstance;
-    private EaseChatFragment chatFragment;
+    private ChatFragment2 chatFragment;
     String toChatUsername;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle arg0) {
@@ -24,12 +26,19 @@ public class ChatActivity extends AppCompatActivity{
         setContentView(R.layout.em_activity_chat);
 
         activityInstance = this;
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+
         //get user id or group id
         toChatUsername = getIntent().getExtras().getString("userId");
+        toolbar.setTitle(toChatUsername);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setHomeButtonEnabled(true); // 设置返回键可用
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //use EaseChatFratFragment
-        chatFragment = new ChatFragment();
+        chatFragment = new ChatFragment2();
         //pass parameters to chat fragment
         chatFragment.setArguments(getIntent().getExtras());
+
         getSupportFragmentManager().beginTransaction().add(R.id.container, chatFragment).commit();
         if(getIntent().getBooleanExtra("isAdd",false)){
             chatFragment.addMsgQueue("我已经成功添加你为好友，让我们开始聊天吧！");

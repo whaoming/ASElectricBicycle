@@ -130,10 +130,6 @@ public class HomeActivity extends BaseActivity<HomeView,HomePresenter> implement
         return new HomePresenterImpl();
     }
 
-
-
-
-
     @Override
     public void onClick(View v) {
         switch (v.getId()){
@@ -259,7 +255,6 @@ public class HomeActivity extends BaseActivity<HomeView,HomePresenter> implement
 
     @Override
     public void showRemoteLoginDialog() {
-
     }
 
     @Override
@@ -339,5 +334,11 @@ public class HomeActivity extends BaseActivity<HomeView,HomePresenter> implement
         super.onDestroy();
         mMapView.onDestroy();
         mMapView = null;
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+//        super.onNewIntent(intent);
+        presenter.onNewIntent(intent);
     }
 }

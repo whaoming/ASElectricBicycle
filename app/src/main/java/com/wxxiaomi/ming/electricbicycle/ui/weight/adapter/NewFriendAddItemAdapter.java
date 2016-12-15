@@ -33,12 +33,11 @@ public class NewFriendAddItemAdapter extends RecyclerView.Adapter<ViewHolder> {
 	}
 
 	public void refersh() {
-
 		//获取全部的邀请消息
-		List<InviteMessage> msgs = EmHelper2.getInstance().getInviteMsgList();
-		infos.clear();
-		infos.addAll(msgs);
-		notifyDataSetChanged();
+//		List<InviteMessage> msgs = EmHelper2.getInstance().getInviteMsgList();
+//		infos.clear();
+//		infos.addAll(msgs);
+//		notifyDataSetChanged();
 	}
 
 	@Override

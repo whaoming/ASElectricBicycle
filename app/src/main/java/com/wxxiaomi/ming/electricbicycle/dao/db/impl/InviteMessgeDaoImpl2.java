@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.wxxiaomi.ming.electricbicycle.dao.bean.InviteMessage;
 import com.wxxiaomi.ming.electricbicycle.dao.db.InviteMessgeDao;
@@ -11,6 +12,9 @@ import com.wxxiaomi.ming.electricbicycle.dao.db.util.DbOpenHelper;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import rx.Observable;
+import rx.Subscriber;
 
 /**
  * Created by Administrator on 2016/12/14.
@@ -78,5 +82,42 @@ public class InviteMessgeDaoImpl2 implements InviteMessgeDao {
             cursor.close();
         }
         return msgs;
+    }
+
+    @Override
+    public Observable<List<InviteMessage>> getMessagesListRx() {
+        return Observable.create(new Observable.OnSubscribe<List<InviteMessage>>() {
+            @Override
+            public void call(Subscriber<? super List<InviteMessage>> subscriber) {
+                try {
+                    SQLiteDatabase db = helper.getReadableDatabase();
+                    List<InviteMessage> msgs = new ArrayList<InviteMessage>();
+                    if (db.isOpen()) {
+                        Cursor cursor = db.rawQuery("select * from " + InviteMessgeDao.TABLE_NAME + " desc", null);
+                        while (cursor.moveToNext()) {
+                            InviteMessage msg = new InviteMessage();
+                            int id = cursor.getInt(cursor.getColumnIndex(InviteMessgeDao.COLUMN_NAME_ID));
+                            String from = cursor.getString(cursor.getColumnIndex(InviteMessgeDao.COLUMN_NAME_FROM));
+                            String reason = cursor.getString(cursor.getColumnIndex(InviteMessgeDao.COLUMN_NAME_REASON));
+                            long time = cursor.getLong(cursor.getColumnIndex(InviteMessgeDao.COLUMN_NAME_TIME));
+
+                            msg.setId(id);
+                            msg.setFrom(from);
+                            msg.setReason(reason);
+                            msg.setTime(time);
+
+                            msgs.add(msg);
+                        }
+                        cursor.close();
+                        subscriber.onNext(msgs);
+
+                    }
+                }catch (Exception e){
+                    Log.i("wang","在数据取邀请信息的时候出错了");
+                    subscriber.onError(e);
+                }
+                subscriber.onCompleted();
+            }
+        });
     }
 }

@@ -1,12 +1,9 @@
 package com.wxxiaomi.ming.electricbicycle.ui.presenter.impl;
 
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import com.wxxiaomi.ming.electricbicycle.common.GlobalManager;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.Option;
 import com.wxxiaomi.ming.electricbicycle.dao.db.UserService;
-import com.wxxiaomi.ming.electricbicycle.support.myglide.ImgShower;
+import com.wxxiaomi.ming.electricbicycle.support.common.myglide.ImgShower;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.base.BasePreImpl;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.PersonalPresenter;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.view.PersonaView;

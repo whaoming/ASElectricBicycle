@@ -8,12 +8,12 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
 import com.wxxiaomi.ming.electricbicycle.dao.bean.InviteMessage;
-import com.wxxiaomi.ming.electricbicycle.support.easemob.EmConstant;
+import com.wxxiaomi.ming.electricbicycle.support.easemob.common.EmConstant;
 import com.wxxiaomi.ming.electricbicycle.support.easemob.EmHelper2;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.base.BasePreImpl;
 
 import com.wxxiaomi.ming.electricbicycle.support.easemob.ui.ChatActivity;
-import com.wxxiaomi.ming.electricbicycle.support.easemob.ui.Constant;
+import com.wxxiaomi.ming.electricbicycle.support.easemob.common.Constant;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.ContactPresenter;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.FriendAddActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.view.ContactView;
@@ -23,7 +23,6 @@ import com.wxxiaomi.ming.electricbicycle.dao.db.impl.InviteMessgeDaoImpl;
 import java.util.List;
 
 import rx.Observer;
-import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 
 /**
@@ -52,8 +51,9 @@ public class ContactPresenterImpl extends BasePreImpl<ContactView> implements Co
             @Override
             public void onReceive(Context context, Intent intent) {
 //                updateUnreadLabel();
-                Log.i("wang"," 通过广播接受者收什么鬼信息了");
+                Log.i("wang", " 通过广播接受者收什么鬼信息了");
 //                mView.refershChildUI();
+                adapter.refersh();
                 refreshInviteUI();
             }
         };
@@ -62,19 +62,22 @@ public class ContactPresenterImpl extends BasePreImpl<ContactView> implements Co
 
     @Override
     public void initDrawerData() {
-//        refreshInviteUI();
-        List<InviteMessage> inviteMsgList = EmHelper2.getInstance().getInviteMsgList();
-        adapter = new NewFriendAddItemAdapter(mView.getContext(), inviteMsgList
-                , new NewFriendAddItemAdapter.ItemAddOnClick() {
-            @Override
-            public void onClick(String userEmName) {
-                // 添加某个好友
-                addFriend(userEmName);
-            }
-
-
-        });
-        mView.setInviteListAdapter(adapter);
+        //修改成rx模式，切换线程，加快页面进入速度
+        EmHelper2.getInstance().getInviteMsgListRx()
+                .subscribe(new Action1<List<InviteMessage>>() {
+                    @Override
+                    public void call(List<InviteMessage> inviteMessages) {
+                        adapter = new NewFriendAddItemAdapter(mView.getContext(), inviteMessages
+                                , new NewFriendAddItemAdapter.ItemAddOnClick() {
+                            @Override
+                            public void onClick(String userEmName) {
+                                // 添加某个好友
+                                addFriend(userEmName);
+                            }
+                        });
+                        mView.setInviteListAdapter(adapter);
+                    }
+                });
     }
 
     private void addFriend(final String emname) {
@@ -92,10 +95,10 @@ public class ContactPresenterImpl extends BasePreImpl<ContactView> implements Co
 
                     @Override
                     public void onNext(Boolean aBoolean) {
-                        Log.i("wang","添加好友成功");
+                        Log.i("wang", "添加好友成功");
                         Intent intent = new Intent(mView.getContext(), ChatActivity.class);
                         intent.putExtra(Constant.EXTRA_USER_ID, emname);
-                        intent.putExtra("isAdd",true);
+                        intent.putExtra("isAdd", true);
                         mView.getContext().startActivity(intent);
                         mView.refershChildUI();
                     }
@@ -114,25 +117,9 @@ public class ContactPresenterImpl extends BasePreImpl<ContactView> implements Co
             }
         });
 
-//        EmEngine.getInstance().setFriendMsgLis(new FriendMessageListener() {
-//            @Override
-//            public void FriendMsgReceive() {
-//                mView.refershChildUI();
-//            }
-//        });
-        //设置邀请消息的监听
-//        EmEngine.getInstance().setInviteMsgLis(new InviteMessageListener() {
-//            @Override
-//            public void InviteMsgReceive() {
-//                adapter.refersh();
-//                refreshInviteUI();
-//            }
-//        })
-
-        ;
     }
 
-    public void refreshInviteUI(){
+    public void refreshInviteUI() {
         EmHelper2.getInstance().getUnreadInviteCountTotal().subscribe(new Action1<Integer>() {
             @Override
             public void call(Integer integer) {
@@ -144,7 +131,7 @@ public class ContactPresenterImpl extends BasePreImpl<ContactView> implements Co
 
     @Override
     public void onAddFriendBtnClick() {
-        mView.runActivity(FriendAddActivity.class,null);
+        mView.runActivity(FriendAddActivity.class, null);
     }
 
     @Override
@@ -156,6 +143,11 @@ public class ContactPresenterImpl extends BasePreImpl<ContactView> implements Co
                         mView.updateUnReadMsg(0);
                     }
                 });
+    }
+
+    @Override
+    public void refershInviteUI() {
+        refreshInviteUI();
     }
 
     @Override

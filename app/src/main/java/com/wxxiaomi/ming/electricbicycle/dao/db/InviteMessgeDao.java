@@ -4,6 +4,7 @@ import com.wxxiaomi.ming.electricbicycle.dao.bean.InviteMessage;
 
 import java.util.List;
 
+import rx.Observable;
 
 
 public interface InviteMessgeDao {
@@ -33,6 +34,8 @@ public interface InviteMessgeDao {
 	 * @return
 	 */
 	List<InviteMessage> getMessagesList();
+
+	Observable<List<InviteMessage>> getMessagesListRx();
 
 	/**
 	 * 设置未读的邀请消息的数目

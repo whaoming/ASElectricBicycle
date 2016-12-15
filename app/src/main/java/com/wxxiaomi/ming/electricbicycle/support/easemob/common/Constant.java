@@ -11,7 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.wxxiaomi.ming.electricbicycle.support.easemob.ui;
+package com.wxxiaomi.ming.electricbicycle.support.easemob.common;
 
 import com.hyphenate.easeui.EaseConstant;
 

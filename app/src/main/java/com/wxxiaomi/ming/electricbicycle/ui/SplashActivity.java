@@ -10,7 +10,6 @@ import android.support.multidex.MultiDex;
 import android.util.Log;
 import android.widget.TextView;
 
-import com.hyphenate.easeui.controller.EaseUI;
 import com.wxxiaomi.ming.electricbicycle.ConstantValue;
 import com.wxxiaomi.ming.electricbicycle.EBApplication;
 import com.wxxiaomi.ming.electricbicycle.api.HttpMethods;
@@ -18,6 +17,7 @@ import com.wxxiaomi.ming.electricbicycle.common.GlobalManager;
 import com.wxxiaomi.ming.electricbicycle.common.util.AppManager;
 import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.common.util.SharedPreferencesUtils;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.support.easemob.EmHelper2;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.HomeActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.RegisterActivity;
@@ -26,7 +26,7 @@ import com.wxxiaomi.ming.electricbicycle.dao.db.AppDao;
 import com.wxxiaomi.ming.electricbicycle.dao.db.UserService;
 import com.wxxiaomi.ming.electricbicycle.dao.db.impl.AppDaoImpl;
 import com.wxxiaomi.ming.electricbicycle.support.aliyun.OssEngine;
-import com.wxxiaomi.ming.electricbicycle.support.cache.DiskCache;
+import com.wxxiaomi.ming.electricbicycle.support.common.cache.DiskCache;
 
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
@@ -148,6 +148,14 @@ public class SplashActivity extends Activity {
                             return UserService.getInstance().UpdateFriendList(strings);
                         }
                     })
+                   .flatMap(new Func1<Integer, Observable<Integer>>() {
+                       @Override
+                       public Observable<Integer> call(Integer integer) {
+                           List<UserCommonInfo> friendList = UserService.getInstance().getFriendList();
+                           EmHelper2.getInstance().openUserCache(friendList);
+                           return Observable.just(integer);
+                       }
+                   })
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(new Action1<Integer>() {
@@ -188,6 +196,8 @@ public class SplashActivity extends Activity {
                 order.countDown();
             }
         }.start();
+
+
 
         new Thread() {
             @Override

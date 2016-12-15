@@ -14,8 +14,6 @@ import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMMessage;
 import com.hyphenate.chat.EMOptions;
 import com.hyphenate.easeui.controller.EaseUI;
-import com.hyphenate.easeui.domain.EaseEmojicon;
-import com.hyphenate.easeui.domain.EaseEmojiconGroupEntity;
 import com.hyphenate.easeui.domain.EaseUser;
 import com.hyphenate.easeui.model.EaseAtMessageHelper;
 import com.hyphenate.easeui.model.EaseNotifier;
@@ -29,12 +27,13 @@ import com.wxxiaomi.ming.electricbicycle.dao.db.InviteMessgeDao;
 import com.wxxiaomi.ming.electricbicycle.dao.db.UserService;
 import com.wxxiaomi.ming.electricbicycle.dao.db.impl.InviteMessgeDaoImpl;
 import com.wxxiaomi.ming.electricbicycle.dao.db.impl.InviteMessgeDaoImpl2;
-import com.wxxiaomi.ming.electricbicycle.support.easemob.ui.MyUserProvider;
+import com.wxxiaomi.ming.electricbicycle.support.easemob.common.EmConstant;
+import com.wxxiaomi.ming.electricbicycle.support.easemob.provider.MyUserProvider;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.ContactActivity;
+import com.wxxiaomi.ming.electricbicycle.ui.activity.HomeActivity;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import rx.Observable;
 import rx.Subscriber;
@@ -52,11 +51,11 @@ public class EmHelper2 {
 
 
     private InviteMessgeDao inviteMessgeDao;
+    private MyUserProvider myUserProvider;
 
     private EmHelper2() {
     }
 
-    ;
     public static EmHelper2 INSTANCE;
 
     public static EmHelper2 getInstance() {
@@ -92,8 +91,13 @@ public class EmHelper2 {
         }
     }
 
+    public void openUserCache(List<UserCommonInfo> infos){
+        myUserProvider.initCache(infos);
+    }
+
     private void setEaseUIProviders() {
-        easeUI.getInstance().setUserProfileProvider(new MyUserProvider());
+       myUserProvider = new MyUserProvider();
+        easeUI.getInstance().setUserProfileProvider(myUserProvider);
 
         //set notification options, will use default if you don't set it
         easeUI.getNotifier().setNotificationInfoProvider(new EaseNotifier.EaseNotificationInfoProvider() {
@@ -101,7 +105,7 @@ public class EmHelper2 {
             @Override
             public String getTitle(EMMessage message) {
                 //you can update title here
-                return null;
+                return "我是尼玛的标题";
             }
 
             @Override
@@ -164,6 +168,7 @@ public class EmHelper2 {
 //                    }
 //                }
                 Intent intent = new Intent(appContext, ContactActivity.class);
+
                 return intent;
             }
         });
@@ -181,14 +186,16 @@ public class EmHelper2 {
         connectionListener = new EMConnectionListener() {
             @Override
             public void onDisconnected(int error) {
-//                EMLog.d("global listener", "onDisconnect" + error);
                 // 这里就是处理各种用户账号异常事件(比如异地登陆)
                 if (error == EMError.USER_REMOVED) {
-//                    onUserException(Constant.ACCOUNT_REMOVED);
+                    //账号被删除
+                    onUserException(EmConstant.ACCOUNT_REMOVED);
                 } else if (error == EMError.USER_LOGIN_ANOTHER_DEVICE) {
-//                    onUserException(Constant.ACCOUNT_CONFLICT);
+                    //账号他处登陆
+                    onUserException(EmConstant.ACCOUNT_CONFLICT);
                 } else if (error == EMError.SERVER_SERVICE_RESTRICTED) {
-//                    onUserException(Constant.ACCOUNT_FORBIDDEN);
+                    //不知道是什么错误
+                    onUserException(EmConstant.ACCOUNT_FORBIDDEN);
                 }
             }
 
@@ -219,6 +226,17 @@ public class EmHelper2 {
         //通知栏的消息通知也是在这里注册，这里先省略
         registerGroupAndContactListener();
         registerMessageListener();
+    }
+
+    /**
+     * 发生与账号有关的错误
+     */
+    private void onUserException(String exception) {
+        Log.i("wang","onUserException,exception:"+exception);
+        Intent intent = new Intent(appContext, HomeActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.putExtra(exception, true);
+        appContext.startActivity(intent);
     }
 
     private void registerMessageListener() {
@@ -275,6 +293,12 @@ public class EmHelper2 {
 
     public List<InviteMessage> getInviteMsgList() {
         return inviteMessgeDao.getMessagesList();
+    }
+    public Observable<List<InviteMessage>> getInviteMsgListRx() {
+        return inviteMessgeDao.getMessagesListRx()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                ;
     }
 
     /**
@@ -543,6 +567,7 @@ public class EmHelper2 {
 
                         @Override
                         public void onNext(UserCommonInfo userCommonInfo) {
+                            getNotifier().vibrateAndPlayTone(null);
                             broadcastManager.sendBroadcast(new Intent(EmConstant.ACTION_CONTACT_CHANAGED));
                         }
                     })

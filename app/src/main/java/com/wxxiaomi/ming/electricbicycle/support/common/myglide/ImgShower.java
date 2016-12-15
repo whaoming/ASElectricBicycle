@@ -1,4 +1,4 @@
-package com.wxxiaomi.ming.electricbicycle.support.myglide;
+package com.wxxiaomi.ming.electricbicycle.support.common.myglide;
 
 import android.content.Context;
 import android.widget.ImageView;
@@ -14,6 +14,7 @@ public class ImgShower {
     public static void showHead(Context context,ImageView imageView,String path){
         Glide.with(context)
                 .load(path)
+                .dontAnimate()
                 .placeholder(R.mipmap.noone)
                 .into(imageView);
     }

@@ -5,9 +5,7 @@ import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,7 +21,7 @@ import com.wxxiaomi.ming.electricbicycle.ui.presenter.PersonalPresenter;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.impl.PersonalPreImpl;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.view.PersonaView;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo;
-import com.wxxiaomi.ming.electricbicycle.support.myglide.ImgShower;
+import com.wxxiaomi.ming.electricbicycle.support.common.myglide.ImgShower;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.pull2refreshreview.PullToRefreshRecyclerView;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.pull2refreshreview.footer.DefaultLoadMoreView;
 
@@ -32,7 +30,6 @@ import com.wxxiaomi.ming.electricbicycle.ui.weight.pull2refreshreview.footer.Def
  * 个人页面
  */
 public class PersonalAct extends BaseActivity<PersonaView, PersonalPresenter> implements PersonaView<PersonalPresenter> {
-
 
     private Toolbar toolbar1;
     private FloatingActionButton btn_add;
@@ -51,6 +48,7 @@ public class PersonalAct extends BaseActivity<PersonaView, PersonalPresenter> im
         // 标题的文字需在setSupportActionBar之前，不然会无效
         btn_add = (FloatingActionButton) findViewById(R.id.btn_add);
         btn_add.setOnClickListener(this);
+        btn_add.setVisibility(View.GONE);
         mRecyclerView = (PullToRefreshRecyclerView) findViewById(R.id.mRecyclerView);
         initRefreshView();
         toolbar1 = (Toolbar) findViewById(R.id.toolbar1);
@@ -98,7 +96,6 @@ public class PersonalAct extends BaseActivity<PersonaView, PersonalPresenter> im
     public PullToRefreshRecyclerView getListView() {
         return mRecyclerView;
     }
-
 
     @Override
     public void onClick(View v) {

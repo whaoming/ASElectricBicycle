@@ -1,4 +1,4 @@
-package com.wxxiaomi.ming.electricbicycle.support.easemob;
+package com.wxxiaomi.ming.electricbicycle.support.easemob.common;
 
 import com.hyphenate.easeui.EaseConstant;
 

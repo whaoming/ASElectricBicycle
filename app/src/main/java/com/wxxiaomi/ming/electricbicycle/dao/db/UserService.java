@@ -18,7 +18,7 @@ import com.wxxiaomi.ming.electricbicycle.dao.constant.OptionType;
 import com.wxxiaomi.ming.electricbicycle.dao.db.impl.AppDaoImpl;
 import com.wxxiaomi.ming.electricbicycle.support.aliyun.OssEngine;
 import com.wxxiaomi.ming.electricbicycle.support.easemob.EmHelper2;
-import com.wxxiaomi.ming.electricbicycle.support.easemob.ui.LRUCache;
+import com.wxxiaomi.ming.electricbicycle.support.common.cache.LRUCache;
 import com.wxxiaomi.ming.electricbicycle.dao.db.impl.FriendDaoImpl;
 import com.wxxiaomi.ming.electricbicycle.dao.db.impl.UserDaoImpl;
 

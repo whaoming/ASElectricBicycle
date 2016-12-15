@@ -19,7 +19,7 @@ import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.api.WebMethods;
 import com.wxxiaomi.ming.electricbicycle.support.web.ComBuildImpl;
 import com.wxxiaomi.ming.electricbicycle.support.aliyun.OssEngine;
-import com.wxxiaomi.ming.electricbicycle.support.cache.CacheEngine;
+import com.wxxiaomi.ming.electricbicycle.support.common.cache.CacheEngine;
 import com.wxxiaomi.ming.electricbicycle.support.img.PhotoTakeUtil;
 import com.wxxiaomi.ming.electricbicycle.common.util.ParsMakeUtil;
 import com.wxxiaomi.ming.electricbicycle.common.util.ToolUtils;

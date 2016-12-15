@@ -4,17 +4,11 @@ package com.wxxiaomi.ming.electricbicycle;
 import android.app.Application;
 import android.content.Context;
 import android.support.multidex.MultiDex;
-import android.util.Log;
 
 import com.baidu.mapapi.SDKInitializer;
-import com.hyphenate.chat.EMOptions;
-import com.hyphenate.easeui.controller.EaseUI;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 import com.wxxiaomi.ming.electricbicycle.support.easemob.EmHelper2;
-import com.wxxiaomi.ming.electricbicycle.support.easemob.ui.MyUserProvider;
-import com.wxxiaomi.ming.electricbicycle.support.aliyun.OssEngine;
-import com.wxxiaomi.ming.electricbicycle.support.cache.DiskCache;
 
 /**
  * 程序入口

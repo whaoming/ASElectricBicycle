@@ -22,9 +22,7 @@ import com.hyphenate.easeui.ui.EaseConversationListFragment;
 import com.hyphenate.easeui.widget.EaseConversationList.EaseConversationListHelper;
 import com.hyphenate.util.NetUtils;
 import com.wxxiaomi.ming.electricbicycle.R;
-import com.wxxiaomi.ming.electricbicycle.support.easemob.listener.FriendMessageListener;
-
-import java.util.List;
+import com.wxxiaomi.ming.electricbicycle.support.easemob.common.Constant;
 
 
 public class ConversationListFragment extends EaseConversationListFragment {
@@ -33,6 +31,7 @@ public class ConversationListFragment extends EaseConversationListFragment {
 
     @Override
     protected void initView() {
+        Log.i("wang","ConversationListFragment->initView");
         super.initView();
         View errorView = (LinearLayout) View.inflate(getActivity(), R.layout.em_chat_neterror_item, null);
         errorItemContainer.addView(errorView);
@@ -46,7 +45,6 @@ public class ConversationListFragment extends EaseConversationListFragment {
         // register context menu
         registerForContextMenu(conversationListView);
         conversationListView.setOnItemClickListener(new OnItemClickListener() {
-
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 EMConversation conversation = conversationListView.getItem(position);
@@ -102,7 +100,6 @@ public class ConversationListFragment extends EaseConversationListFragment {
                 return null;
             }
         });
-        super.setUpView();
         //end of red packet code
     }
 
@@ -146,7 +143,7 @@ public class ConversationListFragment extends EaseConversationListFragment {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        refresh();
+//        refresh();
 
         // update unread count
 //        ((MainActivity) getActivity()).updateUnreadLabel();

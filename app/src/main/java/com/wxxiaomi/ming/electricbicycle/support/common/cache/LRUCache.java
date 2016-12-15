@@ -1,4 +1,4 @@
-package com.wxxiaomi.ming.electricbicycle.support.easemob.ui;
+package com.wxxiaomi.ming.electricbicycle.support.common.cache;
 
 import java.util.Hashtable;
 

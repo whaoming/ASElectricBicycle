@@ -1,9 +1,11 @@
 package com.wxxiaomi.ming.electricbicycle.ui.activity.base;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,6 +19,7 @@ import com.wxxiaomi.ming.electricbicycle.ui.presenter.base.BasePre;
  */
 public abstract class BaseActivity<V,T extends BasePre> extends AppCompatActivity implements BaseView<T>, View.OnClickListener{
     protected T presenter;
+    protected AlertDialog dialog;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +31,41 @@ public abstract class BaseActivity<V,T extends BasePre> extends AppCompatActivit
             presenter.init();
         }
 
+    }
+
+    @Override
+    public void buildAlertDialog(String okk,DialogInterface.OnClickListener okkLis
+            ,String cancelMsg, DialogInterface.OnClickListener cancelLis
+            ,String title,String message){
+        //DialogTheme
+        if(cancelLis==null){
+            dialog = new AlertDialog.Builder(this,android.R.style.Theme_Material_Light_Dialog_Alert)
+                    .setCancelable(false)
+                    .setPositiveButton(okk, okkLis)
+                    .setTitle(title)
+                    .setMessage(message)
+                    .create();
+        }else {
+            dialog = new AlertDialog.Builder(this,android.R.style.Theme_Material_Light_Dialog_Alert)
+                    .setCancelable(false)
+                    .setNegativeButton(cancelMsg, cancelLis)
+                    .setPositiveButton(okk, okkLis)
+                    .setTitle(title)
+                    .setMessage(message)
+                    .create();
+        }
+    }
+    @Override
+    public void showDialog(){
+        if(dialog!=null){
+            dialog.show();
+        }
+    }
+    @Override
+    public void closeDialog(){
+        if(dialog.isShowing()){
+            dialog.dismiss();
+        }
     }
 
     protected abstract void initView(Bundle savedInstanceState);
