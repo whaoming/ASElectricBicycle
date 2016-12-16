@@ -10,21 +10,21 @@
         android:title="账号设置">
         <SwitchPreference
             android:textColor="#000000"
-            android:key="s"
+            android:key="@string/setting_open_near"
             android:title="附近的人"
             android:summaryOn="开启附近的人功能"
             android:summaryOff="关闭附近的人功能"
             android:defaultValue="true"
             />
         <SwitchPreference
-            android:key="s"
+            android:key="@string/setting_notify_sound"
             android:title="声音提醒"
             android:summaryOn="开启当收到新消息时候声音提醒"
             android:summaryOff="关闭当收到新消息时候声音提醒"
             android:defaultValue="true"
             />
         <SwitchPreference
-            android:key="s"
+            android:key="@string/setting_notify_vibrate"
             android:title="震动提醒"
             android:summaryOn="开启当收到新消息时候震动提醒"
             android:summaryOff="关闭当收到新消息时候震动提醒"

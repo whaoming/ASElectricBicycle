@@ -14,6 +14,7 @@ import com.wxxiaomi.ming.electricbicycle.ConstantValue;
 import com.wxxiaomi.ming.electricbicycle.EBApplication;
 import com.wxxiaomi.ming.electricbicycle.api.HttpMethods;
 import com.wxxiaomi.ming.electricbicycle.common.GlobalManager;
+import com.wxxiaomi.ming.electricbicycle.common.PreferenceManager;
 import com.wxxiaomi.ming.electricbicycle.common.util.AppManager;
 import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.common.util.SharedPreferencesUtils;
@@ -191,6 +192,7 @@ public class SplashActivity extends Activity {
                 DiskCache.getInstance().open(getApplicationContext());
                 handler.sendEmptyMessage(2);
                 OssEngine.getInstance().initOssEngine(getApplicationContext());
+                PreferenceManager.init(getApplicationContext());
                 handler.sendEmptyMessage(3);
                 handler.sendEmptyMessage(4);
                 order.countDown();

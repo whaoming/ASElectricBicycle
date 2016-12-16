@@ -1,4 +1,4 @@
-package com.wxxiaomi.ming.electricbicycle.support.easemob.ui;
+package com.wxxiaomi.ming.electricbicycle.support.easemob.provider;
 
 import android.content.Context;
 import android.util.Log;
@@ -15,6 +15,7 @@ import com.hyphenate.easeui.widget.chatrow.EaseChatRowText;
 import com.hyphenate.easeui.widget.chatrow.EaseChatRowVideo;
 import com.hyphenate.easeui.widget.chatrow.EaseChatRowVoice;
 import com.hyphenate.easeui.widget.chatrow.EaseCustomChatRowProvider;
+import com.wxxiaomi.ming.electricbicycle.support.easemob.ui.MyChatRowText;
 
 /**
  * Created by Administrator on 2016/12/16.

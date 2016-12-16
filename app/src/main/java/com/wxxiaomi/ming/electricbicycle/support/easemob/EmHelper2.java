@@ -28,6 +28,7 @@ import com.wxxiaomi.ming.electricbicycle.dao.db.UserService;
 import com.wxxiaomi.ming.electricbicycle.dao.db.impl.InviteMessgeDaoImpl;
 import com.wxxiaomi.ming.electricbicycle.dao.db.impl.InviteMessgeDaoImpl2;
 import com.wxxiaomi.ming.electricbicycle.support.easemob.common.EmConstant;
+import com.wxxiaomi.ming.electricbicycle.support.easemob.provider.MySettingProvider;
 import com.wxxiaomi.ming.electricbicycle.support.easemob.provider.MyUserProvider;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.ContactActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.HomeActivity;
@@ -83,6 +84,7 @@ public class EmHelper2 {
         if (EaseUI.getInstance().init(context, options)) {
             appContext = context;
             easeUI = EaseUI.getInstance();
+            easeUI.setSettingsProvider(new MySettingProvider());
             setEaseUIProviders();
             setGlobalListeners();
             broadcastManager = LocalBroadcastManager.getInstance(appContext);
