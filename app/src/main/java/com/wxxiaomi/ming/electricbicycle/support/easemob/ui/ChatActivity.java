@@ -5,8 +5,13 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.Menu;
+import android.view.View;
 
+import com.hyphenate.chat.EMMessage;
 import com.hyphenate.easeui.ui.EaseChatFragment;
+import com.hyphenate.easeui.widget.chatrow.EaseCustomChatRowProvider;
 import com.hyphenate.util.EasyUtils;
 import com.wxxiaomi.ming.electricbicycle.R;
 
@@ -38,11 +43,56 @@ public class ChatActivity extends AppCompatActivity{
         chatFragment = new ChatFragment2();
         //pass parameters to chat fragment
         chatFragment.setArguments(getIntent().getExtras());
+        chatFragment.setChatFragmentListener(new EaseChatFragment.EaseChatFragmentHelper(){
+
+            @Override
+            public void onSetMessageAttributes(EMMessage message) {
+                Log.i("wang","onSetMessageAttributes");
+            }
+
+            @Override
+            public void onEnterToChatDetails() {
+                Log.i("wang","onEnterToChatDetails");
+            }
+
+            @Override
+            public void onAvatarClick(String username) {
+                Log.i("wang","onAvatarClick,username:"+username);
+            }
+
+            @Override
+            public void onAvatarLongClick(String username) {
+                Log.i("wang","onAvatarLongClick,username:"+username);
+            }
+
+            @Override
+            public boolean onMessageBubbleClick(EMMessage message) {
+                return false;
+            }
+
+            @Override
+            public void onMessageBubbleLongClick(EMMessage message) {
+                Log.i("wang","onMessageBubbleLongClick");
+            }
+
+            @Override
+            public boolean onExtendMenuItemClick(int itemId, View view) {
+                return false;
+            }
+
+            @Override
+            public EaseCustomChatRowProvider onSetCustomChatRowProvider() {
+                MyChatRowProvider myChatRowProvider = new MyChatRowProvider(ChatActivity.this);
+                return myChatRowProvider;
+            }
+        });
 
         getSupportFragmentManager().beginTransaction().add(R.id.container, chatFragment).commit();
         if(getIntent().getBooleanExtra("isAdd",false)){
             chatFragment.addMsgQueue("我已经成功添加你为好友，让我们开始聊天吧！");
         }
+
+
     }
     
     @Override
@@ -81,5 +131,11 @@ public class ChatActivity extends AppCompatActivity{
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
 //        PermissionsManager.getInstance().notifyPermissionsChange(permissions, grantResults);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_act_chat, menu);//加载menu文件到布局
+        return true;
     }
 }

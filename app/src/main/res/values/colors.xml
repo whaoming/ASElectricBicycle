@@ -10,7 +10,8 @@
     <color name="light">#FFEEEEEE</color>
 
     <color name="ltgray">#FFCCCCCC</color>
-
+    <color name="gray_de">#666666</color>
+    <color name="list_item_press">#216b74ff</color>
     <color name="color1">#ff0f9d58</color>
     <color name="color2">#ffdb4437</color>
     <color name="color3">#ff4285f4</color>

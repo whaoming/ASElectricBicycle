@@ -97,7 +97,7 @@ public class EaseConversationAdapter extends ArrayAdapter<EMConversation> {
             holder.motioned = (TextView) convertView.findViewById(R.id.mentioned);
             convertView.setTag(holder);
         }
-        holder.list_itease_layout.setBackgroundResource(R.drawable.ease_mm_listitem);
+//        holder.list_itease_layout.setBackgroundResource(R.drawable.ease_mm_listitem);
 
         // get conversation
         EMConversation conversation = getItem(position);

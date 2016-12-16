@@ -36,7 +36,7 @@ public abstract class EaseChatRow extends LinearLayout {
     protected int position;
 
     protected TextView timeStampView;
-    protected CircularImageView userAvatarView;
+    protected ImageView userAvatarView;
     protected View bubbleLayout;
     protected TextView usernickView;
 
@@ -68,7 +68,7 @@ public abstract class EaseChatRow extends LinearLayout {
     private void initView() {
         onInflateView();
         timeStampView = (TextView) findViewById(R.id.timestamp);
-        userAvatarView = (CircularImageView) findViewById(R.id.iv_userhead);
+        userAvatarView = (ImageView) findViewById(R.id.iv_userhead);
         bubbleLayout = findViewById(R.id.bubble);
         usernickView = (TextView) findViewById(R.id.tv_userid);
 
@@ -131,16 +131,16 @@ public abstract class EaseChatRow extends LinearLayout {
             }
         }
         
-        if(ackedView != null){
-            if (message.isAcked()) {
-                if (deliveredView != null) {
-                    deliveredView.setVisibility(View.INVISIBLE);
-                }
-                ackedView.setVisibility(View.VISIBLE);
-            } else {
-                ackedView.setVisibility(View.INVISIBLE);
-            }
-        }
+//        if(ackedView != null){
+//            if (message.isAcked()) {
+//                if (deliveredView != null) {
+//                    deliveredView.setVisibility(View.INVISIBLE);
+//                }
+//                ackedView.setVisibility(View.VISIBLE);
+//            } else {
+//                ackedView.setVisibility(View.INVISIBLE);
+//            }
+//        }
         
 
         if (adapter instanceof EaseMessageAdapter) {
