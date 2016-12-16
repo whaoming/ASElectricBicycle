@@ -25,7 +25,7 @@
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_marginLeft="6dp"
-            android:background="@drawable/ease_chatting_setmode_voice_btn"
+            android:background="@drawable/ic_message_grey600_24dp"
             android:visibility="visible" />
 
         <Button
@@ -33,7 +33,7 @@
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_marginLeft="6dp"
-            android:background="@drawable/ease_chatting_setmode_keyboard_btn"
+            android:background="@drawable/ic_mic_grey600_24dp"
             android:visibility="gone" />
 
         <LinearLayout

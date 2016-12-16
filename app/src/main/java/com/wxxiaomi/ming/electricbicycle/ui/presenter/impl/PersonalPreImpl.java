@@ -4,6 +4,7 @@ import com.wxxiaomi.ming.electricbicycle.common.GlobalManager;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.Option;
 import com.wxxiaomi.ming.electricbicycle.dao.db.UserService;
 import com.wxxiaomi.ming.electricbicycle.support.common.myglide.ImgShower;
+import com.wxxiaomi.ming.electricbicycle.ui.activity.SettingActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.base.BasePreImpl;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.PersonalPresenter;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.view.PersonaView;
@@ -54,7 +55,7 @@ public class PersonalPreImpl extends BasePreImpl<PersonaView> implements Persona
 
     @Override
     public void onSettingClick() {
-
+        mView.runActivity(SettingActivity.class,null,false);
     }
 
     @Override
