@@ -26,15 +26,6 @@ import rx.functions.Action1;
 
 public class MyUserProvider implements EaseUI.EaseUserProfileProvider {
     static LRUCache<EaseUser> userCache = new LRUCache<>(20);
-//    static Map<String,EaseUser> userCache = new HashMap<>();
-
-//    synchronized public static void  putUser(UserCommonInfo info){
-//        Log.i("wang","缓存中现在存如emname:"+info.emname);
-//        EaseUser user = new EaseUser(info.emname);
-//        user.setNick(info.name);
-//        user.setAvatar(info.head);
-//        userCache.put(info.emname,user);
-//    }
 
     public void initCache(List<UserCommonInfo> infos) {
         for (UserCommonInfo info : infos) {
@@ -63,7 +54,12 @@ public class MyUserProvider implements EaseUI.EaseUserProfileProvider {
     @Override
     public void setUserNick(String username, final TextView textView) {
 //        if("admin".equals(username)){
-        textView.setText(userCache.get(username).getNick());
+        EaseUser user = userCache.get(username);
+        if(user==null){
+            textView.setText("未知用户");
+        }else {
+            textView.setText(userCache.get(username).getNick());
+        }
 //        }else {
 //            UserService.getInstance().getUserInfoByEname(username)
 //                    .subscribe(new Action1<UserCommonInfo>() {

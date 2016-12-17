@@ -5,6 +5,7 @@ import com.wxxiaomi.ming.electricbicycle.dao.bean.Option;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.OptionLogs;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.User;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo2;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.UserLocatInfo;
 
 import com.wxxiaomi.ming.electricbicycle.dao.common.Result;
@@ -31,6 +32,16 @@ import rx.Observable;
  * Created by 12262 on 2016/5/31.
  */
 public interface DemoService {
+    @FormUrlEncoded
+    @POST("android/user_updateuserfriends")
+    Observable<Result<List<UserCommonInfo>>> updateUserFriend2(@Field("friends") String friends);
+
+    @FormUrlEncoded
+    @POST("android/user_updateuserfriends")
+    Observable<Result<List<UserCommonInfo2>>> updateUserFriend3(@Field("friends") String friends);
+
+    @POST("android/user_updateuserfriends")
+    Observable<Result<List<UserCommonInfo>>> updateUserFriend(@Body Map<String,String> friends);
 
     @POST("android/user_updateuserinfo")
     Observable<Result<String>> updateUserInfo3(@Body UserCommonInfo userinfo);

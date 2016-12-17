@@ -3,6 +3,7 @@ package com.wxxiaomi.ming.electricbicycle.dao.db;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo;
 
 import java.util.List;
+import java.util.Map;
 
 import rx.Observable;
 
@@ -61,5 +62,14 @@ public interface FriendDao {
      * @return
      */
     boolean isMyFriend(String emname);
+
+
+    /**
+     * 获取错开的好友列表
+     * 字符串拼装返回
+     * @param emnames
+     * @return
+     */
+    String getErrorFriend(List<String> emnames);
 
 }

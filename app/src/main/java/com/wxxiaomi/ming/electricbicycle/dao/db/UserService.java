@@ -61,6 +61,39 @@ public class UserService {
         return INSTANCE;
     }
 
+    public Observable<Integer> UpdateFriendList2(List<String> usernames) {
+        /**
+         * 1.usernames为传入的em服务器上面的联系人
+         * 2.对比本地数据库的好友，删除usernames里没有的
+         * 3.取出数据库里usernames的所有用户的updatetime字段
+         * 4.返回的数据格式为<emname,update_time>
+         * 5.发送给服务器这个信息，服务器返回一些好友信息(更新的，或者本地缺少的)
+         * 6.更新到数据库中,返回更新的总数
+         */
+        return friendDao.CheckFriendList(usernames)
+                //传入的参数为缺少的好友信息，需要从服务器获取获取
+                .flatMap(new Func1<List<String>, Observable<List<UserCommonInfo>>>() {
+                    @Override
+                    public Observable<List<UserCommonInfo>> call(List<String> missingUsernames) {
+                        if(missingUsernames.size()==0){
+                            return Observable.just(null);
+                        }
+                        return userDao.getUserListFromWeb(missingUsernames);
+                    }
+                })
+                //从服务器更新完好友之后，更新到本地数据库
+                .flatMap(new Func1<List<UserCommonInfo>, Observable<Integer>>() {
+                    @Override
+                    public Observable<Integer> call(List<UserCommonInfo> initUserInfo) {
+                        if(initUserInfo==null){
+                            return Observable.just(0);
+                        }
+                        return friendDao.InsertFriendList(initUserInfo);
+                    }
+                });
+    }
+
+
     /**
      * 传入em上面的好友列表
      * 然后与服务器对接来更新本地的好友数据

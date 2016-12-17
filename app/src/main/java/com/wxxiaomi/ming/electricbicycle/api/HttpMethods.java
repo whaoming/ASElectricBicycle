@@ -8,12 +8,14 @@ import com.wxxiaomi.ming.electricbicycle.GlobalParams;
 import com.wxxiaomi.ming.electricbicycle.api.exception.ExceptionEngine;
 import com.wxxiaomi.ming.electricbicycle.api.exception.ServerException;
 import com.wxxiaomi.ming.electricbicycle.api.service.DemoService;
+import com.wxxiaomi.ming.electricbicycle.common.PreferenceManager;
 import com.wxxiaomi.ming.electricbicycle.common.util.SharedPreferencesUtils;
 import com.wxxiaomi.ming.electricbicycle.common.util.UniqueUtil;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.Option;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.OptionLogs;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.User;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo2;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.UserLocatInfo;
 
 import com.wxxiaomi.ming.electricbicycle.dao.common.Result;
@@ -22,6 +24,7 @@ import com.wxxiaomi.ming.electricbicycle.dao.common.Result;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
@@ -50,7 +53,6 @@ public class HttpMethods {
 
     private Retrofit retrofit;
     private DemoService demoService;
-    private boolean test = false;
 
 
     //构造方法私有
@@ -72,17 +74,16 @@ public class HttpMethods {
                     Request newRequest = chain.request().newBuilder()
                             .addHeader("token",GlobalParams.token)
                             .build();
-                    Log.i("wang","currentThread:"+Thread.currentThread().getName());
-//                    newRequest.toString();
                     Response response = chain.proceed(newRequest);
 
                     if(response.header("token")!=null){
-                        Log.i("wang","返回的头部中发现了token");
                             GlobalParams.token = response.header("token");
+                        PreferenceManager.getInstance().savaShortToken(response.header("token"));
                     }
                     String long_token = response.header("long_token");
                     if(long_token!=null){
-                        SharedPreferencesUtils.setParam(EBApplication.applicationContext,ConstantValue.LONGTOKEN,long_token);
+//                        SharedPreferencesUtils.setParam(EBApplication.applicationContext,ConstantValue.LONGTOKEN,long_token);
+                        PreferenceManager.getInstance().savaLongToken(long_token);
                     }
                     return response;
                 }
@@ -278,13 +279,28 @@ public class HttpMethods {
      * @return
      */
     public Observable<String> Token_Long2Short(){
-
         UniqueUtil util = new UniqueUtil(EBApplication.applicationContext);
         String uniqueID = util.getUniqueID();
-        String long_token = (String) SharedPreferencesUtils.getParam(EBApplication.applicationContext,ConstantValue.LONGTOKEN,"");
+        String long_token = PreferenceManager.getInstance().getLongToken();
         return demoService.getSToken(long_token,uniqueID)
                 .map(new ServerResultFunc<String>())
         .onErrorResumeNext(new HttpResultFunc<String>());
+    }
+
+    public Observable<List<UserCommonInfo>> updateuserFriend(String friends){
+        return demoService.updateUserFriend2(friends)
+                .map(new ServerResultFunc<List<UserCommonInfo>>())
+                .onErrorResumeNext(new HttpResultFunc<List<UserCommonInfo>>())
+                .subscribeOn(Schedulers.io())
+                ;
+    }
+
+    public Observable<List<UserCommonInfo2>> updateuserFriend2(String friends){
+        return demoService.updateUserFriend3(friends)
+                .map(new ServerResultFunc<List<UserCommonInfo2>>())
+                .onErrorResumeNext(new HttpResultFunc<List<UserCommonInfo2>>())
+                .subscribeOn(Schedulers.io())
+                ;
     }
 
 

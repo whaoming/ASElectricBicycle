@@ -14,6 +14,7 @@ import com.hyphenate.easeui.ui.EaseChatFragment;
 import com.hyphenate.easeui.widget.chatrow.EaseCustomChatRowProvider;
 import com.hyphenate.util.EasyUtils;
 import com.wxxiaomi.ming.electricbicycle.R;
+import com.wxxiaomi.ming.electricbicycle.support.easemob.provider.MyChatRowProvider;
 
 /**
  * chat activity，EaseChatFragment was used {@link #}

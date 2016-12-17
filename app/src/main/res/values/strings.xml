@@ -17,4 +17,9 @@
     <string name="notify_need_login">notify_need_login</string>
     <string name="click_to_login">click_to_login</string>
     <string name="title_activity_search_actiity1">SearchActiity1</string>
+
+
+    <string name="setting_open_near">setting_open_near</string>
+    <string name="setting_notify_sound">setting_notify_sound</string>
+    <string name="setting_notify_vibrate">setting_notify_vibrate</string>
 </resources>

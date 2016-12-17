@@ -14,6 +14,7 @@ import com.wxxiaomi.ming.electricbicycle.ConstantValue;
 import com.wxxiaomi.ming.electricbicycle.EBApplication;
 import com.wxxiaomi.ming.electricbicycle.api.HttpMethods;
 import com.wxxiaomi.ming.electricbicycle.common.GlobalManager;
+import com.wxxiaomi.ming.electricbicycle.common.PreferenceManager;
 import com.wxxiaomi.ming.electricbicycle.common.util.AppManager;
 import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.common.util.SharedPreferencesUtils;
@@ -70,10 +71,6 @@ public class SplashActivity extends Activity {
                     Log.i("wang", "初始化Ease完成");
                     break;
                 case 5:
-//					Intent intent = new Intent(SplashActivity.this, RegisterActivity.class);
-//					startActivity(intent);
-//					finish();
-//                    autoLogin();
                     if(isLogin){
                         Intent intent = new Intent(SplashActivity.this, HomeActivity.class);
                         startActivity(intent);
@@ -110,69 +107,89 @@ public class SplashActivity extends Activity {
      * GlobalManager.getInstance().savaUser(user);
      */
     private void autoLogin() {
-        String ltoken = (String) SharedPreferencesUtils.getParam(EBApplication.applicationContext, ConstantValue.LONGTOKEN, "");
-        Log.i("wang", "从本地取得的ltoken：" + ltoken);
-        if (!"".equals(ltoken)) {
-            HttpMethods.getInstance().Token_Long2Short()
-                    .map(new Func1<String, User>() {
-                        @Override
-                        public User call(String s) {
-                            Log.i("wang", "根据长token获取的uid：" + s);
-                            AppDao appDao = new AppDaoImpl(EBApplication.applicationContext);
-                            User user = appDao.getLocalUser(Integer.valueOf(s));
-                            GlobalManager.getInstance().savaUser(user);
-                            return user;
-                        }
-                    })
-                    .flatMap(new Func1<User, Observable<Boolean>>() {
-                        @Override
-                        public Observable<Boolean> call(User user) {
-                            Log.i("wang", user.toString());
-                            GlobalManager.getInstance().savaUser(user);
-                            return EmHelper2.getInstance().LoginFromEm(user.username, user.password);
-                        }
-                    })
-                    //从服务器获取好友列表
-                    .flatMap(new Func1<Boolean, Observable<List<String>>>() {
-                        @Override
-                        public Observable<List<String>> call(Boolean aBoolean) {
-                            return EmHelper2.getInstance().getContactFromEm();
-                        }
-                    })
-                    .flatMap(new Func1<List<String>, Observable<Integer>>() {
-                        @Override
-                        public Observable<Integer> call(List<String> strings) {
-                            if (strings.size() == 0) {
-                                return Observable.just(0);
-                            }
-                            return UserService.getInstance().UpdateFriendList(strings);
-                        }
-                    })
-                   .flatMap(new Func1<Integer, Observable<Integer>>() {
-                       @Override
-                       public Observable<Integer> call(Integer integer) {
-                           List<UserCommonInfo> friendList = UserService.getInstance().getFriendList();
-                           EmHelper2.getInstance().openUserCache(friendList);
-                           return Observable.just(integer);
-                       }
-                   })
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(new Action1<Integer>() {
-                        @Override
-                        public void call(Integer integer) {
-                            isLogin = true;
+//        String ltoken = (String) SharedPreferencesUtils.getParam(EBApplication.applicationContext, ConstantValue.LONGTOKEN, "");
+//        Log.i("wang", "从本地取得的ltoken：" + ltoken);
+//        if (!"".equals(ltoken)) {
+//            AppDao appDao = new AppDaoImpl(EBApplication.applicationContext);
+//            User user = appDao.getLocalUser(25);
+//            EmHelper2.getInstance().LoginFromEm(user.username, user.password)
+//                    .flatMap(new Func1<Boolean, Observable<List<String>>>() {
+//                        @Override
+//                        public Observable<List<String>> call(Boolean aBoolean) {
+//                            return
+//                        }
+//                    })
+//            Log.i("wang", "EmHelper2.getInstance().getContactFromEm()");
+//            EmHelper2.getInstance().getContactFromEm()
+//                    .subscribe(new Action1<List<String>>() {
+//                        @Override
+//                        public void call(List<String> strings) {
+//                            for(String item : strings){
+//                                Log.i("wang","item:"+item);
+//                            }
+//                        }
+//                    });
+
+//            HttpMethods.getInstance().Token_Long2Short()
+//                    .map(new Func1<String, User>() {
+//                        @Override
+//                        public User call(String s) {
+//                            Log.i("wang", "根据长token获取的uid：" + s);
+//                            AppDao appDao = new AppDaoImpl(EBApplication.applicationContext);
+//                            User user = appDao.getLocalUser(Integer.valueOf(s));
+//                            GlobalManager.getInstance().savaUser(user);
+//                            return user;
+//                        }
+//                    })
+//                    .flatMap(new Func1<User, Observable<Boolean>>() {
+//                        @Override
+//                        public Observable<Boolean> call(User user) {
+//                            Log.i("wang", user.toString());
+////                            GlobalManager.getInstance().savaUser(user);
+//                            return EmHelper2.getInstance().LoginFromEm(user.username, user.password);
+//                        }
+//                    })
+//                    //从服务器获取好友列表
+//                    .flatMap(new Func1<Boolean, Observable<List<String>>>() {
+//                        @Override
+//                        public Observable<List<String>> call(Boolean aBoolean) {
+//                            return EmHelper2.getInstance().getContactFromEm();
+//                        }
+//                    })
+//                    .flatMap(new Func1<List<String>, Observable<Integer>>() {
+//                        @Override
+//                        public Observable<Integer> call(List<String> strings) {
+//                            if (strings.size() == 0) {
+//                                return Observable.just(0);
+//                            }
+//                            return UserService.getInstance().UpdateFriendList(strings);
+//                        }
+//                    })
+//                   .flatMap(new Func1<Integer, Observable<Integer>>() {
+//                       @Override
+//                       public Observable<Integer> call(Integer integer) {
+//                           List<UserCommonInfo> friendList = UserService.getInstance().getFriendList();
+//                           EmHelper2.getInstance().openUserCache(friendList);
+//                           return Observable.just(integer);
+//                       }
+//                   })
+//                    .subscribeOn(Schedulers.io())
+//                    .observeOn(AndroidSchedulers.mainThread())
+//                    .subscribe(new Action1<Integer>() {
+//                        @Override
+//                        public void call(Integer integer) {
+//                            isLogin = true;
                             order.countDown();
-                        }
-                    })
-            ;
+//                        }
+//                    })
+//            ;
 
-        } else {
-            isLogin = false;
-            order.countDown();
-            Log.i("wang", "从本地取不到ltoken");
-
-        }
+//        } else {
+//            isLogin = false;
+//            order.countDown();
+//            Log.i("wang", "从本地取不到ltoken");
+//
+//        }
 
     }
 
@@ -191,6 +208,7 @@ public class SplashActivity extends Activity {
                 DiskCache.getInstance().open(getApplicationContext());
                 handler.sendEmptyMessage(2);
                 OssEngine.getInstance().initOssEngine(getApplicationContext());
+                PreferenceManager.init(getApplicationContext());
                 handler.sendEmptyMessage(3);
                 handler.sendEmptyMessage(4);
                 order.countDown();
