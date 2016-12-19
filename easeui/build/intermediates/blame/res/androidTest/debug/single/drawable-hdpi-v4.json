@@ -40,12 +40,12 @@
         "source": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ee_24.png"
     },
     {
-        "merged": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_appitem_del_btn_normal.png",
-        "source": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_appitem_del_btn_normal.png"
-    },
-    {
         "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_appitem_del_btn_normal.png",
         "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_appitem_del_btn_normal.png"
+    },
+    {
+        "merged": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_appitem_del_btn_normal.png",
+        "source": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_appitem_del_btn_normal.png"
     },
     {
         "merged": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ee_10.png",
@@ -80,12 +80,12 @@
         "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ee_18.png"
     },
     {
-        "merged": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ee_12.png",
-        "source": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ee_12.png"
-    },
-    {
         "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ic_mic_grey600_24dp.png",
         "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ic_mic_grey600_24dp.png"
+    },
+    {
+        "merged": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ee_12.png",
+        "source": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ee_12.png"
     },
     {
         "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ee_23.png",
@@ -136,12 +136,12 @@
         "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_chat_face_normal.png"
     },
     {
-        "merged": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_chat_video_mask_to.9.png",
-        "source": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_chat_video_mask_to.9.png"
-    },
-    {
         "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_show_head_toast_bg.9.png",
         "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_show_head_toast_bg.9.png"
+    },
+    {
+        "merged": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_chat_video_mask_to.9.png",
+        "source": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_chat_video_mask_to.9.png"
     },
     {
         "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_record_animate_03.png",
@@ -204,16 +204,16 @@
         "source": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_chatting_biaoqing_btn_normal.png"
     },
     {
-        "merged": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_chatto_voice_playing_f3.png",
-        "source": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_chatto_voice_playing_f3.png"
+        "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_input_bar_bg_normal.9.png",
+        "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_input_bar_bg_normal.9.png"
     },
     {
         "merged": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_groups_icon.png",
         "source": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_groups_icon.png"
     },
     {
-        "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_input_bar_bg_normal.9.png",
-        "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_input_bar_bg_normal.9.png"
+        "merged": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_chatto_voice_playing_f3.png",
+        "source": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_chatto_voice_playing_f3.png"
     },
     {
         "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ic_message_grey600_24dp.png",
@@ -340,12 +340,12 @@
         "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ee_32.png"
     },
     {
-        "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ee_29.png",
-        "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ee_29.png"
-    },
-    {
         "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_conversation_normal.png",
         "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_conversation_normal.png"
+    },
+    {
+        "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ee_29.png",
+        "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ee_29.png"
     },
     {
         "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_voice_unread.png",
@@ -674,6 +674,10 @@
     {
         "merged": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_icon_marka.png",
         "source": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_icon_marka.png"
+    },
+    {
+        "merged": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\em_chat_conversation_item.xml",
+        "source": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\em_chat_conversation_item.xml"
     },
     {
         "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ee_22.png",

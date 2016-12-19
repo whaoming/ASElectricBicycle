@@ -31,8 +31,8 @@ public class OptionAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     public OptionAdapter(List<OptionLogs> feedList,Context context) {
         mFeedList = feedList;
         this.mContext = context;
-        currentName = GlobalManager.getInstance().getUser().userCommonInfo.name;
-        currentHead = GlobalManager.getInstance().getUser().userCommonInfo.head;
+        currentName = GlobalManager.getInstance().getUser().userCommonInfo.nickname;
+        currentHead = GlobalManager.getInstance().getUser().userCommonInfo.avatar;
     }
 
     @Override

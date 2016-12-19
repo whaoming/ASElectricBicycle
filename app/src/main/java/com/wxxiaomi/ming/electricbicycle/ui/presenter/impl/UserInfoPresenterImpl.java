@@ -10,7 +10,7 @@ import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.support.easemob.EmHelper2;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.adapter.OptionAdapter2;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.Option;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo2;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.base.BasePreImpl;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.UserInfoPresenter;
 import com.wxxiaomi.ming.electricbicycle.dao.db.UserService;
@@ -28,7 +28,7 @@ import rx.functions.Action1;
  * Created by 12262 on 2016/7/2.
  */
 public class UserInfoPresenterImpl extends BasePreImpl<UserInfoView> implements UserInfoPresenter<UserInfoView> {
-    private UserCommonInfo userInfo;
+    private UserCommonInfo2 userInfo;
     private boolean isMyFriendFlag = false;
     private EditableDialog dialog;
 
@@ -57,9 +57,9 @@ public class UserInfoPresenterImpl extends BasePreImpl<UserInfoView> implements 
         Bundle bundle = intent.getBundleExtra("value");
         if(bundle==null){
             String value = intent.getStringExtra("value");
-            userInfo = new Gson().fromJson(value,UserCommonInfo.class);
+            userInfo = new Gson().fromJson(value,UserCommonInfo2.class);
         } else {
-            userInfo = (UserCommonInfo) bundle.get("userInfo");
+            userInfo = (UserCommonInfo2) bundle.get("userInfo");
         }
 //        isMyFriendFlag = UserService.getInstance().isMyFriend(userInfo.emname);
         if (isMyFriendFlag)

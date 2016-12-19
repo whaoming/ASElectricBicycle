@@ -21,6 +21,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import com.wxxiaomi.ming.electricbicycle.GlobalParams;
 import com.wxxiaomi.ming.electricbicycle.dao.db.AppDao;
 import com.wxxiaomi.ming.electricbicycle.dao.db.FriendDao;
+import com.wxxiaomi.ming.electricbicycle.dao.db.FriendDao2;
 import com.wxxiaomi.ming.electricbicycle.dao.db.InviteMessgeDao;
 import com.wxxiaomi.ming.electricbicycle.dao.db.UserDao;
 
@@ -57,16 +58,37 @@ public class DbOpenHelper extends SQLiteOpenHelper{
 			+ FriendDao.COLUMN_NAME_EMNAME + " TEXT, "
 			+ FriendDao.COLUMN_NAME_ID + " TEXT PRIMARY KEY);";
 
+	private static final String USER_FRIEND_TABLE_CREATE = "CREATE TABLE "
+			+ FriendDao2.TABLE_NAME + " ("
+			+ FriendDao2.COLUMN_NAME_HEAD + " TEXT, "
+			+ FriendDao2.COLUMN_NAME_ALBUMID + " INTEGER, "
+			+ FriendDao2.COLUMN_NAME_CITY + " TEXT, "
+			+ FriendDao2.COLUMN_NAME_COVER + " TEXT, "
+			+ FriendDao2.COLUMN_NAME_CREATETIME + " TEXT, "
+			+ FriendDao2.COLUMN_NAME_DESCRIPTION + " TEXT, "
+			+ FriendDao2.COLUMN_NAME_EMNAME + " TEXT, "
+			+ FriendDao2.COLUMN_NAME_NAME + " TEXT, "
+			+ FriendDao2.COLUMN_NAME_SEX + " INTEGER, "
+			+ FriendDao2.COLUMN_NAME_UPDATETIME + " TEXT, "
+			+ FriendDao2.COLUMN_NAME_ID + " INTEGER PRIMARY KEY);";
+
 
 	private static final String USER_RECORD_TABLE_CREATE = "CREATE TABLE "
 			+ AppDao.TABLE_NAME + " ("
 			+ AppDao.COLUMN_NAME_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
 			+ AppDao.COLUMN_NAME_USERNAME + " TEXT, "
 			+ AppDao.COLUMN_NAME_PASSWORD + " TEXT, "
-			+ AppDao.COLUMN_NAME_INFO_ID + " INTEGER, "
-			+ AppDao.COLUMN_NAME_INFO_EMNAME + " INTEGER, "
-			+ AppDao.COLUMN_NAME_INFO_HEAD + " INTEGER, "
-			+ AppDao.COLUMN_NAME_INFO_NAME + " TEXT); ";
+			+ AppDao.COLUMN_NAME_UPDATETIME + " TEXT, "
+			+ AppDao.COLUMN_NAME_SEX + " INTEGER, "
+			+ AppDao.COLUMN_NAME_NAME + " TEXT, "
+			+ AppDao.COLUMN_NAME_HEAD + " TEXT, "
+			+ AppDao.COLUMN_NAME_ALBUMID + " INTEGER, "
+			+ AppDao.COLUMN_NAME_CITY + " TEXT, "
+			+ AppDao.COLUMN_NAME_COVER + " TEXT, "
+			+ AppDao.COLUMN_NAME_CREATETIME + " TEXT, "
+			+ AppDao.COLUMN_NAME_DESCRIPTION + " TEXT, "
+			+ AppDao.COLUMN_NAME_EMNAME + " TEXT, "
+			+ AppDao.COLUMN_NAME_INFO_ID + " TEXT); ";
 	
 	
 //			
@@ -99,7 +121,7 @@ public class DbOpenHelper extends SQLiteOpenHelper{
 	
 	private static String getUserDatabaseName() {
 //        return  DemoHelper.getInstance().getCurrentUsernName() + "_demo.db";
-		return GlobalParams.username+".db";
+		return "demo.db";
     }
 	
 	@Override
@@ -108,6 +130,7 @@ public class DbOpenHelper extends SQLiteOpenHelper{
 		db.execSQL(INIVTE_MESSAGE_TABLE_CREATE);
 		db.execSQL(TEMP_USERNAME_TABLE_CREATE);
 		db.execSQL(USER_RECORD_TABLE_CREATE);
+		db.execSQL(USER_FRIEND_TABLE_CREATE);
 //		db.execSQL(CREATE_PREF_TABLE);
 //		db.execSQL(ROBOT_TABLE_CREATE);
 		

@@ -25,6 +25,19 @@ public class HttpMethodsTest {
         RxUnitTestTools.openRxTools();
     }
     @org.junit.Test
+    public void testUpdateUserFriend(){
+        Map<String,String> pars = new HashMap<>();
+        pars.put("name","Mr.M");
+        pars.put("head","asdasdsa");
+        HttpMethods.getInstance().updateuserFriend(pars)
+                .subscribe(new Action1<List<UserCommonInfo>>() {
+                    @Override
+                    public void call(List<UserCommonInfo> userCommonInfos) {
+
+                    }
+                });
+    }
+    @org.junit.Test
     public void testUpdateUserInfo(){
         Map<String,String> pars = new HashMap<>();
         UserCommonInfo info = new UserCommonInfo();

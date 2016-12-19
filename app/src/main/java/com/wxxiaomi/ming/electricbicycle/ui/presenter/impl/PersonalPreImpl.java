@@ -33,7 +33,7 @@ public class PersonalPreImpl extends BasePreImpl<PersonaView> implements Persona
     @Override
     public void onViewResume() {
         super.onViewResume();
-        ImgShower.showHead(mView.getContext(), mView.getHeadView(), GlobalManager.getInstance().getUser().userCommonInfo.head);
+        ImgShower.showHead(mView.getContext(), mView.getHeadView(), GlobalManager.getInstance().getUser().userCommonInfo.avatar);
         mView.setViewData(GlobalManager.getInstance().getUser().userCommonInfo);
     }
 

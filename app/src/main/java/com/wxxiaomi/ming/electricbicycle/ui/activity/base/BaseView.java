@@ -9,9 +9,10 @@ import android.os.Bundle;
  *
  * 初级视图接口
  */
-public interface BaseView<T> {
+public interface BaseView {
+
     void runActivity(Class clazz, Bundle bundle, boolean isFinish);
-    T getPresenter();
+//    T getPresenter();
     Context getContext();
     void buildAlertDialog(String okk,DialogInterface.OnClickListener okkLis
             ,String cancelMsg, DialogInterface.OnClickListener cancelLis

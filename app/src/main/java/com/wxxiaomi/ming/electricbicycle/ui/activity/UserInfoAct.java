@@ -11,8 +11,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.wxxiaomi.ming.electricbicycle.R;
-import com.wxxiaomi.ming.electricbicycle.ui.weight.custom.FullyLinearLayoutManager;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo2;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.base.BaseActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.UserInfoPresenter;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.impl.UserInfoPresenterImpl;
@@ -24,7 +23,7 @@ import com.wxxiaomi.ming.electricbicycle.ui.weight.pull2refreshreview.footer.Def
  * Created by whaoming on 2016/7/3.
  * 用户信息页面
  */
-public class UserInfoAct extends BaseActivity<UserInfoView, UserInfoPresenter> implements UserInfoView<UserInfoPresenter> {
+public class UserInfoAct extends BaseActivity<UserInfoView, UserInfoPresenter> implements UserInfoView{
 
     private Toolbar toolbar1;
     private FloatingActionButton btn_add;
@@ -101,7 +100,7 @@ public class UserInfoAct extends BaseActivity<UserInfoView, UserInfoPresenter> i
     }
 
     @Override
-    public void setViewData(UserCommonInfo info) {
+    public void setViewData(UserCommonInfo2 info) {
         //toolbar.setTitle(info.name);
     }
 

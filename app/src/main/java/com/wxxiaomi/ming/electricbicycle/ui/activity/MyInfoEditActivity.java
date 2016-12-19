@@ -47,9 +47,9 @@ public class MyInfoEditActivity extends AppCompatActivity implements View.OnClic
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         userHead = (ImageView) findViewById(R.id.userHead);
         userHead.setOnClickListener(this);
-        ImgShower.showHead(this,userHead, GlobalManager.getInstance().getUser().userCommonInfo.head);
+        ImgShower.showHead(this,userHead, GlobalManager.getInstance().getUser().userCommonInfo.avatar);
         util = new PhotoTakeUtil(this);
-        et_username.setText(GlobalManager.getInstance().getUser().userCommonInfo.name);
+        et_username.setText(GlobalManager.getInstance().getUser().userCommonInfo.nickname);
         et_description.setText("唯有努力，才能看起来毫不费力");
     }
 
@@ -82,7 +82,7 @@ public class MyInfoEditActivity extends AppCompatActivity implements View.OnClic
         if(tmpHeadUrl!=null){
             head = tmpHeadUrl;
         }else{
-            head = GlobalManager.getInstance().getUser().userCommonInfo.head;
+            head = GlobalManager.getInstance().getUser().userCommonInfo.avatar;
         }
         name = et_username.getText().toString().trim();
         emname = GlobalManager.getInstance().getUser().userCommonInfo.emname;

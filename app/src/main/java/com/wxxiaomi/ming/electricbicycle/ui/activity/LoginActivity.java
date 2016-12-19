@@ -19,7 +19,7 @@ import com.wxxiaomi.ming.electricbicycle.ui.activity.view.LoginView;
  * 登陆页面
  * @author Mr.W
  */
-public class LoginActivity extends BaseActivity<LoginView,LoginPresenter> implements LoginView<LoginPresenter> {
+public class LoginActivity extends BaseActivity<LoginView,LoginPresenter> implements LoginView {
 
 	private TextInputLayout til_username;
 	private TextInputLayout til_password;

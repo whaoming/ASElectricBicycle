@@ -12,7 +12,7 @@ public class User implements Serializable{
 	public int id;
 	public String username;
 	public String password;
-	public UserCommonInfo userCommonInfo;
+	public UserCommonInfo2 userCommonInfo;
 	
 
 

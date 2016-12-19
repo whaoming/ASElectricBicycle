@@ -4,7 +4,7 @@ import android.util.Log;
 
 import com.wxxiaomi.ming.electricbicycle.ConstantValue;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.User;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo2;
 import com.wxxiaomi.ming.electricbicycle.support.baidumap.LocationUtil;
 
 /**
@@ -15,7 +15,7 @@ import com.wxxiaomi.ming.electricbicycle.support.baidumap.LocationUtil;
 public class GlobalManager {
 
     private User user;
-    private UserCommonInfo userInfo;
+    private UserCommonInfo2 userInfo;
 
     private static GlobalManager INSTANCE;
 
@@ -30,13 +30,13 @@ public class GlobalManager {
         return INSTANCE;
     }
 
-    public void savaUserInfo(UserCommonInfo info){
+    public void savaUserInfo(UserCommonInfo2 info){
         this.userInfo = info;
     }
 
     public void updateUserHead(String path){
         if(user!=null){
-            user.userCommonInfo.head = ConstantValue.SERVER_URL + path;
+            user.userCommonInfo.avatar = ConstantValue.SERVER_URL + path;
         }
     }
 
@@ -54,7 +54,7 @@ public class GlobalManager {
 
     public String getUserCurrentInfo(){
         String result = "{\"userid\":\""+getUser().userCommonInfo.id+"\"" +
-                        ",\"name\":\""+getUser().userCommonInfo.name+"\"" +
+                        ",\"name\":\""+getUser().userCommonInfo.nickname+"\"" +
                         ",\"locat\":\""+ LocationUtil.getInstance().getLocat()+"\"" +
                         ",\"locat_tag\":\""+LocationUtil.getInstance().getLocatTag()+"\"}";
         return result;

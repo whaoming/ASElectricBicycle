@@ -1,7 +1,7 @@
 package com.wxxiaomi.ming.electricbicycle.dao.db;
 
 import com.wxxiaomi.ming.electricbicycle.dao.bean.User;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo2;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.UserLocatInfo;
 
 import java.util.List;
@@ -25,14 +25,14 @@ public interface UserDao {
      * @param emname
      * @return
      */
-    Observable<UserCommonInfo> getUserByEnameFWeb(String emname);
+    Observable<UserCommonInfo2> getUserByEnameFWeb(String emname);
 
     /**
      * 根据emname集合从服务器获取用户公共信息集合
      * @param usernames
      * @return
      */
-    Observable<List<UserCommonInfo>> getUserListFromWeb(List<String> usernames);
+    Observable<List<UserCommonInfo2>> getUserListFromWeb(List<String> usernames);
 
     /**
      * 从服务器获取附近的人
@@ -63,14 +63,14 @@ public interface UserDao {
      * @param emname
      * @return
      */
-    Observable<UserCommonInfo> getUserLocal(String emname);
+    Observable<UserCommonInfo2> getUserLocal(String emname);
 
     /**
      * 根据名称从服务器获取用户公共信息
      * @param name
      * @return
      */
-    Observable<List<UserCommonInfo>> getUserCommonInfoByName(String name);
+    Observable<List<UserCommonInfo2>> getUserCommonInfo2ByName(String name);
 
     /**
      * 注册一个用户
@@ -87,6 +87,6 @@ public interface UserDao {
      */
     Observable<String> upLoadHead(String fileName,String filePath);
 
-    Observable<UserCommonInfo> InsertUser(UserCommonInfo info);
+    Observable<UserCommonInfo2> InsertUser(UserCommonInfo2 info);
 
 }

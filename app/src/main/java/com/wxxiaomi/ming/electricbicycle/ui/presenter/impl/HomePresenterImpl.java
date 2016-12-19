@@ -21,7 +21,7 @@ import com.baidu.mapapi.map.MyLocationConfiguration;
 import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.model.LatLng;
 import com.wxxiaomi.ming.electricbicycle.ConstantValue;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo2;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.UserLocatInfo;
 import com.wxxiaomi.ming.electricbicycle.support.easemob.common.EmConstant;
 import com.wxxiaomi.ming.electricbicycle.support.easemob.EmHelper2;
@@ -64,7 +64,7 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
     /**
      * 当前所点击的附近的人的信息
      */
-    private UserCommonInfo currentNearPerson;
+    private UserCommonInfo2 currentNearPerson;
     private List<UserLocatInfo> userLocatList;
     private LocalBroadcastManager broadcastManager;
     private BroadcastReceiver broadcastReceiver;
@@ -133,7 +133,7 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
     @Override
     public void onMakerClick(Marker marker) {
         int zIndex = marker.getZIndex();
-        UserCommonInfo tempUser = userLocatList.get(zIndex).userCommonInfo;
+        UserCommonInfo2 tempUser = userLocatList.get(zIndex).userCommonInfo;
         Log.i("wang",tempUser.toString());
         boolean isSame = (currentNearPerson == tempUser);
         currentNearPerson = tempUser;
@@ -142,8 +142,8 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
 
     @Override
     public void adapterNerarView(CircularImageView imageView, TextView tv_name, TextView tv_description) {
-        ImgShower.showHead(mView.getContext(),imageView,currentNearPerson.head);
-        tv_name.setText(currentNearPerson.name);
+        ImgShower.showHead(mView.getContext(),imageView,currentNearPerson.avatar);
+        tv_name.setText(currentNearPerson.nickname);
         tv_description.setText("生活就像海洋,只有意志坚定的人才能到彼岸");
     }
 
@@ -231,9 +231,9 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
 
     @Override
     public void onViewResume() {
-        mView.getTvNameView().setText(GlobalManager.getInstance().getUser().userCommonInfo.name);
+        mView.getTvNameView().setText(GlobalManager.getInstance().getUser().userCommonInfo.nickname);
         //还要更新控件
-        ImgShower.showHead(mView.getContext(),mView.getHeadView(),GlobalManager.getInstance().getUser().userCommonInfo.head);
+        ImgShower.showHead(mView.getContext(),mView.getHeadView(),GlobalManager.getInstance().getUser().userCommonInfo.avatar);
         updateUnreadLabel();
         EmHelper2.getInstance().setMessageListener(new EmHelper2.MyMessageListener() {
             @Override

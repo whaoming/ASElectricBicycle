@@ -8,7 +8,7 @@ import com.wxxiaomi.ming.electricbicycle.ui.activity.base.BaseView;
 /**
  * Created by 12262 on 2016/5/28.
  */
-public interface SlpashView<T extends BasePre> extends BaseView<T> {
+public interface SlpashView extends BaseView {
     /**
      * 跳转到注册页面
      */

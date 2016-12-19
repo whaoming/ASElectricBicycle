@@ -5,7 +5,7 @@ package com.wxxiaomi.ming.electricbicycle.dao.bean;
  */
 
 public class UserLocatInfo {
-    public UserCommonInfo userCommonInfo;
+    public UserCommonInfo2 userCommonInfo;
     public double[] point;
 
     public int id;

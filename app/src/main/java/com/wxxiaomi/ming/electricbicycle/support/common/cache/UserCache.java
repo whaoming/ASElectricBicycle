@@ -1,6 +1,7 @@
 package com.wxxiaomi.ming.electricbicycle.support.common.cache;
 
-import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo;
+
+import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo2;
 
 import java.util.List;
 
@@ -20,7 +21,7 @@ public class UserCache {
         return INSTANCE;
     }
 
-    public void init(List<UserCommonInfo> infos){
+    public void init(List<UserCommonInfo2> infos){
 
     }
 }

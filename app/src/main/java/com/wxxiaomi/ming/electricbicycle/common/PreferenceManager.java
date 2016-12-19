@@ -33,6 +33,7 @@ public class PreferenceManager {
 
     private String LONGTOKEN = "long_token";
     private String SHORTTOKEN = "short_token";
+    private String USERID = "userid";
     private PreferenceManager(Context context){
 //        context.getPreferenceManager();
 //        context.g
@@ -93,5 +94,14 @@ public class PreferenceManager {
 
     public String getShortToken(){
         return mSharedPreferences.getString(SHORTTOKEN,"");
+    }
+
+    public void savaUserID(int userid){
+        editor.putInt(USERID,userid);
+        editor.apply();
+    }
+
+    public int getUserId(){
+        return  mSharedPreferences.getInt(USERID,0);
     }
 }

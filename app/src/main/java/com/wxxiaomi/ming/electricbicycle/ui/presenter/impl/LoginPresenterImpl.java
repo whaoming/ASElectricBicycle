@@ -15,7 +15,14 @@ import com.wxxiaomi.ming.electricbicycle.common.rx.SampleProgressObserver;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.view.LoginView;
 import com.wxxiaomi.ming.electricbicycle.common.util.MyUtils;
 
+import java.util.List;
+
+import rx.Observable;
+import rx.Observer;
 import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Action1;
+import rx.functions.Func1;
+import rx.schedulers.Schedulers;
 
 
 /**
@@ -24,10 +31,10 @@ import rx.android.schedulers.AndroidSchedulers;
  */
 public class LoginPresenterImpl extends BasePreImpl<LoginView> implements LoginPresenter<LoginView> {
     UniqueUtil util;
+
     @Override
     public void init() {
         util = new UniqueUtil(mView.getContext());
-
     }
 
     private boolean checkFormat(TextInputLayout strLayout) {
@@ -60,20 +67,20 @@ public class LoginPresenterImpl extends BasePreImpl<LoginView> implements LoginP
                     .trim();
             String password = til_password.getEditText().getText().toString()
                     .trim();
-           sendRequest(username,password);
+            sendRequest(username, password);
 
         }
     }
 
     private void sendRequest(String username, String password) {
         String uniqueID = util.getUniqueID();
-        UserService.getInstance().Login(username, password,ConstantValue.isEMOpen,uniqueID)
+        UserService.getInstance().HandLogin(username, password,ConstantValue.isEMOpen,uniqueID)
+                .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new SampleProgressObserver<Integer>(mView.getContext()) {
                     @Override
                     public void onNext(Integer integer) {
-                        Log.i("wang","integer:"+integer);
-//                        AppManager.getAppManager().finishActivity(RegisterActivity.class);
+                        AppManager.getAppManager().finishActivity(RegisterActivity.class);
                         mView.runActivity(HomeActivity.class, null, true);
                     }
                 });
@@ -81,7 +88,7 @@ public class LoginPresenterImpl extends BasePreImpl<LoginView> implements LoginP
 
     @Override
     public void onDebugBtnClick() {
-        sendRequest("122627018","987987987");
+        sendRequest("122627018", "987987987");
     }
 
 

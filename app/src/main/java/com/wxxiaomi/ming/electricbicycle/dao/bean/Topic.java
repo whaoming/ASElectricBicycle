@@ -6,7 +6,7 @@ import java.util.Date;
 
 public class Topic {
 	public int id;
-	public UserCommonInfo userCommonInfo;
+	public UserCommonInfo2 userCommonInfo;
 	public String content;
 	public String time;
 	public String pics;
