@@ -10,6 +10,7 @@ import android.support.multidex.MultiDex;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.hyphenate.easeui.controller.EaseUI;
 import com.wxxiaomi.ming.electricbicycle.ConstantValue;
 import com.wxxiaomi.ming.electricbicycle.EBApplication;
 import com.wxxiaomi.ming.electricbicycle.api.HttpMethods;
@@ -20,6 +21,7 @@ import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.common.util.SharedPreferencesUtils;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.support.easemob.EmHelper2;
+import com.wxxiaomi.ming.electricbicycle.support.easemob.provider.MyUserProvider;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.HomeActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.RegisterActivity;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.User;
@@ -107,6 +109,23 @@ public class SplashActivity extends Activity {
      * GlobalManager.getInstance().savaUser(user);
      */
     private void autoLogin() {
+        String longToken = PreferenceManager.getInstance().getLongToken();
+        if(!"".equals(longToken)){
+                UserService.getInstance().AutoLogin()
+                        .subscribe(new Action1<Integer>() {
+                            @Override
+                            public void call(Integer integer) {
+                                isLogin = true;
+                                loadToMemory();
+                                Log.i("wang", "本地更新好友个数:" + integer);
+                                Log.i("wang", "自动登陆成功");
+                            }
+                        });
+
+        }else{
+            isLogin = false;
+            order.countDown();
+        }
 //        String ltoken = (String) SharedPreferencesUtils.getParam(EBApplication.applicationContext, ConstantValue.LONGTOKEN, "");
 //        Log.i("wang", "从本地取得的ltoken：" + ltoken);
 //        if (!"".equals(ltoken)) {
@@ -179,7 +198,7 @@ public class SplashActivity extends Activity {
 //                        @Override
 //                        public void call(Integer integer) {
 //                            isLogin = true;
-                            order.countDown();
+
 //                        }
 //                    })
 //            ;
@@ -193,22 +212,30 @@ public class SplashActivity extends Activity {
 
     }
 
+    private void loadToMemory() {
+        //将程序需要的东西加载到内存中
+        //将好友信息加载到内存中
+        loadFriendToM();
+    }
+
+    private void loadFriendToM() {
+        EmHelper2.getInstance().openUserCache(UserService.getInstance().getEFriends());
+    }
+
 
     /**
      * 初始化各类参数 决定程序往哪里走
      */
     private void init() {
-
-
         handler.sendEmptyMessage(1);
         new Thread() {
             @Override
             public void run() {
                 MultiDex.install(getApplicationContext());
-                DiskCache.getInstance().open(getApplicationContext());
+                DiskCache.getInstance().open(EBApplication.applicationContext);
                 handler.sendEmptyMessage(2);
                 OssEngine.getInstance().initOssEngine(getApplicationContext());
-                PreferenceManager.init(getApplicationContext());
+
                 handler.sendEmptyMessage(3);
                 handler.sendEmptyMessage(4);
                 order.countDown();

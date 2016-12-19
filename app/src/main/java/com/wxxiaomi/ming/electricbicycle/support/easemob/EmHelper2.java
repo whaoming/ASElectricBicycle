@@ -23,6 +23,7 @@ import com.wxxiaomi.ming.electricbicycle.api.exception.ApiException;
 import com.wxxiaomi.ming.electricbicycle.api.exception.ERROR;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.InviteMessage;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo2;
 import com.wxxiaomi.ming.electricbicycle.dao.db.InviteMessgeDao;
 import com.wxxiaomi.ming.electricbicycle.dao.db.UserService;
 import com.wxxiaomi.ming.electricbicycle.dao.db.impl.InviteMessgeDaoImpl;
@@ -92,7 +93,7 @@ public class EmHelper2 {
         }
     }
 
-    public void openUserCache(List<UserCommonInfo> infos){
+    public void openUserCache(List<UserCommonInfo2> infos){
         myUserProvider.initCache(infos);
     }
 
@@ -363,6 +364,9 @@ public class EmHelper2 {
         });
     }
 
+    public EaseUI.EaseUserProfileProvider getEmUserProvider(){
+        return easeUI.getUserProfileProvider();
+    }
 
     /**
      * 发起好友申请
@@ -390,8 +394,6 @@ public class EmHelper2 {
                 ;
 
     }
-
-    ;
 
     /**
      * 从em服务器拉取好友列表

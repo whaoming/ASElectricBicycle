@@ -7,20 +7,21 @@ import com.google.gson.Gson;
 import com.wxxiaomi.ming.electricbicycle.EBApplication;
 import com.wxxiaomi.ming.electricbicycle.api.HttpMethods;
 import com.wxxiaomi.ming.electricbicycle.common.GlobalManager;
+import com.wxxiaomi.ming.electricbicycle.common.PreferenceManager;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.Comment;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.Option;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.Topic;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.User;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo2;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.UserLocatInfo;
 
 import com.wxxiaomi.ming.electricbicycle.dao.constant.OptionType;
-import com.wxxiaomi.ming.electricbicycle.dao.db.impl.AppDaoImpl;
+import com.wxxiaomi.ming.electricbicycle.dao.db.impl.*;
+import com.wxxiaomi.ming.electricbicycle.dao.db.impl.FriendDaoImpl2;
 import com.wxxiaomi.ming.electricbicycle.support.aliyun.OssEngine;
 import com.wxxiaomi.ming.electricbicycle.support.easemob.EmHelper2;
 import com.wxxiaomi.ming.electricbicycle.support.common.cache.LRUCache;
-import com.wxxiaomi.ming.electricbicycle.dao.db.impl.FriendDaoImpl;
-import com.wxxiaomi.ming.electricbicycle.dao.db.impl.UserDaoImpl;
 
 
 import java.util.HashMap;
@@ -43,10 +44,12 @@ public class UserService {
     private FriendDao friendDao;
     private static UserService INSTANCE;
     static LRUCache<UserCommonInfo> userCache = new LRUCache<>(8);
+    private FriendDao2 friendDao2;
 
     private UserService() {
         userDao = new UserDaoImpl(EBApplication.applicationContext);
         friendDao = new FriendDaoImpl(EBApplication.applicationContext);
+        friendDao2 = new FriendDaoImpl2(EBApplication.applicationContext);
     }
 
     ;
@@ -184,6 +187,16 @@ public class UserService {
         return friendDao.getFriendList();
     }
 
+    /**
+     * 从数据库获取好友列表
+     *
+     * @return
+     */
+    public List<UserCommonInfo2> getEFriends() {
+        return friendDao2.getEFriends();
+    }
+
+
     public Observable<UserCommonInfo> getFriendInfoByEmname(final String emname) {
         return friendDao.getFriendInfoByEmname(emname);
     }
@@ -284,6 +297,89 @@ public class UserService {
                             return Observable.just(0);
                         }
                         return UpdateFriendList(strings);
+                    }
+                });
+    }
+
+    public List<UserCommonInfo2> getUserFriends(){
+        return friendDao2.getFriendList();
+    }
+
+    public Observable<Integer> HandLogin(String username, String password, boolean isEmOpen,String uniqueNum) {
+
+        final FriendDao2 dao2 = new FriendDaoImpl2(EBApplication.applicationContext);
+        //登陆服务器
+        return  Login(username, password,uniqueNum)
+                .flatMap(new Func1<User, Observable<Boolean>>() {
+                    @Override
+                    public Observable<Boolean> call(User user) {
+                        GlobalManager.getInstance().savaUser(user);
+                        //存到数据库
+                        AppDao dao = new AppDaoImpl(EBApplication.applicationContext);
+                        dao.savaUser(user);
+                        return EmHelper2.getInstance().LoginFromEm(user.username, user.password);
+                    }
+                })
+                //从服务器获取好友列表
+                .flatMap(new Func1<Boolean, Observable<List<String>>>() {
+                    @Override
+                    public Observable<List<String>> call(Boolean aBoolean) {
+                        return EmHelper2.getInstance().getContactFromEm();
+                    }
+                })
+                //对比本地数据库，得出键值对
+                .map(new Func1<List<String>, String>() {
+                    @Override
+                    public String call(List<String> strings) {
+                        if(strings.size()==0){
+                            return "";
+                        }
+                        return dao2.getErrorFriend(strings);
+                    }
+                })
+                //链接服务器对比
+                .flatMap(new Func1<String, Observable<List<UserCommonInfo2>>>() {
+                    @Override
+                    public Observable<List<UserCommonInfo2>> call(String s) {
+                        return HttpMethods.getInstance().updateuserFriend2(s);
+                    }
+                })
+                //得到最新的好友列表
+                .map(new Func1<List<UserCommonInfo2>, Integer>() {
+                    @Override
+                    public Integer call(List<UserCommonInfo2> userCommonInfo2s) {
+                        dao2.updateFriendsList(userCommonInfo2s);
+                        return userCommonInfo2s.size();
+                    }
+                });
+    }
+
+    public Observable<Integer> AutoLogin(){
+
+        return EmHelper2.getInstance().getContactFromEm()
+                //对比本地数据库，得出键值对
+                .map(new Func1<List<String>, String>() {
+                    @Override
+                    public String call(List<String> strings) {
+                        if(strings.size()==0){
+                            return "";
+                        }
+                        return friendDao2.getErrorFriend(strings);
+                    }
+                })
+                //链接服务器对比
+                .flatMap(new Func1<String, Observable<List<UserCommonInfo2>>>() {
+                    @Override
+                    public Observable<List<UserCommonInfo2>> call(String s) {
+                        return HttpMethods.getInstance().updateuserFriend2(s);
+                    }
+                })
+                //得到最新的好友列表
+                .map(new Func1<List<UserCommonInfo2>, Integer>() {
+                    @Override
+                    public Integer call(List<UserCommonInfo2> userCommonInfo2s) {
+                        friendDao2.updateFriendsList(userCommonInfo2s);
+                        return userCommonInfo2s.size();
                     }
                 });
     }

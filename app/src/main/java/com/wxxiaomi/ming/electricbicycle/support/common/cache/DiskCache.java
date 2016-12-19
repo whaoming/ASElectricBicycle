@@ -313,7 +313,11 @@ public class DiskCache {
         String cachePath;
         if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())
                 || !Environment.isExternalStorageRemovable()) {
-            cachePath = context.getExternalCacheDir().getPath();
+            try {
+                cachePath = context.getExternalCacheDir().getPath();
+            }catch (Exception e){
+                cachePath = context.getCacheDir().getPath();
+            }
         } else {
             cachePath = context.getCacheDir().getPath();
         }

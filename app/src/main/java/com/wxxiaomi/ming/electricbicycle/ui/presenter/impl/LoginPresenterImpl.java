@@ -11,7 +11,9 @@ import com.wxxiaomi.ming.electricbicycle.common.util.UniqueUtil;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo2;
 import com.wxxiaomi.ming.electricbicycle.dao.db.FriendDao;
+import com.wxxiaomi.ming.electricbicycle.dao.db.FriendDao2;
 import com.wxxiaomi.ming.electricbicycle.dao.db.impl.FriendDaoImpl;
+import com.wxxiaomi.ming.electricbicycle.dao.db.impl.FriendDaoImpl2;
 import com.wxxiaomi.ming.electricbicycle.support.easemob.EmHelper2;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.RegisterActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.base.BasePreImpl;
@@ -82,44 +84,16 @@ public class LoginPresenterImpl extends BasePreImpl<LoginView> implements LoginP
 
     private void sendRequest(String username, String password) {
         String uniqueID = util.getUniqueID();
-//        UserService.getInstance().Login(username, password,ConstantValue.isEMOpen,uniqueID)
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .subscribe(new SampleProgressObserver<Integer>(mView.getContext()) {
-//                    @Override
-//                    public void onNext(Integer integer) {
-//                        Log.i("wang","integer:"+integer);
-////                        AppManager.getAppManager().finishActivity(RegisterActivity.class);
-//                        mView.runActivity(HomeActivity.class, null, true);
-//                    }
-//                });
-       final  FriendDao friendDao = new FriendDaoImpl(EBApplication.applicationContext);
-        EmHelper2.getInstance().LoginFromEm("122627018", "987987987")
-                .flatMap(new Func1<Boolean, Observable<List<String>>>() {
+        UserService.getInstance().HandLogin(username, password,ConstantValue.isEMOpen,uniqueID)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new SampleProgressObserver<Integer>(mView.getContext()) {
                     @Override
-                    public Observable<List<String>> call(Boolean aBoolean) {
-                        return EmHelper2.getInstance().getContactFromEm();
-                    }
-                })
-                .map(new Func1<List<String>, String>() {
-
-                    @Override
-                    public String call(List<String> strings) {
-                        return friendDao.getErrorFriend(strings);
-                    }
-                }).flatMap(new Func1<String, Observable<List<UserCommonInfo2>>>() {
-            @Override
-            public Observable<List<UserCommonInfo2>> call(String s) {
-                return HttpMethods.getInstance().updateuserFriend2(s);
-            }
-        })
-        .subscribeOn(Schedulers.io())
-                .observeOn(Schedulers.io())
-                .subscribe(new Action1<List<UserCommonInfo2>>() {
-                    @Override
-                    public void call(List<UserCommonInfo2> userCommonInfos) {
-                        for(UserCommonInfo2 info : userCommonInfos){
-                            Log.i("wang","info:"+info.toString());
-                        }
+                    public void onNext(Integer integer) {
+                        Log.i("wang","更新了"+integer+"个好友");
+                        EmHelper2.getInstance().openUserCache(UserService.getInstance().getEFriends());
+                        AppManager.getAppManager().finishActivity(RegisterActivity.class);
+                        mView.runActivity(HomeActivity.class, null, true);
                     }
                 });
     }
