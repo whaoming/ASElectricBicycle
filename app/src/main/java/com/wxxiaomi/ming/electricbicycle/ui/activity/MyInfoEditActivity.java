@@ -3,6 +3,8 @@ package com.wxxiaomi.ming.electricbicycle.ui.activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -31,8 +33,14 @@ public class MyInfoEditActivity extends AppCompatActivity implements View.OnClic
     private ImageView userHead;
     private PhotoTakeUtil util;
     private String tmpHeadUrl;
-    private EditText et_username;
+    private EditText et_nickname;
     private EditText et_description;
+    private EditText et_city;
+
+    String head = null;
+    String name = null;
+    String description = null;
+    String city = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +48,7 @@ public class MyInfoEditActivity extends AppCompatActivity implements View.OnClic
         setContentView(R.layout.activity_my_info_edit);
         toolbar = (Toolbar) this.findViewById(R.id.toolbar);
         toolbar.setTitle("编辑个人信息");
-        et_username  = (EditText) findViewById(R.id.et_username);
+        et_nickname  = (EditText) findViewById(R.id.et_nickname);
         et_description = (EditText) findViewById(R.id.et_description);
         setSupportActionBar(toolbar);
         getSupportActionBar().setHomeButtonEnabled(true); // 设置返回键可用
@@ -49,8 +57,72 @@ public class MyInfoEditActivity extends AppCompatActivity implements View.OnClic
         userHead.setOnClickListener(this);
         ImgShower.showHead(this,userHead, GlobalManager.getInstance().getUser().userCommonInfo.avatar);
         util = new PhotoTakeUtil(this);
-        et_username.setText(GlobalManager.getInstance().getUser().userCommonInfo.nickname);
-        et_description.setText("唯有努力，才能看起来毫不费力");
+        et_nickname.setText(GlobalManager.getInstance().getUser().userCommonInfo.nickname);
+        et_description.setText(GlobalManager.getInstance().getUser().userCommonInfo.description);
+        et_city = (EditText) findViewById(R.id.et_city);
+        et_city.setText(GlobalManager.getInstance().getUser().userCommonInfo.city);
+        et_city.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if(!editable.toString().equals(GlobalManager.getInstance().getUser().userCommonInfo.city)){
+                    city = editable.toString();
+                }else{
+                    city = null;
+                }
+
+            }
+        });
+        et_description.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if(!editable.toString().equals(GlobalManager.getInstance().getUser().userCommonInfo.description)){
+                    description = editable.toString();
+                }else{
+                    description = null;
+                }
+            }
+        });
+        et_nickname.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if(!editable.toString().equals(GlobalManager.getInstance().getUser().userCommonInfo.nickname)){
+                    name = editable.toString();
+                }else{
+                    name = null;
+                }
+            }
+        });
+
     }
 
     @Override
@@ -58,6 +130,8 @@ public class MyInfoEditActivity extends AppCompatActivity implements View.OnClic
         getMenuInflater().inflate(R.menu.menu_act_info_edit, menu);//加载menu文件到布局
         return true;
     }
+
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -76,17 +150,14 @@ public class MyInfoEditActivity extends AppCompatActivity implements View.OnClic
      * 提交按钮点击事件
      */
     private void onSumbitBtnClick() {
-        String head;
-        String name;
-        String emname;
+
         if(tmpHeadUrl!=null){
             head = tmpHeadUrl;
-        }else{
-            head = GlobalManager.getInstance().getUser().userCommonInfo.avatar;
         }
-        name = et_username.getText().toString().trim();
-        emname = GlobalManager.getInstance().getUser().userCommonInfo.emname;
-        UserService.getInstance().updateUserInfo(name,head,emname)
+        if(head==null&&name==null&&description==null&&city==null){
+            finish();
+        }
+        UserService.getInstance().updateUserInfo(name,head,description,city)
                 .subscribeOn(Schedulers.io())
                 .subscribe(new SampleProgressObserver<Integer>(this) {
                     @Override
@@ -94,20 +165,6 @@ public class MyInfoEditActivity extends AppCompatActivity implements View.OnClic
                         finish();
                     }
                 });
-//        Map<String,String> pars = new HashMap<>();
-//        pars.put("name",name);
-//        pars.put("head",head);
-//        pars.put("emname",emname);
-//        HttpMethods.getInstance().updateUserInfo(pars)
-//                .subscribeOn(Schedulers.io())
-//                .subscribe(new SampleProgressObserver<String>(this) {
-//                    @Override
-//                    public void onNext(String s) {
-//                        Log.i("wang","result:"+s);
-//                        //更新本地数据库
-//                    }
-//                });
-
     }
 
     private void onHeadClick() {
@@ -137,4 +194,23 @@ public class MyInfoEditActivity extends AppCompatActivity implements View.OnClic
                 break;
         }
     }
+
+//    class MyTextChangListener implements TextWatcher {
+//
+//        @Override
+//        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+//
+//        }
+//
+//        @Override
+//        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+//
+//        }
+//
+//        @Override
+//        public void afterTextChanged(Editable editable) {
+//
+//        }
+//    }
+
 }

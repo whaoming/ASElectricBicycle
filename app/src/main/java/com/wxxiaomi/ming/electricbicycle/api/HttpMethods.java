@@ -82,7 +82,6 @@ public class HttpMethods {
                     String long_token = response.header("long_token");
                     if(long_token!=null){
                         Log.i("wang","发现long_token");
-//                        SharedPreferencesUtils.setParam(EBApplication.applicationContext,ConstantValue.LONGTOKEN,long_token);
                         PreferenceManager.getInstance().savaLongToken(long_token);
                     }
                     return response;
@@ -149,7 +148,7 @@ public class HttpMethods {
     public Observable<String> updateUserInfo(Map<String,String> pars){
         return demoService.updateUserInfo(pars)
                 .map(new ServerResultFunc<String>())
-//                .retryWhen(new TokenOutTime(3,1))
+                .retryWhen(new TokenOutTime(3,1))
                 .onErrorResumeNext(new Func1<Throwable, Observable<? extends String>>() {
                     @Override
                     public Observable<? extends String> call(Throwable throwable) {
@@ -298,6 +297,7 @@ public class HttpMethods {
     public Observable<List<UserCommonInfo2>> updateuserFriend2(String friends){
         return demoService.updateUserFriend3(friends)
                 .map(new ServerResultFunc<List<UserCommonInfo2>>())
+                .retryWhen(new TokenOutTime(3,1))
                 .onErrorResumeNext(new HttpResultFunc<List<UserCommonInfo2>>())
                 .subscribeOn(Schedulers.io())
                 ;
@@ -309,7 +309,6 @@ public class HttpMethods {
         @Override
         public T call(Result<T> httpResult) {
             Log.i("wang","HttpMethods->ServerResultFunc,httpResult==null?"+(httpResult==null));
-//            Log.i("wang","httpResult.toString()="+httpResult.toString());
             if(httpResult==null){
                 throw new ServerException(404, "获取结构为空");
             }else if(httpResult.state == 401){

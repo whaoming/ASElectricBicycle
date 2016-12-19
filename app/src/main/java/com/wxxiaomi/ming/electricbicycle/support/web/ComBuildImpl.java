@@ -17,7 +17,7 @@ import com.github.lzyzsd.jsbridge.CallBackFunction;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.wxxiaomi.ming.electricbicycle.api.WebMethods;
-import com.wxxiaomi.ming.electricbicycle.support.common.cache.CacheEngine;
+import com.wxxiaomi.ming.electricbicycle.support.common.cache.ImgCacheProvider;
 import com.wxxiaomi.ming.electricbicycle.common.GlobalManager;
 import com.wxxiaomi.ming.electricbicycle.common.util.ParsMakeUtil;
 import com.wxxiaomi.ming.webmodule.action.dialog.AlertAction;
@@ -101,7 +101,7 @@ public abstract class ComBuildImpl extends BuilderDetail {
         final WebResourceResponse[] response = {null};
         path = url.replace("http://localhost","");
         Log.i("wang","path:"+path);
-        CacheEngine.getInstance().getImage(path)
+        ImgCacheProvider.getInstance().getImage(path)
                 .subscribe(new Action1<byte[]>() {
                     @Override
                     public void call(byte[] bytes) {

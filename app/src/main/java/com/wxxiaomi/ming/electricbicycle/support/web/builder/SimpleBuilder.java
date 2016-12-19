@@ -19,7 +19,7 @@ import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.api.WebMethods;
 import com.wxxiaomi.ming.electricbicycle.support.web.ComBuildImpl;
 import com.wxxiaomi.ming.electricbicycle.support.aliyun.OssEngine;
-import com.wxxiaomi.ming.electricbicycle.support.common.cache.CacheEngine;
+import com.wxxiaomi.ming.electricbicycle.support.common.cache.ImgCacheProvider;
 import com.wxxiaomi.ming.electricbicycle.support.img.PhotoTakeUtil;
 import com.wxxiaomi.ming.electricbicycle.common.util.ParsMakeUtil;
 import com.wxxiaomi.ming.electricbicycle.common.util.ToolUtils;
@@ -180,7 +180,7 @@ public class SimpleBuilder extends ComBuildImpl {
         Log.i("wang", "action:" + action);
         if (imgDatas != null) {
             OssEngine.getInstance().initOssEngine(context.getApplicationContext());
-            CacheEngine.getInstance().getImages_Zip(imgDatas)
+            ImgCacheProvider.getInstance().getImages_Zip(imgDatas)
                     .flatMap(new Func1<List<byte[]>, Observable<List<String>>>() {
                         @Override
                         public Observable<List<String>> call(List<byte[]> bytes) {

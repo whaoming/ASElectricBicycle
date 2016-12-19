@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.multidex.MultiDex;
-import android.widget.TextView;
 
 import com.wxxiaomi.ming.electricbicycle.EBApplication;
 import com.wxxiaomi.ming.electricbicycle.common.util.AppManager;
@@ -16,7 +15,7 @@ import com.wxxiaomi.ming.electricbicycle.ui.activity.HomeActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.RegisterActivity;
 import com.wxxiaomi.ming.electricbicycle.dao.db.UserService;
 import com.wxxiaomi.ming.electricbicycle.support.aliyun.OssEngine;
-import com.wxxiaomi.ming.electricbicycle.support.common.cache.DiskCache;
+import com.wxxiaomi.ming.electricbicycle.support.common.cache.base.DiskCache;
 
 import java.util.concurrent.CountDownLatch;
 

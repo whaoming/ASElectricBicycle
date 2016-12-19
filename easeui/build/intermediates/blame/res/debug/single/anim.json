@@ -4,32 +4,24 @@
         "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\anim\\head_out.xml"
     },
     {
-        "merged": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\anim\\push_bottom_in.xml",
-        "source": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\src\\main\\res\\anim\\push_bottom_in.xml"
+        "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\anim\\slide_in_from_left.xml",
+        "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\anim\\slide_in_from_left.xml"
     },
     {
-        "merged": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\anim\\head_in.xml",
-        "source": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\src\\main\\res\\anim\\head_in.xml"
+        "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\anim\\push_top_in.xml",
+        "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\anim\\push_top_in.xml"
     },
     {
-        "merged": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\anim\\slide_in_from_left.xml",
-        "source": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\src\\main\\res\\anim\\slide_in_from_left.xml"
-    },
-    {
-        "merged": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\anim\\slide_out_to_right.xml",
-        "source": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\src\\main\\res\\anim\\slide_out_to_right.xml"
+        "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\anim\\slide_out_to_right.xml",
+        "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\anim\\slide_out_to_right.xml"
     },
     {
         "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\anim\\push_top_in2.xml",
         "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\anim\\push_top_in2.xml"
     },
     {
-        "merged": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\anim\\head_out.xml",
-        "source": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\src\\main\\res\\anim\\head_out.xml"
-    },
-    {
-        "merged": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\anim\\hold.xml",
-        "source": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\src\\main\\res\\anim\\hold.xml"
+        "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\anim\\fade_in.xml",
+        "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\anim\\fade_in.xml"
     },
     {
         "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\anim\\hold.xml",
@@ -40,76 +32,8 @@
         "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\anim\\fade_out.xml"
     },
     {
-        "merged": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\anim\\fade_in.xml",
-        "source": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\src\\main\\res\\anim\\fade_in.xml"
-    },
-    {
-        "merged": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\anim\\push_bottom_out.xml",
-        "source": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\src\\main\\res\\anim\\push_bottom_out.xml"
-    },
-    {
-        "merged": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\anim\\push_top_in2.xml",
-        "source": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\src\\main\\res\\anim\\push_top_in2.xml"
-    },
-    {
-        "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\anim\\slide_in_from_right.xml",
-        "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\anim\\slide_in_from_right.xml"
-    },
-    {
-        "merged": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\anim\\slide_out_to_left.xml",
-        "source": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\src\\main\\res\\anim\\slide_out_to_left.xml"
-    },
-    {
-        "merged": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\anim\\fade_out.xml",
-        "source": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\src\\main\\res\\anim\\fade_out.xml"
-    },
-    {
-        "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\anim\\push_top_out.xml",
-        "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\anim\\push_top_out.xml"
-    },
-    {
-        "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\anim\\voice_from_icon.xml",
-        "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\anim\\voice_from_icon.xml"
-    },
-    {
-        "merged": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\anim\\push_top_out.xml",
-        "source": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\src\\main\\res\\anim\\push_top_out.xml"
-    },
-    {
-        "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\anim\\slide_in_from_left.xml",
-        "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\anim\\slide_in_from_left.xml"
-    },
-    {
-        "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\anim\\push_top_in.xml",
-        "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\anim\\push_top_in.xml"
-    },
-    {
-        "merged": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\anim\\voice_to_icon.xml",
-        "source": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\src\\main\\res\\anim\\voice_to_icon.xml"
-    },
-    {
-        "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\anim\\slide_out_to_right.xml",
-        "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\anim\\slide_out_to_right.xml"
-    },
-    {
-        "merged": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\anim\\push_top_in.xml",
-        "source": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\src\\main\\res\\anim\\push_top_in.xml"
-    },
-    {
-        "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\anim\\fade_in.xml",
-        "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\anim\\fade_in.xml"
-    },
-    {
         "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\anim\\slide_out_to_left.xml",
         "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\anim\\slide_out_to_left.xml"
-    },
-    {
-        "merged": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\anim\\slide_in_from_right.xml",
-        "source": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\src\\main\\res\\anim\\slide_in_from_right.xml"
-    },
-    {
-        "merged": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\anim\\push_top_out2.xml",
-        "source": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\src\\main\\res\\anim\\push_top_out2.xml"
     },
     {
         "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\anim\\voice_to_icon.xml",
@@ -118,6 +42,10 @@
     {
         "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\anim\\head_in.xml",
         "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\anim\\head_in.xml"
+    },
+    {
+        "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\anim\\slide_in_from_right.xml",
+        "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\anim\\slide_in_from_right.xml"
     },
     {
         "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\anim\\push_bottom_out.xml",
@@ -132,7 +60,11 @@
         "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\anim\\push_bottom_in.xml"
     },
     {
-        "merged": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\anim\\voice_from_icon.xml",
-        "source": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\src\\main\\res\\anim\\voice_from_icon.xml"
+        "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\anim\\push_top_out.xml",
+        "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\anim\\push_top_out.xml"
+    },
+    {
+        "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\anim\\voice_from_icon.xml",
+        "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\anim\\voice_from_icon.xml"
     }
 ]

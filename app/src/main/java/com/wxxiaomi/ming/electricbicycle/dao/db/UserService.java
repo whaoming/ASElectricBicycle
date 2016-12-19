@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 import com.wxxiaomi.ming.electricbicycle.EBApplication;
+import com.wxxiaomi.ming.electricbicycle.GlobalParams;
 import com.wxxiaomi.ming.electricbicycle.api.HttpMethods;
 import com.wxxiaomi.ming.electricbicycle.common.GlobalManager;
 import com.wxxiaomi.ming.electricbicycle.common.PreferenceManager;
@@ -20,7 +21,7 @@ import com.wxxiaomi.ming.electricbicycle.dao.db.impl.*;
 import com.wxxiaomi.ming.electricbicycle.dao.db.impl.FriendDaoImpl2;
 import com.wxxiaomi.ming.electricbicycle.support.aliyun.OssEngine;
 import com.wxxiaomi.ming.electricbicycle.support.easemob.EmHelper2;
-import com.wxxiaomi.ming.electricbicycle.support.common.cache.LRUCache;
+import com.wxxiaomi.ming.electricbicycle.support.common.cache.base.LRUCache;
 
 
 import java.util.HashMap;
@@ -373,7 +374,8 @@ public class UserService {
 
     public Observable<Integer> AutoLogin(){
         //自动登陆：先从本地取出之前存的user,判断user是否为空,空就要求重新登陆
-        Log.i("wang","从数据库里存的userid："+PreferenceManager.getInstance().getUserId());
+        GlobalParams.token = PreferenceManager.getInstance().getShortToken();
+        Log.i("wang","从数据库里存的userid："+PreferenceManager.getInstance().getUserId()+",从本地取出来的短token:"+GlobalParams.token);
         User localUser = appDao.getLocalUser(PreferenceManager.getInstance().getUserId());
         if(localUser==null){
             Log.i("wang","从数据库取不到user");
@@ -416,17 +418,44 @@ public class UserService {
 
     }
 
-    public Observable<Integer> updateUserInfo(final String name, final String head, final String emname){
+    public Observable<Integer> updateUserInfo(final String name, final String head, final String description,final String city){
         Map<String,String> pars = new HashMap<>();
-        pars.put("name",name);
-        pars.put("head",head);
-        pars.put("emname",emname);
+        if(name!=null){
+            pars.put("nickname",name);
+        }
+        if(head!=null){
+            pars.put("avatar",head);
+        }
+
+        if(description!=null){
+            pars.put("description",description);
+        }
+       if(city!=null){
+           pars.put("city",city);
+       }
         return HttpMethods.getInstance().updateUserInfo(pars)
                 .map(new Func1<String, Integer>() {
                     @Override
                     public Integer call(String s) {
-                        GlobalManager.getInstance().getUser().userCommonInfo.nickname = name;
-                        GlobalManager.getInstance().getUser().userCommonInfo.avatar = head;
+                        if(name!=null){
+//                            pars.put("nickname",name);
+                            GlobalManager.getInstance().getUser().userCommonInfo.nickname = name;
+                        }
+                        if(head!=null){
+//                            pars.put("avatar",head);
+                            Log.i("wang","head:"+head);
+                            GlobalManager.getInstance().getUser().userCommonInfo.avatar = head;
+                        }
+
+                        if(description!=null){
+//                            pars.put("description",description);
+                            GlobalManager.getInstance().getUser().userCommonInfo.description = description;
+                        }
+                        if(city!=null){
+                            GlobalManager.getInstance().getUser().userCommonInfo.city = city;
+                        }
+//                        GlobalManager.getInstance().getUser().userCommonInfo.nickname = name;
+//                        GlobalManager.getInstance().getUser().userCommonInfo.avatar = head;
                         return 1;
                     }
                 }).map(new Func1<Integer, Integer>() {
@@ -434,9 +463,6 @@ public class UserService {
                     public Integer call(Integer integer) {
                         AppDao dao = new AppDaoImpl(EBApplication.applicationContext);
                         UserCommonInfo2 userCommonInfo = GlobalManager.getInstance().getUser().userCommonInfo;
-                        userCommonInfo.avatar = head;
-                        userCommonInfo.nickname = name;
-
                         return dao.updateUserInfo(userCommonInfo);
                     }
                 });

@@ -19,7 +19,7 @@ import com.wxxiaomi.ming.electricbicycle.dao.db.impl.AppDaoImpl;
 import com.wxxiaomi.ming.electricbicycle.dao.db.impl.FriendDaoImpl2;
 import com.wxxiaomi.ming.electricbicycle.dao.db.impl.UserDaoImpl;
 import com.wxxiaomi.ming.electricbicycle.support.aliyun.OssEngine;
-import com.wxxiaomi.ming.electricbicycle.support.common.cache.DiskCache;
+import com.wxxiaomi.ming.electricbicycle.support.common.cache.base.DiskCache;
 import com.wxxiaomi.ming.electricbicycle.support.easemob.EmHelper2;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.RegisterActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.base.BaseView;

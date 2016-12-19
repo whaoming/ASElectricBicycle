@@ -27,6 +27,7 @@ import com.wxxiaomi.ming.electricbicycle.dao.db.InviteMessgeDao;
 import com.wxxiaomi.ming.electricbicycle.dao.db.UserService;
 import com.wxxiaomi.ming.electricbicycle.dao.db.impl.InviteMessgeDaoImpl;
 import com.wxxiaomi.ming.electricbicycle.dao.db.impl.InviteMessgeDaoImpl2;
+import com.wxxiaomi.ming.electricbicycle.support.common.cache.UserCacheProvider;
 import com.wxxiaomi.ming.electricbicycle.support.easemob.common.EmConstant;
 import com.wxxiaomi.ming.electricbicycle.support.easemob.provider.MySettingProvider;
 import com.wxxiaomi.ming.electricbicycle.support.easemob.provider.MyUserProvider;
@@ -93,7 +94,7 @@ public class EmHelper2 {
     }
 
     public void openUserCache(List<UserCommonInfo2> infos){
-        myUserProvider.initCache(infos);
+        UserCacheProvider.getInstance().initCache(infos);
     }
 
     private void setEaseUIProviders() {

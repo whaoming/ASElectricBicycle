@@ -75,7 +75,7 @@ public class DbOpenHelper extends SQLiteOpenHelper{
 
 	private static final String USER_RECORD_TABLE_CREATE = "CREATE TABLE "
 			+ AppDao.TABLE_NAME + " ("
-			+ AppDao.COLUMN_NAME_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+			+ AppDao.COLUMN_NAME_ID + " INTEGER, "
 			+ AppDao.COLUMN_NAME_USERNAME + " TEXT, "
 			+ AppDao.COLUMN_NAME_PASSWORD + " TEXT, "
 			+ AppDao.COLUMN_NAME_UPDATETIME + " TEXT, "

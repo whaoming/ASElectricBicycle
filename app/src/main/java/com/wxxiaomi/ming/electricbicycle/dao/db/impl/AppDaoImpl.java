@@ -112,7 +112,6 @@ public class AppDaoImpl implements AppDao {
         SQLiteDatabase db = helper.getWritableDatabase();
         if (db.isOpen()) {
             ContentValues values = new ContentValues();
-            values.put(AppDao.COLUMN_NAME_ID, user.id);
             values.put(AppDao.COLUMN_NAME_ALBUMID, user.album_id);
             values.put(AppDao.COLUMN_NAME_CITY, user.city);
             values.put(AppDao.COLUMN_NAME_COVER, user.cover);
