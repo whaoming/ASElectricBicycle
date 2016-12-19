@@ -74,7 +74,7 @@ public class ContactActivity extends BaseActivity<ContactView,ContactPresenter> 
         tabLayout.setTabMode(TabLayout.MODE_FIXED);
         viewPager = (ViewPager) findViewById(R.id.vp_FindFragment_pager);
         toolbar = (Toolbar) this.findViewById(R.id.toolbar1);
-        toolbar.setTitle(GlobalManager.getInstance().getUser().userCommonInfo.name);
+        toolbar.setTitle(GlobalManager.getInstance().getUser().userCommonInfo.nickname);
         setSupportActionBar(toolbar);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

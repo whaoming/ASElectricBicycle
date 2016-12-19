@@ -6,14 +6,14 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.wxxiaomi.ming.electricbicycle.dao.bean.User;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo2;
 import com.wxxiaomi.ming.electricbicycle.dao.db.AppDao;
 import com.wxxiaomi.ming.electricbicycle.dao.db.util.DbOpenHelper;
 
 /**
  * Created by Administrator on 2016/12/12.
+ * appdao
  */
-
 public class AppDaoImpl implements AppDao {
 
 
@@ -32,28 +32,49 @@ public class AppDaoImpl implements AppDao {
                             AppDao.COLUMN_NAME_USERNAME
                             ,AppDao.COLUMN_NAME_PASSWORD
                             ,AppDao.COLUMN_NAME_INFO_ID
-                            , AppDao.COLUMN_NAME_INFO_EMNAME
-                            , AppDao.COLUMN_NAME_INFO_HEAD
-                            , AppDao.COLUMN_NAME_INFO_NAME},
+                            ,AppDao.COLUMN_NAME_ALBUMID
+                            ,AppDao.COLUMN_NAME_CITY
+                            ,AppDao.COLUMN_NAME_COVER
+                            ,AppDao.COLUMN_NAME_CREATETIME
+                            ,AppDao.COLUMN_NAME_DESCRIPTION
+                            ,AppDao.COLUMN_NAME_EMNAME
+                            ,AppDao.COLUMN_NAME_HEAD
+                            ,AppDao.COLUMN_NAME_ID
+                            ,AppDao.COLUMN_NAME_NAME
+                            ,AppDao.COLUMN_NAME_SEX
+                            ,AppDao.COLUMN_NAME_UPDATETIME
+                           },
                     AppDao.COLUMN_NAME_INFO_ID + "=?", new String[]{userid + ""}, null, null, null);
             if (cursor.moveToNext()) {
-//                int uid = cursor.getInt(cursor.getColumnIndex(AppDao.));
                 String username = cursor.getString(cursor.getColumnIndex(AppDao.COLUMN_NAME_USERNAME));
                 String password = cursor.getString(cursor.getColumnIndex(AppDao.COLUMN_NAME_PASSWORD));
                 int id = cursor.getInt(cursor.getColumnIndex(AppDao.COLUMN_NAME_INFO_ID));
-                String name = cursor.getString(cursor.getColumnIndex(AppDao.COLUMN_NAME_INFO_NAME));
-                String head = cursor.getString(cursor.getColumnIndex(AppDao.COLUMN_NAME_INFO_HEAD));
-                String emname = cursor.getString(cursor.getColumnIndex(AppDao.COLUMN_NAME_INFO_EMNAME));
-                UserCommonInfo info = new UserCommonInfo();
-                info.name = name;
+                int album_id = cursor.getInt(cursor.getColumnIndex(AppDao.COLUMN_NAME_ALBUMID));
+                String city = cursor.getString(cursor.getColumnIndex(AppDao.COLUMN_NAME_CITY));
+                String cover = cursor.getString(cursor.getColumnIndex(AppDao.COLUMN_NAME_COVER));
+                String create_time = cursor.getString(cursor.getColumnIndex(AppDao.COLUMN_NAME_CREATETIME));
+                String description = cursor.getString(cursor.getColumnIndex(AppDao.COLUMN_NAME_DESCRIPTION));
+                String emname = cursor.getString(cursor.getColumnIndex(AppDao.COLUMN_NAME_EMNAME));
+                String avatar = cursor.getString(cursor.getColumnIndex(AppDao.COLUMN_NAME_HEAD));
+                String nickname = cursor.getString(cursor.getColumnIndex(AppDao.COLUMN_NAME_NAME));
+                int sex = cursor.getInt(cursor.getColumnIndex(AppDao.COLUMN_NAME_SEX));
+                String update_time = cursor.getString(cursor.getColumnIndex(AppDao.COLUMN_NAME_UPDATETIME));
+                UserCommonInfo2 info = new UserCommonInfo2();
+                info.city = city;
                 info.id = id;
                 info.emname = emname;
-                info.head = head;
+                info.cover = cover;
+                info.create_time = create_time;
+                info.description = description;
+                info.avatar = avatar;
+                info.nickname = nickname;
+                info.sex = sex;
+                info.update_time = update_time;
+                info.album_id = album_id;
                 User user = new User();
                 user.userCommonInfo = info;
                 user.username = username;
                 user.password = password;
-
                 return user;
             }
         }
@@ -61,30 +82,49 @@ public class AppDaoImpl implements AppDao {
     }
 
     @Override
-    public boolean savaUser(User user) {
+    public boolean savaUser(User usr) {
         SQLiteDatabase db = helper.getWritableDatabase();
         if (db.isOpen()) {
+            UserCommonInfo2 user = usr.userCommonInfo;
             ContentValues values = new ContentValues();
-            values.put(AppDao.COLUMN_NAME_INFO_EMNAME, user.userCommonInfo.emname);
-            values.put(AppDao.COLUMN_NAME_INFO_HEAD, user.userCommonInfo.head);
-            values.put(AppDao.COLUMN_NAME_INFO_ID, user.userCommonInfo.id);
-            values.put(AppDao.COLUMN_NAME_INFO_NAME, user.userCommonInfo.name);
-            values.put(AppDao.COLUMN_NAME_PASSWORD, user.password);
-            values.put(AppDao.COLUMN_NAME_USERNAME, user.username);
+            values.put(AppDao.COLUMN_NAME_INFO_ID, user.id);
+            values.put(AppDao.COLUMN_NAME_ALBUMID, user.album_id);
+            values.put(AppDao.COLUMN_NAME_CITY, user.city);
+            values.put(AppDao.COLUMN_NAME_COVER, user.cover);
+            values.put(AppDao.COLUMN_NAME_CREATETIME, user.create_time);
+            values.put(AppDao.COLUMN_NAME_DESCRIPTION, user.description);
+            values.put(AppDao.COLUMN_NAME_EMNAME, user.emname);
+            values.put(AppDao.COLUMN_NAME_HEAD, user.avatar);
+            values.put(AppDao.COLUMN_NAME_NAME, user.nickname);
+            values.put(AppDao.COLUMN_NAME_SEX, user.sex);
+            values.put(AppDao.COLUMN_NAME_UPDATETIME, user.update_time);
+
+            values.put(AppDao.COLUMN_NAME_USERNAME, usr.username);
+            values.put(AppDao.COLUMN_NAME_PASSWORD, usr.password);
+            values.put(AppDao.COLUMN_NAME_ID, usr.id);
             db.replace(AppDao.TABLE_NAME, null, values);
         }
         return true;
     }
 
     @Override
-    public Integer updateUserInfo(String name, String head,String emname) {
+    public Integer updateUserInfo(UserCommonInfo2 user) {
         SQLiteDatabase db = helper.getWritableDatabase();
         if (db.isOpen()) {
-            ContentValues updatedValues = new ContentValues();
-            updatedValues.put(AppDao.COLUMN_NAME_INFO_NAME, name);
-            updatedValues.put(AppDao.COLUMN_NAME_INFO_HEAD, head);
-            String where = AppDao.COLUMN_NAME_INFO_EMNAME + "=" + emname;
-            db.update(AppDao.TABLE_NAME, updatedValues, where, null);
+            ContentValues values = new ContentValues();
+            values.put(AppDao.COLUMN_NAME_ID, user.id);
+            values.put(AppDao.COLUMN_NAME_ALBUMID, user.album_id);
+            values.put(AppDao.COLUMN_NAME_CITY, user.city);
+            values.put(AppDao.COLUMN_NAME_COVER, user.cover);
+            values.put(AppDao.COLUMN_NAME_CREATETIME, user.create_time);
+            values.put(AppDao.COLUMN_NAME_DESCRIPTION, user.description);
+            values.put(AppDao.COLUMN_NAME_EMNAME, user.emname);
+            values.put(AppDao.COLUMN_NAME_HEAD, user.avatar);
+            values.put(AppDao.COLUMN_NAME_NAME, user.nickname);
+            values.put(AppDao.COLUMN_NAME_SEX, user.sex);
+            values.put(AppDao.COLUMN_NAME_UPDATETIME, user.update_time);
+            String where = AppDao.COLUMN_NAME_INFO_ID + "=" + user.id;
+            db.update(AppDao.TABLE_NAME, values, where, null);
         }
         return 1;
     }

@@ -2,7 +2,7 @@ package com.wxxiaomi.ming.electricbicycle.ui.presenter.impl;
 
 import android.os.Bundle;
 
-import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo2;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.UserLocatInfo;
 
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.base.BasePreImpl;
@@ -59,9 +59,9 @@ public class FriendAddPresenterImpl extends BasePreImpl<FriendAddView> implement
     @Override
     public void onFindClick(String name) {
         UserService.getInstance().getUserByNameFWeb(name)
-                .subscribe(new SampleProgressObserver<List<UserCommonInfo>>(mView.getContext()) {
+                .subscribe(new SampleProgressObserver<List<UserCommonInfo2>>(mView.getContext()) {
                     @Override
-                    public void onNext(List<UserCommonInfo> initUserInfo) {
+                    public void onNext(List<UserCommonInfo2> initUserInfo) {
                         Bundle bundle = new Bundle();
                         bundle.putSerializable("userInfo", initUserInfo.get(0));
                         mView.runActivity(UserInfoAct.class,bundle,false);

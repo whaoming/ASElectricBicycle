@@ -8,7 +8,7 @@ import android.util.Log;
 
 import com.wxxiaomi.ming.electricbicycle.api.HttpMethods;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.User;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo2;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.UserLocatInfo;
 
 import com.wxxiaomi.ming.electricbicycle.dao.db.UserDao;
@@ -38,20 +38,18 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public Observable<UserCommonInfo> getUserByEnameFWeb(String emname) {
-        Log.i("wang", "UserDaoImpl->getUserByEnameFWeb(emname),emname:" + emname);
-        return HttpMethods.getInstance().getUserCommonInfoByEmname(emname)
-                .flatMap(new Func1<List<UserCommonInfo>, Observable<UserCommonInfo>>() {
+    public Observable<UserCommonInfo2> getUserByEnameFWeb(String emname) {
+        return HttpMethods.getInstance().getUserCommonInfo2ByEmname(emname)
+                .flatMap(new Func1<List<UserCommonInfo2>, Observable<UserCommonInfo2>>() {
                     @Override
-                    public Observable<UserCommonInfo> call(List<UserCommonInfo> initUserInfo) {
-                        Log.i("wang","getUserByEnameFWeb:"+initUserInfo.get(0).toString());
+                    public Observable<UserCommonInfo2> call(List<UserCommonInfo2> initUserInfo) {
                         return Observable.just(initUserInfo.get(0));
                     }
                 });
     }
 
     @Override
-    public Observable<List<UserCommonInfo>> getUserListFromWeb(List<String> usernames) {
+    public Observable<List<UserCommonInfo2>> getUserListFromWeb(List<String> usernames) {
         return HttpMethods.getInstance().getUserListByEmList(usernames);
     }
 
@@ -84,11 +82,10 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public Observable<UserCommonInfo> getUserLocal(final String emname) {
-        Log.i("wang", "getUserLocal->info:" + emname);
-        return Observable.create(new Observable.OnSubscribe<UserCommonInfo>() {
+    public Observable<UserCommonInfo2> getUserLocal(final String emname) {
+        return Observable.create(new Observable.OnSubscribe<UserCommonInfo2>() {
             @Override
-            public void call(Subscriber<? super UserCommonInfo> subscriber) {
+            public void call(Subscriber<? super UserCommonInfo2> subscriber) {
                 SQLiteDatabase db = helper.getReadableDatabase();
                 if (db.isOpen()) {
                     Cursor cursor = db.query(UserDao.TABLE_NAME
@@ -100,11 +97,11 @@ public class UserDaoImpl implements UserDao {
                         String name = cursor.getString(cursor.getColumnIndex(UserDao.COLUMN_NAME_NAME));
                         String emname1 = cursor.getString(cursor.getColumnIndex(UserDao.COLUMN_NAME_EMNAME));
                         String head = cursor.getString(cursor.getColumnIndex(UserDao.COLUMN_NAME_HEAD));
-                        UserCommonInfo info = new UserCommonInfo();
+                        UserCommonInfo2 info = new UserCommonInfo2();
                         info.id = id;
                         info.emname = emname1;
-                        info.head = head;
-                        info.name = name;
+                        info.avatar = head;
+                        info.nickname = name;
                         Log.i("wang", "getUserLocal->info:" + info.toString());
                         subscriber.onNext(info);
                     }else{
@@ -121,14 +118,10 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public Observable<List<UserCommonInfo>> getUserCommonInfoByName(String name) {
-        return HttpMethods.getInstance().getUserCommonInfoByName(name);
+    public Observable<List<UserCommonInfo2>> getUserCommonInfo2ByName(String name) {
+        return HttpMethods.getInstance().getUserCommonInfo2ByName(name);
     }
 
-//    @Override
-//    public Observable<Register> registerUser(String username, String password) {
-//        return HttpMethods.getInstance().registerUser(username, password);
-//    }
 
     @Override
     public Observable<String> upLoadHead(String fileName, String filePath) {
@@ -137,17 +130,17 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public Observable<UserCommonInfo> InsertUser(final UserCommonInfo info) {
-        return Observable.create(new Observable.OnSubscribe<UserCommonInfo>() {
+    public Observable<UserCommonInfo2> InsertUser(final UserCommonInfo2 info) {
+        return Observable.create(new Observable.OnSubscribe<UserCommonInfo2>() {
             @Override
-            public void call(Subscriber<? super UserCommonInfo> subscriber) {
+            public void call(Subscriber<? super UserCommonInfo2> subscriber) {
                 SQLiteDatabase db = helper.getWritableDatabase();
                 Log.i("wang", "InsertUser->新插入的临时用户:" + info.toString());
                 ContentValues values = new ContentValues();
                 values.put(UserDao.COLUMN_NAME_ID, info.id);
-                values.put(UserDao.COLUMN_NAME_NAME, info.name);
+                values.put(UserDao.COLUMN_NAME_NAME, info.nickname);
                 values.put(UserDao.COLUMN_NAME_EMNAME, info.emname);
-                values.put(UserDao.COLUMN_NAME_HEAD, info.head);
+                values.put(UserDao.COLUMN_NAME_HEAD, info.avatar);
                 db.insert(UserDao.TABLE_NAME, null, values);
                 subscriber.onNext(info);
             }
@@ -155,27 +148,4 @@ public class UserDaoImpl implements UserDao {
         });
     }
 
-//    @Override
-//    public UserCommonInfo getUserLocalNoRx(String emname) {
-//        SQLiteDatabase db = helper.getReadableDatabase();
-//        if (db.isOpen()) {
-//            Cursor cursor = db.query(UserDao.TABLE_NAME
-//                    , new String[]{UserDao.COLUMN_NAME_ID, UserDao.COLUMN_NAME_NAME
-//                            , UserDao.COLUMN_NAME_EMNAME, UserDao.COLUMN_NAME_HEAD},
-//                    UserDao.COLUMN_NAME_EMNAME + "=?", new String[]{emname}, null, null, null);
-//            if (cursor.moveToNext()) {
-//                int id = cursor.getInt(cursor.getColumnIndex(UserDao.COLUMN_NAME_ID));
-//                String name = cursor.getString(cursor.getColumnIndex(UserDao.COLUMN_NAME_NAME));
-//                String emname1 = cursor.getString(cursor.getColumnIndex(UserDao.COLUMN_NAME_EMNAME));
-//                String head = cursor.getString(cursor.getColumnIndex(UserDao.COLUMN_NAME_HEAD));
-//                UserCommonInfo info = new UserCommonInfo();
-//                info.id = id;
-//                info.emname = emname1;
-//                info.head = head;
-//                info.name = name;
-//                return info;
-//            }
-//        }
-//        return null;
-//    }
 }

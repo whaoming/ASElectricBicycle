@@ -8,7 +8,6 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.hyphenate.easeui.controller.EaseUI;
 import com.hyphenate.easeui.domain.EaseUser;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo2;
 import com.wxxiaomi.ming.electricbicycle.dao.db.UserService;
 import com.wxxiaomi.ming.electricbicycle.common.GlobalManager;
@@ -36,8 +35,8 @@ public class MyUserProvider implements EaseUI.EaseUserProfileProvider {
             userCache.put(info.emname, user);
         }
         EaseUser user = new EaseUser(GlobalManager.getInstance().getUser().userCommonInfo.emname);
-        user.setNick(GlobalManager.getInstance().getUser().userCommonInfo.name);
-        user.setAvatar(GlobalManager.getInstance().getUser().userCommonInfo.head);
+        user.setNick(GlobalManager.getInstance().getUser().userCommonInfo.nickname);
+        user.setAvatar(GlobalManager.getInstance().getUser().userCommonInfo.avatar);
         userCache.put(user.getUsername(), user);
     }
 

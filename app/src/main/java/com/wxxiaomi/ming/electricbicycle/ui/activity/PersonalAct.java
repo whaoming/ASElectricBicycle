@@ -14,13 +14,13 @@ import android.widget.TextView;
 
 //import com.jph.takephoto.permission.PermissionManager;
 import com.wxxiaomi.ming.electricbicycle.R;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo2;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.base.BaseActivity;
 
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.PersonalPresenter;
 //import com.wxxiaomi.ming.electricbicycle.core.presenter.impl.PersonalPreImpl;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.impl.PersonalPreImpl;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.view.PersonaView;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.support.common.myglide.ImgShower;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.pull2refreshreview.PullToRefreshRecyclerView;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.pull2refreshreview.footer.DefaultLoadMoreView;
@@ -109,9 +109,9 @@ public class PersonalAct extends BaseActivity<PersonaView, PersonalPresenter> im
     }
 
     @Override
-    public void setViewData(UserCommonInfo info) {
-        collapsing_toolbar.setTitle(info.name);
-        tv_name.setText(info.name);
+    public void setViewData(UserCommonInfo2 info) {
+        collapsing_toolbar.setTitle(info.nickname);
+        tv_name.setText(info.nickname);
     }
 
     @Override

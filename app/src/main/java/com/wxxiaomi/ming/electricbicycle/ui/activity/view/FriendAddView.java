@@ -8,6 +8,6 @@ import com.wxxiaomi.ming.electricbicycle.ui.weight.adapter.NearFriendRecommendAd
 /**
  * Created by 12262 on 2016/6/15.
  */
-public interface FriendAddView<T extends BasePre> extends BaseView<T> {
+public interface FriendAddView<T extends BasePre> extends BaseView {
     void setListAdaper(NearFriendRecommendAdapter1 adapter);
 }

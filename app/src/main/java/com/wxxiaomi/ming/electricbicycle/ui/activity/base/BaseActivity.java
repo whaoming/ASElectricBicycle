@@ -17,7 +17,7 @@ import com.wxxiaomi.ming.electricbicycle.ui.presenter.base.BasePre;
  * Created by 12262 on 2016/10/18.
  * activity公共基类
  */
-public abstract class BaseActivity<V,T extends BasePre> extends AppCompatActivity implements BaseView<T>, View.OnClickListener{
+public abstract class BaseActivity<V,T extends BasePre> extends AppCompatActivity implements BaseView, View.OnClickListener{
     protected T presenter;
     protected AlertDialog dialog;
     @Override

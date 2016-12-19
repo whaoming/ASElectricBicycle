@@ -1,6 +1,6 @@
 package com.wxxiaomi.ming.electricbicycle.dao.db;
 
-import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo2;
 
 import java.util.List;
 import java.util.Map;
@@ -33,23 +33,23 @@ public interface FriendDao {
     /**
      * 保存好友列表到数据库
      */
-    int saveFriendList(List<UserCommonInfo> userList);
+    int saveFriendList(List<UserCommonInfo2> userList);
 
     /**
      * 从数据库获取好友列表
      */
-    List<UserCommonInfo> getFriendList();
+    List<UserCommonInfo2> getFriendList();
 
     /**
      * 更新数据库的好友列表
      */
-    Observable<Integer> InsertFriendList(List<UserCommonInfo> userList);
+    Observable<Integer> InsertFriendList(List<UserCommonInfo2> userList);
 
 
     /**
      * 根据emname从数据库取得某一位好友
      */
-    Observable<UserCommonInfo> getFriendInfoByEmname(String emname);
+    Observable<UserCommonInfo2> getFriendInfoByEmname(String emname);
 
     /**
      * 从数据库删除好友

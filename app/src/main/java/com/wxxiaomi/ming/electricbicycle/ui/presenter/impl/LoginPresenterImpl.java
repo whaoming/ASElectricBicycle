@@ -4,17 +4,8 @@ import android.support.design.widget.TextInputLayout;
 import android.util.Log;
 
 import com.wxxiaomi.ming.electricbicycle.ConstantValue;
-import com.wxxiaomi.ming.electricbicycle.EBApplication;
-import com.wxxiaomi.ming.electricbicycle.api.HttpMethods;
 import com.wxxiaomi.ming.electricbicycle.common.util.AppManager;
 import com.wxxiaomi.ming.electricbicycle.common.util.UniqueUtil;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo2;
-import com.wxxiaomi.ming.electricbicycle.dao.db.FriendDao;
-import com.wxxiaomi.ming.electricbicycle.dao.db.FriendDao2;
-import com.wxxiaomi.ming.electricbicycle.dao.db.impl.FriendDaoImpl;
-import com.wxxiaomi.ming.electricbicycle.dao.db.impl.FriendDaoImpl2;
-import com.wxxiaomi.ming.electricbicycle.support.easemob.EmHelper2;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.RegisterActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.base.BasePreImpl;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.HomeActivity;
@@ -44,7 +35,6 @@ public class LoginPresenterImpl extends BasePreImpl<LoginView> implements LoginP
     @Override
     public void init() {
         util = new UniqueUtil(mView.getContext());
-
     }
 
     private boolean checkFormat(TextInputLayout strLayout) {
@@ -90,8 +80,6 @@ public class LoginPresenterImpl extends BasePreImpl<LoginView> implements LoginP
                 .subscribe(new SampleProgressObserver<Integer>(mView.getContext()) {
                     @Override
                     public void onNext(Integer integer) {
-                        Log.i("wang","更新了"+integer+"个好友");
-                        EmHelper2.getInstance().openUserCache(UserService.getInstance().getEFriends());
                         AppManager.getAppManager().finishActivity(RegisterActivity.class);
                         mView.runActivity(HomeActivity.class, null, true);
                     }

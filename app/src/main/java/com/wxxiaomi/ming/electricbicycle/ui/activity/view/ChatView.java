@@ -9,7 +9,7 @@ import com.wxxiaomi.ming.electricbicycle.ui.activity.base.BaseView;
 /**
  * Created by 12262 on 2016/6/14.
  */
-public interface ChatView<T extends BasePre> extends BaseView<T> {
+public interface ChatView extends BaseView {
     RecyclerView getListView();
 //    ChatInputMenu getInputMenu();
     Intent getIntentData();

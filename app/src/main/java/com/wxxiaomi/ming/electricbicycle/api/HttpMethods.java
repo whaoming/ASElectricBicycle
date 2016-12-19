@@ -9,12 +9,10 @@ import com.wxxiaomi.ming.electricbicycle.api.exception.ExceptionEngine;
 import com.wxxiaomi.ming.electricbicycle.api.exception.ServerException;
 import com.wxxiaomi.ming.electricbicycle.api.service.DemoService;
 import com.wxxiaomi.ming.electricbicycle.common.PreferenceManager;
-import com.wxxiaomi.ming.electricbicycle.common.util.SharedPreferencesUtils;
 import com.wxxiaomi.ming.electricbicycle.common.util.UniqueUtil;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.Option;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.OptionLogs;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.User;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo2;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.UserLocatInfo;
 
@@ -77,11 +75,13 @@ public class HttpMethods {
                     Response response = chain.proceed(newRequest);
 
                     if(response.header("token")!=null){
+                        Log.i("wang","发现瘦肉汤_token");
                             GlobalParams.token = response.header("token");
                         PreferenceManager.getInstance().savaShortToken(response.header("token"));
                     }
                     String long_token = response.header("long_token");
                     if(long_token!=null){
+                        Log.i("wang","发现long_token");
 //                        SharedPreferencesUtils.setParam(EBApplication.applicationContext,ConstantValue.LONGTOKEN,long_token);
                         PreferenceManager.getInstance().savaLongToken(long_token);
                     }
@@ -119,12 +119,12 @@ public class HttpMethods {
     /**
      * 用于获取豆瓣电影Top250的数据
      */
-    public Observable<List<UserCommonInfo>> getTopMovie(String username, String password) {
+    public Observable<List<UserCommonInfo2>> getTopMovie(String username, String password) {
         return demoService.initUserInfo(username, password)
-                .map(new ServerResultFunc<List<UserCommonInfo>>())
-                .onErrorResumeNext(new Func1<Throwable, Observable<? extends List<UserCommonInfo>>>() {
+                .map(new ServerResultFunc<List<UserCommonInfo2>>())
+                .onErrorResumeNext(new Func1<Throwable, Observable<? extends List<UserCommonInfo2>>>() {
                     @Override
-                    public Observable<? extends List<UserCommonInfo>> call(Throwable throwable) {
+                    public Observable<? extends List<UserCommonInfo2>> call(Throwable throwable) {
                         return Observable.error(ExceptionEngine.handleException(throwable));
                     }
                 })
@@ -171,7 +171,7 @@ public class HttpMethods {
                 });
     }
 
-    public Observable<String> updateUserInfo3(UserCommonInfo name){
+    public Observable<String> updateUserInfo3(UserCommonInfo2 name){
         return demoService.updateUserInfo3(name)
                 .map(new ServerResultFunc<String>())
                 .onErrorResumeNext(new Func1<Throwable, Observable<? extends String>>() {
@@ -191,26 +191,26 @@ public class HttpMethods {
                 .unsubscribeOn(Schedulers.io());
     }
 
-    public Observable<List<UserCommonInfo>> getUserListByEmList(List<String> emnamelist) {
+    public Observable<List<UserCommonInfo2>> getUserListByEmList(List<String> emnamelist) {
         String temp = "";
         for (String e : emnamelist) {
             temp += e + "<>";
         }
 //        Observable.create()
         return demoService.getUserListByEmList(temp)
-                .map(new ServerResultFunc<List<UserCommonInfo>>())
+                .map(new ServerResultFunc<List<UserCommonInfo2>>())
                 .retryWhen(new TokenOutTime(3,1))
-                .onErrorResumeNext(new HttpResultFunc<List<UserCommonInfo>>())
+                .onErrorResumeNext(new HttpResultFunc<List<UserCommonInfo2>>())
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io());
     }
 
-    public Observable<List<UserCommonInfo>> getUserCommonInfoByEmname(String emname) {
+    public Observable<List<UserCommonInfo2>> getUserCommonInfo2ByEmname(String emname) {
         emname = emname + "<>";
         return demoService.getUserListByEmList(emname)
-                .map(new ServerResultFunc<List<UserCommonInfo>>())
+                .map(new ServerResultFunc<List<UserCommonInfo2>>())
                 .retryWhen(new TokenOutTime(3,1))
-                .onErrorResumeNext(new HttpResultFunc<List<UserCommonInfo>>());
+                .onErrorResumeNext(new HttpResultFunc<List<UserCommonInfo2>>());
     }
 
     public Observable<List<UserLocatInfo>> getNearByFromServer(int userid, double latitude, double longitude) {
@@ -223,11 +223,11 @@ public class HttpMethods {
                 .observeOn(AndroidSchedulers.mainThread());
     }
 
-    public Observable<List<UserCommonInfo>> getUserCommonInfoByName(String name) {
+    public Observable<List<UserCommonInfo2>> getUserCommonInfo2ByName(String name) {
         return demoService.getUserCommonInfoByName(name)
-                .map(new ServerResultFunc<List<UserCommonInfo>>())
+                .map(new ServerResultFunc<List<UserCommonInfo2>>())
                 .retryWhen(new TokenOutTime(3,1))
-                .onErrorResumeNext(new HttpResultFunc<List<UserCommonInfo>>())
+                .onErrorResumeNext(new HttpResultFunc<List<UserCommonInfo2>>())
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
@@ -287,10 +287,10 @@ public class HttpMethods {
         .onErrorResumeNext(new HttpResultFunc<String>());
     }
 
-    public Observable<List<UserCommonInfo>> updateuserFriend(String friends){
+    public Observable<List<UserCommonInfo2>> updateuserFriend(String friends){
         return demoService.updateUserFriend2(friends)
-                .map(new ServerResultFunc<List<UserCommonInfo>>())
-                .onErrorResumeNext(new HttpResultFunc<List<UserCommonInfo>>())
+                .map(new ServerResultFunc<List<UserCommonInfo2>>())
+                .onErrorResumeNext(new HttpResultFunc<List<UserCommonInfo2>>())
                 .subscribeOn(Schedulers.io())
                 ;
     }

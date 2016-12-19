@@ -111,7 +111,7 @@ public class NearFriendRecommendAdapter extends RecyclerView.Adapter<ViewHolder>
 			ItemViewHolder holder = (ItemViewHolder) viewHolder;
 			final UserLocatInfo userCommonInfo = userInfos.get(position);
 //			final UserLocatInfo userCommonInfo = userInfos.get(position);
-			holder.tv_name.setText(userCommonInfo.userCommonInfo.name);
+			holder.tv_name.setText(userCommonInfo.userCommonInfo.nickname);
 			holder.tv_reason.setText("用户描述");
 			holder.rl_item.setOnClickListener(new OnClickListener() {
 				@Override
@@ -123,7 +123,7 @@ public class NearFriendRecommendAdapter extends RecyclerView.Adapter<ViewHolder>
 					context.startActivity(intent4);
 				}
 			});
-			Glide.with(context).load(userCommonInfo.userCommonInfo.head).into(holder.iv_head);
+			Glide.with(context).load(userCommonInfo.userCommonInfo.avatar).into(holder.iv_head);
 		}else if(viewHolder instanceof OtherStateViewHolder){
 			OtherStateViewHolder holder = (OtherStateViewHolder) viewHolder;
 			if(!loadingComplete){

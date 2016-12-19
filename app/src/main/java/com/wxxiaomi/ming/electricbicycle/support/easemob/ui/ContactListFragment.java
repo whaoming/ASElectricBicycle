@@ -29,7 +29,7 @@ import com.hyphenate.easeui.domain.EaseUser;
 import com.hyphenate.easeui.ui.EaseContactListFragment;
 import com.hyphenate.util.NetUtils;
 import com.wxxiaomi.ming.electricbicycle.R;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo2;
 import com.wxxiaomi.ming.electricbicycle.dao.db.UserService;
 
 import java.util.HashMap;
@@ -104,11 +104,11 @@ public class ContactListFragment extends EaseContactListFragment {
         });
         //设置联系人数据
         Map<String, EaseUser> m = new HashMap<>();
-        List<UserCommonInfo> friendList = UserService.getInstance().getFriendList();
-        for(UserCommonInfo item:friendList){
+        List<UserCommonInfo2> friendList = UserService.getInstance().getFriendList();
+        for(UserCommonInfo2 item:friendList){
             EaseUser user = new EaseUser(item.emname);
-            user.setAvatar(item.head);
-            user.setNick(item.name);
+            user.setAvatar(item.avatar);
+            user.setNick(item.nickname);
             m.put(item.emname,user);
         }
 

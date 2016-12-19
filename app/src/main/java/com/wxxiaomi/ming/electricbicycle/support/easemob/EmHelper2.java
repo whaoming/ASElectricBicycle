@@ -22,7 +22,6 @@ import com.hyphenate.exceptions.HyphenateException;
 import com.wxxiaomi.ming.electricbicycle.api.exception.ApiException;
 import com.wxxiaomi.ming.electricbicycle.api.exception.ERROR;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.InviteMessage;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo2;
 import com.wxxiaomi.ming.electricbicycle.dao.db.InviteMessgeDao;
 import com.wxxiaomi.ming.electricbicycle.dao.db.UserService;
@@ -334,7 +333,6 @@ public class EmHelper2 {
                                     EMClient.getInstance().groupManager().loadAllGroups();
                                     EMClient.getInstance().chatManager()
                                             .loadAllConversations();
-                                    Log.i("wang", "登陆em服务器成功");
                                     EMClient.getInstance().updateCurrentUserNick(
                                             username);
                                     subscriber.onNext(true);
@@ -434,9 +432,9 @@ public class EmHelper2 {
                     Log.i("wang", "emengine同意好友申请,emname:" + emname);
                     EMClient.getInstance().contactManager().acceptInvitation(emname);
                     UserService.getInstance().getUserInfoByEname(emname)
-                            .subscribe(new Action1<UserCommonInfo>() {
+                            .subscribe(new Action1<UserCommonInfo2>() {
                                 @Override
-                                public void call(UserCommonInfo userCommonInfo) {
+                                public void call(UserCommonInfo2 userCommonInfo) {
                                     Log.i("wang", "EmEngine->agreeInvite->userCommonInfo：" + userCommonInfo);
                                 }
                             });
@@ -482,12 +480,12 @@ public class EmHelper2 {
         public void onContactAdded(String username) {
             Log.i("wang", "好友请求被同意");
             UserService.getInstance().getUserInfoByEname(username)
-                    .flatMap(new Func1<UserCommonInfo, Observable<Integer>>() {
+                    .flatMap(new Func1<UserCommonInfo2, Observable<Integer>>() {
                         @Override
-                        public Observable<Integer> call(UserCommonInfo userCommonInfo) {
-                            List<UserCommonInfo> list = new ArrayList<>();
+                        public Observable<Integer> call(UserCommonInfo2 userCommonInfo) {
+                            List<UserCommonInfo2> list = new ArrayList<>();
                             list.add(userCommonInfo);
-                            return UserService.getInstance().InsertFriendList(list);
+                            return UserService.getInstance().updateFriendList(list);
                         }
                     })
                     .subscribe(new Action1<Integer>() {
@@ -511,23 +509,6 @@ public class EmHelper2 {
 
         @Override
         public void onContactInvited(String username, String reason) {
-//            List<InviteMessage> msgs = inviteMessgeDao.getMessagesList();
-//
-//            for (InviteMessage inviteMessage : msgs) {
-//                if (inviteMessage.getGroupId() == null && inviteMessage.getFrom().equals(username)) {
-//                    inviteMessgeDao.deleteMessage(username);
-//                }
-//            }
-//            // save invitation as message
-//            InviteMessage msg = new InviteMessage();
-//            msg.setFrom(username);
-//            msg.setTime(System.currentTimeMillis());
-//            msg.setReason(reason);
-//            Log.d(TAG, username + "apply to be your friend,reason: " + reason);
-//            // set invitation status
-//            msg.setStatus(InviteMesageStatus.BEINVITEED);
-//            notifyNewInviteMessage(msg);
-//            broadcastManager.sendBroadcast(new Intent(Constant.ACTION_CONTACT_CHANAGED));
             final InviteMessage msg = new InviteMessage();
             msg.setFrom(username);
             msg.setTime(System.currentTimeMillis());
@@ -543,20 +524,20 @@ public class EmHelper2 {
                         }
                     });
             //从服务器获取用户公共信息并存到本地服务器
-            Observable<UserCommonInfo> userCommonInfoObservable = UserService.getInstance().getUserInfoByEname(username
+            Observable<UserCommonInfo2> userCommonInfoObservable = UserService.getInstance().getUserInfoByEname(username
             );
 
-            Observable.zip(integerObservable, userCommonInfoObservable, objectObservable2, new Func3<Integer, UserCommonInfo, Integer, UserCommonInfo>() {
+            Observable.zip(integerObservable, userCommonInfoObservable, objectObservable2, new Func3<Integer, UserCommonInfo2, Integer, UserCommonInfo2>() {
 
                 @Override
-                public UserCommonInfo call(Integer integer, UserCommonInfo userCommonInfo, Integer integer2) {
+                public UserCommonInfo2 call(Integer integer, UserCommonInfo2 userCommonInfo, Integer integer2) {
                     return userCommonInfo;
                 }
             })
                     .subscribeOn(Schedulers.io())
                     .unsubscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(new Subscriber<UserCommonInfo>() {
+                    .subscribe(new Subscriber<UserCommonInfo2>() {
                         @Override
                         public void onCompleted() {
 
@@ -569,7 +550,7 @@ public class EmHelper2 {
                         }
 
                         @Override
-                        public void onNext(UserCommonInfo userCommonInfo) {
+                        public void onNext(UserCommonInfo2 userCommonInfo) {
                             getNotifier().vibrateAndPlayTone(null);
                             broadcastManager.sendBroadcast(new Intent(EmConstant.ACTION_CONTACT_CHANAGED));
                         }

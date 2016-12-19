@@ -224,8 +224,8 @@ public abstract class ComBuildImpl extends BuilderDetail {
             @Override
             public void handler(String data, CallBackFunction function) {
                 String json = "{\"id\":\""+GlobalManager.getInstance().getUser().userCommonInfo.id
-                        +"\",\"name\":\""+GlobalManager.getInstance().getUser().userCommonInfo.name
-                        +"\",\"head\":\""+GlobalManager.getInstance().getUser().userCommonInfo.head+"\"}";
+                        +"\",\"name\":\""+GlobalManager.getInstance().getUser().userCommonInfo.nickname
+                        +"\",\"head\":\""+GlobalManager.getInstance().getUser().userCommonInfo.avatar+"\"}";
                 function.onCallBack(json);
             }
         });

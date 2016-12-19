@@ -78,10 +78,17 @@ public class DbOpenHelper extends SQLiteOpenHelper{
 			+ AppDao.COLUMN_NAME_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
 			+ AppDao.COLUMN_NAME_USERNAME + " TEXT, "
 			+ AppDao.COLUMN_NAME_PASSWORD + " TEXT, "
-			+ AppDao.COLUMN_NAME_INFO_ID + " INTEGER, "
-			+ AppDao.COLUMN_NAME_INFO_EMNAME + " INTEGER, "
-			+ AppDao.COLUMN_NAME_INFO_HEAD + " INTEGER, "
-			+ AppDao.COLUMN_NAME_INFO_NAME + " TEXT); ";
+			+ AppDao.COLUMN_NAME_UPDATETIME + " TEXT, "
+			+ AppDao.COLUMN_NAME_SEX + " INTEGER, "
+			+ AppDao.COLUMN_NAME_NAME + " TEXT, "
+			+ AppDao.COLUMN_NAME_HEAD + " TEXT, "
+			+ AppDao.COLUMN_NAME_ALBUMID + " INTEGER, "
+			+ AppDao.COLUMN_NAME_CITY + " TEXT, "
+			+ AppDao.COLUMN_NAME_COVER + " TEXT, "
+			+ AppDao.COLUMN_NAME_CREATETIME + " TEXT, "
+			+ AppDao.COLUMN_NAME_DESCRIPTION + " TEXT, "
+			+ AppDao.COLUMN_NAME_EMNAME + " TEXT, "
+			+ AppDao.COLUMN_NAME_INFO_ID + " TEXT); ";
 	
 	
 //			
