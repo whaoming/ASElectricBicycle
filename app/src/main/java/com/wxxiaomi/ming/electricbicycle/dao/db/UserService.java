@@ -194,9 +194,18 @@ public class UserService {
     }
 
 
-//    public Observable<UserCommonInfo2> getFriendInfoByEmname(final String emname) {
-//        return friendDao.getFriendInfoByEmname(emname);
-//    }
+
+    public Observable<String> upLoadUserCover(String path){
+        return HttpMethods.getInstance().upLoadUserCover(path)
+                .map(new Func1<String, String>() {
+                    @Override
+                    public String call(String s) {
+                        GlobalManager.getInstance().getUser().userCommonInfo.cover = s;
+                        appDao.updateUserInfo(GlobalManager.getInstance().getUser().userCommonInfo);
+                        return s;
+                    }
+                });
+    }
 
     public Observable<List<UserLocatInfo>> getNearPeople(int userid, double latitude, double longitude) {
         return userDao.getNearPeople(userid, latitude, longitude);
@@ -206,18 +215,6 @@ public class UserService {
         return userDao.getUserCommonInfo2ByName(name);
     }
 
-//    public Observable<User> Login(String username, String password,String num) {
-//        return userDao.Login(username, password,num);
-//    }
-
-
-//    public Observable<Register> registerUser(String username, String password) {
-//        return userDao.registerUser(username, password);
-//    }
-
-//    public boolean isMyFriend(String emname) {
-//        return friendDao.isMyFriend(emname);
-//    }
 
     public Observable<UserCommonInfo2> getUserMemoryCache(final String emname) {
         return Observable.create(new Observable.OnSubscribe<UserCommonInfo2>() {
@@ -263,44 +260,10 @@ public class UserService {
                 });
     }
 
-    public Observable<String> upLoadHeadImg(String imgPath) {
+    public Observable<String> upLoadImgToOss(String imgPath) {
         return OssEngine.getInstance().uploadImage(UUID.randomUUID().toString() + ".jpg", imgPath);
     }
 
-//    public Observable<Integer> Login(String username, String password, boolean isEmOpen,String uniqueNum) {
-//        //登陆服务器
-//        return  Login(username, password,uniqueNum)
-//                .flatMap(new Func1<User, Observable<Boolean>>() {
-//                    @Override
-//                    public Observable<Boolean> call(User user) {
-//                        GlobalManager.getInstance().savaUser(user);
-//                        //存到数据库
-//                        AppDao dao = new AppDaoImpl(EBApplication.applicationContext);
-//                        dao.savaUser(user);
-//                        return EmHelper2.getInstance().LoginFromEm(user.username, user.password);
-//                    }
-//                })
-//                //从服务器获取好友列表
-//                .flatMap(new Func1<Boolean, Observable<List<String>>>() {
-//                    @Override
-//                    public Observable<List<String>> call(Boolean aBoolean) {
-//                        return EmHelper2.getInstance().getContactFromEm();
-//                    }
-//                })
-//                .flatMap(new Func1<List<String>, Observable<Integer>>() {
-//                    @Override
-//                    public Observable<Integer> call(List<String> strings) {
-//                        if(strings.size()==0){
-//                            return Observable.just(0);
-//                        }
-//                        return UpdateFriendList(strings);
-//                    }
-//                });
-//    }
-
-//    public List<UserCommonInfo2> getUserFriends(){
-//        return friendDao2.getFriendList();
-//    }
 
 
     public Observable<Integer> updateFriendList(final List<UserCommonInfo2> userCommonInfo2s){
@@ -417,6 +380,8 @@ public class UserService {
         }
 
     }
+
+
 
     public Observable<Integer> updateUserInfo(final String name, final String head, final String description,final String city){
         Map<String,String> pars = new HashMap<>();

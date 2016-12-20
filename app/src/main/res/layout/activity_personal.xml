@@ -51,15 +51,6 @@
         </android.support.v4.widget.NestedScrollView>
     </com.wxxiaomi.ming.electricbicycle.ui.weight.pull2refreshreview.PullToRefreshRecyclerView>
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/btn_add"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:clickable="true"
-        android:layout_gravity="right|bottom"
-        android:src="@mipmap/ic_add_white_24dp"
-        app:borderWidth="0dp"
-       />
+
 
 </android.support.design.widget.CoordinatorLayout>

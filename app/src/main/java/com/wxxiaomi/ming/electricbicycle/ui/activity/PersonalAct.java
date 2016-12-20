@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 //import com.jph.takephoto.permission.PermissionManager;
@@ -32,19 +33,21 @@ import com.wxxiaomi.ming.electricbicycle.ui.weight.pull2refreshreview.footer.Def
 public class PersonalAct extends BaseActivity<PersonaView, PersonalPresenter> implements PersonaView<PersonalPresenter> {
 
     private Toolbar toolbar1;
-    private FloatingActionButton btn_add;
+//    private FloatingActionButton btn_add;
     private PullToRefreshRecyclerView mRecyclerView;
     private CollapsingToolbarLayout collapsing_toolbar;
     private ImageView iv_my_head;
     private TextView tv_name;
+    private ImageView iv_back;
+;
 
     @Override
     protected void initView(Bundle savedInstanceState) {
         setContentView(R.layout.activity_personal);
         // 标题的文字需在setSupportActionBar之前，不然会无效
-        btn_add = (FloatingActionButton) findViewById(R.id.btn_add);
-        btn_add.setOnClickListener(this);
-        btn_add.setVisibility(View.GONE);
+//        btn_add = (FloatingActionButton) findViewById(R.id.btn_add);
+//        btn_add.setOnClickListener(this);
+//        btn_add.setVisibility(View.GONE);
         mRecyclerView = (PullToRefreshRecyclerView) findViewById(R.id.mRecyclerView);
         initRefreshView();
         toolbar1 = (Toolbar) findViewById(R.id.toolbar1);
@@ -52,8 +55,9 @@ public class PersonalAct extends BaseActivity<PersonaView, PersonalPresenter> im
         toolbar1.setTitle("");
         iv_my_head = (ImageView) findViewById(R.id.iv_avatvr);
         tv_name = (TextView) findViewById(R.id.tv_nick);
-//        tv_locat = (TextView) findViewById(R.id.tv_locat);
-//        tv_description = (TextView) findViewById(R.id.tv_description);
+//        big_img = (RelativeLayout) findViewById(R.id.big_img);
+        iv_back = (ImageView) findViewById(R.id.iv_back);
+        iv_back.setOnClickListener(this);
         ImgShower.showHead(this,iv_my_head,"");
         setSupportActionBar(toolbar1);
         getSupportActionBar().setHomeButtonEnabled(true); // 设置返回键可用
@@ -77,6 +81,8 @@ public class PersonalAct extends BaseActivity<PersonaView, PersonalPresenter> im
 
     }
 
+
+
     @Override
     public PersonalPresenter getPresenter() {
         return new PersonalPreImpl();
@@ -94,12 +100,20 @@ public class PersonalAct extends BaseActivity<PersonaView, PersonalPresenter> im
     }
 
     @Override
+    public ImageView getBackImgContent() {
+        return iv_back;
+    }
+
+    @Override
     public void onClick(View v) {
         switch (v.getId())
         {
             case R.id.btn_add:
                 ///添加好友按钮
 //                presenter.onAddBtnClick();
+                break;
+            case R.id.iv_back:
+                presenter.onBackImgClick();
                 break;
         }
     }
@@ -112,7 +126,7 @@ public class PersonalAct extends BaseActivity<PersonaView, PersonalPresenter> im
 
     @Override
     public void setBtnView(Drawable drawable) {
-        btn_add.setImageDrawable(drawable);
+//        btn_add.setImageDrawable(drawable);
     }
 
     @Override

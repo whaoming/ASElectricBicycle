@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo2;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.base.BasePre;
@@ -22,4 +23,6 @@ public interface PersonaView<T extends BasePre> extends BaseView {
     ImageView getHeadView();
 
     PullToRefreshRecyclerView getListView();
+
+    ImageView getBackImgContent();
 }

@@ -18,4 +18,11 @@ public class ImgShower {
                 .placeholder(R.mipmap.noone)
                 .into(imageView);
     }
+
+    public static void showNormalImage(Context context,ImageView imageView,String path){
+        Glide.with(context)
+                .load(path)
+                .dontAnimate()
+                .into(imageView);
+    }
 }
