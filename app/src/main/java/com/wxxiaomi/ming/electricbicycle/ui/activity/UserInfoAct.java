@@ -9,6 +9,8 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo2;
@@ -29,6 +31,9 @@ public class UserInfoAct extends BaseActivity<UserInfoView, UserInfoPresenter> i
     private FloatingActionButton btn_add;
     private PullToRefreshRecyclerView mRecyclerView;
     private CollapsingToolbarLayout collapsing_toolbar;
+    private TextView tv_description;
+    private TextView tv_nick;
+    private ImageView iv_avatvr;
 
     @Override
     protected void initView(Bundle savedInstanceState) {
@@ -41,17 +46,16 @@ public class UserInfoAct extends BaseActivity<UserInfoView, UserInfoPresenter> i
         btn_add.setOnClickListener(this);
         mRecyclerView = (PullToRefreshRecyclerView) findViewById(R.id.mRecyclerView);
         initRefreshView();
-//        mRecyclerView.setLayoutManager(new FullyLinearLayoutManager(this));
-//        mRecyclerView.setNestedScrollingEnabled(false);
         toolbar1 = (Toolbar) findViewById(R.id.toolbar1);
         collapsing_toolbar = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
         toolbar1.setTitle("");
         collapsing_toolbar.setTitle("我是标题");
-
+        tv_description = (TextView) findViewById(R.id.tv_description);
+        tv_nick = (TextView) findViewById(R.id.tv_nick);
+        iv_avatvr = (ImageView) findViewById(R.id.iv_avatvr);
         setSupportActionBar(toolbar1);
-
-//        getSupportActionBar().setHomeButtonEnabled(true); // 设置返回键可用
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
     }
 
     private void initRefreshView() {

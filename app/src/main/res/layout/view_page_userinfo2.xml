@@ -1,84 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
-<RelativeLayout
-    android:id="@+id/rl_demo1"
-    android:layout_alignParentTop="true"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="#173C6F"
-    android:orientation="vertical"
-   >
-    <com.wxxiaomi.ming.electricbicycle.ui.weight.custom.CircularImageView
-        android:layout_marginTop="?attr/actionBarSize"
+
+    <RelativeLayout
+        android:id="@+id/rl_demo1"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
         android:layout_alignParentTop="true"
-        android:id="@+id/iv_my_head"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_centerInParent="true"
-         />
+        android:background="@mipmap/demo"
+        android:orientation="vertical">
+        <!--<com.wxxiaomi.ming.electricbicycle.ui.weight.custom.CircularImageView-->
+        <!--android:layout_marginTop="?attr/actionBarSize"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:id="@+id/iv_my_head"-->
+        <!--android:layout_width="100dp"-->
+        <!--android:layout_height="100dp"-->
+        <!--android:layout_centerInParent="true"-->
+        <!--/>-->
+
+        <!--<LinearLayout-->
+        <!--android:layout_marginBottom="30dp"-->
+        <!--android:id="@+id/ll_round_content"-->
+        <!--android:padding="5dp"-->
+        <!--android:layout_below="@+id/iv_my_head"-->
+        <!--android:orientation="vertical"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
+
+        <!--<TextView-->
+        <!--android:id="@+id/tv_name"-->
+        <!--android:textStyle="bold"-->
+        <!--android:padding="5dp"-->
+        <!--android:textColor="#ffffff"-->
+        <!--android:textSize="18sp"-->
+        <!--android:text="Mr.W"-->
+        <!--android:gravity="center"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content" />-->
+        <!--<TextView-->
+        <!--android:id="@+id/tv_locat"-->
+        <!--android:padding="5dp"-->
+        <!--android:textColor="#80ffffff"-->
+        <!--android:textSize="12sp"-->
+        <!--android:text="广东揭阳"-->
+        <!--android:gravity="center"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content" />-->
+        <!--<TextView-->
+        <!--android:id="@+id/tv_description"-->
+        <!--android:padding="5dp"-->
+        <!--android:textColor="#80ffffff"-->
+        <!--android:textSize="12sp"-->
+        <!--android:text="唯有努力，才能看起来毫不费力"-->
+        <!--android:gravity="center"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content" />-->
+
+        <!--</LinearLayout>-->
+
+    </RelativeLayout>
 
     <LinearLayout
-        android:layout_marginBottom="30dp"
-        android:id="@+id/ll_round_content"
-        android:padding="5dp"
-        android:layout_below="@+id/iv_my_head"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/tv_name"
-            android:textStyle="bold"
-            android:padding="5dp"
-            android:textColor="#ffffff"
-            android:textSize="18sp"
-            android:text="Mr.W"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:id="@+id/tv_locat"
-            android:padding="5dp"
-            android:textColor="#80ffffff"
-            android:textSize="12sp"
-            android:text="广东揭阳"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:id="@+id/tv_description"
-            android:padding="5dp"
-            android:textColor="#80ffffff"
-            android:textSize="12sp"
-            android:text="唯有努力，才能看起来毫不费力"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-    </LinearLayout>
-
-</RelativeLayout>
-    <LinearLayout
-        android:layout_below="@+id/rl_demo1"
         android:id="@+id/demo2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/rl_demo1"
         android:background="#ffffff"
-        android:layout_alignParentBottom="true"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="50dp">
-    </LinearLayout>
-    <LinearLayout
-        android:background="@drawable/border"
-        android:orientation="horizontal"
-        android:layout_alignParentBottom="true"
-        android:layout_width="match_parent"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_height="80dp">
+        android:orientation="vertical"></LinearLayout>
 
-    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/border"
+        android:orientation="horizontal">
+
+        <com.wxxiaomi.ming.electricbicycle.ui.weight.custom.CircularImageView
+            android:id="@+id/iv_avatvr"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentLeft="true"
+            android:layout_margin="5dp"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="?attr/actionBarSize" />
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_toRightOf="@+id/iv_avatvr"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_marginLeft="5dp"
+        android:layout_centerVertical="true"
+        android:layout_weight="1"
+        android:id="@+id/tv_nick"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:padding="2dp"
+        android:text="Mr.W"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:gravity="bottom"
+        />
+
+    <TextView
+        android:maxLines="1"
+        android:gravity="top"
+        android:layout_weight="1"
+        android:layout_height="0dp"
+        android:layout_marginLeft="5dp"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/iv_avatvr"
+        android:layout_below="@+id/tv_name"
+        android:id="@+id/tv_description"
+        android:layout_width="wrap_content"
+        android:padding="2dp"
+        android:text="只有努力，才能到达胜利的片"
+        android:textColor="#666666"
+        android:textSize="14sp"
+        />
+</LinearLayout>
+
+    </RelativeLayout>
 
 </RelativeLayout>

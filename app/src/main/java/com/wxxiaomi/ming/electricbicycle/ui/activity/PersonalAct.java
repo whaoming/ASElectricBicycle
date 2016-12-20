@@ -37,14 +37,10 @@ public class PersonalAct extends BaseActivity<PersonaView, PersonalPresenter> im
     private CollapsingToolbarLayout collapsing_toolbar;
     private ImageView iv_my_head;
     private TextView tv_name;
-    private TextView tv_description;
-    private TextView tv_locat;
-
-//    private RecyclerView swipeRefreshRecyclerView;
 
     @Override
     protected void initView(Bundle savedInstanceState) {
-        setContentView(R.layout.activity_userinfo2);
+        setContentView(R.layout.activity_personal);
         // 标题的文字需在setSupportActionBar之前，不然会无效
         btn_add = (FloatingActionButton) findViewById(R.id.btn_add);
         btn_add.setOnClickListener(this);
@@ -54,10 +50,10 @@ public class PersonalAct extends BaseActivity<PersonaView, PersonalPresenter> im
         toolbar1 = (Toolbar) findViewById(R.id.toolbar1);
         collapsing_toolbar = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
         toolbar1.setTitle("");
-        iv_my_head = (ImageView) findViewById(R.id.iv_my_head);
-        tv_name = (TextView) findViewById(R.id.tv_name);
-        tv_locat = (TextView) findViewById(R.id.tv_locat);
-        tv_description = (TextView) findViewById(R.id.tv_description);
+        iv_my_head = (ImageView) findViewById(R.id.iv_avatvr);
+        tv_name = (TextView) findViewById(R.id.tv_nick);
+//        tv_locat = (TextView) findViewById(R.id.tv_locat);
+//        tv_description = (TextView) findViewById(R.id.tv_description);
         ImgShower.showHead(this,iv_my_head,"");
         setSupportActionBar(toolbar1);
         getSupportActionBar().setHomeButtonEnabled(true); // 设置返回键可用

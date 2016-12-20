@@ -3,6 +3,7 @@ package com.wxxiaomi.ming.electricbicycle.support.web;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.widget.LinearLayout;
 
 import com.squareup.leakcanary.RefWatcher;
@@ -45,5 +46,15 @@ public class TestWebActivity extends AppCompatActivity {
         super.onDestroy();
         RefWatcher refWatcher = EBApplication.sRefWatcher;
         refWatcher.watch(this);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
