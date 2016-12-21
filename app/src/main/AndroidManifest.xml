@@ -229,9 +229,10 @@
         <activity android:name=".ui.activity.MyInfoEditActivity" />
         <activity android:name=".ui.activity.RegisterActivity" />
         <activity android:name="com.hyphenate.easeui.ui.EaseShowBigImageActivity" />
-        <activity android:name=".ui.activity.SettingActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            ></activity>
+        <activity
+            android:name=".ui.activity.SettingActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".ui.activity.PrivateActivity"></activity>
     </application>
 
 </manifest>

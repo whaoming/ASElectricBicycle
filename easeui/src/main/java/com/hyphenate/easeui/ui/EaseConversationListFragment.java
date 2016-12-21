@@ -73,11 +73,8 @@ public abstract class EaseConversationListFragment extends EaseBaseFragment{
 
     @Override
     protected void initView() {
-        Log.i("wang","EaseConversationListFragment->initView");
         inputMethodManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-        Log.i("wang","initView");
         conversationListView = (EaseConversationList) getView().findViewById(R.id.list);
-        Log.i("wang","conversationListView==null?"+conversationListView==null?"true":"false");
         query = (EditText) getView().findViewById(R.id.query);
         // button to clear content in search bar
         clearSearch = (ImageButton) getView().findViewById(R.id.search_clear);

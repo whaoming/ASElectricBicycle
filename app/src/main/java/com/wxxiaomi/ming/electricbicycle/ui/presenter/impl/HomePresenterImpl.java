@@ -27,6 +27,8 @@ import com.wxxiaomi.ming.electricbicycle.support.easemob.common.EmConstant;
 import com.wxxiaomi.ming.electricbicycle.support.easemob.EmHelper2;
 import com.wxxiaomi.ming.electricbicycle.support.common.myglide.ImgShower;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.LoginActivity;
+import com.wxxiaomi.ming.electricbicycle.ui.activity.PrivateActivity;
+import com.wxxiaomi.ming.electricbicycle.ui.activity.SettingActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.base.BasePreImpl;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.HomePresenter;
 import com.wxxiaomi.ming.electricbicycle.support.baidumap.LocationUtil;
@@ -72,7 +74,7 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
     @Override
     public void init() {
         initMap(mView.getMap());
-        initViewData();
+//        initViewData();
         registerBroadcastReceiver();
     }
 
@@ -194,6 +196,11 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
         mView.showDialog();
     }
 
+    @Override
+    public void onSettingClick() {
+            mView.runActivity(SettingActivity.class,null);
+    }
+
     public void updateUnreadLabel(){
         int allUnreadCount = EmHelper2.getInstance().getAllUnreadCount();
         mView.updateUnreadLabel(allUnreadCount);
@@ -231,9 +238,11 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
 
     @Override
     public void onViewResume() {
-        mView.getTvNameView().setText(GlobalManager.getInstance().getUser().userCommonInfo.nickname);
+//        mView.getTvNameView().setText(GlobalManager.getInstance().getUser().userCommonInfo.nickname);
         //还要更新控件
+
         ImgShower.showHead(mView.getContext(),mView.getHeadView(),GlobalManager.getInstance().getUser().userCommonInfo.avatar);
+        ImgShower.showHead(mView.getContext(),mView.getDrawerAvatar(),GlobalManager.getInstance().getUser().userCommonInfo.avatar);
         updateUnreadLabel();
         EmHelper2.getInstance().setMessageListener(new EmHelper2.MyMessageListener() {
             @Override

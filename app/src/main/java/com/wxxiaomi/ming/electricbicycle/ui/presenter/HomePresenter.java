@@ -38,4 +38,6 @@ public interface HomePresenter<V extends BaseView> extends BasePre<V> {
     void topicBtnOnClick();
 
     void onNewIntent(Intent intent);
+
+    void onSettingClick();
 }

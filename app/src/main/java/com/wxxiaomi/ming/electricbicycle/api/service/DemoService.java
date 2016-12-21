@@ -99,7 +99,6 @@ public interface DemoService {
     Observable<Result<List<Option>>> listOption(@Query("userid") int userid);
 
 
-
     @GET
     Observable<String> sendGet(@Url String url, @QueryMap Map<String,String> options);
 
