@@ -31,6 +31,11 @@ import rx.Observable;
  * Created by 12262 on 2016/5/31.
  */
 public interface DemoService {
+
+    @POST("android/user_upLoadCover")
+    Observable<Result<String>> upLoadUserCover(@Query("coverPath") String coverPath);
+
+
     @FormUrlEncoded
     @POST("android/user_updateuserfriends")
     Observable<Result<List<UserCommonInfo2>>> updateUserFriend2(@Field("friends") String friends);
@@ -92,7 +97,6 @@ public interface DemoService {
 
     @GET("android/user_optionlog")
     Observable<Result<List<Option>>> listOption(@Query("userid") int userid);
-
 
 
     @GET

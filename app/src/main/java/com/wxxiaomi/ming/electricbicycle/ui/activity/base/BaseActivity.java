@@ -110,9 +110,10 @@ public abstract class BaseActivity<V,T extends BasePre> extends AppCompatActivit
     public void onClick(View v) {
         
     }
-
+//
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        super.onOptionsItemSelected(item);
         switch (item.getItemId()) {
             case android.R.id.home:
                 finish();

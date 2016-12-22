@@ -173,7 +173,7 @@ public class MyInfoEditActivity extends AppCompatActivity implements View.OnClic
                     @Override
                     public Observable<String> call(List<String> strings) {
                         OssEngine.getInstance().initOssEngine(MyInfoEditActivity.this.getApplicationContext());
-                        return UserService.getInstance().upLoadHeadImg(strings.get(0));
+                        return UserService.getInstance().upLoadImgToOss(strings.get(0));
                     }
                 })
                 .observeOn(AndroidSchedulers.mainThread())

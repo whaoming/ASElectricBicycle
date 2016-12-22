@@ -13,19 +13,7 @@ public interface PersonalPresenter<V extends BaseView> extends BasePre<V> {
      */
     void onHeadBrnClick();
 
-    /**
-     * 更新头像控件
-//     * @param iv
-     */
-//    void updateHeadView(ImageView iv);
-
-//    void onCreate(Bundle savedInstanceState, BaseActivity act);
-
-//    void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults);
-
-//    void onActivityResult(int requestCode, int resultCode, Intent data);
-
-//    void onSaveInstanceState(Bundle outState);
+    void onBackImgClick();
 
     void onSettingClick();
 

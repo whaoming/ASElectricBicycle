@@ -2,18 +2,25 @@ package com.wxxiaomi.ming.electricbicycle.ui.activity;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.view.MenuItemCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.OvershootInterpolator;
 import android.view.animation.TranslateAnimation;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.baidu.mapapi.map.BaiduMap;
@@ -35,6 +42,7 @@ import com.wxxiaomi.ming.electricbicycle.ui.presenter.impl.HomePresenterImpl;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.view.HomeView;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.custom.CircularImageView;
 import com.wxxiaomi.ming.electricbicycle.support.baidumap.LocationUtil;
+import com.wxxiaomi.ming.electricbicycle.ui.weight.custom.MsgActionProvider;
 
 /**
  * Created by 12262 on 2016/6/6.
@@ -43,60 +51,35 @@ import com.wxxiaomi.ming.electricbicycle.support.baidumap.LocationUtil;
 public class HomeActivity extends BaseActivity<HomeView,HomePresenter> implements HomeView<HomePresenter> {
 
     private CoordinatorLayout sn_layout;
-
-    /**
-     * 百度view
-     */
     private TextureMapView mMapView;
-    /**
-     * 百度view对应的map空间
-     */
     private BaiduMap mBaiduMap;
-
     boolean isFirstLoc = true; // 是否首次定位
-
-    /**
-     * 导航按钮
-     */
     private FloatingActionButton btn_go;
     private FloatingActionButton btn_locat;
-
-
     private LinearLayout ll_nearby_view;
-    private ImageButton iv_contact;
-    private TextView tv_name;
-
-    /**
-     * 附近的人view显示位移动画
-     */
     private TranslateAnimation mShowAction;
-    /**
-     * 附近的人view隐藏位移动画
-     */
     private TranslateAnimation mHiddenAction;
-    /**
-     * 当前附近的人infoView是否可见
-     */
     private boolean isNearViewVis = false;
-    private CircularImageView iv_my_head;
     private CircularImageView near_iv_head;
     private TextView tv_near_name;
     private TextView tv_near_description;
-    private TextView unread_msg_number;
-    private ImageButton ib_topic;
-    /**
-     * 更新未读信息ui
-     */
-    private final int UPDATEUNREAD = 158;
+    private DrawerLayout mDrawerLayout;
+    private MsgActionProvider mActionProvider2;
+    private MsgActionProvider mActionProvider;
+    private Toolbar toolbar;
+    private ImageView iv_avatar;
+    private ImageView drawer_iv_avatar;
 
-    private final int SHOWREMOTEDIALOG = 2121;
-
+    private RelativeLayout drawer_setting;
 
     @Override
     protected void initView(Bundle savedInstanceState) {
         setContentView(R.layout.activity_home);
-        unread_msg_number = (TextView) findViewById(R.id.unread_msg);
-        unread_msg_number.setVisibility(View.GONE);
+        toolbar = (Toolbar) findViewById(R.id.toolbar1);
+        toolbar.setTitle("");
+        setSupportActionBar(toolbar);
+        iv_avatar = (ImageView) findViewById(R.id.iv_avatar);
+        iv_avatar.setOnClickListener(this);
         sn_layout = (CoordinatorLayout) findViewById(R.id.sn_layout);
         ll_nearby_view = (LinearLayout) findViewById(R.id.ll_nearby_view);
         near_iv_head = (CircularImageView) ll_nearby_view
@@ -107,22 +90,18 @@ public class HomeActivity extends BaseActivity<HomeView,HomePresenter> implement
         tv_near_description = (TextView) ll_nearby_view
                 .findViewById(R.id.tv_near_description);
         mMapView = (TextureMapView) findViewById(R.id.mpaview);
-        iv_contact = (ImageButton) findViewById(R.id.iv_contact);
-        tv_name = (TextView) findViewById(R.id.tv_name);
         btn_go = (FloatingActionButton) findViewById(R.id.btn_go);
         btn_locat = (FloatingActionButton) findViewById(R.id.btn_locat);
         btn_locat.setOnClickListener(this);
-        iv_my_head = (CircularImageView) findViewById(R.id.iv_my_head);
-        iv_my_head.setOnClickListener(this);
-        ib_topic = (ImageButton) findViewById(R.id.ib_topic);
-        ib_topic.setOnClickListener(this);
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.dl_left);
+        drawer_iv_avatar = (ImageView) findViewById(R.id.drawer_iv_avatar);
+        drawer_iv_avatar.setOnClickListener(this);
+        drawer_setting = (RelativeLayout) findViewById(R.id.drawer_setting);
+        drawer_setting.setOnClickListener(this);
         mBaiduMap = mMapView.getMap();
         btn_go.setOnClickListener(this);
-        iv_contact.setOnClickListener(this);
         initAnimation();
-//        setZoomInVis();
         initMapMarkerClickListener();
-
     }
 
     @Override
@@ -135,22 +114,29 @@ public class HomeActivity extends BaseActivity<HomeView,HomePresenter> implement
         switch (v.getId()){
             case R.id.btn_go:
                 presenter.goBtnOnClick();
-
                 break;
-            case R.id.iv_contact:
-                presenter.contactBtnOnClick();
-                break;
-            case R.id.iv_my_head:
-                presenter.headBtnOnClick();
-                break;
+//            case R.id.iv_contact:
+//                presenter.contactBtnOnClick();
+//                break;
+//            case R.id.iv_my_head:
+////                presenter.headBtnOnClick();
+//                mDrawerLayout.openDrawer(Gravity.LEFT);
+//                break;
             case R.id.near_iv_head:
                 presenter.nearHeadBtnOnClick();
                 break;
             case R.id.btn_locat:
                 presenter.locatBtnOnClick();
                 break;
-            case R.id.ib_topic:
-                presenter.topicBtnOnClick();
+            case R.id.iv_avatar:
+                mDrawerLayout.openDrawer(Gravity.LEFT);
+                break;
+            case R.id.drawer_setting:
+                presenter.onSettingClick();
+                break;
+            case R.id.drawer_iv_avatar:
+                presenter.headBtnOnClick();
+                break;
             default:
                 break;
         }
@@ -242,14 +228,14 @@ public class HomeActivity extends BaseActivity<HomeView,HomePresenter> implement
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    unread_msg_number.setVisibility(View.VISIBLE);
-                    unread_msg_number.setText(count+"s");
+//                    unread_msg_number.setVisibility(View.VISIBLE);
+//                    unread_msg_number.setText(count+"s");
                 }
             });
 
 //            Log.i("wang","view-updateUnreadLabel-countdvdfdfdfdfdf="+count);
         } else {
-            unread_msg_number.setVisibility(View.GONE);
+//            unread_msg_number.setVisibility(View.GONE);
         }
     }
 
@@ -309,12 +295,17 @@ public class HomeActivity extends BaseActivity<HomeView,HomePresenter> implement
 
     @Override
     public ImageView getHeadView() {
-        return iv_my_head;
+        return iv_avatar;
+    }
+    @Override
+    public ImageView getDrawerAvatar(){
+        return drawer_iv_avatar;
     }
 
     @Override
     public TextView getTvNameView() {
-        return tv_name;
+//        return tv_name;
+        return null;
     }
 
     @Override
@@ -338,7 +329,39 @@ public class HomeActivity extends BaseActivity<HomeView,HomePresenter> implement
 
     @Override
     protected void onNewIntent(Intent intent) {
-//        super.onNewIntent(intent);
         presenter.onNewIntent(intent);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_home, menu);
+        MenuItem menuItem = menu.findItem(R.id.menu_pic);
+        mActionProvider = (MsgActionProvider) MenuItemCompat.getActionProvider(menuItem);
+
+        mActionProvider.setOnClickListener(0, new MsgActionProvider.OnClickListener() {
+            @Override
+            public void onClick(int what) {
+                presenter.topicBtnOnClick();
+            }
+        });// 设置点击监听。
+
+        MenuItem menuItem2 = menu.findItem(R.id.menu_pic2);
+        mActionProvider2 = (MsgActionProvider) MenuItemCompat.getActionProvider(menuItem2);
+        mActionProvider2.setOnClickListener(0, new MsgActionProvider.OnClickListener() {
+            @Override
+            public void onClick(int what) {
+                presenter.contactBtnOnClick();
+            }
+        });
+        return true;
+    }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        mActionProvider.setIcon(R.mipmap.ic_add_white_24dp);
+        mActionProvider.setBadge(0);
+        mActionProvider2.setIcon(R.mipmap.ic_add_white_24dp);
+        mActionProvider2.setBadge(5);
     }
 }

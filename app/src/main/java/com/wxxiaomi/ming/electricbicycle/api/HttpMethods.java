@@ -22,7 +22,6 @@ import com.wxxiaomi.ming.electricbicycle.dao.common.Result;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
@@ -34,7 +33,6 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import rx.Observable;
-import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Func1;
 import rx.schedulers.Schedulers;
@@ -45,7 +43,7 @@ import rx.schedulers.Schedulers;
  * 44444
  */
 public class HttpMethods {
-    public static final String BASE_URL = ConstantValue.SERVER_URL;
+     String BASE_URL = ConstantValue.SERVER_URL;
 
     private static final int DEFAULT_TIMEOUT = 5;
 
@@ -129,6 +127,17 @@ public class HttpMethods {
                 })
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io());
+    }
+
+    public Observable<String> upLoadUserCover(String path){
+        return demoService.upLoadUserCover(path)
+                .map(new ServerResultFunc<String>())
+                .onErrorResumeNext(new Func1<Throwable, Observable<? extends String>>() {
+                    @Override
+                    public Observable<? extends String> call(Throwable throwable) {
+                        return Observable.error(ExceptionEngine.handleException(throwable));
+                    }
+                });
     }
 
 //    public Observable<Login> login2(String username,String password){

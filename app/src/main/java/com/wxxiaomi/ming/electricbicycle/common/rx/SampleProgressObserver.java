@@ -66,4 +66,10 @@ public abstract class SampleProgressObserver<T> extends MyObserver<T>{
         msgDialog.show();
     }
 
+    protected void closeDialog(){
+        if(dialog.isShowing()){ dialog.dismiss();}
+
+
+    }
+
 }

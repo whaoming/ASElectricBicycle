@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_pic"
+        android:title="xxxxtitle"
+
+        app:actionProviderClass="com.wxxiaomi.ming.electricbicycle.ui.weight.custom.MsgActionProvider"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/menu_pic2"
+        android:title="xxxxtitle"
+        app:actionProviderClass="com.wxxiaomi.ming.electricbicycle.ui.weight.custom.MsgActionProvider"
+        app:showAsAction="always" />
+</menu>
