@@ -154,6 +154,18 @@ public class HttpMethods {
 //                ;
 //    }
 
+    public Observable<UserCommonInfo2> getUserInfoById(int userid){
+        return demoService.getUserInfoById(userid)
+                .map(new ServerResultFunc<UserCommonInfo2>())
+                .retryWhen(new TokenOutTime(3,1))
+                .onErrorResumeNext(new Func1<Throwable, Observable<? extends UserCommonInfo2>>() {
+                    @Override
+                    public Observable<? extends UserCommonInfo2> call(Throwable throwable) {
+                        return Observable.error(ExceptionEngine.handleException(throwable));
+                    }
+                });
+    }
+
     public Observable<String> updateUserInfo(Map<String,String> pars){
         return demoService.updateUserInfo(pars)
                 .map(new ServerResultFunc<String>())

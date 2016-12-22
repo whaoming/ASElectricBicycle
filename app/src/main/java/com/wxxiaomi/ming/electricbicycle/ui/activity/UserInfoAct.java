@@ -65,6 +65,7 @@ public class UserInfoAct extends BaseActivity<UserInfoView, UserInfoPresenter> i
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setNestedScrollingEnabled(false);
+
         mRecyclerView.setPagingableListener(new PullToRefreshRecyclerView.PagingableListener() {
             @Override
             public void onLoadMoreItems() {

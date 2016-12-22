@@ -232,32 +232,7 @@ public class UserService {
     }
 
     public Observable<List<Option>> getUserOptions(final int userid) {
-        return HttpMethods.getInstance().getOption(userid)
-                .flatMap(new Func1<List<Option>, Observable<List<Option>>>() {
-                    @Override
-                    public Observable<List<Option>> call(List<Option> options) {
-                        //对Option解析里面的东西
-                        for (Option option : options) {
-                            switch (option.obj_type) {
-                                case OptionType.FOOT_PRINT:
-                                case OptionType.PHOTO_PUBLISH:
-                                    break;
-                                case OptionType.TOPIC_PUBLISH:
-                                    Topic topic = new Gson().fromJson(option.json_obj, Topic.class);
-                                    option.dobj = topic;
-                                    break;
-                                case OptionType.TOPIC_COMMENT:
-                                    Topic topic1 = new Gson().fromJson(option.json_parent, Topic.class);
-                                    Comment comment = new Gson().fromJson(option.json_obj, Comment.class);
-                                    option.dobj = comment;
-                                    option.dparent = topic1;
-                                    break;
-                            }
-                        }
-
-                        return Observable.just(options);
-                    }
-                });
+        return HttpMethods.getInstance().getOption(userid);
     }
 
     public Observable<String> upLoadImgToOss(String imgPath) {
@@ -435,5 +410,10 @@ public class UserService {
 
     public List<UserCommonInfo2> getFriendList() {
         return friendDao2.getFriendList();
+    }
+
+
+    public Observable<UserCommonInfo2> getUserInfoById(int userid){
+        return HttpMethods.getInstance().getUserInfoById(userid);
     }
 }

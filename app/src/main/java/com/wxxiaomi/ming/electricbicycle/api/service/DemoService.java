@@ -13,7 +13,6 @@ import java.util.List;
 import java.util.Map;
 
 import okhttp3.RequestBody;
-import retrofit2.Response;
 import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FieldMap;
@@ -36,6 +35,7 @@ public interface DemoService {
     Observable<Result<String>> upLoadUserCover(@Query("coverPath") String coverPath);
 
 
+
     @FormUrlEncoded
     @POST("android/user_updateuserfriends")
     Observable<Result<List<UserCommonInfo2>>> updateUserFriend2(@Field("friends") String friends);
@@ -55,6 +55,8 @@ public interface DemoService {
     @FormUrlEncoded
     @POST("android/user_updateuserinfo")
     Observable<Result<String>> updateUserInfo2(@Field("name") String name);
+    @GET("android/user_getuserinfobyid")
+    Observable<Result<UserCommonInfo2>> getUserInfoById(@Query("taget_userid")int userid);
 
     @GET("android/user_longToken")
     Observable<Result<String>> getSToken(@Query("long_token")String long_token,@Query("phoneId")String phoneId);

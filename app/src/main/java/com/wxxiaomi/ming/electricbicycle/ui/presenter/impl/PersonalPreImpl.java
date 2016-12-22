@@ -17,7 +17,6 @@ import com.wxxiaomi.ming.electricbicycle.ui.weight.pull2refreshreview.PullToRefr
 import java.util.List;
 
 import rx.Observable;
-import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 import rx.functions.Func1;

@@ -27,7 +27,7 @@ import com.wxxiaomi.ming.electricbicycle.support.easemob.common.EmConstant;
 import com.wxxiaomi.ming.electricbicycle.support.easemob.EmHelper2;
 import com.wxxiaomi.ming.electricbicycle.support.common.myglide.ImgShower;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.LoginActivity;
-import com.wxxiaomi.ming.electricbicycle.ui.activity.PrivateActivity;
+import com.wxxiaomi.ming.electricbicycle.ui.activity.UserInfoActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.SettingActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.base.BasePreImpl;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.HomePresenter;
@@ -36,7 +36,6 @@ import com.wxxiaomi.ming.electricbicycle.support.web.TestWebActivity;
 import com.wxxiaomi.ming.electricbicycle.dao.db.UserService;
 import com.wxxiaomi.ming.electricbicycle.common.GlobalManager;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.ContactActivity;
-import com.wxxiaomi.ming.electricbicycle.ui.activity.PersonalAct;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.UserInfoAct;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.view.HomeView;
 
@@ -136,7 +135,7 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
     public void onMakerClick(Marker marker) {
         int zIndex = marker.getZIndex();
         UserCommonInfo2 tempUser = userLocatList.get(zIndex).userCommonInfo;
-        Log.i("wang",tempUser.toString());
+//        Log.i("wang",tempUser.toString());
         boolean isSame = (currentNearPerson == tempUser);
         currentNearPerson = tempUser;
         mView.editNearViewState(mView.isNearViewVis(),isSame);
@@ -162,7 +161,10 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
 
     @Override
     public void headBtnOnClick() {
-        mView.runActivity(PersonalAct.class,null);
+        Intent intent = new Intent(mView.getContext(),UserInfoActivity.class);
+        intent.putExtra(ConstantValue.RUNMINE,true);
+        mView.getContext().startActivity(intent);
+//        mView.runActivity(UserInfoActivity.class,null);
     }
 
     @Override
@@ -172,9 +174,13 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
 
     @Override
     public void nearHeadBtnOnClick() {
-        Bundle bundle = new Bundle();
-                bundle.putSerializable("userInfo", currentNearPerson);
-        mView.runActivity(UserInfoAct.class,bundle);
+//        Bundle bundle = new Bundle();
+//                bundle.putSerializable("userInfo", currentNearPerson);
+//        mView.runActivity(UserInfoAct.class,bundle);
+        Intent intent = new Intent(mView.getContext(),UserInfoActivity.class);
+        intent.putExtra(ConstantValue.RUNMINE,false);
+        intent.putExtra(ConstantValue.INTENT_USERID,currentNearPerson.id);
+        mView.getContext().startActivity(intent);
     }
 
     @Override
