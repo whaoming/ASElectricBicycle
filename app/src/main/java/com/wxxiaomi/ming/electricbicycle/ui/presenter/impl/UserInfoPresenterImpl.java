@@ -7,9 +7,9 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 import com.wxxiaomi.ming.electricbicycle.R;
+import com.wxxiaomi.ming.electricbicycle.dao.bean.Option;
 import com.wxxiaomi.ming.electricbicycle.support.easemob.EmHelper2;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.adapter.OptionAdapter2;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.Option;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo2;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.base.BasePreImpl;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.UserInfoPresenter;
@@ -77,14 +77,20 @@ public class UserInfoPresenterImpl extends BasePreImpl<UserInfoView> implements 
 //                });
         UserService.getInstance().getUserOptions(25)
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Action1<List<Option>>() {
+                .subscribe(new SampleProgressObserver<List<Option>>(mView.getContext()) {
                     @Override
-                    public void call(List<Option> options) {
+                    public void onNext(List<Option> options) {
                         OptionAdapter2 adapter = new OptionAdapter2(options,mView.getContext());
-
                         mView.setAdapter(adapter);
                     }
                 });
+//                .subscribe(new Action1<List<Option>>() {
+//                    @Override
+//                    public void call(List<Option> options) {
+//                        OptionAdapter2 adapter = new OptionAdapter2(options,mView.getContext());
+//                        mView.setAdapter(adapter);
+//                    }
+//                });
 
        dialog = new EditableDialog(mView.getContext()).builder()
                 .setHint("理由")

@@ -71,12 +71,6 @@ public class PersonalAct extends BaseActivity<PersonaView, PersonalPresenter> im
         mRecyclerView.setSwipeEnable(false);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setNestedScrollingEnabled(false);
-//        mRecyclerView.setPagingableListener(new PullToRefreshRecyclerView.PagingableListener() {
-//            @Override
-//            public void onLoadMoreItems() {
-//                Log.i("wang","onLoadMoreItems");
-//            }
-//        });
         mRecyclerView.setLoadMoreFooter(defaultLoadMoreView);
 
     }

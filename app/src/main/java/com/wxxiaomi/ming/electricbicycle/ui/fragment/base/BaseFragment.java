@@ -111,5 +111,6 @@ public abstract class BaseFragment extends Fragment implements
 	          throw new ClassCastException(activity.toString()+"must implement OnArticleSelectedListener,必须的哈");  
 	      }  
 	}
+
 	
 }
