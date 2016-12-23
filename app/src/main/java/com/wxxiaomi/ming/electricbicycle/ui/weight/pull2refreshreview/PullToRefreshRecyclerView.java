@@ -205,7 +205,10 @@ public class PullToRefreshRecyclerView extends SwipeRefreshLayout implements Prv
                 mRootHeader.setHeight(mHeader.getMeasuredHeight());
                 getRecyclerView().removeItemDecoration(mRootHeader);
                 getRecyclerView().addItemDecoration(mRootHeader);
-                getRecyclerView().getAdapter().notifyDataSetChanged();
+                if( getRecyclerView().getAdapter()!=null){
+                    getRecyclerView().getAdapter(). notifyDataSetChanged();
+                }
+
             }
         });
 

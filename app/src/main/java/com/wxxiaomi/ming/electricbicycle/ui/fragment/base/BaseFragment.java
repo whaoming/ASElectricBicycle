@@ -82,6 +82,8 @@ public abstract class BaseFragment extends Fragment implements
 		}
 	}
 
+	public  void receiveData(int flag,Bundle bundle){}
+
 
 
 	@Override

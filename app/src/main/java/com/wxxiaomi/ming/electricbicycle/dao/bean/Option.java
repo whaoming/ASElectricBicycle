@@ -1,8 +1,12 @@
 package com.wxxiaomi.ming.electricbicycle.dao.bean;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.io.Serializable;
 import java.util.Date;
 
-public class Option {
+public class Option implements Parcelable {
 
 	public int id;
 	public int userid;
@@ -41,6 +45,31 @@ public class Option {
 				+ locat_tag + ", reply=" + reply + ", type=" + type
 				+ ", obj_id=" + obj_id + ", attch=" + attch + "]";
 	}
-	
-	
+
+
+	@Override
+	public int describeContents() {
+		return 0;
+	}
+
+	@Override
+	public void writeToParcel(Parcel parcel, int i) {
+		parcel.writeInt(id);
+		parcel.writeInt(userid);
+		parcel.writeInt(reply_count);
+		parcel.writeInt(like_count);
+		parcel.writeInt(type);
+		parcel.writeInt(obj_id);
+		parcel.writeInt(pnt_id);
+		parcel.writeString(nickname);
+		parcel.writeString(avatar);
+		parcel.writeString(create_time);
+		parcel.writeString(option_tag);
+		parcel.writeString(picture);
+		parcel.writeString(content);
+		parcel.writeString(locat_tag);
+		parcel.writeString(reply);
+		parcel.writeString(attch);
+
+	}
 }

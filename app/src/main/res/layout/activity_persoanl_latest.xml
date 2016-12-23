@@ -17,7 +17,6 @@
             android:layout_width="match_parent"
             android:layout_height="250dp"
             app:contentScrim="@color/titleBlue"
-
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
 
@@ -27,14 +26,22 @@
                 app:layout_collapseMode="parallax"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
-                android:background="@mipmap/demo"
-                >
 
+                >
                 <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:id="@+id/iv_back"
+                    android:background="@color/titleBlue"
+                    android:scaleType="fitXY"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+                <com.wxxiaomi.ming.electricbicycle.ui.weight.custom.CircularImageView
+                    app:border_width="2dp"
+                    android:id="@+id/iv_avatar"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
                     android:layout_centerInParent="true"
-                    android:src="@mipmap/ic_launcher" />
+                    />
             </RelativeLayout>
 
             <android.support.v7.widget.Toolbar
