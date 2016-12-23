@@ -9,6 +9,8 @@ import com.wxxiaomi.ming.electricbicycle.GlobalParams;
 import com.wxxiaomi.ming.electricbicycle.api.HttpMethods;
 import com.wxxiaomi.ming.electricbicycle.common.GlobalManager;
 import com.wxxiaomi.ming.electricbicycle.common.PreferenceManager;
+import com.wxxiaomi.ming.electricbicycle.common.util.MyUtils;
+import com.wxxiaomi.ming.electricbicycle.common.util.TimeUtil;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.Comment;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.Option;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.Topic;
@@ -16,6 +18,7 @@ import com.wxxiaomi.ming.electricbicycle.dao.bean.User;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo2;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.UserLocatInfo;
 
+import com.wxxiaomi.ming.electricbicycle.dao.bean.format.UserInfo;
 import com.wxxiaomi.ming.electricbicycle.dao.constant.OptionType;
 import com.wxxiaomi.ming.electricbicycle.dao.db.impl.*;
 import com.wxxiaomi.ming.electricbicycle.dao.db.impl.FriendDaoImpl2;
@@ -24,6 +27,9 @@ import com.wxxiaomi.ming.electricbicycle.support.easemob.EmHelper2;
 import com.wxxiaomi.ming.electricbicycle.support.common.cache.base.LRUCache;
 
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -232,7 +238,23 @@ public class UserService {
     }
 
     public Observable<List<Option>> getUserOptions(final int userid) {
-        return HttpMethods.getInstance().getOption(userid);
+        return HttpMethods.getInstance().getOption(userid)
+                .map(new Func1<List<Option>, List<Option>>() {
+                    @Override
+                    public List<Option> call(List<Option> options) {
+                        Collections.sort(options, new Comparator<Option>() {
+                            @Override
+                            public int compare(Option option, Option t1) {
+                                boolean after = TimeUtil.StrToDate(option.create_time).after(TimeUtil.StrToDate(t1.create_time));
+                                if(after){
+                                    return -1;
+                                }
+                                return 0;
+                            }
+                        });
+                        return options;
+                    }
+                });
     }
 
     public Observable<String> upLoadImgToOss(String imgPath) {
@@ -415,5 +437,26 @@ public class UserService {
 
     public Observable<UserCommonInfo2> getUserInfoById(int userid){
         return HttpMethods.getInstance().getUserInfoById(userid);
+    }
+
+    public Observable<UserInfo> getUserInfoAndOption(int userid) {
+        return HttpMethods.getInstance().getUserInfoAndOption(userid)
+                .map(new Func1<UserInfo, UserInfo>() {
+                    @Override
+                    public UserInfo call(UserInfo userInfo) {
+                        Collections.sort(userInfo.options, new Comparator<Option>() {
+                            @Override
+                            public int compare(Option option, Option t1) {
+                                Log.i("wang","option.create_time:"+option.create_time);
+                                boolean after = TimeUtil.StrToDate(option.create_time).after(TimeUtil.StrToDate(t1.create_time));
+                                if(after){
+                                    return 1;
+                                }
+                                return 0;
+                            }
+                        });
+                        return userInfo;
+                    }
+                });
     }
 }

@@ -86,11 +86,9 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
         //联系人事件
         intentFilter.addAction(EmConstant.ACTION_CONTACT_CHANAGED);
         intentFilter.addAction(EmConstant.ACTION_GROUP_CHANAGED);
-//        intentFilter.addAction(RPConstant.REFRESH_GROUP_RED_PACKET_ACTION);
         broadcastReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
-                Log.i("wang","home的广播接收者收到东西了");
                 updateUnreadLabel();
             }
         };
@@ -161,10 +159,9 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
 
     @Override
     public void headBtnOnClick() {
-        Intent intent = new Intent(mView.getContext(),UserInfoActivity.class);
-        intent.putExtra(ConstantValue.RUNMINE,true);
-        mView.getContext().startActivity(intent);
-//        mView.runActivity(UserInfoActivity.class,null);
+        Bundle bundle = new Bundle();
+        bundle.putBoolean(ConstantValue.INTENT_ISMINE,true);
+        mView.runActivity(UserInfoActivity.class,bundle);
     }
 
     @Override
@@ -174,13 +171,10 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
 
     @Override
     public void nearHeadBtnOnClick() {
-//        Bundle bundle = new Bundle();
-//                bundle.putSerializable("userInfo", currentNearPerson);
-//        mView.runActivity(UserInfoAct.class,bundle);
-        Intent intent = new Intent(mView.getContext(),UserInfoActivity.class);
-        intent.putExtra(ConstantValue.RUNMINE,false);
-        intent.putExtra(ConstantValue.INTENT_USERID,currentNearPerson.id);
-        mView.getContext().startActivity(intent);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(ConstantValue.INTENT_USERINFO, currentNearPerson);
+        bundle.putBoolean(ConstantValue.INTENT_ISMINE,false);
+        mView.runActivity(UserInfoActivity.class,bundle);
     }
 
     @Override
@@ -210,26 +204,6 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
     public void updateUnreadLabel(){
         int allUnreadCount = EmHelper2.getInstance().getAllUnreadCount();
         mView.updateUnreadLabel(allUnreadCount);
-//        EmEngine.getInstance().getUnreadMsgCount()
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .subscribeOn(Schedulers.io())
-//                .subscribe(new MyObserver<Integer>() {
-//                    @Override
-//                    protected void onError(ApiException ex) {
-//
-//                    }
-//
-//                    @Override
-//                    public void onCompleted() {
-//
-//                    }
-//
-//                    @Override
-//                    public void onNext(Integer integer) {
-//
-//                        mView.updateUnreadLabel(integer);
-//                    }
-//                });
     }
 
 
@@ -277,7 +251,7 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
             }
             double latitude = location.getLatitude();
             double longitude = location.getLongitude();
-            Log.i("wang", "获取到自己的位置latitude："+latitude+",longitude:"+longitude);
+//            Log.i("wang", "获取到自己的位置latitude："+latitude+",longitude:"+longitude);
             Address address = location.getAddress();
             String locat_tag = location.getLocationDescribe();
             LocationUtil.getInstance().init(latitude,longitude,address,locat_tag);
@@ -290,7 +264,6 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
                     .build();
             mBaiduMap.setMyLocationData(locData);
             if (isFirstLoc) {
-
                 isFirstLoc = false;
                 mView.scrollToMyLocat();
                 getNearByFromServer(latitude, longitude);
@@ -315,7 +288,6 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
                                 mView.addMaker(point,i);
                             }
                         }
-
                     }
                 });
 //

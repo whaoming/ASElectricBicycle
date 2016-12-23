@@ -40,6 +40,10 @@ public interface ConstantValue {
 	//全局变量
 	public static final  String LONGTOKEN = "long_token";
 	//标识去往userinfo页面要加载的是目标user还是自己
-	String RUNMINE = "intent_runmine";
+	String INTENT_ISMINE = "intent_runmine";
 	String INTENT_USERID = "intent_userid";
+	//在userinfoactivity中传userinfo给fragment的标识
+	String BUNDLE_USERINFO = "bundle_userinfo";
+	String BUNDLE_OPTIONS = "bundle_options";
+	String INTENT_USERINFO = "intent_userinfo";
 }

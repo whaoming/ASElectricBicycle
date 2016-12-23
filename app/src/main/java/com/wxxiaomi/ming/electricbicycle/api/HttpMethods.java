@@ -16,6 +16,7 @@ import com.wxxiaomi.ming.electricbicycle.dao.bean.User;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo2;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.UserLocatInfo;
 
+import com.wxxiaomi.ming.electricbicycle.dao.bean.format.UserInfo;
 import com.wxxiaomi.ming.electricbicycle.dao.common.Result;
 
 
@@ -140,6 +141,18 @@ public class HttpMethods {
                 });
     }
 
+    public Observable<UserInfo> getUserInfoAndOption(int userid){
+        return demoService.getUserInfoAndOption(userid)
+                .map(new ServerResultFunc<UserInfo>())
+                .retryWhen(new TokenOutTime(3,1))
+                .onErrorResumeNext(new Func1<Throwable, Observable<? extends UserInfo>>() {
+                    @Override
+                    public Observable<? extends UserInfo> call(Throwable throwable) {
+                        return Observable.error(ExceptionEngine.handleException(throwable));
+                    }
+                });
+    }
+
 //    public Observable<Login> login2(String username,String password){
 //        return demoService.readBaidu2(username, password)
 //                .flatMap(new Func1<retrofit2.Response<Login>, Observable<Login>>() {
@@ -234,7 +247,7 @@ public class HttpMethods {
     }
 
     public Observable<List<UserLocatInfo>> getNearByFromServer(int userid, double latitude, double longitude) {
-        return demoService.getNearByFromServer(userid, latitude, longitude)
+        return demoService.getNearByFromServer(latitude, longitude)
                 .map(new ServerResultFunc<List<UserLocatInfo>>())
                 .retryWhen(new TokenOutTime(3,1))
                 .onErrorResumeNext(new HttpResultFunc<List<UserLocatInfo>>())

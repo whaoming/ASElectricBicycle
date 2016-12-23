@@ -243,4 +243,41 @@ public class TimeUtil {
         Log.d("取得的日期为：",T);
         return T;
     }
+
+    /**
+     * 字符串转换成日期
+     * @param str
+     * @return date
+     */
+    public static Date StrToDate(String str) {
+
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+        Date date = null;
+        try {
+            date = format.parse(str);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return date;
+    }
+
+    /**
+     * 字符串转换成日期
+     * @param str
+     * @return date
+     */
+    public static String StrToSimpleDate(String str) {
+
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+        String dateString = null;
+        try {
+            Date date = format.parse(str);
+            SimpleDateFormat formatter = new SimpleDateFormat("MM-dd");
+            dateString= formatter.format(date);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return dateString;
+    }
 }

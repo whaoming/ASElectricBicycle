@@ -7,6 +7,7 @@ import com.wxxiaomi.ming.electricbicycle.dao.bean.User;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo2;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.UserLocatInfo;
 
+import com.wxxiaomi.ming.electricbicycle.dao.bean.format.UserInfo;
 import com.wxxiaomi.ming.electricbicycle.dao.common.Result;
 
 import java.util.List;
@@ -55,8 +56,10 @@ public interface DemoService {
     @FormUrlEncoded
     @POST("android/user_updateuserinfo")
     Observable<Result<String>> updateUserInfo2(@Field("name") String name);
-    @GET("android/user_getuserinfobyid")
+    @GET("android/user_userinfobyid")
     Observable<Result<UserCommonInfo2>> getUserInfoById(@Query("taget_userid")int userid);
+    @GET("android/user_userinfoandoptions")
+    Observable<Result<UserInfo>> getUserInfoAndOption(@Query("taget_userid") int userid);
 
     @GET("android/user_longToken")
     Observable<Result<String>> getSToken(@Query("long_token")String long_token,@Query("phoneId")String phoneId);
@@ -71,7 +74,7 @@ public interface DemoService {
     Observable<Result<List<UserCommonInfo2>>> getUserListByEmList(@Query("emnamelist") String emnamelist);
 
     @GET("android/lbs_near")
-    Observable<Result<List<UserLocatInfo>>> getNearByFromServer(@Query("userid") int userid, @Query("latitude") double latitude, @Query("longitude") double longitude);
+    Observable<Result<List<UserLocatInfo>>> getNearByFromServer(@Query("latitude") double latitude, @Query("longitude") double longitude);
 
     @GET("android/user_userinfobyname")
     Observable<Result<List<UserCommonInfo2>>> getUserCommonInfoByName(@Query("name") String name);

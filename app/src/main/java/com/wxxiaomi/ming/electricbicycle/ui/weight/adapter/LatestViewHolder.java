@@ -15,15 +15,6 @@ import com.wxxiaomi.ming.electricbicycle.ui.weight.custom.CircularImageView;
  */
 
 public class LatestViewHolder extends RecyclerView.ViewHolder {
-//    public RelativeLayout foot_content;
-//    public TextView tv_option;
-//    public TextView tv_pic_title;
-//
-//    public CardView no_img_content;
-//    public RelativeLayout pic_content;
-//    public TextView tv_no_pic_title;
-
-//    public LatestTimeLine time_marker;
 
     public ImageView iv_img;
     public TextView tv_content;
