@@ -36,7 +36,6 @@ public interface DemoService {
     Observable<Result<String>> upLoadUserCover(@Query("coverPath") String coverPath);
 
 
-
     @FormUrlEncoded
     @POST("android/user_updateuserfriends")
     Observable<Result<List<UserCommonInfo2>>> updateUserFriend2(@Field("friends") String friends);

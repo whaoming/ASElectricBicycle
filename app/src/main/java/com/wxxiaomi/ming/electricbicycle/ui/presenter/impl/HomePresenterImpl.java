@@ -201,6 +201,21 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
             mView.runActivity(SettingActivity.class,null);
     }
 
+    @Override
+    public void onFootPrintClick() {
+        mView.showSnackBar("足迹功能暂未开放");
+    }
+
+    @Override
+    public void onAlbumClick() {
+        mView.showSnackBar("相册功能暂未开放");
+    }
+
+    @Override
+    public void onCollectClick() {
+        mView.showSnackBar("收藏功能暂未开放");
+    }
+
     public void updateUnreadLabel(){
         int allUnreadCount = EmHelper2.getInstance().getAllUnreadCount();
         mView.updateUnreadLabel(allUnreadCount);

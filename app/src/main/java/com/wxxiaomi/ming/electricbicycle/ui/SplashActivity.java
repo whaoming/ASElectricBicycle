@@ -11,6 +11,7 @@ import android.support.multidex.MultiDex;
 import com.wxxiaomi.ming.electricbicycle.EBApplication;
 import com.wxxiaomi.ming.electricbicycle.common.util.AppManager;
 import com.wxxiaomi.ming.electricbicycle.R;
+import com.wxxiaomi.ming.electricbicycle.ui.activity.FootPrintShowActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.HomeActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.RegisterActivity;
 import com.wxxiaomi.ming.electricbicycle.dao.db.UserService;
@@ -37,7 +38,7 @@ public class SplashActivity extends Activity {
             switch (msg.what) {
                 case 5:
                     if(isLogin){
-                        Intent intent = new Intent(SplashActivity.this, HomeActivity.class);
+                        Intent intent = new Intent(SplashActivity.this, FootPrintShowActivity.class);
                         startActivity(intent);
                         finish();
                         break;

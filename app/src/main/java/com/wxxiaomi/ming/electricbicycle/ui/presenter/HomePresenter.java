@@ -40,4 +40,10 @@ public interface HomePresenter<V extends BaseView> extends BasePre<V> {
     void onNewIntent(Intent intent);
 
     void onSettingClick();
+
+    void onFootPrintClick();
+
+    void onAlbumClick();
+
+    void onCollectClick();
 }
