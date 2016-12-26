@@ -26,6 +26,8 @@ import com.wxxiaomi.ming.electricbicycle.dao.bean.UserLocatInfo;
 import com.wxxiaomi.ming.electricbicycle.support.easemob.common.EmConstant;
 import com.wxxiaomi.ming.electricbicycle.support.easemob.EmHelper2;
 import com.wxxiaomi.ming.electricbicycle.support.common.myglide.ImgShower;
+import com.wxxiaomi.ming.electricbicycle.ui.activity.FootPrintShowActivity;
+import com.wxxiaomi.ming.electricbicycle.ui.activity.FootPublishActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.LoginActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.UserInfoActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.SettingActivity;
@@ -203,7 +205,8 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
 
     @Override
     public void onFootPrintClick() {
-        mView.showSnackBar("足迹功能暂未开放");
+        mView.runActivity(FootPrintShowActivity.class,null);
+//        mView.showSnackBar("足迹功能暂未开放");
     }
 
     @Override
@@ -214,6 +217,11 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
     @Override
     public void onCollectClick() {
         mView.showSnackBar("收藏功能暂未开放");
+    }
+
+    @Override
+    public void onFootPrintActionClick() {
+        mView.runActivity(FootPublishActivity.class,null);
     }
 
     public void updateUnreadLabel(){

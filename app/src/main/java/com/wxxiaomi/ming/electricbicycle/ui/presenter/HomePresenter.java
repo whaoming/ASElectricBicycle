@@ -46,4 +46,6 @@ public interface HomePresenter<V extends BaseView> extends BasePre<V> {
     void onAlbumClick();
 
     void onCollectClick();
+
+    void onFootPrintActionClick();
 }

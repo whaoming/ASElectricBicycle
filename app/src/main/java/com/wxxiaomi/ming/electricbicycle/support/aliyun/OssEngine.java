@@ -75,6 +75,26 @@ public class OssEngine {
         });
     }
 
+    public Observable<String> uploadImageWithoutName(final String imgPath){
+        return Observable.create(new Observable.OnSubscribe<String>() {
+            @Override
+            public void call(final Subscriber<? super String> subscriber) {
+                UUID uuid = UUID.randomUUID();
+                final String fileName =uuid+".jpg";
+                ossService.asyncPutImage(fileName, imgPath, new UpLoadListener() {
+                    @Override
+                    public void onFail() {
+                        subscriber.onError(null);
+                    }
+                    @Override
+                    public void onSuccess() {
+                        subscriber.onNext("http://mttext.oss-cn-shanghai.aliyuncs.com/"+fileName);
+                    }
+                });
+            }
+        });
+    }
+
     public Observable<String> upLoadObj(final String fileName,final byte[] imgPath){
         return Observable.create(new Observable.OnSubscribe<String>() {
             @Override

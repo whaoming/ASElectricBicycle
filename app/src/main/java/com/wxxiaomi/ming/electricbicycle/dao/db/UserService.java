@@ -18,6 +18,7 @@ import com.wxxiaomi.ming.electricbicycle.dao.bean.User;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo2;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.UserLocatInfo;
 
+import com.wxxiaomi.ming.electricbicycle.dao.bean.format.FootPrintGet;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.format.UserInfo;
 import com.wxxiaomi.ming.electricbicycle.dao.constant.OptionType;
 import com.wxxiaomi.ming.electricbicycle.dao.db.impl.*;
@@ -458,5 +459,9 @@ public class UserService {
                         return userInfo;
                     }
                 });
+    }
+
+    public Observable<FootPrintGet> getUserFootPrint(int userid){
+        return HttpMethods.getInstance().getUserFootPrint(userid);
     }
 }

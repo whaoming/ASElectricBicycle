@@ -36,12 +36,12 @@
         "source": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ee_10.png"
     },
     {
-        "merged": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_record_animate_05.png",
-        "source": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_record_animate_05.png"
-    },
-    {
         "merged": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ee_4.png",
         "source": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ee_4.png"
+    },
+    {
+        "merged": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_record_animate_05.png",
+        "source": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_record_animate_05.png"
     },
     {
         "merged": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_contact_list_normal.png",

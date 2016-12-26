@@ -177,7 +177,6 @@ public class SimpleBuilder extends ComBuildImpl {
     @Override
     protected void doSumbitEvent(String data, final CallBackFunction function) {
         final SendUpAction action = new Gson().fromJson(data, SendUpAction.class);
-        Log.i("wang", "action:" + action);
         if (imgDatas != null) {
             OssEngine.getInstance().initOssEngine(context.getApplicationContext());
             ImgCacheProvider.getInstance().getImages_Zip(imgDatas)

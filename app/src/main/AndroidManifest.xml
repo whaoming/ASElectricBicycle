@@ -233,7 +233,8 @@
             android:name=".ui.activity.SettingActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".ui.activity.UserInfoActivity" />
-        <activity android:name=".ui.activity.FootPrintShowActivity"></activity>
+        <activity android:name=".ui.activity.FootPrintShowActivity" />
+        <activity android:name=".ui.activity.FootPublishActivity"></activity>
     </application>
 
 </manifest>

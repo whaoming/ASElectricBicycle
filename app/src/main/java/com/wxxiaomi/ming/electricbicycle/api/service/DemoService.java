@@ -7,6 +7,7 @@ import com.wxxiaomi.ming.electricbicycle.dao.bean.User;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo2;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.UserLocatInfo;
 
+import com.wxxiaomi.ming.electricbicycle.dao.bean.format.FootPrintGet;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.format.UserInfo;
 import com.wxxiaomi.ming.electricbicycle.dao.common.Result;
 
@@ -31,6 +32,13 @@ import rx.Observable;
  * Created by 12262 on 2016/5/31.
  */
 public interface DemoService {
+    @FormUrlEncoded
+    @POST("android/lbs_publishfootprint")
+    Observable<Result<String>> publishFootPrint(@Field("content") String content,@Field("picture") String picture
+            ,@Field("locat_tag") String locat_tag,@Field("lat") double lat,@Field("lng") double lng);
+
+    @GET("android/lbs_listfootprint")
+    Observable<Result<FootPrintGet>> listUserFootPrint(@Query("target_id") int userid);
 
     @POST("android/user_upLoadCover")
     Observable<Result<String>> upLoadUserCover(@Query("coverPath") String coverPath);

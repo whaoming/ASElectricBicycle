@@ -4,6 +4,7 @@ package com.wxxiaomi.ming.electricbicycle.common.rx;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 
 import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.api.exception.ApiException;
@@ -25,8 +26,9 @@ public abstract class SampleProgressObserver<T> extends MyObserver<T>{
         dialog = new ProgressDialog(context);
         dialog.setTitle("请等待");//设置标题
         dialog.setMessage("正在加载");
-        msgDialog = new AlertDialog.Builder(context, R.style.MingDialog).setPositiveButton("确定", null).create();
         this.context = context;
+        msgDialog = new AlertDialog.Builder(context, R.style.MingDialog).setPositiveButton("确定", null).create();
+
     }
 
     @Override
@@ -37,9 +39,7 @@ public abstract class SampleProgressObserver<T> extends MyObserver<T>{
 
     @Override
     protected void onError(ApiException ex) {
-        //Log.i("wang","SampleProgressObserver-onError-"+ex.getDisplayMessage());
-        //ex.printStackTrace();;
-        ex.printStackTrace();
+        Log.i("wang","SampleProgressObserver-onError-"+ex.getDisplayMessage());
         if(dialog.isShowing()) {
             dialog.dismiss();
         }
@@ -50,7 +50,7 @@ public abstract class SampleProgressObserver<T> extends MyObserver<T>{
 
     @Override
     public void onCompleted() {
-       // Log.i("wang","SampleProgressObserver-onCompleted()");
+        Log.i("wang","SampleProgressObserver-onCompleted()");
         if(showMsg)
         {
             dialog.dismiss();
@@ -68,8 +68,6 @@ public abstract class SampleProgressObserver<T> extends MyObserver<T>{
 
     protected void closeDialog(){
         if(dialog.isShowing()){ dialog.dismiss();}
-
-
     }
 
 }

@@ -38,7 +38,7 @@ public class SplashActivity extends Activity {
             switch (msg.what) {
                 case 5:
                     if(isLogin){
-                        Intent intent = new Intent(SplashActivity.this, FootPrintShowActivity.class);
+                        Intent intent = new Intent(SplashActivity.this, HomeActivity.class);
                         startActivity(intent);
                         finish();
                         break;

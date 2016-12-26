@@ -16,6 +16,7 @@ import com.wxxiaomi.ming.electricbicycle.dao.bean.User;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo2;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.UserLocatInfo;
 
+import com.wxxiaomi.ming.electricbicycle.dao.bean.format.FootPrintGet;
 import com.wxxiaomi.ming.electricbicycle.dao.bean.format.UserInfo;
 import com.wxxiaomi.ming.electricbicycle.dao.common.Result;
 
@@ -128,6 +129,30 @@ public class HttpMethods {
                 })
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io());
+    }
+
+    public Observable<String> publishFootPrint(String content,String picture,String locat_tag,double lat,double lng){
+        return demoService.publishFootPrint(content, picture, locat_tag, lat, lng)
+                .map(new ServerResultFunc<String>())
+                .retryWhen(new TokenOutTime(3,1))
+                .onErrorResumeNext(new Func1<Throwable, Observable<? extends String>>() {
+                    @Override
+                    public Observable<? extends String> call(Throwable throwable) {
+                        return Observable.error(ExceptionEngine.handleException(throwable));
+                    }
+                });
+    }
+
+    public Observable<FootPrintGet> getUserFootPrint(int userid){
+        return demoService.listUserFootPrint(userid)
+                .map(new ServerResultFunc<FootPrintGet>())
+                .retryWhen(new TokenOutTime(3,1))
+                .onErrorResumeNext(new Func1<Throwable, Observable<? extends FootPrintGet>>() {
+                    @Override
+                    public Observable<? extends FootPrintGet> call(Throwable throwable) {
+                        return Observable.error(ExceptionEngine.handleException(throwable));
+                    }
+                });
     }
 
     public Observable<String> upLoadUserCover(String path){

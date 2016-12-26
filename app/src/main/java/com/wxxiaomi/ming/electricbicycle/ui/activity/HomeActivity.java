@@ -125,7 +125,8 @@ public class HomeActivity extends BaseActivity<HomeView,HomePresenter> implement
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btn_go:
-                presenter.goBtnOnClick();
+//                presenter.goBtnOnClick();
+                presenter.onFootPrintActionClick();
                 break;
 //            case R.id.iv_contact:
 //                presenter.contactBtnOnClick();
@@ -240,6 +241,7 @@ public class HomeActivity extends BaseActivity<HomeView,HomePresenter> implement
         LatLng ll = new LatLng(LocationUtil.getInstance().getLatitude(),
                 LocationUtil.getInstance().getLongitude());
         MapStatus.Builder builder = new MapStatus.Builder();
+//        Poi
         builder.target(ll).zoom(18.0f);
         mBaiduMap.animateMapStatus(MapStatusUpdateFactory
                 .newMapStatus(builder.build()));
@@ -385,7 +387,7 @@ public class HomeActivity extends BaseActivity<HomeView,HomePresenter> implement
         super.onWindowFocusChanged(hasFocus);
         mActionProvider.setIcon(R.mipmap.ic_add_white_24dp);
         mActionProvider.setBadge(0);
-        mActionProvider2.setIcon(R.mipmap.ic_add_white_24dp);
-        mActionProvider2.setBadge(5);
+        mActionProvider2.setIcon(R.mipmap.ic_notify_none);
+        mActionProvider2.setBadge(0);
     }
 }
