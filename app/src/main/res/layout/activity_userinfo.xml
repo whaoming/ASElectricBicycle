@@ -30,7 +30,7 @@
                 app:layout_collapseMode="parallax"
                 android:fitsSystemWindows="true"
                 android:scaleType="centerCrop"
-                android:src="@mipmap/activity_welcome_backgroud" />
+                 />
 
             <RelativeLayout
                 android:layout_width="match_parent"

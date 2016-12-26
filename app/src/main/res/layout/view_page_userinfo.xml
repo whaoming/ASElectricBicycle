@@ -70,7 +70,6 @@
         android:layout_height="wrap_content">
         <ImageView
             android:scaleType="fitXY"
-            android:src="@mipmap/default_news_top_bg_7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </RelativeLayout>
