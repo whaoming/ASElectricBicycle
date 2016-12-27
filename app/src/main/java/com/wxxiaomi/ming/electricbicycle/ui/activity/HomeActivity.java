@@ -2,7 +2,6 @@ package com.wxxiaomi.ming.electricbicycle.ui.activity;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.media.Image;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -41,7 +40,7 @@ import com.wxxiaomi.ming.electricbicycle.ui.presenter.HomePresenter;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.impl.HomePresenterImpl;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.view.HomeView;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.custom.CircularImageView;
-import com.wxxiaomi.ming.electricbicycle.support.baidumap.LocationUtil;
+import com.wxxiaomi.ming.electricbicycle.service.LocatProvider;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.custom.MsgActionProvider;
 
 /**
@@ -238,8 +237,8 @@ public class HomeActivity extends BaseActivity<HomeView,HomePresenter> implement
 
     @Override
     public void scrollToMyLocat() {
-        LatLng ll = new LatLng(LocationUtil.getInstance().getLatitude(),
-                LocationUtil.getInstance().getLongitude());
+        LatLng ll = new LatLng(LocatProvider.getInstance().getLatitude(),
+                LocatProvider.getInstance().getLongitude());
         MapStatus.Builder builder = new MapStatus.Builder();
 //        Poi
         builder.target(ll).zoom(18.0f);

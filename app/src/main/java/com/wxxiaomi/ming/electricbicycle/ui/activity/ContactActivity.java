@@ -17,17 +17,15 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import com.squareup.leakcanary.RefWatcher;
 import com.wxxiaomi.ming.electricbicycle.EBApplication;
 import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.base.BaseActivity;
-import com.wxxiaomi.ming.electricbicycle.support.easemob.ui.ContactListFragment;
-import com.wxxiaomi.ming.electricbicycle.support.easemob.ui.ConversationListFragment;
+import com.wxxiaomi.ming.electricbicycle.bridge.easemob.ui.ContactListFragment;
+import com.wxxiaomi.ming.electricbicycle.bridge.easemob.ui.ConversationListFragment;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.ContactPresenter;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.impl.ContactPresenterImpl;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.view.ContactView;
@@ -35,14 +33,11 @@ import com.wxxiaomi.ming.electricbicycle.ui.weight.adapter.IndexFragmentTabAdapt
 import com.wxxiaomi.ming.electricbicycle.ui.weight.adapter.NewFriendAddItemAdapter;
 import com.wxxiaomi.ming.electricbicycle.ui.fragment.base.BaseFragment;
 import com.wxxiaomi.ming.electricbicycle.ui.fragment.base.FragmentCallback;
-import com.wxxiaomi.ming.electricbicycle.common.GlobalManager;
+import com.wxxiaomi.ming.electricbicycle.service.GlobalManager;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.custom.MsgActionProvider;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import rx.Observable;
-import rx.Subscriber;
 
 /**
  * Created by 12262 on 2016/6/9.
@@ -58,13 +53,14 @@ public class ContactActivity extends BaseActivity<ContactView,ContactPresenter> 
     private ConversationListFragment demoFragment;
     private ContactListFragment contactFragment;
 
-    private DrawerLayout mDrawerLayout;
-    private RecyclerView mRecyclerView;
+//    private DrawerLayout mDrawerLayout;
+//    private RecyclerView mRecyclerView;
     private LinearLayout drawer;
     private LinearLayoutManager mLayoutManager;
 
     private RelativeLayout drawer_ll;
     private MsgActionProvider mActionProvider;
+    private MsgActionProvider mActionProvider2;
 
     @Override
     protected void initView(Bundle savedInstanceState) {
@@ -78,16 +74,16 @@ public class ContactActivity extends BaseActivity<ContactView,ContactPresenter> 
         setSupportActionBar(toolbar);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.dl_left);
+//        mDrawerLayout = (DrawerLayout) findViewById(R.id.dl_left);
 
-        drawer = (LinearLayout) findViewById(R.id.drawer);
-        drawer.setOnClickListener(this);
-        drawer_ll = (RelativeLayout)drawer.findViewById(R.id.drawer_ll);
-        drawer_ll.setOnClickListener(this);
-        mRecyclerView = (RecyclerView) drawer.findViewById(R.id.list);
+//        drawer = (LinearLayout) findViewById(R.id.drawer);
+//        drawer.setOnClickListener(this);
+//        drawer_ll = (RelativeLayout)drawer.findViewById(R.id.drawer_ll);
+//        drawer_ll.setOnClickListener(this);
+//        mRecyclerView = (RecyclerView) drawer.findViewById(R.id.list);
         mLayoutManager = new LinearLayoutManager(this);
-        mRecyclerView.setLayoutManager(mLayoutManager);
-        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+//        mRecyclerView.setLayoutManager(mLayoutManager);
+//        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         list_fragment = new ArrayList<Fragment>();
         contactFragment = new ContactListFragment();
         demoFragment = new ConversationListFragment();
@@ -128,7 +124,7 @@ public class ContactActivity extends BaseActivity<ContactView,ContactPresenter> 
 
     @Override
     public void setInviteListAdapter(NewFriendAddItemAdapter adapter) {
-        mRecyclerView.setAdapter(adapter);
+//        mRecyclerView.setAdapter(adapter);
     }
 
     @Override
@@ -149,27 +145,26 @@ public class ContactActivity extends BaseActivity<ContactView,ContactPresenter> 
     public void onFragmentCallback(BaseFragment fragment, int id, Bundle args) {
     }
 
-    @Override
-    public void onWindowFocusChanged(boolean hasFocus) {
-        super.onWindowFocusChanged(hasFocus);
-        mActionProvider.setIcon(R.mipmap.ic_add_white_24dp);
-        presenter.refershInviteUI();
-    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_msg_notify, menu);
-
-        MenuItem menuItem = menu.findItem(R.id.menu_pic);
-        mActionProvider = (MsgActionProvider) MenuItemCompat.getActionProvider(menuItem);
-        mActionProvider.setOnClickListener(0, new MsgActionProvider.OnClickListener() {
-            @Override
-            public void onClick(int what) {
-                presenter.onDrawClick();
-                mDrawerLayout.openDrawer(Gravity.RIGHT);
-            }
-        });// 设置点击监听。
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.menu_invite:
+                break;
+            case R.id.menu_search:
+                presenter.onAddFriendBtnClick();
+                break;
+            case R.id.menu_mine:
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

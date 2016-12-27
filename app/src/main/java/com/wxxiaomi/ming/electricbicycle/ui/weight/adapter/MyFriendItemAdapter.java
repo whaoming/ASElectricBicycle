@@ -14,21 +14,21 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.wxxiaomi.ming.electricbicycle.R;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo2;
+import com.wxxiaomi.ming.electricbicycle.db.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.custom.CircularImageView;
 
 
 public class MyFriendItemAdapter extends RecyclerView.Adapter<ViewHolder> {
 
 	private Context context;
-	private List<UserCommonInfo2> userInfos;
+	private List<UserCommonInfo> userInfos;
 	private OnItemClick lis;
 
 //	public List<InviteMessage> getInfoList() {
 //		return infos;
 //	}
 
-	public MyFriendItemAdapter(Context context, List<UserCommonInfo2> userInfos, OnItemClick lis) {
+	public MyFriendItemAdapter(Context context, List<UserCommonInfo> userInfos, OnItemClick lis) {
 		super();
 		this.context = context;
 		this.userInfos = userInfos;
@@ -45,7 +45,7 @@ public class MyFriendItemAdapter extends RecyclerView.Adapter<ViewHolder> {
 	@Override
 	public void onBindViewHolder(ViewHolder viewHolder, final int position) {
 		ItemViewHolder holder = (ItemViewHolder) viewHolder;
-		final UserCommonInfo2 userCommonInfo = userInfos.get(position);
+		final UserCommonInfo userCommonInfo = userInfos.get(position);
 		holder.tv_name.setText(userCommonInfo.nickname);
 		Glide.with(context).load(userCommonInfo.avatar).into(holder.iv_my_head);
 //		holder.ib_contact.setOnClickListener(new OnClickListener() {
@@ -97,7 +97,7 @@ public class MyFriendItemAdapter extends RecyclerView.Adapter<ViewHolder> {
 	}
 
 	public interface OnItemClick{
-		void onClick(UserCommonInfo2 info);
+		void onClick(UserCommonInfo info);
 	}
 	
 	

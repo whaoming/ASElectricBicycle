@@ -1,11 +1,11 @@
 package com.wxxiaomi.ming.electricbicycle.ui.presenter.impl;
 
-import com.wxxiaomi.ming.electricbicycle.common.GlobalManager;
-import com.wxxiaomi.ming.electricbicycle.common.rx.SampleProgressObserver;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.Option;
-import com.wxxiaomi.ming.electricbicycle.dao.db.UserService;
-import com.wxxiaomi.ming.electricbicycle.support.common.myglide.ImgShower;
-import com.wxxiaomi.ming.electricbicycle.support.img.PhotoTakeUtil;
+import com.wxxiaomi.ming.electricbicycle.service.GlobalManager;
+import com.wxxiaomi.ming.electricbicycle.support.rx.SampleProgressObserver;
+import com.wxxiaomi.ming.electricbicycle.db.bean.Option;
+import com.wxxiaomi.ming.electricbicycle.service.FunctionProvider;
+import com.wxxiaomi.ming.electricbicycle.service.ShowerProvider;
+import com.wxxiaomi.ming.electricbicycle.bridge.img.PhotoTakeUtil;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.SettingActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.base.BasePreImpl;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.PersonalPresenter;
@@ -35,7 +35,7 @@ public class PersonalPreImpl extends BasePreImpl<PersonaView> implements Persona
         listView.setRefreshing(true);
         String cover = GlobalManager.getInstance().getUser().userCommonInfo.cover;
         if(cover!=null){
-            ImgShower.showNormalImage(mView.getContext(), mView.getBackImgContent(),cover);
+            ShowerProvider.showNormalImage(mView.getContext(), mView.getBackImgContent(),cover);
         }
 //        mView.getBackImgContent().setBackground();
         requestOptionData();
@@ -44,12 +44,12 @@ public class PersonalPreImpl extends BasePreImpl<PersonaView> implements Persona
     @Override
     public void onViewResume() {
         super.onViewResume();
-        ImgShower.showHead(mView.getContext(), mView.getHeadView(), GlobalManager.getInstance().getUser().userCommonInfo.avatar);
+        ShowerProvider.showHead(mView.getContext(), mView.getHeadView(), GlobalManager.getInstance().getUser().userCommonInfo.avatar);
         mView.setViewData(GlobalManager.getInstance().getUser().userCommonInfo);
     }
 
     private void requestOptionData() {
-        UserService.getInstance().getUserOptions(GlobalManager.getInstance().getUser().userCommonInfo.id)
+        FunctionProvider.getInstance().getUserOptions(GlobalManager.getInstance().getUser().userCommonInfo.id)
                 .subscribe(new Action1<List<Option>>() {
                     @Override
                     public void call(List<Option> options) {
@@ -71,11 +71,11 @@ public class PersonalPreImpl extends BasePreImpl<PersonaView> implements Persona
                 .subscribe(new Action1<List<String>>() {
                     @Override
                     public void call(List<String> strings) {
-                        UserService.getInstance().upLoadImgToOss(strings.get(0))
+                        FunctionProvider.getInstance().upLoadImgToOss(strings.get(0))
                                 .flatMap(new Func1<String, Observable<String>>() {
                                     @Override
                                     public Observable<String> call(String s) {
-                                        return UserService.getInstance().upLoadUserCover(s);
+                                        return FunctionProvider.getInstance().upLoadUserCover(s);
                                     }
                                 })
                                 .observeOn(AndroidSchedulers.mainThread())
@@ -83,7 +83,7 @@ public class PersonalPreImpl extends BasePreImpl<PersonaView> implements Persona
                                     @Override
                                     public void onNext(String s) {
                                         closeDialog();
-                                        ImgShower.showNormalImage(mView.getContext(),mView.getBackImgContent(),s);
+                                        ShowerProvider.showNormalImage(mView.getContext(),mView.getBackImgContent(),s);
                                     }
                                 });
                     }
@@ -94,7 +94,7 @@ public class PersonalPreImpl extends BasePreImpl<PersonaView> implements Persona
          * new Action1<String>() {
         @Override
         public void call(String s) {
-        ImgShower.showNormalImage(mView.getContext(),mView.getBackImgContent(),s);
+        ShowerProvider.showNormalImage(mView.getContext(),mView.getBackImgContent(),s);
         }
         }
          */

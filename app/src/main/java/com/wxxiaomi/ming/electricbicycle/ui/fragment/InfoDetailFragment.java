@@ -1,20 +1,15 @@
 package com.wxxiaomi.ming.electricbicycle.ui.fragment;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v4.widget.NestedScrollView;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.wxxiaomi.ming.electricbicycle.ConstantValue;
 import com.wxxiaomi.ming.electricbicycle.R;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo2;
-import com.wxxiaomi.ming.electricbicycle.ui.activity.UserInfoActivity;
+import com.wxxiaomi.ming.electricbicycle.db.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.ui.fragment.base.BaseFragment;
-import com.wxxiaomi.ming.electricbicycle.ui.weight.pull2refreshreview.PullToRefreshRecyclerView;
 
 
 /**
@@ -26,14 +21,14 @@ public class InfoDetailFragment extends BaseFragment{
     private NestedScrollView srocllView;
     private TextView tv_locat;
     private TextView time_registe;
-    private UserCommonInfo2 userinfo;
+    private UserCommonInfo userinfo;
     private boolean isMine;
 
     @Override
     public void receiveData(int flag,Bundle bundle) {
         switch (flag) {
             case 1:
-                userinfo = (UserCommonInfo2) bundle.getSerializable(ConstantValue.BUNDLE_USERINFO);
+                userinfo = (UserCommonInfo) bundle.getSerializable(ConstantValue.BUNDLE_USERINFO);
                 isMine = bundle.getBoolean(ConstantValue.INTENT_ISMINE);
                 tv_locat.setText(userinfo.city);
                 time_registe.setText(userinfo.create_time);

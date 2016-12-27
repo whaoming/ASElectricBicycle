@@ -14,16 +14,15 @@ import android.widget.TextView;
 
 import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.api.HttpMethods;
-import com.wxxiaomi.ming.electricbicycle.common.rx.SampleProgressObserver;
-import com.wxxiaomi.ming.electricbicycle.support.aliyun.OssEngine;
-import com.wxxiaomi.ming.electricbicycle.support.baidumap.LocationUtil;
-import com.wxxiaomi.ming.electricbicycle.support.common.myglide.ImgShower;
-import com.wxxiaomi.ming.electricbicycle.support.img.PhotoTakeUtil;
+import com.wxxiaomi.ming.electricbicycle.support.rx.SampleProgressObserver;
+import com.wxxiaomi.ming.electricbicycle.service.ShowerProvider;
+import com.wxxiaomi.ming.electricbicycle.bridge.aliyun.OssEngine;
+import com.wxxiaomi.ming.electricbicycle.service.LocatProvider;
+import com.wxxiaomi.ming.electricbicycle.bridge.img.PhotoTakeUtil;
 
 import java.util.List;
 
 import rx.Observable;
-import rx.Observer;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 import rx.functions.Func1;
@@ -51,7 +50,7 @@ public class FootPublishActivity extends AppCompatActivity implements View.OnCli
         btn_up.setOnClickListener(this);
         et = (EditText) findViewById(R.id.et);
         tv_locat = (TextView) findViewById(R.id.tv_locat);
-        tv_locat.setText(LocationUtil.getInstance().getLocatTag());
+        tv_locat.setText(LocatProvider.getInstance().getLocatTag());
         iv = (ImageView) findViewById(R.id.iv);
         iv.setOnClickListener(this);
         btn_action = (FloatingActionButton) findViewById(R.id.btn_action);
@@ -75,9 +74,9 @@ public class FootPublishActivity extends AppCompatActivity implements View.OnCli
         switch (view.getId()){
             case R.id.btn_action:
                 final String content = et.getText().toString().trim();
-                final String locat_tag = LocationUtil.getInstance().getLocatTag();
-                final double lat = LocationUtil.getInstance().getLatitude();
-                final double lng = LocationUtil.getInstance().getLongitude();
+                final String locat_tag = LocatProvider.getInstance().getLocatTag();
+                final double lat = LocatProvider.getInstance().getLatitude();
+                final double lng = LocatProvider.getInstance().getLongitude();
                 OssEngine.getInstance().uploadImageWithoutName(imgPath)
                         .flatMap(new Func1<String, Observable<String>>() {
                             @Override
@@ -104,7 +103,7 @@ public class FootPublishActivity extends AppCompatActivity implements View.OnCli
                                 Log.i("wang","path:"+strings.get(0));
                                 imgPath = strings.get(0);
 
-                                ImgShower.showNormalImage(FootPublishActivity.this,iv,imgPath);
+                                ShowerProvider.showNormalImage(FootPublishActivity.this,iv,imgPath);
                                 iv.setVisibility(View.VISIBLE);
                                 btn_up.setVisibility(View.GONE);
                             }

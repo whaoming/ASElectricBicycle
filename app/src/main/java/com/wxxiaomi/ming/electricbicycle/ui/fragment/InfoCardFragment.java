@@ -5,22 +5,17 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.wxxiaomi.ming.electricbicycle.ConstantValue;
 import com.wxxiaomi.ming.electricbicycle.R;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.Option;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo2;
-import com.wxxiaomi.ming.electricbicycle.ui.activity.UserInfoActivity;
+import com.wxxiaomi.ming.electricbicycle.db.bean.Option;
+import com.wxxiaomi.ming.electricbicycle.db.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.ui.fragment.base.BaseFragment;
-import com.wxxiaomi.ming.electricbicycle.ui.weight.adapter.OptionAdapter2;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.adapter.OptionAdapter3;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.pull2refreshreview.PullToRefreshRecyclerView;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.pull2refreshreview.footer.DefaultLoadMoreView;
@@ -35,7 +30,7 @@ import java.util.List;
 public class InfoCardFragment extends BaseFragment {
     private View view;
     private PullToRefreshRecyclerView mRecyclerView;
-    private UserCommonInfo2 userinfo;
+    private UserCommonInfo userinfo;
     private boolean isMine;
     private View header;
 
@@ -87,7 +82,7 @@ public class InfoCardFragment extends BaseFragment {
     public void receiveData(int flag,Bundle bundle) {
         switch (flag){
             case 1:
-                userinfo = (UserCommonInfo2) bundle.getSerializable(ConstantValue.BUNDLE_USERINFO);
+                userinfo = (UserCommonInfo) bundle.getSerializable(ConstantValue.BUNDLE_USERINFO);
                 isMine = bundle.getBoolean(ConstantValue.INTENT_ISMINE);
                 adapterView();
                 break;

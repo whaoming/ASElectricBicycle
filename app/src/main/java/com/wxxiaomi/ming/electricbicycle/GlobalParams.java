@@ -9,7 +9,7 @@ package com.wxxiaomi.ming.electricbicycle;
  *
  */
 public class GlobalParams {
-	public static String token = "";
+//	public static String token = "";
 	public static String username;
 	//public static User user = null;
 	
