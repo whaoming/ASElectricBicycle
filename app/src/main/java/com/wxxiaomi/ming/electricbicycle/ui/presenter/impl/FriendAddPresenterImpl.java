@@ -1,6 +1,7 @@
 package com.wxxiaomi.ming.electricbicycle.ui.presenter.impl;
 
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -72,12 +73,12 @@ public class FriendAddPresenterImpl extends BasePreImpl<FriendAddView> implement
                 .subscribe(new Action1<List<UserLocatInfo>>() {
                     @Override
                     public void call(List<UserLocatInfo> nearByPerson) {
-                        if(nearByPerson!=null){
+//                        if(nearByPerson!=null){
 //                            tempNearUserList.addAll(nearByPerson);
 //                            adapter = new NearFriendRecommendAdapter1(mView.getContext(),tempNearUserList);
                             mAdapter.setNewData(nearByPerson);
 
-                        }
+//                        }
 
                     }
                 });
@@ -90,29 +91,13 @@ public class FriendAddPresenterImpl extends BasePreImpl<FriendAddView> implement
         listView.removeHeader();
         listView.getRecyclerView().removeAllViews();
         mView.getListView().setAdapter(adapter1);
-//        Log.i("wang","name:"+name);
         FunctionProvider.getInstance().getUserByNameFWeb(name)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new SampleProgressObserver<List<UserCommonInfo>>(mView.getContext()) {
                     @Override
                     public void onNext(List<UserCommonInfo> initUserInfo) {
-//                        if(initUserInfo.size()!=0){
-//                            Bundle bundle = new Bundle();
-//                            bundle.putSerializable("userInfo", initUserInfo.get(0));
-//                            mView.runActivity(UserInfoAct.class|,bundle,false);
-//                        Log.i("wang","initUserInfo.size:"+initUserInfo.size());
-                        isNear = false;
+                            isNear = false;
                              adapter1.setNewData(initUserInfo);
-//                            adapter = new NearFriendRecommendAdapter1(mView.getContext(),tempNearUserList);
-
-//                            adapter1.set
-
-//                            mView.getListView().setRefreshing(false);
-//                            mView.getListView().setAdapter();
-//                        }else{
-//                            Log.i("wang","找不到这个人");
-//                        }
-
                     }
                 });
     }
@@ -122,11 +107,7 @@ public class FriendAddPresenterImpl extends BasePreImpl<FriendAddView> implement
         if(!isNear){
             isNear = !isNear;
             isAddHeader = !isAddHeader;
-//            mAdapter.setNewData(nearByPerson);
-            listView.removeAllViews();
-            listView.removeHeader();
-            listView.getRecyclerView().removeAllViews();
-            listView.setAdapter(mAdapter);
+            listView.getRecyclerView().swapAdapter(mAdapter,true);
         }
 
         if(!isAddHeader){
