@@ -9,4 +9,6 @@ import com.wxxiaomi.ming.electricbicycle.ui.activity.base.BaseView;
  */
 public interface FriendAddPresenter<V extends BaseView> extends BasePre<V> {
     void onFindClick(String name);
+
+    void onTextChange(String newText);
 }

@@ -99,6 +99,8 @@ public class NearFriendRecommendAdapter extends RecyclerView.Adapter<ViewHolder>
 		}
 	}
 
+
+
 	@Override
 	public int getItemCount() {
 
@@ -109,8 +111,14 @@ public class NearFriendRecommendAdapter extends RecyclerView.Adapter<ViewHolder>
 	public void onBindViewHolder(ViewHolder viewHolder, final int position) {
 		if(viewHolder instanceof ItemViewHolder){
 			ItemViewHolder holder = (ItemViewHolder) viewHolder;
+			Log.i("wang","position:"+position);
+			if(position==(getItemCount()-userInfos.size())){
+
+				holder.content_tip.setVisibility(View.VISIBLE);
+			}else{
+				holder.content_tip.setVisibility(View.GONE);
+			}
 			final UserLocatInfo userCommonInfo = userInfos.get(position);
-//			final UserLocatInfo userCommonInfo = userInfos.get(position);
 			holder.tv_name.setText(userCommonInfo.userCommonInfo.nickname);
 			holder.tv_reason.setText("用户描述");
 			holder.rl_item.setOnClickListener(new OnClickListener() {
@@ -168,6 +176,7 @@ public class NearFriendRecommendAdapter extends RecyclerView.Adapter<ViewHolder>
 	}
 
 	public class ItemViewHolder extends ViewHolder{
+		public RelativeLayout content_tip;
 		public TextView tv_name;
 		public TextView tv_reason;
 		public RelativeLayout rl_item;
@@ -179,6 +188,7 @@ public class NearFriendRecommendAdapter extends RecyclerView.Adapter<ViewHolder>
 			tv_reason = (TextView) view.findViewById(R.id.tv_description);
 			rl_item = (RelativeLayout) view.findViewById(R.id.rl_item);
 			iv_head = (CircularImageView) view.findViewById(R.id.iv_head);
+			content_tip = (RelativeLayout) view.findViewById(R.id.content_tip);
 		}
 	}
 

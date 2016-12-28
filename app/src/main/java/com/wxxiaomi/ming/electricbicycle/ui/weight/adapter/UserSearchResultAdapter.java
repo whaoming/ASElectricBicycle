@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView.ViewHolder;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -14,7 +13,9 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.wxxiaomi.ming.electricbicycle.R;
+import com.wxxiaomi.ming.electricbicycle.db.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.db.bean.UserLocatInfo;
+import com.wxxiaomi.ming.electricbicycle.service.ShowerProvider;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.UserInfoAct;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.adapter.base.BaseAdapter;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.custom.CircularImageView;
@@ -30,12 +31,12 @@ import java.util.List;
  * 4.有item
  * 5.还没开始加载
  */
-public class NearFriendRecommendAdapter1 extends BaseAdapter {
+public class UserSearchResultAdapter extends BaseAdapter {
 
     private Context context;
-    private List<UserLocatInfo> userInfos;
+    private List<UserCommonInfo> userInfos;
 
-    public NearFriendRecommendAdapter1(Context context, List<UserLocatInfo> userInfos) {
+    public UserSearchResultAdapter(Context context, List<UserCommonInfo> userInfos) {
         super(context);
         this.context = context;
         this.userInfos = userInfos;
@@ -58,20 +59,21 @@ public class NearFriendRecommendAdapter1 extends BaseAdapter {
             }else{
                 holder.content_tip.setVisibility(View.GONE);
             }
-            final UserLocatInfo userCommonInfo = userInfos.get(position);
-            holder.tv_name.setText(userCommonInfo.userCommonInfo.nickname);
+            final UserCommonInfo userCommonInfo = userInfos.get(position);
+            holder.tv_name.setText(userCommonInfo.nickname);
             holder.tv_reason.setText("用户描述");
             holder.rl_item.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Bundle bundle = new Bundle();
-                    bundle.putSerializable("userInfo", userCommonInfo.userCommonInfo);
+                    bundle.putSerializable("userInfo", userCommonInfo);
                     Intent intent4 = new Intent(context, UserInfoAct.class);
                     intent4.putExtra("value", bundle);
                     context.startActivity(intent4);
                 }
             });
-            Glide.with(context).load(userCommonInfo.userCommonInfo.avatar).into(holder.iv_head);
+//            Glide.with(context).load(userCommonInfo.avatar).into(holder.iv_head);
+            ShowerProvider.showHead(context,holder.iv_head,userCommonInfo.avatar);
         }
     }
 
