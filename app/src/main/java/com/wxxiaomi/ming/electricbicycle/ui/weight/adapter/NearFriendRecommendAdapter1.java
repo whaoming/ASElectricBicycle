@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView.ViewHolder;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -50,7 +51,13 @@ public class NearFriendRecommendAdapter1 extends BaseAdapter {
     @Override
     public void onBindViewHolderOnChild(ViewHolder viewHolder, int position) {
         if (viewHolder instanceof ItemViewHolder) {
+
             ItemViewHolder holder = (ItemViewHolder) viewHolder;
+            if(position==(getItemCount()-userInfos.size())){
+                holder.content_tip.setVisibility(View.VISIBLE);
+            }else{
+                holder.content_tip.setVisibility(View.GONE);
+            }
             final UserLocatInfo userCommonInfo = userInfos.get(position);
             holder.tv_name.setText(userCommonInfo.userCommonInfo.nickname);
             holder.tv_reason.setText("用户描述");
@@ -79,6 +86,7 @@ public class NearFriendRecommendAdapter1 extends BaseAdapter {
         public TextView tv_reason;
         public RelativeLayout rl_item;
         public CircularImageView iv_head;
+        public RelativeLayout content_tip;
 
         public ItemViewHolder(View view) {
             super(view);
@@ -86,6 +94,7 @@ public class NearFriendRecommendAdapter1 extends BaseAdapter {
             tv_reason = (TextView) view.findViewById(R.id.tv_description);
             rl_item = (RelativeLayout) view.findViewById(R.id.rl_item);
             iv_head = (CircularImageView) view.findViewById(R.id.iv_head);
+            content_tip = (RelativeLayout) view.findViewById(R.id.content_tip);
         }
     }
 }

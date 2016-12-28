@@ -1,10 +1,12 @@
 package com.wxxiaomi.ming.electricbicycle.ui.activity.view;
 
+import android.view.View;
+
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.base.BasePre;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.base.BaseView;
 
 import com.wxxiaomi.ming.electricbicycle.ui.weight.adapter.NearFriendRecommendAdapter1;
-import com.wxxiaomi.ming.electricbicycle.ui.weight.pull2refreshreview.PullToRefreshRecyclerView;
+import com.wxxiaomi.ming.electricbicycle.ui.weight.myrecycle.PullToRefreshRecyclerView;
 
 /**
  * Created by 12262 on 2016/6/15.
@@ -12,4 +14,6 @@ import com.wxxiaomi.ming.electricbicycle.ui.weight.pull2refreshreview.PullToRefr
 public interface FriendAddView<T extends BasePre> extends BaseView {
     void setListAdaper(NearFriendRecommendAdapter1 adapter);
     PullToRefreshRecyclerView getListView();
+    View getHeader();
+    void setHeaderText(String text);
 }

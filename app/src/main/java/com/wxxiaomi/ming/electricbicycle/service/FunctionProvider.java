@@ -207,7 +207,8 @@ public class FunctionProvider {
     }
 
     public Observable<List<UserCommonInfo>> getUserByNameFWeb(String name) {
-        return userDao.getUserCommonInfo2ByName(name);
+//        return userDao.getUserCommonInfo2ByName(name);
+        return HttpMethods.getInstance().getUserCommonInfo2ByName(name);
     }
 
     public Observable<UserCommonInfo> getUserMemoryCache(final String emname) {

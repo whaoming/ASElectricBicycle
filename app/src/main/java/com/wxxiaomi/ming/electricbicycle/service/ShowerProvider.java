@@ -23,7 +23,7 @@ public class ShowerProvider {
     public static void showNormalImage(Context context,ImageView imageView,String path){
         Glide.with(context)
                 .load(path)
-                .dontAnimate()
+                .crossFade(500)
                 .into(imageView);
     }
 }

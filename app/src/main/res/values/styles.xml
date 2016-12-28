@@ -84,6 +84,8 @@
     </style>
 
     <style name="searchBar" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+        <!--决定光标颜色-->
+        <item name="colorAccent">@color/white</item>
         <item name="android:textColorPrimary">@android:color/white</item>
         <item name="actionMenuTextColor">@color/white</item>
         <item name="android:background">@color/titleBlue</item>
