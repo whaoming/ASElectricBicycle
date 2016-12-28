@@ -17,8 +17,7 @@ import android.widget.TextView;
 
 import com.hyphenate.easeui.utils.EaseUserUtils;
 import com.wxxiaomi.ming.electricbicycle.R;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.InviteMessage;
-import com.wxxiaomi.ming.electricbicycle.support.easemob.EmHelper2;
+import com.wxxiaomi.ming.electricbicycle.db.bean.InviteMessage;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.custom.CircularImageView;
 
 
@@ -34,7 +33,7 @@ public class NewFriendAddItemAdapter extends RecyclerView.Adapter<ViewHolder> {
 
 	public void refersh() {
 		//获取全部的邀请消息
-//		List<InviteMessage> msgs = EmHelper2.getInstance().getInviteMsgList();
+//		List<InviteMessage> msgs = EmHelper.getInstance().getInviteMsgList();
 //		infos.clear();
 //		infos.addAll(msgs);
 //		notifyDataSetChanged();

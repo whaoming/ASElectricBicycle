@@ -128,7 +128,7 @@
             android:name=".ui.activity.ScanCodeActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".support.easemob.ui.ChatActivity"
+            android:name=".bridge.easemob.ui.ChatActivity"
             android:screenOrientation="portrait" />
         <!-- <activity -->
         <!-- android:name=".view.activity.RoutePlanActivity" -->
@@ -186,7 +186,7 @@
         <!-- android:name=".core.ui.view.activity.BaiduNavActivity" -->
         <!-- android:screenOrientation="portrait" /> -->
         <activity
-            android:name=".support.web.TestWebActivity"
+            android:name=".bridge.web.TestWebActivity"
             android:screenOrientation="portrait" />
         <activity android:name="com.squareup.leakcanary.internal.DisplayLeakActivity" />
 
@@ -233,6 +233,8 @@
             android:name=".ui.activity.SettingActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".ui.activity.UserInfoActivity" />
+        <activity android:name=".ui.activity.FootPrintShowActivity" />
+        <activity android:name=".ui.activity.FootPublishActivity"></activity>
     </application>
 
 </manifest>

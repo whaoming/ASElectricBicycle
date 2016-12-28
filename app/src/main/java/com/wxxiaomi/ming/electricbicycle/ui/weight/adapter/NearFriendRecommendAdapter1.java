@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.wxxiaomi.ming.electricbicycle.R;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.UserLocatInfo;
+import com.wxxiaomi.ming.electricbicycle.db.bean.UserLocatInfo;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.UserInfoAct;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.adapter.base.BaseAdapter;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.custom.CircularImageView;

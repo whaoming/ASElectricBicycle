@@ -3,7 +3,7 @@ package com.wxxiaomi.ming.electricbicycle.api;
 import android.util.Log;
 
 import com.wxxiaomi.ming.electricbicycle.ConstantValue;
-import com.wxxiaomi.ming.electricbicycle.api.service.DemoService;
+import com.wxxiaomi.ming.electricbicycle.api.service.ApiService;
 
 import java.util.Map;
 
@@ -24,7 +24,7 @@ public class WebMethods {
     private static final int DEFAULT_TIMEOUT = 5;
 
     private Retrofit retrofit;
-    private DemoService demoService;
+    private ApiService demoService;
 
     //构造方法私有
     private WebMethods() {
@@ -33,7 +33,7 @@ public class WebMethods {
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .addConverterFactory(ScalarsConverterFactory.create())
                 .build();
-        demoService = retrofit.create(DemoService.class);
+        demoService = retrofit.create(ApiService.class);
     }
 
     public Observable<String> sendPost(String url, Map<String, String> pars) {

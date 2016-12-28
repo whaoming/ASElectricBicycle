@@ -3,10 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     >
     <item
-        android:id="@+id/menu_pic"
-        android:title=""
-        app:actionProviderClass="com.wxxiaomi.ming.electricbicycle.ui.weight.custom.MsgActionProvider"
-        app:showAsAction="always" />
-
+        android:icon="@mipmap/ic_timer_auto_white_24dp"
+        android:id="@+id/menu_mine"
+        android:title="我的信息"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_search"
+        android:title="查找好友"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_invite"
+        android:title="好友申请"
+        app:showAsAction="never" />
 
 </menu>

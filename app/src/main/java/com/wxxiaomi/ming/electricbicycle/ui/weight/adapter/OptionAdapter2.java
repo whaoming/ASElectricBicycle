@@ -2,16 +2,12 @@ package com.wxxiaomi.ming.electricbicycle.ui.weight.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.bumptech.glide.Glide;
 import com.wxxiaomi.ming.electricbicycle.R;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.Comment;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.Option;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.Topic;
-import com.wxxiaomi.ming.electricbicycle.dao.constant.OptionType;
+import com.wxxiaomi.ming.electricbicycle.db.bean.Option;
+import com.wxxiaomi.ming.electricbicycle.api.constant.OptionType;
 
 import java.util.List;
 

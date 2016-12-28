@@ -1,5 +1,6 @@
 package com.wxxiaomi.ming.electricbicycle.ui.activity;
 
+import android.content.Intent;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -8,17 +9,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ImageView;
 
 import com.wxxiaomi.ming.electricbicycle.ConstantValue;
 import com.wxxiaomi.ming.electricbicycle.R;
-import com.wxxiaomi.ming.electricbicycle.api.HttpMethods;
-import com.wxxiaomi.ming.electricbicycle.common.GlobalManager;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.Option;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo2;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.format.UserInfo;
-import com.wxxiaomi.ming.electricbicycle.dao.db.UserService;
-import com.wxxiaomi.ming.electricbicycle.support.common.myglide.ImgShower;
+import com.wxxiaomi.ming.electricbicycle.service.GlobalManager;
+import com.wxxiaomi.ming.electricbicycle.db.bean.Option;
+import com.wxxiaomi.ming.electricbicycle.db.bean.UserCommonInfo;
+import com.wxxiaomi.ming.electricbicycle.db.bean.format.UserInfo;
+import com.wxxiaomi.ming.electricbicycle.service.FunctionProvider;
+import com.wxxiaomi.ming.electricbicycle.service.ShowerProvider;
 import com.wxxiaomi.ming.electricbicycle.ui.fragment.InfoCardFragment;
 import com.wxxiaomi.ming.electricbicycle.ui.fragment.InfoDetailFragment;
 import com.wxxiaomi.ming.electricbicycle.ui.fragment.base.BaseFragment;
@@ -26,13 +28,10 @@ import com.wxxiaomi.ming.electricbicycle.ui.fragment.base.FragmentCallback;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.adapter.IndexFragmentTabAdapter;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-import rx.Observable;
 import rx.Observer;
 import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 
 /**
@@ -56,7 +55,7 @@ public class UserInfoActivity extends AppCompatActivity implements FragmentCallb
     private ImageView iv_avatar;
     private ImageView iv_back;
     private Bundle bundle;
-    private UserCommonInfo2 targetUser;
+    private UserCommonInfo targetUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,7 +74,7 @@ public class UserInfoActivity extends AppCompatActivity implements FragmentCallb
             //只有简单的字段
             toolbar.setTitle(GlobalManager.getInstance().getUser().userCommonInfo.nickname);
         }else{
-            targetUser = (UserCommonInfo2) bundle.getSerializable(ConstantValue.INTENT_USERINFO);
+            targetUser = (UserCommonInfo) bundle.getSerializable(ConstantValue.INTENT_USERINFO);
             toolbar.setTitle(targetUser.nickname);
         }
         collapsing_toolbar = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
@@ -104,15 +103,15 @@ public class UserInfoActivity extends AppCompatActivity implements FragmentCallb
 
     private void initCustomView() {
         if(isMine){
-            ImgShower.showHead(this,iv_avatar,GlobalManager.getInstance().getUser().userCommonInfo.avatar);
+            ShowerProvider.showHead(this,iv_avatar,GlobalManager.getInstance().getUser().userCommonInfo.avatar);
             if(GlobalManager.getInstance().getUser().userCommonInfo.cover!=null){
-                ImgShower.showNormalImage(this,iv_back,GlobalManager.getInstance().getUser().userCommonInfo.cover);
+                ShowerProvider.showNormalImage(this,iv_back,GlobalManager.getInstance().getUser().userCommonInfo.cover);
             }
         }else{
 
-            ImgShower.showHead(this,iv_avatar,targetUser.avatar);
+            ShowerProvider.showHead(this,iv_avatar,targetUser.avatar);
             if(targetUser.cover!=null){
-                ImgShower.showNormalImage(this,iv_back,targetUser.cover);
+                ShowerProvider.showNormalImage(this,iv_back,targetUser.cover);
             }
         }
 
@@ -126,7 +125,7 @@ public class UserInfoActivity extends AppCompatActivity implements FragmentCallb
             bundle.putBoolean(ConstantValue.INTENT_ISMINE,isMine);
             infoDetailFragment.receiveData(1,bundle);
             infoCardFragment.receiveData(1,bundle);
-            UserService.getInstance().getUserOptions(GlobalManager.getInstance().getUser().userCommonInfo.id)
+            FunctionProvider.getInstance().getUserOptions(GlobalManager.getInstance().getUser().userCommonInfo.id)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(new Observer<List<Option>>() {
@@ -151,7 +150,7 @@ public class UserInfoActivity extends AppCompatActivity implements FragmentCallb
                     });
         }else{
 //            final int userid = getIntent().getIntExtra(ConstantValue.INTENT_USERID,0);
-            UserService.getInstance().getUserInfoAndOption(targetUser.id)
+            FunctionProvider.getInstance().getUserInfoAndOption(targetUser.id)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(new Observer<UserInfo>() {
@@ -202,6 +201,48 @@ public class UserInfoActivity extends AppCompatActivity implements FragmentCallb
 
     }
 
-   
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+       //加载menu文件到布局
+        if(isMine){
+            getMenuInflater().inflate(R.menu.menu_userinfo_mine, menu);
+        }else{
+            getMenuInflater().inflate(R.menu.menu_userinfo_other, menu);
+        }
+        return true;
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent = null;
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                break;
+            case R.id.action_add:
+
+                break;
+            case R.id.action_edit:
+                intent = new Intent(this,MyInfoEditActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.action_share:
+                intent=new Intent(Intent.ACTION_SEND);
+                intent.setType("image/*");
+                intent.putExtra(Intent.EXTRA_SUBJECT, "Share");
+                intent.putExtra(Intent.EXTRA_TEXT, "I have successfully share my message through my app");
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(Intent.createChooser(intent, getTitle()));
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(isMine){
+            toolbar.setTitle(GlobalManager.getInstance().getUser().userCommonInfo.nickname);
+        }
+    }
 }

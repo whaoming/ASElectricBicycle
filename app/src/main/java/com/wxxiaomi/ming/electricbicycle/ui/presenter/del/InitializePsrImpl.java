@@ -5,22 +5,22 @@ import android.util.Log;
 
 import com.wxxiaomi.ming.electricbicycle.EBApplication;
 import com.wxxiaomi.ming.electricbicycle.api.HttpMethods;
-import com.wxxiaomi.ming.electricbicycle.common.GlobalManager;
-import com.wxxiaomi.ming.electricbicycle.common.PreferenceManager;
-import com.wxxiaomi.ming.electricbicycle.common.rx.SampleProgressObserver;
+import com.wxxiaomi.ming.electricbicycle.service.GlobalManager;
+import com.wxxiaomi.ming.electricbicycle.service.PreferenceManager;
+import com.wxxiaomi.ming.electricbicycle.support.rx.SampleProgressObserver;
 import com.wxxiaomi.ming.electricbicycle.common.util.AppManager;
 import com.wxxiaomi.ming.electricbicycle.common.util.UniqueUtil;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.User;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo2;
-import com.wxxiaomi.ming.electricbicycle.dao.db.AppDao;
-import com.wxxiaomi.ming.electricbicycle.dao.db.FriendDao2;
-import com.wxxiaomi.ming.electricbicycle.dao.db.UserDao;
-import com.wxxiaomi.ming.electricbicycle.dao.db.impl.AppDaoImpl;
-import com.wxxiaomi.ming.electricbicycle.dao.db.impl.FriendDaoImpl2;
-import com.wxxiaomi.ming.electricbicycle.dao.db.impl.UserDaoImpl;
-import com.wxxiaomi.ming.electricbicycle.support.aliyun.OssEngine;
-import com.wxxiaomi.ming.electricbicycle.support.common.cache.base.DiskCache;
-import com.wxxiaomi.ming.electricbicycle.support.easemob.EmHelper2;
+import com.wxxiaomi.ming.electricbicycle.db.bean.User;
+import com.wxxiaomi.ming.electricbicycle.db.bean.UserCommonInfo;
+import com.wxxiaomi.ming.electricbicycle.db.AppDao;
+import com.wxxiaomi.ming.electricbicycle.db.FriendDao2;
+import com.wxxiaomi.ming.electricbicycle.db.UserDao;
+import com.wxxiaomi.ming.electricbicycle.db.impl.AppDaoImpl;
+import com.wxxiaomi.ming.electricbicycle.db.impl.FriendDaoImpl2;
+import com.wxxiaomi.ming.electricbicycle.db.impl.UserDaoImpl;
+import com.wxxiaomi.ming.electricbicycle.bridge.aliyun.OssEngine;
+//import com.wxxiaomi.ming.electricbicycle.support.cache.base.DiskCache;
+import com.wxxiaomi.ming.electricbicycle.bridge.easemob.EmHelper;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.RegisterActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.base.BaseView;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.base.BasePreImpl;
@@ -94,7 +94,7 @@ public class InitializePsrImpl extends BasePreImpl<BaseView> implements Initiali
                         //存到数据库
                         AppDao dao = new AppDaoImpl(EBApplication.applicationContext);
                         dao.savaUser(user);
-                        return EmHelper2.getInstance().LoginFromEm(user.username, user.password);
+                        return EmHelper.getInstance().LoginFromEm(user.username, user.password);
                     }
                 })
                 //从服务器获取好友列表
@@ -115,16 +115,16 @@ public class InitializePsrImpl extends BasePreImpl<BaseView> implements Initiali
 //                    }
 //                })
 //                //链接服务器对比
-//                .flatMap(new Func1<String, Observable<List<UserCommonInfo2>>>() {
+//                .flatMap(new Func1<String, Observable<List<UserCommonInfo>>>() {
 //                    @Override
-//                    public Observable<List<UserCommonInfo2>> call(String s) {
+//                    public Observable<List<UserCommonInfo>> call(String s) {
 //                        return HttpMethods.getInstance().updateuserFriend2(s);
 //                    }
 //                })
 //                //得到最新的好友列表
-//                .map(new Func1<List<UserCommonInfo2>, Integer>() {
+//                .map(new Func1<List<UserCommonInfo>, Integer>() {
 //                    @Override
-//                    public Integer call(List<UserCommonInfo2> userCommonInfo2s) {
+//                    public Integer call(List<UserCommonInfo> userCommonInfo2s) {
 //                        friendDao2.updateFriendsList(userCommonInfo2s);
 //                        return userCommonInfo2s.size();
 //                    }
@@ -135,7 +135,7 @@ public class InitializePsrImpl extends BasePreImpl<BaseView> implements Initiali
                     @Override
                     public void onNext(Integer integer) {
                         Log.i("wang", "更新了" + integer + "个好友");
-                        EmHelper2.getInstance().openUserCache(friendDao2.getEFriends());
+                        EmHelper.getInstance().openUserCache(friendDao2.getEFriends());
                         AppManager.getAppManager().finishActivity(RegisterActivity.class);
 //                        mView.runActivity(HomeActivity.class, null, true);
                     }
@@ -150,7 +150,7 @@ public class InitializePsrImpl extends BasePreImpl<BaseView> implements Initiali
 
     //更新本地数据
     public Observable<Integer> updateLocal(){
-       return  EmHelper2.getInstance().getContactFromEm()
+       return  EmHelper.getInstance().getContactFromEm()
                 //对比本地数据库，得出键值对
                 .map(new Func1<List<String>, String>() {
                     @Override
@@ -162,16 +162,16 @@ public class InitializePsrImpl extends BasePreImpl<BaseView> implements Initiali
                     }
                 })
                 //链接服务器对比
-                .flatMap(new Func1<String, Observable<List<UserCommonInfo2>>>() {
+                .flatMap(new Func1<String, Observable<List<UserCommonInfo>>>() {
                     @Override
-                    public Observable<List<UserCommonInfo2>> call(String s) {
+                    public Observable<List<UserCommonInfo>> call(String s) {
                         return HttpMethods.getInstance().updateuserFriend2(s);
                     }
                 })
                 //得到最新的好友列表
-                .map(new Func1<List<UserCommonInfo2>, Integer>() {
+                .map(new Func1<List<UserCommonInfo>, Integer>() {
                     @Override
-                    public Integer call(List<UserCommonInfo2> userCommonInfo2s) {
+                    public Integer call(List<UserCommonInfo> userCommonInfo2s) {
                         friendDao2.updateFriendsList(userCommonInfo2s);
                         return userCommonInfo2s.size();
                     }
@@ -182,7 +182,7 @@ public class InitializePsrImpl extends BasePreImpl<BaseView> implements Initiali
     //初始化各个模块
     private void initModule() {
         MultiDex.install(EBApplication.applicationContext);
-        DiskCache.getInstance().open(EBApplication.applicationContext);
+//        DiskCache.getInstance().open(EBApplication.applicationContext);
         OssEngine.getInstance().initOssEngine(EBApplication.applicationContext);
         order.countDown();
     }
@@ -218,7 +218,7 @@ public class InitializePsrImpl extends BasePreImpl<BaseView> implements Initiali
     }
 
     private void initAfterLogin() {
-        EmHelper2.getInstance().openUserCache(friendDao2.getEFriends());
+        EmHelper.getInstance().openUserCache(friendDao2.getEFriends());
         order.countDown();
     }
 

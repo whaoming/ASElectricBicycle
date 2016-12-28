@@ -3,26 +3,24 @@ package com.wxxiaomi.ming.electricbicycle.ui.activity;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 //import com.jph.takephoto.permission.PermissionManager;
 import com.wxxiaomi.ming.electricbicycle.R;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo2;
+import com.wxxiaomi.ming.electricbicycle.db.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.base.BaseActivity;
 
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.PersonalPresenter;
 //import com.wxxiaomi.ming.electricbicycle.core.presenter.impl.PersonalPreImpl;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.impl.PersonalPreImpl;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.view.PersonaView;
-import com.wxxiaomi.ming.electricbicycle.support.common.myglide.ImgShower;
+import com.wxxiaomi.ming.electricbicycle.service.ShowerProvider;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.pull2refreshreview.PullToRefreshRecyclerView;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.pull2refreshreview.footer.DefaultLoadMoreView;
 
@@ -58,7 +56,7 @@ public class PersonalAct extends BaseActivity<PersonaView, PersonalPresenter> im
 //        big_img = (RelativeLayout) findViewById(R.id.big_img);
         iv_back = (ImageView) findViewById(R.id.iv_back);
         iv_back.setOnClickListener(this);
-        ImgShower.showHead(this,iv_my_head,"");
+        ShowerProvider.showHead(this,iv_my_head,"");
         setSupportActionBar(toolbar1);
         getSupportActionBar().setHomeButtonEnabled(true); // 设置返回键可用
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -113,7 +111,7 @@ public class PersonalAct extends BaseActivity<PersonaView, PersonalPresenter> im
     }
 
     @Override
-    public void setViewData(UserCommonInfo2 info) {
+    public void setViewData(UserCommonInfo info) {
         collapsing_toolbar.setTitle(info.nickname);
         tv_name.setText(info.nickname);
     }

@@ -6,11 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.wxxiaomi.ming.electricbicycle.R;
-import com.wxxiaomi.ming.electricbicycle.common.GlobalManager;
+import com.wxxiaomi.ming.electricbicycle.service.GlobalManager;
 import com.wxxiaomi.ming.electricbicycle.common.util.TimeUtil;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.Option;
-import com.wxxiaomi.ming.electricbicycle.dao.constant.OptionType;
-import com.wxxiaomi.ming.electricbicycle.support.common.myglide.ImgShower;
+import com.wxxiaomi.ming.electricbicycle.db.bean.Option;
+import com.wxxiaomi.ming.electricbicycle.api.constant.OptionType;
+import com.wxxiaomi.ming.electricbicycle.service.ShowerProvider;
 
 import java.util.List;
 
@@ -42,7 +42,7 @@ public class OptionAdapter3 extends RecyclerView.Adapter<RecyclerView.ViewHolder
             if(option!=null){
                 int flag = option.type;
                 String avatar = GlobalManager.getInstance().getUser().userCommonInfo.avatar;
-                ImgShower.showHead(mContext,holder.iv_avatar,avatar);
+                ShowerProvider.showHead(mContext,holder.iv_avatar,avatar);
                 switch (flag){
                     case OptionType.TOPIC_PUBLISH:
                         if(option.picture!=null){
@@ -50,7 +50,7 @@ public class OptionAdapter3 extends RecyclerView.Adapter<RecyclerView.ViewHolder
                                 holder.iv_picture.setVisibility(View.GONE);
                             }else {
                                 holder.iv_picture.setVisibility(View.VISIBLE);
-                                ImgShower.showNormalImage(mContext, holder.iv_picture, option.picture);
+                                ShowerProvider.showNormalImage(mContext, holder.iv_picture, option.picture);
                             }
                         }else{
                             holder.iv_picture.setVisibility(View.GONE);
@@ -66,7 +66,7 @@ public class OptionAdapter3 extends RecyclerView.Adapter<RecyclerView.ViewHolder
                                 holder.iv_picture.setVisibility(View.GONE);
                             }else {
                                 holder.iv_picture.setVisibility(View.VISIBLE);
-                                ImgShower.showNormalImage(mContext, holder.iv_picture, option.picture);
+                                ShowerProvider.showNormalImage(mContext, holder.iv_picture, option.picture);
                             }
                         }else{
                             holder.iv_picture.setVisibility(View.GONE);

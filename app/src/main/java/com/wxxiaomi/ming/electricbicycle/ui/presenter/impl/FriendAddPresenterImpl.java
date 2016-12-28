@@ -1,20 +1,22 @@
 package com.wxxiaomi.ming.electricbicycle.ui.presenter.impl;
 
 import android.os.Bundle;
+import android.util.Log;
 
-import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo2;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.UserLocatInfo;
+import com.wxxiaomi.ming.electricbicycle.db.bean.UserCommonInfo;
+import com.wxxiaomi.ming.electricbicycle.db.bean.UserLocatInfo;
 
+import com.wxxiaomi.ming.electricbicycle.service.FunctionProvider;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.base.BasePreImpl;
 
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.FriendAddPresenter;
-import com.wxxiaomi.ming.electricbicycle.dao.db.UserService;
-import com.wxxiaomi.ming.electricbicycle.common.GlobalManager;
-import com.wxxiaomi.ming.electricbicycle.common.rx.SampleProgressObserver;
+import com.wxxiaomi.ming.electricbicycle.service.GlobalManager;
+import com.wxxiaomi.ming.electricbicycle.support.rx.SampleProgressObserver;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.UserInfoAct;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.view.FriendAddView;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.adapter.NearFriendRecommendAdapter1;
-import com.wxxiaomi.ming.electricbicycle.support.baidumap.LocationUtil;
+import com.wxxiaomi.ming.electricbicycle.service.LocatProvider;
+import com.wxxiaomi.ming.electricbicycle.ui.weight.pull2refreshreview.PullToRefreshRecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,27 +31,38 @@ public class FriendAddPresenterImpl extends BasePreImpl<FriendAddView> implement
 
     private NearFriendRecommendAdapter1 adapter ;
     private List<UserLocatInfo> tempNearUserList;
+//    private PullToRefreshRecyclerView listView;
 
     @Override
     public void init() {
         tempNearUserList = new ArrayList<UserLocatInfo>();
-        adapter = new NearFriendRecommendAdapter1(mView.getContext(),tempNearUserList);
-        mView.setListAdaper(adapter);
+        initListView();
         getNearFriend();
+
+//        adapter = new NearFriendRecommendAdapter1(mView.getContext(),tempNearUserList);
+//        mView.setListAdaper(adapter);
+//        getNearFriend();
+    }
+
+    private void initListView() {
+//        mView.getListView().setRefreshing(true);
     }
 
 
     private void getNearFriend() {
 
-        UserService.getInstance().getNearPeople(GlobalManager.getInstance().getUser().id
-                , LocationUtil.getInstance().getLatitude()
-                , LocationUtil.getInstance().getLongitude())
+        FunctionProvider.getInstance().getNearPeople(GlobalManager.getInstance().getUser().id
+                , LocatProvider.getInstance().getLatitude()
+                , LocatProvider.getInstance().getLongitude())
                 .subscribe(new Action1<List<UserLocatInfo>>() {
                     @Override
                     public void call(List<UserLocatInfo> nearByPerson) {
                         if(nearByPerson!=null){
                             tempNearUserList.addAll(nearByPerson);
-                            adapter.setLoadingComplete();
+                            adapter = new NearFriendRecommendAdapter1(mView.getContext(),tempNearUserList);
+                            mView.getListView().setAdapter(adapter);
+                            mView.getListView().setRefreshing(false);
+//                            adapter.setLoadingComplete();
                         }
 
                     }
@@ -58,10 +71,11 @@ public class FriendAddPresenterImpl extends BasePreImpl<FriendAddView> implement
 
     @Override
     public void onFindClick(String name) {
-        UserService.getInstance().getUserByNameFWeb(name)
-                .subscribe(new SampleProgressObserver<List<UserCommonInfo2>>(mView.getContext()) {
+        Log.i("wang","name:"+name);
+        FunctionProvider.getInstance().getUserByNameFWeb(name)
+                .subscribe(new SampleProgressObserver<List<UserCommonInfo>>(mView.getContext()) {
                     @Override
-                    public void onNext(List<UserCommonInfo2> initUserInfo) {
+                    public void onNext(List<UserCommonInfo> initUserInfo) {
                         Bundle bundle = new Bundle();
                         bundle.putSerializable("userInfo", initUserInfo.get(0));
                         mView.runActivity(UserInfoAct.class,bundle,false);

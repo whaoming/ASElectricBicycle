@@ -13,12 +13,12 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.wxxiaomi.ming.electricbicycle.R;
-import com.wxxiaomi.ming.electricbicycle.common.GlobalManager;
-import com.wxxiaomi.ming.electricbicycle.common.rx.SampleProgressObserver;
-import com.wxxiaomi.ming.electricbicycle.dao.db.UserService;
-import com.wxxiaomi.ming.electricbicycle.support.aliyun.OssEngine;
-import com.wxxiaomi.ming.electricbicycle.support.img.PhotoTakeUtil;
-import com.wxxiaomi.ming.electricbicycle.support.common.myglide.ImgShower;
+import com.wxxiaomi.ming.electricbicycle.service.GlobalManager;
+import com.wxxiaomi.ming.electricbicycle.support.rx.SampleProgressObserver;
+import com.wxxiaomi.ming.electricbicycle.service.FunctionProvider;
+import com.wxxiaomi.ming.electricbicycle.service.ShowerProvider;
+import com.wxxiaomi.ming.electricbicycle.bridge.aliyun.OssEngine;
+import com.wxxiaomi.ming.electricbicycle.bridge.img.PhotoTakeUtil;
 
 import java.util.List;
 
@@ -55,7 +55,7 @@ public class MyInfoEditActivity extends AppCompatActivity implements View.OnClic
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         userHead = (ImageView) findViewById(R.id.userHead);
         userHead.setOnClickListener(this);
-        ImgShower.showHead(this,userHead, GlobalManager.getInstance().getUser().userCommonInfo.avatar);
+        ShowerProvider.showHead(this,userHead, GlobalManager.getInstance().getUser().userCommonInfo.avatar);
         util = new PhotoTakeUtil(this);
         et_nickname.setText(GlobalManager.getInstance().getUser().userCommonInfo.nickname);
         et_description.setText(GlobalManager.getInstance().getUser().userCommonInfo.description);
@@ -157,7 +157,7 @@ public class MyInfoEditActivity extends AppCompatActivity implements View.OnClic
         if(head==null&&name==null&&description==null&&city==null){
             finish();
         }
-        UserService.getInstance().updateUserInfo(name,head,description,city)
+        FunctionProvider.getInstance().updateUserInfo(name,head,description,city)
                 .subscribeOn(Schedulers.io())
                 .subscribe(new SampleProgressObserver<Integer>(this) {
                     @Override
@@ -173,7 +173,7 @@ public class MyInfoEditActivity extends AppCompatActivity implements View.OnClic
                     @Override
                     public Observable<String> call(List<String> strings) {
                         OssEngine.getInstance().initOssEngine(MyInfoEditActivity.this.getApplicationContext());
-                        return UserService.getInstance().upLoadImgToOss(strings.get(0));
+                        return FunctionProvider.getInstance().upLoadImgToOss(strings.get(0));
                     }
                 })
                 .observeOn(AndroidSchedulers.mainThread())

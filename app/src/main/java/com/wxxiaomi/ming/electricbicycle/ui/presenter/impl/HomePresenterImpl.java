@@ -21,22 +21,23 @@ import com.baidu.mapapi.map.MyLocationConfiguration;
 import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.model.LatLng;
 import com.wxxiaomi.ming.electricbicycle.ConstantValue;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo2;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.UserLocatInfo;
-import com.wxxiaomi.ming.electricbicycle.support.easemob.common.EmConstant;
-import com.wxxiaomi.ming.electricbicycle.support.easemob.EmHelper2;
-import com.wxxiaomi.ming.electricbicycle.support.common.myglide.ImgShower;
+import com.wxxiaomi.ming.electricbicycle.db.bean.UserCommonInfo;
+import com.wxxiaomi.ming.electricbicycle.db.bean.UserLocatInfo;
+import com.wxxiaomi.ming.electricbicycle.service.ShowerProvider;
+import com.wxxiaomi.ming.electricbicycle.bridge.easemob.EmHelper;
+import com.wxxiaomi.ming.electricbicycle.bridge.easemob.common.EmConstant;
+import com.wxxiaomi.ming.electricbicycle.ui.activity.FootPrintShowActivity;
+import com.wxxiaomi.ming.electricbicycle.ui.activity.FootPublishActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.LoginActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.UserInfoActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.SettingActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.base.BasePreImpl;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.HomePresenter;
-import com.wxxiaomi.ming.electricbicycle.support.baidumap.LocationUtil;
-import com.wxxiaomi.ming.electricbicycle.support.web.TestWebActivity;
-import com.wxxiaomi.ming.electricbicycle.dao.db.UserService;
-import com.wxxiaomi.ming.electricbicycle.common.GlobalManager;
+import com.wxxiaomi.ming.electricbicycle.service.LocatProvider;
+import com.wxxiaomi.ming.electricbicycle.bridge.web.TestWebActivity;
+import com.wxxiaomi.ming.electricbicycle.service.FunctionProvider;
+import com.wxxiaomi.ming.electricbicycle.service.GlobalManager;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.ContactActivity;
-import com.wxxiaomi.ming.electricbicycle.ui.activity.UserInfoAct;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.view.HomeView;
 
 import com.wxxiaomi.ming.electricbicycle.ui.weight.custom.CircularImageView;
@@ -65,7 +66,7 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
     /**
      * 当前所点击的附近的人的信息
      */
-    private UserCommonInfo2 currentNearPerson;
+    private UserCommonInfo currentNearPerson;
     private List<UserLocatInfo> userLocatList;
     private LocalBroadcastManager broadcastManager;
     private BroadcastReceiver broadcastReceiver;
@@ -132,7 +133,7 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
     @Override
     public void onMakerClick(Marker marker) {
         int zIndex = marker.getZIndex();
-        UserCommonInfo2 tempUser = userLocatList.get(zIndex).userCommonInfo;
+        UserCommonInfo tempUser = userLocatList.get(zIndex).userCommonInfo;
 //        Log.i("wang",tempUser.toString());
         boolean isSame = (currentNearPerson == tempUser);
         currentNearPerson = tempUser;
@@ -141,7 +142,7 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
 
     @Override
     public void adapterNerarView(CircularImageView imageView, TextView tv_name, TextView tv_description) {
-        ImgShower.showHead(mView.getContext(),imageView,currentNearPerson.avatar);
+        ShowerProvider.showHead(mView.getContext(),imageView,currentNearPerson.avatar);
         tv_name.setText(currentNearPerson.nickname);
         tv_description.setText("生活就像海洋,只有意志坚定的人才能到彼岸");
     }
@@ -201,8 +202,29 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
             mView.runActivity(SettingActivity.class,null);
     }
 
+    @Override
+    public void onFootPrintClick() {
+        mView.runActivity(FootPrintShowActivity.class,null);
+//        mView.showSnackBar("足迹功能暂未开放");
+    }
+
+    @Override
+    public void onAlbumClick() {
+        mView.showSnackBar("相册功能暂未开放");
+    }
+
+    @Override
+    public void onCollectClick() {
+        mView.showSnackBar("收藏功能暂未开放");
+    }
+
+    @Override
+    public void onFootPrintActionClick() {
+        mView.runActivity(FootPublishActivity.class,null);
+    }
+
     public void updateUnreadLabel(){
-        int allUnreadCount = EmHelper2.getInstance().getAllUnreadCount();
+        int allUnreadCount = EmHelper.getInstance().getAllUnreadCount();
         mView.updateUnreadLabel(allUnreadCount);
     }
 
@@ -213,21 +235,17 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
         unregisterBroadcastReceiver();
         mLocClient.stop();
         mBaiduMap.setMyLocationEnabled(false);
-        EmHelper2.getInstance().setMessageListener(null);
+        EmHelper.getInstance().setMessageListener(null);
     }
 
     @Override
     public void onViewResume() {
-//        mView.getTvNameView().setText(GlobalManager.getInstance().getUser().userCommonInfo.nickname);
-        //还要更新控件
-
-        ImgShower.showHead(mView.getContext(),mView.getHeadView(),GlobalManager.getInstance().getUser().userCommonInfo.avatar);
-        ImgShower.showHead(mView.getContext(),mView.getDrawerAvatar(),GlobalManager.getInstance().getUser().userCommonInfo.avatar);
+        ShowerProvider.showHead(mView.getContext(),mView.getHeadView(),GlobalManager.getInstance().getUser().userCommonInfo.avatar);
+        ShowerProvider.showHead(mView.getContext(),mView.getDrawerAvatar(),GlobalManager.getInstance().getUser().userCommonInfo.avatar);
         updateUnreadLabel();
-        EmHelper2.getInstance().setMessageListener(new EmHelper2.MyMessageListener() {
+        EmHelper.getInstance().setMessageListener(new EmHelper.MyMessageListener() {
             @Override
             public void onMessageReceive() {
-                Log.i("wang","Home收到消息了");
                 updateUnreadLabel();
             }
         });
@@ -254,7 +272,7 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
 //            Log.i("wang", "获取到自己的位置latitude："+latitude+",longitude:"+longitude);
             Address address = location.getAddress();
             String locat_tag = location.getLocationDescribe();
-            LocationUtil.getInstance().init(latitude,longitude,address,locat_tag);
+            LocatProvider.getInstance().init(latitude,longitude,address,locat_tag);
             MyLocationData locData = new MyLocationData.Builder()
                     .accuracy(0)
                     // 此处设置开发者获取到的方向信息，顺时针0-360
@@ -276,7 +294,7 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
 
     public void getNearByFromServer(final double latitude,
                                     final double longitude){
-        UserService.getInstance().getNearPeople(GlobalManager.getInstance().getUser().id,latitude,longitude)
+        FunctionProvider.getInstance().getNearPeople(GlobalManager.getInstance().getUser().id,latitude,longitude)
                 .subscribe(new Action1<List<UserLocatInfo>>() {
                     @Override
                     public void call(List<UserLocatInfo> nearByPerson) {

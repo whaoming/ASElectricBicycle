@@ -5,19 +5,20 @@ import android.util.Log;
 import com.wxxiaomi.ming.electricbicycle.ConstantValue;
 import com.wxxiaomi.ming.electricbicycle.EBApplication;
 import com.wxxiaomi.ming.electricbicycle.GlobalParams;
-import com.wxxiaomi.ming.electricbicycle.api.exception.ExceptionEngine;
-import com.wxxiaomi.ming.electricbicycle.api.exception.ServerException;
-import com.wxxiaomi.ming.electricbicycle.api.service.DemoService;
-import com.wxxiaomi.ming.electricbicycle.common.PreferenceManager;
+import com.wxxiaomi.ming.electricbicycle.api.exp.ExceptionProvider;
+import com.wxxiaomi.ming.electricbicycle.api.exp.ServerException;
+import com.wxxiaomi.ming.electricbicycle.api.service.ApiService;
+import com.wxxiaomi.ming.electricbicycle.service.GlobalManager;
+import com.wxxiaomi.ming.electricbicycle.service.PreferenceManager;
 import com.wxxiaomi.ming.electricbicycle.common.util.UniqueUtil;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.Option;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.OptionLogs;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.User;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo2;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.UserLocatInfo;
+import com.wxxiaomi.ming.electricbicycle.db.bean.Option;
+import com.wxxiaomi.ming.electricbicycle.db.bean.User;
+import com.wxxiaomi.ming.electricbicycle.db.bean.UserCommonInfo;
+import com.wxxiaomi.ming.electricbicycle.db.bean.UserLocatInfo;
 
-import com.wxxiaomi.ming.electricbicycle.dao.bean.format.UserInfo;
-import com.wxxiaomi.ming.electricbicycle.dao.common.Result;
+import com.wxxiaomi.ming.electricbicycle.db.bean.format.FootPrintGet;
+import com.wxxiaomi.ming.electricbicycle.db.bean.format.UserInfo;
+import com.wxxiaomi.ming.electricbicycle.api.constant.Result;
 
 
 import java.io.IOException;
@@ -40,8 +41,7 @@ import rx.schedulers.Schedulers;
 
 /**
  * Created by 12262 on 2016/5/31.
- * 33333
- * 44444
+ *
  */
 public class HttpMethods {
      String BASE_URL = ConstantValue.SERVER_URL;
@@ -49,7 +49,7 @@ public class HttpMethods {
     private static final int DEFAULT_TIMEOUT = 5;
 
     private Retrofit retrofit;
-    private DemoService demoService;
+    private ApiService demoService;
 
 
     //构造方法私有
@@ -69,13 +69,13 @@ public class HttpMethods {
                 @Override
                 public Response intercept(Chain chain) throws IOException {
                     Request newRequest = chain.request().newBuilder()
-                            .addHeader("token",GlobalParams.token)
+                            .addHeader("token", GlobalManager.getInstance().getStoken())
                             .build();
                     Response response = chain.proceed(newRequest);
 
                     if(response.header("token")!=null){
                         Log.i("wang","发现瘦肉汤_token");
-                            GlobalParams.token = response.header("token");
+                            GlobalManager.getInstance().setStoken(response.header("token"));
                         PreferenceManager.getInstance().savaShortToken(response.header("token"));
                     }
                     String long_token = response.header("long_token");
@@ -101,7 +101,7 @@ public class HttpMethods {
                     .build();
         }
 
-        demoService = retrofit.create(DemoService.class);
+        demoService = retrofit.create(ApiService.class);
     }
 
     //在访问HttpMethods时创建单例
@@ -117,17 +117,41 @@ public class HttpMethods {
     /**
      * 用于获取豆瓣电影Top250的数据
      */
-    public Observable<List<UserCommonInfo2>> getTopMovie(String username, String password) {
+    public Observable<List<UserCommonInfo>> getTopMovie(String username, String password) {
         return demoService.initUserInfo(username, password)
-                .map(new ServerResultFunc<List<UserCommonInfo2>>())
-                .onErrorResumeNext(new Func1<Throwable, Observable<? extends List<UserCommonInfo2>>>() {
+                .map(new ServerResultFunc<List<UserCommonInfo>>())
+                .onErrorResumeNext(new Func1<Throwable, Observable<? extends List<UserCommonInfo>>>() {
                     @Override
-                    public Observable<? extends List<UserCommonInfo2>> call(Throwable throwable) {
-                        return Observable.error(ExceptionEngine.handleException(throwable));
+                    public Observable<? extends List<UserCommonInfo>> call(Throwable throwable) {
+                        return Observable.error(ExceptionProvider.handleException(throwable));
                     }
                 })
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io());
+    }
+
+    public Observable<String> publishFootPrint(String content,String picture,String locat_tag,double lat,double lng){
+        return demoService.publishFootPrint(content, picture, locat_tag, lat, lng)
+                .map(new ServerResultFunc<String>())
+                .retryWhen(new TokenOutTime(3,1))
+                .onErrorResumeNext(new Func1<Throwable, Observable<? extends String>>() {
+                    @Override
+                    public Observable<? extends String> call(Throwable throwable) {
+                        return Observable.error(ExceptionProvider.handleException(throwable));
+                    }
+                });
+    }
+
+    public Observable<FootPrintGet> getUserFootPrint(int userid){
+        return demoService.listUserFootPrint(userid)
+                .map(new ServerResultFunc<FootPrintGet>())
+                .retryWhen(new TokenOutTime(3,1))
+                .onErrorResumeNext(new Func1<Throwable, Observable<? extends FootPrintGet>>() {
+                    @Override
+                    public Observable<? extends FootPrintGet> call(Throwable throwable) {
+                        return Observable.error(ExceptionProvider.handleException(throwable));
+                    }
+                });
     }
 
     public Observable<String> upLoadUserCover(String path){
@@ -136,7 +160,7 @@ public class HttpMethods {
                 .onErrorResumeNext(new Func1<Throwable, Observable<? extends String>>() {
                     @Override
                     public Observable<? extends String> call(Throwable throwable) {
-                        return Observable.error(ExceptionEngine.handleException(throwable));
+                        return Observable.error(ExceptionProvider.handleException(throwable));
                     }
                 });
     }
@@ -148,33 +172,20 @@ public class HttpMethods {
                 .onErrorResumeNext(new Func1<Throwable, Observable<? extends UserInfo>>() {
                     @Override
                     public Observable<? extends UserInfo> call(Throwable throwable) {
-                        return Observable.error(ExceptionEngine.handleException(throwable));
+                        return Observable.error(ExceptionProvider.handleException(throwable));
                     }
                 });
     }
 
-//    public Observable<Login> login2(String username,String password){
-//        return demoService.readBaidu2(username, password)
-//                .flatMap(new Func1<retrofit2.Response<Login>, Observable<Login>>() {
-//                    @Override
-//                    public Observable<Login> call(retrofit2.Response<Login> loginResponse) {
-//                        String token = loginResponse.headers().get("token");
-//                        Log.i("wang","服务器响应头发现token："+token);
-//                        return Observable.just(loginResponse.body());
-//                    }
-//                })
-//                .subscribeOn(Schedulers.io())
-//                ;
-//    }
 
-    public Observable<UserCommonInfo2> getUserInfoById(int userid){
+    public Observable<UserCommonInfo> getUserInfoById(int userid){
         return demoService.getUserInfoById(userid)
-                .map(new ServerResultFunc<UserCommonInfo2>())
+                .map(new ServerResultFunc<UserCommonInfo>())
                 .retryWhen(new TokenOutTime(3,1))
-                .onErrorResumeNext(new Func1<Throwable, Observable<? extends UserCommonInfo2>>() {
+                .onErrorResumeNext(new Func1<Throwable, Observable<? extends UserCommonInfo>>() {
                     @Override
-                    public Observable<? extends UserCommonInfo2> call(Throwable throwable) {
-                        return Observable.error(ExceptionEngine.handleException(throwable));
+                    public Observable<? extends UserCommonInfo> call(Throwable throwable) {
+                        return Observable.error(ExceptionProvider.handleException(throwable));
                     }
                 });
     }
@@ -186,7 +197,7 @@ public class HttpMethods {
                 .onErrorResumeNext(new Func1<Throwable, Observable<? extends String>>() {
                     @Override
                     public Observable<? extends String> call(Throwable throwable) {
-                        return Observable.error(ExceptionEngine.handleException(throwable));
+                        return Observable.error(ExceptionProvider.handleException(throwable));
                     }
                 });
 
@@ -199,18 +210,18 @@ public class HttpMethods {
                 .onErrorResumeNext(new Func1<Throwable, Observable<? extends String>>() {
                     @Override
                     public Observable<? extends String> call(Throwable throwable) {
-                        return Observable.error(ExceptionEngine.handleException(throwable));
+                        return Observable.error(ExceptionProvider.handleException(throwable));
                     }
                 });
     }
 
-    public Observable<String> updateUserInfo3(UserCommonInfo2 name){
+    public Observable<String> updateUserInfo3(UserCommonInfo name){
         return demoService.updateUserInfo3(name)
                 .map(new ServerResultFunc<String>())
                 .onErrorResumeNext(new Func1<Throwable, Observable<? extends String>>() {
                     @Override
                     public Observable<? extends String> call(Throwable throwable) {
-                        return Observable.error(ExceptionEngine.handleException(throwable));
+                        return Observable.error(ExceptionProvider.handleException(throwable));
                     }
                 });
     }
@@ -224,26 +235,26 @@ public class HttpMethods {
                 .unsubscribeOn(Schedulers.io());
     }
 
-    public Observable<List<UserCommonInfo2>> getUserListByEmList(List<String> emnamelist) {
+    public Observable<List<UserCommonInfo>> getUserListByEmList(List<String> emnamelist) {
         String temp = "";
         for (String e : emnamelist) {
             temp += e + "<>";
         }
 //        Observable.create()
         return demoService.getUserListByEmList(temp)
-                .map(new ServerResultFunc<List<UserCommonInfo2>>())
+                .map(new ServerResultFunc<List<UserCommonInfo>>())
                 .retryWhen(new TokenOutTime(3,1))
-                .onErrorResumeNext(new HttpResultFunc<List<UserCommonInfo2>>())
+                .onErrorResumeNext(new HttpResultFunc<List<UserCommonInfo>>())
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io());
     }
 
-    public Observable<List<UserCommonInfo2>> getUserCommonInfo2ByEmname(String emname) {
+    public Observable<List<UserCommonInfo>> getUserCommonInfo2ByEmname(String emname) {
         emname = emname + "<>";
         return demoService.getUserListByEmList(emname)
-                .map(new ServerResultFunc<List<UserCommonInfo2>>())
+                .map(new ServerResultFunc<List<UserCommonInfo>>())
                 .retryWhen(new TokenOutTime(3,1))
-                .onErrorResumeNext(new HttpResultFunc<List<UserCommonInfo2>>());
+                .onErrorResumeNext(new HttpResultFunc<List<UserCommonInfo>>());
     }
 
     public Observable<List<UserLocatInfo>> getNearByFromServer(int userid, double latitude, double longitude) {
@@ -256,11 +267,11 @@ public class HttpMethods {
                 .observeOn(AndroidSchedulers.mainThread());
     }
 
-    public Observable<List<UserCommonInfo2>> getUserCommonInfo2ByName(String name) {
+    public Observable<List<UserCommonInfo>> getUserCommonInfo2ByName(String name) {
         return demoService.getUserCommonInfoByName(name)
-                .map(new ServerResultFunc<List<UserCommonInfo2>>())
+                .map(new ServerResultFunc<List<UserCommonInfo>>())
                 .retryWhen(new TokenOutTime(3,1))
-                .onErrorResumeNext(new HttpResultFunc<List<UserCommonInfo2>>())
+                .onErrorResumeNext(new HttpResultFunc<List<UserCommonInfo>>())
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
@@ -286,15 +297,15 @@ public class HttpMethods {
                 .observeOn(AndroidSchedulers.mainThread());
     }
 
-    public Observable<List<OptionLogs>> optionLogs(int userid){
-        return demoService.optionLogs(userid)
-                .map(new ServerResultFunc<List<OptionLogs>>())
-                .retryWhen(new TokenOutTime(3,1))
-                .onErrorResumeNext(new HttpResultFunc<List<OptionLogs>>())
-                .subscribeOn(Schedulers.io())
-                .unsubscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread());
-    }
+//    public Observable<List<OptionLogs>> optionLogs(int userid){
+//        return demoService.optionLogs(userid)
+//                .map(new ServerResultFunc<List<OptionLogs>>())
+//                .retryWhen(new TokenOutTime(3,1))
+//                .onErrorResumeNext(new HttpResultFunc<List<OptionLogs>>())
+//                .subscribeOn(Schedulers.io())
+//                .unsubscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread());
+//    }
 
     public Observable<List<Option>> getOption(int userid){
         return demoService.listOption(userid)
@@ -320,19 +331,19 @@ public class HttpMethods {
         .onErrorResumeNext(new HttpResultFunc<String>());
     }
 
-    public Observable<List<UserCommonInfo2>> updateuserFriend(String friends){
+    public Observable<List<UserCommonInfo>> updateuserFriend(String friends){
         return demoService.updateUserFriend2(friends)
-                .map(new ServerResultFunc<List<UserCommonInfo2>>())
-                .onErrorResumeNext(new HttpResultFunc<List<UserCommonInfo2>>())
+                .map(new ServerResultFunc<List<UserCommonInfo>>())
+                .onErrorResumeNext(new HttpResultFunc<List<UserCommonInfo>>())
                 .subscribeOn(Schedulers.io())
                 ;
     }
 
-    public Observable<List<UserCommonInfo2>> updateuserFriend2(String friends){
+    public Observable<List<UserCommonInfo>> updateuserFriend2(String friends){
         return demoService.updateUserFriend3(friends)
-                .map(new ServerResultFunc<List<UserCommonInfo2>>())
+                .map(new ServerResultFunc<List<UserCommonInfo>>())
                 .retryWhen(new TokenOutTime(3,1))
-                .onErrorResumeNext(new HttpResultFunc<List<UserCommonInfo2>>())
+                .onErrorResumeNext(new HttpResultFunc<List<UserCommonInfo>>())
                 .subscribeOn(Schedulers.io())
                 ;
     }
@@ -362,7 +373,7 @@ public class HttpMethods {
         public Observable<T> call(Throwable throwable) {
             Log.i("wang","HttpMethod发现异常拉"+throwable.toString());
             throwable.printStackTrace();
-            return Observable.error(ExceptionEngine.handleException(throwable));
+            return Observable.error(ExceptionProvider.handleException(throwable));
         }
     }
 

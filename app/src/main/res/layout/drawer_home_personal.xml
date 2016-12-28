@@ -22,7 +22,6 @@
                 android:layout_centerVertical="true"
                 android:layout_marginRight="10dp"
                 android:id="@+id/drawer_iv_avatar"
-                android:src="@mipmap/ic_launcher"
                 android:layout_width="70dp"
                 android:layout_height="70dp" />
             <TextView
@@ -47,8 +46,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <RelativeLayout
+            android:background="?android:attr/selectableItemBackground"
             android:id="@+id/rl_collect"
-            android:background="@drawable/normal_item_selecter"
             android:paddingLeft="10dp"
             android:layout_width="match_parent"
             android:layout_height="65dp">
@@ -114,6 +113,8 @@
                 <!--/>-->
         </RelativeLayout>
         <RelativeLayout
+            android:id="@+id/rl_myfriend"
+            android:background="?android:attr/selectableItemBackground"
             android:paddingLeft="10dp"
             android:layout_width="match_parent"
             android:layout_height="60dp">
@@ -145,6 +146,8 @@
                 <!--/>-->
         </RelativeLayout>
         <RelativeLayout
+            android:id="@+id/rl_foot_print"
+            android:background="?android:attr/selectableItemBackground"
             android:paddingLeft="10dp"
             android:layout_width="match_parent"
             android:layout_height="60dp">
@@ -175,7 +178,6 @@
                 <!--android:layout_height="0.1dp"-->
                 <!--/>-->
         </RelativeLayout>
-
 
 
     </LinearLayout>

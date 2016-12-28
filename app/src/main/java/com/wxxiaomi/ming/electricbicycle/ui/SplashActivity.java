@@ -11,11 +11,11 @@ import android.support.multidex.MultiDex;
 import com.wxxiaomi.ming.electricbicycle.EBApplication;
 import com.wxxiaomi.ming.electricbicycle.common.util.AppManager;
 import com.wxxiaomi.ming.electricbicycle.R;
+import com.wxxiaomi.ming.electricbicycle.support.cache.DiskCache;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.HomeActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.RegisterActivity;
-import com.wxxiaomi.ming.electricbicycle.dao.db.UserService;
-import com.wxxiaomi.ming.electricbicycle.support.aliyun.OssEngine;
-import com.wxxiaomi.ming.electricbicycle.support.common.cache.base.DiskCache;
+import com.wxxiaomi.ming.electricbicycle.service.FunctionProvider;
+import com.wxxiaomi.ming.electricbicycle.bridge.aliyun.OssEngine;
 
 import java.util.concurrent.CountDownLatch;
 
@@ -114,7 +114,7 @@ public class SplashActivity extends Activity {
     }
 
     private void thisAutoLogin() {
-        UserService.getInstance().AutoLogin()
+        FunctionProvider.getInstance().AutoLogin()
                 .subscribe(new Observer<Integer>() {
                     @Override
                     public void onCompleted() {

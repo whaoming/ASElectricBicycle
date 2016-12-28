@@ -18,7 +18,7 @@ import com.wxxiaomi.ming.electricbicycle.R;
 
 import com.wxxiaomi.ming.electricbicycle.ui.activity.UserInfoAct;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.custom.CircularImageView;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.UserLocatInfo;
+import com.wxxiaomi.ming.electricbicycle.db.bean.UserLocatInfo;
 
 import java.util.List;
 

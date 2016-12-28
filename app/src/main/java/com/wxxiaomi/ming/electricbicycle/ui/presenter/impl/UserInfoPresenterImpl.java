@@ -7,14 +7,14 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 import com.wxxiaomi.ming.electricbicycle.R;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.Option;
-import com.wxxiaomi.ming.electricbicycle.support.easemob.EmHelper2;
+import com.wxxiaomi.ming.electricbicycle.db.bean.Option;
+import com.wxxiaomi.ming.electricbicycle.db.bean.UserCommonInfo;
+import com.wxxiaomi.ming.electricbicycle.service.FunctionProvider;
+import com.wxxiaomi.ming.electricbicycle.bridge.easemob.EmHelper;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.adapter.OptionAdapter2;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo2;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.base.BasePreImpl;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.UserInfoPresenter;
-import com.wxxiaomi.ming.electricbicycle.dao.db.UserService;
-import com.wxxiaomi.ming.electricbicycle.common.rx.SampleProgressObserver;
+import com.wxxiaomi.ming.electricbicycle.support.rx.SampleProgressObserver;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.view.UserInfoView;
 
 import com.wxxiaomi.ming.electricbicycle.ui.weight.custom.EditableDialog;
@@ -22,13 +22,12 @@ import com.wxxiaomi.ming.electricbicycle.ui.weight.custom.EditableDialog;
 import java.util.List;
 
 import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Action1;
 
 /**
  * Created by 12262 on 2016/7/2.
  */
 public class UserInfoPresenterImpl extends BasePreImpl<UserInfoView> implements UserInfoPresenter<UserInfoView> {
-    private UserCommonInfo2 userInfo;
+    private UserCommonInfo userInfo;
     private boolean isMyFriendFlag = false;
     private EditableDialog dialog;
 
@@ -57,11 +56,11 @@ public class UserInfoPresenterImpl extends BasePreImpl<UserInfoView> implements 
         Bundle bundle = intent.getBundleExtra("value");
         if(bundle==null){
             String value = intent.getStringExtra("value");
-            userInfo = new Gson().fromJson(value,UserCommonInfo2.class);
+            userInfo = new Gson().fromJson(value,UserCommonInfo.class);
         } else {
-            userInfo = (UserCommonInfo2) bundle.get("userInfo");
+            userInfo = (UserCommonInfo) bundle.get("userInfo");
         }
-//        isMyFriendFlag = UserService.getInstance().isMyFriend(userInfo.emname);
+//        isMyFriendFlag = FunctionProvider.getInstance().isMyFriend(userInfo.emname);
         if (isMyFriendFlag)
             mView.setBtnView(mView.getContext().getResources().getDrawable(R.mipmap.ic_mode_edit_black_18dp));
         else
@@ -75,7 +74,7 @@ public class UserInfoPresenterImpl extends BasePreImpl<UserInfoView> implements 
 //                        mView.setAdapter(adapter);
 //                    }
 //                });
-        UserService.getInstance().getUserOptions(25)
+        FunctionProvider.getInstance().getUserOptions(25)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new SampleProgressObserver<List<Option>>(mView.getContext()) {
                     @Override
@@ -98,7 +97,7 @@ public class UserInfoPresenterImpl extends BasePreImpl<UserInfoView> implements 
                 .setOnPositiveButtonClick(new EditableDialog.PositiveButtonOnClick() {
                     @Override
                     public void onClick(DialogInterface dialog, String content) {
-                        EmHelper2.getInstance().addContact(userInfo.emname,content)
+                        EmHelper.getInstance().addContact(userInfo.emname,content)
                                 .subscribe(new SampleProgressObserver<Boolean>(mView.getContext()) {
                                     @Override
                                     public void onNext(Boolean aBoolean) {

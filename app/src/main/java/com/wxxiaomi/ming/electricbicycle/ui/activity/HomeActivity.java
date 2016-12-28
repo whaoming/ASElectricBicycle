@@ -2,7 +2,6 @@ package com.wxxiaomi.ming.electricbicycle.ui.activity;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.media.Image;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -41,7 +40,7 @@ import com.wxxiaomi.ming.electricbicycle.ui.presenter.HomePresenter;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.impl.HomePresenterImpl;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.view.HomeView;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.custom.CircularImageView;
-import com.wxxiaomi.ming.electricbicycle.support.baidumap.LocationUtil;
+import com.wxxiaomi.ming.electricbicycle.service.LocatProvider;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.custom.MsgActionProvider;
 
 /**
@@ -71,6 +70,10 @@ public class HomeActivity extends BaseActivity<HomeView,HomePresenter> implement
     private ImageView drawer_iv_avatar;
 
     private RelativeLayout drawer_setting;
+    private RelativeLayout rl_collect;
+    private RelativeLayout rl_album;
+    private RelativeLayout rl_myfriend;
+    private RelativeLayout rl_foot_print;
 
     @Override
     protected void initView(Bundle savedInstanceState) {
@@ -100,6 +103,14 @@ public class HomeActivity extends BaseActivity<HomeView,HomePresenter> implement
         drawer_setting.setOnClickListener(this);
         mBaiduMap = mMapView.getMap();
         btn_go.setOnClickListener(this);
+        rl_collect = (RelativeLayout) findViewById(R.id.rl_collect);
+        rl_collect.setOnClickListener(this);
+        rl_album = (RelativeLayout) findViewById(R.id.rl_album);
+        rl_album.setOnClickListener(this);
+        rl_myfriend = (RelativeLayout) findViewById(R.id.rl_myfriend);
+        rl_myfriend.setOnClickListener(this);
+        rl_foot_print = (RelativeLayout) findViewById(R.id.rl_foot_print);
+        rl_foot_print.setOnClickListener(this);
         initAnimation();
         initMapMarkerClickListener();
     }
@@ -113,7 +124,8 @@ public class HomeActivity extends BaseActivity<HomeView,HomePresenter> implement
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btn_go:
-                presenter.goBtnOnClick();
+//                presenter.goBtnOnClick();
+                presenter.onFootPrintActionClick();
                 break;
 //            case R.id.iv_contact:
 //                presenter.contactBtnOnClick();
@@ -137,6 +149,18 @@ public class HomeActivity extends BaseActivity<HomeView,HomePresenter> implement
             case R.id.drawer_iv_avatar:
                 presenter.headBtnOnClick();
                 break;
+            case R.id.rl_collect:
+                presenter.onCollectClick();
+                break;
+            case R.id.rl_album:
+                presenter.onAlbumClick();
+                break;
+            case R.id.rl_myfriend:
+                presenter.contactBtnOnClick();
+                break;
+            case R.id.rl_foot_print:
+                presenter.onFootPrintClick();
+                break;
             default:
                 break;
         }
@@ -144,7 +168,7 @@ public class HomeActivity extends BaseActivity<HomeView,HomePresenter> implement
 
     @Override
     public void showSnackBar(String content) {
-        Snackbar.make(sn_layout, content, Snackbar.LENGTH_LONG).show();
+        Snackbar.make(mDrawerLayout, content, Snackbar.LENGTH_LONG).show();
     }
 
 
@@ -213,9 +237,10 @@ public class HomeActivity extends BaseActivity<HomeView,HomePresenter> implement
 
     @Override
     public void scrollToMyLocat() {
-        LatLng ll = new LatLng(LocationUtil.getInstance().getLatitude(),
-                LocationUtil.getInstance().getLongitude());
+        LatLng ll = new LatLng(LocatProvider.getInstance().getLatitude(),
+                LocatProvider.getInstance().getLongitude());
         MapStatus.Builder builder = new MapStatus.Builder();
+//        Poi
         builder.target(ll).zoom(18.0f);
         mBaiduMap.animateMapStatus(MapStatusUpdateFactory
                 .newMapStatus(builder.build()));
@@ -361,7 +386,7 @@ public class HomeActivity extends BaseActivity<HomeView,HomePresenter> implement
         super.onWindowFocusChanged(hasFocus);
         mActionProvider.setIcon(R.mipmap.ic_add_white_24dp);
         mActionProvider.setBadge(0);
-        mActionProvider2.setIcon(R.mipmap.ic_add_white_24dp);
-        mActionProvider2.setBadge(5);
+        mActionProvider2.setIcon(R.mipmap.ic_notify_none);
+        mActionProvider2.setBadge(0);
     }
 }

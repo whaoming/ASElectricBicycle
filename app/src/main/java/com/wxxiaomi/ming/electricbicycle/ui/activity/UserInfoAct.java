@@ -13,7 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.wxxiaomi.ming.electricbicycle.R;
-import com.wxxiaomi.ming.electricbicycle.dao.bean.UserCommonInfo2;
+import com.wxxiaomi.ming.electricbicycle.db.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.base.BaseActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.UserInfoPresenter;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.impl.UserInfoPresenterImpl;
@@ -105,7 +105,7 @@ public class UserInfoAct extends BaseActivity<UserInfoView, UserInfoPresenter> i
     }
 
     @Override
-    public void setViewData(UserCommonInfo2 info) {
+    public void setViewData(UserCommonInfo info) {
         //toolbar.setTitle(info.name);
     }
 
