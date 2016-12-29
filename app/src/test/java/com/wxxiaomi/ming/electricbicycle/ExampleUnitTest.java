@@ -12,6 +12,6 @@ public class ExampleUnitTest {
 //        assertEquals(4, 2 + 2);
 //        Log.i("wang","asd");
 //        GlobalParams.username = "122627018";
-//        List<UserCommonInfo> friendList = FunctionProvider.getInstance().getFriendList();
+//        List<UserCommonInfo> friendList = UserFunctionProvider.getInstance().getFriendList();
     }
 }

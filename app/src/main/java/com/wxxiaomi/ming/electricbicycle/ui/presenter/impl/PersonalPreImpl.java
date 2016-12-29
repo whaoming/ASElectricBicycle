@@ -1,9 +1,9 @@
 package com.wxxiaomi.ming.electricbicycle.ui.presenter.impl;
 
 import com.wxxiaomi.ming.electricbicycle.service.GlobalManager;
+import com.wxxiaomi.ming.electricbicycle.service.UserFunctionProvider;
 import com.wxxiaomi.ming.electricbicycle.support.rx.SampleProgressObserver;
 import com.wxxiaomi.ming.electricbicycle.db.bean.Option;
-import com.wxxiaomi.ming.electricbicycle.service.FunctionProvider;
 import com.wxxiaomi.ming.electricbicycle.service.ShowerProvider;
 import com.wxxiaomi.ming.electricbicycle.bridge.img.PhotoTakeUtil;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.SettingActivity;
@@ -49,7 +49,7 @@ public class PersonalPreImpl extends BasePreImpl<PersonaView> implements Persona
     }
 
     private void requestOptionData() {
-        FunctionProvider.getInstance().getUserOptions(GlobalManager.getInstance().getUser().userCommonInfo.id)
+        UserFunctionProvider.getInstance().getUserOptions(GlobalManager.getInstance().getUser().userCommonInfo.id)
                 .subscribe(new Action1<List<Option>>() {
                     @Override
                     public void call(List<Option> options) {
@@ -71,11 +71,11 @@ public class PersonalPreImpl extends BasePreImpl<PersonaView> implements Persona
                 .subscribe(new Action1<List<String>>() {
                     @Override
                     public void call(List<String> strings) {
-                        FunctionProvider.getInstance().upLoadImgToOss(strings.get(0))
+                        UserFunctionProvider.getInstance().upLoadImgToOss(strings.get(0))
                                 .flatMap(new Func1<String, Observable<String>>() {
                                     @Override
                                     public Observable<String> call(String s) {
-                                        return FunctionProvider.getInstance().upLoadUserCover(s);
+                                        return UserFunctionProvider.getInstance().upLoadUserCover(s);
                                     }
                                 })
                                 .observeOn(AndroidSchedulers.mainThread())

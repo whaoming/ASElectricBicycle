@@ -31,6 +31,7 @@
             android:defaultValue="true"
             />
         <Preference
+            android:key="@string/setting_logout"
             android:layout="@layout/preference_item"
             android:summary="退出当前账号"
             android:title="退出登陆" />

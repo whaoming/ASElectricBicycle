@@ -24,7 +24,7 @@ import com.wxxiaomi.ming.electricbicycle.support.rx.SampleProgressObserver;
 import com.wxxiaomi.ming.electricbicycle.common.util.OverlayManager;
 import com.wxxiaomi.ming.electricbicycle.db.bean.FootPrintDetail;
 import com.wxxiaomi.ming.electricbicycle.db.bean.format.FootPrintGet;
-import com.wxxiaomi.ming.electricbicycle.service.FunctionProvider;
+import com.wxxiaomi.ming.electricbicycle.service.UserFunctionProvider;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -83,7 +83,7 @@ public class FootPrintShowActivity extends AppCompatActivity {
         final List<OverlayOptions> overlayOptions = new ArrayList<>();
         final List<LatLng> polylines = new ArrayList<>();
         final List<GeoPoint> points = new ArrayList<>();
-        FunctionProvider.getInstance().getUserFootPrint(25)
+        UserFunctionProvider.getInstance().getUserFootPrint(25)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new SampleProgressObserver<FootPrintGet>(this) {

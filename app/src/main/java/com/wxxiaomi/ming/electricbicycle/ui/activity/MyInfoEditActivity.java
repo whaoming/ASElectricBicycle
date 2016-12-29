@@ -14,8 +14,8 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.service.GlobalManager;
+import com.wxxiaomi.ming.electricbicycle.service.UserFunctionProvider;
 import com.wxxiaomi.ming.electricbicycle.support.rx.SampleProgressObserver;
-import com.wxxiaomi.ming.electricbicycle.service.FunctionProvider;
 import com.wxxiaomi.ming.electricbicycle.service.ShowerProvider;
 import com.wxxiaomi.ming.electricbicycle.bridge.aliyun.OssEngine;
 import com.wxxiaomi.ming.electricbicycle.bridge.img.PhotoTakeUtil;
@@ -157,7 +157,7 @@ public class MyInfoEditActivity extends AppCompatActivity implements View.OnClic
         if(head==null&&name==null&&description==null&&city==null){
             finish();
         }
-        FunctionProvider.getInstance().updateUserInfo(name,head,description,city)
+        UserFunctionProvider.getInstance().updateUserInfo(name,head,description,city)
                 .subscribeOn(Schedulers.io())
                 .subscribe(new SampleProgressObserver<Integer>(this) {
                     @Override
@@ -173,7 +173,7 @@ public class MyInfoEditActivity extends AppCompatActivity implements View.OnClic
                     @Override
                     public Observable<String> call(List<String> strings) {
                         OssEngine.getInstance().initOssEngine(MyInfoEditActivity.this.getApplicationContext());
-                        return FunctionProvider.getInstance().upLoadImgToOss(strings.get(0));
+                        return UserFunctionProvider.getInstance().upLoadImgToOss(strings.get(0));
                     }
                 })
                 .observeOn(AndroidSchedulers.mainThread())

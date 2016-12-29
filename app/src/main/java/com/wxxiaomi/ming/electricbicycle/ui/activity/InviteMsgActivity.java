@@ -1,6 +1,5 @@
 package com.wxxiaomi.ming.electricbicycle.ui.activity;
 
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -13,11 +12,10 @@ import android.view.ViewGroup;
 import com.hyphenate.easeui.domain.EaseUser;
 import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.db.bean.InviteMessage;
-import com.wxxiaomi.ming.electricbicycle.service.FunctionProvider;
+import com.wxxiaomi.ming.electricbicycle.service.UserFunctionProvider;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.adapter2.InviteAdapter;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.myrecycle.PullToRefreshRecyclerView;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -50,7 +48,7 @@ public class InviteMsgActivity extends AppCompatActivity {
         //从数据库取出邀请信息
         //根据邀请信息取得用户信息传入
         users = new HashMap<>();
-        FunctionProvider.getInstance().getInviteMsgs()
+        UserFunctionProvider.getInstance().getInviteMsgs()
                 .flatMap(new Func1<List<InviteMessage>, Observable<InviteMessage>>() {
                     @Override
                     public Observable<InviteMessage> call(List<InviteMessage> inviteMessages) {
@@ -62,7 +60,7 @@ public class InviteMsgActivity extends AppCompatActivity {
                     @Override
                     public void call(final InviteMessage inviteMessage) {
                         Log.i("wang","inviteMessage:"+inviteMessage.toString());
-                        FunctionProvider.getInstance().getEaseUserByEmname(inviteMessage.getFrom())
+                        UserFunctionProvider.getInstance().getEaseUserByEmname(inviteMessage.getFrom())
                                 .subscribe(new Action1<EaseUser>() {
                                     @Override
                                     public void call(EaseUser easeUser) {

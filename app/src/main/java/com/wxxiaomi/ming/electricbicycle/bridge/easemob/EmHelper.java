@@ -24,7 +24,7 @@ import com.wxxiaomi.ming.electricbicycle.api.exp.ERROR;
 import com.wxxiaomi.ming.electricbicycle.db.bean.InviteMessage;
 import com.wxxiaomi.ming.electricbicycle.db.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.db.InviteMessgeDao;
-import com.wxxiaomi.ming.electricbicycle.service.FunctionProvider;
+import com.wxxiaomi.ming.electricbicycle.service.UserFunctionProvider;
 import com.wxxiaomi.ming.electricbicycle.db.impl.InviteMessgeDaoImpl;
 import com.wxxiaomi.ming.electricbicycle.db.impl.InviteMessgeDaoImpl2;
 import com.wxxiaomi.ming.electricbicycle.bridge.easemob.common.EmConstant;
@@ -433,7 +433,7 @@ public class EmHelper {
             public void call(Subscriber<? super Boolean> subscriber) {
                 try {
                     EMClient.getInstance().contactManager().acceptInvitation(emname);
-                    FunctionProvider.getInstance().getUserInfoByEname(emname)
+                    UserFunctionProvider.getInstance().getUserInfoByEname(emname)
                             .subscribe(new Action1<UserCommonInfo>() {
                                 @Override
                                 public void call(UserCommonInfo userCommonInfo) {
@@ -469,6 +469,10 @@ public class EmHelper {
                 ;
     }
 
+    public void logout(){
+        EMClient.getInstance().logout(true);
+    }
+
 
     /**
      * 当联系人发生变动的时候这里会发生回调
@@ -480,13 +484,13 @@ public class EmHelper {
 
         @Override
         public void onContactAdded(String username) {
-            FunctionProvider.getInstance().getUserInfoByEname(username)
+            UserFunctionProvider.getInstance().getUserInfoByEname(username)
                     .flatMap(new Func1<UserCommonInfo, Observable<Integer>>() {
                         @Override
                         public Observable<Integer> call(UserCommonInfo userCommonInfo) {
                             List<UserCommonInfo> list = new ArrayList<>();
                             list.add(userCommonInfo);
-                            return FunctionProvider.getInstance().updateFriendList(list);
+                            return UserFunctionProvider.getInstance().updateFriendList(list);
                         }
                     })
                     .subscribe(new Action1<Integer>() {
@@ -524,7 +528,7 @@ public class EmHelper {
                         }
                     });
             //从服务器获取用户公共信息并存到本地服务器
-            Observable<EaseUser> userCommonInfoObservable = FunctionProvider.getInstance().getEaseUserByEmname(username
+            Observable<EaseUser> userCommonInfoObservable = UserFunctionProvider.getInstance().getEaseUserByEmname(username
             );
 
             Observable.zip(integerObservable, userCommonInfoObservable, objectObservable2, new Func3<Integer, EaseUser, Integer, EaseUser>() {

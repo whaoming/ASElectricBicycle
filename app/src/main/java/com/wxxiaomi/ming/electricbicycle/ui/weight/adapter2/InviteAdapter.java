@@ -7,9 +7,6 @@ import android.widget.ImageView;
 import com.hyphenate.easeui.domain.EaseUser;
 import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.db.bean.InviteMessage;
-import com.wxxiaomi.ming.electricbicycle.db.bean.UserLocatInfo;
-import com.wxxiaomi.ming.electricbicycle.service.FunctionProvider;
-import com.wxxiaomi.ming.electricbicycle.service.GlobalManager;
 import com.wxxiaomi.ming.electricbicycle.service.ShowerProvider;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.baseadapter.ViewHolder;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.baseadapter.base.BaseAdapter;
@@ -19,8 +16,6 @@ import com.wxxiaomi.ming.electricbicycle.ui.weight.myrecycle.PullToRefreshRecycl
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import rx.functions.Action1;
 
 /**
  * Created by Administrator on 2016/12/29.

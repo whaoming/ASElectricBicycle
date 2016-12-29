@@ -8,7 +8,7 @@ import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.db.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.db.bean.UserLocatInfo;
 
-import com.wxxiaomi.ming.electricbicycle.service.FunctionProvider;
+import com.wxxiaomi.ming.electricbicycle.service.UserFunctionProvider;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.base.BasePreImpl;
 
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.FriendAddPresenter;
@@ -53,7 +53,7 @@ public class FriendAddPresenterImpl extends BasePreImpl<FriendAddView> implement
 
 
     private void getNearFriend() {
-        FunctionProvider.getInstance().getNearPeople(GlobalManager.getInstance().getUser().id
+        UserFunctionProvider.getInstance().getNearPeople(GlobalManager.getInstance().getUser().id
                 , LocatProvider.getInstance().getLatitude()
                 , LocatProvider.getInstance().getLongitude())
                 .subscribe(new Action1<List<UserLocatInfo>>() {
@@ -71,7 +71,7 @@ public class FriendAddPresenterImpl extends BasePreImpl<FriendAddView> implement
         listView.removeHeader();
         listView.getRecyclerView().removeAllViews();
         mView.getListView().setAdapter(adapter1);
-        FunctionProvider.getInstance().getUserByNameFWeb(name)
+        UserFunctionProvider.getInstance().getUserByNameFWeb(name)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new SampleProgressObserver<List<UserCommonInfo>>(mView.getContext()) {
                     @Override

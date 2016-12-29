@@ -21,7 +21,7 @@ import com.wxxiaomi.ming.electricbicycle.service.GlobalManager;
 import com.wxxiaomi.ming.electricbicycle.db.bean.Option;
 import com.wxxiaomi.ming.electricbicycle.db.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.db.bean.format.UserInfo;
-import com.wxxiaomi.ming.electricbicycle.service.FunctionProvider;
+import com.wxxiaomi.ming.electricbicycle.service.UserFunctionProvider;
 import com.wxxiaomi.ming.electricbicycle.service.ShowerProvider;
 import com.wxxiaomi.ming.electricbicycle.support.rx.SampleProgressObserver;
 import com.wxxiaomi.ming.electricbicycle.ui.fragment.InfoCardFragment;
@@ -146,7 +146,7 @@ public class UserInfoActivity extends AppCompatActivity implements FragmentCallb
             bundle.putBoolean(ConstantValue.INTENT_ISMINE,isMine);
             infoDetailFragment.receiveData(1,bundle);
             infoCardFragment.receiveData(1,bundle);
-            FunctionProvider.getInstance().getUserOptions(GlobalManager.getInstance().getUser().userCommonInfo.id)
+            UserFunctionProvider.getInstance().getUserOptions(GlobalManager.getInstance().getUser().userCommonInfo.id)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(new Observer<List<Option>>() {
@@ -171,7 +171,7 @@ public class UserInfoActivity extends AppCompatActivity implements FragmentCallb
                     });
         }else{
 //            final int userid = getIntent().getIntExtra(ConstantValue.INTENT_USERID,0);
-            FunctionProvider.getInstance().getUserInfoAndOption(targetUser.id)
+            UserFunctionProvider.getInstance().getUserInfoAndOption(targetUser.id)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(new Observer<UserInfo>() {

@@ -22,4 +22,5 @@
     <string name="setting_open_near">setting_open_near</string>
     <string name="setting_notify_sound">setting_notify_sound</string>
     <string name="setting_notify_vibrate">setting_notify_vibrate</string>
+    <string name="setting_logout">setting_logout</string>
 </resources>

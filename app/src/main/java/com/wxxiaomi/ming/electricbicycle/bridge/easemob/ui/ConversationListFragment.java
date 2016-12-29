@@ -152,7 +152,7 @@ public class ConversationListFragment extends EaseConversationListFragment {
 
     @Override
     public void onResume() {
-//        List<UserCommonInfo> list = FunctionProvider.getInstance().getFriendList();
+//        List<UserCommonInfo> list = UserFunctionProvider.getInstance().getFriendList();
 //        for(UserCommonInfo info : list){
 //            Log.i("wang","好友情况："+info.toString());
 //        }
