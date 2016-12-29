@@ -3,10 +3,12 @@ package com.wxxiaomi.ming.electricbicycle.service;
 
 import android.util.Log;
 
+import com.hyphenate.easeui.domain.EaseUser;
 import com.wxxiaomi.ming.electricbicycle.EBApplication;
 import com.wxxiaomi.ming.electricbicycle.GlobalParams;
 import com.wxxiaomi.ming.electricbicycle.api.HttpMethods;
 import com.wxxiaomi.ming.electricbicycle.common.util.TimeUtil;
+import com.wxxiaomi.ming.electricbicycle.db.bean.InviteMessage;
 import com.wxxiaomi.ming.electricbicycle.db.bean.Option;
 import com.wxxiaomi.ming.electricbicycle.db.bean.User;
 import com.wxxiaomi.ming.electricbicycle.db.bean.UserCommonInfo;
@@ -33,6 +35,7 @@ import java.util.UUID;
 
 import rx.Observable;
 import rx.Subscriber;
+import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 
@@ -43,7 +46,7 @@ import rx.schedulers.Schedulers;
 public class FunctionProvider {
     private UserDao userDao;
     private static FunctionProvider INSTANCE;
-    static LRUCache<UserCommonInfo> userCache = new LRUCache<>(8);
+//    static LRUCache<UserCommonInfo> userCache = new LRUCache<>(8);
     private FriendDao2 friendDao2;
     private AppDao appDao;
 
@@ -128,12 +131,15 @@ public class FunctionProvider {
     /**
      * 向本地数据库插入一下好友数据
      *
-     * @param list
      * @return
      */
 //    public Observable<Integer> InsertFriendList(List<UserCommonInfo> list) {
 //        return friendDao.InsertFriendList(list);
 //    }
+
+    public Observable<List<InviteMessage>> getInviteMsgs(){
+        return EmHelper.getInstance().getInviteMsgListRx();
+    }
 
     /**
      * 根据emname获取一条用户信息
@@ -144,7 +150,7 @@ public class FunctionProvider {
      * @return
      */
     public Observable<UserCommonInfo> getUserInfoByEname(final String emname) {
-        Observable<UserCommonInfo> userMemoryCache = getUserMemoryCache(emname);
+//        Observable<UserCommonInfo> userMemoryCache = getUserMemoryCache(emname);
         Observable<UserCommonInfo> userLocal = userDao.getUserLocal(emname);
         Observable<UserCommonInfo> userNet = userDao.getUserByEnameFWeb(emname)
                 .flatMap(new Func1<UserCommonInfo, Observable<UserCommonInfo>>() {
@@ -155,7 +161,8 @@ public class FunctionProvider {
                 })
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io());
-        return Observable.concat(userMemoryCache, userLocal, userNet)
+//        return Observable.concat(userMemoryCache, userLocal, userNet)
+        return Observable.concat(userLocal, userNet)
                 .first(new Func1<UserCommonInfo, Boolean>() {
                     @Override
                     public Boolean call(UserCommonInfo userCommonInfo) {
@@ -165,11 +172,73 @@ public class FunctionProvider {
                 .flatMap(new Func1<UserCommonInfo, Observable<UserCommonInfo>>() {
                     @Override
                     public Observable<UserCommonInfo> call(UserCommonInfo userCommonInfo) {
-                        userCache.put(userCommonInfo.emname, userCommonInfo);
+                        GlobalManager.getInstance().putEasyUser(userCommonInfo.emname, userCommonInfo);
+//                        userCache.put(userCommonInfo.emname, userCommonInfo);
                         return Observable.just(userCommonInfo);
                     }
                 })
                 ;
+    }
+
+    public Observable<EaseUser> getEaseUserByEmname(final String emname){
+        Log.i("wang","getEaseUserByEmname");
+        Observable<EaseUser> userMemoryCache = Observable.create(new Observable.OnSubscribe<EaseUser>() {
+
+            @Override
+            public void call(Subscriber<? super EaseUser> subscriber) {
+                EaseUser easyUser = GlobalManager.getInstance().getEasyUser(emname);
+                Log.i("wang","从内存中获得easyUser=="+easyUser);
+                subscriber.onNext(easyUser);
+                subscriber.onCompleted();
+            }
+        });
+        Observable<EaseUser> userLocal = userDao.getUserLocal(emname)
+                .map(new Func1<UserCommonInfo, EaseUser>() {
+                    @Override
+                    public EaseUser call(UserCommonInfo userCommonInfo) {
+                        Log.i("wang","从数据库中获得");
+                        EaseUser user1 = new EaseUser(userCommonInfo.emname);
+                        user1.setNick(userCommonInfo.nickname);
+                        user1.setAvatar(userCommonInfo.avatar);
+                        return user1;
+                    }
+                });
+        Observable<EaseUser> userNet = userDao.getUserByEnameFWeb(emname)
+                .flatMap(new Func1<UserCommonInfo, Observable<UserCommonInfo>>() {
+                    @Override
+                    public Observable<UserCommonInfo> call(UserCommonInfo userCommonInfo) {
+                        Log.i("wang","从网络中获得");
+                        return userDao.InsertUser(userCommonInfo);
+                    }
+                })
+                .map(new Func1<UserCommonInfo, EaseUser>() {
+                    @Override
+                    public EaseUser call(UserCommonInfo userCommonInfo) {
+                        EaseUser user1 = new EaseUser(userCommonInfo.emname);
+                        user1.setNick(userCommonInfo.nickname);
+                        user1.setAvatar(userCommonInfo.avatar);
+                        return user1;
+                    }
+                });
+        return Observable.concat(userMemoryCache, userLocal, userNet)
+                .first(new Func1<EaseUser, Boolean>() {
+                    @Override
+                    public Boolean call(EaseUser userCommonInfo) {
+                        return userCommonInfo != null;
+                    }
+                })
+                .map(new Func1<EaseUser, EaseUser>() {
+                    @Override
+                    public EaseUser call(EaseUser easeUser) {
+
+                        GlobalManager.getInstance().putEasyUser(easeUser.getUsername(),easeUser);
+                        return easeUser;
+                    }
+                })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                ;
+
     }
 
     /**
@@ -211,20 +280,20 @@ public class FunctionProvider {
         return HttpMethods.getInstance().getUserCommonInfo2ByName(name);
     }
 
-    public Observable<UserCommonInfo> getUserMemoryCache(final String emname) {
-        return Observable.create(new Observable.OnSubscribe<UserCommonInfo>() {
-            @Override
-            public void call(Subscriber<? super UserCommonInfo> subscriber) {
-                Log.i("wang", "从LruCache中取对象");
-                UserCommonInfo userCommonInfo = userCache.get(emname);
-                if (userCommonInfo != null) {
-                    Log.i("wang", "从lrucache中去到对象：" + userCommonInfo);
-                }
-                subscriber.onNext(userCommonInfo);
-                subscriber.onCompleted();
-            }
-        });
-    }
+//    public Observable<UserCommonInfo> getUserMemoryCache(final String emname) {
+//        return Observable.create(new Observable.OnSubscribe<UserCommonInfo>() {
+//            @Override
+//            public void call(Subscriber<? super UserCommonInfo> subscriber) {
+//                Log.i("wang", "从LruCache中取对象");
+////                UserCommonInfo userCommonInfo = GlobalManager.getInstance().getEasyUser(emname);
+//                if (userCommonInfo != null) {
+//                    Log.i("wang", "从lrucache中去到对象：" + userCommonInfo);
+//                }
+//                subscriber.onNext(userCommonInfo);
+//                subscriber.onCompleted();
+//            }
+//        });
+//    }
 
     public Observable<List<Option>> getUserOptions(final int userid) {
         return HttpMethods.getInstance().getOption(userid)
@@ -332,6 +401,7 @@ public class FunctionProvider {
                     .map(new Func1<List<String>, String>() {
                         @Override
                         public String call(List<String> strings) {
+                            Log.i("wang","从em服务器获取的联系人的数量:"+strings.size());
                             if (strings.size() == 0) {
                                 return "";
                             }

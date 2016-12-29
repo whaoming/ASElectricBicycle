@@ -432,7 +432,6 @@ public class EmHelper {
             @Override
             public void call(Subscriber<? super Boolean> subscriber) {
                 try {
-                    Log.i("wang", "emengine同意好友申请,emname:" + emname);
                     EMClient.getInstance().contactManager().acceptInvitation(emname);
                     FunctionProvider.getInstance().getUserInfoByEname(emname)
                             .subscribe(new Action1<UserCommonInfo>() {
@@ -481,7 +480,6 @@ public class EmHelper {
 
         @Override
         public void onContactAdded(String username) {
-            Log.i("wang", "好友请求被同意");
             FunctionProvider.getInstance().getUserInfoByEname(username)
                     .flatMap(new Func1<UserCommonInfo, Observable<Integer>>() {
                         @Override
@@ -497,7 +495,6 @@ public class EmHelper {
                             broadcastManager.sendBroadcast(new Intent(EmConstant.ACTION_CONTACT_CHANAGED));
                         }
                     });
-//            broadcastManager.sendBroadcast(new Intent(Constant.ACTION_CONTACT_CHANAGED));
         }
 
         @Override
@@ -527,33 +524,31 @@ public class EmHelper {
                         }
                     });
             //从服务器获取用户公共信息并存到本地服务器
-            Observable<UserCommonInfo> userCommonInfoObservable = FunctionProvider.getInstance().getUserInfoByEname(username
+            Observable<EaseUser> userCommonInfoObservable = FunctionProvider.getInstance().getEaseUserByEmname(username
             );
 
-            Observable.zip(integerObservable, userCommonInfoObservable, objectObservable2, new Func3<Integer, UserCommonInfo, Integer, UserCommonInfo>() {
+            Observable.zip(integerObservable, userCommonInfoObservable, objectObservable2, new Func3<Integer, EaseUser, Integer, EaseUser>() {
 
                 @Override
-                public UserCommonInfo call(Integer integer, UserCommonInfo userCommonInfo, Integer integer2) {
+                public EaseUser call(Integer integer, EaseUser userCommonInfo, Integer integer2) {
                     return userCommonInfo;
                 }
             })
                     .subscribeOn(Schedulers.io())
                     .unsubscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(new Subscriber<UserCommonInfo>() {
+                    .subscribe(new Subscriber<EaseUser>() {
                         @Override
                         public void onCompleted() {
 
                         }
-
                         @Override
                         public void onError(Throwable e) {
                             e.printStackTrace();
                             Log.i("wang", "在处理收到好友消息的过程中出错了");
                         }
-
                         @Override
-                        public void onNext(UserCommonInfo userCommonInfo) {
+                        public void onNext(EaseUser userCommonInfo) {
                             getNotifier().vibrateAndPlayTone(null);
                             broadcastManager.sendBroadcast(new Intent(EmConstant.ACTION_CONTACT_CHANAGED));
                         }

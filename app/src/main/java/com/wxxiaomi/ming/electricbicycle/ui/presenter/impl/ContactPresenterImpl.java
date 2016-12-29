@@ -10,6 +10,7 @@ import android.util.Log;
 import com.wxxiaomi.ming.electricbicycle.db.bean.InviteMessage;
 import com.wxxiaomi.ming.electricbicycle.bridge.easemob.common.EmConstant;
 import com.wxxiaomi.ming.electricbicycle.bridge.easemob.EmHelper;
+import com.wxxiaomi.ming.electricbicycle.ui.activity.InviteMsgActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.base.BasePreImpl;
 
 import com.wxxiaomi.ming.electricbicycle.bridge.easemob.ui.ChatActivity;
@@ -31,7 +32,7 @@ import rx.functions.Action1;
  */
 public class ContactPresenterImpl extends BasePreImpl<ContactView> implements ContactPresenter<ContactView> {
 
-    private NewFriendAddItemAdapter adapter;
+//    private NewFriendAddItemAdapter adapter;
     private LocalBroadcastManager broadcastManager;
     private BroadcastReceiver broadcastReceiver;
 
@@ -53,7 +54,7 @@ public class ContactPresenterImpl extends BasePreImpl<ContactView> implements Co
 //                updateUnreadLabel();
                 Log.i("wang", " 通过广播接受者收什么鬼信息了");
 //                mView.refershChildUI();
-                adapter.refersh();
+//                adapter.refersh();
                 refreshInviteUI();
             }
         };
@@ -63,21 +64,21 @@ public class ContactPresenterImpl extends BasePreImpl<ContactView> implements Co
     @Override
     public void initDrawerData() {
         //修改成rx模式，切换线程，加快页面进入速度
-        EmHelper.getInstance().getInviteMsgListRx()
-                .subscribe(new Action1<List<InviteMessage>>() {
-                    @Override
-                    public void call(List<InviteMessage> inviteMessages) {
-                        adapter = new NewFriendAddItemAdapter(mView.getContext(), inviteMessages
-                                , new NewFriendAddItemAdapter.ItemAddOnClick() {
-                            @Override
-                            public void onClick(String userEmName) {
-                                // 添加某个好友
-                                addFriend(userEmName);
-                            }
-                        });
-                        mView.setInviteListAdapter(adapter);
-                    }
-                });
+//        EmHelper.getInstance().getInviteMsgListRx()
+//                .subscribe(new Action1<List<InviteMessage>>() {
+//                    @Override
+//                    public void call(List<InviteMessage> inviteMessages) {
+//                        adapter = new NewFriendAddItemAdapter(mView.getContext(), inviteMessages
+//                                , new NewFriendAddItemAdapter.ItemAddOnClick() {
+//                            @Override
+//                            public void onClick(String userEmName) {
+//                                // 添加某个好友
+//                                addFriend(userEmName);
+//                            }
+//                        });
+//                        mView.setInviteListAdapter(adapter);
+//                    }
+//                });
     }
 
     private void addFriend(final String emname) {
@@ -148,6 +149,11 @@ public class ContactPresenterImpl extends BasePreImpl<ContactView> implements Co
     @Override
     public void refershInviteUI() {
         refreshInviteUI();
+    }
+
+    @Override
+    public void onInviteBtnClick() {
+        mView.runActivity(InviteMsgActivity.class,null,false);
     }
 
     @Override

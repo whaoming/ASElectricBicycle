@@ -157,6 +157,7 @@ public class ContactActivity extends BaseActivity<ContactView,ContactPresenter> 
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.menu_invite:
+                presenter.onInviteBtnClick();
                 break;
             case R.id.menu_search:
                 presenter.onAddFriendBtnClick();

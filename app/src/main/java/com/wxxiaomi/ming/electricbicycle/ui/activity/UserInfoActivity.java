@@ -1,5 +1,6 @@
 package com.wxxiaomi.ming.electricbicycle.ui.activity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.TabLayout;
@@ -15,17 +16,20 @@ import android.widget.ImageView;
 
 import com.wxxiaomi.ming.electricbicycle.ConstantValue;
 import com.wxxiaomi.ming.electricbicycle.R;
+import com.wxxiaomi.ming.electricbicycle.bridge.easemob.EmHelper;
 import com.wxxiaomi.ming.electricbicycle.service.GlobalManager;
 import com.wxxiaomi.ming.electricbicycle.db.bean.Option;
 import com.wxxiaomi.ming.electricbicycle.db.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.db.bean.format.UserInfo;
 import com.wxxiaomi.ming.electricbicycle.service.FunctionProvider;
 import com.wxxiaomi.ming.electricbicycle.service.ShowerProvider;
+import com.wxxiaomi.ming.electricbicycle.support.rx.SampleProgressObserver;
 import com.wxxiaomi.ming.electricbicycle.ui.fragment.InfoCardFragment;
 import com.wxxiaomi.ming.electricbicycle.ui.fragment.InfoDetailFragment;
 import com.wxxiaomi.ming.electricbicycle.ui.fragment.base.BaseFragment;
 import com.wxxiaomi.ming.electricbicycle.ui.fragment.base.FragmentCallback;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.adapter.IndexFragmentTabAdapter;
+import com.wxxiaomi.ming.electricbicycle.ui.weight.custom.EditableDialog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,6 +60,8 @@ public class UserInfoActivity extends AppCompatActivity implements FragmentCallb
     private ImageView iv_back;
     private Bundle bundle;
     private UserCommonInfo targetUser;
+    private boolean isFriend = false;
+    private EditableDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +69,6 @@ public class UserInfoActivity extends AppCompatActivity implements FragmentCallb
         setContentView(R.layout.activity_persoanl_latest);
         bundle = getIntent().getBundleExtra("value");
         isMine = bundle.getBoolean(ConstantValue.INTENT_ISMINE,false);
-
         tabLayout = (TabLayout) findViewById(R.id.tab_FindFragment_title);
         tabLayout.setTabMode(TabLayout.MODE_FIXED);
         viewPager = (ViewPager) findViewById(R.id.vp_FindFragment_pager);
@@ -76,6 +81,9 @@ public class UserInfoActivity extends AppCompatActivity implements FragmentCallb
         }else{
             targetUser = (UserCommonInfo) bundle.getSerializable(ConstantValue.INTENT_USERINFO);
             toolbar.setTitle(targetUser.nickname);
+            if(GlobalManager.getInstance().getEasyUser(targetUser.emname)!=null){
+                isFriend = true;
+            }
         }
         collapsing_toolbar = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
         collapsing_toolbar.setTitleEnabled(false);
@@ -99,22 +107,35 @@ public class UserInfoActivity extends AppCompatActivity implements FragmentCallb
         viewPager.requestDisallowInterceptTouchEvent(true);
         tabLayout.setupWithViewPager(viewPager);
         initCustomView();
+        initDialog();
+    }
+
+    private void initDialog() {
+        dialog = new EditableDialog(this).builder()
+                .setHint("理由")
+                .setTitle("添加好友")
+                .setOnPositiveButtonClick(new EditableDialog.PositiveButtonOnClick() {
+                    @Override
+                    public void onClick(DialogInterface dialog, String content) {
+                        EmHelper.getInstance().addContact(targetUser.emname,content)
+                                .subscribe(new SampleProgressObserver<Boolean>(UserInfoActivity.this) {
+                                    @Override
+                                    public void onNext(Boolean aBoolean) {
+                                        showMsg("成功添加好友");
+                                    }
+                                });
+                    }
+                })
+        ;
     }
 
     private void initCustomView() {
-        if(isMine){
-            ShowerProvider.showHead(this,iv_avatar,GlobalManager.getInstance().getUser().userCommonInfo.avatar);
-            if(GlobalManager.getInstance().getUser().userCommonInfo.cover!=null){
-                ShowerProvider.showNormalImage(this,iv_back,GlobalManager.getInstance().getUser().userCommonInfo.cover);
-            }
-        }else{
-
+        if(!isMine){
             ShowerProvider.showHead(this,iv_avatar,targetUser.avatar);
             if(targetUser.cover!=null){
                 ShowerProvider.showNormalImage(this,iv_back,targetUser.cover);
             }
         }
-
 
     }
 
@@ -207,7 +228,11 @@ public class UserInfoActivity extends AppCompatActivity implements FragmentCallb
         if(isMine){
             getMenuInflater().inflate(R.menu.menu_userinfo_mine, menu);
         }else{
-            getMenuInflater().inflate(R.menu.menu_userinfo_other, menu);
+            if(isFriend){
+                getMenuInflater().inflate(R.menu.menu_userinfo_friend, menu);
+            }else{
+                getMenuInflater().inflate(R.menu.menu_userinfo_other, menu);
+            }
         }
         return true;
     }
@@ -220,7 +245,7 @@ public class UserInfoActivity extends AppCompatActivity implements FragmentCallb
                 finish();
                 break;
             case R.id.action_add:
-
+                dialog.show();
                 break;
             case R.id.action_edit:
                 intent = new Intent(this,MyInfoEditActivity.class);
@@ -243,6 +268,10 @@ public class UserInfoActivity extends AppCompatActivity implements FragmentCallb
         super.onResume();
         if(isMine){
             toolbar.setTitle(GlobalManager.getInstance().getUser().userCommonInfo.nickname);
+            ShowerProvider.showHead(this,iv_avatar,GlobalManager.getInstance().getUser().userCommonInfo.avatar);
+            if(GlobalManager.getInstance().getUser().userCommonInfo.cover!=null){
+                ShowerProvider.showNormalImage(this,iv_back,GlobalManager.getInstance().getUser().userCommonInfo.cover);
+            }
         }
     }
 }
