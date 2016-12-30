@@ -188,7 +188,6 @@ public class UserFunctionProvider {
     }
 
     public Observable<List<UserCommonInfo>> getUserByNameFWeb(String name) {
-//        return userDao.getUserCommonInfo2ByName(name);
         return HttpMethods.getInstance().getUserCommonInfo2ByName(name);
     }
 
@@ -236,8 +235,6 @@ public class UserFunctionProvider {
                     @Override
                     public Observable<Boolean> call(User user) {
                         GlobalManager.getInstance().savaUser(user);
-                        //存到数据库
-//                        AppDao dao = new AppDaoImpl(EBApplication.applicationContext);
                         appDao.savaUser(user);
                         PreferenceManager.getInstance().savaUserID(user.userCommonInfo.id);
                         return EmHelper.getInstance().LoginFromEm(user.username, user.password);

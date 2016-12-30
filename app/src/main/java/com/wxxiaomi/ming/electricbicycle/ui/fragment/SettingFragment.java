@@ -1,6 +1,7 @@
 package com.wxxiaomi.ming.electricbicycle.ui.fragment;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
@@ -8,6 +9,10 @@ import android.preference.PreferenceScreen;
 import android.support.v7.app.AlertDialog;
 
 import com.wxxiaomi.ming.electricbicycle.R;
+import com.wxxiaomi.ming.electricbicycle.common.util.AppManager;
+import com.wxxiaomi.ming.electricbicycle.service.UserFunctionProvider;
+import com.wxxiaomi.ming.electricbicycle.ui.activity.HomeActivity;
+import com.wxxiaomi.ming.electricbicycle.ui.activity.LoginActivity;
 
 /**
  * Created by Administrator on 2016/12/16.
@@ -42,6 +47,10 @@ public class SettingFragment extends PreferenceFragment {
     }
 
     private void logout() {
-//        UserFunctionProvider.getInstance().l
+        UserFunctionProvider.getInstance().logout();
+        AppManager.getAppManager().finishAllActivity();
+        Intent intent = new Intent(getActivity(), LoginActivity.class);
+        getActivity().startActivity(intent);
+        AppManager.getAppManager().finishActivity(getActivity());
     }
 }

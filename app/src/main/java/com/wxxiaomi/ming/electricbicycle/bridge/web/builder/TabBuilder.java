@@ -59,10 +59,11 @@ public class TabBuilder implements Builder {
         tabLayout = (TabLayout) allView.findViewById(R.id.tab_FindFragment_title);
         tabLayout.setTabMode(TabLayout.MODE_FIXED);
         toolbar = (Toolbar) allView.findViewById(R.id.toolbar);
+        toolbar.setTitle(action.title);
         ((AppCompatActivity)context).setSupportActionBar(toolbar);
         ((AppCompatActivity)context).getSupportActionBar().setHomeButtonEnabled(true);
         ((AppCompatActivity)context).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        toolbar.setTitle(action.title);
+
         viewPager = (ViewPager) allView.findViewById(R.id.vp_FindFragment_pager);
         list_fragment = new ArrayList<Fragment>();
         TopicItemFragment = new TestFragment();

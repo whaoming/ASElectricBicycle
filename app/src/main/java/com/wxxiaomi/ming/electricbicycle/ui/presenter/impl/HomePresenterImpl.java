@@ -44,7 +44,9 @@ import com.wxxiaomi.ming.electricbicycle.ui.weight.custom.CircularImageView;
 
 import java.util.List;
 
+import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
+import rx.schedulers.Schedulers;
 
 /**
  * Created by 12262 on 2016/6/6.
@@ -74,7 +76,6 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
     @Override
     public void init() {
         initMap(mView.getMap());
-//        initViewData();
         registerBroadcastReceiver();
     }
 
@@ -224,8 +225,17 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
     }
 
     public void updateUnreadLabel(){
-        int allUnreadCount = EmHelper.getInstance().getAllUnreadCount();
-        mView.updateUnreadLabel(allUnreadCount);
+//        int allUnreadCount = EmHelper.getInstance().getAllUnreadCount();
+//        mView.updateUnreadLabel(allUnreadCount);
+        EmHelper.getInstance().getAllUnreadCountRx()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Action1<Integer>() {
+                    @Override
+                    public void call(Integer integer) {
+                        mView.updateUnreadLabel(integer);
+                    }
+                });
     }
 
 

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="13dp"
+    android:background="@drawable/boder3"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.wxxiaomi.ming.electricbicycle.ui.weight.custom.CircularImageView
+            android:id="@+id/iv_avatar"
+            android:layout_alignParentLeft="true"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+        <TextView
+            android:layout_marginLeft="5dp"
+            android:textColor="#666666"
+            android:layout_centerVertical="true"
+            android:textSize="14sp"
+            android:gravity="center_vertical"
+            android:id="@+id/tv_option"
+            android:text="wang 赞了文章"
+            android:layout_toRightOf="@+id/iv_avatar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textColor="#666666"
+            android:layout_centerVertical="true"
+            android:textSize="14sp"
+            android:id="@+id/tv_time"
+            android:layout_alignParentRight="true"
+            android:text="12-13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_marginLeft="2dp"
+        android:paddingTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <com.baidu.mapapi.map.TextureMapView
+            android:layout_marginBottom="10dp"
+            android:id="@+id/mpaview"
+            android:layout_width="match_parent"
+            android:layout_height="200dp" />
+
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="4dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textColor="#666666"
+            android:textSize="14sp"
+            android:id="@+id/tv_like"
+            android:text="1.7k 赞丶"
+            android:layout_below="@+id/iv_picture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+
+
+            android:textColor="#666666"
+            android:textSize="14sp"
+            android:id="@+id/tv_reply_count"
+            android:text="65 评论"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

@@ -10,6 +10,8 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.wxxiaomi.ming.electricbicycle.ConstantValue;
 import com.wxxiaomi.ming.electricbicycle.R;
@@ -17,14 +19,15 @@ import com.wxxiaomi.ming.electricbicycle.db.bean.Option;
 import com.wxxiaomi.ming.electricbicycle.db.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.ui.fragment.base.BaseFragment;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.adapter.OptionAdapter3;
-import com.wxxiaomi.ming.electricbicycle.ui.weight.pull2refreshreview.PullToRefreshRecyclerView;
-import com.wxxiaomi.ming.electricbicycle.ui.weight.pull2refreshreview.footer.DefaultLoadMoreView;
+import com.wxxiaomi.ming.electricbicycle.ui.weight.adapter2.OptionAdapter4;
+import com.wxxiaomi.ming.electricbicycle.ui.weight.myrecycle.PullToRefreshRecyclerView;
 
 import java.util.List;
 
 
 /**
  * Created by Administrator on 2016/12/22.
+ * 用户信息展示页面
  */
 
 public class InfoCardFragment extends BaseFragment {
@@ -33,6 +36,7 @@ public class InfoCardFragment extends BaseFragment {
     private UserCommonInfo userinfo;
     private boolean isMine;
     private View header;
+    private  OptionAdapter4 adapter;
 
 
     @Override
@@ -45,7 +49,6 @@ public class InfoCardFragment extends BaseFragment {
 
     @Override
     public void initData(Bundle savedInstanceState) {
-        Log.i("wang","initData");
         dispatchCommand(5,null);
     }
 
@@ -61,18 +64,24 @@ public class InfoCardFragment extends BaseFragment {
         dividerLine.setSize(0);
         dividerLine.setColor(Color.parseColor("#f3f3f3"));
         mRecyclerView.getRecyclerView().addItemDecoration(dividerLine);
-        DefaultLoadMoreView defaultLoadMoreView = new DefaultLoadMoreView(getActivity(), mRecyclerView.getRecyclerView());
-        defaultLoadMoreView.setLoadmoreString("加载更多");
-        defaultLoadMoreView.setLoadMorePadding(100);
+//        DefaultLoadMoreView defaultLoadMoreView = new DefaultLoadMoreView(getActivity(), mRecyclerView.getRecyclerView());
+//        defaultLoadMoreView.setLoadmoreString("加载更多");
+//        defaultLoadMoreView.setLoadMorePadding(100);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecyclerView.setNestedScrollingEnabled(true);
-        mRecyclerView.setPagingableListener(new PullToRefreshRecyclerView.PagingableListener() {
-            @Override
-            public void onLoadMoreItems() {
-                Log.i("wang", "onLoadMoreItems");
-            }
-        });
-        mRecyclerView.setLoadMoreFooter(defaultLoadMoreView);
+        adapter = new OptionAdapter4(getActivity(),null,true,mRecyclerView);
+        View emptyView = LayoutInflater.from(getActivity()).inflate(R.layout.view_list_empty, (ViewGroup) mRecyclerView.getParent(), false);
+        TextView empty_text = (TextView) emptyView.findViewById(R.id.empty_text);
+        empty_text.setText("暂无动态");
+        adapter.setEmptyView(emptyView);
+        mRecyclerView.setAdapter(adapter);
+//        mRecyclerView.setPagingableListener(new PullToRefreshRecyclerView.PagingableListener() {
+//            @Override
+//            public void onLoadMoreItems() {
+//                Log.i("wang", "onLoadMoreItems");
+//            }
+//        });
+//        mRecyclerView.setLoadMoreFooter(defaultLoadMoreView);
 //
     }
 
@@ -87,11 +96,11 @@ public class InfoCardFragment extends BaseFragment {
                 adapterView();
                 break;
             case 2:
-                mRecyclerView.setRefreshing(false);
+//                mRecyclerView.setRefreshing(false);
                 List<Option> options = bundle.getParcelableArrayList(ConstantValue.BUNDLE_OPTIONS);
-                OptionAdapter3 adapter = new OptionAdapter3(options,getActivity());
-                mRecyclerView.setAdapter(adapter);
-
+//                OptionAdapter3 adapter = new OptionAdapter3(options,getActivity());
+//                mRecyclerView.setAdapter(adapter);
+                adapter.setNewData(options);
                 break;
         }
 
