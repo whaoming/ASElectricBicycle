@@ -315,6 +315,16 @@ public class EmHelper {
                 + EMClient.getInstance().chatManager().getUnreadMsgsCount();
     }
 
+    public Observable<Integer> getAllUnreadCountRx(){
+        return Observable.create(new Observable.OnSubscribe<Integer>() {
+            @Override
+            public void call(Subscriber<? super Integer> subscriber) {
+                subscriber.onNext(inviteMessgeDao.getUnreadNotifyCount()
+                        + EMClient.getInstance().chatManager().getUnreadMsgsCount());
+            }
+        });
+    }
+
 
     /**
      * 登录em服务器

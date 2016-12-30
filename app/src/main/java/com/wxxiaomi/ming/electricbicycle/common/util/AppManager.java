@@ -59,7 +59,6 @@ public class AppManager {
 		public void finishActivity(Activity activity) {
 
 			if (activity != null) {
-				Log.i("mingtask","appManager:"+activity.getLocalClassName()+"被销毁了");
 				activityStack.remove(activity);
 				activity.finish();
 				activity = null;

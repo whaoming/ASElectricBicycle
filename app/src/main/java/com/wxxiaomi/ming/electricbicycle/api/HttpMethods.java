@@ -1,6 +1,5 @@
 package com.wxxiaomi.ming.electricbicycle.api;
 
-import android.util.Log;
 
 import com.wxxiaomi.ming.electricbicycle.ConstantValue;
 import com.wxxiaomi.ming.electricbicycle.EBApplication;
@@ -67,19 +66,27 @@ public class HttpMethods {
             builder.addInterceptor(new Interceptor() {
                 @Override
                 public Response intercept(Chain chain) throws IOException {
-                    Request newRequest = chain.request().newBuilder()
-                            .addHeader("token", GlobalManager.getInstance().getStoken())
-                            .build();
+                    Request newRequest;
+                    if(GlobalManager.getInstance().getStoken()!=null && !"".equals(GlobalManager.getInstance().getStoken())){
+                        newRequest= chain.request().newBuilder()
+                                .addHeader("token", GlobalManager.getInstance().getStoken())
+                                .build();
+                    }else{
+                        newRequest= chain.request().newBuilder()
+//                                .addHeader("token", GlobalManager.getInstance().getStoken())
+                                .build();
+                    }
+
                     Response response = chain.proceed(newRequest);
 
                     if(response.header("token")!=null){
-                        Log.i("wang","发现瘦肉汤_token");
+//                        Log.i("wang","发现瘦肉汤_token");
                             GlobalManager.getInstance().setStoken(response.header("token"));
                         PreferenceManager.getInstance().savaShortToken(response.header("token"));
                     }
                     String long_token = response.header("long_token");
                     if(long_token!=null){
-                        Log.i("wang","发现long_token");
+//                        Log.i("wang","发现long_token");
                         PreferenceManager.getInstance().savaLongToken(long_token);
                     }
                     return response;
@@ -352,7 +359,7 @@ public class HttpMethods {
     private class ServerResultFunc<T> implements Func1<Result<T>, T> {
         @Override
         public T call(Result<T> httpResult) {
-            Log.i("wang","HttpMethods->ServerResultFunc,httpResult==null?"+(httpResult==null));
+//            Log.i("wang","HttpMethods->ServerResultFunc,httpResult==null?"+(httpResult==null));
             if(httpResult==null){
                 throw new ServerException(404, "获取结构为空");
             }else if(httpResult.state == 401){
@@ -370,7 +377,7 @@ public class HttpMethods {
     private class HttpResultFunc<T> implements Func1<Throwable, Observable<T>> {
         @Override
         public Observable<T> call(Throwable throwable) {
-            Log.i("wang","HttpMethod发现异常拉"+throwable.toString());
+//            Log.i("wang","HttpMethod发现异常拉"+throwable.toString());
             throwable.printStackTrace();
             return Observable.error(ExceptionProvider.handleException(throwable));
         }
@@ -390,14 +397,14 @@ public class HttpMethods {
             return observable.flatMap(new Func1<Throwable, Observable<?>>() {
                 @Override
                 public Observable<?> call(Throwable throwable) {
-                    Log.i("wang","throwable instanceof ServerException:"+(throwable instanceof ServerException ));
+//                    Log.i("wang","throwable instanceof ServerException:"+(throwable instanceof ServerException ));
                     if(throwable instanceof ServerException){
                         ServerException ex = (ServerException)throwable;
                         if(ex.getCode() == 401){
-                            Log.i("wang","httpResult.state == 401,发现token过期");
+//                            Log.i("wang","httpResult.state == 401,发现token过期");
                             //重新获取token，并返回这个
                             if (++retryCount <= maxRetries) {
-                                Log.i("wang","正在准备发送重新获取token的请求");
+//                                Log.i("wang","正在准备发送重新获取token的请求");
                                 return Token_Long2Short()
                                         ;
                             }

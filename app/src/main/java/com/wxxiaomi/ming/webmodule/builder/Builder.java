@@ -8,8 +8,20 @@ import android.view.ViewGroup;
  */
 
 public interface Builder {
+    /**
+     * 建造布局
+     * @return
+     */
     ViewGroup buildView();
+
+    /**
+     * 初始化布局数据
+     */
     void initPageData();
+
+    /**
+     * 注册各种方法
+     */
     void registerMethod();
 
     void onActivityResult(int requestCode, int resultCode, Intent data);
