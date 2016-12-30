@@ -36,12 +36,12 @@
         "source": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\src\\main\\res\\layout\\ease_widget_chat_input_menu.xml"
     },
     {
-        "merged": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\layout\\ease_row_sent_video.xml",
-        "source": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\src\\main\\res\\layout\\ease_row_sent_video.xml"
-    },
-    {
         "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\layout\\ease_alert_dialog.xml",
         "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\layout\\ease_alert_dialog.xml"
+    },
+    {
+        "merged": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\layout\\ease_row_sent_video.xml",
+        "source": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\src\\main\\res\\layout\\ease_row_sent_video.xml"
     },
     {
         "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\layout\\ease_row_received_video.xml",
@@ -124,12 +124,12 @@
         "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\layout\\ease_commom_back_btn.xml"
     },
     {
-        "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\layout\\ease_search_bar.xml",
-        "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\layout\\ease_search_bar.xml"
-    },
-    {
         "merged": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\layout\\ease_activity_baidumap.xml",
         "source": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\src\\main\\res\\layout\\ease_activity_baidumap.xml"
+    },
+    {
+        "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\layout\\ease_search_bar.xml",
+        "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\layout\\ease_search_bar.xml"
     },
     {
         "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\layout\\ease_widget_emojicon_tab_bar.xml",
@@ -140,16 +140,16 @@
         "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\layout\\ease_layout_emojicon_menu.xml"
     },
     {
-        "merged": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\layout\\ease_widget_switch_button.xml",
-        "source": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\src\\main\\res\\layout\\ease_widget_switch_button.xml"
+        "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\layout\\ease_widget_title_bar.xml",
+        "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\layout\\ease_widget_title_bar.xml"
     },
     {
         "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\layout\\ease_row_chat_history.xml",
         "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\layout\\ease_row_chat_history.xml"
     },
     {
-        "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\layout\\ease_widget_title_bar.xml",
-        "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\layout\\ease_widget_title_bar.xml"
+        "merged": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\layout\\ease_widget_switch_button.xml",
+        "source": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\src\\main\\res\\layout\\ease_widget_switch_button.xml"
     },
     {
         "merged": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\debug\\layout\\ease_row_contact.xml",
