@@ -14,4 +14,6 @@ public interface ContactPresenter<V extends BaseView> extends BasePre<V> {
     void onDrawClick();
 
     void refershInviteUI();
+
+    void onInviteBtnClick();
 }

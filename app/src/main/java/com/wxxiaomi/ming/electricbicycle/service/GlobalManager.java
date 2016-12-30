@@ -44,12 +44,33 @@ public class GlobalManager {
         EaseUser user1 = new EaseUser(user.userCommonInfo.emname);
         user1.setNick(user.userCommonInfo.nickname);
         user1.setAvatar(user.userCommonInfo.avatar);
-        userCache.put(user.userCommonInfo.emname, user);
         userCache.put(user.userCommonInfo.emname, user1);
     }
 
+    /**
+     * 这里不仅要从内存中拿，还必须从数据库中拿，拿不到再从服务器拿
+     * @param emname
+     * @return
+     */
     public EaseUser getEasyUser(String emname){
         return userCache.get(emname);
+    }
+
+    public void putEasyUser(String emname,UserCommonInfo info){
+        if(userCache.get(emname)==null){
+            EaseUser user1 = new EaseUser(user.userCommonInfo.emname);
+            user1.setNick(user.userCommonInfo.nickname);
+            user1.setAvatar(user.userCommonInfo.avatar);
+            userCache.put(emname, user1);
+        }
+
+    }
+
+    public void putEasyUser(String emname,EaseUser info){
+        if(userCache.get(emname)==null){
+            userCache.put(emname, info);
+        }
+
     }
 
     public void savaUserInfo(UserCommonInfo info){

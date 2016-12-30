@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.wxxiaomi.ming.electricbicycle.db.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.db.FriendDao2;
@@ -102,6 +103,16 @@ public class FriendDaoImpl2 implements FriendDao2 {
 
     @Override
     public boolean deleteFriend(String emname) {
+        SQLiteDatabase db = helper.getReadableDatabase();
+        if(db.isOpen()){
+            //删除条件
+            String whereClause = "emname=?";
+            //删除条件参数
+            String[] whereArgs = {emname};
+            //执行删除
+            db.delete(FriendDao2.TABLE_NAME,whereClause,whereArgs);
+            return true;
+        }
         return false;
     }
 
@@ -129,6 +140,7 @@ public class FriendDaoImpl2 implements FriendDao2 {
             //2.拿出现在数据库里的每一个，检查emnames里面有没有，没有就删除
             for (Map.Entry<String, String> item : daoEmnameList.entrySet()) {
                 if (!emnames.contains(item.getKey())) {
+                    Log.i("wang","应该呗删除的key："+item.getKey());
                     deleteFriend(item.getKey());
                 }
             }

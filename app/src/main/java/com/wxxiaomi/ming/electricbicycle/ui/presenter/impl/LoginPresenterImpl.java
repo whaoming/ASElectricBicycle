@@ -5,11 +5,11 @@ import android.support.design.widget.TextInputLayout;
 import com.wxxiaomi.ming.electricbicycle.ConstantValue;
 import com.wxxiaomi.ming.electricbicycle.common.util.AppManager;
 import com.wxxiaomi.ming.electricbicycle.common.util.UniqueUtil;
+import com.wxxiaomi.ming.electricbicycle.service.UserFunctionProvider;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.RegisterActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.base.BasePreImpl;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.HomeActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.LoginPresenter;
-import com.wxxiaomi.ming.electricbicycle.service.FunctionProvider;
 import com.wxxiaomi.ming.electricbicycle.support.rx.SampleProgressObserver;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.view.LoginView;
 import com.wxxiaomi.ming.electricbicycle.common.util.MyUtils;
@@ -67,7 +67,7 @@ public class LoginPresenterImpl extends BasePreImpl<LoginView> implements LoginP
 
     private void sendRequest(String username, String password) {
         String uniqueID = util.getUniqueID();
-        FunctionProvider.getInstance().HandLogin(username, password,ConstantValue.isEMOpen,uniqueID)
+        UserFunctionProvider.getInstance().HandLogin(username, password,ConstantValue.isEMOpen,uniqueID)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new SampleProgressObserver<Integer>(mView.getContext()) {

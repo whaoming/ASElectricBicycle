@@ -5,7 +5,7 @@
 
     <item
         android:id="@+id/action_add"
-        android:icon="@mipmap/ic_create_white_24dp"
+        android:icon="@mipmap/ic_add_white_24dp"
         android:title="action_collect"
         app:showAsAction="ifRoom" />
     <item

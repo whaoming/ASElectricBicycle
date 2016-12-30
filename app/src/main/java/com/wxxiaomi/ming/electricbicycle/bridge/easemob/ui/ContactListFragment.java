@@ -30,7 +30,7 @@ import com.hyphenate.easeui.ui.EaseContactListFragment;
 import com.hyphenate.util.NetUtils;
 import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.db.bean.UserCommonInfo;
-import com.wxxiaomi.ming.electricbicycle.service.FunctionProvider;
+import com.wxxiaomi.ming.electricbicycle.service.UserFunctionProvider;
 
 import java.util.HashMap;
 import java.util.Hashtable;
@@ -104,7 +104,7 @@ public class ContactListFragment extends EaseContactListFragment {
         });
         //设置联系人数据
         Map<String, EaseUser> m = new HashMap<>();
-        List<UserCommonInfo> friendList = FunctionProvider.getInstance().getFriendList();
+        List<UserCommonInfo> friendList = UserFunctionProvider.getInstance().getFriendList();
         for(UserCommonInfo item:friendList){
             EaseUser user = new EaseUser(item.emname);
             user.setAvatar(item.avatar);

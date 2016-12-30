@@ -26,6 +26,7 @@ import com.wxxiaomi.ming.electricbicycle.db.bean.UserLocatInfo;
 import com.wxxiaomi.ming.electricbicycle.service.ShowerProvider;
 import com.wxxiaomi.ming.electricbicycle.bridge.easemob.EmHelper;
 import com.wxxiaomi.ming.electricbicycle.bridge.easemob.common.EmConstant;
+import com.wxxiaomi.ming.electricbicycle.service.UserFunctionProvider;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.FootPrintShowActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.FootPublishActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.LoginActivity;
@@ -35,7 +36,6 @@ import com.wxxiaomi.ming.electricbicycle.ui.presenter.base.BasePreImpl;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.HomePresenter;
 import com.wxxiaomi.ming.electricbicycle.service.LocatProvider;
 import com.wxxiaomi.ming.electricbicycle.bridge.web.TestWebActivity;
-import com.wxxiaomi.ming.electricbicycle.service.FunctionProvider;
 import com.wxxiaomi.ming.electricbicycle.service.GlobalManager;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.ContactActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.view.HomeView;
@@ -294,7 +294,7 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
 
     public void getNearByFromServer(final double latitude,
                                     final double longitude){
-        FunctionProvider.getInstance().getNearPeople(GlobalManager.getInstance().getUser().id,latitude,longitude)
+        UserFunctionProvider.getInstance().getNearPeople(GlobalManager.getInstance().getUser().id,latitude,longitude)
                 .subscribe(new Action1<List<UserLocatInfo>>() {
                     @Override
                     public void call(List<UserLocatInfo> nearByPerson) {

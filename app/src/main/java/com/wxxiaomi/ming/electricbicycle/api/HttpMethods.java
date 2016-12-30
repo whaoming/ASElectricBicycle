@@ -4,7 +4,6 @@ import android.util.Log;
 
 import com.wxxiaomi.ming.electricbicycle.ConstantValue;
 import com.wxxiaomi.ming.electricbicycle.EBApplication;
-import com.wxxiaomi.ming.electricbicycle.GlobalParams;
 import com.wxxiaomi.ming.electricbicycle.api.exp.ExceptionProvider;
 import com.wxxiaomi.ming.electricbicycle.api.exp.ServerException;
 import com.wxxiaomi.ming.electricbicycle.api.service.ApiService;

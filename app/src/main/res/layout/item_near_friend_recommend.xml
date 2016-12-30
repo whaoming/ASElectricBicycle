@@ -2,6 +2,7 @@
     android:id="@+id/rl_item"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+
    >
     <RelativeLayout
         android:padding="12dp"
@@ -17,7 +18,8 @@
             android:layout_height="wrap_content" />
     </RelativeLayout>
     <RelativeLayout
-        android:background="#ffffff"
+        android:background="@drawable/normal_item_selecter"
+        android:id="@+id/content"
         android:padding="5dp"
         android:layout_below="@+id/content_tip"
         android:layout_width="match_parent"

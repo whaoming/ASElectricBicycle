@@ -9,7 +9,7 @@ import com.google.gson.Gson;
 import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.db.bean.Option;
 import com.wxxiaomi.ming.electricbicycle.db.bean.UserCommonInfo;
-import com.wxxiaomi.ming.electricbicycle.service.FunctionProvider;
+import com.wxxiaomi.ming.electricbicycle.service.UserFunctionProvider;
 import com.wxxiaomi.ming.electricbicycle.bridge.easemob.EmHelper;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.adapter.OptionAdapter2;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.base.BasePreImpl;
@@ -60,7 +60,7 @@ public class UserInfoPresenterImpl extends BasePreImpl<UserInfoView> implements 
         } else {
             userInfo = (UserCommonInfo) bundle.get("userInfo");
         }
-//        isMyFriendFlag = FunctionProvider.getInstance().isMyFriend(userInfo.emname);
+//        isMyFriendFlag = UserFunctionProvider.getInstance().isMyFriend(userInfo.emname);
         if (isMyFriendFlag)
             mView.setBtnView(mView.getContext().getResources().getDrawable(R.mipmap.ic_mode_edit_black_18dp));
         else
@@ -74,7 +74,7 @@ public class UserInfoPresenterImpl extends BasePreImpl<UserInfoView> implements 
 //                        mView.setAdapter(adapter);
 //                    }
 //                });
-        FunctionProvider.getInstance().getUserOptions(25)
+        UserFunctionProvider.getInstance().getUserOptions(25)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new SampleProgressObserver<List<Option>>(mView.getContext()) {
                     @Override
