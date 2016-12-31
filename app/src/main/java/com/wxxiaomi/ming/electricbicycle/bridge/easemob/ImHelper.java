@@ -503,7 +503,6 @@ public class ImHelper {
         EMClient.getInstance().logout(true);
     }
 
-
     /**
      * 当联系人发生变动的时候这里会发生回调
      * 所以这里需要做一些事件
