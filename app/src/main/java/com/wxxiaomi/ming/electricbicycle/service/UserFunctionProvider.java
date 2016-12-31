@@ -6,6 +6,7 @@ import android.util.Log;
 import com.hyphenate.easeui.domain.EaseUser;
 import com.wxxiaomi.ming.electricbicycle.EBApplication;
 import com.wxxiaomi.ming.electricbicycle.api.HttpMethods;
+import com.wxxiaomi.ming.electricbicycle.bridge.easemob.ImHelper;
 import com.wxxiaomi.ming.electricbicycle.common.util.TimeUtil;
 import com.wxxiaomi.ming.electricbicycle.db.bean.InviteMessage;
 import com.wxxiaomi.ming.electricbicycle.db.bean.Option;
@@ -21,7 +22,6 @@ import com.wxxiaomi.ming.electricbicycle.db.UserDao;
 import com.wxxiaomi.ming.electricbicycle.db.impl.*;
 import com.wxxiaomi.ming.electricbicycle.db.impl.FriendDaoImpl2;
 import com.wxxiaomi.ming.electricbicycle.bridge.aliyun.OssEngine;
-import com.wxxiaomi.ming.electricbicycle.bridge.easemob.EmHelper;
 
 
 import java.util.Collections;
@@ -64,7 +64,7 @@ public class UserFunctionProvider {
     }
 
     public Observable<List<InviteMessage>> getInviteMsgs(){
-        return EmHelper.getInstance().getInviteMsgListRx();
+        return ImHelper.getInstance().getInviteMsgListRx();
     }
 
     /**
@@ -237,14 +237,14 @@ public class UserFunctionProvider {
                         GlobalManager.getInstance().savaUser(user);
                         appDao.savaUser(user);
                         PreferenceManager.getInstance().savaUserID(user.userCommonInfo.id);
-                        return EmHelper.getInstance().LoginFromEm(user.username, user.password);
+                        return ImHelper.getInstance().LoginFromEm(user.username, user.password);
                     }
                 })
                 //从服务器获取好友列表
                 .flatMap(new Func1<Boolean, Observable<List<String>>>() {
                     @Override
                     public Observable<List<String>> call(Boolean aBoolean) {
-                        return EmHelper.getInstance().getContactFromEm();
+                        return ImHelper.getInstance().getContactFromEm();
                     }
                 })
                 //对比本地数据库，得出键值对
@@ -276,7 +276,7 @@ public class UserFunctionProvider {
                 .map(new Func1<Integer, Integer>() {
                     @Override
                     public Integer call(Integer integer) {
-                        EmHelper.getInstance().openUserCache(getEFriends());
+                        ImHelper.getInstance().openUserCache(getEFriends());
                         return integer;
                     }
                 });
@@ -294,7 +294,7 @@ public class UserFunctionProvider {
             return Observable.error(new Exception());
         } else {
             GlobalManager.getInstance().savaUser(localUser);
-            return EmHelper.getInstance().getContactFromEm()
+            return ImHelper.getInstance().getContactFromEm()
                     //对比本地数据库，得出键值对
                     .map(new Func1<List<String>, String>() {
                         @Override
@@ -323,7 +323,7 @@ public class UserFunctionProvider {
                     }).map(new Func1<Integer, Integer>() {
                         @Override
                         public Integer call(Integer integer) {
-                            EmHelper.getInstance().openUserCache(getEFriends());
+                            ImHelper.getInstance().openUserCache(getEFriends());
                             return integer;
                         }
                     });
@@ -418,6 +418,6 @@ public class UserFunctionProvider {
      */
     public void logout(){
         PreferenceManager.getInstance().savaLongToken("");
-        EmHelper.getInstance().logout();
+        ImHelper.getInstance().logout();
     }
 }

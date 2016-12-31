@@ -11,6 +11,7 @@ import android.support.multidex.MultiDex;
 import com.wxxiaomi.ming.electricbicycle.EBApplication;
 import com.wxxiaomi.ming.electricbicycle.common.util.AppManager;
 import com.wxxiaomi.ming.electricbicycle.R;
+import com.wxxiaomi.ming.electricbicycle.service.notice.NoticeManager;
 import com.wxxiaomi.ming.electricbicycle.support.cache.DiskCache;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.HomeActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.RegisterActivity;
@@ -100,6 +101,7 @@ public class SplashActivity extends Activity {
         MultiDex.install(EBApplication.applicationContext);
         DiskCache.getInstance().open(EBApplication.applicationContext);
         OssEngine.getInstance().initOssEngine(EBApplication.applicationContext);
+        NoticeManager.init(EBApplication.applicationContext);
         order.countDown();
     }
 

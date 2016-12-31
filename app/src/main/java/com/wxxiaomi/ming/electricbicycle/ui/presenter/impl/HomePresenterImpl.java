@@ -21,12 +21,14 @@ import com.baidu.mapapi.map.MyLocationConfiguration;
 import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.model.LatLng;
 import com.wxxiaomi.ming.electricbicycle.ConstantValue;
+import com.wxxiaomi.ming.electricbicycle.bridge.easemob.ImHelper;
 import com.wxxiaomi.ming.electricbicycle.db.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.db.bean.UserLocatInfo;
 import com.wxxiaomi.ming.electricbicycle.service.ShowerProvider;
-import com.wxxiaomi.ming.electricbicycle.bridge.easemob.EmHelper;
 import com.wxxiaomi.ming.electricbicycle.bridge.easemob.common.EmConstant;
 import com.wxxiaomi.ming.electricbicycle.service.UserFunctionProvider;
+import com.wxxiaomi.ming.electricbicycle.service.notice.NoticeBean;
+import com.wxxiaomi.ming.electricbicycle.service.notice.NoticeManager;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.FootPrintShowActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.FootPublishActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.LoginActivity;
@@ -225,9 +227,9 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
     }
 
     public void updateUnreadLabel(){
-//        int allUnreadCount = EmHelper.getInstance().getAllUnreadCount();
+//        int allUnreadCount = ImHelper.getInstance().getAllUnreadCount();
 //        mView.updateUnreadLabel(allUnreadCount);
-        EmHelper.getInstance().getAllUnreadCountRx()
+        ImHelper.getInstance().getAllUnreadCountRx()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Action1<Integer>() {
@@ -245,7 +247,7 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
         unregisterBroadcastReceiver();
         mLocClient.stop();
         mBaiduMap.setMyLocationEnabled(false);
-        EmHelper.getInstance().setMessageListener(null);
+        ImHelper.getInstance().setMessageListener(null);
     }
 
     @Override
@@ -253,10 +255,16 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
         ShowerProvider.showHead(mView.getContext(),mView.getHeadView(),GlobalManager.getInstance().getUser().userCommonInfo.avatar);
         ShowerProvider.showHead(mView.getContext(),mView.getDrawerAvatar(),GlobalManager.getInstance().getUser().userCommonInfo.avatar);
         updateUnreadLabel();
-        EmHelper.getInstance().setMessageListener(new EmHelper.MyMessageListener() {
+        ImHelper.getInstance().setMessageListener(new ImHelper.MyMessageListener() {
             @Override
             public void onMessageReceive() {
                 updateUnreadLabel();
+            }
+        });
+        NoticeManager.bindNotify(new NoticeManager.NoticeNotify() {
+            @Override
+            public void onNoticeArrived(NoticeBean bean) {
+                Log.i("wang","home收到noticemanage的提示啦:"+bean.toString());
             }
         });
 //        EmEngine.getInstance().setAllMsgLis(new AllMsgListener() {

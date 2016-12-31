@@ -36,12 +36,12 @@
         "source": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ee_10.png"
     },
     {
-        "merged": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ee_4.png",
-        "source": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ee_4.png"
-    },
-    {
         "merged": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_record_animate_05.png",
         "source": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_record_animate_05.png"
+    },
+    {
+        "merged": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ee_4.png",
+        "source": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ee_4.png"
     },
     {
         "merged": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_contact_list_normal.png",
@@ -336,12 +336,12 @@
         "source": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_chatting_setmode_keyboard_btn_normal.png"
     },
     {
-        "merged": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ee_15.png",
-        "source": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ee_15.png"
-    },
-    {
         "merged": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_chatto_bg_normal.9.png",
         "source": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_chatto_bg_normal.9.png"
+    },
+    {
+        "merged": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ee_15.png",
+        "source": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ee_15.png"
     },
     {
         "merged": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_conversation_normal.png",

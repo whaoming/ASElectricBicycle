@@ -7,10 +7,10 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 import com.wxxiaomi.ming.electricbicycle.R;
+import com.wxxiaomi.ming.electricbicycle.bridge.easemob.ImHelper;
 import com.wxxiaomi.ming.electricbicycle.db.bean.Option;
 import com.wxxiaomi.ming.electricbicycle.db.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.service.UserFunctionProvider;
-import com.wxxiaomi.ming.electricbicycle.bridge.easemob.EmHelper;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.adapter.OptionAdapter2;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.base.BasePreImpl;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.UserInfoPresenter;
@@ -97,7 +97,7 @@ public class UserInfoPresenterImpl extends BasePreImpl<UserInfoView> implements 
                 .setOnPositiveButtonClick(new EditableDialog.PositiveButtonOnClick() {
                     @Override
                     public void onClick(DialogInterface dialog, String content) {
-                        EmHelper.getInstance().addContact(userInfo.emname,content)
+                        ImHelper.getInstance().addContact(userInfo.emname,content)
                                 .subscribe(new SampleProgressObserver<Boolean>(mView.getContext()) {
                                     @Override
                                     public void onNext(Boolean aBoolean) {
