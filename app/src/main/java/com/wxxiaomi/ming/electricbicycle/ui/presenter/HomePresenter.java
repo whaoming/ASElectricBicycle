@@ -48,4 +48,6 @@ public interface HomePresenter<V extends BaseView> extends BasePre<V> {
     void onCollectClick();
 
     void onFootPrintActionClick();
+
+    void updateUnreadLabel();
 }

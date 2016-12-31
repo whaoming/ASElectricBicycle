@@ -229,15 +229,17 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
     public void updateUnreadLabel(){
 //        int allUnreadCount = ImHelper.getInstance().getAllUnreadCount();
 //        mView.updateUnreadLabel(allUnreadCount);
-        ImHelper.getInstance().getAllUnreadCountRx()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Action1<Integer>() {
-                    @Override
-                    public void call(Integer integer) {
-                        mView.updateUnreadLabel(integer);
-                    }
-                });
+//        ImHelper.getInstance().getAllUnreadCountRx()
+//                .subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribe(new Action1<Integer>() {
+//                    @Override
+//                    public void call(Integer integer) {
+//                        mView.updateUnreadLabel(integer);
+//                    }
+//                });
+        NoticeBean bean = NoticeManager.getNotice();
+        mView.updateUnreadLabel(bean.getInvite()+bean.getMessage()+bean.getReview());
     }
 
 
@@ -247,7 +249,7 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
         unregisterBroadcastReceiver();
         mLocClient.stop();
         mBaiduMap.setMyLocationEnabled(false);
-        ImHelper.getInstance().setMessageListener(null);
+//        ImHelper.getInstance().setMessageListener(null);
     }
 
     @Override
@@ -255,16 +257,18 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
         ShowerProvider.showHead(mView.getContext(),mView.getHeadView(),GlobalManager.getInstance().getUser().userCommonInfo.avatar);
         ShowerProvider.showHead(mView.getContext(),mView.getDrawerAvatar(),GlobalManager.getInstance().getUser().userCommonInfo.avatar);
         updateUnreadLabel();
-        ImHelper.getInstance().setMessageListener(new ImHelper.MyMessageListener() {
-            @Override
-            public void onMessageReceive() {
-                updateUnreadLabel();
-            }
-        });
+//        ImHelper.getInstance().setMessageListener(new ImHelper.MyMessageListener() {
+//            @Override
+//            public void onMessageReceive() {
+//                updateUnreadLabel();
+//            }
+//        });
+
         NoticeManager.bindNotify(new NoticeManager.NoticeNotify() {
             @Override
             public void onNoticeArrived(NoticeBean bean) {
                 Log.i("wang","home收到noticemanage的提示啦:"+bean.toString());
+                mView.updateUnreadLabel(bean.getInvite()+bean.getMessage()+bean.getReview());
             }
         });
 //        EmEngine.getInstance().setAllMsgLis(new AllMsgListener() {
@@ -274,6 +278,8 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
 //            }
 //        });
     }
+
+//    public void
 
     /**
      * 定位SDK监听函数

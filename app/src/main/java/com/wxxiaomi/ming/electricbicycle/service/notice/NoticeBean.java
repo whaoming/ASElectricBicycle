@@ -16,7 +16,7 @@ public class NoticeBean implements Serializable{
     private int review;
     private int like;
 
-    NoticeBean add(NoticeBean bean) {
+    public NoticeBean add(NoticeBean bean) {
         this.invite += bean.invite;
         this.message += bean.message;
         this.review += bean.review;
@@ -26,7 +26,7 @@ public class NoticeBean implements Serializable{
         return this;
     }
 
-    NoticeBean save(Context context) {
+    public NoticeBean save(Context context) {
         SharedPreferencesHelper.save(context, this);
         return this;
     }

@@ -107,12 +107,12 @@ public class ContactPresenterImpl extends BasePreImpl<ContactView> implements Co
         refreshInviteUI();
         mView.refershChildUI();
         //设置好友发来的消息监听
-        ImHelper.getInstance().setMessageListener(new ImHelper.MyMessageListener() {
-            @Override
-            public void onMessageReceive() {
-                mView.refershChildUI();
-            }
-        });
+//        ImHelper.getInstance().setMessageListener(new ImHelper.MyMessageListener() {
+//            @Override
+//            public void onMessageReceive() {
+//                mView.refershChildUI();
+//            }
+//        });
 
     }
 

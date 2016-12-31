@@ -248,13 +248,17 @@ public class HomeActivity extends BaseActivity<HomeView,HomePresenter> implement
 
     @Override
     public void updateUnreadLabel(final int count) {
-        Log.i("wang","view-updateUnreadLabel-count="+count);
+//        Log.i("wang","view-updateUnreadLabel-count="+count);
         if (count > 0) {
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
+                    if(  mActionProvider2!=null){
+                        mActionProvider2.setBadge(count);
+                    }
+
 //                    unread_msg_number.setVisibility(View.VISIBLE);
-//                    unread_msg_number.setText(count+"s");
+//                    unread_msg_number.setText(count+"s");mActionProvider2
                 }
             });
 
@@ -378,6 +382,7 @@ public class HomeActivity extends BaseActivity<HomeView,HomePresenter> implement
                 presenter.contactBtnOnClick();
             }
         });
+
         return true;
     }
 
@@ -388,5 +393,6 @@ public class HomeActivity extends BaseActivity<HomeView,HomePresenter> implement
         mActionProvider.setBadge(0);
         mActionProvider2.setIcon(R.mipmap.ic_notify_none);
         mActionProvider2.setBadge(0);
+        presenter.updateUnreadLabel();
     }
 }

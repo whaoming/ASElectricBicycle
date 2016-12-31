@@ -2,6 +2,10 @@ package com.wxxiaomi.ming.electricbicycle.bridge.easemob;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
+import android.os.Process;
+import android.os.UserHandle;
+import android.support.annotation.RequiresApi;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
@@ -77,11 +81,11 @@ public class ImHelper {
     private EaseUI easeUI;
     private EMConnectionListener connectionListener;
     private LocalBroadcastManager broadcastManager;
-    private MyMessageListener messageListener;
-
-    public void setMessageListener(MyMessageListener lis) {
-        messageListener = lis;
-    }
+//    private MyMessageListener messageListener;
+//
+//    public void setMessageListener(MyMessageListener lis) {
+//        messageListener = lis;
+//    }
 
     public void init(Context context) {
         EMOptions options = new EMOptions();
@@ -288,9 +292,11 @@ public class ImHelper {
     private void notifyMsgListener() {
         try {
             Intent intent = new Intent(NOTICE_ARRIVE);
-            NoticeBean notice = NoticeBean.getInstance(appContext);
-            notice.setMessage(notice.getMessage() + 1);
-            intent.setPackage(TAG);
+            NoticeBean n = new NoticeBean();
+            n.setMessage(1);
+            NoticeBean notice = NoticeBean.getInstance(appContext)
+                    .add(n)
+                    .save(appContext);
             intent.putExtra(EXTRA_BEAN, notice);
             broadcastManager.sendBroadcast(intent);
 //            broadcastManager.s
@@ -609,7 +615,7 @@ public class ImHelper {
         }
     }
 
-    public interface MyMessageListener {
-        void onMessageReceive();
-    }
+//    public interface MyMessageListener {
+//        void onMessageReceive();
+//    }
 }

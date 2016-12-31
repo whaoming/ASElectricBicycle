@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
 import com.wxxiaomi.ming.electricbicycle.bridge.easemob.ImHelper;
@@ -40,9 +41,13 @@ public final class NoticeManager {
 //        NoticeServer.startAction(context);
 //        // 注册广播
         Log.i("wang","NoticeManager初始化了");
+        NoticeBean nb = NoticeBean.getInstance(context);
+        INSTANCE.onNoticeChanged(nb);
+
+        LocalBroadcastManager broadcastManager = LocalBroadcastManager.getInstance(context);
         IntentFilter filter = new IntentFilter();
         filter.addAction(ImHelper.NOTICE_ARRIVE);
-        context.registerReceiver(INSTANCE.mReceiver, filter);
+        broadcastManager.registerReceiver(INSTANCE.mReceiver, filter);
     }
 
     public static void  clearNotice(Context context,int type) {
@@ -96,7 +101,6 @@ public final class NoticeManager {
     private BroadcastReceiver mReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            Log.i("wang","receive响应了");
             if (intent.getAction() != null &&
                     ImHelper.NOTICE_ARRIVE.equals(intent.getAction())) {
                 Serializable serializable = intent.getSerializableExtra(ImHelper.EXTRA_BEAN);
