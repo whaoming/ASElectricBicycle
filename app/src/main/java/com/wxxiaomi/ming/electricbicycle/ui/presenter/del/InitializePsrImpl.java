@@ -20,7 +20,7 @@ import com.wxxiaomi.ming.electricbicycle.db.impl.FriendDaoImpl2;
 import com.wxxiaomi.ming.electricbicycle.db.impl.UserDaoImpl;
 import com.wxxiaomi.ming.electricbicycle.bridge.aliyun.OssEngine;
 //import com.wxxiaomi.ming.electricbicycle.support.cache.base.DiskCache;
-import com.wxxiaomi.ming.electricbicycle.bridge.easemob.EmHelper;
+import com.wxxiaomi.ming.electricbicycle.bridge.easemob.ImHelper;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.RegisterActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.base.BaseView;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.base.BasePreImpl;
@@ -94,7 +94,7 @@ public class InitializePsrImpl extends BasePreImpl<BaseView> implements Initiali
                         //存到数据库
                         AppDao dao = new AppDaoImpl(EBApplication.applicationContext);
                         dao.savaUser(user);
-                        return EmHelper.getInstance().LoginFromEm(user.username, user.password);
+                        return ImHelper.getInstance().LoginFromEm(user.username, user.password);
                     }
                 })
                 //从服务器获取好友列表
@@ -135,7 +135,7 @@ public class InitializePsrImpl extends BasePreImpl<BaseView> implements Initiali
                     @Override
                     public void onNext(Integer integer) {
                         Log.i("wang", "更新了" + integer + "个好友");
-                        EmHelper.getInstance().openUserCache(friendDao2.getEFriends());
+                        ImHelper.getInstance().openUserCache(friendDao2.getEFriends());
                         AppManager.getAppManager().finishActivity(RegisterActivity.class);
 //                        mView.runActivity(HomeActivity.class, null, true);
                     }
@@ -150,7 +150,7 @@ public class InitializePsrImpl extends BasePreImpl<BaseView> implements Initiali
 
     //更新本地数据
     public Observable<Integer> updateLocal(){
-       return  EmHelper.getInstance().getContactFromEm()
+       return  ImHelper.getInstance().getContactFromEm()
                 //对比本地数据库，得出键值对
                 .map(new Func1<List<String>, String>() {
                     @Override
@@ -218,7 +218,7 @@ public class InitializePsrImpl extends BasePreImpl<BaseView> implements Initiali
     }
 
     private void initAfterLogin() {
-        EmHelper.getInstance().openUserCache(friendDao2.getEFriends());
+        ImHelper.getInstance().openUserCache(friendDao2.getEFriends());
         order.countDown();
     }
 

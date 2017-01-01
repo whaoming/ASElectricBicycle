@@ -16,7 +16,7 @@ import android.widget.ImageView;
 
 import com.wxxiaomi.ming.electricbicycle.ConstantValue;
 import com.wxxiaomi.ming.electricbicycle.R;
-import com.wxxiaomi.ming.electricbicycle.bridge.easemob.EmHelper;
+import com.wxxiaomi.ming.electricbicycle.bridge.easemob.ImHelper;
 import com.wxxiaomi.ming.electricbicycle.service.GlobalManager;
 import com.wxxiaomi.ming.electricbicycle.db.bean.Option;
 import com.wxxiaomi.ming.electricbicycle.db.bean.UserCommonInfo;
@@ -117,7 +117,7 @@ public class UserInfoActivity extends AppCompatActivity implements FragmentCallb
                 .setOnPositiveButtonClick(new EditableDialog.PositiveButtonOnClick() {
                     @Override
                     public void onClick(DialogInterface dialog, String content) {
-                        EmHelper.getInstance().addContact(targetUser.emname,content)
+                        ImHelper.getInstance().addContact(targetUser.emname,content)
                                 .subscribe(new SampleProgressObserver<Boolean>(UserInfoActivity.this) {
                                     @Override
                                     public void onNext(Boolean aBoolean) {

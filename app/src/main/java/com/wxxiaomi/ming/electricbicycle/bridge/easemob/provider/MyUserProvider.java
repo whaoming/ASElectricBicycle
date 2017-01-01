@@ -21,7 +21,10 @@ public class MyUserProvider implements EaseUI.EaseUserProfileProvider {
 
     @Override
     public void showImg(final Context ct, String username, final ImageView imageView) {
-        ShowerProvider.showHead(ct,imageView,GlobalManager.getInstance().getEasyUser(username).getAvatar());
+        if(GlobalManager.getInstance().getEasyUser(username)!=null){
+            ShowerProvider.showHead(ct,imageView,GlobalManager.getInstance().getEasyUser(username).getAvatar());
+        }
+
     }
 
     @Override

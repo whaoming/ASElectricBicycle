@@ -7,9 +7,8 @@ import android.content.IntentFilter;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
-import com.wxxiaomi.ming.electricbicycle.db.bean.InviteMessage;
+import com.wxxiaomi.ming.electricbicycle.bridge.easemob.ImHelper;
 import com.wxxiaomi.ming.electricbicycle.bridge.easemob.common.EmConstant;
-import com.wxxiaomi.ming.electricbicycle.bridge.easemob.EmHelper;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.InviteMsgActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.base.BasePreImpl;
 
@@ -18,10 +17,7 @@ import com.wxxiaomi.ming.electricbicycle.bridge.easemob.common.Constant;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.ContactPresenter;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.FriendAddActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.view.ContactView;
-import com.wxxiaomi.ming.electricbicycle.ui.weight.adapter.NewFriendAddItemAdapter;
 import com.wxxiaomi.ming.electricbicycle.db.impl.InviteMessgeDaoImpl;
-
-import java.util.List;
 
 import rx.Observer;
 import rx.functions.Action1;
@@ -64,7 +60,7 @@ public class ContactPresenterImpl extends BasePreImpl<ContactView> implements Co
     @Override
     public void initDrawerData() {
         //修改成rx模式，切换线程，加快页面进入速度
-//        EmHelper.getInstance().getInviteMsgListRx()
+//        ImHelper.getInstance().getInviteMsgListRx()
 //                .subscribe(new Action1<List<InviteMessage>>() {
 //                    @Override
 //                    public void call(List<InviteMessage> inviteMessages) {
@@ -82,7 +78,7 @@ public class ContactPresenterImpl extends BasePreImpl<ContactView> implements Co
     }
 
     private void addFriend(final String emname) {
-        EmHelper.getInstance().agreeInvite(emname)
+        ImHelper.getInstance().agreeInvite(emname)
                 .subscribe(new Observer<Boolean>() {
                     @Override
                     public void onCompleted() {
@@ -111,17 +107,17 @@ public class ContactPresenterImpl extends BasePreImpl<ContactView> implements Co
         refreshInviteUI();
         mView.refershChildUI();
         //设置好友发来的消息监听
-        EmHelper.getInstance().setMessageListener(new EmHelper.MyMessageListener() {
-            @Override
-            public void onMessageReceive() {
-                mView.refershChildUI();
-            }
-        });
+//        ImHelper.getInstance().setMessageListener(new ImHelper.MyMessageListener() {
+//            @Override
+//            public void onMessageReceive() {
+//                mView.refershChildUI();
+//            }
+//        });
 
     }
 
     public void refreshInviteUI() {
-        EmHelper.getInstance().getUnreadInviteCountTotal().subscribe(new Action1<Integer>() {
+        ImHelper.getInstance().getUnreadInviteCountTotal().subscribe(new Action1<Integer>() {
             @Override
             public void call(Integer integer) {
                 mView.updateUnReadMsg(integer);
