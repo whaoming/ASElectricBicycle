@@ -2,10 +2,6 @@ package com.wxxiaomi.ming.electricbicycle.bridge.easemob;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
-import android.os.Process;
-import android.os.UserHandle;
-import android.support.annotation.RequiresApi;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
@@ -35,7 +31,7 @@ import com.wxxiaomi.ming.electricbicycle.bridge.easemob.common.EmConstant;
 import com.wxxiaomi.ming.electricbicycle.bridge.easemob.provider.MySettingProvider;
 import com.wxxiaomi.ming.electricbicycle.bridge.easemob.provider.MyUserProvider;
 import com.wxxiaomi.ming.electricbicycle.service.GlobalManager;
-import com.wxxiaomi.ming.electricbicycle.service.notice.NoticeBean;
+import com.wxxiaomi.ming.electricbicycle.improve.im.notice.NoticeBean;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.ContactActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.HomeActivity;
 
@@ -81,11 +77,6 @@ public class ImHelper {
     private EaseUI easeUI;
     private EMConnectionListener connectionListener;
     private LocalBroadcastManager broadcastManager;
-//    private MyMessageListener messageListener;
-//
-//    public void setMessageListener(MyMessageListener lis) {
-//        messageListener = lis;
-//    }
 
     public void init(Context context) {
         EMOptions options = new EMOptions();
@@ -255,11 +246,10 @@ public class ImHelper {
                 .addMessageListener(new EMMessageListener() {
                     @Override
                     public void onMessageReceived(List<EMMessage> list) {
+                        Log.i("wang","收到消息的线程："+Thread.currentThread().getName());
                         for (EMMessage message : list) {
-                            Log.i("wang","getNotifier().onNewMsg(message);");
                             getNotifier().onNewMsg(message);
                         }
-
                         notifyMsgListener();
                     }
 
@@ -299,10 +289,6 @@ public class ImHelper {
                     .save(appContext);
             intent.putExtra(EXTRA_BEAN, notice);
             broadcastManager.sendBroadcast(intent);
-//            broadcastManager.s
-//        if (messageListener != null) {
-//            messageListener.onMessageReceive();
-//        }
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -318,6 +304,7 @@ public class ImHelper {
     public List<InviteMessage> getInviteMsgList() {
         return inviteMessgeDao.getMessagesList();
     }
+
     public Observable<List<InviteMessage>> getInviteMsgListRx() {
         return inviteMessgeDao.getMessagesListRx()
                 .subscribeOn(Schedulers.io())

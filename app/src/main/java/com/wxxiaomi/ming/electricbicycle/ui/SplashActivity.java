@@ -11,7 +11,7 @@ import android.support.multidex.MultiDex;
 import com.wxxiaomi.ming.electricbicycle.EBApplication;
 import com.wxxiaomi.ming.electricbicycle.common.util.AppManager;
 import com.wxxiaomi.ming.electricbicycle.R;
-import com.wxxiaomi.ming.electricbicycle.service.notice.NoticeManager;
+import com.wxxiaomi.ming.electricbicycle.improve.im.notice.NoticeManager;
 import com.wxxiaomi.ming.electricbicycle.support.cache.DiskCache;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.HomeActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.RegisterActivity;
@@ -131,7 +131,7 @@ public class SplashActivity extends Activity {
 
                     @Override
                     public void onNext(Integer integer) {
-                        isLogin = true;
+//                        isLogin = true;
                         order.countDown();
                     }
                 });

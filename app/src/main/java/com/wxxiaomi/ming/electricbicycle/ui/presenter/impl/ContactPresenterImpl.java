@@ -1,14 +1,12 @@
 package com.wxxiaomi.ming.electricbicycle.ui.presenter.impl;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
 import com.wxxiaomi.ming.electricbicycle.bridge.easemob.ImHelper;
-import com.wxxiaomi.ming.electricbicycle.bridge.easemob.common.EmConstant;
+import com.wxxiaomi.ming.electricbicycle.improve.im.notice.NoticeBean;
+import com.wxxiaomi.ming.electricbicycle.improve.im.notice.NoticeManager;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.InviteMsgActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.base.BasePreImpl;
 
@@ -26,35 +24,36 @@ import rx.functions.Action1;
  * Created by 12262 on 2016/6/9.
  * 联系人界面
  */
-public class ContactPresenterImpl extends BasePreImpl<ContactView> implements ContactPresenter<ContactView> {
+public class ContactPresenterImpl extends BasePreImpl<ContactView> implements ContactPresenter<ContactView>,NoticeManager.NoticeNotify {
 
-//    private NewFriendAddItemAdapter adapter;
     private LocalBroadcastManager broadcastManager;
-    private BroadcastReceiver broadcastReceiver;
+//    private BroadcastReceiver broadcastReceiver;
 
     @Override
     public void init() {
 //        initDrawerData();
-        registerBroadcastReceiver();
+        NoticeManager.bindNotify(this);
+        NoticeManager.clearNotice(mView.getContext().getApplicationContext(),NoticeManager.FLAG_CLEAR_MESSAGE);
+//        registerBroadcastReceiver();
     }
 
     private void registerBroadcastReceiver() {
-        broadcastManager = LocalBroadcastManager.getInstance(mView.getContext());
-        IntentFilter intentFilter = new IntentFilter();
-        //联系人事件
-        intentFilter.addAction(EmConstant.ACTION_CONTACT_CHANAGED);
-        intentFilter.addAction(EmConstant.ACTION_GROUP_CHANAGED);
-        broadcastReceiver = new BroadcastReceiver() {
-            @Override
-            public void onReceive(Context context, Intent intent) {
-//                updateUnreadLabel();
-                Log.i("wang", " 通过广播接受者收什么鬼信息了");
-//                mView.refershChildUI();
-//                adapter.refersh();
-                refreshInviteUI();
-            }
-        };
-        broadcastManager.registerReceiver(broadcastReceiver, intentFilter);
+//        broadcastManager = LocalBroadcastManager.getInstance(mView.getContext());
+//        IntentFilter intentFilter = new IntentFilter();
+//        //联系人事件
+//        intentFilter.addAction(EmConstant.ACTION_CONTACT_CHANAGED);
+//        intentFilter.addAction(EmConstant.ACTION_GROUP_CHANAGED);
+//        broadcastReceiver = new BroadcastReceiver() {
+//            @Override
+//            public void onReceive(Context context, Intent intent) {
+////                updateUnreadLabel();
+//                Log.i("wang", " 通过广播接受者收什么鬼信息了");
+////                mView.refershChildUI();
+////                adapter.refersh();
+//                refreshInviteUI();
+//            }
+//        };
+//        broadcastManager.registerReceiver(broadcastReceiver, intentFilter);
     }
 
     @Override
@@ -104,8 +103,9 @@ public class ContactPresenterImpl extends BasePreImpl<ContactView> implements Co
 
     @Override
     public void onViewResume() {
-        refreshInviteUI();
+//        refreshInviteUI();
         mView.refershChildUI();
+
         //设置好友发来的消息监听
 //        ImHelper.getInstance().setMessageListener(new ImHelper.MyMessageListener() {
 //            @Override
@@ -115,15 +115,15 @@ public class ContactPresenterImpl extends BasePreImpl<ContactView> implements Co
 //        });
 
     }
-
-    public void refreshInviteUI() {
-        ImHelper.getInstance().getUnreadInviteCountTotal().subscribe(new Action1<Integer>() {
-            @Override
-            public void call(Integer integer) {
-                mView.updateUnReadMsg(integer);
-            }
-        });
-    }
+//
+//    public void refreshInviteUI() {
+//        ImHelper.getInstance().getUnreadInviteCountTotal().subscribe(new Action1<Integer>() {
+//            @Override
+//            public void call(Integer integer) {
+//                mView.updateUnReadMsg(integer);
+//            }
+//        });
+//    }
 
 
     @Override
@@ -144,7 +144,7 @@ public class ContactPresenterImpl extends BasePreImpl<ContactView> implements Co
 
     @Override
     public void refershInviteUI() {
-        refreshInviteUI();
+//        refreshInviteUI();
     }
 
     @Override
@@ -155,12 +155,18 @@ public class ContactPresenterImpl extends BasePreImpl<ContactView> implements Co
     @Override
     public void onViewDestory() {
 //        EmEngine.getInstance().logout();
-        unregisterBroadcastReceiver();
+//        unregisterBroadcastReceiver();
+        NoticeManager.unBindNotify(this);
     }
 
     private void unregisterBroadcastReceiver() {
-        broadcastManager.unregisterReceiver(broadcastReceiver);
+//        broadcastManager.unregisterReceiver(broadcastReceiver);
     }
 
 
+    @Override
+    public void onNoticeArrived(NoticeBean bean) {
+        NoticeManager.clearNotice(mView.getContext().getApplicationContext(),NoticeManager.FLAG_CLEAR_MESSAGE);
+        mView.refershChildUI();
+    }
 }

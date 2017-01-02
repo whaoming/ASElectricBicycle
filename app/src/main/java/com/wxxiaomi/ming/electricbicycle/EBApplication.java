@@ -9,6 +9,7 @@ import com.baidu.mapapi.SDKInitializer;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 import com.wxxiaomi.ming.electricbicycle.bridge.easemob.ImHelper;
+import com.wxxiaomi.ming.electricbicycle.improve.im.service.ImService;
 import com.wxxiaomi.ming.electricbicycle.service.PreferenceManager;
 
 /**
@@ -27,7 +28,8 @@ public class EBApplication extends Application {
         applicationContext = this;
         instance = this;
         SDKInitializer.initialize(getApplicationContext());
-        ImHelper.getInstance().init(this);
+//        ImHelper.getInstance().init(this);
+        ImService.startInitImModule(this);
         PreferenceManager.init(getApplicationContext());
         if (LeakCanary.isInAnalyzerProcess(this)) {
             return;

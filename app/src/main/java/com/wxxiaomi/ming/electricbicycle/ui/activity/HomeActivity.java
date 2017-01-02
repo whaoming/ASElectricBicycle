@@ -191,15 +191,21 @@ public class HomeActivity extends BaseActivity<HomeView,HomePresenter> implement
         Glide.with(this).load("https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=870609829,3308433796&fm=116&gp=0.jpg").asBitmap().into(new SimpleTarget<Bitmap>() {
             @Override
             public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
-                View view = getLayoutInflater().inflate(R.layout.view_near_img,null);
-                CircularImageView imgView = (CircularImageView) view.findViewById(R.id.iv_head);
-                imgView.setImageBitmap(resource);
-                BitmapDescriptor bdA = BitmapDescriptorFactory.fromView(view);
-                MarkerOptions ooA = new MarkerOptions().position(point).icon(bdA)
-                        .zIndex(9).draggable(true);
-                ooA.animateType(MarkerOptions.MarkerAnimateType.drop);
-                Marker mMarker = (Marker) (mBaiduMap.addOverlay(ooA));
-                mMarker.setZIndex(posttion);
+                try {
+                    View view = getLayoutInflater().inflate(R.layout.view_near_img, null);
+                    CircularImageView imgView = (CircularImageView) view.findViewById(R.id.iv_head);
+                    imgView.setImageBitmap(resource);
+                    if (view != null) {
+                        BitmapDescriptor bdA = BitmapDescriptorFactory.fromView(view);
+                        MarkerOptions ooA = new MarkerOptions().position(point).icon(bdA)
+                                .zIndex(9).draggable(true);
+                        ooA.animateType(MarkerOptions.MarkerAnimateType.drop);
+                        Marker mMarker = (Marker) (mBaiduMap.addOverlay(ooA));
+                        mMarker.setZIndex(posttion);
+                    }
+                }catch (Exception e){
+                    e.printStackTrace();;
+                }
             }
         });
     }
@@ -393,6 +399,7 @@ public class HomeActivity extends BaseActivity<HomeView,HomePresenter> implement
         mActionProvider.setBadge(0);
         mActionProvider2.setIcon(R.mipmap.ic_notify_none);
         mActionProvider2.setBadge(0);
+        Log.i("wang","onWindowFocusChanged");
         presenter.updateUnreadLabel();
     }
 }

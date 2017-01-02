@@ -1,7 +1,5 @@
 package com.wxxiaomi.ming.electricbicycle.ui.presenter.impl;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -21,14 +19,13 @@ import com.baidu.mapapi.map.MyLocationConfiguration;
 import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.model.LatLng;
 import com.wxxiaomi.ming.electricbicycle.ConstantValue;
-import com.wxxiaomi.ming.electricbicycle.bridge.easemob.ImHelper;
 import com.wxxiaomi.ming.electricbicycle.db.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.db.bean.UserLocatInfo;
 import com.wxxiaomi.ming.electricbicycle.service.ShowerProvider;
 import com.wxxiaomi.ming.electricbicycle.bridge.easemob.common.EmConstant;
 import com.wxxiaomi.ming.electricbicycle.service.UserFunctionProvider;
-import com.wxxiaomi.ming.electricbicycle.service.notice.NoticeBean;
-import com.wxxiaomi.ming.electricbicycle.service.notice.NoticeManager;
+import com.wxxiaomi.ming.electricbicycle.improve.im.notice.NoticeBean;
+import com.wxxiaomi.ming.electricbicycle.improve.im.notice.NoticeManager;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.FootPrintShowActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.FootPublishActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.LoginActivity;
@@ -46,15 +43,13 @@ import com.wxxiaomi.ming.electricbicycle.ui.weight.custom.CircularImageView;
 
 import java.util.List;
 
-import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
-import rx.schedulers.Schedulers;
 
 /**
  * Created by 12262 on 2016/6/6.
  * 主界面
  */
-public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePresenter<HomeView> {
+public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePresenter<HomeView>,NoticeManager.NoticeNotify {
 
     private LocationClient mLocClient;
     /**
@@ -73,12 +68,13 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
     private UserCommonInfo currentNearPerson;
     private List<UserLocatInfo> userLocatList;
     private LocalBroadcastManager broadcastManager;
-    private BroadcastReceiver broadcastReceiver;
+//    private BroadcastReceiver broadcastReceiver;
 
     @Override
     public void init() {
         initMap(mView.getMap());
-        registerBroadcastReceiver();
+        NoticeManager.bindNotify(this);
+//        registerBroadcastReceiver();
     }
 
     /**
@@ -90,18 +86,18 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
         //联系人事件
         intentFilter.addAction(EmConstant.ACTION_CONTACT_CHANAGED);
         intentFilter.addAction(EmConstant.ACTION_GROUP_CHANAGED);
-        broadcastReceiver = new BroadcastReceiver() {
-            @Override
-            public void onReceive(Context context, Intent intent) {
-                updateUnreadLabel();
-            }
-        };
-        broadcastManager.registerReceiver(broadcastReceiver, intentFilter);
+//        broadcastReceiver = new BroadcastReceiver() {
+//            @Override
+//            public void onReceive(Context context, Intent intent) {
+//                updateUnreadLabel();
+//            }
+//        };
+//        broadcastManager.registerReceiver(broadcastReceiver, intentFilter);
     }
 
-    private void unregisterBroadcastReceiver(){
-        broadcastManager.unregisterReceiver(broadcastReceiver);
-    }
+//    private void unregisterBroadcastReceiver(){
+//        broadcastManager.unregisterReceiver(broadcastReceiver);
+//    }
 
     @Override
     public void initMap(BaiduMap mBaiduMap) {
@@ -246,7 +242,7 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
     @Override
     public void onViewDestory() {
 //        EmEngine.getInstance().logout();
-        unregisterBroadcastReceiver();
+//        unregisterBroadcastReceiver();
         mLocClient.stop();
         mBaiduMap.setMyLocationEnabled(false);
 //        ImHelper.getInstance().setMessageListener(null);
@@ -256,7 +252,7 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
     public void onViewResume() {
         ShowerProvider.showHead(mView.getContext(),mView.getHeadView(),GlobalManager.getInstance().getUser().userCommonInfo.avatar);
         ShowerProvider.showHead(mView.getContext(),mView.getDrawerAvatar(),GlobalManager.getInstance().getUser().userCommonInfo.avatar);
-        updateUnreadLabel();
+//        updateUnreadLabel();
 //        ImHelper.getInstance().setMessageListener(new ImHelper.MyMessageListener() {
 //            @Override
 //            public void onMessageReceive() {
@@ -264,19 +260,18 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
 //            }
 //        });
 
-        NoticeManager.bindNotify(new NoticeManager.NoticeNotify() {
-            @Override
-            public void onNoticeArrived(NoticeBean bean) {
-                Log.i("wang","home收到noticemanage的提示啦:"+bean.toString());
-                mView.updateUnreadLabel(bean.getInvite()+bean.getMessage()+bean.getReview());
-            }
-        });
+
 //        EmEngine.getInstance().setAllMsgLis(new AllMsgListener() {
 //            @Override
 //            public void AllMsgReceive() {
 //                updateUnreadLabel();
 //            }
 //        });
+    }
+
+    @Override
+    public void onNoticeArrived(NoticeBean bean) {
+        mView.updateUnreadLabel(bean.getInvite()+bean.getMessage()+bean.getReview());
     }
 
 //    public void
