@@ -11,7 +11,9 @@ import android.support.multidex.MultiDex;
 import com.wxxiaomi.ming.electricbicycle.EBApplication;
 import com.wxxiaomi.ming.electricbicycle.common.util.AppManager;
 import com.wxxiaomi.ming.electricbicycle.R;
-import com.wxxiaomi.ming.electricbicycle.service.notice.NoticeManager;
+import com.wxxiaomi.ming.electricbicycle.improve.im.ImHelper1;
+import com.wxxiaomi.ming.electricbicycle.improve.im.notice.NoticeManager;
+import com.wxxiaomi.ming.electricbicycle.service.AccountHelper;
 import com.wxxiaomi.ming.electricbicycle.support.cache.DiskCache;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.HomeActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.RegisterActivity;
@@ -108,7 +110,7 @@ public class SplashActivity extends Activity {
     //休息一段时间
     private void sleepTime() {
         try {
-            Thread.sleep(2000);
+            Thread.sleep(1000);
             order.countDown();
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -116,25 +118,32 @@ public class SplashActivity extends Activity {
     }
 
     private void thisAutoLogin() {
-        UserFunctionProvider.getInstance().AutoLogin()
-                .subscribe(new Observer<Integer>() {
-                    @Override
-                    public void onCompleted() {
-
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        isLogin = false;
-                        order.countDown();
-                    }
-
-                    @Override
-                    public void onNext(Integer integer) {
-                        isLogin = true;
-                        order.countDown();
-                    }
-                });
+//        UserFunctionProvider.getInstance().AutoLogin()
+//                .subscribe(new Observer<Integer>() {
+//                    @Override
+//                    public void onCompleted() {
+//
+//                    }
+//
+//                    @Override
+//                    public void onError(Throwable e) {
+//                        isLogin = false;
+//                        order.countDown();
+//                    }
+//
+//                    @Override
+//                    public void onNext(Integer integer) {
+////                        isLogin = true;
+//                        order.countDown();
+//                    }
+//                });
+        boolean login = AccountHelper.isLogin();
+        if(login){
+            //允许登陆
+                isLogin = true;
+            ImHelper1.getInstance().setFriends(UserFunctionProvider.getInstance().getEFriends());
+            }
+        order.countDown();
     }
 
 

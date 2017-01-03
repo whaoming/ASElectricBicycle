@@ -18,8 +18,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.wxxiaomi.ming.electricbicycle.db.AppDao;
-import com.wxxiaomi.ming.electricbicycle.db.FriendDao2;
+import com.wxxiaomi.ming.electricbicycle.db.FriendDao;
 import com.wxxiaomi.ming.electricbicycle.db.InviteMessgeDao;
 import com.wxxiaomi.ming.electricbicycle.db.UserDao;
 
@@ -46,6 +45,8 @@ public class DbOpenHelper extends SQLiteOpenHelper{
 			+ InviteMessgeDao.COLUMN_NAME_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
 			+ InviteMessgeDao.COLUMN_NAME_FROM + " TEXT, "
 			+ InviteMessgeDao.COLUMN_NAME_REASON + " TEXT, "
+			+ InviteMessgeDao.COLUMN_NAME_NICK + " TEXT, "
+			+ InviteMessgeDao.COLUMN_NAME_AVATAR + " TEXT, "
 			+ InviteMessgeDao.COLUMN_NAME_UNREAD_MSG_COUNT + " INTEGER, "
 			+ InviteMessgeDao.COLUMN_NAME_TIME + " TEXT); ";
 //
@@ -57,36 +58,36 @@ public class DbOpenHelper extends SQLiteOpenHelper{
 //			+ FriendDao.COLUMN_NAME_ID + " TEXT PRIMARY KEY);";
 
 	private static final String USER_FRIEND_TABLE_CREATE = "CREATE TABLE "
-			+ FriendDao2.TABLE_NAME + " ("
-			+ FriendDao2.COLUMN_NAME_HEAD + " TEXT, "
-			+ FriendDao2.COLUMN_NAME_ALBUMID + " INTEGER, "
-			+ FriendDao2.COLUMN_NAME_CITY + " TEXT, "
-			+ FriendDao2.COLUMN_NAME_COVER + " TEXT, "
-			+ FriendDao2.COLUMN_NAME_CREATETIME + " TEXT, "
-			+ FriendDao2.COLUMN_NAME_DESCRIPTION + " TEXT, "
-			+ FriendDao2.COLUMN_NAME_EMNAME + " TEXT, "
-			+ FriendDao2.COLUMN_NAME_NAME + " TEXT, "
-			+ FriendDao2.COLUMN_NAME_SEX + " INTEGER, "
-			+ FriendDao2.COLUMN_NAME_UPDATETIME + " TEXT, "
-			+ FriendDao2.COLUMN_NAME_ID + " INTEGER PRIMARY KEY);";
+			+ FriendDao.TABLE_NAME + " ("
+			+ FriendDao.COLUMN_NAME_HEAD + " TEXT, "
+//			+ FriendDao.COLUMN_NAME_ALBUMID + " INTEGER, "
+//			+ FriendDao.COLUMN_NAME_CITY + " TEXT, "
+//			+ FriendDao.COLUMN_NAME_COVER + " TEXT, "
+//			+ FriendDao.COLUMN_NAME_CREATETIME + " TEXT, "
+//			+ FriendDao.COLUMN_NAME_DESCRIPTION + " TEXT, "
+			+ FriendDao.COLUMN_NAME_EMNAME + " TEXT, "
+			+ FriendDao.COLUMN_NAME_NAME + " TEXT, "
+//			+ FriendDao.COLUMN_NAME_SEX + " INTEGER, "
+			+ FriendDao.COLUMN_NAME_UPDATETIME + " TEXT, "
+			+ FriendDao.COLUMN_NAME_ID + " INTEGER PRIMARY KEY);";
 
 
-	private static final String USER_RECORD_TABLE_CREATE = "CREATE TABLE "
-			+ AppDao.TABLE_NAME + " ("
-			+ AppDao.COLUMN_NAME_ID + " INTEGER, "
-			+ AppDao.COLUMN_NAME_USERNAME + " TEXT, "
-			+ AppDao.COLUMN_NAME_PASSWORD + " TEXT, "
-			+ AppDao.COLUMN_NAME_UPDATETIME + " TEXT, "
-			+ AppDao.COLUMN_NAME_SEX + " INTEGER, "
-			+ AppDao.COLUMN_NAME_NAME + " TEXT, "
-			+ AppDao.COLUMN_NAME_HEAD + " TEXT, "
-			+ AppDao.COLUMN_NAME_ALBUMID + " INTEGER, "
-			+ AppDao.COLUMN_NAME_CITY + " TEXT, "
-			+ AppDao.COLUMN_NAME_COVER + " TEXT, "
-			+ AppDao.COLUMN_NAME_CREATETIME + " TEXT, "
-			+ AppDao.COLUMN_NAME_DESCRIPTION + " TEXT, "
-			+ AppDao.COLUMN_NAME_EMNAME + " TEXT, "
-			+ AppDao.COLUMN_NAME_INFO_ID + " TEXT); ";
+//	private static final String USER_RECORD_TABLE_CREATE = "CREATE TABLE "
+//			+ AppDao.TABLE_NAME + " ("
+//			+ AppDao.COLUMN_NAME_ID + " INTEGER, "
+//			+ AppDao.COLUMN_NAME_USERNAME + " TEXT, "
+//			+ AppDao.COLUMN_NAME_PASSWORD + " TEXT, "
+//			+ AppDao.COLUMN_NAME_UPDATETIME + " TEXT, "
+//			+ AppDao.COLUMN_NAME_SEX + " INTEGER, "
+//			+ AppDao.COLUMN_NAME_NAME + " TEXT, "
+//			+ AppDao.COLUMN_NAME_HEAD + " TEXT, "
+//			+ AppDao.COLUMN_NAME_ALBUMID + " INTEGER, "
+//			+ AppDao.COLUMN_NAME_CITY + " TEXT, "
+//			+ AppDao.COLUMN_NAME_COVER + " TEXT, "
+//			+ AppDao.COLUMN_NAME_CREATETIME + " TEXT, "
+//			+ AppDao.COLUMN_NAME_DESCRIPTION + " TEXT, "
+//			+ AppDao.COLUMN_NAME_EMNAME + " TEXT, "
+//			+ AppDao.COLUMN_NAME_INFO_ID + " TEXT); ";
 	
 	
 //			
@@ -127,7 +128,7 @@ public class DbOpenHelper extends SQLiteOpenHelper{
 		db.execSQL(USERNAME_TABLE_CREATE);
 		db.execSQL(INIVTE_MESSAGE_TABLE_CREATE);
 //		db.execSQL(TEMP_USERNAME_TABLE_CREATE);
-		db.execSQL(USER_RECORD_TABLE_CREATE);
+//		db.execSQL(USER_RECORD_TABLE_CREATE);
 		db.execSQL(USER_FRIEND_TABLE_CREATE);
 //		db.execSQL(CREATE_PREF_TABLE);
 //		db.execSQL(ROBOT_TABLE_CREATE);

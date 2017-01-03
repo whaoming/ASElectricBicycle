@@ -6,10 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.wxxiaomi.ming.electricbicycle.R;
-import com.wxxiaomi.ming.electricbicycle.service.GlobalManager;
+
 import com.wxxiaomi.ming.electricbicycle.common.util.TimeUtil;
 import com.wxxiaomi.ming.electricbicycle.db.bean.Option;
 import com.wxxiaomi.ming.electricbicycle.api.constant.OptionType;
+import com.wxxiaomi.ming.electricbicycle.service.AccountHelper;
 import com.wxxiaomi.ming.electricbicycle.service.ShowerProvider;
 
 import java.util.List;
@@ -41,7 +42,7 @@ public class OptionAdapter3 extends RecyclerView.Adapter<RecyclerView.ViewHolder
             Option option = list.get(position);
             if(option!=null){
                 int flag = option.type;
-                String avatar = GlobalManager.getInstance().getUser().userCommonInfo.avatar;
+                String avatar = AccountHelper.getAccountInfo().avatar;
                 ShowerProvider.showHead(mContext,holder.iv_avatar,avatar);
                 switch (flag){
                     case OptionType.TOPIC_PUBLISH:

@@ -23,7 +23,6 @@ public class PreferenceManager {
      * 短token的保存
      */
     private Context context;
-    public static final String PREFERENCE_NAME = "saveInfo";
     private static SharedPreferences mSharedPreferences;
     private static SharedPreferences.Editor editor;
     private static PreferenceManager mPreferencemManager;
@@ -32,9 +31,6 @@ public class PreferenceManager {
     private String SETTING_NOTIFY_SOUND = "";
     private String SETTING_NOTIFY_VIBRATE = "";
 
-    private String LONGTOKEN = "long_token";
-    private String SHORTTOKEN = "short_token";
-    private String USERID = "userid";
     private PreferenceManager(Context context){
         mSharedPreferences = android.preference.PreferenceManager.getDefaultSharedPreferences(context);
         editor = mSharedPreferences.edit();
@@ -61,12 +57,6 @@ public class PreferenceManager {
     }
 
     public boolean getSoundOpen(){
-        Log.i("wang","SETTING_NOTIFY_SOUND:"+SETTING_NOTIFY_SOUND);
-//        String string = mSharedPreferences.getString(SETTING_NOTIFY_SOUND, "");
-        boolean flag = mSharedPreferences.getBoolean(SETTING_NOTIFY_SOUND,false);
-
-//        Log.i("wang","string:"+string);
-        Log.i("wang","flag:"+flag);
         return mSharedPreferences.getBoolean(SETTING_NOTIFY_SOUND,false);
 
     }
@@ -75,30 +65,4 @@ public class PreferenceManager {
         return mSharedPreferences.getBoolean(SETTING_NOTIFY_VIBRATE,false);
     }
 
-    public void savaLongToken(String long_token){
-        editor.putString(LONGTOKEN,long_token);
-        editor.apply();
-    }
-
-    public String getLongToken(){
-        return mSharedPreferences.getString(LONGTOKEN,"");
-    }
-
-    public void savaShortToken(String token){
-        editor.putString(SHORTTOKEN,token);
-        editor.apply();
-    }
-
-    public String getShortToken(){
-        return mSharedPreferences.getString(SHORTTOKEN,"");
-    }
-
-    public void savaUserID(int userid){
-        editor.putInt(USERID,userid);
-        editor.apply();
-    }
-
-    public int getUserId(){
-        return  mSharedPreferences.getInt(USERID,0);
-    }
 }

@@ -8,12 +8,14 @@ import rx.Observable;
 
 
 public interface InviteMessgeDao {
-	public static final String TABLE_NAME = "new_friends_msgs";
-	public static final String COLUMN_NAME_FROM = "username";
-	public static final String COLUMN_NAME_TIME = "time";
-	public static final String COLUMN_NAME_REASON = "reason";
-	public static final String COLUMN_NAME_UNREAD_MSG_COUNT = "unreadMsgCount";
-	public static final String COLUMN_NAME_ID = "id";
+	String TABLE_NAME = "new_friends_msgs";
+	String COLUMN_NAME_FROM = "username";
+	String COLUMN_NAME_TIME = "time";
+	String COLUMN_NAME_REASON = "reason";
+	String COLUMN_NAME_UNREAD_MSG_COUNT = "unreadMsgCount";
+	String COLUMN_NAME_ID = "id";
+	String COLUMN_NAME_NICK = "nickname";
+	String COLUMN_NAME_AVATAR = "avatar";
 
 	/**
 	 * 获取邀请消息数量

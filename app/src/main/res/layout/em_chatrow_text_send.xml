@@ -53,7 +53,7 @@
                 <!--android:textSize="15sp" />-->
         <!--</RelativeLayout>-->
 
-        <com.wxxiaomi.ming.electricbicycle.bridge.easemob.ui.BubbleTextVew
+        <com.wxxiaomi.ming.electricbicycle.improve.im.ui.BubbleTextVew
             android:layout_marginRight="@dimen/margin_chat_activity"
             android:layout_toLeftOf="@id/iv_userhead"
             android:id="@+id/tv_chatcontent"

@@ -7,14 +7,14 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 import com.wxxiaomi.ming.electricbicycle.R;
-import com.wxxiaomi.ming.electricbicycle.bridge.easemob.ImHelper;
 import com.wxxiaomi.ming.electricbicycle.db.bean.Option;
 import com.wxxiaomi.ming.electricbicycle.db.bean.UserCommonInfo;
+import com.wxxiaomi.ming.electricbicycle.improve.im.ImHelper1;
 import com.wxxiaomi.ming.electricbicycle.service.UserFunctionProvider;
+import com.wxxiaomi.ming.electricbicycle.support.rx.ProgressObserver;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.adapter.OptionAdapter2;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.base.BasePreImpl;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.UserInfoPresenter;
-import com.wxxiaomi.ming.electricbicycle.support.rx.SampleProgressObserver;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.view.UserInfoView;
 
 import com.wxxiaomi.ming.electricbicycle.ui.weight.custom.EditableDialog;
@@ -76,7 +76,7 @@ public class UserInfoPresenterImpl extends BasePreImpl<UserInfoView> implements 
 //                });
         UserFunctionProvider.getInstance().getUserOptions(25)
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new SampleProgressObserver<List<Option>>(mView.getContext()) {
+                .subscribe(new ProgressObserver<List<Option>>(mView.getContext()) {
                     @Override
                     public void onNext(List<Option> options) {
                         OptionAdapter2 adapter = new OptionAdapter2(options,mView.getContext());
@@ -97,11 +97,11 @@ public class UserInfoPresenterImpl extends BasePreImpl<UserInfoView> implements 
                 .setOnPositiveButtonClick(new EditableDialog.PositiveButtonOnClick() {
                     @Override
                     public void onClick(DialogInterface dialog, String content) {
-                        ImHelper.getInstance().addContact(userInfo.emname,content)
-                                .subscribe(new SampleProgressObserver<Boolean>(mView.getContext()) {
+                        ImHelper1.getInstance().addContact(userInfo.emname,content)
+                                .subscribe(new ProgressObserver<Boolean>(mView.getContext()) {
                                     @Override
                                     public void onNext(Boolean aBoolean) {
-                                        showMsg("成功添加好友");
+                                        showMsg("发送好友申请成功");
                                     }
                                 });
                     }

@@ -8,8 +8,10 @@ import android.support.multidex.MultiDex;
 import com.baidu.mapapi.SDKInitializer;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
-import com.wxxiaomi.ming.electricbicycle.bridge.easemob.ImHelper;
+import com.wxxiaomi.ming.electricbicycle.improve.im.ImHelper1;
+import com.wxxiaomi.ming.electricbicycle.service.AccountHelper;
 import com.wxxiaomi.ming.electricbicycle.service.PreferenceManager;
+import com.wxxiaomi.ming.electricbicycle.service.UserFunctionProvider;
 
 /**
  * 程序入口
@@ -27,12 +29,20 @@ public class EBApplication extends Application {
         applicationContext = this;
         instance = this;
         SDKInitializer.initialize(getApplicationContext());
-        ImHelper.getInstance().init(this);
+        ImHelper1.getInstance().init(this);
+        AccountHelper.init(this);
         PreferenceManager.init(getApplicationContext());
         if (LeakCanary.isInAnalyzerProcess(this)) {
             return;
         }
         sRefWatcher = LeakCanary.install(this);
+//        new Thread(){
+//            @Override
+//            public void run() {
+//                ImHelper1.getInstance().setFriends(UserFunctionProvider.getInstance().getEFriends());
+//                super.run();
+//            }
+//        }.start();
     }
 
 //    private void initEM() {

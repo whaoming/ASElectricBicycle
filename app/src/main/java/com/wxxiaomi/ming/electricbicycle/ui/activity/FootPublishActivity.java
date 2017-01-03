@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.api.HttpMethods;
-import com.wxxiaomi.ming.electricbicycle.support.rx.SampleProgressObserver;
+import com.wxxiaomi.ming.electricbicycle.support.rx.ProgressObserver;
 import com.wxxiaomi.ming.electricbicycle.service.ShowerProvider;
 import com.wxxiaomi.ming.electricbicycle.bridge.aliyun.OssEngine;
 import com.wxxiaomi.ming.electricbicycle.service.LocatProvider;
@@ -85,7 +85,7 @@ public class FootPublishActivity extends AppCompatActivity implements View.OnCli
                             }
                         })
                         .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(new SampleProgressObserver<String>(FootPublishActivity.this) {
+                        .subscribe(new ProgressObserver<String>(FootPublishActivity.this) {
 
                     @Override
                     public void onNext(String s) {

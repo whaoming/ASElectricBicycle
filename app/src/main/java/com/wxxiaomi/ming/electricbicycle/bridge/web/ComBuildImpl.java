@@ -17,8 +17,8 @@ import com.github.lzyzsd.jsbridge.CallBackFunction;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.wxxiaomi.ming.electricbicycle.api.WebMethods;
+import com.wxxiaomi.ming.electricbicycle.service.AccountHelper;
 import com.wxxiaomi.ming.electricbicycle.support.cache.ImgCacheEngine;
-import com.wxxiaomi.ming.electricbicycle.service.GlobalManager;
 import com.wxxiaomi.ming.electricbicycle.common.util.ParsMakeUtil;
 import com.wxxiaomi.ming.webmodule.action.dialog.AlertAction;
 import com.wxxiaomi.ming.webmodule.action.dialog.DialogACtion;
@@ -216,16 +216,16 @@ public abstract class ComBuildImpl extends BuilderDetail {
         mWebView.registerHandler("getUserId", new BridgeHandler() {
             @Override
             public void handler(String data, CallBackFunction function) {
-                int id = GlobalManager.getInstance().getUser().userCommonInfo.id;
+                int id = AccountHelper.getAccountInfo().id;
                 function.onCallBack(id+"");
             }
         });
         mWebView.registerHandler("getUser", new BridgeHandler() {
             @Override
             public void handler(String data, CallBackFunction function) {
-                String json = "{\"id\":\""+GlobalManager.getInstance().getUser().userCommonInfo.id
-                        +"\",\"name\":\""+GlobalManager.getInstance().getUser().userCommonInfo.nickname
-                        +"\",\"head\":\""+GlobalManager.getInstance().getUser().userCommonInfo.avatar+"\"}";
+                String json = "{\"id\":\""+AccountHelper.getAccountInfo().id
+                        +"\",\"name\":\""+AccountHelper.getAccountInfo().nickname
+                        +"\",\"head\":\""+AccountHelper.getAccountInfo().avatar+"\"}";
                 function.onCallBack(json);
             }
         });
@@ -233,7 +233,7 @@ public abstract class ComBuildImpl extends BuilderDetail {
         mWebView.registerHandler("usrSimInfo", new BridgeHandler() {
             @Override
             public void handler(String data, CallBackFunction function) {
-                function.onCallBack(GlobalManager.getInstance().getUserCurrentInfo());
+                function.onCallBack(AccountHelper.getAccountInfo().toString());
             }
         });
     }

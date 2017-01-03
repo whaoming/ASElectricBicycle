@@ -1,8 +1,9 @@
 package com.wxxiaomi.ming.electricbicycle.ui.presenter.impl;
 
-import com.wxxiaomi.ming.electricbicycle.service.GlobalManager;
+
+import com.wxxiaomi.ming.electricbicycle.service.AccountHelper;
 import com.wxxiaomi.ming.electricbicycle.service.UserFunctionProvider;
-import com.wxxiaomi.ming.electricbicycle.support.rx.SampleProgressObserver;
+import com.wxxiaomi.ming.electricbicycle.support.rx.ProgressObserver;
 import com.wxxiaomi.ming.electricbicycle.db.bean.Option;
 import com.wxxiaomi.ming.electricbicycle.service.ShowerProvider;
 import com.wxxiaomi.ming.electricbicycle.bridge.img.PhotoTakeUtil;
@@ -33,7 +34,7 @@ public class PersonalPreImpl extends BasePreImpl<PersonaView> implements Persona
     public void init() {
         listView = mView.getListView();
         listView.setRefreshing(true);
-        String cover = GlobalManager.getInstance().getUser().userCommonInfo.cover;
+        String cover = AccountHelper.getAccountInfo().cover;
         if(cover!=null){
             ShowerProvider.showNormalImage(mView.getContext(), mView.getBackImgContent(),cover);
         }
@@ -44,12 +45,12 @@ public class PersonalPreImpl extends BasePreImpl<PersonaView> implements Persona
     @Override
     public void onViewResume() {
         super.onViewResume();
-        ShowerProvider.showHead(mView.getContext(), mView.getHeadView(), GlobalManager.getInstance().getUser().userCommonInfo.avatar);
-        mView.setViewData(GlobalManager.getInstance().getUser().userCommonInfo);
+        ShowerProvider.showHead(mView.getContext(), mView.getHeadView(), AccountHelper.getAccountInfo().avatar);
+        mView.setViewData(AccountHelper.getAccountInfo());
     }
 
     private void requestOptionData() {
-        UserFunctionProvider.getInstance().getUserOptions(GlobalManager.getInstance().getUser().userCommonInfo.id)
+        UserFunctionProvider.getInstance().getUserOptions(AccountHelper.getAccountInfo().id)
                 .subscribe(new Action1<List<Option>>() {
                     @Override
                     public void call(List<Option> options) {
@@ -79,7 +80,7 @@ public class PersonalPreImpl extends BasePreImpl<PersonaView> implements Persona
                                     }
                                 })
                                 .observeOn(AndroidSchedulers.mainThread())
-                                .subscribe(new SampleProgressObserver<String>(mView.getContext()) {
+                                .subscribe(new ProgressObserver<String>(mView.getContext()) {
                                     @Override
                                     public void onNext(String s) {
                                         closeDialog();

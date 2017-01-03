@@ -48,8 +48,9 @@ public class InviteMessgeDaoImpl2 implements InviteMessgeDao {
             values.put(InviteMessgeDao.COLUMN_NAME_FROM, message.getFrom());
             values.put(InviteMessgeDao.COLUMN_NAME_REASON, message.getReason());
             values.put(InviteMessgeDao.COLUMN_NAME_TIME, message.getTime());
+            values.put(InviteMessgeDao.COLUMN_NAME_AVATAR, message.getAvatar());
+            values.put(InviteMessgeDao.COLUMN_NAME_NICK, message.getNickname());
             db.replace(InviteMessgeDao.TABLE_NAME, null, values);
-
             Cursor cursor = db.rawQuery("select last_insert_rowid() from " + InviteMessgeDao.TABLE_NAME, null);
             if (cursor.moveToFirst()) {
                 id = cursor.getInt(0);
@@ -71,11 +72,15 @@ public class InviteMessgeDaoImpl2 implements InviteMessgeDao {
                 String from = cursor.getString(cursor.getColumnIndex(InviteMessgeDao.COLUMN_NAME_FROM));
                 String reason = cursor.getString(cursor.getColumnIndex(InviteMessgeDao.COLUMN_NAME_REASON));
                 long time = cursor.getLong(cursor.getColumnIndex(InviteMessgeDao.COLUMN_NAME_TIME));
+                String avatar = cursor.getString(cursor.getColumnIndex(InviteMessgeDao.COLUMN_NAME_AVATAR));
+                String nickname = cursor.getString(cursor.getColumnIndex(InviteMessgeDao.COLUMN_NAME_NICK));
 
                 msg.setId(id);
                 msg.setFrom(from);
                 msg.setReason(reason);
                 msg.setTime(time);
+                msg.setAvatar(avatar);
+                msg.setNickname(nickname);
 
                 msgs.add(msg);
             }
@@ -100,6 +105,10 @@ public class InviteMessgeDaoImpl2 implements InviteMessgeDao {
                             String from = cursor.getString(cursor.getColumnIndex(InviteMessgeDao.COLUMN_NAME_FROM));
                             String reason = cursor.getString(cursor.getColumnIndex(InviteMessgeDao.COLUMN_NAME_REASON));
                             long time = cursor.getLong(cursor.getColumnIndex(InviteMessgeDao.COLUMN_NAME_TIME));
+                            String avatar = cursor.getString(cursor.getColumnIndex(InviteMessgeDao.COLUMN_NAME_AVATAR));
+                            String nickname = cursor.getString(cursor.getColumnIndex(InviteMessgeDao.COLUMN_NAME_NICK));
+                            msg.setAvatar(avatar);
+                            msg.setNickname(nickname);
 
                             msg.setId(id);
                             msg.setFrom(from);

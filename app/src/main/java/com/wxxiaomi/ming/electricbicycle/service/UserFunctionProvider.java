@@ -6,8 +6,8 @@ import android.util.Log;
 import com.hyphenate.easeui.domain.EaseUser;
 import com.wxxiaomi.ming.electricbicycle.EBApplication;
 import com.wxxiaomi.ming.electricbicycle.api.HttpMethods;
-import com.wxxiaomi.ming.electricbicycle.bridge.easemob.ImHelper;
 import com.wxxiaomi.ming.electricbicycle.common.util.TimeUtil;
+import com.wxxiaomi.ming.electricbicycle.db.FriendDao;
 import com.wxxiaomi.ming.electricbicycle.db.bean.InviteMessage;
 import com.wxxiaomi.ming.electricbicycle.db.bean.Option;
 import com.wxxiaomi.ming.electricbicycle.db.bean.User;
@@ -16,12 +16,11 @@ import com.wxxiaomi.ming.electricbicycle.db.bean.UserLocatInfo;
 
 import com.wxxiaomi.ming.electricbicycle.db.bean.format.FootPrintGet;
 import com.wxxiaomi.ming.electricbicycle.db.bean.format.UserInfo;
-import com.wxxiaomi.ming.electricbicycle.db.AppDao;
-import com.wxxiaomi.ming.electricbicycle.db.FriendDao2;
 import com.wxxiaomi.ming.electricbicycle.db.UserDao;
 import com.wxxiaomi.ming.electricbicycle.db.impl.*;
 import com.wxxiaomi.ming.electricbicycle.db.impl.FriendDaoImpl2;
 import com.wxxiaomi.ming.electricbicycle.bridge.aliyun.OssEngine;
+import com.wxxiaomi.ming.electricbicycle.improve.im.ImHelper1;
 
 
 import java.util.Collections;
@@ -44,13 +43,11 @@ import rx.schedulers.Schedulers;
 public class UserFunctionProvider {
     private UserDao userDao;
     private static UserFunctionProvider INSTANCE;
-    private FriendDao2 friendDao2;
-    private AppDao appDao;
+    private FriendDao friendDao2;
 
     private UserFunctionProvider() {
         userDao = new UserDaoImpl(EBApplication.applicationContext);
         friendDao2 = new FriendDaoImpl2(EBApplication.applicationContext);
-        appDao = new AppDaoImpl(EBApplication.applicationContext);
     }
 
     //获取单例
@@ -64,7 +61,7 @@ public class UserFunctionProvider {
     }
 
     public Observable<List<InviteMessage>> getInviteMsgs(){
-        return ImHelper.getInstance().getInviteMsgListRx();
+        return null;
     }
 
     /**
@@ -98,7 +95,7 @@ public class UserFunctionProvider {
                 .flatMap(new Func1<UserCommonInfo, Observable<UserCommonInfo>>() {
                     @Override
                     public Observable<UserCommonInfo> call(UserCommonInfo userCommonInfo) {
-                        GlobalManager.getInstance().putEasyUser(userCommonInfo.emname, userCommonInfo);
+//                        GlobalManager.getInstance().putEasyUser(userCommonInfo.emname, userCommonInfo);
 //                        userCache.put(userCommonInfo.emname, userCommonInfo);
                         return Observable.just(userCommonInfo);
                     }
@@ -111,8 +108,8 @@ public class UserFunctionProvider {
 
             @Override
             public void call(Subscriber<? super EaseUser> subscriber) {
-                EaseUser easyUser = GlobalManager.getInstance().getEasyUser(emname);
-                subscriber.onNext(easyUser);
+//                EaseUser easyUser = GlobalManager.getInstance().getEasyUser(emname);
+                subscriber.onNext(null);
                 subscriber.onCompleted();
             }
         });
@@ -176,8 +173,8 @@ public class UserFunctionProvider {
                 .map(new Func1<String, String>() {
                     @Override
                     public String call(String s) {
-                        GlobalManager.getInstance().getUser().userCommonInfo.cover = s;
-                        appDao.updateUserInfo(GlobalManager.getInstance().getUser().userCommonInfo);
+                        AccountHelper.getAccountInfo().cover = s;
+//                        appDao.updateUserInfo(GlobalManager.getInstance().getUser().userCommonInfo);
                         return s;
                     }
                 });
@@ -228,23 +225,23 @@ public class UserFunctionProvider {
     public Observable<Integer> HandLogin(String username, String password,
                                          boolean isEmOpen, String uniqueNum) {
 
-        final FriendDao2 dao2 = new FriendDaoImpl2(EBApplication.applicationContext);
+        final FriendDao dao2 = new FriendDaoImpl2(EBApplication.applicationContext);
         //登陆服务器
         return userDao.Login(username, password, uniqueNum)
                 .flatMap(new Func1<User, Observable<Boolean>>() {
                     @Override
                     public Observable<Boolean> call(User user) {
-                        GlobalManager.getInstance().savaUser(user);
-                        appDao.savaUser(user);
-                        PreferenceManager.getInstance().savaUserID(user.userCommonInfo.id);
-                        return ImHelper.getInstance().LoginFromEm(user.username, user.password);
+                        AccountHelper.updateUserCache(user);
+//                        appDao.savaUser(user);
+//                        PreferenceManager.getInstance().savaUserID(user.userCommonInfo.id);
+                        return ImHelper1.getInstance().LoginFromEm(user.username, user.password);
                     }
                 })
                 //从服务器获取好友列表
                 .flatMap(new Func1<Boolean, Observable<List<String>>>() {
                     @Override
                     public Observable<List<String>> call(Boolean aBoolean) {
-                        return ImHelper.getInstance().getContactFromEm();
+                        return ImHelper1.getInstance().getContactFromEm();
                     }
                 })
                 //对比本地数据库，得出键值对
@@ -276,7 +273,8 @@ public class UserFunctionProvider {
                 .map(new Func1<Integer, Integer>() {
                     @Override
                     public Integer call(Integer integer) {
-                        ImHelper.getInstance().openUserCache(getEFriends());
+//                        ImHelper.getInstance().openUserCache(getEFriends());
+                        ImHelper1.getInstance().setFriends(getEFriends());
                         return integer;
                     }
                 });
@@ -284,51 +282,51 @@ public class UserFunctionProvider {
 
     public Observable<Integer> AutoLogin() {
         //自动登陆：先从本地取出之前存的user,判断user是否为空,空就要求重新登陆
-        String longToken = PreferenceManager.getInstance().getLongToken();
-        if("".equals(longToken)){
-            return Observable.error(new Exception());
-        }
-        GlobalManager.getInstance().setStoken(PreferenceManager.getInstance().getShortToken());
-        User localUser = appDao.getLocalUser(PreferenceManager.getInstance().getUserId());
-        if (localUser == null) {
-            return Observable.error(new Exception());
-        } else {
-            GlobalManager.getInstance().savaUser(localUser);
-            return ImHelper.getInstance().getContactFromEm()
-                    //对比本地数据库，得出键值对
-                    .map(new Func1<List<String>, String>() {
-                        @Override
-                        public String call(List<String> strings) {
-                            Log.i("wang","从em服务器获取的联系人的数量:"+strings.size());
-                            if (strings.size() == 0) {
-                                return "";
-                            }
-                            return friendDao2.getErrorFriend(strings);
-                        }
-                    })
-                    //链接服务器对比
-                    .flatMap(new Func1<String, Observable<List<UserCommonInfo>>>() {
-                        @Override
-                        public Observable<List<UserCommonInfo>> call(String s) {
-                            return HttpMethods.getInstance().updateuserFriend2(s);
-                        }
-                    })
-                    //得到最新的好友列表
-                    .map(new Func1<List<UserCommonInfo>, Integer>() {
-                        @Override
-                        public Integer call(List<UserCommonInfo> userCommonInfo2s) {
-                            friendDao2.updateFriendsList(userCommonInfo2s);
-                            return userCommonInfo2s.size();
-                        }
-                    }).map(new Func1<Integer, Integer>() {
-                        @Override
-                        public Integer call(Integer integer) {
-                            ImHelper.getInstance().openUserCache(getEFriends());
-                            return integer;
-                        }
-                    });
-        }
-
+//        String longToken = PreferenceManager.getInstance().getLongToken();
+//        if("".equals(longToken)){
+//            return Observable.error(new Exception());
+//        }
+//        AccountHelper.updateSCookie(PreferenceManager.getInstance().getShortToken());
+//        User localUser = appDao.getLocalUser(PreferenceManager.getInstance().getUserId());
+//        if (localUser == null) {
+//            return Observable.error(new Exception());
+//        } else {
+////            GlobalManager.getInstance().savaUser(localUser);
+//            return ImHelper1.getInstance().getContactFromEm()
+//                    //对比本地数据库，得出键值对
+//                    .map(new Func1<List<String>, String>() {
+//                        @Override
+//                        public String call(List<String> strings) {
+//                            Log.i("wang","从em服务器获取的联系人的数量:"+strings.size());
+//                            if (strings.size() == 0) {
+//                                return "";
+//                            }
+//                            return friendDao2.getErrorFriend(strings);
+//                        }
+//                    })
+//                    //链接服务器对比
+//                    .flatMap(new Func1<String, Observable<List<UserCommonInfo>>>() {
+//                        @Override
+//                        public Observable<List<UserCommonInfo>> call(String s) {
+//                            return HttpMethods.getInstance().updateuserFriend2(s);
+//                        }
+//                    })
+//                    //得到最新的好友列表
+//                    .map(new Func1<List<UserCommonInfo>, Integer>() {
+//                        @Override
+//                        public Integer call(List<UserCommonInfo> userCommonInfo2s) {
+//                            friendDao2.updateFriendsList(userCommonInfo2s);
+//                            return userCommonInfo2s.size();
+//                        }
+//                    }).map(new Func1<Integer, Integer>() {
+//                        @Override
+//                        public Integer call(Integer integer) {
+//                            ImHelper1.getInstance().setFriends(getEFriends());
+//                            return integer;
+//                        }
+//                    });
+//        }
+return null;
     }
 
     public Observable<Integer> updateUserInfo(final String name, final String head, final String description, final String city) {
@@ -352,20 +350,20 @@ public class UserFunctionProvider {
                     public Integer call(String s) {
                         if (name != null) {
 //                            pars.put("nickname",name);
-                            GlobalManager.getInstance().getUser().userCommonInfo.nickname = name;
+                            AccountHelper.getAccountInfo().nickname = name;
                         }
                         if (head != null) {
 //                            pars.put("avatar",head);
                             Log.i("wang", "head:" + head);
-                            GlobalManager.getInstance().getUser().userCommonInfo.avatar = head;
+                            AccountHelper.getAccountInfo().avatar = head;
                         }
 
                         if (description != null) {
 //                            pars.put("description",description);
-                            GlobalManager.getInstance().getUser().userCommonInfo.description = description;
+                            AccountHelper.getAccountInfo().description = description;
                         }
                         if (city != null) {
-                            GlobalManager.getInstance().getUser().userCommonInfo.city = city;
+                            AccountHelper.getAccountInfo().city = city;
                         }
 //                        GlobalManager.getInstance().getUser().userCommonInfo.nickname = name;
 //                        GlobalManager.getInstance().getUser().userCommonInfo.avatar = head;
@@ -374,9 +372,11 @@ public class UserFunctionProvider {
                 }).map(new Func1<Integer, Integer>() {
                     @Override
                     public Integer call(Integer integer) {
-                        AppDao dao = new AppDaoImpl(EBApplication.applicationContext);
-                        UserCommonInfo userCommonInfo = GlobalManager.getInstance().getUser().userCommonInfo;
-                        return dao.updateUserInfo(userCommonInfo);
+//                        AppDao dao = new AppDaoImpl(EBApplication.applicationContext);
+                        UserCommonInfo userCommonInfo =  AccountHelper.getAccountInfo();
+                        AccountHelper.getUser().userCommonInfo = userCommonInfo;
+                        AccountHelper.updateUserCache(AccountHelper.getUser());
+                        return 1;
                     }
                 });
     }
@@ -417,7 +417,7 @@ public class UserFunctionProvider {
      * 注销当前账号
      */
     public void logout(){
-        PreferenceManager.getInstance().savaLongToken("");
-        ImHelper.getInstance().logout();
+//        PreferenceManager.getInstance().savaLongToken("");
+        ImHelper1.getInstance().logout();
     }
 }

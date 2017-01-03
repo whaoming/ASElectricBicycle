@@ -10,7 +10,7 @@
 //import com.wxxiaomi.ming.electricbicycle.core.presenter.RegisterOnePresenter;
 //import com.wxxiaomi.ming.electricbicycle.dao.db.UserService;
 //import com.wxxiaomi.ming.electricbicycle.common.GlobalManager;
-//import com.wxxiaomi.ming.electricbicycle.support.rx.SampleProgressObserver;
+//import com.wxxiaomi.ming.electricbicycle.support.rx.ProgressObserver;
 //import com.wxxiaomi.ming.electricbicycle.core.activity.view.RegisterOneView;
 //
 //
@@ -30,7 +30,7 @@
 //    @Override
 //    public void onLoginClick(String username, String password) {
 //        UserService.getInstance().registerUser(username,password)
-//                .subscribe(new SampleProgressObserver<Register>(mView.getContext()) {
+//                .subscribe(new ProgressObserver<Register>(mView.getContext()) {
 //                    @Override
 //                    public void onNext(Register register) {
 //                        Bundle bundle = new Bundle();

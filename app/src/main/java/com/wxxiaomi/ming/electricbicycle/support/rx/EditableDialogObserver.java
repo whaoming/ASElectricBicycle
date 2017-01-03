@@ -11,7 +11,7 @@ import rx.Subscriber;
 
 /**
  * Created by 12262 on 2016/7/2.
-用rx展示一个dialog
+    用rx展示一个dialog
  */
 public class EditableDialogObserver{
 

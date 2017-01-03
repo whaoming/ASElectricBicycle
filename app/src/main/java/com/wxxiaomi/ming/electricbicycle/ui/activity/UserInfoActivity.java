@@ -16,14 +16,16 @@ import android.widget.ImageView;
 
 import com.wxxiaomi.ming.electricbicycle.ConstantValue;
 import com.wxxiaomi.ming.electricbicycle.R;
-import com.wxxiaomi.ming.electricbicycle.bridge.easemob.ImHelper;
-import com.wxxiaomi.ming.electricbicycle.service.GlobalManager;
+import com.wxxiaomi.ming.electricbicycle.api.exp.ApiException;
+import com.wxxiaomi.ming.electricbicycle.improve.im.ImHelper1;
 import com.wxxiaomi.ming.electricbicycle.db.bean.Option;
 import com.wxxiaomi.ming.electricbicycle.db.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.db.bean.format.UserInfo;
+import com.wxxiaomi.ming.electricbicycle.service.AccountHelper;
 import com.wxxiaomi.ming.electricbicycle.service.UserFunctionProvider;
 import com.wxxiaomi.ming.electricbicycle.service.ShowerProvider;
-import com.wxxiaomi.ming.electricbicycle.support.rx.SampleProgressObserver;
+import com.wxxiaomi.ming.electricbicycle.support.rx.ProgressObserver;
+import com.wxxiaomi.ming.electricbicycle.support.rx.ToastObserver;
 import com.wxxiaomi.ming.electricbicycle.ui.fragment.InfoCardFragment;
 import com.wxxiaomi.ming.electricbicycle.ui.fragment.InfoDetailFragment;
 import com.wxxiaomi.ming.electricbicycle.ui.fragment.base.BaseFragment;
@@ -43,7 +45,7 @@ import rx.schedulers.Schedulers;
  * 进来需要判断是当前用户还是其他用户
  * 其他用户的话必须根据id从服务器获取信息
  */
-public class UserInfoActivity extends AppCompatActivity implements FragmentCallback{
+public class UserInfoActivity extends AppCompatActivity implements FragmentCallback {
     //标识当前页面的信息是当前user还是其他用户user
     private boolean isMine;
 
@@ -68,20 +70,20 @@ public class UserInfoActivity extends AppCompatActivity implements FragmentCallb
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_persoanl_latest);
         bundle = getIntent().getBundleExtra("value");
-        isMine = bundle.getBoolean(ConstantValue.INTENT_ISMINE,false);
+        isMine = bundle.getBoolean(ConstantValue.INTENT_ISMINE, false);
         tabLayout = (TabLayout) findViewById(R.id.tab_FindFragment_title);
         tabLayout.setTabMode(TabLayout.MODE_FIXED);
         viewPager = (ViewPager) findViewById(R.id.vp_FindFragment_pager);
         iv_avatar = (ImageView) findViewById(R.id.iv_avatar);
         iv_back = (ImageView) findViewById(R.id.iv_back);
         toolbar = (Toolbar) this.findViewById(R.id.toolbar1);
-        if(isMine){
+        if (isMine) {
             //只有简单的字段
-            toolbar.setTitle(GlobalManager.getInstance().getUser().userCommonInfo.nickname);
-        }else{
+            toolbar.setTitle(AccountHelper.getAccountInfo().nickname);
+        } else {
             targetUser = (UserCommonInfo) bundle.getSerializable(ConstantValue.INTENT_USERINFO);
             toolbar.setTitle(targetUser.nickname);
-            if(GlobalManager.getInstance().getEasyUser(targetUser.emname)!=null){
+            if (ImHelper1.getInstance().isMyFriend(targetUser.emname)) {
                 isFriend = true;
             }
         }
@@ -117,8 +119,8 @@ public class UserInfoActivity extends AppCompatActivity implements FragmentCallb
                 .setOnPositiveButtonClick(new EditableDialog.PositiveButtonOnClick() {
                     @Override
                     public void onClick(DialogInterface dialog, String content) {
-                        ImHelper.getInstance().addContact(targetUser.emname,content)
-                                .subscribe(new SampleProgressObserver<Boolean>(UserInfoActivity.this) {
+                        ImHelper1.getInstance().addContact(targetUser.emname, content)
+                                .subscribe(new ProgressObserver<Boolean>(UserInfoActivity.this) {
                                     @Override
                                     public void onNext(Boolean aBoolean) {
                                         showMsg("成功添加好友");
@@ -130,46 +132,41 @@ public class UserInfoActivity extends AppCompatActivity implements FragmentCallb
     }
 
     private void initCustomView() {
-        if(!isMine){
-            ShowerProvider.showHead(this,iv_avatar,targetUser.avatar);
-            if(targetUser.cover!=null){
-                ShowerProvider.showNormalImage(this,iv_back,targetUser.cover);
+        if (!isMine) {
+            ShowerProvider.showHead(this, iv_avatar, targetUser.avatar);
+            if (targetUser.cover != null) {
+                ShowerProvider.showNormalImage(this, iv_back, targetUser.cover);
             }
         }
 
     }
 
     private void initData() {
-        if(isMine){
+        if (isMine) {
             Bundle bundle = new Bundle();
-            bundle.putSerializable(ConstantValue.BUNDLE_USERINFO,GlobalManager.getInstance().getUser().userCommonInfo);
-            bundle.putBoolean(ConstantValue.INTENT_ISMINE,isMine);
-            infoDetailFragment.receiveData(1,bundle);
-            infoCardFragment.receiveData(1,bundle);
-            UserFunctionProvider.getInstance().getUserOptions(GlobalManager.getInstance().getUser().userCommonInfo.id)
+            bundle.putSerializable(ConstantValue.BUNDLE_USERINFO, AccountHelper.getAccountInfo());
+            bundle.putBoolean(ConstantValue.INTENT_ISMINE, isMine);
+            infoDetailFragment.receiveData(1, bundle);
+            infoCardFragment.receiveData(1, bundle);
+            UserFunctionProvider.getInstance().getUserOptions(AccountHelper.getAccountInfo().id)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(new Observer<List<Option>>() {
-                        @Override
-                        public void onCompleted() {
-
-                        }
-
-                        @Override
-                        public void onError(Throwable e) {
-
-                        }
-
+                    .subscribe(new ToastObserver<List<Option>>(collapsing_toolbar) {
                         @Override
                         public void onNext(List<Option> options) {
                             ArrayList<Option> list = new ArrayList();
                             list.addAll(options);
                             Bundle bundle2 = new Bundle();
-                            bundle2.putParcelableArrayList(ConstantValue.BUNDLE_OPTIONS,list);
-                            infoCardFragment.receiveData(2,bundle2);
+                            bundle2.putParcelableArrayList(ConstantValue.BUNDLE_OPTIONS, list);
+                            infoCardFragment.receiveData(2, bundle2);
+                        }
+
+                        @Override
+                        protected void onError(ApiException ex) {
+                            super.onError(ex);
                         }
                     });
-        }else{
+        } else {
 //            final int userid = getIntent().getIntExtra(ConstantValue.INTENT_USERID,0);
             UserFunctionProvider.getInstance().getUserInfoAndOption(targetUser.id)
                     .subscribeOn(Schedulers.io())
@@ -188,14 +185,14 @@ public class UserInfoActivity extends AppCompatActivity implements FragmentCallb
                         @Override
                         public void onNext(UserInfo userInfo) {
                             Bundle bundle = new Bundle();
-                            bundle.putSerializable(ConstantValue.BUNDLE_USERINFO,userInfo.userCommonInfo);
-                            bundle.putBoolean(ConstantValue.INTENT_ISMINE,isMine);
+                            bundle.putSerializable(ConstantValue.BUNDLE_USERINFO, userInfo.userCommonInfo);
+                            bundle.putBoolean(ConstantValue.INTENT_ISMINE, isMine);
 
-                            infoDetailFragment.receiveData(1,bundle);
-                            infoCardFragment.receiveData(1,bundle);
+                            infoDetailFragment.receiveData(1, bundle);
+                            infoCardFragment.receiveData(1, bundle);
 
-                            bundle.putParcelableArrayList(ConstantValue.BUNDLE_OPTIONS,userInfo.options);
-                            infoCardFragment.receiveData(2,bundle);
+                            bundle.putParcelableArrayList(ConstantValue.BUNDLE_OPTIONS, userInfo.options);
+                            infoCardFragment.receiveData(2, bundle);
                         }
                     });
 
@@ -203,18 +200,20 @@ public class UserInfoActivity extends AppCompatActivity implements FragmentCallb
     }
 
     private int count = 0;
+
     /**
      * 这个函数是用于fragment发送数据给activity
+     *
      * @param fragment
      * @param id
      * @param args
      */
     @Override
     public void onFragmentCallback(BaseFragment fragment, int id, Bundle args) {
-        Log.i("wang","onFragmentCallback");
-        if(id==5){
+        Log.i("wang", "onFragmentCallback");
+        if (id == 5) {
             count++;
-            if(count==2){
+            if (count == 2) {
                 initData();
             }
 
@@ -224,13 +223,13 @@ public class UserInfoActivity extends AppCompatActivity implements FragmentCallb
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-       //加载menu文件到布局
-        if(isMine){
+        //加载menu文件到布局
+        if (isMine) {
             getMenuInflater().inflate(R.menu.menu_userinfo_mine, menu);
-        }else{
-            if(isFriend){
+        } else {
+            if (isFriend) {
                 getMenuInflater().inflate(R.menu.menu_userinfo_friend, menu);
-            }else{
+            } else {
                 getMenuInflater().inflate(R.menu.menu_userinfo_other, menu);
             }
         }
@@ -248,11 +247,15 @@ public class UserInfoActivity extends AppCompatActivity implements FragmentCallb
                 dialog.show();
                 break;
             case R.id.action_edit:
-                intent = new Intent(this,MyInfoEditActivity.class);
+                intent = new Intent(this, MyInfoEditActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.action_talk:
+                intent = new Intent(this, MyInfoEditActivity.class);
                 startActivity(intent);
                 break;
             case R.id.action_share:
-                intent=new Intent(Intent.ACTION_SEND);
+                intent = new Intent(Intent.ACTION_SEND);
                 intent.setType("image/*");
                 intent.putExtra(Intent.EXTRA_SUBJECT, "Share");
                 intent.putExtra(Intent.EXTRA_TEXT, "I have successfully share my message through my app");
@@ -266,11 +269,11 @@ public class UserInfoActivity extends AppCompatActivity implements FragmentCallb
     @Override
     protected void onResume() {
         super.onResume();
-        if(isMine){
-            toolbar.setTitle(GlobalManager.getInstance().getUser().userCommonInfo.nickname);
-            ShowerProvider.showHead(this,iv_avatar,GlobalManager.getInstance().getUser().userCommonInfo.avatar);
-            if(GlobalManager.getInstance().getUser().userCommonInfo.cover!=null){
-                ShowerProvider.showNormalImage(this,iv_back,GlobalManager.getInstance().getUser().userCommonInfo.cover);
+        if (isMine) {
+            toolbar.setTitle(AccountHelper.getAccountInfo().nickname);
+            ShowerProvider.showHead(this, iv_avatar, AccountHelper.getAccountInfo().avatar);
+            if (AccountHelper.getAccountInfo().cover != null) {
+                ShowerProvider.showNormalImage(this, iv_back, AccountHelper.getAccountInfo().cover);
             }
         }
     }

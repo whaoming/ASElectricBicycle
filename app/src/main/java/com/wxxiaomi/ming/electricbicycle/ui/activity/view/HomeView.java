@@ -1,6 +1,7 @@
 package com.wxxiaomi.ming.electricbicycle.ui.activity.view;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,7 +16,7 @@ import com.wxxiaomi.ming.electricbicycle.ui.activity.base.BaseView;
  */
 public interface HomeView<T extends BasePre> extends BaseView {
     void showSnackBar(String content);
-
+    View getSnackContent();
     /**
      * 设置缩放控件不可见
      */

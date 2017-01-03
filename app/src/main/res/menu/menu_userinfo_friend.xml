@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/action_add"
+        android:id="@+id/action_talk"
         android:icon="@mipmap/ic_message_white_24dp"
         android:title="action_collect"
         app:showAsAction="ifRoom" />

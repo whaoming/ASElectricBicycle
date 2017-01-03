@@ -75,6 +75,7 @@ public class HomeActivity extends BaseActivity<HomeView,HomePresenter> implement
     private RelativeLayout rl_myfriend;
     private RelativeLayout rl_foot_print;
 
+
     @Override
     protected void initView(Bundle savedInstanceState) {
         setContentView(R.layout.activity_home);
@@ -124,16 +125,8 @@ public class HomeActivity extends BaseActivity<HomeView,HomePresenter> implement
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btn_go:
-//                presenter.goBtnOnClick();
                 presenter.onFootPrintActionClick();
                 break;
-//            case R.id.iv_contact:
-//                presenter.contactBtnOnClick();
-//                break;
-//            case R.id.iv_my_head:
-////                presenter.headBtnOnClick();
-//                mDrawerLayout.openDrawer(Gravity.LEFT);
-//                break;
             case R.id.near_iv_head:
                 presenter.nearHeadBtnOnClick();
                 break;
@@ -171,6 +164,11 @@ public class HomeActivity extends BaseActivity<HomeView,HomePresenter> implement
         Snackbar.make(mDrawerLayout, content, Snackbar.LENGTH_LONG).show();
     }
 
+    @Override
+    public View getSnackContent() {
+        return sn_layout;
+    }
+
 
     public void initAnimation() {
         mShowAction = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0.0f,
@@ -191,15 +189,21 @@ public class HomeActivity extends BaseActivity<HomeView,HomePresenter> implement
         Glide.with(this).load("https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=870609829,3308433796&fm=116&gp=0.jpg").asBitmap().into(new SimpleTarget<Bitmap>() {
             @Override
             public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
-                View view = getLayoutInflater().inflate(R.layout.view_near_img,null);
-                CircularImageView imgView = (CircularImageView) view.findViewById(R.id.iv_head);
-                imgView.setImageBitmap(resource);
-                BitmapDescriptor bdA = BitmapDescriptorFactory.fromView(view);
-                MarkerOptions ooA = new MarkerOptions().position(point).icon(bdA)
-                        .zIndex(9).draggable(true);
-                ooA.animateType(MarkerOptions.MarkerAnimateType.drop);
-                Marker mMarker = (Marker) (mBaiduMap.addOverlay(ooA));
-                mMarker.setZIndex(posttion);
+                try {
+                    View view = getLayoutInflater().inflate(R.layout.view_near_img, null);
+                    CircularImageView imgView = (CircularImageView) view.findViewById(R.id.iv_head);
+                    imgView.setImageBitmap(resource);
+                    if (view != null) {
+                        BitmapDescriptor bdA = BitmapDescriptorFactory.fromView(view);
+                        MarkerOptions ooA = new MarkerOptions().position(point).icon(bdA)
+                                .zIndex(9).draggable(true);
+                        ooA.animateType(MarkerOptions.MarkerAnimateType.drop);
+                        Marker mMarker = (Marker) (mBaiduMap.addOverlay(ooA));
+                        mMarker.setZIndex(posttion);
+                    }
+                }catch (Exception e){
+                    e.printStackTrace();;
+                }
             }
         });
     }

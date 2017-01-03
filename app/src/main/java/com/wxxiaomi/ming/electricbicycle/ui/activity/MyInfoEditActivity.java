@@ -13,9 +13,9 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.wxxiaomi.ming.electricbicycle.R;
-import com.wxxiaomi.ming.electricbicycle.service.GlobalManager;
+import com.wxxiaomi.ming.electricbicycle.service.AccountHelper;
 import com.wxxiaomi.ming.electricbicycle.service.UserFunctionProvider;
-import com.wxxiaomi.ming.electricbicycle.support.rx.SampleProgressObserver;
+import com.wxxiaomi.ming.electricbicycle.support.rx.ProgressObserver;
 import com.wxxiaomi.ming.electricbicycle.service.ShowerProvider;
 import com.wxxiaomi.ming.electricbicycle.bridge.aliyun.OssEngine;
 import com.wxxiaomi.ming.electricbicycle.bridge.img.PhotoTakeUtil;
@@ -55,12 +55,12 @@ public class MyInfoEditActivity extends AppCompatActivity implements View.OnClic
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         userHead = (ImageView) findViewById(R.id.userHead);
         userHead.setOnClickListener(this);
-        ShowerProvider.showHead(this,userHead, GlobalManager.getInstance().getUser().userCommonInfo.avatar);
+        ShowerProvider.showHead(this,userHead, AccountHelper.getAccountInfo().avatar);
         util = new PhotoTakeUtil(this);
-        et_nickname.setText(GlobalManager.getInstance().getUser().userCommonInfo.nickname);
-        et_description.setText(GlobalManager.getInstance().getUser().userCommonInfo.description);
+        et_nickname.setText(AccountHelper.getAccountInfo().nickname);
+        et_description.setText(AccountHelper.getAccountInfo().description);
         et_city = (EditText) findViewById(R.id.et_city);
-        et_city.setText(GlobalManager.getInstance().getUser().userCommonInfo.city);
+        et_city.setText(AccountHelper.getAccountInfo().city);
         et_city.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -74,7 +74,7 @@ public class MyInfoEditActivity extends AppCompatActivity implements View.OnClic
 
             @Override
             public void afterTextChanged(Editable editable) {
-                if(!editable.toString().equals(GlobalManager.getInstance().getUser().userCommonInfo.city)){
+                if(!editable.toString().equals(AccountHelper.getAccountInfo().city)){
                     city = editable.toString();
                 }else{
                     city = null;
@@ -95,7 +95,7 @@ public class MyInfoEditActivity extends AppCompatActivity implements View.OnClic
 
             @Override
             public void afterTextChanged(Editable editable) {
-                if(!editable.toString().equals(GlobalManager.getInstance().getUser().userCommonInfo.description)){
+                if(!editable.toString().equals(AccountHelper.getAccountInfo().description)){
                     description = editable.toString();
                 }else{
                     description = null;
@@ -115,7 +115,7 @@ public class MyInfoEditActivity extends AppCompatActivity implements View.OnClic
 
             @Override
             public void afterTextChanged(Editable editable) {
-                if(!editable.toString().equals(GlobalManager.getInstance().getUser().userCommonInfo.nickname)){
+                if(!editable.toString().equals(AccountHelper.getAccountInfo().nickname)){
                     name = editable.toString();
                 }else{
                     name = null;
@@ -159,7 +159,7 @@ public class MyInfoEditActivity extends AppCompatActivity implements View.OnClic
         }
         UserFunctionProvider.getInstance().updateUserInfo(name,head,description,city)
                 .subscribeOn(Schedulers.io())
-                .subscribe(new SampleProgressObserver<Integer>(this) {
+                .subscribe(new ProgressObserver<Integer>(this) {
                     @Override
                     public void onNext(Integer integer) {
                         finish();
