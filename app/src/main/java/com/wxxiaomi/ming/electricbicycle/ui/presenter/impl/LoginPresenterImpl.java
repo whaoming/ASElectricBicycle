@@ -1,25 +1,19 @@
 package com.wxxiaomi.ming.electricbicycle.ui.presenter.impl;
 
-import android.database.Observable;
 import android.support.design.widget.TextInputLayout;
-import android.util.Log;
 
 import com.wxxiaomi.ming.electricbicycle.ConstantValue;
-import com.wxxiaomi.ming.electricbicycle.bridge.easemob.ImHelper;
 import com.wxxiaomi.ming.electricbicycle.common.util.AppManager;
 import com.wxxiaomi.ming.electricbicycle.common.util.UniqueUtil;
-import com.wxxiaomi.ming.electricbicycle.improve.im.service.ImService;
 import com.wxxiaomi.ming.electricbicycle.service.UserFunctionProvider;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.RegisterActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.base.BasePreImpl;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.HomeActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.LoginPresenter;
-import com.wxxiaomi.ming.electricbicycle.support.rx.SampleProgressObserver;
+import com.wxxiaomi.ming.electricbicycle.support.rx.ProgressObserver;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.view.LoginView;
 import com.wxxiaomi.ming.electricbicycle.common.util.MyUtils;
 
-import rx.Observer;
-import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
@@ -76,7 +70,7 @@ public class LoginPresenterImpl extends BasePreImpl<LoginView> implements LoginP
         UserFunctionProvider.getInstance().HandLogin(username, password,ConstantValue.isEMOpen,uniqueID)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new SampleProgressObserver<Integer>(mView.getContext()) {
+                .subscribe(new ProgressObserver<Integer>(mView.getContext()) {
                     @Override
                     public void onNext(Integer integer) {
                         AppManager.getAppManager().finishActivity(RegisterActivity.class);
@@ -87,24 +81,25 @@ public class LoginPresenterImpl extends BasePreImpl<LoginView> implements LoginP
 
     @Override
     public void onDebugBtnClick() {
-        loginEM("122627018", "987987987");
+        sendRequest("122627018", "987987987");
     }
 
     public void loginEM(String username,String password){
+//        UserFunctionProvider.getInstance().HandLogin()
 //        ImService.Login(username,password)
-//                .subscribe(new SampleProgressObserver<Boolean>(mView.getContext()) {
+//                .subscribe(new ProgressObserver<Boolean>(mView.getContext()) {
 //                    @Override
 //                    public void onNext(Boolean aBoolean) {
 //                        Log.i("wang","登录em:"+aBoolean);
 //                    }
 //                });
-        ImHelper.getInstance().LoginFromEm(username,password)
-                .subscribe(new SampleProgressObserver<Boolean>(mView.getContext()) {
-                    @Override
-                    public void onNext(Boolean aBoolean) {
-                        Log.i("wang","登录em:"+aBoolean);
-                    }
-                });
+//        ImHelper.getInstance().LoginFromEm(username,password)
+//                .subscribe(new ProgressObserver<Boolean>(mView.getContext()) {
+//                    @Override
+//                    public void onNext(Boolean aBoolean) {
+//                        Log.i("wang","登录em:"+aBoolean);
+//                    }
+//                });
 //        return rx.Observable.create(new rx.Observable.OnSubscribe<Boolean>() {
 //
 //            @Override

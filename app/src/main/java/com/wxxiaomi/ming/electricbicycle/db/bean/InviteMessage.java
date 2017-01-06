@@ -8,10 +8,26 @@ public class InviteMessage {
 		private long time;
 		//添加理由
 		private String reason;
+	private String nickname;
+	private String avatar;
 
+	public String getNickname() {
+		return nickname;
+	}
 
-		
-		private String from;
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+
+	public String getAvatar() {
+		return avatar;
+	}
+
+	public void setAvatar(String avatar) {
+		this.avatar = avatar;
+	}
+
+	private String from;
 		public long getTime() {
 			return time;
 		}
@@ -37,7 +53,5 @@ public class InviteMessage {
 			this.id = id;
 		}
 		
-		
-		
-		
+
 }

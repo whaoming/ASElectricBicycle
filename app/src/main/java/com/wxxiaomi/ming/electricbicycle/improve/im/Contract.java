@@ -8,7 +8,7 @@ package com.wxxiaomi.ming.electricbicycle.improve.im;
 
 public interface Contract {
     interface IService{
-        void notifyMsg();
+        void notifyMsg(String action);
     }
 
     interface IOperator extends Runnable {

@@ -13,6 +13,9 @@ public class User implements Serializable{
 	public String username;
 	public String password;
 	public UserCommonInfo userCommonInfo;
+
+	public String shortToken;
+	public String longToken;
 	
 
 

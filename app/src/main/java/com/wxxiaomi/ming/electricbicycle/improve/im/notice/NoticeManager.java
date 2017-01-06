@@ -7,7 +7,8 @@ import android.content.IntentFilter;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
-import com.wxxiaomi.ming.electricbicycle.bridge.easemob.ImHelper;
+
+import com.wxxiaomi.ming.electricbicycle.improve.im.ImHelper1;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -46,7 +47,7 @@ public final class NoticeManager {
 
         LocalBroadcastManager broadcastManager = LocalBroadcastManager.getInstance(context);
         IntentFilter filter = new IntentFilter();
-        filter.addAction(ImHelper.NOTICE_ARRIVE);
+        filter.addAction(ImHelper1.NOTICE_MESSAGE_RECEIVE);
         broadcastManager.registerReceiver(INSTANCE.mReceiver, filter);
     }
 
@@ -103,8 +104,8 @@ public final class NoticeManager {
         @Override
         public void onReceive(Context context, Intent intent) {
             if (intent.getAction() != null &&
-                    ImHelper.NOTICE_ARRIVE.equals(intent.getAction())) {
-                Serializable serializable = intent.getSerializableExtra(ImHelper.EXTRA_BEAN);
+                    ImHelper1.NOTICE_MESSAGE_RECEIVE.equals(intent.getAction())) {
+                Serializable serializable = intent.getSerializableExtra(ImHelper1.EXTRA_BEAN);
                 if (serializable != null) {
                     try {
                         onNoticeChanged((NoticeBean) serializable);

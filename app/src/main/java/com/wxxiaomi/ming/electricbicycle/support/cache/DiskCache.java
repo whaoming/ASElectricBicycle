@@ -16,6 +16,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -75,6 +77,13 @@ public class DiskCache {
                     DiskLruCache.Snapshot snapShot = mDiskLruCache.get(key);
                     if (snapShot != null) {
                         InputStream is = snapShot.getInputStream(0);
+//                        ObjectOutputStream oos = new ObjectOutputStream()
+//                        BufferedInputStream buf=new BufferedInputStream(is);
+//                        ObjectInputStream obj=new ObjectInputStream(buf);
+//                        String info=obj.readUTF();
+//                        int ok=obj.readInt();
+//                        Person tempPerson=(Person)obj.readObject();
+
                         ByteArrayOutputStream swapStream = new ByteArrayOutputStream();
                         byte[] buff = new byte[100];
                         int rc = 0;

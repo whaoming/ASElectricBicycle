@@ -6,7 +6,7 @@ import com.wxxiaomi.ming.electricbicycle.EBApplication;
 import com.wxxiaomi.ming.electricbicycle.api.exp.ExceptionProvider;
 import com.wxxiaomi.ming.electricbicycle.api.exp.ServerException;
 import com.wxxiaomi.ming.electricbicycle.api.service.ApiService;
-import com.wxxiaomi.ming.electricbicycle.service.GlobalManager;
+import com.wxxiaomi.ming.electricbicycle.service.AccountHelper;
 import com.wxxiaomi.ming.electricbicycle.service.PreferenceManager;
 import com.wxxiaomi.ming.electricbicycle.common.util.UniqueUtil;
 import com.wxxiaomi.ming.electricbicycle.db.bean.Option;
@@ -67,9 +67,10 @@ public class HttpMethods {
                 @Override
                 public Response intercept(Chain chain) throws IOException {
                     Request newRequest;
-                    if(GlobalManager.getInstance().getStoken()!=null && !"".equals(GlobalManager.getInstance().getStoken())){
+//                    if(GlobalManager.getInstance().getStoken()!=null && !"".equals(GlobalManager.getInstance().getStoken())){
+                    if(!AccountHelper.isShortCookieEmpty()){
                         newRequest= chain.request().newBuilder()
-                                .addHeader("token", GlobalManager.getInstance().getStoken())
+                                .addHeader("token", AccountHelper.getShortCookie())
                                 .build();
                     }else{
                         newRequest= chain.request().newBuilder()
@@ -81,13 +82,15 @@ public class HttpMethods {
 
                     if(response.header("token")!=null){
 //                        Log.i("wang","发现瘦肉汤_token");
-                            GlobalManager.getInstance().setStoken(response.header("token"));
-                        PreferenceManager.getInstance().savaShortToken(response.header("token"));
+//                            GlobalManager.getInstance().setStoken(response.header("token"));
+//                        PreferenceManager.getInstance().savaShortToken(response.header("token"));
+                        AccountHelper.updateSCookie(response.header("token"));
                     }
                     String long_token = response.header("long_token");
                     if(long_token!=null){
 //                        Log.i("wang","发现long_token");
-                        PreferenceManager.getInstance().savaLongToken(long_token);
+//                        PreferenceManager.getInstance().savaLongToken(long_token);
+                        AccountHelper.updateLCookie(long_token);
                     }
                     return response;
                 }
@@ -120,21 +123,19 @@ public class HttpMethods {
         return SingletonHolder.INSTANCE;
     }
 
-    /**
-     * 用于获取豆瓣电影Top250的数据
-     */
-    public Observable<List<UserCommonInfo>> getTopMovie(String username, String password) {
-        return demoService.initUserInfo(username, password)
-                .map(new ServerResultFunc<List<UserCommonInfo>>())
-                .onErrorResumeNext(new Func1<Throwable, Observable<? extends List<UserCommonInfo>>>() {
-                    @Override
-                    public Observable<? extends List<UserCommonInfo>> call(Throwable throwable) {
-                        return Observable.error(ExceptionProvider.handleException(throwable));
-                    }
-                })
-                .subscribeOn(Schedulers.io())
-                .unsubscribeOn(Schedulers.io());
-    }
+
+//    public Observable<List<UserCommonInfo>> getTopMovie(String username, String password) {
+//        return demoService.initUserInfo(username, password)
+//                .map(new ServerResultFunc<List<UserCommonInfo>>())
+//                .onErrorResumeNext(new Func1<Throwable, Observable<? extends List<UserCommonInfo>>>() {
+//                    @Override
+//                    public Observable<? extends List<UserCommonInfo>> call(Throwable throwable) {
+//                        return Observable.error(ExceptionProvider.handleException(throwable));
+//                    }
+//                })
+//                .subscribeOn(Schedulers.io())
+//                .unsubscribeOn(Schedulers.io());
+//    }
 
     public Observable<String> publishFootPrint(String content,String picture,String locat_tag,double lat,double lng){
         return demoService.publishFootPrint(content, picture, locat_tag, lat, lng)
@@ -331,7 +332,7 @@ public class HttpMethods {
     public Observable<String> Token_Long2Short(){
         UniqueUtil util = new UniqueUtil(EBApplication.applicationContext);
         String uniqueID = util.getUniqueID();
-        String long_token = PreferenceManager.getInstance().getLongToken();
+        String long_token = AccountHelper.getLongCookie();
         return demoService.getSToken(long_token,uniqueID)
                 .map(new ServerResultFunc<String>())
         .onErrorResumeNext(new HttpResultFunc<String>());
@@ -377,7 +378,6 @@ public class HttpMethods {
     private class HttpResultFunc<T> implements Func1<Throwable, Observable<T>> {
         @Override
         public Observable<T> call(Throwable throwable) {
-//            Log.i("wang","HttpMethod发现异常拉"+throwable.toString());
             throwable.printStackTrace();
             return Observable.error(ExceptionProvider.handleException(throwable));
         }

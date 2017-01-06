@@ -20,7 +20,7 @@ import com.baidu.mapapi.map.TextureMapView;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.inner.GeoPoint;
 import com.wxxiaomi.ming.electricbicycle.R;
-import com.wxxiaomi.ming.electricbicycle.support.rx.SampleProgressObserver;
+import com.wxxiaomi.ming.electricbicycle.support.rx.ProgressObserver;
 import com.wxxiaomi.ming.electricbicycle.common.util.OverlayManager;
 import com.wxxiaomi.ming.electricbicycle.db.bean.FootPrintDetail;
 import com.wxxiaomi.ming.electricbicycle.db.bean.format.FootPrintGet;
@@ -86,7 +86,7 @@ public class FootPrintShowActivity extends AppCompatActivity {
         UserFunctionProvider.getInstance().getUserFootPrint(25)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new SampleProgressObserver<FootPrintGet>(this) {
+                .subscribe(new ProgressObserver<FootPrintGet>(this) {
                     @Override
                     public void onNext(FootPrintGet footPrintGet) {
 //                        Log.i("wang","footPrintGet.footPrints.size():"+footPrintGet.footPrints.size());

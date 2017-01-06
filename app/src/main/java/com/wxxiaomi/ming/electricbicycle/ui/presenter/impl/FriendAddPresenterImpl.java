@@ -8,12 +8,13 @@ import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.db.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.db.bean.UserLocatInfo;
 
+import com.wxxiaomi.ming.electricbicycle.service.AccountHelper;
 import com.wxxiaomi.ming.electricbicycle.service.UserFunctionProvider;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.base.BasePreImpl;
 
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.FriendAddPresenter;
-import com.wxxiaomi.ming.electricbicycle.service.GlobalManager;
-import com.wxxiaomi.ming.electricbicycle.support.rx.SampleProgressObserver;
+
+import com.wxxiaomi.ming.electricbicycle.support.rx.ProgressObserver;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.view.FriendAddView;
 import com.wxxiaomi.ming.electricbicycle.service.LocatProvider;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.adapter2.NearUserAdapter;
@@ -53,7 +54,7 @@ public class FriendAddPresenterImpl extends BasePreImpl<FriendAddView> implement
 
 
     private void getNearFriend() {
-        UserFunctionProvider.getInstance().getNearPeople(GlobalManager.getInstance().getUser().id
+        UserFunctionProvider.getInstance().getNearPeople(AccountHelper.getAccountInfo().id
                 , LocatProvider.getInstance().getLatitude()
                 , LocatProvider.getInstance().getLongitude())
                 .subscribe(new Action1<List<UserLocatInfo>>() {
@@ -73,7 +74,7 @@ public class FriendAddPresenterImpl extends BasePreImpl<FriendAddView> implement
         mView.getListView().setAdapter(adapter1);
         UserFunctionProvider.getInstance().getUserByNameFWeb(name)
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new SampleProgressObserver<List<UserCommonInfo>>(mView.getContext()) {
+                .subscribe(new ProgressObserver<List<UserCommonInfo>>(mView.getContext()) {
                     @Override
                     public void onNext(List<UserCommonInfo> initUserInfo) {
                             isNear = false;

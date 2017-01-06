@@ -75,6 +75,7 @@ public class HomeActivity extends BaseActivity<HomeView,HomePresenter> implement
     private RelativeLayout rl_myfriend;
     private RelativeLayout rl_foot_print;
 
+
     @Override
     protected void initView(Bundle savedInstanceState) {
         setContentView(R.layout.activity_home);
@@ -124,16 +125,8 @@ public class HomeActivity extends BaseActivity<HomeView,HomePresenter> implement
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btn_go:
-//                presenter.goBtnOnClick();
                 presenter.onFootPrintActionClick();
                 break;
-//            case R.id.iv_contact:
-//                presenter.contactBtnOnClick();
-//                break;
-//            case R.id.iv_my_head:
-////                presenter.headBtnOnClick();
-//                mDrawerLayout.openDrawer(Gravity.LEFT);
-//                break;
             case R.id.near_iv_head:
                 presenter.nearHeadBtnOnClick();
                 break;
@@ -169,6 +162,11 @@ public class HomeActivity extends BaseActivity<HomeView,HomePresenter> implement
     @Override
     public void showSnackBar(String content) {
         Snackbar.make(mDrawerLayout, content, Snackbar.LENGTH_LONG).show();
+    }
+
+    @Override
+    public View getSnackContent() {
+        return sn_layout;
     }
 
 
@@ -399,7 +397,6 @@ public class HomeActivity extends BaseActivity<HomeView,HomePresenter> implement
         mActionProvider.setBadge(0);
         mActionProvider2.setIcon(R.mipmap.ic_notify_none);
         mActionProvider2.setBadge(0);
-        Log.i("wang","onWindowFocusChanged");
         presenter.updateUnreadLabel();
     }
 }

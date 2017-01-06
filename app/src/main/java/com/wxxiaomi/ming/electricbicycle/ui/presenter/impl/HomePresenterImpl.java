@@ -21,11 +21,13 @@ import com.baidu.mapapi.model.LatLng;
 import com.wxxiaomi.ming.electricbicycle.ConstantValue;
 import com.wxxiaomi.ming.electricbicycle.db.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.db.bean.UserLocatInfo;
+import com.wxxiaomi.ming.electricbicycle.service.AccountHelper;
 import com.wxxiaomi.ming.electricbicycle.service.ShowerProvider;
-import com.wxxiaomi.ming.electricbicycle.bridge.easemob.common.EmConstant;
+import com.wxxiaomi.ming.electricbicycle.improve.im.EmConstant;
 import com.wxxiaomi.ming.electricbicycle.service.UserFunctionProvider;
 import com.wxxiaomi.ming.electricbicycle.improve.im.notice.NoticeBean;
 import com.wxxiaomi.ming.electricbicycle.improve.im.notice.NoticeManager;
+import com.wxxiaomi.ming.electricbicycle.support.rx.ToastObserver;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.FootPrintShowActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.FootPublishActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.LoginActivity;
@@ -35,7 +37,6 @@ import com.wxxiaomi.ming.electricbicycle.ui.presenter.base.BasePreImpl;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.HomePresenter;
 import com.wxxiaomi.ming.electricbicycle.service.LocatProvider;
 import com.wxxiaomi.ming.electricbicycle.bridge.web.TestWebActivity;
-import com.wxxiaomi.ming.electricbicycle.service.GlobalManager;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.ContactActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.view.HomeView;
 
@@ -43,13 +44,14 @@ import com.wxxiaomi.ming.electricbicycle.ui.weight.custom.CircularImageView;
 
 import java.util.List;
 
+import rx.Observer;
 import rx.functions.Action1;
 
 /**
  * Created by 12262 on 2016/6/6.
  * 主界面
  */
-public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePresenter<HomeView>,NoticeManager.NoticeNotify {
+public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePresenter<HomeView>, NoticeManager.NoticeNotify {
 
     private LocationClient mLocClient;
     /**
@@ -67,8 +69,7 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
      */
     private UserCommonInfo currentNearPerson;
     private List<UserLocatInfo> userLocatList;
-    private LocalBroadcastManager broadcastManager;
-//    private BroadcastReceiver broadcastReceiver;
+//    private LocalBroadcastManager broadcastManager;
 
     @Override
     public void init() {
@@ -81,7 +82,7 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
      * 注册消息监听的广播接收者
      */
     private void registerBroadcastReceiver() {
-        broadcastManager = LocalBroadcastManager.getInstance(mView.getContext());
+//        broadcastManager = LocalBroadcastManager.getInstance(mView.getContext());
         IntentFilter intentFilter = new IntentFilter();
         //联系人事件
         intentFilter.addAction(EmConstant.ACTION_CONTACT_CHANAGED);
@@ -110,7 +111,7 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
         LocationClientOption option = new LocationClientOption();
         option.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy);
         option.setCoorType("bd09ll");//可选，默认gcj02，设置返回的定位结果坐标系
-        int span=5000;
+        int span = 5000;
         option.setScanSpan(span);//可选，默认0，即仅定位一次，设置发起定位请求的间隔需要大于等于1000ms才是有效的
         option.setIsNeedAddress(true);//可选，设置是否需要地址信息，默认不需要
         option.setOpenGps(true);//可选，默认false,设置是否使用gps
@@ -136,12 +137,12 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
 //        Log.i("wang",tempUser.toString());
         boolean isSame = (currentNearPerson == tempUser);
         currentNearPerson = tempUser;
-        mView.editNearViewState(mView.isNearViewVis(),isSame);
+        mView.editNearViewState(mView.isNearViewVis(), isSame);
     }
 
     @Override
     public void adapterNerarView(CircularImageView imageView, TextView tv_name, TextView tv_description) {
-        ShowerProvider.showHead(mView.getContext(),imageView,currentNearPerson.avatar);
+        ShowerProvider.showHead(mView.getContext(), imageView, currentNearPerson.avatar);
         tv_name.setText(currentNearPerson.nickname);
         tv_description.setText("生活就像海洋,只有意志坚定的人才能到彼岸");
     }
@@ -154,14 +155,14 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
 
     @Override
     public void contactBtnOnClick() {
-        mView.runActivity(ContactActivity.class,null);
+        mView.runActivity(ContactActivity.class, null);
     }
 
     @Override
     public void headBtnOnClick() {
         Bundle bundle = new Bundle();
-        bundle.putBoolean(ConstantValue.INTENT_ISMINE,true);
-        mView.runActivity(UserInfoActivity.class,bundle);
+        bundle.putBoolean(ConstantValue.INTENT_ISMINE, true);
+        mView.runActivity(UserInfoActivity.class, bundle);
     }
 
     @Override
@@ -173,24 +174,24 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
     public void nearHeadBtnOnClick() {
         Bundle bundle = new Bundle();
         bundle.putSerializable(ConstantValue.INTENT_USERINFO, currentNearPerson);
-        bundle.putBoolean(ConstantValue.INTENT_ISMINE,false);
-        mView.runActivity(UserInfoActivity.class,bundle);
+        bundle.putBoolean(ConstantValue.INTENT_ISMINE, false);
+        mView.runActivity(UserInfoActivity.class, bundle);
     }
 
     @Override
     public void topicBtnOnClick() {
         Intent intent = new Intent(mView.getContext(), TestWebActivity.class);
-        intent.putExtra("url", ConstantValue.SERVER_URL+"/app/topicList_1.html");
+        intent.putExtra("url", ConstantValue.SERVER_URL + "/app/topicList_1.html");
         mView.getContext().startActivity(intent);
     }
 
     @Override
     public void onNewIntent(Intent intent) {
-        Log.i("wang","onNewIntent");
+        Log.i("wang", "onNewIntent");
         mView.buildAlertDialog("确定", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                mView.runActivity(LoginActivity.class,null,true);
+                mView.runActivity(LoginActivity.class, null, true);
             }
         }, null, null, "提示", "您的账号在别的设备中登陆");
         mView.showDialog();
@@ -198,12 +199,12 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
 
     @Override
     public void onSettingClick() {
-            mView.runActivity(SettingActivity.class,null);
+        mView.runActivity(SettingActivity.class, null);
     }
 
     @Override
     public void onFootPrintClick() {
-        mView.runActivity(FootPrintShowActivity.class,null);
+        mView.runActivity(FootPrintShowActivity.class, null);
 //        mView.showSnackBar("足迹功能暂未开放");
     }
 
@@ -219,10 +220,10 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
 
     @Override
     public void onFootPrintActionClick() {
-        mView.runActivity(FootPublishActivity.class,null);
+        mView.runActivity(FootPublishActivity.class, null);
     }
 
-    public void updateUnreadLabel(){
+    public void updateUnreadLabel() {
 //        int allUnreadCount = ImHelper.getInstance().getAllUnreadCount();
 //        mView.updateUnreadLabel(allUnreadCount);
 //        ImHelper.getInstance().getAllUnreadCountRx()
@@ -235,7 +236,7 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
 //                    }
 //                });
         NoticeBean bean = NoticeManager.getNotice();
-        mView.updateUnreadLabel(bean.getInvite()+bean.getMessage()+bean.getReview());
+        mView.updateUnreadLabel(bean.getInvite() + bean.getMessage() + bean.getReview());
     }
 
 
@@ -245,13 +246,14 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
 //        unregisterBroadcastReceiver();
         mLocClient.stop();
         mBaiduMap.setMyLocationEnabled(false);
+        NoticeManager.unBindNotify(this);
 //        ImHelper.getInstance().setMessageListener(null);
     }
 
     @Override
     public void onViewResume() {
-        ShowerProvider.showHead(mView.getContext(),mView.getHeadView(),GlobalManager.getInstance().getUser().userCommonInfo.avatar);
-        ShowerProvider.showHead(mView.getContext(),mView.getDrawerAvatar(),GlobalManager.getInstance().getUser().userCommonInfo.avatar);
+        ShowerProvider.showHead(mView.getContext(), mView.getHeadView(), AccountHelper.getAccountInfo().avatar);
+        ShowerProvider.showHead(mView.getContext(), mView.getDrawerAvatar(), AccountHelper.getAccountInfo().avatar);
 //        updateUnreadLabel();
 //        ImHelper.getInstance().setMessageListener(new ImHelper.MyMessageListener() {
 //            @Override
@@ -271,7 +273,7 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
 
     @Override
     public void onNoticeArrived(NoticeBean bean) {
-        mView.updateUnreadLabel(bean.getInvite()+bean.getMessage()+bean.getReview());
+        mView.updateUnreadLabel(bean.getInvite() + bean.getMessage() + bean.getReview());
     }
 
 //    public void
@@ -280,8 +282,12 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
      * 定位SDK监听函数
      */
     public class MyLocationListenner implements BDLocationListener {
+
         @Override
         public void onReceiveLocation(BDLocation location) {
+            int locType = location.getLocType();
+//            Log.i("wang","locType:"+locType);
+
             // map view 销毁后不在处理新接收的位置
             if (location == null || mBaiduMap == null) {
                 return;
@@ -291,7 +297,7 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
 //            Log.i("wang", "获取到自己的位置latitude："+latitude+",longitude:"+longitude);
             Address address = location.getAddress();
             String locat_tag = location.getLocationDescribe();
-            LocatProvider.getInstance().init(latitude,longitude,address,locat_tag);
+            LocatProvider.getInstance().init(latitude, longitude, address, locat_tag);
             MyLocationData locData = new MyLocationData.Builder()
                     .accuracy(0)
                     // 此处设置开发者获取到的方向信息，顺时针0-360
@@ -312,21 +318,53 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
     }
 
     public void getNearByFromServer(final double latitude,
-                                    final double longitude){
-        UserFunctionProvider.getInstance().getNearPeople(GlobalManager.getInstance().getUser().id,latitude,longitude)
-                .subscribe(new Action1<List<UserLocatInfo>>() {
-                    @Override
-                    public void call(List<UserLocatInfo> nearByPerson) {
-                        if(nearByPerson!=null){
-                            userLocatList = nearByPerson;
-                            for(int i=0;i<nearByPerson.size();i++){
-                                UserLocatInfo user = nearByPerson.get(i);
-                                LatLng point = new LatLng(user.point[0], user.point[1]);
-                                mView.addMaker(point,i);
+                                    final double longitude) {
+        UserFunctionProvider.getInstance().getNearPeople(AccountHelper.getAccountInfo().id, latitude, longitude)
+                .subscribe(
+                        new ToastObserver<List<UserLocatInfo>>(mView.getSnackContent()) {
+                            @Override
+                            public void onNext(List<UserLocatInfo> userLocatInfos) {
+
                             }
                         }
-                    }
-                });
+
+//                        new Action1<List<UserLocatInfo>>() {
+//                    @Override
+//                    public void call(List<UserLocatInfo> nearByPerson) {
+//                        if(nearByPerson!=null){
+//                            userLocatList = nearByPerson;
+//                            for(int i=0;i<nearByPerson.size();i++){
+//                                UserLocatInfo user = nearByPerson.get(i);
+//                                LatLng point = new LatLng(user.point[0], user.point[1]);
+//                                mView.addMaker(point,i);
+//                            }
+//                        }
+//                    }
+//                }
+//                        new Observer<List<UserLocatInfo>>() {
+//                            @Override
+//                            public void onCompleted() {
+//
+//                            }
+//
+//                            @Override
+//                            public void onError(Throwable e) {
+//                                Log.i("wang", "首页获取附近的人出错啦");
+//                            }
+//
+//                            @Override
+//                            public void onNext(List<UserLocatInfo> nearByPerson) {
+//                                if (nearByPerson != null) {
+//                                    userLocatList = nearByPerson;
+//                                    for (int i = 0; i < nearByPerson.size(); i++) {
+//                                        UserLocatInfo user = nearByPerson.get(i);
+//                                        LatLng point = new LatLng(user.point[0], user.point[1]);
+//                                        mView.addMaker(point, i);
+//                                    }
+//                                }
+//                            }
+//                        }
+                );
 //
     }
 

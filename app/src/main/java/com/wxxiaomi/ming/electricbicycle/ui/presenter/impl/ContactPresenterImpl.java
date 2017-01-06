@@ -4,18 +4,17 @@ import android.content.Intent;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
-import com.wxxiaomi.ming.electricbicycle.bridge.easemob.ImHelper;
 import com.wxxiaomi.ming.electricbicycle.improve.im.notice.NoticeBean;
 import com.wxxiaomi.ming.electricbicycle.improve.im.notice.NoticeManager;
+import com.wxxiaomi.ming.electricbicycle.improve.im.ImHelper1;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.InviteMsgActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.base.BasePreImpl;
 
-import com.wxxiaomi.ming.electricbicycle.bridge.easemob.ui.ChatActivity;
-import com.wxxiaomi.ming.electricbicycle.bridge.easemob.common.Constant;
+import com.wxxiaomi.ming.electricbicycle.improve.im.ui.ChatActivity;
+import com.wxxiaomi.ming.electricbicycle.improve.im.Constant;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.ContactPresenter;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.FriendAddActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.view.ContactView;
-import com.wxxiaomi.ming.electricbicycle.db.impl.InviteMessgeDaoImpl;
 
 import rx.Observer;
 import rx.functions.Action1;
@@ -77,7 +76,7 @@ public class ContactPresenterImpl extends BasePreImpl<ContactView> implements Co
     }
 
     private void addFriend(final String emname) {
-        ImHelper.getInstance().agreeInvite(emname)
+        ImHelper1.getInstance().agreeInvite(emname)
                 .subscribe(new Observer<Boolean>() {
                     @Override
                     public void onCompleted() {
@@ -133,13 +132,13 @@ public class ContactPresenterImpl extends BasePreImpl<ContactView> implements Co
 
     @Override
     public void onDrawClick() {
-        InviteMessgeDaoImpl.getInstance().saveUnreadMessageCount(0)
-                .subscribe(new Action1<Integer>() {
-                    @Override
-                    public void call(Integer integer) {
-                        mView.updateUnReadMsg(0);
-                    }
-                });
+//        InviteMessgeDaoImpl.getInstance().saveUnreadMessageCount(0)
+//                .subscribe(new Action1<Integer>() {
+//                    @Override
+//                    public void call(Integer integer) {
+//                        mView.updateUnReadMsg(0);
+//                    }
+//                });
     }
 
     @Override
