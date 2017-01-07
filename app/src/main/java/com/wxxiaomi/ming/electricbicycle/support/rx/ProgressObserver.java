@@ -22,10 +22,12 @@ public abstract class ProgressObserver<T> extends MyObserver<T>{
 
 
     public ProgressObserver(Context context) {
-//        dialog = new LoadingDialog(context).builder().setMessage("正在加载中");
+//        new ProgressDialog(context)
+        dialog = new ProgressDialog(context);
         dialog = new ProgressDialog(context);
         dialog.setTitle("请等待");//设置标题
         dialog.setMessage("正在加载");
+        dialog.setProgressStyle(R.style.MingDialog);
         this.context = context;
         msgDialog = new AlertDialog.Builder(context, R.style.MingDialog).setPositiveButton("确定", null).create();
 

@@ -118,25 +118,6 @@ public class SplashActivity extends Activity {
     }
 
     private void thisAutoLogin() {
-//        UserFunctionProvider.getInstance().AutoLogin()
-//                .subscribe(new Observer<Integer>() {
-//                    @Override
-//                    public void onCompleted() {
-//
-//                    }
-//
-//                    @Override
-//                    public void onError(Throwable e) {
-//                        isLogin = false;
-//                        order.countDown();
-//                    }
-//
-//                    @Override
-//                    public void onNext(Integer integer) {
-////                        isLogin = true;
-//                        order.countDown();
-//                    }
-//                });
         boolean login = AccountHelper.isLogin();
         if(login){
             //允许登陆

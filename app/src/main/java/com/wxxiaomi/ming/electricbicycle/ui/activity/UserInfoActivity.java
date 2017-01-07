@@ -1,5 +1,6 @@
 package com.wxxiaomi.ming.electricbicycle.ui.activity;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.design.widget.CollapsingToolbarLayout;
@@ -24,8 +25,10 @@ import com.wxxiaomi.ming.electricbicycle.db.bean.format.UserInfo;
 import com.wxxiaomi.ming.electricbicycle.service.AccountHelper;
 import com.wxxiaomi.ming.electricbicycle.service.UserFunctionProvider;
 import com.wxxiaomi.ming.electricbicycle.service.ShowerProvider;
+import com.wxxiaomi.ming.electricbicycle.support.cache.CacheManager;
 import com.wxxiaomi.ming.electricbicycle.support.rx.ProgressObserver;
 import com.wxxiaomi.ming.electricbicycle.support.rx.ToastObserver;
+import com.wxxiaomi.ming.electricbicycle.support.rx.ToastObserver2;
 import com.wxxiaomi.ming.electricbicycle.ui.fragment.InfoCardFragment;
 import com.wxxiaomi.ming.electricbicycle.ui.fragment.InfoDetailFragment;
 import com.wxxiaomi.ming.electricbicycle.ui.fragment.base.BaseFragment;
@@ -38,6 +41,7 @@ import java.util.List;
 
 import rx.Observer;
 import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Action1;
 import rx.schedulers.Schedulers;
 
 /**
@@ -64,6 +68,57 @@ public class UserInfoActivity extends AppCompatActivity implements FragmentCallb
     private UserCommonInfo targetUser;
     private boolean isFriend = false;
     private EditableDialog dialog;
+
+//    public static void show(Context context,int userid){
+//        Intent intent = new Intent(context, UserInfoActivity.class);
+//        if(AccountHelper.getAccountInfo().id == userid){
+//            Bundle bundle = new Bundle();
+//            bundle.putBoolean(ConstantValue.INTENT_ISMINE, true);
+//        }else{
+//
+//        }
+//        context.startActivity(intent);
+//    }
+    public static void show(Context context){
+        Intent intent = new Intent(context, UserInfoActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putBoolean(ConstantValue.INTENT_ISMINE, true);
+        intent.putExtra("value",bundle);
+        context.startActivity(intent);
+    }
+
+    public static void show(final Context context,String emname){
+        if(AccountHelper.getAccountInfo().emname.equals(emname)){
+            show(context);
+        }else{
+            UserFunctionProvider.getInstance().getUserInfoByEname(emname)
+                    .subscribe(new Action1<UserCommonInfo>() {
+                        @Override
+                        public void call(UserCommonInfo userCommonInfo) {
+                            Intent intent = new Intent(context, UserInfoActivity.class);
+                            Bundle bundle = new Bundle();
+                            bundle.putSerializable(ConstantValue.INTENT_USERINFO, userCommonInfo);
+                            bundle.putBoolean(ConstantValue.INTENT_ISMINE, false);
+                            intent.putExtra("value",bundle);
+                            context.startActivity(intent);
+                        }
+                    });
+        }
+    }
+
+    public static void show(Context context,UserCommonInfo info){
+        if(AccountHelper.getAccountInfo().id == info.id){
+            show(context);
+        }else{
+            Intent intent = new Intent(context, UserInfoActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putSerializable(ConstantValue.INTENT_USERINFO, info);
+            bundle.putBoolean(ConstantValue.INTENT_ISMINE, false);
+            intent.putExtra("value",bundle);
+            context.startActivity(intent);
+        }
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -151,23 +206,38 @@ public class UserInfoActivity extends AppCompatActivity implements FragmentCallb
             UserFunctionProvider.getInstance().getUserOptions(AccountHelper.getAccountInfo().id)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(new ToastObserver<List<Option>>(collapsing_toolbar) {
+                    .subscribe(new ToastObserver2<List<Option>>(this) {
                         @Override
                         public void onNext(List<Option> options) {
+                            //存到缓存
+                            UserInfo userInfo = new UserInfo();
                             ArrayList<Option> list = new ArrayList();
                             list.addAll(options);
+                            userInfo.options = list;
+                            userInfo.userCommonInfo = null;
+                            CacheManager.savaUserInfo(AccountHelper.getAccountInfo().id,userInfo);
+
                             Bundle bundle2 = new Bundle();
                             bundle2.putParcelableArrayList(ConstantValue.BUNDLE_OPTIONS, list);
-                            infoCardFragment.receiveData(2, bundle2);
+                            infoCardFragment.receiveData(3, bundle2);
                         }
 
                         @Override
                         protected void onError(ApiException ex) {
                             super.onError(ex);
+                            infoCardFragment.receiveData(3, null);
                         }
                     });
+
+            UserInfo userInfo = CacheManager.getUserInfo(AccountHelper.getAccountInfo().id);
+            if(userInfo!=null){
+                ArrayList<Option> list = new ArrayList();
+                list.addAll(userInfo.options);
+                Bundle bundle2 = new Bundle();
+                bundle2.putParcelableArrayList(ConstantValue.BUNDLE_OPTIONS, list);
+                infoCardFragment.receiveData(2, bundle2);
+            }
         } else {
-//            final int userid = getIntent().getIntExtra(ConstantValue.INTENT_USERID,0);
             UserFunctionProvider.getInstance().getUserInfoAndOption(targetUser.id)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
@@ -184,6 +254,8 @@ public class UserInfoActivity extends AppCompatActivity implements FragmentCallb
 
                         @Override
                         public void onNext(UserInfo userInfo) {
+
+                            CacheManager.savaUserInfo(userInfo.userCommonInfo.id,userInfo);
                             Bundle bundle = new Bundle();
                             bundle.putSerializable(ConstantValue.BUNDLE_USERINFO, userInfo.userCommonInfo);
                             bundle.putBoolean(ConstantValue.INTENT_ISMINE, isMine);
@@ -192,9 +264,23 @@ public class UserInfoActivity extends AppCompatActivity implements FragmentCallb
                             infoCardFragment.receiveData(1, bundle);
 
                             bundle.putParcelableArrayList(ConstantValue.BUNDLE_OPTIONS, userInfo.options);
-                            infoCardFragment.receiveData(2, bundle);
+                            infoCardFragment.receiveData(3, bundle);
                         }
                     });
+            //去缓存targetUser.id
+            UserInfo userInfo = CacheManager.getUserInfo(targetUser.id);
+            if(userInfo!=null){
+                Bundle bundle = new Bundle();
+                bundle.putSerializable(ConstantValue.BUNDLE_USERINFO, userInfo.userCommonInfo);
+                bundle.putBoolean(ConstantValue.INTENT_ISMINE, isMine);
+
+                infoDetailFragment.receiveData(1, bundle);
+                infoCardFragment.receiveData(1, bundle);
+
+                bundle.putParcelableArrayList(ConstantValue.BUNDLE_OPTIONS, userInfo.options);
+                infoCardFragment.receiveData(2, bundle);
+            }
+
 
         }
     }

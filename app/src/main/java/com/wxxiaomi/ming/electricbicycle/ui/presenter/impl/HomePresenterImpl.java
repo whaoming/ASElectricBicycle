@@ -172,10 +172,11 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
 
     @Override
     public void nearHeadBtnOnClick() {
-        Bundle bundle = new Bundle();
-        bundle.putSerializable(ConstantValue.INTENT_USERINFO, currentNearPerson);
-        bundle.putBoolean(ConstantValue.INTENT_ISMINE, false);
-        mView.runActivity(UserInfoActivity.class, bundle);
+//        Bundle bundle = new Bundle();
+//        bundle.putSerializable(ConstantValue.INTENT_USERINFO, currentNearPerson);
+//        bundle.putBoolean(ConstantValue.INTENT_ISMINE, false);
+//        mView.runActivity(UserInfoActivity.class, bundle);
+        UserInfoActivity.show(mView.getContext(),currentNearPerson);
     }
 
     @Override
@@ -324,48 +325,18 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
                         new ToastObserver<List<UserLocatInfo>>(mView.getSnackContent()) {
                             @Override
                             public void onNext(List<UserLocatInfo> userLocatInfos) {
-
+                                if (userLocatInfos != null) {
+                                    userLocatList = userLocatInfos;
+                                    for (int i = 0; i < userLocatInfos.size(); i++) {
+                                        UserLocatInfo user = userLocatInfos.get(i);
+                                        LatLng point = new LatLng(user.point[0], user.point[1]);
+                                        mView.addMaker(point, i);
+                                    }
+                                }
                             }
                         }
-
-//                        new Action1<List<UserLocatInfo>>() {
-//                    @Override
-//                    public void call(List<UserLocatInfo> nearByPerson) {
-//                        if(nearByPerson!=null){
-//                            userLocatList = nearByPerson;
-//                            for(int i=0;i<nearByPerson.size();i++){
-//                                UserLocatInfo user = nearByPerson.get(i);
-//                                LatLng point = new LatLng(user.point[0], user.point[1]);
-//                                mView.addMaker(point,i);
-//                            }
-//                        }
-//                    }
-//                }
-//                        new Observer<List<UserLocatInfo>>() {
-//                            @Override
-//                            public void onCompleted() {
-//
-//                            }
-//
-//                            @Override
-//                            public void onError(Throwable e) {
-//                                Log.i("wang", "首页获取附近的人出错啦");
-//                            }
-//
-//                            @Override
-//                            public void onNext(List<UserLocatInfo> nearByPerson) {
-//                                if (nearByPerson != null) {
-//                                    userLocatList = nearByPerson;
-//                                    for (int i = 0; i < nearByPerson.size(); i++) {
-//                                        UserLocatInfo user = nearByPerson.get(i);
-//                                        LatLng point = new LatLng(user.point[0], user.point[1]);
-//                                        mView.addMaker(point, i);
-//                                    }
-//                                }
-//                            }
-//                        }
                 );
-//
+
     }
 
 }

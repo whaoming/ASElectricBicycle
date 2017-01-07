@@ -32,9 +32,14 @@ public class OptionAdapter4  extends MultiBaseAdapter<Option> {
     private final int TYPE_NORMAL = 1;
     private final int TYPE_MAP = 2;
     PullToRefreshRecyclerView listview;
+    private boolean isLoading = true;
     public OptionAdapter4(Context context, List<Option> datas, boolean isOpenLoadMore,PullToRefreshRecyclerView listview) {
         super(context, datas, isOpenLoadMore);
         this.listview = listview;
+    }
+    public void setIsLoading(boolean isLoading){
+        this.isLoading = isLoading;
+        notifyDataSetChanged();
     }
 
     @Override
@@ -43,7 +48,11 @@ public class OptionAdapter4  extends MultiBaseAdapter<Option> {
         if(viewType== BaseAdapter.TYPE_LOADING_VIEW){
             listview.setRefreshing(true);
         }else{
-            listview.setRefreshing(false);
+            if(isLoading){
+                listview.setRefreshing(true);
+            }else {
+                listview.setRefreshing(false);
+            }
             super.onBindViewHolder(holder, viewtype);
         }
 

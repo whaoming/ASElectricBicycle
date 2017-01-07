@@ -48,6 +48,7 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<RecyclerView.V
     private RelativeLayout mFooterLayout;//footer view
 
     private boolean loadFail = false;
+//    private boolean isLoading = true;
 
     protected abstract int getViewType(int position, T data);
 
@@ -100,6 +101,10 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<RecyclerView.V
         return mDatas.size() + getFooterViewCount();
     }
 
+//    public void setIsLoading(boolean flag){
+//        isLoading = flag;
+//    }
+
     @Override
     public int getItemViewType(int position) {
         if (loadFail) {
@@ -108,6 +113,9 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<RecyclerView.V
         if(mDatas==null){
             return TYPE_LOADING_VIEW;
         }
+//        if(isLoading){
+//            return TYPE_LOADING_VIEW;
+//        }
         if (mDatas.size()==0) {
             if (mEmptyView != null && !isRemoveEmptyView) {
                 return TYPE_EMPTY_VIEW;

@@ -124,6 +124,7 @@ public class DiskCache {
                         DiskLruCache.Editor editor = mDiskLruCache.edit(key);
                         in = new BufferedInputStream(new ByteArrayInputStream(obj), 8 * 1024);
                         OutputStream outputStream = editor.newOutputStream(0);
+
                         out = new BufferedOutputStream(outputStream, 8 * 1024);
                         int b;
                         while ((b = in.read()) != -1) {

@@ -5,6 +5,7 @@ import android.text.TextUtils;
 
 import com.wxxiaomi.ming.electricbicycle.db.bean.User;
 import com.wxxiaomi.ming.electricbicycle.db.bean.UserCommonInfo;
+import com.wxxiaomi.ming.electricbicycle.improve.im.ImHelper1;
 import com.wxxiaomi.ming.electricbicycle.improve.im.notice.SharedPreferencesHelper;
 
 /**
@@ -93,6 +94,12 @@ public class AccountHelper {
 
     public static UserCommonInfo getAccountInfo(){
         return  instances.user.userCommonInfo;
+    }
+
+    public static void logout(){
+        //清除缓存
+        SharedPreferencesHelper.remove(instances.application, instances.user.getClass());
+        ImHelper1.getInstance().logout();
     }
 
 

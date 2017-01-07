@@ -32,6 +32,7 @@ public class MyUserProvider implements EaseUI.EaseUserProfileProvider {
             EaseUser user = new EaseUser(info.emname);
             user.setNick(info.nickname);
             user.setAvatar(info.avatar);
+
             userCache.put(info.emname, user);
         }
         UserCommonInfo info = AccountHelper.getAccountInfo();

@@ -1,10 +1,6 @@
 [
     {
-<<<<<<< HEAD
         "outputFile": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-        "outputFile": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
         "map": [
             {
                 "to": {
@@ -15,11 +11,7 @@
                     "endOffset": 111
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -38,11 +30,7 @@
                     "endOffset": 158
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -61,11 +49,7 @@
                     "endOffset": 218
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -84,11 +68,7 @@
                     "endOffset": 271
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -107,11 +87,7 @@
                     "endOffset": 347
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
@@ -130,11 +106,7 @@
                     "endOffset": 404
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
@@ -153,11 +125,7 @@
                     "endOffset": 461
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 8,
                         "startColumn": 4,
@@ -176,11 +144,7 @@
                     "endOffset": 512
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 9,
                         "startColumn": 4,
@@ -199,11 +163,7 @@
                     "endOffset": 578
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 10,
                         "startColumn": 4,
@@ -222,11 +182,7 @@
                     "endOffset": 630
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 11,
                         "startColumn": 4,
@@ -245,11 +201,7 @@
                     "endOffset": 691
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 12,
                         "startColumn": 4,
@@ -268,11 +220,7 @@
                     "endOffset": 739
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 13,
                         "startColumn": 4,
@@ -291,11 +239,7 @@
                     "endOffset": 799
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 14,
                         "startColumn": 4,
@@ -314,11 +258,7 @@
                     "endOffset": 855
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 15,
                         "startColumn": 4,
@@ -337,11 +277,7 @@
                     "endOffset": 926
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 16,
                         "startColumn": 4,
@@ -360,11 +296,7 @@
                     "endOffset": 984
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 17,
                         "startColumn": 4,
@@ -383,11 +315,7 @@
                     "endOffset": 1033
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 18,
                         "startColumn": 4,
@@ -406,11 +334,7 @@
                     "endOffset": 1081
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 19,
                         "startColumn": 4,
@@ -429,11 +353,7 @@
                     "endOffset": 1134
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 20,
                         "startColumn": 4,
@@ -452,11 +372,7 @@
                     "endOffset": 1183
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 21,
                         "startColumn": 4,
@@ -475,11 +391,7 @@
                     "endOffset": 1246
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 22,
                         "startColumn": 4,
@@ -498,11 +410,7 @@
                     "endOffset": 1305
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 23,
                         "startColumn": 4,
@@ -521,11 +429,7 @@
                     "endOffset": 1365
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 24,
                         "startColumn": 4,
@@ -544,11 +448,7 @@
                     "endOffset": 1422
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 25,
                         "startColumn": 4,
@@ -567,11 +467,7 @@
                     "endOffset": 1475
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 26,
                         "startColumn": 4,
@@ -590,11 +486,7 @@
                     "endOffset": 1539
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 27,
                         "startColumn": 4,
@@ -613,11 +505,7 @@
                     "endOffset": 1599
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 28,
                         "startColumn": 4,
@@ -636,11 +524,7 @@
                     "endOffset": 1659
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 29,
                         "startColumn": 4,
@@ -659,11 +543,7 @@
                     "endOffset": 1734
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 30,
                         "startColumn": 4,
@@ -682,11 +562,7 @@
                     "endOffset": 1800
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 31,
                         "startColumn": 4,
@@ -705,11 +581,7 @@
                     "endOffset": 1854
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 32,
                         "startColumn": 4,
@@ -728,11 +600,7 @@
                     "endOffset": 1897
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 33,
                         "startColumn": 4,
@@ -751,11 +619,7 @@
                     "endOffset": 1953
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 34,
                         "startColumn": 4,
@@ -774,11 +638,7 @@
                     "endOffset": 2005
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 35,
                         "startColumn": 4,
@@ -797,11 +657,7 @@
                     "endOffset": 2069
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 36,
                         "startColumn": 4,
@@ -820,11 +676,7 @@
                     "endOffset": 2114
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 37,
                         "startColumn": 4,
@@ -843,11 +695,7 @@
                     "endOffset": 2156
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 38,
                         "startColumn": 4,
@@ -866,11 +714,7 @@
                     "endOffset": 2202
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 39,
                         "startColumn": 4,
@@ -889,11 +733,7 @@
                     "endOffset": 2274
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 40,
                         "startColumn": 4,
@@ -912,11 +752,7 @@
                     "endOffset": 2325
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 41,
                         "startColumn": 4,
@@ -935,11 +771,7 @@
                     "endOffset": 2372
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 42,
                         "startColumn": 4,
@@ -958,11 +790,7 @@
                     "endOffset": 2420
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 43,
                         "startColumn": 4,
@@ -981,11 +809,7 @@
                     "endOffset": 2467
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 44,
                         "startColumn": 4,
@@ -1004,11 +828,7 @@
                     "endOffset": 2522
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 45,
                         "startColumn": 4,
@@ -1027,11 +847,7 @@
                     "endOffset": 2566
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 46,
                         "startColumn": 4,
@@ -1050,11 +866,7 @@
                     "endOffset": 2635
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 47,
                         "startColumn": 4,
@@ -1073,11 +885,7 @@
                     "endOffset": 2705
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 48,
                         "startColumn": 4,
@@ -1096,11 +904,7 @@
                     "endOffset": 2752
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 49,
                         "startColumn": 4,
@@ -1119,11 +923,7 @@
                     "endOffset": 2815
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 50,
                         "startColumn": 4,
@@ -1142,11 +942,7 @@
                     "endOffset": 2887
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 51,
                         "startColumn": 4,
@@ -1165,11 +961,7 @@
                     "endOffset": 2946
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 52,
                         "startColumn": 4,
@@ -1188,11 +980,7 @@
                     "endOffset": 3000
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 53,
                         "startColumn": 4,
@@ -1211,11 +999,7 @@
                     "endOffset": 3064
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 54,
                         "startColumn": 4,
@@ -1234,11 +1018,7 @@
                     "endOffset": 3113
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 55,
                         "startColumn": 4,
@@ -1257,11 +1037,7 @@
                     "endOffset": 3168
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 56,
                         "startColumn": 4,
@@ -1280,11 +1056,7 @@
                     "endOffset": 3222
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 57,
                         "startColumn": 4,
@@ -1303,11 +1075,7 @@
                     "endOffset": 3283
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 58,
                         "startColumn": 4,
@@ -1326,11 +1094,7 @@
                     "endOffset": 3330
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 59,
                         "startColumn": 4,
@@ -1349,11 +1113,7 @@
                     "endOffset": 3383
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 60,
                         "startColumn": 4,
@@ -1372,11 +1132,7 @@
                     "endOffset": 3449
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 61,
                         "startColumn": 4,
@@ -1395,11 +1151,7 @@
                     "endOffset": 3518
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 62,
                         "startColumn": 4,
@@ -1418,11 +1170,7 @@
                     "endOffset": 3582
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 63,
                         "startColumn": 4,
@@ -1441,11 +1189,7 @@
                     "endOffset": 3646
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 64,
                         "startColumn": 4,
@@ -1464,11 +1208,7 @@
                     "endOffset": 3709
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 65,
                         "startColumn": 4,
@@ -1487,11 +1227,7 @@
                     "endOffset": 3756
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 66,
                         "startColumn": 4,
@@ -1510,11 +1246,7 @@
                     "endOffset": 3796
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 67,
                         "startColumn": 4,
@@ -1533,11 +1265,7 @@
                     "endOffset": 3846
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 68,
                         "startColumn": 4,
@@ -1556,11 +1284,7 @@
                     "endOffset": 3909
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 69,
                         "startColumn": 4,
@@ -1579,11 +1303,7 @@
                     "endOffset": 3972
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 70,
                         "startColumn": 4,
@@ -1602,11 +1322,7 @@
                     "endOffset": 4033
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 71,
                         "startColumn": 4,
@@ -1625,11 +1341,7 @@
                     "endOffset": 4092
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 72,
                         "startColumn": 4,
@@ -1648,11 +1360,7 @@
                     "endOffset": 4155
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 73,
                         "startColumn": 4,
@@ -1671,11 +1379,7 @@
                     "endOffset": 4195
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 74,
                         "startColumn": 4,
@@ -1694,11 +1398,7 @@
                     "endOffset": 4252
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 75,
                         "startColumn": 4,
@@ -1717,11 +1417,7 @@
                     "endOffset": 4309
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 76,
                         "startColumn": 4,
@@ -1740,11 +1436,7 @@
                     "endOffset": 4367
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 77,
                         "startColumn": 4,
@@ -1763,11 +1455,7 @@
                     "endOffset": 4431
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 78,
                         "startColumn": 4,
@@ -1786,11 +1474,7 @@
                     "endOffset": 4498
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 79,
                         "startColumn": 4,
@@ -1809,11 +1493,7 @@
                     "endOffset": 4547
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 80,
                         "startColumn": 4,
@@ -1832,11 +1512,7 @@
                     "endOffset": 4600
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 81,
                         "startColumn": 4,
@@ -1855,11 +1531,7 @@
                     "endOffset": 4664
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 82,
                         "startColumn": 4,
@@ -1878,11 +1550,7 @@
                     "endOffset": 4738
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 83,
                         "startColumn": 4,
@@ -1901,11 +1569,7 @@
                     "endOffset": 4797
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 84,
                         "startColumn": 4,
@@ -1924,11 +1588,7 @@
                     "endOffset": 4860
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 85,
                         "startColumn": 4,
@@ -1947,11 +1607,7 @@
                     "endOffset": 4925
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 86,
                         "startColumn": 4,
@@ -1970,11 +1626,7 @@
                     "endOffset": 4997
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 87,
                         "startColumn": 4,
@@ -1993,11 +1645,7 @@
                     "endOffset": 5049
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 88,
                         "startColumn": 4,
@@ -2016,11 +1664,7 @@
                     "endOffset": 5105
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 89,
                         "startColumn": 4,
@@ -2039,11 +1683,7 @@
                     "endOffset": 5163
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 90,
                         "startColumn": 4,
@@ -2062,11 +1702,7 @@
                     "endOffset": 5225
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 91,
                         "startColumn": 4,
@@ -2085,11 +1721,7 @@
                     "endOffset": 5300
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 92,
                         "startColumn": 4,
@@ -2108,11 +1740,7 @@
                     "endOffset": 5365
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 93,
                         "startColumn": 4,
@@ -2131,11 +1759,7 @@
                     "endOffset": 5434
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 94,
                         "startColumn": 4,
@@ -2154,11 +1778,7 @@
                     "endOffset": 5499
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 95,
                         "startColumn": 4,
@@ -2177,11 +1797,7 @@
                     "endOffset": 5572
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 96,
                         "startColumn": 4,
@@ -2200,11 +1816,7 @@
                     "endOffset": 5645
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 97,
                         "startColumn": 4,
@@ -2223,11 +1835,7 @@
                     "endOffset": 5712
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 98,
                         "startColumn": 4,
@@ -2246,11 +1854,7 @@
                     "endOffset": 5764
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 99,
                         "startColumn": 4,
@@ -2269,11 +1873,7 @@
                     "endOffset": 5835
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 100,
                         "startColumn": 4,
@@ -2292,11 +1892,7 @@
                     "endOffset": 5885
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 101,
                         "startColumn": 4,
@@ -2315,11 +1911,7 @@
                     "endOffset": 5950
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 102,
                         "startColumn": 4,
@@ -2338,11 +1930,7 @@
                     "endOffset": 5999
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 103,
                         "startColumn": 4,
@@ -2361,11 +1949,7 @@
                     "endOffset": 6054
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 104,
                         "startColumn": 4,
@@ -2384,11 +1968,7 @@
                     "endOffset": 6117
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 105,
                         "startColumn": 4,
@@ -2407,11 +1987,7 @@
                     "endOffset": 6175
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 106,
                         "startColumn": 4,
@@ -2430,11 +2006,7 @@
                     "endOffset": 6222
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 107,
                         "startColumn": 4,
@@ -2453,11 +2025,7 @@
                     "endOffset": 6274
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 108,
                         "startColumn": 4,
@@ -2476,11 +2044,7 @@
                     "endOffset": 6340
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 109,
                         "startColumn": 4,
@@ -2499,11 +2063,7 @@
                     "endOffset": 6390
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 110,
                         "startColumn": 4,
@@ -2522,11 +2082,7 @@
                     "endOffset": 6434
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 111,
                         "startColumn": 4,
@@ -2545,11 +2101,7 @@
                     "endOffset": 6489
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 112,
                         "startColumn": 4,
@@ -2568,11 +2120,7 @@
                     "endOffset": 6545
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 113,
                         "startColumn": 4,
@@ -2591,11 +2139,7 @@
                     "endOffset": 6590
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 114,
                         "startColumn": 4,
@@ -2614,11 +2158,7 @@
                     "endOffset": 6627
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 115,
                         "startColumn": 4,
@@ -2637,11 +2177,7 @@
                     "endOffset": 6672
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 116,
                         "startColumn": 4,
@@ -2660,11 +2196,7 @@
                     "endOffset": 6710
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 117,
                         "startColumn": 4,
@@ -2683,11 +2215,7 @@
                     "endOffset": 6773
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 118,
                         "startColumn": 4,
@@ -2706,11 +2234,7 @@
                     "endOffset": 6816
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 119,
                         "startColumn": 4,
@@ -2729,11 +2253,7 @@
                     "endOffset": 6863
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 120,
                         "startColumn": 4,
@@ -2752,11 +2272,7 @@
                     "endOffset": 6909
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 121,
                         "startColumn": 4,
@@ -2775,11 +2291,7 @@
                     "endOffset": 6953
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 122,
                         "startColumn": 4,
@@ -2798,11 +2310,7 @@
                     "endOffset": 7000
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 123,
                         "startColumn": 4,
@@ -2821,11 +2329,7 @@
                     "endOffset": 7044
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 124,
                         "startColumn": 4,
@@ -2844,11 +2348,7 @@
                     "endOffset": 7095
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 125,
                         "startColumn": 4,
@@ -2867,11 +2367,7 @@
                     "endOffset": 7146
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 126,
                         "startColumn": 4,
@@ -2890,11 +2386,7 @@
                     "endOffset": 7182
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 127,
                         "startColumn": 4,
@@ -2913,11 +2405,7 @@
                     "endOffset": 7230
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 128,
                         "startColumn": 4,
@@ -2936,11 +2424,7 @@
                     "endOffset": 7278
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 129,
                         "startColumn": 4,
@@ -2959,11 +2443,7 @@
                     "endOffset": 7321
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 130,
                         "startColumn": 4,
@@ -2982,11 +2462,7 @@
                     "endOffset": 7365
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 131,
                         "startColumn": 4,
@@ -3005,11 +2481,7 @@
                     "endOffset": 7411
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 132,
                         "startColumn": 4,
@@ -3028,11 +2500,7 @@
                     "endOffset": 7453
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 133,
                         "startColumn": 4,
@@ -3051,11 +2519,7 @@
                     "endOffset": 7498
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 134,
                         "startColumn": 4,
@@ -3074,11 +2538,7 @@
                     "endOffset": 7545
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 135,
                         "startColumn": 4,
@@ -3097,11 +2557,7 @@
                     "endOffset": 7596
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 136,
                         "startColumn": 4,
@@ -3120,11 +2576,7 @@
                     "endOffset": 7639
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 137,
                         "startColumn": 4,
@@ -3143,11 +2595,7 @@
                     "endOffset": 7684
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 138,
                         "startColumn": 4,
@@ -3166,11 +2614,7 @@
                     "endOffset": 7727
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 139,
                         "startColumn": 4,
@@ -3189,11 +2633,7 @@
                     "endOffset": 7779
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 140,
                         "startColumn": 4,
@@ -3212,11 +2652,7 @@
                     "endOffset": 7826
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 141,
                         "startColumn": 4,
@@ -3235,11 +2671,7 @@
                     "endOffset": 7903
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 142,
                         "startColumn": 4,
@@ -3258,11 +2690,7 @@
                     "endOffset": 7941
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 143,
                         "startColumn": 4,
@@ -3281,11 +2709,7 @@
                     "endOffset": 7994
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 144,
                         "startColumn": 4,
@@ -3304,11 +2728,7 @@
                     "endOffset": 8077
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 145,
                         "startColumn": 4,
@@ -3327,11 +2747,7 @@
                     "endOffset": 8119
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 146,
                         "startColumn": 4,
@@ -3350,11 +2766,7 @@
                     "endOffset": 8185
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 147,
                         "startColumn": 4,
@@ -3373,11 +2785,7 @@
                     "endOffset": 8226
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 148,
                         "startColumn": 4,
@@ -3396,11 +2804,7 @@
                     "endOffset": 8288
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 149,
                         "startColumn": 4,
@@ -3419,11 +2823,7 @@
                     "endOffset": 8346
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 150,
                         "startColumn": 4,
@@ -3442,11 +2842,7 @@
                     "endOffset": 8393
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 151,
                         "startColumn": 4,
@@ -3465,11 +2861,7 @@
                     "endOffset": 8453
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 152,
                         "startColumn": 4,
@@ -3488,11 +2880,7 @@
                     "endOffset": 8505
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 153,
                         "startColumn": 4,
@@ -3511,11 +2899,7 @@
                     "endOffset": 8569
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 154,
                         "startColumn": 4,
@@ -3534,11 +2918,7 @@
                     "endOffset": 8618
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 155,
                         "startColumn": 4,
@@ -3557,11 +2937,7 @@
                     "endOffset": 8676
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 156,
                         "startColumn": 4,
@@ -3580,11 +2956,7 @@
                     "endOffset": 8737
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 157,
                         "startColumn": 4,
@@ -3603,11 +2975,7 @@
                     "endOffset": 8773
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 158,
                         "startColumn": 4,
@@ -3626,11 +2994,7 @@
                     "endOffset": 8819
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 159,
                         "startColumn": 4,
@@ -3649,11 +3013,7 @@
                     "endOffset": 8857
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 160,
                         "startColumn": 4,
@@ -3672,11 +3032,7 @@
                     "endOffset": 8910
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 161,
                         "startColumn": 4,
@@ -3695,11 +3051,7 @@
                     "endOffset": 8975
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 162,
                         "startColumn": 4,
@@ -3718,11 +3070,7 @@
                     "endOffset": 9023
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 163,
                         "startColumn": 4,
@@ -3741,11 +3089,7 @@
                     "endOffset": 9069
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 164,
                         "startColumn": 4,
@@ -3764,11 +3108,7 @@
                     "endOffset": 9115
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 165,
                         "startColumn": 4,
@@ -3787,11 +3127,7 @@
                     "endOffset": 9160
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 166,
                         "startColumn": 4,
@@ -3810,11 +3146,7 @@
                     "endOffset": 9200
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 167,
                         "startColumn": 4,
@@ -3833,11 +3165,7 @@
                     "endOffset": 9247
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 168,
                         "startColumn": 4,
@@ -3856,11 +3184,7 @@
                     "endOffset": 9294
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 169,
                         "startColumn": 4,
@@ -3879,11 +3203,7 @@
                     "endOffset": 9341
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 170,
                         "startColumn": 4,
@@ -3902,11 +3222,7 @@
                     "endOffset": 9403
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 171,
                         "startColumn": 4,
@@ -3925,11 +3241,7 @@
                     "endOffset": 9444
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 172,
                         "startColumn": 4,
@@ -3948,11 +3260,7 @@
                     "endOffset": 9497
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 173,
                         "startColumn": 4,
@@ -3971,11 +3279,7 @@
                     "endOffset": 9548
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 174,
                         "startColumn": 4,
@@ -3994,11 +3298,7 @@
                     "endOffset": 9585
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 175,
                         "startColumn": 4,
@@ -4017,11 +3317,7 @@
                     "endOffset": 9640
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 176,
                         "startColumn": 4,
@@ -4040,11 +3336,7 @@
                     "endOffset": 9688
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 177,
                         "startColumn": 4,
@@ -4063,11 +3355,7 @@
                     "endOffset": 9737
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 178,
                         "startColumn": 4,
@@ -4086,11 +3374,7 @@
                     "endOffset": 9783
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 179,
                         "startColumn": 4,
@@ -4109,11 +3393,7 @@
                     "endOffset": 9833
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 180,
                         "startColumn": 4,
@@ -4132,11 +3412,7 @@
                     "endOffset": 9887
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 181,
                         "startColumn": 4,
@@ -4155,11 +3431,7 @@
                     "endOffset": 9940
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 182,
                         "startColumn": 4,
@@ -4178,11 +3450,7 @@
                     "endOffset": 10008
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 183,
                         "startColumn": 4,
@@ -4201,11 +3469,7 @@
                     "endOffset": 10073
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 184,
                         "startColumn": 4,
@@ -4224,11 +3488,7 @@
                     "endOffset": 10115
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 185,
                         "startColumn": 4,
@@ -4247,11 +3507,7 @@
                     "endOffset": 10174
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 186,
                         "startColumn": 4,
@@ -4270,11 +3526,7 @@
                     "endOffset": 10218
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 187,
                         "startColumn": 4,
@@ -4293,11 +3545,7 @@
                     "endOffset": 10284
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 188,
                         "startColumn": 4,
@@ -4316,11 +3564,7 @@
                     "endOffset": 10351
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 189,
                         "startColumn": 4,
@@ -4339,11 +3583,7 @@
                     "endOffset": 10389
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 190,
                         "startColumn": 4,
@@ -4362,11 +3602,7 @@
                     "endOffset": 10428
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 191,
                         "startColumn": 4,
@@ -4385,11 +3621,7 @@
                     "endOffset": 10496
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 192,
                         "startColumn": 4,
@@ -4408,11 +3640,7 @@
                     "endOffset": 10548
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 193,
                         "startColumn": 4,
@@ -4431,11 +3659,7 @@
                     "endOffset": 10590
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 194,
                         "startColumn": 4,
@@ -4454,11 +3678,7 @@
                     "endOffset": 10631
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 195,
                         "startColumn": 4,
@@ -4477,11 +3697,7 @@
                     "endOffset": 10686
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 196,
                         "startColumn": 4,
@@ -4500,11 +3716,7 @@
                     "endOffset": 10730
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 197,
                         "startColumn": 4,
@@ -4523,11 +3735,7 @@
                     "endOffset": 10782
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 198,
                         "startColumn": 4,
@@ -4546,11 +3754,7 @@
                     "endOffset": 10846
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 199,
                         "startColumn": 4,
@@ -4569,11 +3773,7 @@
                     "endOffset": 10899
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 200,
                         "startColumn": 4,
@@ -4592,11 +3792,7 @@
                     "endOffset": 10938
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 201,
                         "startColumn": 4,
@@ -4615,11 +3811,7 @@
                     "endOffset": 10984
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 202,
                         "startColumn": 4,
@@ -4638,11 +3830,7 @@
                     "endOffset": 11052
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 203,
                         "startColumn": 4,
@@ -4661,11 +3849,7 @@
                     "endOffset": 11110
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 204,
                         "startColumn": 4,
@@ -4684,11 +3868,7 @@
                     "endOffset": 11163
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 205,
                         "startColumn": 4,
@@ -4707,11 +3887,7 @@
                     "endOffset": 11217
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 206,
                         "startColumn": 4,
@@ -4730,11 +3906,7 @@
                     "endOffset": 11275
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 207,
                         "startColumn": 4,
@@ -4753,11 +3925,7 @@
                     "endOffset": 11339
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 208,
                         "startColumn": 4,
@@ -4776,11 +3944,7 @@
                     "endOffset": 11400
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 209,
                         "startColumn": 4,
@@ -4799,11 +3963,7 @@
                     "endOffset": 11457
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 210,
                         "startColumn": 4,
@@ -4822,11 +3982,7 @@
                     "endOffset": 11507
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 211,
                         "startColumn": 4,
@@ -4845,11 +4001,7 @@
                     "endOffset": 11558
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 212,
                         "startColumn": 4,
@@ -4868,11 +4020,7 @@
                     "endOffset": 11610
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 213,
                         "startColumn": 4,
@@ -4891,11 +4039,7 @@
                     "endOffset": 11647
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 214,
                         "startColumn": 4,
@@ -4914,11 +4058,7 @@
                     "endOffset": 11712
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 215,
                         "startColumn": 4,
@@ -4937,11 +4077,7 @@
                     "endOffset": 11752
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 216,
                         "startColumn": 4,
@@ -4960,11 +4096,7 @@
                     "endOffset": 11820
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 217,
                         "startColumn": 4,
@@ -4983,11 +4115,7 @@
                     "endOffset": 11872
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 218,
                         "startColumn": 4,
@@ -5006,11 +4134,7 @@
                     "endOffset": 11928
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 219,
                         "startColumn": 4,
@@ -5029,11 +4153,7 @@
                     "endOffset": 11964
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 220,
                         "startColumn": 4,
@@ -5052,11 +4172,7 @@
                     "endOffset": 12022
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 221,
                         "startColumn": 4,
@@ -5075,11 +4191,7 @@
                     "endOffset": 12080
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 222,
                         "startColumn": 4,
@@ -5098,11 +4210,7 @@
                     "endOffset": 12142
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 223,
                         "startColumn": 4,
@@ -5121,11 +4229,7 @@
                     "endOffset": 12183
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 224,
                         "startColumn": 4,
@@ -5144,11 +4248,7 @@
                     "endOffset": 12229
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 225,
                         "startColumn": 4,
@@ -5167,11 +4267,7 @@
                     "endOffset": 12269
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 226,
                         "startColumn": 4,
@@ -5190,11 +4286,7 @@
                     "endOffset": 12382
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 227,
                         "startColumn": 4,
@@ -5213,11 +4305,7 @@
                     "endOffset": 12436
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 228,
                         "startColumn": 4,
@@ -5236,11 +4324,7 @@
                     "endOffset": 12486
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 229,
                         "startColumn": 4,
@@ -5259,11 +4343,7 @@
                     "endOffset": 12551
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 230,
                         "startColumn": 4,
@@ -5282,11 +4362,7 @@
                     "endOffset": 12604
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 231,
                         "startColumn": 4,
@@ -5305,11 +4381,7 @@
                     "endOffset": 12650
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 232,
                         "startColumn": 4,
@@ -5328,11 +4400,7 @@
                     "endOffset": 12691
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 233,
                         "startColumn": 4,
@@ -5351,11 +4419,7 @@
                     "endOffset": 12744
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 234,
                         "startColumn": 4,
@@ -5374,11 +4438,7 @@
                     "endOffset": 12778
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 235,
                         "startColumn": 4,
@@ -5397,11 +4457,7 @@
                     "endOffset": 12818
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 236,
                         "startColumn": 4,
@@ -5420,11 +4476,7 @@
                     "endOffset": 12856
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 237,
                         "startColumn": 4,
@@ -5443,11 +4495,7 @@
                     "endOffset": 12897
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 238,
                         "startColumn": 4,
@@ -5466,11 +4514,7 @@
                     "endOffset": 12984
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 239,
                         "startColumn": 4,
@@ -5489,11 +4533,7 @@
                     "endOffset": 13063
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 240,
                         "startColumn": 4,
@@ -5512,11 +4552,7 @@
                     "endOffset": 13101
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 241,
                         "startColumn": 4,
@@ -5535,11 +4571,7 @@
                     "endOffset": 13149
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 242,
                         "startColumn": 4,
@@ -5558,11 +4590,7 @@
                     "endOffset": 13214
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 243,
                         "startColumn": 4,
@@ -5581,11 +4609,7 @@
                     "endOffset": 13266
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 244,
                         "startColumn": 4,
@@ -5604,11 +4628,7 @@
                     "endOffset": 13315
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 245,
                         "startColumn": 4,
@@ -5627,11 +4647,7 @@
                     "endOffset": 13373
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 246,
                         "startColumn": 4,
@@ -5650,11 +4666,7 @@
                     "endOffset": 13413
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 247,
                         "startColumn": 4,
@@ -5673,11 +4685,7 @@
                     "endOffset": 13458
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 248,
                         "startColumn": 4,
@@ -5696,11 +4704,7 @@
                     "endOffset": 13514
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 249,
                         "startColumn": 4,
@@ -5719,11 +4723,7 @@
                     "endOffset": 13577
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 250,
                         "startColumn": 4,
@@ -5742,11 +4742,7 @@
                     "endOffset": 13615
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 251,
                         "startColumn": 4,
@@ -5765,11 +4761,7 @@
                     "endOffset": 13660
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 252,
                         "startColumn": 4,
@@ -5788,11 +4780,7 @@
                     "endOffset": 13696
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 253,
                         "startColumn": 4,
@@ -5811,11 +4799,7 @@
                     "endOffset": 13745
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 254,
                         "startColumn": 4,
@@ -5834,11 +4818,7 @@
                     "endOffset": 13808
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 255,
                         "startColumn": 4,
@@ -5857,11 +4837,7 @@
                     "endOffset": 13846
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 256,
                         "startColumn": 4,
@@ -5880,11 +4856,7 @@
                     "endOffset": 13890
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 257,
                         "startColumn": 4,
@@ -5903,11 +4875,7 @@
                     "endOffset": 13931
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 258,
                         "startColumn": 4,
@@ -5926,11 +4894,7 @@
                     "endOffset": 13984
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 259,
                         "startColumn": 4,
@@ -5949,11 +4913,7 @@
                     "endOffset": 14029
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 260,
                         "startColumn": 4,
@@ -5972,11 +4932,7 @@
                     "endOffset": 14079
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 261,
                         "startColumn": 4,
@@ -5995,11 +4951,7 @@
                     "endOffset": 14125
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 262,
                         "startColumn": 4,
@@ -6018,11 +4970,7 @@
                     "endOffset": 14189
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 263,
                         "startColumn": 4,
@@ -6041,11 +4989,7 @@
                     "endOffset": 14247
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 264,
                         "startColumn": 4,
@@ -6064,11 +5008,7 @@
                     "endOffset": 14309
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 265,
                         "startColumn": 4,
@@ -6087,11 +5027,7 @@
                     "endOffset": 14348
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 266,
                         "startColumn": 4,
@@ -6110,11 +5046,7 @@
                     "endOffset": 14383
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 267,
                         "startColumn": 4,
@@ -6133,11 +5065,7 @@
                     "endOffset": 14422
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 268,
                         "startColumn": 4,
@@ -6156,11 +5084,7 @@
                     "endOffset": 14472
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 269,
                         "startColumn": 4,
@@ -6179,11 +5103,7 @@
                     "endOffset": 14509
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 270,
                         "startColumn": 4,
@@ -6202,11 +5122,7 @@
                     "endOffset": 14570
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 271,
                         "startColumn": 4,
@@ -6225,11 +5141,7 @@
                     "endOffset": 14631
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 272,
                         "startColumn": 4,
@@ -6248,11 +5160,7 @@
                     "endOffset": 14675
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 273,
                         "startColumn": 4,
@@ -6271,11 +5179,7 @@
                     "endOffset": 14725
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 274,
                         "startColumn": 4,
@@ -6294,11 +5198,7 @@
                     "endOffset": 14784
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 275,
                         "startColumn": 4,
@@ -6317,11 +5217,7 @@
                     "endOffset": 14848
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 276,
                         "startColumn": 4,
@@ -6340,11 +5236,7 @@
                     "endOffset": 14900
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 277,
                         "startColumn": 4,
@@ -6363,11 +5255,7 @@
                     "endOffset": 14958
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 278,
                         "startColumn": 4,
@@ -6386,11 +5274,7 @@
                     "endOffset": 15009
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 279,
                         "startColumn": 4,
@@ -6409,11 +5293,7 @@
                     "endOffset": 15067
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 280,
                         "startColumn": 4,
@@ -6432,11 +5312,7 @@
                     "endOffset": 15128
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 281,
                         "startColumn": 4,
@@ -6455,11 +5331,7 @@
                     "endOffset": 15187
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 282,
                         "startColumn": 4,
@@ -6478,11 +5350,7 @@
                     "endOffset": 15249
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 283,
                         "startColumn": 4,
@@ -6501,11 +5369,7 @@
                     "endOffset": 15304
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 284,
                         "startColumn": 4,
@@ -6524,11 +5388,7 @@
                     "endOffset": 15368
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 285,
                         "startColumn": 4,
@@ -6547,11 +5407,7 @@
                     "endOffset": 15420
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 286,
                         "startColumn": 4,
@@ -6570,11 +5426,7 @@
                     "endOffset": 15481
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 287,
                         "startColumn": 4,
@@ -6593,11 +5445,7 @@
                     "endOffset": 15537
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 288,
                         "startColumn": 4,
@@ -6616,11 +5464,7 @@
                     "endOffset": 15602
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 289,
                         "startColumn": 4,
@@ -6639,11 +5483,7 @@
                     "endOffset": 15649
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 290,
                         "startColumn": 4,
@@ -6662,11 +5502,7 @@
                     "endOffset": 15705
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 291,
                         "startColumn": 4,
@@ -6685,11 +5521,7 @@
                     "endOffset": 15746
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 292,
                         "startColumn": 4,
@@ -6708,11 +5540,7 @@
                     "endOffset": 15788
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 293,
                         "startColumn": 4,
@@ -6731,11 +5559,7 @@
                     "endOffset": 15827
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 294,
                         "startColumn": 4,
@@ -6754,11 +5578,7 @@
                     "endOffset": 15873
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 295,
                         "startColumn": 4,
@@ -6777,11 +5597,7 @@
                     "endOffset": 15910
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 296,
                         "startColumn": 4,
@@ -6800,11 +5616,7 @@
                     "endOffset": 15956
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 297,
                         "startColumn": 4,
@@ -6823,11 +5635,7 @@
                     "endOffset": 16002
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 298,
                         "startColumn": 4,
@@ -6846,11 +5654,7 @@
                     "endOffset": 16052
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 299,
                         "startColumn": 4,
@@ -6869,11 +5673,7 @@
                     "endOffset": 16102
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 300,
                         "startColumn": 4,
@@ -6892,11 +5692,7 @@
                     "endOffset": 16157
                 },
                 "from": {
-<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
-=======
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-zh-rCN\\values-zh-rCN.xml",
->>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 301,
                         "startColumn": 4,

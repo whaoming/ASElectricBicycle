@@ -7,14 +7,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.hyphenate.chat.EMMessage;
+import com.hyphenate.easeui.domain.EaseUser;
 import com.hyphenate.easeui.ui.EaseChatFragment;
 import com.hyphenate.easeui.widget.chatrow.EaseCustomChatRowProvider;
 import com.hyphenate.util.EasyUtils;
 import com.wxxiaomi.ming.electricbicycle.R;
+import com.wxxiaomi.ming.electricbicycle.improve.im.ImHelper1;
 import com.wxxiaomi.ming.electricbicycle.improve.im.provider.MyChatRowProvider;
+import com.wxxiaomi.ming.electricbicycle.ui.activity.UserInfoActivity;
 
 /**
  * chat activity，EaseChatFragment was used {@link #}
@@ -30,19 +34,15 @@ public class ChatActivity extends AppCompatActivity{
     protected void onCreate(Bundle arg0) {
         super.onCreate(arg0);
         setContentView(R.layout.em_activity_chat);
-
         activityInstance = this;
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-
         //get user id or group id
         toChatUsername = getIntent().getExtras().getString("userId");
-        toolbar.setTitle(toChatUsername);
+        toolbar.setTitle(ImHelper1.getInstance().getEmUserProvider().getUser(toChatUsername).getNickname());
         setSupportActionBar(toolbar);
         getSupportActionBar().setHomeButtonEnabled(true); // 设置返回键可用
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        //use EaseChatFratFragment
         chatFragment = new ChatFragment2();
-        //pass parameters to chat fragment
         chatFragment.setArguments(getIntent().getExtras());
         chatFragment.setChatFragmentListener(new EaseChatFragment.EaseChatFragmentHelper(){
 
@@ -59,6 +59,8 @@ public class ChatActivity extends AppCompatActivity{
             @Override
             public void onAvatarClick(String username) {
                 Log.i("wang","onAvatarClick,username:"+username);
+//                EaseUser user = ImHelper1.getInstance().getEmUserProvider().getUser(username);
+                UserInfoActivity.show(ChatActivity.this,username);
             }
 
             @Override
@@ -138,5 +140,15 @@ public class ChatActivity extends AppCompatActivity{
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_act_chat, menu);//加载menu文件到布局
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.action_sumbit:
+                UserInfoActivity.show(ChatActivity.this,toChatUsername);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

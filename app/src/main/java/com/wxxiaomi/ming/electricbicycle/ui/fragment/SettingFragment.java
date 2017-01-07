@@ -10,6 +10,7 @@ import android.support.v7.app.AlertDialog;
 
 import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.common.util.AppManager;
+import com.wxxiaomi.ming.electricbicycle.service.AccountHelper;
 import com.wxxiaomi.ming.electricbicycle.service.UserFunctionProvider;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.HomeActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.LoginActivity;
@@ -47,7 +48,7 @@ public class SettingFragment extends PreferenceFragment {
     }
 
     private void logout() {
-        UserFunctionProvider.getInstance().logout();
+        AccountHelper.logout();
         AppManager.getAppManager().finishAllActivity();
         Intent intent = new Intent(getActivity(), LoginActivity.class);
         getActivity().startActivity(intent);

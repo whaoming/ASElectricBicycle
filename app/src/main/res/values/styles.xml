@@ -8,22 +8,8 @@
 
 
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!--<item name="android:alertDialogTheme">@style/Theme.AppCompat.Dialog</item>-->
-        <!--<item name="android:alertDialogStyle">@style/Theme.AppCompat.Dialog</item>-->
-        <!--<item name="android:dialogTheme">@style/Theme.AppCompat.Dialog</item>-->
-
-        <!-- Customize your theme here. -->
-        <!--<item name="android:textColorPrimaryInverse">@color/colorPrimary</item>-->
-        <!--<item name="android:textColorTertiary">@color/colorPrimary</item>-->
-        <!--<item name="android:textColorTertiaryInverse">@color/colorPrimary</item>-->
-        <!--<item name="android:textColorPrimaryDisableOnly">@color/colorPrimary</item>-->
-        <!--<item name="android:textColorPrimaryInverseDisableOnly">@color/colorPrimary</item>-->
-        <!--<item name="android:textColorHint">@color/colorPrimary</item>-->
-        <!--<item name="android:textColorHintInverse">@color/colorPrimary</item>-->
-        <!--<item name="android:textColorHighlight">@color/colorPrimary</item>-->
-        <!--<item name="android:textColorLink">?attr/colorAccent</item>-->
         <!-- 这个改了edittext的下划线颜色会改变-->
-        <!--<item name="android:textColorSecondaryInverse">@color/titleBlue</item>-->
+        <!--<item name="android:textColorSecondaryInverse">@color/colorPrimary</item>-->
         <!--后退按钮的颜色,还有各种线的颜色-->
         <!--<item name="android:textColorSecondary">@color/colorPrimary</item>-->
 

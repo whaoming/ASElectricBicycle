@@ -55,12 +55,13 @@ public class NearUserAdapter extends CommonBaseAdapter<UserLocatInfo> {
         holder.setOnClickListener(R.id.content,new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(mContext, UserInfoActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putSerializable(ConstantValue.INTENT_USERINFO, data.userCommonInfo);
-                bundle.putBoolean(ConstantValue.INTENT_ISMINE,false);
-                intent.putExtra("value",bundle);
-                mContext.startActivity(intent);
+//                Intent intent = new Intent(mContext, UserInfoActivity.class);
+//                Bundle bundle = new Bundle();
+//                bundle.putSerializable(ConstantValue.INTENT_USERINFO, data.userCommonInfo);
+//                bundle.putBoolean(ConstantValue.INTENT_ISMINE,false);
+//                intent.putExtra("value",bundle);
+//                mContext.startActivity(intent);
+                UserInfoActivity.show(mContext,data.userCommonInfo);
             }
         });
     }

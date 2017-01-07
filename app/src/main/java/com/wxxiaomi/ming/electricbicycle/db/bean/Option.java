@@ -3,7 +3,9 @@ package com.wxxiaomi.ming.electricbicycle.db.bean;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class Option implements Parcelable {
+import java.io.Serializable;
+
+public class Option implements Parcelable,Serializable {
 
 	public int id;
 	public int userid;

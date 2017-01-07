@@ -232,8 +232,6 @@ public class UserFunctionProvider {
                     @Override
                     public Observable<Boolean> call(User user) {
                         AccountHelper.updateUserCache(user);
-//                        appDao.savaUser(user);
-//                        PreferenceManager.getInstance().savaUserID(user.userCommonInfo.id);
                         return ImHelper1.getInstance().LoginFromEm(user.username, user.password);
                     }
                 })
