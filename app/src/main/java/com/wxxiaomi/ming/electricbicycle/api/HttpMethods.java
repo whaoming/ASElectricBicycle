@@ -123,21 +123,19 @@ public class HttpMethods {
         return SingletonHolder.INSTANCE;
     }
 
-    /**
-     * 用于获取豆瓣电影Top250的数据
-     */
-    public Observable<List<UserCommonInfo>> getTopMovie(String username, String password) {
-        return demoService.initUserInfo(username, password)
-                .map(new ServerResultFunc<List<UserCommonInfo>>())
-                .onErrorResumeNext(new Func1<Throwable, Observable<? extends List<UserCommonInfo>>>() {
-                    @Override
-                    public Observable<? extends List<UserCommonInfo>> call(Throwable throwable) {
-                        return Observable.error(ExceptionProvider.handleException(throwable));
-                    }
-                })
-                .subscribeOn(Schedulers.io())
-                .unsubscribeOn(Schedulers.io());
-    }
+
+//    public Observable<List<UserCommonInfo>> getTopMovie(String username, String password) {
+//        return demoService.initUserInfo(username, password)
+//                .map(new ServerResultFunc<List<UserCommonInfo>>())
+//                .onErrorResumeNext(new Func1<Throwable, Observable<? extends List<UserCommonInfo>>>() {
+//                    @Override
+//                    public Observable<? extends List<UserCommonInfo>> call(Throwable throwable) {
+//                        return Observable.error(ExceptionProvider.handleException(throwable));
+//                    }
+//                })
+//                .subscribeOn(Schedulers.io())
+//                .unsubscribeOn(Schedulers.io());
+//    }
 
     public Observable<String> publishFootPrint(String content,String picture,String locat_tag,double lat,double lng){
         return demoService.publishFootPrint(content, picture, locat_tag, lat, lng)

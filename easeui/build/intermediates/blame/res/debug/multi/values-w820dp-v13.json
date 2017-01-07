@@ -1,6 +1,10 @@
 [
     {
+<<<<<<< HEAD
         "outputFile": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-w820dp-v13\\values-w820dp-v13.xml",
+=======
+        "outputFile": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-w820dp-v13\\values-w820dp-v13.xml",
+>>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
         "map": [
             {
                 "to": {
@@ -11,7 +15,11 @@
                     "endOffset": 108
                 },
                 "from": {
+<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\src\\main\\res\\values-w820dp\\ease_dimens.xml",
+=======
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-w820dp\\ease_dimens.xml",
+>>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,

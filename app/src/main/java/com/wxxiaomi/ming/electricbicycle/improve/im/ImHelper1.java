@@ -77,14 +77,25 @@ public class ImHelper1 implements Contract.IService {
         EMOptions options = new EMOptions();
         // 默认添加好友时，是不需要验证的，改成需要验证
         options.setAcceptInvitationAlways(false);
-        if (EaseUI.getInstance().init(context, options)) {
-            appContext = context;
-            easeUI = EaseUI.getInstance();
-            easeUI.setSettingsProvider(new MySettingProvider());
-            setEaseUIProviders();
-            setGlobalListeners();
-            broadcastManager = LocalBroadcastManager.getInstance(appContext);
-            initDbDao();
+        easeUI = EaseUI.getInstance();
+        try {
+            Log.i("wang","环信初始化的线程："+Thread.currentThread().getName());
+            if (easeUI.init(context, options)) {
+                Log.i("wang","环信初始化成功");
+                appContext = context;
+
+//                EMClient.getInstance().lo
+                easeUI.setSettingsProvider(new MySettingProvider());
+                setEaseUIProviders();
+                setGlobalListeners();
+                broadcastManager = LocalBroadcastManager.getInstance(appContext);
+                initDbDao();
+            } else {
+                Log.i("wang", "初始化环信失败");
+            }
+        }catch (Exception e){
+            Log.i("wang", "初始化环信失败");
+            e.printStackTrace();;
         }
     }
 

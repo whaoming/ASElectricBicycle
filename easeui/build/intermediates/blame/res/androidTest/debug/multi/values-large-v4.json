@@ -1,6 +1,10 @@
 [
     {
+<<<<<<< HEAD
         "outputFile": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-large-v4\\values-large-v4.xml",
+=======
+        "outputFile": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-large-v4\\values-large-v4.xml",
+>>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
         "map": [
             {
                 "to": {
@@ -11,7 +15,11 @@
                     "endOffset": 103
                 },
                 "from": {
+<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-large-v4\\values-large-v4.xml",
+=======
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-large-v4\\values-large-v4.xml",
+>>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -30,7 +38,11 @@
                     "endOffset": 157
                 },
                 "from": {
+<<<<<<< HEAD
                     "file": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-large-v4\\values-large-v4.xml",
+=======
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-large-v4\\values-large-v4.xml",
+>>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,

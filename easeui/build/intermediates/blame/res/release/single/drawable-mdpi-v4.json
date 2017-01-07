@@ -1,6 +1,11 @@
 [
     {
+<<<<<<< HEAD
         "merged": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\release\\drawable-mdpi-v4\\ic_launcher.png",
         "source": "E:\\WorkPlace\\Android\\as\\ASElectricBicycle\\easeui\\src\\main\\res\\drawable-mdpi\\ic_launcher.png"
+=======
+        "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\release\\drawable-mdpi-v4\\ic_launcher.png",
+        "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\drawable-mdpi\\ic_launcher.png"
+>>>>>>> c97ae7380867e58ef1d15c871180776c719ed907
     }
 ]

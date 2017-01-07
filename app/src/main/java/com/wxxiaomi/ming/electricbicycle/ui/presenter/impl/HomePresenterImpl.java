@@ -69,8 +69,7 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
      */
     private UserCommonInfo currentNearPerson;
     private List<UserLocatInfo> userLocatList;
-    private LocalBroadcastManager broadcastManager;
-//    private BroadcastReceiver broadcastReceiver;
+//    private LocalBroadcastManager broadcastManager;
 
     @Override
     public void init() {
@@ -83,7 +82,7 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
      * 注册消息监听的广播接收者
      */
     private void registerBroadcastReceiver() {
-        broadcastManager = LocalBroadcastManager.getInstance(mView.getContext());
+//        broadcastManager = LocalBroadcastManager.getInstance(mView.getContext());
         IntentFilter intentFilter = new IntentFilter();
         //联系人事件
         intentFilter.addAction(EmConstant.ACTION_CONTACT_CHANAGED);
@@ -247,6 +246,7 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
 //        unregisterBroadcastReceiver();
         mLocClient.stop();
         mBaiduMap.setMyLocationEnabled(false);
+        NoticeManager.unBindNotify(this);
 //        ImHelper.getInstance().setMessageListener(null);
     }
 
@@ -282,8 +282,12 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
      * 定位SDK监听函数
      */
     public class MyLocationListenner implements BDLocationListener {
+
         @Override
         public void onReceiveLocation(BDLocation location) {
+            int locType = location.getLocType();
+//            Log.i("wang","locType:"+locType);
+
             // map view 销毁后不在处理新接收的位置
             if (location == null || mBaiduMap == null) {
                 return;
