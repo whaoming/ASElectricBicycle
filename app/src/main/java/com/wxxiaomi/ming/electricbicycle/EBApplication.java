@@ -14,6 +14,7 @@ import com.wxxiaomi.ming.electricbicycle.improve.im.ImHelper1;
 import com.wxxiaomi.ming.electricbicycle.service.AccountHelper;
 import com.wxxiaomi.ming.electricbicycle.service.PreferenceManager;
 import com.wxxiaomi.ming.electricbicycle.service.UserFunctionProvider;
+import com.wxxiaomi.ming.electricbicycle.support.cache.CacheManager;
 
 import java.util.List;
 
@@ -30,27 +31,46 @@ public class EBApplication extends Application {
 
     @Override
     public void onCreate() {
+        super.onCreate();
+        applicationContext = this;
+        instance = this;
+        SDKInitializer.initialize(getApplicationContext());
+        ImHelper1.getInstance().init(this);
+        AccountHelper.init(this);
+        PreferenceManager.init(getApplicationContext());
+        if (LeakCanary.isInAnalyzerProcess(this)) {
+            return;
+        }
+        CacheManager.init(this);
+        sRefWatcher = LeakCanary.install(this);
+//        new Thread(){
+//            @Override
+//            public void run() {
+//                ImHelper1.getInstance().setFriends(UserFunctionProvider.getInstance().getEFriends());
+//                super.run();
+//            }
+//        }.start();
 //        super.onCreate();
-        Log.i("wang","onCreate");
+//        Log.i("wang","onCreate");
 //        OsU
 //        if(!isInit){
-            applicationContext = this;
-            instance = this;
+//            applicationContext = this;
+//            instance = this;
 //        String processName = getProcessName(this, android.os.Process.myPid());
 //        if (processName != null) {
 //            boolean defaultProcess = processName.equals(Constants.REAL_PACKAGE_NAME);
 //            if (processName.contains(":baidu")) {
-                SDKInitializer.initialize(this);
-//            }else{
-                ImHelper1.getInstance().init(EBApplication.this);
-
-
-                AccountHelper.init(this);
-                PreferenceManager.init(getApplicationContext());
-                if (LeakCanary.isInAnalyzerProcess(this)) {
-                    return;
-                }
-                sRefWatcher = LeakCanary.install(this);
+//                SDKInitializer.initialize(this);
+////            }else{
+//                ImHelper1.getInstance().init(EBApplication.this);
+//
+//
+//                AccountHelper.init(this);
+//                PreferenceManager.init(getApplicationContext());
+//                if (LeakCanary.isInAnalyzerProcess(this)) {
+//                    return;
+//                }
+//                sRefWatcher = LeakCanary.install(this);
 //            }
 //        }
 

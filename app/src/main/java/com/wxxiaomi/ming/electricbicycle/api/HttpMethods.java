@@ -1,6 +1,8 @@
 package com.wxxiaomi.ming.electricbicycle.api;
 
 
+import android.util.Log;
+
 import com.wxxiaomi.ming.electricbicycle.ConstantValue;
 import com.wxxiaomi.ming.electricbicycle.EBApplication;
 import com.wxxiaomi.ming.electricbicycle.api.exp.ExceptionProvider;
@@ -369,6 +371,7 @@ public class HttpMethods {
                 throw new ServerException(402, "token过期,需要重新登陆");
             }
            else if (httpResult.state != 200) {
+                Log.i("wang","返回码不等于200");
                 throw new ServerException(httpResult.state, httpResult.error);
             }
             return httpResult.infos;
@@ -401,10 +404,7 @@ public class HttpMethods {
                     if(throwable instanceof ServerException){
                         ServerException ex = (ServerException)throwable;
                         if(ex.getCode() == 401){
-//                            Log.i("wang","httpResult.state == 401,发现token过期");
-                            //重新获取token，并返回这个
                             if (++retryCount <= maxRetries) {
-//                                Log.i("wang","正在准备发送重新获取token的请求");
                                 return Token_Long2Short()
                                         ;
                             }

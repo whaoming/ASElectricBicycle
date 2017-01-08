@@ -109,7 +109,7 @@ public class ImHelper1 implements Contract.IService {
     }
 
     private void setEaseUIProviders() {
-       myUserProvider = new MyUserProvider();
+        myUserProvider = new MyUserProvider();
         easeUI.getInstance().setUserProfileProvider(myUserProvider);
         easeUI.getNotifier().setNotificationInfoProvider(new EaseNotifier.EaseNotificationInfoProvider() {
 
@@ -262,7 +262,10 @@ public class ImHelper1 implements Contract.IService {
 
                     @Override
                     public void onCmdMessageReceived(List<EMMessage> list) {
-                        notifyMsgListener();
+//                        notifyMsgListener();
+                        for(EMMessage msg : list){
+                            Log.i("wang","透传消息："+msg.getBody().toString());
+                        }
                     }
 
                     @Override

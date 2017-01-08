@@ -135,7 +135,7 @@
             android:name=".ui.activity.ScanCodeActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.wxxiaomi.ming.electricbicycle.improve.im.ui.ChatActivity"
+            android:name=".improve.im.ui.ChatActivity"
             android:screenOrientation="portrait" />
         <!-- <activity -->
         <!-- android:name=".view.activity.RoutePlanActivity" -->
@@ -164,6 +164,7 @@
         <!-- android:name=".view.activity.LoginActivity" -->
         <!-- android:screenOrientation="portrait" /> -->
         <activity
+
             android:name=".ui.activity.LoginActivity"
             android:screenOrientation="portrait" />
         <activity

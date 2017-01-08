@@ -97,10 +97,11 @@ public abstract class ComBuildImpl extends BuilderDetail {
 
     @Override
     public WebResourceResponse doInterceptRequest(WebView view, String url) {
+//        Log.i("wang","webview访问的url:"+url);
         String path = "";
         final WebResourceResponse[] response = {null};
         path = url.replace("http://localhost","");
-        Log.i("wang","path:"+path);
+//        Log.i("wang","path:"+path);
         ImgCacheEngine.getInstance().getImage(path)
                 .subscribe(new Action1<byte[]>() {
                     @Override

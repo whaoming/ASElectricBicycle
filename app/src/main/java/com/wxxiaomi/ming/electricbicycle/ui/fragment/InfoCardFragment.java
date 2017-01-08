@@ -91,16 +91,29 @@ public class InfoCardFragment extends BaseFragment {
     public void receiveData(int flag,Bundle bundle) {
         switch (flag){
             case 1:
+                //收到userinfo
                 userinfo = (UserCommonInfo) bundle.getSerializable(ConstantValue.BUNDLE_USERINFO);
                 isMine = bundle.getBoolean(ConstantValue.INTENT_ISMINE);
                 adapterView();
                 break;
             case 2:
 //                mRecyclerView.setRefreshing(false);
+                //缓存数据
                 List<Option> options = bundle.getParcelableArrayList(ConstantValue.BUNDLE_OPTIONS);
 //                OptionAdapter3 adapter = new OptionAdapter3(options,getActivity());
 //                mRecyclerView.setAdapter(adapter);
                 adapter.setNewData(options);
+                adapter.setIsLoading(true);
+//                adapter.setis
+//                mRecyclerView.setRefreshing(true);
+                break;
+            case 3:
+                //网络数据
+                if(bundle!=null){
+                    List<Option> optionss = bundle.getParcelableArrayList(ConstantValue.BUNDLE_OPTIONS);
+                    adapter.setNewData(optionss);
+                }
+                adapter.setIsLoading(false);
                 break;
         }
 
@@ -110,9 +123,8 @@ public class InfoCardFragment extends BaseFragment {
      * 当收到userinfo的时候匹配
      */
     private void adapterView() {
-        Log.i("wang","adapterView");
         if(mRecyclerView!=null){
-            mRecyclerView.setRefreshing(false);
+//            mRecyclerView.setRefreshing(false);
             header = View.inflate(getActivity(),R.layout.header_infocard,null);
             mRecyclerView.addHeaderView(header);
         }

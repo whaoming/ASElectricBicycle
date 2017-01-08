@@ -1,7 +1,9 @@
 package com.wxxiaomi.ming.webmodule.builder;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.ViewGroup;
+import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -142,11 +144,25 @@ public abstract class BuilderDetail implements Builder {
         }
         @Override
         public WebResourceResponse shouldInterceptRequest(WebView view, String url) {
+//            Log.i("wang","url:"+url);
             if(url.contains("http://localhost")){
+//            if(url.endsWith("")){
                 return  doInterceptRequest(view, url);
             }else {
                 return super.shouldInterceptRequest(view, url);
             }
+        }
+
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+//            Log.i("wang","request:"+request.toString());
+            return super.shouldOverrideUrlLoading(view, request);
+        }
+
+        @Override
+        public void onLoadResource(WebView view, String url) {
+//            Log.i("wang","onLoadResource,url:"+url);
+            super.onLoadResource(view, url);
         }
     }
 
