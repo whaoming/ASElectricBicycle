@@ -17,7 +17,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.api.WebMethods;
-import com.wxxiaomi.ming.electricbicycle.bridge.web.ComBuildImpl;
+import com.wxxiaomi.ming.electricbicycle.bridge.web.builder.common.ComBuildImpl;
 import com.wxxiaomi.ming.electricbicycle.bridge.aliyun.OssEngine;
 import com.wxxiaomi.ming.electricbicycle.support.cache.ImgCacheEngine;
 import com.wxxiaomi.ming.electricbicycle.bridge.img.PhotoTakeUtil;

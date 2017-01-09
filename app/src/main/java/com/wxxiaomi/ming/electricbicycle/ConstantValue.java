@@ -34,7 +34,7 @@ public interface ConstantValue {
 	/**
 	 * 登录操作的url
 	 */
-	public static String OSS_MY_URL = "http://192.168.191.1:8080/OssTokenGetServer/Oss";
+	public static String OSS_MY_URL = "http://192.168.1.46:8080/OssTokenGetServer/Oss";
 
 
 	//全局变量

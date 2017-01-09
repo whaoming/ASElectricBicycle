@@ -147,8 +147,12 @@ public class EaseNotifier {
             return;
         }
         // check if app running background
+
         if (!EasyUtils.isAppRunningForeground(appContext)) {
             EMLog.d(TAG, "app is running in backgroud");
+//            if(messages.){
+//
+//            }
             sendNotification(messages, false);
         } else {
             sendNotification(messages, true);

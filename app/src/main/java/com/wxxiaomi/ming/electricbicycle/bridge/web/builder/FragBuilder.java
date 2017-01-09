@@ -3,7 +3,7 @@ package com.wxxiaomi.ming.electricbicycle.bridge.web.builder;
 import android.content.Context;
 import android.os.Bundle;
 
-import com.wxxiaomi.ming.electricbicycle.bridge.web.ComBuildImpl;
+import com.wxxiaomi.ming.electricbicycle.bridge.web.builder.common.ComBuildImpl;
 
 
 /**

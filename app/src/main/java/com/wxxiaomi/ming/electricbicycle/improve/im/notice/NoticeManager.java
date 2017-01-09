@@ -16,6 +16,7 @@ import java.util.List;
 
 /**
  * Created by Administrator on 2016/12/31.
+ * 全局消息管理类
  */
 
 public final class NoticeManager {

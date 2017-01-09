@@ -85,15 +85,21 @@ public class ContactActivity extends BaseActivity<ContactView,ContactPresenter> 
         list_fragment.add(demoFragment);
         list_fragment.add(contactFragment);
         list_title = new ArrayList<String>();
-        list_title.add("最近联系人");
-        list_title.add("我的好友");
-        tabLayout.addTab(tabLayout.newTab().setText(list_title.get(0)));
-        tabLayout.addTab(tabLayout.newTab().setText(list_title.get(1)));
+//        list_title.add("最近联系人");
+//        list_title.add("我的好友");
+        list_title.add("");
+        list_title.add("");
+//        tabLayout.addTab(tabLayout.newTab().setText(list_title.get(0)));
+//        tabLayout.addTab(tabLayout.newTab().setText(list_title.get(1)));
+//        tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_add_white_24dp));
+//        tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_camera_alt_white_48dp));
         fAdapter = new IndexFragmentTabAdapter(getSupportFragmentManager(),
                 list_fragment, list_title);
         viewPager.setAdapter(fAdapter);
         viewPager.requestDisallowInterceptTouchEvent(true);
         tabLayout.setupWithViewPager(viewPager);
+        tabLayout.getTabAt(0).setIcon(R.mipmap.ic_add_white_24dp);
+        tabLayout.getTabAt(1).setIcon(R.mipmap.ic_camera_alt_white_48dp);
     }
 
     @Override

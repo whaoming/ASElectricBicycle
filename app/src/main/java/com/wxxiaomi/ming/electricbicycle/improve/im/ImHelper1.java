@@ -27,6 +27,7 @@ import com.wxxiaomi.ming.electricbicycle.improve.im.provider.MySettingProvider;
 import com.wxxiaomi.ming.electricbicycle.improve.im.provider.MyUserProvider;
 import com.wxxiaomi.ming.electricbicycle.db.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.improve.im.notice.NoticeBean;
+import com.wxxiaomi.ming.electricbicycle.improve.im.provider.NotificationProvider;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.ContactActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.HomeActivity;
 
@@ -109,80 +110,9 @@ public class ImHelper1 implements Contract.IService {
     }
 
     private void setEaseUIProviders() {
-       myUserProvider = new MyUserProvider();
+        myUserProvider = new MyUserProvider();
         easeUI.getInstance().setUserProfileProvider(myUserProvider);
-        easeUI.getNotifier().setNotificationInfoProvider(new EaseNotifier.EaseNotificationInfoProvider() {
-
-            @Override
-            public String getTitle(EMMessage message) {
-                //you can update title here
-                return "我是尼玛的标题";
-            }
-
-            @Override
-            public int getSmallIcon(EMMessage message) {
-                //you can update icon here
-                return 0;
-            }
-
-            @Override
-            public String getDisplayedText(EMMessage message) {
-                // be used on notification bar, different text according the message type.
-                String ticker = EaseCommonUtils.getMessageDigest(message, appContext);
-                if(message.getType() == EMMessage.Type.TXT){
-                    ticker = ticker.replaceAll("\\[.{2,3}\\]", "[表情]");
-                }
-                EaseUser user = null;
-                if(user != null){
-                    if(EaseAtMessageHelper.get().isAtMeMsg(message)){
-                        return String.format("asdsad", user.getNick());
-                    }
-                    return user.getNick() + ": " + ticker;
-                }else{
-                    if(EaseAtMessageHelper.get().isAtMeMsg(message)){
-                        return String.format("asdsad", message.getFrom());
-                    }
-                    return message.getFrom() + ": " + ticker;
-                }
-            }
-
-            @Override
-            public String getLatestText(EMMessage message, int fromUsersNum, int messageNum) {
-                // here you can customize the text.
-                // return fromUsersNum + "contacts send " + messageNum + "messages to you";
-                return null;
-            }
-
-            @Override
-            public Intent getLaunchIntent(EMMessage message) {
-                // you can set what activity you want display when user click the notification
-//                Intent intent = new Intent(appContext, ChatActivity.class);
-//                // open calling activity if there is call
-//                if(isVideoCalling){
-//                    intent = new Intent(appContext, VideoCallActivity.class);
-//                }else if(isVoiceCalling){
-//                    intent = new Intent(appContext, VoiceCallActivity.class);
-//                }else{
-//                    EMMessage.ChatType chatType = message.getChatType();
-//                    if (chatType == EMMessage.ChatType.Chat) { // single chat message
-//                        intent.putExtra("userId", message.getFrom());
-//                        intent.putExtra("chatType", Constant.CHATTYPE_SINGLE);
-//                    } else { // group chat message
-//                        // message.getTo() is the group id
-//                        intent.putExtra("userId", message.getTo());
-//                        if(chatType == EMMessage.ChatType.GroupChat){
-//                            intent.putExtra("chatType", Constant.CHATTYPE_GROUP);
-//                        }else{
-//                            intent.putExtra("chatType", Constant.CHATTYPE_CHATROOM);
-//                        }
-//
-//                    }
-//                }
-                Intent intent = new Intent(appContext, ContactActivity.class);
-
-                return intent;
-            }
-        });
+        easeUI.getNotifier().setNotificationInfoProvider(new NotificationProvider(appContext));
     }
 
     private void initDbDao() {
@@ -262,7 +192,11 @@ public class ImHelper1 implements Contract.IService {
 
                     @Override
                     public void onCmdMessageReceived(List<EMMessage> list) {
-                        notifyMsgListener();
+//                        notifyMsgListener();
+                        for(EMMessage msg : list){
+                            Log.i("wang","透传消息："+msg.getBody().toString());
+                            getNotifier().onNewMesg(list);
+                        }
                     }
 
                     @Override
@@ -272,7 +206,7 @@ public class ImHelper1 implements Contract.IService {
 
                     @Override
                     public void onMessageDeliveryAckReceived(List<EMMessage> list) {
-                        notifyMsgListener();
+//                        notifyMsgListener();
                     }
 
                     @Override
@@ -357,6 +291,8 @@ public class ImHelper1 implements Contract.IService {
             }
         });
     }
+
+//    public Ease
 
     public EaseUI.EaseUserProfileProvider getEmUserProvider(){
         return easeUI.getUserProfileProvider();

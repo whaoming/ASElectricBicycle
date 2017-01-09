@@ -2,15 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     >
+
+    <item
+        android:id="@+id/menu_search"
+        android:title="查找好友"
+        android:icon="@mipmap/ic_add_white_24dp"
+        app:showAsAction="always" />
     <item
         android:icon="@mipmap/ic_timer_auto_white_24dp"
         android:id="@+id/menu_mine"
         android:title="我的信息"
         app:showAsAction="never" />
-    <item
-        android:id="@+id/menu_search"
-        android:title="查找好友"
-        app:showAsAction="never" />
+
     <item
         android:id="@+id/menu_invite"
         android:title="好友申请"
