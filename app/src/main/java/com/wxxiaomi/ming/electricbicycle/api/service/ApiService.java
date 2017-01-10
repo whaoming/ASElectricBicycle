@@ -9,6 +9,7 @@ import com.wxxiaomi.ming.electricbicycle.db.bean.UserLocatInfo;
 import com.wxxiaomi.ming.electricbicycle.db.bean.format.FootPrintGet;
 import com.wxxiaomi.ming.electricbicycle.db.bean.format.UserInfo;
 import com.wxxiaomi.ming.electricbicycle.api.constant.Result;
+import com.wxxiaomi.ming.electricbicycle.improve.update.Version;
 
 import java.util.List;
 import java.util.Map;
@@ -46,6 +47,8 @@ public interface ApiService {
     @FormUrlEncoded
     @POST("android/user_updateuserfriends")
     Observable<Result<List<UserCommonInfo>>> updateUserFriend2(@Field("friends") String friends);
+    @GET("version.json")
+    Observable<Version> checkUpdate();
 
     @FormUrlEncoded
     @POST("android/user_updateuserfriends")

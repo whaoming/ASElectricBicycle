@@ -41,6 +41,12 @@
         android:layout="@layout/preference_category_widget"
         android:title="系统设置">
         <Preference
+            android:key="bike_cache"
+            android:layout="@layout/preference_item"
+            android:summary="0.0 M"
+            android:title="清空缓存" />
+        <Preference
+            android:key="check_update"
             android:layout="@layout/preference_item"
             android:summary="当前版本:V 1.0"
             android:title="检查更新" />

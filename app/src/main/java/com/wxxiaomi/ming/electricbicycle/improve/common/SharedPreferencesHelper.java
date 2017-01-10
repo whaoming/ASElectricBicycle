@@ -1,4 +1,4 @@
-package com.wxxiaomi.ming.electricbicycle.improve.im.notice;
+package com.wxxiaomi.ming.electricbicycle.improve.common;
 
 import android.content.Context;
 import android.content.SharedPreferences;

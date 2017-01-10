@@ -4,7 +4,6 @@ import com.hyphenate.easeui.domain.EaseUser;
 import com.wxxiaomi.ming.electricbicycle.EBApplication;
 import com.wxxiaomi.ming.electricbicycle.db.bean.InviteMessage;
 import com.wxxiaomi.ming.electricbicycle.db.impl.InviteMessgeDaoImpl2;
-import com.wxxiaomi.ming.electricbicycle.improve.im.Contract;
 import com.wxxiaomi.ming.electricbicycle.improve.im.ImHelper1;
 import com.wxxiaomi.ming.electricbicycle.service.UserFunctionProvider;
 

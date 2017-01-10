@@ -65,7 +65,7 @@
                 android:id="@+id/iv2"
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
-                android:src="@mipmap/ic_format_quote_grey600_24dp"
+                android:src="@mipmap/ic_comment_grey600_36dp"
                 android:layout_width="30dp"
                 android:layout_height="30dp" />
             <TextView
@@ -96,7 +96,7 @@
                 android:id="@+id/iv3"
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
-                android:src="@mipmap/ic_format_quote_grey600_24dp"
+                android:src="@mipmap/ic_location_on_grey600_24dp"
                 android:layout_width="30dp"
                 android:layout_height="30dp" />
             <TextView
@@ -127,7 +127,7 @@
                 android:id="@+id/iv4"
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
-                android:src="@mipmap/ic_format_quote_grey600_24dp"
+                android:src="@mipmap/ic_photo_grey600_24dp"
                 android:layout_width="30dp"
                 android:layout_height="30dp" />
             <TextView

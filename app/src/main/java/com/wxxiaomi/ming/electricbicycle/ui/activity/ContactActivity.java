@@ -98,8 +98,8 @@ public class ContactActivity extends BaseActivity<ContactView,ContactPresenter> 
         viewPager.setAdapter(fAdapter);
         viewPager.requestDisallowInterceptTouchEvent(true);
         tabLayout.setupWithViewPager(viewPager);
-        tabLayout.getTabAt(0).setIcon(R.mipmap.ic_add_white_24dp);
-        tabLayout.getTabAt(1).setIcon(R.mipmap.ic_camera_alt_white_48dp);
+        tabLayout.getTabAt(0).setIcon(R.mipmap.ic_access_time_white_36dp);
+        tabLayout.getTabAt(1).setIcon(R.mipmap.ic_perm_contact_cal_white_48dp);
     }
 
     @Override

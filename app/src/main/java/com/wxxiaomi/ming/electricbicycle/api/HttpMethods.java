@@ -8,8 +8,8 @@ import com.wxxiaomi.ming.electricbicycle.EBApplication;
 import com.wxxiaomi.ming.electricbicycle.api.exp.ExceptionProvider;
 import com.wxxiaomi.ming.electricbicycle.api.exp.ServerException;
 import com.wxxiaomi.ming.electricbicycle.api.service.ApiService;
+import com.wxxiaomi.ming.electricbicycle.improve.update.Version;
 import com.wxxiaomi.ming.electricbicycle.service.AccountHelper;
-import com.wxxiaomi.ming.electricbicycle.service.PreferenceManager;
 import com.wxxiaomi.ming.electricbicycle.common.util.UniqueUtil;
 import com.wxxiaomi.ming.electricbicycle.db.bean.Option;
 import com.wxxiaomi.ming.electricbicycle.db.bean.User;
@@ -138,6 +138,18 @@ public class HttpMethods {
 //                .subscribeOn(Schedulers.io())
 //                .unsubscribeOn(Schedulers.io());
 //    }
+
+    public Observable<Version> checkUpdate(){
+        return demoService.checkUpdate();
+//                .map(new ServerResultFunc<Version>())
+//                .retryWhen(new TokenOutTime(3,1))
+//                .onErrorResumeNext(new Func1<Throwable, Observable<? extends Version>>() {
+//                    @Override
+//                    public Observable<? extends Version> call(Throwable throwable) {
+//                        return Observable.error(ExceptionProvider.handleException(throwable));
+//                    }
+//                });
+    }
 
     public Observable<String> publishFootPrint(String content,String picture,String locat_tag,double lat,double lng){
         return demoService.publishFootPrint(content, picture, locat_tag, lat, lng)

@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import com.wxxiaomi.ming.electricbicycle.db.bean.User;
 import com.wxxiaomi.ming.electricbicycle.db.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.improve.im.ImHelper1;
-import com.wxxiaomi.ming.electricbicycle.improve.im.notice.SharedPreferencesHelper;
+import com.wxxiaomi.ming.electricbicycle.improve.common.SharedPreferencesHelper;
 
 /**
  * Created by Administrator on 2017/1/3.

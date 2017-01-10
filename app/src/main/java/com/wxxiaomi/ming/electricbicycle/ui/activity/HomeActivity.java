@@ -393,7 +393,7 @@ public class HomeActivity extends BaseActivity<HomeView,HomePresenter> implement
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
-        mActionProvider.setIcon(R.mipmap.ic_add_white_24dp);
+        mActionProvider.setIcon(R.mipmap.ic_location_searching_white_36dp);
         mActionProvider.setBadge(0);
         mActionProvider2.setIcon(R.mipmap.ic_notify_none);
         mActionProvider2.setBadge(0);

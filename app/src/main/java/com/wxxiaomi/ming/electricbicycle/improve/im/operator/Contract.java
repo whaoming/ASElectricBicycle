@@ -1,4 +1,4 @@
-package com.wxxiaomi.ming.electricbicycle.improve.im;
+package com.wxxiaomi.ming.electricbicycle.improve.im.operator;
 
 /**
  * Created by Mr.W on 2017/1/2.

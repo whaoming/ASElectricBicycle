@@ -22,6 +22,7 @@ import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.text.DecimalFormat;
 
 import rx.Observable;
 import rx.Subscriber;
@@ -46,6 +47,7 @@ public class CacheManager {
                     INSTANCE = new CacheManager();
                 }
             }
+//            mUserCache.
             File bitmapCacheDir = getDiskCacheDir(context, "bitmap");
             File userCacheDir = getDiskCacheDir(context, "user");
             if (!bitmapCacheDir.exists()) {
@@ -192,6 +194,41 @@ public class CacheManager {
             sb.append(hex);
         }
         return sb.toString();
+    }
+
+    public static String getCacheSize(){
+        long size = INSTANCE.mBitmapCache.size() + INSTANCE.mUserCache.size();
+        return FormetFileSize(size);
+    }
+
+    public static void deleteCache(){
+        try {
+            INSTANCE.mBitmapCache.delete();
+            INSTANCE.mUserCache.delete();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 转换文件大小
+     *
+     * @param fileS
+     * @return
+     */
+    public static String FormetFileSize(long fileS) {
+        DecimalFormat df = new DecimalFormat("#.00");
+        String fileSizeString = "";
+        if (fileS < 1024) {
+            fileSizeString = df.format((double) fileS) + "B";
+        } else if (fileS < 1048576) {
+            fileSizeString = df.format((double) fileS / 1024) + "K";
+        } else if (fileS < 1073741824) {
+            fileSizeString = df.format((double) fileS / 1048576) + "M";
+        } else {
+            fileSizeString = df.format((double) fileS / 1073741824) + "G";
+        }
+        return fileSizeString;
     }
 
 

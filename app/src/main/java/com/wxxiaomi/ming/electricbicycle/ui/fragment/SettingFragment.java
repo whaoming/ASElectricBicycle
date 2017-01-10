@@ -10,9 +10,11 @@ import android.support.v7.app.AlertDialog;
 
 import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.common.util.AppManager;
+import com.wxxiaomi.ming.electricbicycle.improve.update.CheckUpdateManager;
+import com.wxxiaomi.ming.electricbicycle.improve.common.DialogHelper;
+import com.wxxiaomi.ming.electricbicycle.improve.update.Version;
 import com.wxxiaomi.ming.electricbicycle.service.AccountHelper;
-import com.wxxiaomi.ming.electricbicycle.service.UserFunctionProvider;
-import com.wxxiaomi.ming.electricbicycle.ui.activity.HomeActivity;
+import com.wxxiaomi.ming.electricbicycle.support.cache.CacheManager;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.LoginActivity;
 
 /**
@@ -25,24 +27,47 @@ public class SettingFragment extends PreferenceFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.preferences);
+        Preference bike_cache = getPreferenceManager().findPreference("bike_cache");
+        bike_cache.setSummary(CacheManager.getCacheSize());
     }
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         if (getActivity().getString(R.string.setting_logout).equals(preference.getKey())) {
-            //退出登陆
-            android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(getActivity());
-            builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+//            //退出登陆
+//            android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(getActivity());
+//            builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialogInterface, int i) {
+//                            logout();
+//                        }
+//                    })
+//                    .setNegativeButton("取消",null)
+//                    .setTitle("提示")
+//                    .setMessage("确定退出当前账号吗")
+//                    .create();
+//            builder.show();
+            DialogHelper.getConfirmDialog(getActivity(),
+                    "提示",
+                    "确定退出当前账号吗",
+                    "确定",
+                    "取消",
+                    true,
+                    new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             logout();
                         }
-                    })
-                    .setNegativeButton("取消",null)
-                    .setTitle("提示")
-                    .setMessage("确定退出当前账号吗")
-                    .create();
-            builder.show();
+                    }).show();
+        }else if("check_update".equals(preference.getKey())){
+            CheckUpdateManager manager = new CheckUpdateManager(getActivity(),true);
+            manager.setCaller(new CheckUpdateManager.RequestPermissions() {
+                @Override
+                public void call(boolean isOk, Version version) {
+
+                }
+            });
+            manager.checkUpdate();
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
