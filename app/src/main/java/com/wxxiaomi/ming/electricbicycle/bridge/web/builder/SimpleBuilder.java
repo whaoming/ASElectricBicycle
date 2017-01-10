@@ -212,9 +212,19 @@ public class SimpleBuilder extends ComBuildImpl {
         } else {
             action.pars += "&pics=";
             WebMethods.getInstance().sendPost(action.url, ParsMakeUtil.string2Map(action.pars))
-                    .subscribe(new Action1<String>() {
+                    .subscribe(new Observer<String>() {
                         @Override
-                        public void call(String s) {
+                        public void onCompleted() {
+
+                        }
+
+                        @Override
+                        public void onError(Throwable e) {
+                            e.printStackTrace();
+                        }
+
+                        @Override
+                        public void onNext(String s) {
                             function.onCallBack(s);
                         }
                     });

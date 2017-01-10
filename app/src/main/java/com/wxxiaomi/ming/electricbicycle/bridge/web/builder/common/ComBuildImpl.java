@@ -235,7 +235,7 @@ public abstract class ComBuildImpl extends BuilderDetail {
         mWebView.registerHandler("usrSimInfo", new BridgeHandler() {
             @Override
             public void handler(String data, CallBackFunction function) {
-                function.onCallBack(AccountHelper.getAccountInfo().toString());
+                function.onCallBack(new Gson().toJson(AccountHelper.getAccountInfo()));
             }
         });
     }

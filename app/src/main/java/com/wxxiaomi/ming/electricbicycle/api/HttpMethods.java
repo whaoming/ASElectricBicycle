@@ -83,14 +83,14 @@ public class HttpMethods {
                     Response response = chain.proceed(newRequest);
 
                     if(response.header("token")!=null){
-//                        Log.i("wang","发现瘦肉汤_token");
+                        Log.i("wang","发现短token:"+response.header("token"));
 //                            GlobalManager.getInstance().setStoken(response.header("token"));
 //                        PreferenceManager.getInstance().savaShortToken(response.header("token"));
                         AccountHelper.updateSCookie(response.header("token"));
                     }
                     String long_token = response.header("long_token");
                     if(long_token!=null){
-//                        Log.i("wang","发现long_token");
+                        Log.i("wang","发现long_token:"+long_token);
 //                        PreferenceManager.getInstance().savaLongToken(long_token);
                         AccountHelper.updateLCookie(long_token);
                     }
@@ -400,7 +400,6 @@ public class HttpMethods {
             return observable.flatMap(new Func1<Throwable, Observable<?>>() {
                 @Override
                 public Observable<?> call(Throwable throwable) {
-//                    Log.i("wang","throwable instanceof ServerException:"+(throwable instanceof ServerException ));
                     if(throwable instanceof ServerException){
                         ServerException ex = (ServerException)throwable;
                         if(ex.getCode() == 401){

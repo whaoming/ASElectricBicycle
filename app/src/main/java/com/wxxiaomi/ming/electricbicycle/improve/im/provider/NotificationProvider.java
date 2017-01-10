@@ -2,11 +2,15 @@ package com.wxxiaomi.ming.electricbicycle.improve.im.provider;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 
 import com.hyphenate.chat.EMMessage;
+import com.hyphenate.chat.EMMessageBody;
 import com.hyphenate.easeui.domain.EaseUser;
 import com.hyphenate.easeui.model.EaseNotifier;
 import com.hyphenate.easeui.utils.EaseCommonUtils;
+import com.wxxiaomi.ming.electricbicycle.ConstantValue;
+import com.wxxiaomi.ming.electricbicycle.bridge.web.TestWebActivity;
 import com.wxxiaomi.ming.electricbicycle.improve.im.ImHelper1;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.ContactActivity;
 
@@ -21,6 +25,14 @@ public class NotificationProvider implements EaseNotifier.EaseNotificationInfoPr
     }
     @Override
     public String getDisplayedText(EMMessage message) {
+        if(message.getType() == EMMessage.Type.CMD){
+            String title = message.getStringAttribute("title","");
+
+            if(!"".equals(title)){
+                Log.i("wang","title:"+title);
+                return title;
+            }
+        }
         String ticker = EaseCommonUtils.getMessageDigest(message, context);
         if(message.getType() == EMMessage.Type.TXT){
             ticker = ticker.replaceAll("\\[.{2,3}\\]", "[表情]");
@@ -35,12 +47,22 @@ public class NotificationProvider implements EaseNotifier.EaseNotificationInfoPr
 
     @Override
     public String getLatestText(EMMessage message, int fromUsersNum, int messageNum) {
+//        EMMessageBody body = message.getBody();
+//        body.
+        if(message.getType() == EMMessage.Type.CMD){
+            String title = message.getStringAttribute("title","");
+
+            if(!"".equals(title)){
+                Log.i("wang","title1:"+title);
+                return title;
+            }
+        }
         return null;
     }
 
     @Override
     public String getTitle(EMMessage message) {
-        return null;
+        return "我是尼玛的标题啊";
     }
 
     @Override
@@ -50,7 +72,14 @@ public class NotificationProvider implements EaseNotifier.EaseNotificationInfoPr
 
     @Override
     public Intent getLaunchIntent(EMMessage message) {
-        Intent intent = new Intent(context, ContactActivity.class);
-        return intent;
+        if(message.getType().equals(EMMessage.Type.CMD)){
+            String action = message.getStringAttribute("action","");
+            Intent intent = new Intent(context, TestWebActivity.class);
+            intent.putExtra("url", action);
+            return intent;
+        }else {
+            Intent intent = new Intent(context, ContactActivity.class);
+            return intent;
+        }
     }
 }
