@@ -71,12 +71,20 @@ public class SplashActivity extends Activity {
         content = (RelativeLayout) findViewById(R.id.content);
         AppManager.getAppManager().addActivity(this);
         String url = AppContext.get(AppConfig.SPLASH_IMG_URL, "");
-        SplashView.showSplashView(this,5,R.mipmap.ic_launcher,url,content,null);
+        SplashView.showSplashView(this, 3, R.mipmap.ic_launcher, url, content, new SplashView.OnSplashViewActionListener() {
+            @Override
+            public void onSplashImageClick(String actionUrl) {
+
+            }
+
+            @Override
+            public void onSplashViewDismiss(boolean initiativeDismiss) {
+                Log.i("wang","onSplashViewDismiss");
+                order.countDown();
+            }
+        });
         init();
     }
-
-
-
 
     /**
      * 初始化各类参数 决定程序往哪里走
@@ -88,12 +96,12 @@ public class SplashActivity extends Activity {
                 initModule();
             }
         }.start();
-        new Thread() {
-            @Override
-            public void run() {
-                sleepTime();
-            }
-        }.start();
+//        new Thread() {
+//            @Override
+//            public void run() {
+//                sleepTime();
+//            }
+//        }.start();
         new Thread() {
             @Override
             public void run() {
@@ -128,7 +136,6 @@ public class SplashActivity extends Activity {
                 order.countDown();
             }
         });
-        //
         mng.checkUpdate();
     }
 

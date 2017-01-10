@@ -67,7 +67,7 @@ public class AccountHelper {
     }
 
     public static boolean isShortCookieEmpty(){
-        return TextUtils.isEmpty(instances.user.shortToken);
+        return TextUtils.isEmpty(getUser().shortToken);
     }
 
     public static String getShortCookie(){

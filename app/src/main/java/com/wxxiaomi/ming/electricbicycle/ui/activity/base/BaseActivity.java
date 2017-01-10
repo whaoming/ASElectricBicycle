@@ -96,9 +96,9 @@ public abstract class BaseActivity<V,T extends BasePre> extends AppCompatActivit
             presenter.onViewDestory();
             presenter = null;
         }
-        AppManager.getAppManager().finishActivity(this);
-        super.onDestroy();
 
+        super.onDestroy();
+        AppManager.getAppManager().finishActivity(this);
     }
 
     @Override

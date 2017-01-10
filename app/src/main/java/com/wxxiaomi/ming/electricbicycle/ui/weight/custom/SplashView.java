@@ -14,6 +14,7 @@ import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
@@ -56,7 +57,7 @@ public class SplashView extends FrameLayout {
     private Runnable timerRunnable = new Runnable() {
         @Override
         public void run() {
-            if (0 == duration) {
+            if (1 == duration) {
                 dismissSplashView(false);
                 return;
             } else {
@@ -182,47 +183,48 @@ public class SplashView extends FrameLayout {
 
 
     private void dismissSplashView(boolean initiativeDismiss) {
+        Log.i("wang","时间到了");
         if (null != mOnSplashViewActionListener) mOnSplashViewActionListener.onSplashViewDismiss(initiativeDismiss);
-
-
+//
+//
         handler.removeCallbacks(timerRunnable);
-        final ViewGroup parent = (ViewGroup) this.getParent();
-        if (null != parent) {
-            ObjectAnimator animator = ObjectAnimator.ofFloat(SplashView.this, "scale", 0.0f, 0.5f).setDuration(600);
-            animator.start();
-            animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-                @Override
-                public void onAnimationUpdate(ValueAnimator animation) {
-                    float cVal = (Float) animation.getAnimatedValue();
-                    SplashView.this.setAlpha(1.0f - 2.0f * cVal);
-                    SplashView.this.setScaleX(1.0f + cVal);
-                    SplashView.this.setScaleY(1.0f + cVal);
-                }
-            });
-            animator.addListener(new Animator.AnimatorListener() {
-                @Override
-                public void onAnimationStart(Animator animation) {
-
-                }
-
-                @Override
-                public void onAnimationEnd(Animator animation) {
-                    parent.removeView(SplashView.this);
-//                    showSystemUi();
-                }
-
-                @Override
-                public void onAnimationCancel(Animator animation) {
-                    parent.removeView(SplashView.this);
-//                    showSystemUi();
-                }
-
-                @Override
-                public void onAnimationRepeat(Animator animation) {
-
-                }
-            });
-        }
+//        final ViewGroup parent = (ViewGroup) this.getParent();
+//        if (null != parent) {
+//            ObjectAnimator animator = ObjectAnimator.ofFloat(SplashView.this, "scale", 0.0f, 0.5f).setDuration(600);
+//            animator.start();
+//            animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+//                @Override
+//                public void onAnimationUpdate(ValueAnimator animation) {
+//                    float cVal = (Float) animation.getAnimatedValue();
+//                    SplashView.this.setAlpha(1.0f - 2.0f * cVal);
+//                    SplashView.this.setScaleX(1.0f + cVal);
+//                    SplashView.this.setScaleY(1.0f + cVal);
+//                }
+//            });
+//            animator.addListener(new Animator.AnimatorListener() {
+//                @Override
+//                public void onAnimationStart(Animator animation) {
+//
+//                }
+//
+//                @Override
+//                public void onAnimationEnd(Animator animation) {
+//                    parent.removeView(SplashView.this);
+////                    showSystemUi();
+//                }
+//
+//                @Override
+//                public void onAnimationCancel(Animator animation) {
+//                    parent.removeView(SplashView.this);
+////                    showSystemUi();
+//                }
+//
+//                @Override
+//                public void onAnimationRepeat(Animator animation) {
+//
+//                }
+//            });
+//        }
     }
 
     public interface OnSplashViewActionListener {

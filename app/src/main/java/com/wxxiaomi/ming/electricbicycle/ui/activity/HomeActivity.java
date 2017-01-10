@@ -49,6 +49,8 @@ import com.wxxiaomi.ming.electricbicycle.ui.weight.custom.MsgActionProvider;
  */
 public class HomeActivity extends BaseActivity<HomeView,HomePresenter> implements HomeView<HomePresenter> {
 
+    public static HomeActivity INSTANCE;
+
     private CoordinatorLayout sn_layout;
     private TextureMapView mMapView;
     private BaiduMap mBaiduMap;
@@ -79,6 +81,7 @@ public class HomeActivity extends BaseActivity<HomeView,HomePresenter> implement
     @Override
     protected void initView(Bundle savedInstanceState) {
         setContentView(R.layout.activity_home);
+        INSTANCE = this;
         toolbar = (Toolbar) findViewById(R.id.toolbar1);
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
@@ -358,6 +361,8 @@ public class HomeActivity extends BaseActivity<HomeView,HomePresenter> implement
         super.onDestroy();
         mMapView.onDestroy();
         mMapView = null;
+
+
     }
 
     @Override

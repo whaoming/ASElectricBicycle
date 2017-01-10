@@ -4,9 +4,11 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 
 import com.wxxiaomi.ming.electricbicycle.R;
+import com.wxxiaomi.ming.electricbicycle.common.util.AppManager;
 import com.wxxiaomi.ming.electricbicycle.ui.fragment.SettingFragment;
 
 public class SettingActivity extends AppCompatActivity {
@@ -28,9 +30,16 @@ public class SettingActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                finish();
+//                finish();
+                AppManager.getAppManager().finishActivity(HomeActivity.class);
                 return true;
         }
         return false;
+    }
+
+    @Override
+    protected void onDestroy() {
+        Log.i("wang","SettingActivity-onDestroy");
+        super.onDestroy();
     }
 }

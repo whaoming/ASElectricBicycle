@@ -74,8 +74,7 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
     @Override
     public void init() {
         initMap(mView.getMap());
-        NoticeManager.bindNotify(this);
-//        registerBroadcastReceiver();
+//        NoticeManager.bindNotify(this);
     }
 
     /**
@@ -243,12 +242,9 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
 
     @Override
     public void onViewDestory() {
-//        EmEngine.getInstance().logout();
-//        unregisterBroadcastReceiver();
+//        NoticeManager.unBindNotify(this);
         mLocClient.stop();
         mBaiduMap.setMyLocationEnabled(false);
-        NoticeManager.unBindNotify(this);
-//        ImHelper.getInstance().setMessageListener(null);
     }
 
     @Override

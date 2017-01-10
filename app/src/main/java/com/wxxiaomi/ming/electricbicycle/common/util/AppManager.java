@@ -59,9 +59,12 @@ public class AppManager {
 		public void finishActivity(Activity activity) {
 
 			if (activity != null) {
-				activityStack.remove(activity);
-				activity.finish();
-				activity = null;
+				if(activityStack.contains(activity)){
+					activityStack.remove(activity);
+					activity.finish();
+				}
+
+//				activity = null;
 			}
 		}
 
@@ -87,6 +90,20 @@ public class AppManager {
 			}
 			activityStack.clear();
 		}
+
+	/**
+	 * 结束所有Activity
+	 */
+	public void finishAllActivity(Class<?> cls) {
+		for (Activity activity : activityStack) {
+			Log.i("wang","finishAllActivity");
+			if (!activity.getClass().equals(cls)) {
+				Log.i("wang","activity.getClass()："+activity.getClass());
+				finishActivity(activity);
+			}
+
+		}
+	}
 
 		/**
 		 * 退出应用程序
