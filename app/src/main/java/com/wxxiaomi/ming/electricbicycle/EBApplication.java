@@ -33,10 +33,13 @@ public class EBApplication extends AppContext {
         super.onCreate();
         applicationContext = this;
         instance = this;
+        String processName = getProcessName(this, android.os.Process.myPid());
+        if(processName!=null && !processName.equalsIgnoreCase(getPackageName())){
+            return;
+        }
         SDKInitializer.initialize(getApplicationContext());
         ImHelper1.getInstance().init(this);
         AccountHelper.init(this);
-//        PreferenceManager.init(getApplicationContext());
         if (LeakCanary.isInAnalyzerProcess(this)) {
             return;
         }
@@ -52,6 +55,20 @@ public class EBApplication extends AppContext {
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
         MultiDex.install(this);
+    }
+
+    public static String getProcessName(Context cxt, int pid) {
+        ActivityManager am = (ActivityManager) cxt.getSystemService(Context.ACTIVITY_SERVICE);
+        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = am.getRunningAppProcesses();
+        if (runningAppProcesses == null) {
+            return null;
+        }
+        for (ActivityManager.RunningAppProcessInfo procInfo : runningAppProcesses) {
+            if (procInfo.pid == pid) {
+                return procInfo.processName;
+            }
+        }
+        return null;
     }
 
 

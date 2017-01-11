@@ -69,12 +69,11 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
      */
     private UserCommonInfo currentNearPerson;
     private List<UserLocatInfo> userLocatList;
-//    private LocalBroadcastManager broadcastManager;
 
     @Override
     public void init() {
         initMap(mView.getMap());
-//        NoticeManager.bindNotify(this);
+        NoticeManager.bindNotify(this);
     }
 
     /**
@@ -242,30 +241,22 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
 
     @Override
     public void onViewDestory() {
-//        NoticeManager.unBindNotify(this);
-        mLocClient.stop();
-        mBaiduMap.setMyLocationEnabled(false);
+
+        try {
+            NoticeManager.unBindNotify(this);
+            mLocClient.unRegisterLocationListener(myListener);
+            mLocClient.stop();
+            mBaiduMap.setMyLocationEnabled(false);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+//
     }
 
     @Override
     public void onViewResume() {
         ShowerProvider.showHead(mView.getContext(), mView.getHeadView(), AccountHelper.getAccountInfo().avatar);
         ShowerProvider.showHead(mView.getContext(), mView.getDrawerAvatar(), AccountHelper.getAccountInfo().avatar);
-//        updateUnreadLabel();
-//        ImHelper.getInstance().setMessageListener(new ImHelper.MyMessageListener() {
-//            @Override
-//            public void onMessageReceive() {
-//                updateUnreadLabel();
-//            }
-//        });
-
-
-//        EmEngine.getInstance().setAllMsgLis(new AllMsgListener() {
-//            @Override
-//            public void AllMsgReceive() {
-//                updateUnreadLabel();
-//            }
-//        });
     }
 
     @Override
@@ -273,7 +264,6 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
         mView.updateUnreadLabel(bean.getInvite() + bean.getMessage() + bean.getReview());
     }
 
-//    public void
 
     /**
      * 定位SDK监听函数
@@ -318,7 +308,7 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
                                     final double longitude) {
         UserFunctionProvider.getInstance().getNearPeople(AccountHelper.getAccountInfo().id, latitude, longitude)
                 .subscribe(
-                        new ToastObserver<List<UserLocatInfo>>(mView.getSnackContent()) {
+                        new ToastObserver<List<UserLocatInfo>>() {
                             @Override
                             public void onNext(List<UserLocatInfo> userLocatInfos) {
                                 if (userLocatInfos != null) {

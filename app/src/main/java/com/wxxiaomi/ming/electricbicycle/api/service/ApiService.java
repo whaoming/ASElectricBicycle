@@ -88,9 +88,9 @@ public interface ApiService {
     @GET("android/user_userinfobyname")
     Observable<Result<List<UserCommonInfo>>> getUserCommonInfoByName(@Query("name") String name);
 
-//    @GET("ActionServlet?action=register")
-//    @GET("android/user_register")
-//    Observable<Result<Register>> registerUser(@Query("username") String username, @Query("password") String password);
+    @FormUrlEncoded
+    @POST("android/user_register")
+    Observable<Result<User>> registerUser(@Field("username") String username, @Field("password") String password,@Field("uniqueNum") String uniqueNum);
 
 //    @GET("android/user_optionlog")
 //    Observable<Result<List<OptionLogs>>> optionLogs(@Query("userid") int userid);

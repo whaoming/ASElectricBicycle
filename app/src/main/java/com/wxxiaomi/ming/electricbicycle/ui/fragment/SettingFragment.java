@@ -8,9 +8,13 @@ import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.common.util.AppManager;
+import com.wxxiaomi.ming.electricbicycle.improve.common.AppContext;
 import com.wxxiaomi.ming.electricbicycle.improve.update.CheckUpdateManager;
 import com.wxxiaomi.ming.electricbicycle.improve.common.DialogHelper;
 import com.wxxiaomi.ming.electricbicycle.improve.update.Version;
@@ -24,12 +28,19 @@ import com.wxxiaomi.ming.electricbicycle.ui.activity.LoginActivity;
  */
 
 public class SettingFragment extends PreferenceFragment {
+    View root;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.preferences);
         Preference bike_cache = getPreferenceManager().findPreference("bike_cache");
         bike_cache.setSummary(CacheManager.getCacheSize());
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        root = super.onCreateView(inflater,container,savedInstanceState);
+        return super.onCreateView(inflater, container, savedInstanceState);
     }
 
     @Override
@@ -48,8 +59,8 @@ public class SettingFragment extends PreferenceFragment {
                             logout();
                         }
                     }).show();
-        }else if("check_update".equals(preference.getKey())){
-            CheckUpdateManager manager = new CheckUpdateManager(getActivity(),true);
+        } else if ("check_update".equals(preference.getKey())) {
+            CheckUpdateManager manager = new CheckUpdateManager(getActivity(), true);
             manager.setCaller(new CheckUpdateManager.RequestPermissions() {
                 @Override
                 public void call(boolean isOk, Version version) {
@@ -63,20 +74,20 @@ public class SettingFragment extends PreferenceFragment {
 
     private void logout() {
         try {
-//            new Thread(){
-//                @Override
-//                public void run() {
-//                    super.run();
-                    AccountHelper.logout();
-                    AppManager.getAppManager().finishActivity(HomeActivity.class);
-//                }
-//            }.start();
-
-        }catch (Exception e){
-            e.printStackTrace();;
+            AccountHelper.logout(root, new Runnable() {
+                @Override
+                public void run() {
+                    AppManager.getAppManager().finishAllActivity(getActivity().getClass());
+                    Intent intent = new Intent(getActivity(), LoginActivity.class);
+                    getActivity().startActivity(intent);
+                    AppContext.showToastShort("退出登陆成功");
+                    AppManager.getAppManager().finishActivity(getActivity());
+                }
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+            ;
         }
-//        Intent intent = new Intent(getActivity(), LoginActivity.class);
-//        getActivity().startActivity(intent);
-//        AppManager.getAppManager().finishActivity(getActivity());
+//
     }
 }
