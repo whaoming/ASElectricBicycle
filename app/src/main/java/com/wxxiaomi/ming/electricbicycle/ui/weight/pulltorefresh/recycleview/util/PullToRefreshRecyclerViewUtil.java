@@ -1,4 +1,4 @@
-package com.wxxiaomi.ming.electricbicycle.ui.weight.myrecycle.util;
+package com.wxxiaomi.ming.electricbicycle.ui.weight.pulltorefresh.recycleview.util;
 
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;

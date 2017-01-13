@@ -1,7 +1,7 @@
-package com.wxxiaomi.ming.electricbicycle.ui.weight.baseadapter.interfaces;
+package com.wxxiaomi.ming.electricbicycle.ui.weight.pulltorefresh.baseadapter.interfaces;
 
 
-import com.wxxiaomi.ming.electricbicycle.ui.weight.baseadapter.ViewHolder;
+import com.wxxiaomi.ming.electricbicycle.ui.weight.pulltorefresh.baseadapter.ViewHolder;
 
 /**
  * Author: Othershe

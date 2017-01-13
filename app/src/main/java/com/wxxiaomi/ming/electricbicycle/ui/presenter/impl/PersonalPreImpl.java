@@ -13,7 +13,7 @@ import com.wxxiaomi.ming.electricbicycle.ui.presenter.PersonalPresenter;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.view.PersonaView;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.MyInfoEditActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.adapter.OptionAdapter2;
-import com.wxxiaomi.ming.electricbicycle.ui.weight.pull2refreshreview.PullToRefreshRecyclerView;
+import com.wxxiaomi.ming.electricbicycle.ui.weight.pulltorefresh.recycleview.PullToRefreshRecyclerView;
 
 import java.util.List;
 

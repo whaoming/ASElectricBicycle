@@ -1,4 +1,4 @@
-package com.wxxiaomi.ming.electricbicycle.ui.weight.myrecycle;
+package com.wxxiaomi.ming.electricbicycle.ui.weight.pulltorefresh.recycleview;
 
 import android.content.Context;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -11,9 +11,8 @@ import android.view.ViewTreeObserver;
 import android.widget.RelativeLayout;
 
 import com.wxxiaomi.ming.electricbicycle.R;
-import com.wxxiaomi.ming.electricbicycle.ui.weight.myrecycle.header.Header;
-import com.wxxiaomi.ming.electricbicycle.ui.weight.myrecycle.util.PullToRefreshRecyclerViewUtil;
-import com.wxxiaomi.ming.electricbicycle.ui.weight.pull2refreshreview.footer.BaseLoadMoreView;
+import com.wxxiaomi.ming.electricbicycle.ui.weight.pulltorefresh.recycleview.header.Header;
+import com.wxxiaomi.ming.electricbicycle.ui.weight.pulltorefresh.recycleview.util.PullToRefreshRecyclerViewUtil;
 
 
 /**
@@ -43,14 +42,14 @@ public class PullToRefreshRecyclerView extends SwipeRefreshLayout implements Prv
 
     private boolean mIsSwipeEnable = false;
 
-    private BaseLoadMoreView mLoadMoreFooter;
+//    private BaseLoadMoreView mLoadMoreFooter;
 
     private PagingableListener mPagingableListener;
 
     private AdapterObserver mAdapterObserver;
 
     private boolean isLoading = false;
-    private boolean hasMoreItems = false;
+//    private boolean hasMoreItems = false;
 
     private PullToRefreshRecyclerView.OnScrollListener mOnScrollLinstener;
 
@@ -119,7 +118,7 @@ public class PullToRefreshRecyclerView extends SwipeRefreshLayout implements Prv
      */
     private void setupExtra() {
         isLoading = false;
-        hasMoreItems = false;
+//        hasMoreItems = false;
         mPtrrvUtil = new PullToRefreshRecyclerViewUtil();
     }
 
@@ -262,17 +261,17 @@ public class PullToRefreshRecyclerView extends SwipeRefreshLayout implements Prv
             return;
         }
 
-        if (!hasMoreItems && mLoadMoreFooter != null) {
-            //if it's last line, minus the extra height of loadmore
-            mCurScroll = mCurScroll - mLoadMoreFooter.getLoadMorePadding();
-        }
+//        if (!hasMoreItems && mLoadMoreFooter != null) {
+//            //if it's last line, minus the extra height of loadmore
+//            mCurScroll = mCurScroll - mLoadMoreFooter.getLoadMorePadding();
+//        }
 
         // if items is too short, don't show loadingview
         if (getLayoutManager().getItemCount() < mLoadMoreCount) {
             hasMoreItems = false;
         }
 
-        setHasMoreItems(hasMoreItems);
+//        setHasMoreItems(hasMoreItems);
 
         isLoading = false;
 
@@ -328,26 +327,26 @@ public class PullToRefreshRecyclerView extends SwipeRefreshLayout implements Prv
 
     }
 
-    public void setLoadmoreString(String str) {
-        if (mLoadMoreFooter != null) {
-            mLoadMoreFooter.setLoadmoreString(str);
-        }
-    }
-
-    private void setHasMoreItems(boolean hasMoreItems) {
-        this.hasMoreItems = hasMoreItems;
-        if (mLoadMoreFooter == null) {
-//            mLoadMoreFooter = new DefaultLoadMoreView(getContext(), getRecyclerView());
-        }
-        if (!this.hasMoreItems) {
-            //remove loadmore
+//    public void setLoadmoreString(String str) {
+//        if (mLoadMoreFooter != null) {
+//            mLoadMoreFooter.setLoadmoreString(str);
+//        }
+//    }
+//
+//    private void setHasMoreItems(boolean hasMoreItems) {
+//        this.hasMoreItems = hasMoreItems;
+//        if (mLoadMoreFooter == null) {
+////            mLoadMoreFooter = new DefaultLoadMoreView(getContext(), getRecyclerView());
+//        }
+//        if (!this.hasMoreItems) {
+//            //remove loadmore
+////            mRecyclerView.removeItemDecoration(mLoadMoreFooter);
+//        } else {
+//            //add loadmore
 //            mRecyclerView.removeItemDecoration(mLoadMoreFooter);
-        } else {
-            //add loadmore
-            mRecyclerView.removeItemDecoration(mLoadMoreFooter);
-            mRecyclerView.addItemDecoration(mLoadMoreFooter);
-        }
-    }
+//            mRecyclerView.addItemDecoration(mLoadMoreFooter);
+//        }
+//    }
 
     private class InterOnScrollListener extends RecyclerView.OnScrollListener {
 
@@ -410,7 +409,7 @@ public class PullToRefreshRecyclerView extends SwipeRefreshLayout implements Prv
                 if (mPagingableListener != null) {
                     Log.i("wang", "滑到底啦");
                     isLoading = true;
-                    mRecyclerView.addItemDecoration(mLoadMoreFooter);
+//                    mRecyclerView.addItemDecoration(mLoadMoreFooter);
                     mPagingableListener.onLoadMoreItems();
                 }
 

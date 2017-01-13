@@ -181,6 +181,8 @@ public class SplashActivity extends Activity {
                 ImHelper1.getInstance().setFriends(UserFunctionProvider.getInstance().getEFriends());
                 order.countDown();
             }
+        }else{
+            order.countDown();
         }
 
     }

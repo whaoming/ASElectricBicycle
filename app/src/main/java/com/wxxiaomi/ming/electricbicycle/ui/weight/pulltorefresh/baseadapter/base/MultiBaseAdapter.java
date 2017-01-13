@@ -1,14 +1,16 @@
-package com.wxxiaomi.ming.electricbicycle.ui.weight.baseadapter.base;
+package com.wxxiaomi.ming.electricbicycle.ui.weight.pulltorefresh.baseadapter.base;
 
 import android.content.Context;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.wxxiaomi.ming.electricbicycle.ui.weight.baseadapter.ViewHolder;
-import com.wxxiaomi.ming.electricbicycle.ui.weight.baseadapter.interfaces.OnMultiItemClickListeners;
+import com.wxxiaomi.ming.electricbicycle.ui.weight.pulltorefresh.baseadapter.ViewHolder;
+import com.wxxiaomi.ming.electricbicycle.ui.weight.pulltorefresh.baseadapter.interfaces.OnMultiItemClickListeners;
 
 import java.util.List;
+
 
 
 /**
@@ -16,7 +18,14 @@ import java.util.List;
  * Time: 2016/9/9 16:21
  */
 public abstract class MultiBaseAdapter<T> extends BaseAdapter<T> {
+
+    protected SwipeRefreshLayout swipe;
     private OnMultiItemClickListeners<T> mItemClickListener;
+
+    public MultiBaseAdapter(Context context, List<T> datas, boolean isOpenLoadMore,SwipeRefreshLayout swipe) {
+        super(context, datas, isOpenLoadMore);
+        this.swipe = swipe;
+    }
 
     public MultiBaseAdapter(Context context, List<T> datas, boolean isOpenLoadMore) {
         super(context, datas, isOpenLoadMore);
@@ -37,10 +46,23 @@ public abstract class MultiBaseAdapter<T> extends BaseAdapter<T> {
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         int viewType = holder.getItemViewType();
+        if (viewType== BaseAdapter.TYPE_LOADING_VIEW) {
+            swipe.setRefreshing(true);
+        }else{
+            swipe.setRefreshing(false);
+        }
         if (isCommonItemView(viewType)) {
             bindCommonItem(holder, position, viewType);
         }
     }
+
+//    @Override
+//    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+//        int viewType = holder.getItemViewType();
+//        if (isCommonItemView(viewType)) {
+//            bindCommonItem(holder, position, viewType);
+//        }
+//    }
 
     private void bindCommonItem(RecyclerView.ViewHolder holder, final int position, final int viewType) {
         final ViewHolder viewHolder = (ViewHolder) holder;

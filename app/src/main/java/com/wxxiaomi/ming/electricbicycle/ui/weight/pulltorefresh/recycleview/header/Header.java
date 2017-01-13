@@ -1,4 +1,4 @@
-package com.wxxiaomi.ming.electricbicycle.ui.weight.pull2refreshreview.header;
+package com.wxxiaomi.ming.electricbicycle.ui.weight.pulltorefresh.recycleview.header;
 
 import android.graphics.Rect;
 import android.support.v7.widget.RecyclerView;

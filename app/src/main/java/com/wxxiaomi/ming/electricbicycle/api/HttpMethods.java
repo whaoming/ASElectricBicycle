@@ -32,6 +32,7 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava.HttpException;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import rx.Observable;
@@ -79,9 +80,11 @@ public class HttpMethods {
 //                                .addHeader("token", GlobalManager.getInstance().getStoken())
                                 .build();
                     }
-
-                    Response response = chain.proceed(newRequest);
-
+//                    try {
+                        Response response = chain.proceed(newRequest);
+//                    }catch (Exception e){
+//                        throw new HttpException("");
+//                    }
                     if(response.header("token")!=null){
                         Log.i("wang","发现短token:"+response.header("token"));
 //                            GlobalManager.getInstance().setStoken(response.header("token"));

@@ -1,5 +1,6 @@
 package com.wxxiaomi.ming.electricbicycle.ui.presenter.impl;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,10 +20,11 @@ import com.wxxiaomi.ming.electricbicycle.ui.activity.view.FriendAddView;
 import com.wxxiaomi.ming.electricbicycle.service.LocatProvider;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.adapter2.NearUserAdapter;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.adapter2.UserSearchRsultAdapter1;
-import com.wxxiaomi.ming.electricbicycle.ui.weight.myrecycle.PullToRefreshRecyclerView;
+import com.wxxiaomi.ming.electricbicycle.ui.weight.pulltorefresh.recycleview.PullToRefreshRecyclerView;
 
 import java.util.List;
 
+import rx.Observer;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 
@@ -54,13 +56,29 @@ public class FriendAddPresenterImpl extends BasePreImpl<FriendAddView> implement
 
 
     private void getNearFriend() {
+        new Action1<List<UserLocatInfo>>() {
+            @Override
+            public void call(List<UserLocatInfo> nearByPerson) {
+
+            }
+        };
         UserFunctionProvider.getInstance().getNearPeople(AccountHelper.getAccountInfo().id
                 , LocatProvider.getInstance().getLatitude()
                 , LocatProvider.getInstance().getLongitude())
-                .subscribe(new Action1<List<UserLocatInfo>>() {
+                .subscribe(new Observer<List<UserLocatInfo>>() {
                     @Override
-                    public void call(List<UserLocatInfo> nearByPerson) {
-                            mAdapter.setNewData(nearByPerson);
+                    public void onCompleted() {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        mAdapter.setLoadFail();
+                    }
+
+                    @Override
+                    public void onNext(List<UserLocatInfo> userLocatInfos) {
+                        mAdapter.setNewData(userLocatInfos);
                     }
                 });
     }

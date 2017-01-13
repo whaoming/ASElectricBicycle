@@ -1,6 +1,7 @@
 package com.wxxiaomi.ming.electricbicycle.ui.weight.adapter2;
 
 import android.content.Context;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
@@ -17,10 +18,8 @@ import com.wxxiaomi.ming.electricbicycle.common.util.TimeUtil;
 import com.wxxiaomi.ming.electricbicycle.db.bean.Option;
 import com.wxxiaomi.ming.electricbicycle.service.AccountHelper;
 import com.wxxiaomi.ming.electricbicycle.service.ShowerProvider;
-import com.wxxiaomi.ming.electricbicycle.ui.weight.baseadapter.ViewHolder;
-import com.wxxiaomi.ming.electricbicycle.ui.weight.baseadapter.base.BaseAdapter;
-import com.wxxiaomi.ming.electricbicycle.ui.weight.baseadapter.base.MultiBaseAdapter;
-import com.wxxiaomi.ming.electricbicycle.ui.weight.myrecycle.PullToRefreshRecyclerView;
+import com.wxxiaomi.ming.electricbicycle.ui.weight.pulltorefresh.baseadapter.ViewHolder;
+import com.wxxiaomi.ming.electricbicycle.ui.weight.pulltorefresh.baseadapter.base.MultiBaseAdapter;
 
 import java.util.List;
 
@@ -31,32 +30,16 @@ import java.util.List;
 public class OptionAdapter4  extends MultiBaseAdapter<Option> {
     private final int TYPE_NORMAL = 1;
     private final int TYPE_MAP = 2;
-    PullToRefreshRecyclerView listview;
     private boolean isLoading = true;
-    public OptionAdapter4(Context context, List<Option> datas, boolean isOpenLoadMore,PullToRefreshRecyclerView listview) {
-        super(context, datas, isOpenLoadMore);
-        this.listview = listview;
+    public OptionAdapter4(Context context, List<Option> datas, boolean isOpenLoadMore,SwipeRefreshLayout listview) {
+        super(context, datas, isOpenLoadMore,listview);
     }
-    public void setIsLoading(boolean isLoading){
-        this.isLoading = isLoading;
-        notifyDataSetChanged();
-    }
+//    public void setIsLoading(boolean isLoading){
+//        this.isLoading = isLoading;
+//        notifyDataSetChanged();
+//    }
 
-    @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int viewtype) {
-        int viewType = holder.getItemViewType();
-        if(viewType== BaseAdapter.TYPE_LOADING_VIEW){
-            listview.setRefreshing(true);
-        }else{
-            if(isLoading){
-                listview.setRefreshing(true);
-            }else {
-                listview.setRefreshing(false);
-            }
-            super.onBindViewHolder(holder, viewtype);
-        }
 
-    }
 
     @Override
     protected void convert(ViewHolder holder, Option option, int viewType) {

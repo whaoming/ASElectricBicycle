@@ -4,19 +4,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.hyphenate.easeui.domain.EaseUser;
 import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.db.bean.InviteMessage;
 import com.wxxiaomi.ming.electricbicycle.db.impl.InviteMessgeDaoImpl2;
 import com.wxxiaomi.ming.electricbicycle.improve.im.notice.NoticeManager;
-import com.wxxiaomi.ming.electricbicycle.service.UserFunctionProvider;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.adapter2.InviteAdapter;
-import com.wxxiaomi.ming.electricbicycle.ui.weight.myrecycle.PullToRefreshRecyclerView;
+import com.wxxiaomi.ming.electricbicycle.ui.weight.pulltorefresh.recycleview.PullToRefreshRecyclerView;
 
 import java.util.HashMap;
 import java.util.List;
@@ -24,7 +21,6 @@ import java.util.Map;
 
 import rx.Observable;
 import rx.functions.Action1;
-import rx.functions.Func1;
 
 public class InviteMsgActivity extends AppCompatActivity {
     private Toolbar toolbar;

@@ -1,4 +1,4 @@
-package com.wxxiaomi.ming.electricbicycle.ui.weight.myrecycle;
+package com.wxxiaomi.ming.electricbicycle.ui.weight.pulltorefresh.recycleview;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;

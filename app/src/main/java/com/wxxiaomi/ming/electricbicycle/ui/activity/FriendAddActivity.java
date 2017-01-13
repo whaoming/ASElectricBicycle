@@ -14,8 +14,7 @@ import com.wxxiaomi.ming.electricbicycle.ui.activity.base.BaseActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.FriendAddPresenter;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.impl.FriendAddPresenterImpl;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.view.FriendAddView;
-import com.wxxiaomi.ming.electricbicycle.ui.weight.adapter.NearFriendRecommendAdapter1;
-import com.wxxiaomi.ming.electricbicycle.ui.weight.myrecycle.PullToRefreshRecyclerView;
+import com.wxxiaomi.ming.electricbicycle.ui.weight.pulltorefresh.recycleview.PullToRefreshRecyclerView;
 
 import java.lang.reflect.Field;
 
@@ -43,8 +42,6 @@ public class FriendAddActivity extends BaseActivity<FriendAddView, FriendAddPres
         searchView.setIconifiedByDefault(true);//设置展开后图标的样式,这里只有两种,一种图标在搜索框外,一种在搜索框内
         searchView.onActionViewExpanded();// 写上此句后searchView初始是可以点击输入的状态，如果不写，那么就需要点击下放大镜，才能出现输入框,也就是设置为ToolBar的ActionView，默认展开
         searchView.requestFocus();//输入焦点
-//        searchView.setSubmitButtonEnabled(true);//添加提交按钮，监听在OnQueryTextListener的onQueryTextSubmit响应
-//        searchView.setFocusable(true);//将控件设置成可获取焦点状态,默认是无法获取焦点的,只有设置成true,才能获取控件的点击事件
         searchView.setIconified(false);//输入框内icon不显示
 //        searchView.requestFocusFromTouch();//模拟焦点点击事件
         header = View.inflate(this, R.layout.view_header_friend_serach, null);
@@ -79,10 +76,10 @@ public class FriendAddActivity extends BaseActivity<FriendAddView, FriendAddPres
         return new FriendAddPresenterImpl();
     }
 
-    @Override
-    public void setListAdaper(NearFriendRecommendAdapter1 adapter) {
+//    @Override
+//    public void setListAdaper(NearFriendRecommendAdapter1 adapter) {
 //        mRecyclerView.setAdapter(adapter);
-    }
+//    }
 
     @Override
     public PullToRefreshRecyclerView getListView() {

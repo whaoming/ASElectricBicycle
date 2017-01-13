@@ -1,4 +1,4 @@
-package com.wxxiaomi.ming.electricbicycle.ui.weight.baseadapter;
+package com.wxxiaomi.ming.electricbicycle.ui.weight.pulltorefresh.baseadapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;

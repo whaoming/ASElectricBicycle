@@ -26,7 +26,7 @@
             app:defaultQueryHint="搜索" />
     </android.support.v7.widget.Toolbar>
 
-    <com.wxxiaomi.ming.electricbicycle.ui.weight.myrecycle.PullToRefreshRecyclerView
+    <com.wxxiaomi.ming.electricbicycle.ui.weight.pulltorefresh.recycleview.PullToRefreshRecyclerView
         android:background="#f3f3f3"
         android:id="@+id/mRecyclerView"
         android:layout_width="match_parent"

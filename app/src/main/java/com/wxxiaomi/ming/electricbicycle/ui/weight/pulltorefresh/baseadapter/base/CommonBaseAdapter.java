@@ -1,17 +1,19 @@
-package com.wxxiaomi.ming.electricbicycle.ui.weight.baseadapter.base;
+package com.wxxiaomi.ming.electricbicycle.ui.weight.pulltorefresh.baseadapter.base;
 
 import android.content.Context;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.wxxiaomi.ming.electricbicycle.ui.weight.baseadapter.ViewHolder;
-import com.wxxiaomi.ming.electricbicycle.ui.weight.baseadapter.interfaces.OnItemChildClickListener;
-import com.wxxiaomi.ming.electricbicycle.ui.weight.baseadapter.interfaces.OnItemClickListener;
-import com.wxxiaomi.ming.electricbicycle.ui.weight.baseadapter.interfaces.OnSwipeMenuClickListener;
+import com.wxxiaomi.ming.electricbicycle.ui.weight.pulltorefresh.baseadapter.ViewHolder;
+import com.wxxiaomi.ming.electricbicycle.ui.weight.pulltorefresh.baseadapter.interfaces.OnItemChildClickListener;
+import com.wxxiaomi.ming.electricbicycle.ui.weight.pulltorefresh.baseadapter.interfaces.OnItemClickListener;
+import com.wxxiaomi.ming.electricbicycle.ui.weight.pulltorefresh.baseadapter.interfaces.OnSwipeMenuClickListener;
 
 import java.util.ArrayList;
 import java.util.List;
+
 
 
 /**
@@ -28,11 +30,18 @@ public abstract class CommonBaseAdapter<T> extends BaseAdapter<T> {
     private ArrayList<Integer> mItemChildIds = new ArrayList<>();
     protected ArrayList<OnItemChildClickListener<T>> mItemChildListeners = new ArrayList<>();
 
+    protected SwipeRefreshLayout swipe;
+
     public CommonBaseAdapter(Context context, List<T> datas, boolean isOpenLoadMore) {
         super(context, datas, isOpenLoadMore);
     }
 
-    protected abstract void convert(ViewHolder holder, T data,int position);
+    public CommonBaseAdapter(Context context, List<T> datas, boolean isOpenLoadMore, SwipeRefreshLayout swipe) {
+        super(context, datas, isOpenLoadMore);
+        this.swipe = swipe;
+    }
+
+    protected abstract void convert(ViewHolder holder, T data, int position);
 
     protected abstract int getItemLayoutId();
 
@@ -47,6 +56,11 @@ public abstract class CommonBaseAdapter<T> extends BaseAdapter<T> {
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         int viewType = holder.getItemViewType();
+        if (viewType== BaseAdapter.TYPE_LOADING_VIEW) {
+            swipe.setRefreshing(true);
+        }else{
+            swipe.setRefreshing(false);
+        }
         if (isCommonItemView(viewType)) {
             bindCommonItem(holder, position);
         }

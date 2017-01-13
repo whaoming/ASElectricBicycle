@@ -1,4 +1,4 @@
-package com.wxxiaomi.ming.electricbicycle.ui.weight.baseadapter.interfaces;
+package com.wxxiaomi.ming.electricbicycle.ui.weight.pulltorefresh.baseadapter.interfaces;
 
 /**
  * Author: Othershe

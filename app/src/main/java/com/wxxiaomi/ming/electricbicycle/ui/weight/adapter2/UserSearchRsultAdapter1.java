@@ -3,6 +3,7 @@ package com.wxxiaomi.ming.electricbicycle.ui.weight.adapter2;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -12,9 +13,8 @@ import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.db.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.service.ShowerProvider;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.UserInfoActivity;
-import com.wxxiaomi.ming.electricbicycle.ui.weight.baseadapter.ViewHolder;
-import com.wxxiaomi.ming.electricbicycle.ui.weight.baseadapter.base.CommonBaseAdapter;
-import com.wxxiaomi.ming.electricbicycle.ui.weight.myrecycle.PullToRefreshRecyclerView;
+import com.wxxiaomi.ming.electricbicycle.ui.weight.pulltorefresh.baseadapter.ViewHolder;
+import com.wxxiaomi.ming.electricbicycle.ui.weight.pulltorefresh.baseadapter.base.CommonBaseAdapter;
 
 import java.util.List;
 
@@ -24,10 +24,8 @@ import java.util.List;
 
 public class UserSearchRsultAdapter1 extends CommonBaseAdapter<UserCommonInfo> {
 
-    PullToRefreshRecyclerView listview;
-    public UserSearchRsultAdapter1(Context context, List<UserCommonInfo> datas, boolean isOpenLoadMore,PullToRefreshRecyclerView listview) {
-        super(context, datas, isOpenLoadMore);
-        this.listview = listview;
+    public UserSearchRsultAdapter1(Context context, List<UserCommonInfo> datas, boolean isOpenLoadMore,SwipeRefreshLayout listview) {
+        super(context, datas, isOpenLoadMore,listview);
     }
 
     @Override

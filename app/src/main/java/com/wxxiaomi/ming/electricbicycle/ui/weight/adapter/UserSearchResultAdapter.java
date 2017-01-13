@@ -16,7 +16,6 @@ import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.db.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.db.bean.UserLocatInfo;
 import com.wxxiaomi.ming.electricbicycle.service.ShowerProvider;
-import com.wxxiaomi.ming.electricbicycle.ui.activity.UserInfoAct;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.adapter.base.BaseAdapter;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.custom.CircularImageView;
 
@@ -67,9 +66,9 @@ public class UserSearchResultAdapter extends BaseAdapter {
                 public void onClick(View v) {
                     Bundle bundle = new Bundle();
                     bundle.putSerializable("userInfo", userCommonInfo);
-                    Intent intent4 = new Intent(context, UserInfoAct.class);
-                    intent4.putExtra("value", bundle);
-                    context.startActivity(intent4);
+//                    Intent intent4 = new Intent(context, UserInfoAct.class);
+//                    intent4.putExtra("value", bundle);
+//                    context.startActivity(intent4);
                 }
             });
 //            Glide.with(context).load(userCommonInfo.avatar).into(holder.iv_head);
