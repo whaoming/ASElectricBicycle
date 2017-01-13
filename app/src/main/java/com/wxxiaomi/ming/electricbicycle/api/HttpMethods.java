@@ -32,6 +32,7 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava.HttpException;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import rx.Observable;
@@ -79,9 +80,11 @@ public class HttpMethods {
 //                                .addHeader("token", GlobalManager.getInstance().getStoken())
                                 .build();
                     }
-
-                    Response response = chain.proceed(newRequest);
-
+//                    try {
+                        Response response = chain.proceed(newRequest);
+//                    }catch (Exception e){
+//                        throw new HttpException("");
+//                    }
                     if(response.header("token")!=null){
                         Log.i("wang","发现短token:"+response.header("token"));
 //                            GlobalManager.getInstance().setStoken(response.header("token"));
@@ -126,29 +129,9 @@ public class HttpMethods {
     }
 
 
-//    public Observable<List<UserCommonInfo>> getTopMovie(String username, String password) {
-//        return demoService.initUserInfo(username, password)
-//                .map(new ServerResultFunc<List<UserCommonInfo>>())
-//                .onErrorResumeNext(new Func1<Throwable, Observable<? extends List<UserCommonInfo>>>() {
-//                    @Override
-//                    public Observable<? extends List<UserCommonInfo>> call(Throwable throwable) {
-//                        return Observable.error(ExceptionProvider.handleException(throwable));
-//                    }
-//                })
-//                .subscribeOn(Schedulers.io())
-//                .unsubscribeOn(Schedulers.io());
-//    }
 
     public Observable<Version> checkUpdate(){
         return demoService.checkUpdate();
-//                .map(new ServerResultFunc<Version>())
-//                .retryWhen(new TokenOutTime(3,1))
-//                .onErrorResumeNext(new Func1<Throwable, Observable<? extends Version>>() {
-//                    @Override
-//                    public Observable<? extends Version> call(Throwable throwable) {
-//                        return Observable.error(ExceptionProvider.handleException(throwable));
-//                    }
-//                });
     }
 
     public Observable<String> publishFootPrint(String content,String picture,String locat_tag,double lat,double lng){
@@ -298,15 +281,15 @@ public class HttpMethods {
                 .observeOn(AndroidSchedulers.mainThread());
     }
 
-//    public Observable<Register> registerUser(String username, String password) {
-//        Log.i("wang","HttpMethods->registerUser");
-//        return demoService.registerUser(username, password)
-//                .map(new ServerResultFunc<Register>())
-//                .onErrorResumeNext(new HttpResultFunc<Register>())
-//                .subscribeOn(Schedulers.io())
-//                .unsubscribeOn(Schedulers.io())
-//                .observeOn(AndroidSchedulers.mainThread());
-//    }
+    public Observable<User> registerUser(String username, String password,String num) {
+        Log.i("wang","HttpMethods->registerUser");
+        return demoService.registerUser(username, password,num)
+                .map(new ServerResultFunc<User>())
+                .onErrorResumeNext(new HttpResultFunc<User>())
+                .subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
 
     public Observable<String> upLoadHead(String fileName, RequestBody imgs){
         return demoService.uploadImage(fileName,imgs)

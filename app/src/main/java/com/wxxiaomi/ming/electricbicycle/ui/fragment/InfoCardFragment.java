@@ -18,9 +18,8 @@ import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.db.bean.Option;
 import com.wxxiaomi.ming.electricbicycle.db.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.ui.fragment.base.BaseFragment;
-import com.wxxiaomi.ming.electricbicycle.ui.weight.adapter.OptionAdapter3;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.adapter2.OptionAdapter4;
-import com.wxxiaomi.ming.electricbicycle.ui.weight.myrecycle.PullToRefreshRecyclerView;
+import com.wxxiaomi.ming.electricbicycle.ui.weight.pulltorefresh.recycleview.PullToRefreshRecyclerView;
 
 import java.util.List;
 
@@ -103,7 +102,7 @@ public class InfoCardFragment extends BaseFragment {
 //                OptionAdapter3 adapter = new OptionAdapter3(options,getActivity());
 //                mRecyclerView.setAdapter(adapter);
                 adapter.setNewData(options);
-                adapter.setIsLoading(true);
+//                adapter.setIsLoading(true);
 //                adapter.setis
 //                mRecyclerView.setRefreshing(true);
                 break;
@@ -113,7 +112,7 @@ public class InfoCardFragment extends BaseFragment {
                     List<Option> optionss = bundle.getParcelableArrayList(ConstantValue.BUNDLE_OPTIONS);
                     adapter.setNewData(optionss);
                 }
-                adapter.setIsLoading(false);
+//                adapter.setIsLoading(false);
                 break;
         }
 

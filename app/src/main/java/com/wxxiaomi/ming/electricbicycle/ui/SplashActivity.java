@@ -47,12 +47,12 @@ public class SplashActivity extends Activity {
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case 5:
-                    if(isLogin){
+                    if (isLogin) {
                         Intent intent = new Intent(SplashActivity.this, HomeActivity.class);
                         startActivity(intent);
                         finish();
                         break;
-                    }else{
+                    } else {
                         Intent intent = new Intent(SplashActivity.this, RegisterActivity.class);
                         startActivity(intent);
                         finish();
@@ -79,7 +79,7 @@ public class SplashActivity extends Activity {
 
             @Override
             public void onSplashViewDismiss(boolean initiativeDismiss) {
-                Log.i("wang","onSplashViewDismiss");
+                Log.i("wang", "onSplashViewDismiss");
                 order.countDown();
             }
         });
@@ -96,12 +96,6 @@ public class SplashActivity extends Activity {
                 initModule();
             }
         }.start();
-//        new Thread() {
-//            @Override
-//            public void run() {
-//                sleepTime();
-//            }
-//        }.start();
         new Thread() {
             @Override
             public void run() {
@@ -126,12 +120,12 @@ public class SplashActivity extends Activity {
 
     private void checkUpdate() {
         //要是遇到网络异常这里会卡住
-        CheckUpdateManager mng = new CheckUpdateManager(this,false);
+        CheckUpdateManager mng = new CheckUpdateManager(this, false);
         mng.setCaller(new CheckUpdateManager.RequestPermissions() {
             @Override
-            public void call(boolean isOk,Version version) {
-                if(isOk){
-                    Log.i("wang","点击了确定更新");
+            public void call(boolean isOk, Version version) {
+                if (isOk) {
+                    Log.i("wang", "点击了确定更新");
                 }
                 order.countDown();
             }
@@ -160,14 +154,38 @@ public class SplashActivity extends Activity {
 
     private void thisAutoLogin() {
         boolean login = AccountHelper.isLogin();
-        if(login){
+        if (login) {
             //允许登陆
-                isLogin = true;
-            ImHelper1.getInstance().setFriends(UserFunctionProvider.getInstance().getEFriends());
-            }
-        order.countDown();
-    }
+            if(!ImHelper1.getInstance().isLogin()){
+                ImHelper1.getInstance().LoginFromEm(AccountHelper.getUser().username,AccountHelper.getUser().password)
+                        .subscribe(new Observer<Boolean>() {
+                            @Override
+                            public void onCompleted() {
 
+                            }
+
+                            @Override
+                            public void onError(Throwable e) {
+
+                            }
+
+                            @Override
+                            public void onNext(Boolean aBoolean) {
+                                isLogin = true;
+                                ImHelper1.getInstance().setFriends(UserFunctionProvider.getInstance().getEFriends());
+                                order.countDown();
+                            }
+                        });
+            }else {
+                isLogin = true;
+                ImHelper1.getInstance().setFriends(UserFunctionProvider.getInstance().getEFriends());
+                order.countDown();
+            }
+        }else{
+            order.countDown();
+        }
+
+    }
 
 
     private void doFinalAction() {
@@ -181,7 +199,6 @@ public class SplashActivity extends Activity {
 
     @Override
     protected void onDestroy() {
-        // TODO Auto-generated method stub
         AppManager.getAppManager().finishActivity(this);
         super.onDestroy();
 

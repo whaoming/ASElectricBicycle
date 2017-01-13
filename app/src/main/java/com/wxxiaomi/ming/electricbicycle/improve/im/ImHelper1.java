@@ -77,9 +77,7 @@ public class ImHelper1 implements Contract.IService {
         options.setAcceptInvitationAlways(false);
         easeUI = EaseUI.getInstance();
         try {
-            Log.i("wang","环信初始化的线程："+Thread.currentThread().getName());
             if (easeUI.init(context, options)) {
-                Log.i("wang","环信初始化成功");
                 appContext = context;
 
 //                EMClient.getInstance().lo
@@ -89,10 +87,8 @@ public class ImHelper1 implements Contract.IService {
                 broadcastManager = LocalBroadcastManager.getInstance(appContext);
                 initDbDao();
             } else {
-                Log.i("wang", "初始化环信失败");
             }
         }catch (Exception e){
-            Log.i("wang", "初始化环信失败");
             e.printStackTrace();;
         }
     }
@@ -113,6 +109,10 @@ public class ImHelper1 implements Contract.IService {
     }
 
     private void initDbDao() {
+    }
+
+    public boolean isLogin(){
+        return EMClient.getInstance().isConnected();
     }
 
     /**

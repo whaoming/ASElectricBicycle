@@ -30,7 +30,7 @@ public class InfoDetailFragment extends BaseFragment{
             case 1:
                 userinfo = (UserCommonInfo) bundle.getSerializable(ConstantValue.BUNDLE_USERINFO);
                 isMine = bundle.getBoolean(ConstantValue.INTENT_ISMINE);
-                tv_locat.setText(userinfo.city);
+                tv_locat.setText(userinfo.city==null?"月球":userinfo.city);
                 time_registe.setText(userinfo.create_time);
                 break;
         }

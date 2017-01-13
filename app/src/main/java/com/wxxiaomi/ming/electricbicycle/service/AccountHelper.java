@@ -2,6 +2,8 @@ package com.wxxiaomi.ming.electricbicycle.service;
 
 import android.app.Application;
 import android.text.TextUtils;
+import android.util.Log;
+import android.view.View;
 
 import com.wxxiaomi.ming.electricbicycle.db.bean.User;
 import com.wxxiaomi.ming.electricbicycle.db.bean.UserCommonInfo;
@@ -26,6 +28,7 @@ public class AccountHelper {
     }
 
     public static boolean isLogin() {
+//        Log.i("wang","getUserId():"+getUserId());
         return getUserId() > 0 && !TextUtils.isEmpty(getCookie());
     }
 
@@ -96,10 +99,25 @@ public class AccountHelper {
         return  instances.user.userCommonInfo;
     }
 
-    public static void logout(){
+    public static void logout(final View view, final Runnable runnable){
         //清除缓存
-        SharedPreferencesHelper.remove(instances.application, instances.user.getClass());
+        instances.user = null;
+        SharedPreferencesHelper.remove(instances.application, User.class);
         ImHelper1.getInstance().logout();
+        view.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                view.removeCallbacks(this);
+                User user = SharedPreferencesHelper.load(instances.application, User.class);
+                // 判断当前用户信息是否清理成功
+                if (user == null || user.id <= 0) {
+//                    clearAndPostBroadcast(instances.application);
+                    runnable.run();
+                } else {
+                    view.postDelayed(this, 200);
+                }
+            }
+        }, 200);
     }
 
 

@@ -14,10 +14,13 @@ import com.wxxiaomi.ming.electricbicycle.ui.fragment.SettingFragment;
 public class SettingActivity extends AppCompatActivity {
     Toolbar toolbar;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
+        AppManager.getAppManager().addActivity(this);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("设置");
         setSupportActionBar(toolbar);
@@ -30,8 +33,9 @@ public class SettingActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-//                finish();
-                AppManager.getAppManager().finishActivity(HomeActivity.class);
+                finish();
+//                AppManager.getAppManager().finishActivity(HomeActivity.class);
+//                HomeActivity.INSTANCE.finish();
                 return true;
         }
         return false;
@@ -41,5 +45,6 @@ public class SettingActivity extends AppCompatActivity {
     protected void onDestroy() {
         Log.i("wang","SettingActivity-onDestroy");
         super.onDestroy();
+        AppManager.getAppManager().finishActivity(this);
     }
 }
