@@ -1,6 +1,7 @@
 package com.wxxiaomi.ming.electricbicycle.bridge.aliyun;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.alibaba.sdk.android.oss.ClientConfiguration;
 import com.alibaba.sdk.android.oss.OSS;
@@ -50,11 +51,10 @@ public class OssEngine {
             conf.setMaxErrorRetry(2); // 失败后最大重试次数，默认2次
             OSS oss = new OSSClient(ct, endpoint, credentialProvider, conf);
             ossService = new OssService(oss, bucket);
-            String callbackAddress = "http://1.ming1994.applinzi.com/ossServlet";
+            String callbackAddress = "http://xiejinhao.me/OssDemo2/ossServlet";
             ossService.setCallbackAddress(callbackAddress);
             isInit= true;
         }
-
     }
 
     public Observable<String> uploadImage(final String fileName,final String imgPath){
@@ -64,7 +64,8 @@ public class OssEngine {
                 ossService.asyncPutImage(fileName, imgPath, new UpLoadListener() {
                     @Override
                     public void onFail() {
-                        subscriber.onError(null);
+//                        Log.i("wang","上传出错了");
+                        subscriber.onError(new Exception("上传出错了"));
                     }
                     @Override
                     public void onSuccess() {

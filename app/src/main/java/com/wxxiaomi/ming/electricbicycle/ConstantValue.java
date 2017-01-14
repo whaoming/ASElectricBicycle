@@ -24,7 +24,7 @@ public interface ConstantValue {
 	/**
 	 * 登录操作的url
 	 */
-	 String OSS_MY_URL = "http://192.168.1.46:8080/OssTokenGetServer/Oss";
+	 String OSS_MY_URL = "http://xiejinhao.me/OssTokenGetServer/Oss";
 
 
 	//标识去往userinfo页面要加载的是目标user还是自己
