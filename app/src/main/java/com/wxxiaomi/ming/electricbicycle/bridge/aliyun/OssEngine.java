@@ -50,7 +50,7 @@ public class OssEngine {
             conf.setMaxErrorRetry(2); // 失败后最大重试次数，默认2次
             OSS oss = new OSSClient(ct, endpoint, credentialProvider, conf);
             ossService = new OssService(oss, bucket);
-            String callbackAddress = "http://1.ming1994.applinzi.com/ossServlet";
+            String callbackAddress = "http://xiejinhao.me/OssDemo2/ossServlet";
             ossService.setCallbackAddress(callbackAddress);
             isInit= true;
         }

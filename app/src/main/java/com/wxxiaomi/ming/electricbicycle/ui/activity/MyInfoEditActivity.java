@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,6 +20,8 @@ import com.wxxiaomi.ming.electricbicycle.support.rx.ProgressObserver;
 import com.wxxiaomi.ming.electricbicycle.service.ShowerProvider;
 import com.wxxiaomi.ming.electricbicycle.bridge.aliyun.OssEngine;
 import com.wxxiaomi.ming.electricbicycle.bridge.img.PhotoTakeUtil;
+import com.wxxiaomi.ming.electricbicycle.support.rx.ToastObserver;
+import com.wxxiaomi.ming.electricbicycle.support.rx.ToastObserver2;
 
 import java.util.List;
 
@@ -177,9 +180,10 @@ public class MyInfoEditActivity extends AppCompatActivity implements View.OnClic
                     }
                 })
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Action1<String>() {
+                .subscribe(new ToastObserver<String>() {
                     @Override
-                    public void call(String s) {
+                    public void onNext(String s) {
+                        Log.i("wang","上传到oss之后的图片地址："+s);
                         tmpHeadUrl = s;
                         Glide.with(MyInfoEditActivity.this).load(s).into(userHead);
                     }

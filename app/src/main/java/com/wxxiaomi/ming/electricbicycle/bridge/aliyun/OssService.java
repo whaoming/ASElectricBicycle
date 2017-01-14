@@ -105,6 +105,7 @@ public class OssService {
                     // 本地异常如网络异常等
                     clientExcepion.printStackTrace();
                     info = clientExcepion.toString();
+                    Log.i("wang","info:"+info);
                 }
 
                 Log.e("wang","Bucket: " + bucket
