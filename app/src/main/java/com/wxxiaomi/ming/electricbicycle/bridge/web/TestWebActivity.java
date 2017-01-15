@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
 
-import com.squareup.leakcanary.RefWatcher;
 import com.wxxiaomi.ming.electricbicycle.EBApplication;
 import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.bridge.web.builder.SimpleBuilder;
@@ -44,8 +43,8 @@ public class TestWebActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        RefWatcher refWatcher = EBApplication.sRefWatcher;
-        refWatcher.watch(this);
+//        RefWatcher refWatcher = EBApplication.sRefWatcher;
+//        refWatcher.watch(this);
     }
 
     @Override

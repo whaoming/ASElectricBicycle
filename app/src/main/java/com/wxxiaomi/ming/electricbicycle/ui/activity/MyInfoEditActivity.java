@@ -1,5 +1,6 @@
 package com.wxxiaomi.ming.electricbicycle.ui.activity;
 
+import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -13,19 +14,24 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.drawable.GlideDrawable;
+import com.bumptech.glide.request.animation.GlideAnimation;
+import com.bumptech.glide.request.target.GlideDrawableImageViewTarget;
 import com.wxxiaomi.ming.electricbicycle.R;
+import com.wxxiaomi.ming.electricbicycle.improve.common.AppContext;
+import com.wxxiaomi.ming.electricbicycle.improve.common.DialogHelper;
 import com.wxxiaomi.ming.electricbicycle.service.AccountHelper;
 import com.wxxiaomi.ming.electricbicycle.service.UserFunctionProvider;
 import com.wxxiaomi.ming.electricbicycle.support.rx.ProgressObserver;
 import com.wxxiaomi.ming.electricbicycle.service.ShowerProvider;
 import com.wxxiaomi.ming.electricbicycle.bridge.aliyun.OssEngine;
 import com.wxxiaomi.ming.electricbicycle.bridge.img.PhotoTakeUtil;
-import com.wxxiaomi.ming.electricbicycle.support.rx.ToastObserver;
-import com.wxxiaomi.ming.electricbicycle.support.rx.ToastObserver2;
 
 import java.util.List;
 
 import rx.Observable;
+import rx.Observer;
+import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 import rx.functions.Func1;
@@ -171,21 +177,54 @@ public class MyInfoEditActivity extends AppCompatActivity implements View.OnClic
     }
 
     private void onHeadClick() {
+//        new Action1<String>() {
+//            @Override
+//            public void call(String s) {
+//                tmpHeadUrl = s;
+//                Glide.with(MyInfoEditActivity.this).load(s).into(userHead);
+//            }
+//        };
+        final ProgressDialog progressDialog = DialogHelper.getProgressDialog(MyInfoEditActivity.this, "正在上传..", false);
         util.takePhotoCut()
                 .flatMap(new Func1<List<String>, Observable<String>>() {
                     @Override
                     public Observable<String> call(List<String> strings) {
+                        Log.i("wang","strings.get(0):"+strings.get(0));
+                        progressDialog.show();
                         OssEngine.getInstance().initOssEngine(MyInfoEditActivity.this.getApplicationContext());
                         return UserFunctionProvider.getInstance().upLoadImgToOss(strings.get(0));
                     }
                 })
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new ToastObserver<String>() {
+                .subscribe(new Subscriber<String>() {
+                    @Override
+                    public void onStart() {
+
+                        super.onStart();
+                    }
+
+                    @Override
+                    public void onCompleted() {
+//                        progressDialog.dismiss();
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        progressDialog.dismiss();
+                        AppContext.showToast("上传头像失败");
+                    }
+
                     @Override
                     public void onNext(String s) {
-                        Log.i("wang","上传到oss之后的图片地址："+s);
+//                        Log.i("wang","有结果了,s:"+s);
                         tmpHeadUrl = s;
-                        Glide.with(MyInfoEditActivity.this).load(s).into(userHead);
+                        Glide.with(MyInfoEditActivity.this).load(s).into(new GlideDrawableImageViewTarget(userHead){
+                            @Override
+                            public void onResourceReady(GlideDrawable resource, GlideAnimation<? super GlideDrawable> animation) {
+                                super.onResourceReady(resource, animation);
+                                progressDialog.dismiss();
+                            }
+                        });
                     }
                 });
     }

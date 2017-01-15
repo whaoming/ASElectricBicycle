@@ -15,7 +15,6 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
-import com.squareup.leakcanary.RefWatcher;
 import com.wxxiaomi.ming.electricbicycle.EBApplication;
 import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.service.AccountHelper;
@@ -172,7 +171,5 @@ public class ContactActivity extends BaseActivity<ContactView,ContactPresenter> 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        RefWatcher refWatcher = EBApplication.sRefWatcher;
-        refWatcher.watch(this);
     }
 }

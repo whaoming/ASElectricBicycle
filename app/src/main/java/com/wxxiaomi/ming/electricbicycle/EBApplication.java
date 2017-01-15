@@ -8,8 +8,6 @@ import android.support.multidex.MultiDex;
 import android.util.Log;
 
 import com.baidu.mapapi.SDKInitializer;
-import com.squareup.leakcanary.LeakCanary;
-import com.squareup.leakcanary.RefWatcher;
 import com.wxxiaomi.ming.electricbicycle.improve.common.AppContext;
 import com.wxxiaomi.ming.electricbicycle.improve.im.ImHelper1;
 import com.wxxiaomi.ming.electricbicycle.service.AccountHelper;
@@ -26,7 +24,7 @@ import java.util.List;
 public class EBApplication extends AppContext {
     public static Context applicationContext;
     private static EBApplication instance;
-    public  static RefWatcher sRefWatcher;
+//    public  static RefWatcher sRefWatcher;
 
     @Override
     public void onCreate() {
@@ -40,11 +38,11 @@ public class EBApplication extends AppContext {
         SDKInitializer.initialize(getApplicationContext());
         ImHelper1.getInstance().init(this);
         AccountHelper.init(this);
-        if (LeakCanary.isInAnalyzerProcess(this)) {
-            return;
-        }
+//        if (LeakCanary.isInAnalyzerProcess(this)) {
+//            return;
+//        }
         CacheManager.init(this);
-        sRefWatcher = LeakCanary.install(this);
+//        sRefWatcher = LeakCanary.install(this);
     }
 
     public static EBApplication getInstance() {
