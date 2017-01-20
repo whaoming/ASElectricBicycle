@@ -69,11 +69,19 @@ bug提交
  - [github地址](https://github.com/whaoming/WebViewCacheModule "悬停显示")，guthub的图片显示有点不正常，也可以去  [CSDN地址](http://blog.csdn.net/qq122627018/article/details/53351781 "悬停显示") 看看  
  
 ### 全局缓存  
-整个app各个模块都有独立的缓存管理器(DiskLruCache)，在各种弱网络的环境下都能取出缓存中的数据提前进行展示，用户体验棒棒哒。  
+整个app各个模块都有独立的缓存管理器(DiskLruCache)，在各种弱网络的环境下都能取出缓存中的数据提前进行展示，用户体验棒棒哒。每个模块都可以指定缓存文件大小的最大值，根据LRU算法可以设置定时自动清理，当然也可以由用户手动进行缓存的清理。
 
-### RecyclerView  
+### RecyclerView
+用到俩个开源项目：[Othershe的RecyclerViewAdapter](https://github.com/whaoming/WebViewCacheModule "悬停显示")和[LinHongHong的PullToRefreshRecyclerView](https://github.com/HomHomLin/Android-PullToRefreshRecyclerView "悬停显示")
+把这俩个轮子合在了一起，不知道会不会翻车，反正现在用着是挺好的。
+当时太纠结了，PullToRefreshRecyclerView有SwipeRefreshLayout(太喜欢这个控件了)，而RecyclerViewAdapter的公共view处理我又太喜欢了，结果就自己动手把这PullToRefreshRecyclerView的多余功能删掉，只保留SwipeRefreshLayout和header部分。然后adapter加入loading监听，特点：
+ - 一键设置空数据提示，网络错误提示，重新加载提示的view
+ - SwipeRefreshLayout嵌套recycleView，效果跟知乎首页一样
+ - 具备下拉刷新和上拉加载更多的功能
+ - (地址下次po上，不知道是何原因那个demo一直push不上来)  
+ 
 ### 其他
- - 本地图片选取：
+ - 本地图片选取：[GalleryPick](https://github.com/YancyYe/GalleryPick "悬停显示")，自带图片裁剪，对activity的入侵比较小
 # 作者介绍
 
 
