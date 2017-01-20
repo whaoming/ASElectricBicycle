@@ -40,7 +40,8 @@ bug提交
 
 ## 模块
 #### libary
-网络访问框架 Retrofit
+##### 网络访问框架  
+Retrofit
 错误处理机制
 图片模块
 缓存 DiskLruCache
