@@ -20,27 +20,22 @@ bug提交
 各个模块po图描述
 
 ## 运行环境 
+shuaosdahsudhoashdoiashodiahoadih
 
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
-
-#### 服务器 
+1.服务器 
  - MyEclipse 10.7 + Tomcat7
  - J2EE:structs2+hibernate+spring
  - MySQL5.0 
  
-#### 图片服务器 
+2.图片服务器 
  - 阿里云oss
  - node.js    
  
-#### android 
+3.android 
  - android studio 1.0+
  - android sdk r16+  
  
-#### 其他   
+4.其他   
  - hybrid前端框架：SuiMobile
  - 交互的方案与框架：
 
