@@ -43,14 +43,6 @@ bug提交
 
 
 ## 模块  
-### 第三方框架
- - 网络访问：Retrofit+Rxjava
- - Glide
- - Materia Design
- - 即时通讯|推送：环信sdk
- - 地图：百度地图sdk
- - 图片上传：阿里云oss
-
 
 ### 错误信息处理模块  
  自己写的一个RxJava风格的网络访问异常处理机制：
@@ -80,10 +72,18 @@ bug提交
  - 具备下拉刷新和上拉加载更多的功能
  - (地址下次po上，不知道是何原因那个demo一直push不上来)  
  
-### 其他
+### 第三方框架
+ - 网络访问：Retrofit+Rxjava
+ - Glide
+ - Materia Design
+ - 即时通讯|推送：环信sdk
+ - 地图：百度地图sdk
+ - 图片上传：阿里云oss
  - 本地图片选取：[GalleryPick](https://github.com/YancyYe/GalleryPick "悬停显示")，自带图片裁剪，对activity的入侵比较小 
  - easeui：环信sdk的工具类
- - JsBridge：webview与js沟通的桥梁(正在研究新方案)
+ - JsBridge：webview与js沟通的桥梁(正在研究新方案)  
+
+
  
 # 作者介绍
  - 邮箱：122627018@qq.com
