@@ -53,7 +53,7 @@ bug提交
  - 本地图片选取：[GalleryPick](https://github.com/YancyYe/GalleryPick "悬停显示")，自带图片裁剪，对activity的入侵比较小 
  - easeui：环信sdk的工具类
  - JsBridge：webview与js沟通的桥梁(正在研究新方案)  
- - (已去除) ~~内存泄漏检测 LeakCommpany
+ - (已去除) ~~内存泄漏检测 LeakCommpany~~
  
 ### 错误信息处理模块  
  自己写的一个RxJava风格的网络访问异常处理机制：
