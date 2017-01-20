@@ -61,12 +61,14 @@ bug提交
  - 了解更多请点击：[传送门](http://blog.csdn.net/qq122627018/article/details/51540812%20%E9%98%BF%E6%96%AF%E9%A1%BF "悬停显示")  
  
 ### 图片压缩缓存模块
- 这个模块暂时只用于webview中图片处理相关，因为在native中有glide的存在了，完全没有必要再用自己的  
- - 在webview中发挥这个模块作用的地方有俩个：1.当加载网络图片的时候  2.当从手机本地选取大量图片加载到webview中的时候
- - 在demo中的展示的是第二种情况，当webview需要加载本地图片的时候
- - 三层缓存：1.  
- [github地址](https://github.com/whaoming/WebViewCacheModule "悬停显示")  
- [CSDN地址](http://blog.csdn.net/qq122627018/article/details/53351781 "悬停显示")  
+ 这个模块暂时只用于webview中图片处理相关，因为在native中有glide的存在了，完全没有必要再用自己的 
+ 基本原理：CacheManager会先根据图片url去md5为key去检查本地二重缓存(内存缓存和硬盘缓存)，当发现没有的时候再从网络去加载，然后压缩，存储，再让webview去加载，特点：  
+ - 利用RxJava的多个操作符完成缓存的层级检查
+ - 内存和硬盘存储的算法都是采用LRU算法
+ - 在webview中发挥这个模块作用的地方有俩个：1.当加载网络图片的时候  2.当从手机本地选取大量图片加载到webview中的时候  
+ 
+ [github地址](https://github.com/whaoming/WebViewCacheModule "悬停显示")，guthub的图片显示有点不正常，也可以去  [CSDN地址](http://blog.csdn.net/qq122627018/article/details/53351781 "悬停显示") 看看  
+ 
 ### 全局缓存  
 ### RecyclerView  
 ### 其他
