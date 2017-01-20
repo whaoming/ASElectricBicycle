@@ -32,7 +32,8 @@ bug提交
  
 #### android 
  - android studio 1.0+
- - android sdk r16+    
+ - android sdk r16+  
+ 
 #### 其他   
  - hybrid前端框架：SuiMobile
  - 交互的方案与框架：
@@ -44,9 +45,10 @@ bug提交
  - 即时通讯|推送：环信sdk
  - 地图：百度地图sdk
  - 图片上传：阿里云oss
- 
- 
-### 错误信息处理模块    
+ - Glide
+ - Materia Design
+
+### 错误信息处理模块  
 ### 图片压缩缓存模块  
 ### 全局缓存  
 ### RecyclerView  
