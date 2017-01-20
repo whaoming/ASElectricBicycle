@@ -54,9 +54,8 @@ bug提交
 
 ### 错误信息处理模块  
  自己写的一个利用rxjava  
- [阿斯顿](%3E%20http://blog.csdn.net/qq122627018/article/details/51540812%20%E9%98%BF%E6%96%AF%E9%A1%BF)
  
-  [我的博客](http://blog.csdn.net/guodongxiaren "悬停显示")
+  [优雅处理错误](http://blog.csdn.net/qq122627018/article/details/51540812%20%E9%98%BF%E6%96%AF%E9%A1%BF "悬停显示")
 ### 图片压缩缓存模块  
 ### 全局缓存  
 ### RecyclerView  
