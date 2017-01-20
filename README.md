@@ -53,10 +53,19 @@ bug提交
 
 
 ### 错误信息处理模块  
- 自己写的一个利用rxjava  
- 
-  [优雅处理错误](http://blog.csdn.net/qq122627018/article/details/51540812%20%E9%98%BF%E6%96%AF%E9%A1%BF "悬停显示")
-### 图片压缩缓存模块  
+ 自己写的一个RxJava风格的网络访问异常处理机制：
+ - 识别网络访问过程中的各种异常和错误
+ - 根据与服务器约定好的错误码进行友好的信息提示
+ - 不入侵view层，大大降低耦合度
+ - 密钥过期处理：当发现token过期会自动向服务器索取token并重新发起之前失败的那个请求
+ - 了解更多请点击：[传送门](http://blog.csdn.net/qq122627018/article/details/51540812%20%E9%98%BF%E6%96%AF%E9%A1%BF "悬停显示")  
+### 图片压缩缓存模块
+ 这个模块暂时只用于webview中图片处理相关，因为在native中有glide的存在了，完全没有必要再用自己的  
+ - 在webview中发挥这个模块作用的地方有俩个：1.当加载网络图片的时候  2.当从手机本地选取大量图片加载到webview中的时候
+ - 在demo中的展示的是第二种情况，当webview需要加载本地图片的时候
+ - 三层缓存：1.  
+ [github地址](https://github.com/whaoming/WebViewCacheModule "悬停显示")  
+ [CSDN地址](http://blog.csdn.net/qq122627018/article/details/53351781 "悬停显示")  
 ### 全局缓存  
 ### RecyclerView  
 ### 其他
