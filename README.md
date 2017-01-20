@@ -81,8 +81,11 @@ bug提交
  - (地址下次po上，不知道是何原因那个demo一直push不上来)  
  
 ### 其他
- - 本地图片选取：[GalleryPick](https://github.com/YancyYe/GalleryPick "悬停显示")，自带图片裁剪，对activity的入侵比较小
+ - 本地图片选取：[GalleryPick](https://github.com/YancyYe/GalleryPick "悬停显示")，自带图片裁剪，对activity的入侵比较小 
+ - easeui：环信sdk的工具类
+ - JsBridge：webview与js沟通的桥梁(正在研究新方案)
+ 
 # 作者介绍
-
-
+ - 邮箱：122627018@qq.com
+ 
 
