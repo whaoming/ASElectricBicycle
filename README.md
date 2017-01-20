@@ -21,6 +21,12 @@ bug提交
 
 ## 运行环境 
 
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
+
 #### 服务器 
  - MyEclipse 10.7 + Tomcat7
  - J2EE:structs2+hibernate+spring
