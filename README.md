@@ -25,7 +25,7 @@ bug提交
 | ------------- |:-------------:| -----:|
     ![image](https://github.com/whaoming/aboutme/blob/master/image/%E5%90%AF%E5%8A%A8%E7%95%8C%E9%9D%A2.gif?raw=true)     | ![image](https://github.com/whaoming/aboutme/blob/master/image/%E9%A6%96%E9%A1%B5%E9%99%84%E8%BF%91%E7%9A%84%E4%BA%BA%E5%8A%A8%E7%94%BB.gif?raw=true) | ![image](https://github.com/whaoming/aboutme/blob/master/image/%E5%A5%BD%E5%8F%8B%E7%95%8C%E9%9D%A2+%E6%9F%A5%E6%89%BE%E5%A5%BD%E5%8F%8B%E6%93%8D%E4%BD%9C.gif?raw=true)  
 | 左对齐 | 居中  | 右对齐 |
-| :------------ |:---------------:| -----:|
+
 ![image](https://github.com/whaoming/aboutme/blob/master/image/%E5%90%AF%E5%8A%A8%E7%95%8C%E9%9D%A2.gif?raw=true) | ![image](https://github.com/whaoming/aboutme/blob/master/image/%E9%A6%96%E9%A1%B5%E9%99%84%E8%BF%91%E7%9A%84%E4%BA%BA%E5%8A%A8%E7%94%BB.gif?raw=true) | ![image](https://github.com/whaoming/aboutme/blob/master/image/%E5%A5%BD%E5%8F%8B%E7%95%8C%E9%9D%A2+%E6%9F%A5%E6%89%BE%E5%A5%BD%E5%8F%8B%E6%93%8D%E4%BD%9C.gif?raw=true) 
 ## 运行环境 
 服务器框架ssh(有点笨重，将考虑换成node.js)，然后图片服务器本来自己有写了一个，但是后面还是用回阿里云的oss，因为我的云服务器是腾讯云的学生机，硬盘容量不忍直视啊，阿里云oss对于我这种独立户来说基本等于免费，关于app中模块的前端框架是使用阿里的SuiMobile，感觉对于我这种不是很精通前端的人来说简直就是神器。
