@@ -36,9 +36,9 @@ ps：本来觉得hybrid部分不用传上来的，因为全部都是h5写的，�
 <h2 id="yunxinghuanjing">运行环境</h2>  
 服务器框架ssh(有点笨重，将考虑换成node.js)，然后图片服务器本来自己有写了一个，但是后面还是用回阿里云的oss，因为我的云服务器是腾讯云的学生机，硬盘容量不忍直视啊，阿里云oss对于我这种独立户来说基本等于免费，关于app中模块的前端框架是使用阿里的SuiMobile，感觉对于我这种不是很精通前端的人来说简直就是神器。  </br>
 1.服务器</br> 
- - MyEclipse 10.7 + Tomcat7
- - J2EE:structs2+hibernate+spring
- - MySQL5.0 
+- MyEclipse 10.7 + Tomcat7
+- J2EE:structs2+hibernate+spring
+- MySQL5.0 
  
 2.图片服务器 
  - 阿里云oss
