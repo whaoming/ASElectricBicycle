@@ -6,21 +6,17 @@
 
 ----------
 ## guide  
- -  [点击跳转](#mokuai)
- - 预览   
-
-支持功能  
-运行环境  
-libary   
-主模块服务器  
-hybrid模块服务器  
-搭建说明  
-更新日志  
-bug提交  
-关于我  
+ -  [预览](#yulan)
+ - [支持功能](#gongneng)  
+ - [运行环境](#yunxinghuanjing)  
+ - [模块](#mokuai)  
+ - [运行环境](#yunxinghuanjing)  
+ - [搭建说明](#yunxinghuanjing)  
+ - [bug提交](#yunxinghuanjing)  
+ - [关于我](#aboutme)    
 
 
-## 预览
+<h2 id="yulan">预览</h2>  
 各个模块po图描述
 ### native部分
 | 启动界面        | 首页一角           | 好友界面  |
@@ -38,7 +34,7 @@ ps：本来觉得hybrid部分不用传上来的，因为全部都是h5写的，�
 ![image](https://github.com/whaoming/aboutme/blob/master/image/web_%E4%B8%AA%E4%BA%BA%E9%A1%B5%E9%9D%A2.png) |  
 
 
-## 运行环境 
+<h2 id="yunxinghuanjing">运行环境</h2>  
 服务器框架ssh(有点笨重，将考虑换成node.js)，然后图片服务器本来自己有写了一个，但是后面还是用回阿里云的oss，因为我的云服务器是腾讯云的学生机，硬盘容量不忍直视啊，阿里云oss对于我这种独立户来说基本等于免费，关于app中模块的前端框架是使用阿里的SuiMobile，感觉对于我这种不是很精通前端的人来说简直就是神器。
 
 1.服务器 
@@ -58,7 +54,7 @@ ps：本来觉得hybrid部分不用传上来的，因为全部都是h5写的，�
  - hybrid前端框架：SuiMobile
  - 交互的方案与框架：
  
-## 支持功能
+<h2 id="gongneng">功能</h2>  
 已经差不多可以媲美一个成熟的app了，该有的功能都有，下面拿几个平常开源项目可能比较少关注的点提一提：
  - 用户模块：支持好友的添加，拉黑，同意请求等，离线消息接收，多处登陆(挤下线)，消息多种提醒方式。
  - 自动登陆:双token机制保证了用户在本机app中只需登陆一次，即可做到以后都自动登陆
@@ -113,7 +109,7 @@ ps：本来觉得hybrid部分不用传上来的，因为全部都是h5写的，�
 
 
  
-# 作者介绍
+<h2 id="aboutme">关于我</h2>  
  - 邮箱：122627018@qq.com
  
 
