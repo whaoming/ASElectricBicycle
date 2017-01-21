@@ -36,7 +36,7 @@ ps：本来觉得hybrid部分不用传上来的，因为全部都是h5写的，�
 | 查看个人发布信息 | 
 ![image](https://github.com/whaoming/aboutme/blob/master/image/web_%E4%B8%AA%E4%BA%BA%E9%A1%B5%E9%9D%A2.png) |  
 
-<span id="jump"> </span>
+
 ## 运行环境 
 服务器框架ssh(有点笨重，将考虑换成node.js)，然后图片服务器本来自己有写了一个，但是后面还是用回阿里云的oss，因为我的云服务器是腾讯云的学生机，硬盘容量不忍直视啊，阿里云oss对于我这种独立户来说基本等于免费，关于app中模块的前端框架是使用阿里的SuiMobile，感觉对于我这种不是很精通前端的人来说简直就是神器。
 
@@ -85,6 +85,7 @@ ps：本来觉得hybrid部分不用传上来的，因为全部都是h5写的，�
  - 密钥过期处理：当发现token过期会自动向服务器索取token并重新发起之前失败的那个请求
  - 了解更多：[传送门](http://blog.csdn.net/qq122627018/article/details/51689891 "悬停显示")  
  
+<span id="jump">Hello World</span>
 ### 图片压缩缓存模块
  这个模块暂时只用于webview中图片处理相关，因为在native中有glide的存在了，完全没有必要再用自己的 
  基本原理：CacheManager会先根据图片url去md5为key去检查本地二重缓存(内存缓存和硬盘缓存)，当发现没有的时候再从网络去读取，然后压缩，存储，再让webview去加载，特点：  
