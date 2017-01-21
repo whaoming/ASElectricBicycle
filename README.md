@@ -65,11 +65,11 @@ ps：本来觉得hybrid部分不用传上来的，因为全部都是h5写的，�
  
 ## 模块  
 ### 第三方框架
- - 网络访问：Retrofit+Rxjava
+ - Retrofit+Rxjava
  - Glide
  - Materia Design
  - 即时通讯|推送：环信sdk
- - 地图：百度地图sdk
+ - 百度地图sdk
  - 图片上传：阿里云oss
  - 本地图片选取：[GalleryPick](https://github.com/YancyYe/GalleryPick "悬停显示")，自带图片裁剪，对activity的入侵比较小 
  - easeui：环信sdk的工具类
