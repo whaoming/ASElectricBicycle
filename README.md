@@ -27,6 +27,7 @@ bug提交
 | 个人头像修改 | 图片选择  | 聊天界面 |
 ![image](https://github.com/whaoming/aboutme/blob/master/image/%E5%A4%B4%E5%83%8F%E4%BF%AE%E6%94%B9.gif?raw=true) | ![image](https://github.com/whaoming/aboutme/blob/master/image/%E5%9B%BE%E7%89%87%E9%80%89%E6%8B%A9%E9%A1%B5%E9%9D%A2.png?raw=true) | 总是截不了gif
 ### hybrid部分
+ps：本来觉得hybrid部分不用传上来的，因为全部都是h5写的，但是想展示下原生部分，由下图可以看到标题栏还有浮动按钮都是原生的，是以JsBridge为桥梁来做到html与原生的双向通信，从而达到js中也能控制原生ui的展示，也就是说我可以通过html来修改app中的控件，从而达到这个模块可以热更新的效果(但是现在这个方案还不太成熟，我还在不断完善中)
 | 信息列表       | 详情           | 发布界面  |
 |:-------------:|:-------------:|:-------------:|
     ![image](https://github.com/whaoming/aboutme/blob/master/image/web%E5%88%97%E8%A1%A8%E9%A1%B5%E9%9D%A2.png?raw=true)     | ![image](https://github.com/whaoming/aboutme/blob/master/image/web_%E5%85%B7%E4%BD%93%E9%A1%B5%E9%9D%A2.png?raw=true) | ![image](https://github.com/whaoming/aboutme/blob/master/image/web_%E5%8F%91%E8%A1%A8%E9%A1%B5%E9%9D%A2.png?raw=true)  
