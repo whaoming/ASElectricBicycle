@@ -27,6 +27,14 @@ bug提交
 | 个人头像修改 | 图片选择  | 聊天界面 |
 ![image](https://github.com/whaoming/aboutme/blob/master/image/%E5%A4%B4%E5%83%8F%E4%BF%AE%E6%94%B9.gif?raw=true) | ![image](https://github.com/whaoming/aboutme/blob/master/image/%E5%9B%BE%E7%89%87%E9%80%89%E6%8B%A9%E9%A1%B5%E9%9D%A2.png?raw=true) | ![image](https://github.com/whaoming/aboutme/blob/master/image/%E5%A5%BD%E5%8F%8B%E7%95%8C%E9%9D%A2+%E6%9F%A5%E6%89%BE%E5%A5%BD%E5%8F%8B%E6%93%8D%E4%BD%9C.gif?raw=true) 
 
+### hybrid部分
+| 信息列表       | 详情           | 发布界面  |
+|:-------------:|:-------------:|:-------------:|
+    ![image](https://github.com/whaoming/aboutme/blob/master/image/web%E5%88%97%E8%A1%A8%E9%A1%B5%E9%9D%A2.png?raw=true)     | ![image](https://github.com/whaoming/aboutme/blob/master/image/web_%E5%85%B7%E4%BD%93%E9%A1%B5%E9%9D%A2.png?raw=true) | ![image](https://github.com/whaoming/aboutme/blob/master/image/web_%E5%8F%91%E8%A1%A8%E9%A1%B5%E9%9D%A2.png?raw=true)  
+| 查看个人发布信息 | 
+![image](https://github.com/whaoming/aboutme/blob/master/image/web_%E4%B8%AA%E4%BA%BA%E9%A1%B5%E9%9D%A2.png)
+
+
 ## 运行环境 
 服务器框架ssh(有点笨重，将考虑换成node.js)，然后图片服务器本来自己有写了一个，但是后面还是用回阿里云的oss，因为我的云服务器是腾讯云的学生机，硬盘容量不忍直视啊，阿里云oss对于我这种独立户来说基本等于免费，关于app中模块的前端框架是使用阿里的SuiMobile，感觉对于我这种不是很精通前端的人来说简直就是神器。
 
