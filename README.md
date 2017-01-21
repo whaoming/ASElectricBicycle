@@ -32,7 +32,7 @@ bug提交
 |:-------------:|:-------------:|:-------------:|
     ![image](https://github.com/whaoming/aboutme/blob/master/image/web%E5%88%97%E8%A1%A8%E9%A1%B5%E9%9D%A2.png?raw=true)     | ![image](https://github.com/whaoming/aboutme/blob/master/image/web_%E5%85%B7%E4%BD%93%E9%A1%B5%E9%9D%A2.png?raw=true) | ![image](https://github.com/whaoming/aboutme/blob/master/image/web_%E5%8F%91%E8%A1%A8%E9%A1%B5%E9%9D%A2.png?raw=true)  
 | 查看个人发布信息 | 
-![image](https://github.com/whaoming/aboutme/blob/master/image/web_%E4%B8%AA%E4%BA%BA%E9%A1%B5%E9%9D%A2.png)
+![image](https://github.com/whaoming/aboutme/blob/master/image/web_%E4%B8%AA%E4%BA%BA%E9%A1%B5%E9%9D%A2.png) |  
 
 
 ## 运行环境 
