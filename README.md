@@ -34,8 +34,7 @@ ps：本来觉得hybrid部分不用传上来的，因为全部都是h5写的，�
 ![image](https://github.com/whaoming/aboutme/blob/master/image/web_%E4%B8%AA%E4%BA%BA%E9%A1%B5%E9%9D%A2.png) |   
 ### 硬件通信部分  
 实现了STC与android通过蓝牙通信从而达到信息交互，可以参考这篇文章：，只要遵守我制定好的数据协议，便可以与app的驾驶模块进行交互  
-![这里写图片描述](https://raw.githubusercontent.com/whaoming/aboutme/master/image/201702022059.BMP)
-![这里写图片描述](https://raw.githubusercontent.com/whaoming/aboutme/master/image/2017020220591.BMP)  
+![这里写图片描述](https://raw.githubusercontent.com/whaoming/aboutme/master/image/201702022059.BMP)![这里写图片描述](https://raw.githubusercontent.com/whaoming/aboutme/master/image/2017020220591.BMP)  
 
 
 
