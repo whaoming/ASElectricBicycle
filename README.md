@@ -5,8 +5,12 @@
 
 (最近在琢磨方案，把服务器的web模块分离出来，就是我想做一个以定位，好友，xx模块为主，然后其他模块为辅的app，所以web模块就是所谓的其他模块，我可以使用h5编写好，然后通过主服务器暴露的接口来实现数据同步(类似微信的授权)，也就是说，我的web模块可以任意，我可以做一个二手交易系统，或者例如滴滴打车系统，然后主模块会把账号信息通过授权的方式给你，这样的话，当我们要开发新的模块的时候，只需要取得主模块的接口即可，这样还有一个好处，就是当我们的主模块足够完善的时候，每次更新我们只需要通过增量更新h5信息，而不用更新整个app。由于自己的js水平不是很高，所以一直卡在js这一块，有木有有兴趣的小伙伴来一起搞一搞)
 
-----------
-## guide  
+----------  
+## 更新日志
+2017-2-2 加入驾驶模式
+通过蓝牙与STC进行实时通信，获取STC各个硬件信息通过app进行实时展示，比如速度，电量等(暂时只实现了速度实时展示)  
+
+## guide  
  -  [预览](#yulan)
  - [支持功能](#gongneng)  
  - [运行环境](#yunxinghuanjing)  
@@ -33,9 +37,8 @@ ps：本来觉得hybrid部分不用传上来的，因为全部都是h5写的，�
 | 查看个人发布信息 | 
 ![image](https://github.com/whaoming/aboutme/blob/master/image/web_%E4%B8%AA%E4%BA%BA%E9%A1%B5%E9%9D%A2.png) |   
 ### 硬件通信部分  
-实现了STC与android通过蓝牙通信从而达到信息交互，可以参考这篇文章：，只要遵守我制定好的数据协议，便可以与app的驾驶模块进行交互  
-![这里写图片描述](https://raw.githubusercontent.com/whaoming/aboutme/master/image/201702022059.BMP)![这里写图片描述](https://raw.githubusercontent.com/whaoming/aboutme/master/image/2017020220591.BMP)  
-
+实现了STC与android通过蓝牙通信从而达到信息交互，可以看看我的文章：[SCMAndroidCommunicate](https://github.com/whaoming/SCMAndroidCommunicate "悬停显示4")，只要遵守我制定好的数据协议，便可以与app的驾驶模块进行交互  
+![这里写图片描述](https://raw.githubusercontent.com/whaoming/aboutme/master/image/201702022059.BMP)![这里写图片描述](https://raw.githubusercontent.com/whaoming/aboutme/master/image/2017020220591.BMP) 
 
 
 
@@ -56,7 +59,7 @@ ps：本来觉得hybrid部分不用传上来的，因为全部都是h5写的，�
  
 4.其他   
  - hybrid前端框架：SuiMobile
- - 交互的方案与框架：
+ - 单片机：STC89C51，c语言  
  
 <h2 id="gongneng">功能</h2>
 已经差不多可以媲美一个成熟的app了，该有的功能都有，下面拿几个平常开源项目可能比较少关注的点提一提：</br>
