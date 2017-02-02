@@ -39,8 +39,8 @@ ps：本来觉得hybrid部分不用传上来的，因为全部都是h5写的，�
 ### 硬件通信部分  
 实现了STC与android通过蓝牙通信从而达到信息交互，可以看看我的文章：[SCMAndroidCommunicate](https://github.com/whaoming/SCMAndroidCommunicate "悬停显示4")，只要遵守我制定好的数据协议，便可以与app的驾驶模块进行交互  
 
-![这里写图片描述](https://raw.githubusercontent.com/whaoming/aboutme/master/image/201702022059.BMP)![这里写图片描述](https://raw.githubusercontent.com/whaoming/aboutme/master/image/2017020220591.BMP) 
-
+![这里写图片描述](https://raw.githubusercontent.com/whaoming/aboutme/master/image/201702022059.BMP)![这里写图片描述](https://raw.githubusercontent.com/whaoming/aboutme/master/image/2017020220591.BMP)   
+[在线演示视频观看](http://v.youku.com/v_show/id_XMjQ5MTgyMTAwMA==.html "悬停显示")(模块在线演示地址)  
 
 
 <h2 id="yunxinghuanjing">运行环境</h2>
