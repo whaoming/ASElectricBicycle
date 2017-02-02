@@ -9,10 +9,12 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewStub;
 import android.view.animation.Animation;
 import android.view.animation.OvershootInterpolator;
 import android.view.animation.TranslateAnimation;
@@ -75,6 +77,7 @@ public class HomeActivity extends BaseActivity<HomeView,HomePresenter> implement
     private RelativeLayout rl_album;
     private RelativeLayout rl_myfriend;
     private RelativeLayout rl_foot_print;
+    private TextView drawer_nick;
 
 
     @Override
@@ -102,6 +105,7 @@ public class HomeActivity extends BaseActivity<HomeView,HomePresenter> implement
         mDrawerLayout = (DrawerLayout) findViewById(R.id.dl_left);
         drawer_iv_avatar = (ImageView) findViewById(R.id.drawer_iv_avatar);
         drawer_iv_avatar.setOnClickListener(this);
+        drawer_nick = (TextView) findViewById(R.id.drawer_nick);
         drawer_setting = (RelativeLayout) findViewById(R.id.drawer_setting);
         drawer_setting.setOnClickListener(this);
         mBaiduMap = mMapView.getMap();
@@ -116,6 +120,9 @@ public class HomeActivity extends BaseActivity<HomeView,HomePresenter> implement
         rl_foot_print.setOnClickListener(this);
         initAnimation();
         initMapMarkerClickListener();
+//
+//        ViewStub stub = (ViewStub) findViewById(R.id.stub);
+//        View inflated = stub.inflate();
     }
 
     @Override
@@ -338,10 +345,13 @@ public class HomeActivity extends BaseActivity<HomeView,HomePresenter> implement
     }
 
     @Override
-    public TextView getTvNameView() {
-//        return tv_name;
-        return null;
+    public void setNickName(String nickName) {
+        if(!TextUtils.isEmpty(nickName)){
+            drawer_nick.setText(nickName);
+        }
+
     }
+
 
     @Override
     protected void onPause() {

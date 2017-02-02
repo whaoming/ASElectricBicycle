@@ -77,7 +77,7 @@
     <dimen name="padding_search_bar">5dp</dimen>
     <dimen name="sidebar_text_size">10dp</dimen>
     <dimen name="size_avatar">48dp</dimen>
-    <string name="Add_a_button_was_clicked">Add a button was clicked</string>
+    <string name="Add_a_button_was_clicked">Add com.wxxiaomi.ming.a button was clicked</string>
     <string name="Add_a_friend">Let me to be your friend!</string>
     <string name="Add_group_members_fail">Add group members fail:</string>
     <string name="Agree_with_failure">Failed to accept</string>
@@ -147,14 +147,14 @@
     <string name="Open_group_members_invited">Allow members to invite</string>
     <string name="Open_the_equipment_failure">Open the equipment failure!</string>
     <string name="Password_cannot_be_empty">Password cannot be empty!</string>
-    <string name="Please_enter_a_username">Please enter a username</string>
+    <string name="Please_enter_a_username">Please enter com.wxxiaomi.ming.a username</string>
     <string name="Recording_without_permission">Recording without permission</string>
     <string name="Refused">Refused</string>
     <string name="Registered_successfully">Registered successfully</string>
     <string name="Remove_the_notification">Remove the notification</string>
     <string name="Removed_from_the_failure">Removed fail</string>
     <string name="Request_add_buddy_failure">Request add buddy failure:</string>
-    <string name="Request_to_add_you_as_a_friend">You got a friend request</string>
+    <string name="Request_to_add_you_as_a_friend">You got com.wxxiaomi.ming.a friend request</string>
     <string name="Request_to_join">Apply to join</string>
     <string name="Select_the_contact">Select the contact</string>
     <string name="Send_the_following_pictures">Send the following pictures?</string>
@@ -253,7 +253,7 @@
     <string name="dl_update_nick">update nickname</string>
     <string name="dl_update_photo">update photo</string>
     <string name="dl_waiting">waiting...</string>
-    <string name="downwaiting">Downloading the file, please wait a moment</string>
+    <string name="downwaiting">Downloading the file, please wait com.wxxiaomi.ming.a moment</string>
     <string name="dynamic_expression">[Dynamic expression]</string>
     <string name="ease_user_remove">This user has been removed</string>
     <string name="error_send_invalid_content">The message content is not allowed to be sent!</string>
@@ -279,8 +279,8 @@
     <string name="have_connected_with">Connected to the peer and waiting for the peer to accept</string>
     <string name="have_you_removed">Have you removed from his buddy list</string>
     <string name="illegal_user_name">Illegal user name</string>
-    <string name="input_new_nick_hint">Input a new nick</string>
-    <string name="is_down_please_wait">Downloading video, please wait a moment</string>
+    <string name="input_new_nick_hint">Input com.wxxiaomi.ming.a new nick</string>
+    <string name="is_down_please_wait">Downloading video, please wait com.wxxiaomi.ming.a moment</string>
     <string name="is_modify_the_group_name">Modifying the group name..</string>
     <string name="is_quit_the_group_chat">Exiting group</string>
     <string name="join_public_group">Join public group</string>
@@ -299,7 +299,7 @@
     <string name="network_isnot_available">The network is not available</string>
     <string name="network_unavailable">The network connection is not available, please check the network</string>
     <string name="newchat">Create new group</string>
-    <string name="newnotify">Receiving a new message</string>
+    <string name="newnotify">Receiving com.wxxiaomi.ming.a new message</string>
     <string name="nickname">NickName</string>
     <string name="nickname_description">Once this nick is set, this nick will be used in push notification (by default this is HuanXin ID ) when the receiver is using the IOS device.</string>
     <string name="no_more_messages">no more messages</string>

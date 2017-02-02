@@ -21,6 +21,8 @@ import com.baidu.mapapi.model.LatLng;
 import com.wxxiaomi.ming.electricbicycle.ConstantValue;
 import com.wxxiaomi.ming.electricbicycle.db.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.db.bean.UserLocatInfo;
+import com.wxxiaomi.ming.electricbicycle.improve.car.DriveActivity;
+import com.wxxiaomi.ming.electricbicycle.improve.car.TouchBoundActivity;
 import com.wxxiaomi.ming.electricbicycle.service.AccountHelper;
 import com.wxxiaomi.ming.electricbicycle.service.ShowerProvider;
 import com.wxxiaomi.ming.electricbicycle.improve.im.EmConstant;
@@ -41,6 +43,7 @@ import com.wxxiaomi.ming.electricbicycle.ui.activity.ContactActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.view.HomeView;
 
 import com.wxxiaomi.ming.electricbicycle.ui.weight.custom.CircularImageView;
+import com.wxxiaomi.ming.touch.BluetoothHelper;
 
 import java.util.List;
 
@@ -76,27 +79,7 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
         NoticeManager.bindNotify(this);
     }
 
-    /**
-     * 注册消息监听的广播接收者
-     */
-    private void registerBroadcastReceiver() {
-//        broadcastManager = LocalBroadcastManager.getInstance(mView.getContext());
-        IntentFilter intentFilter = new IntentFilter();
-        //联系人事件
-        intentFilter.addAction(EmConstant.ACTION_CONTACT_CHANAGED);
-        intentFilter.addAction(EmConstant.ACTION_GROUP_CHANAGED);
-//        broadcastReceiver = new BroadcastReceiver() {
-//            @Override
-//            public void onReceive(Context context, Intent intent) {
-//                updateUnreadLabel();
-//            }
-//        };
-//        broadcastManager.registerReceiver(broadcastReceiver, intentFilter);
-    }
 
-//    private void unregisterBroadcastReceiver(){
-//        broadcastManager.unregisterReceiver(broadcastReceiver);
-//    }
 
     @Override
     public void initMap(BaiduMap mBaiduMap) {
@@ -219,7 +202,16 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
 
     @Override
     public void onFootPrintActionClick() {
-        mView.runActivity(FootPublishActivity.class, null);
+        BluetoothHelper.getInstance().init(mView.getContext().getApplicationContext());
+        if(BluetoothHelper.isEverDevice()){
+//            intent = new Intent(HomeActivity.this,RunActivity2.class);
+            mView.runActivity(DriveActivity.class, null);
+        }else{
+//            intent = new Intent(HomeActivity.this,BoundActivity.class);
+            mView.runActivity(TouchBoundActivity.class, null);
+        }
+
+//        mView.runActivity(FootPublishActivity.class, null);
     }
 
     public void updateUnreadLabel() {

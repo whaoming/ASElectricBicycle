@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.wxxiaomi.ming.electricbicycle">
-
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
     <!-- 这个权限用于进行网络定位 -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -71,18 +72,20 @@
         android:largeHeap="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <!--<service-->
-            <!--android:name="com.wxxiaomi.ming.electricbicycle.improve.im.service.ImService"-->
-            <!--android:exported="false"-->
-            <!--android:process="com.wxxiaomi.ming.electricbicycle.improve.im.service.ImService"  />-->
+
+        <!-- <service -->
+        <!-- android:name="com.wxxiaomi.ming.electricbicycle.improve.im.service.ImService" -->
+        <!-- android:exported="false" -->
+        <!-- android:process="com.wxxiaomi.ming.electricbicycle.improve.im.service.ImService"  /> -->
 
         <service
             android:name="com.hyphenate.chat.EMChatService"
             android:exported="true" />
-        <service android:name="com.hyphenate.chat.EMJobService"
-            android:permission="android.permission.BIND_JOB_SERVICE"
+        <service
+            android:name="com.hyphenate.chat.EMJobService"
             android:exported="true"
-            />
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+
         <meta-data
             android:name="EASEMOB_APPKEY"
             android:value="122627018#huanxindemowithming" />
@@ -90,15 +93,14 @@
         <service
             android:name="com.baidu.location.f"
             android:enabled="true"
-            android:process=":remote"
-            />
+            android:process=":remote" />
         <!-- 设置环信应用的appkey -->
 
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="2to346qHei1zkbu5YPAYDfv5m5iW3fAT" />
-        <!-- GGB2vANaF687GBICtVGSdPB2jE1lZMlr-->
-        <!--  2to346qHei1zkbu5YPAYDfv5m5iW3fAT-->
+        <!-- GGB2vANaF687GBICtVGSdPB2jE1lZMlr -->
+        <!-- 2to346qHei1zkbu5YPAYDfv5m5iW3fAT -->
         <meta-data
             android:name="BaiduMobAd_CELL_LOCATION"
             android:value="true" />
@@ -115,6 +117,7 @@
         <receiver android:name="com.hyphenate.chat.EMMonitorReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_REMOVED" />
+
                 <data android:scheme="package" />
             </intent-filter>
             <intent-filter>
@@ -165,7 +168,6 @@
         <!-- android:name=".view.activity.LoginActivity" -->
         <!-- android:screenOrientation="portrait" /> -->
         <activity
-
             android:name=".ui.activity.LoginActivity"
             android:screenOrientation="portrait" />
         <activity
@@ -244,7 +246,10 @@
         <activity android:name=".ui.activity.UserInfoActivity" />
         <activity android:name=".ui.activity.FootPrintShowActivity" />
         <activity android:name=".ui.activity.FootPublishActivity" />
-        <activity android:name=".ui.activity.InviteMsgActivity"></activity>
+        <activity android:name=".ui.activity.InviteMsgActivity" />
+        <activity android:name=".improve.car.TouchBoundActivity" />
+        <activity android:name=".improve.car.DriveActivity" />
+        <activity android:name=".improve.car.CarSettingActivity"></activity>
     </application>
 
 </manifest>

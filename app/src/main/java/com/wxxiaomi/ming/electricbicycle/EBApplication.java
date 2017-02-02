@@ -24,7 +24,6 @@ import java.util.List;
 public class EBApplication extends AppContext {
     public static Context applicationContext;
     private static EBApplication instance;
-//    public  static RefWatcher sRefWatcher;
 
     @Override
     public void onCreate() {

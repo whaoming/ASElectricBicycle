@@ -22,11 +22,11 @@
                 android:layout_width="35dp"
                 android:layout_height="35dp" />
             <TextView
+                android:id="@+id/drawer_nick"
                 android:textColor="#ffffff"
                 android:textSize="18sp"
                 android:gravity="center"
                 android:layout_gravity="center"
-                android:text="wang"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent" />
         </android.support.v7.widget.Toolbar>

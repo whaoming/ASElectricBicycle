@@ -32,8 +32,6 @@ public interface HomeView<T extends BasePre> extends BaseView {
 
     ImageView getHeadView();
 
-    TextView getTvNameView();
     ImageView getDrawerAvatar();
-
-//    void showSnackBar(String content);
+    void setNickName(String nickName);
 }
