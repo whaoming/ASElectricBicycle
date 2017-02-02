@@ -7,7 +7,7 @@
 
 ----------  
 ## 更新日志
-2017-2-2 加入驾驶模式
+2017-2-2 加入驾驶模式  
 通过蓝牙与STC进行实时通信，获取STC各个硬件信息通过app进行实时展示，比如速度，电量等(暂时只实现了速度实时展示)  
 
 ## guide  
@@ -37,7 +37,8 @@ ps：本来觉得hybrid部分不用传上来的，因为全部都是h5写的，�
 | 查看个人发布信息 | 
 ![image](https://github.com/whaoming/aboutme/blob/master/image/web_%E4%B8%AA%E4%BA%BA%E9%A1%B5%E9%9D%A2.png) |   
 ### 硬件通信部分  
-实现了STC与android通过蓝牙通信从而达到信息交互，可以看看我的文章：[SCMAndroidCommunicate](https://github.com/whaoming/SCMAndroidCommunicate "悬停显示4")，只要遵守我制定好的数据协议，便可以与app的驾驶模块进行交互  
+实现了STC与android通过蓝牙通信从而达到信息交互，可以看看我的文章：[SCMAndroidCommunicate](https://github.com/whaoming/SCMAndroidCommunicate "悬停显示4")，只要遵守我制定好的数据协议，便可以与app的驾驶模块进行交互  
+
 ![这里写图片描述](https://raw.githubusercontent.com/whaoming/aboutme/master/image/201702022059.BMP)![这里写图片描述](https://raw.githubusercontent.com/whaoming/aboutme/master/image/2017020220591.BMP) 
 
 
