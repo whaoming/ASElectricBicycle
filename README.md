@@ -128,7 +128,7 @@ ps：本来觉得hybrid部分不用传上来的，因为全部都是h5写的，�
  0X02     | 0x00| 0X01   |  车灯亮 |  
  0X02    | 0x00|  0X02   |  车灯灭 |  
  0X03   |  雷达数据高位 | 雷达数据低位 |  发送雷达数据 |    
- [详情看我写的另外一个硬件交互的项目](https://github.com/whaoming/SCMAndroidCommunicate "悬停显示3")  
+ [详情看我写的另外一个硬件交互的项目](https://github.com/whaoming/SCMAndroidCommunicate "悬停显示3") 
  
 <h2 id="aboutme">关于我</h2>  
  - 邮箱：122627018@qq.com
