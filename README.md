@@ -6,7 +6,7 @@
 
 
 ## 更新日志
-2017-2-2 加入驾驶模式  
+### 2017-2-2 加入驾驶模式  
 通过蓝牙与STC进行实时通信，获取STC各个硬件信息通过app进行实时展示，比如速度，电量等(暂时只实现了速度实时展示),关于此模块我特意写了一篇文章：[SCMAndroidCommunicate](https://github.com/whaoming/SCMAndroidCommunicate "悬停显示4")，蓝牙小车的源程序也是我自己写的，都放在这个项目里面了
 ## guide  
  -  [预览](#yulan)
