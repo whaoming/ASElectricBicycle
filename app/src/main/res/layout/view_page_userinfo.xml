@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ming="http://schemas.android.com/apk/res-auto"
+    android:background="#173C6F"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:layout_marginTop="?attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:id="@+id/iv_my_head"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_centerInParent="true"
+        android:src="@mipmap/tou" />
+    <TextView
+        android:id="@+id/tv_description"
+        android:layout_below="@+id/iv_my_head"
+        android:textColor="#ffffff"
+        android:text="只有努力，才能看起来毫不费力"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:id="@+id/ll_round_content"
+        android:padding="5dp"
+        android:layout_below="@+id/tv_description"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.wxxiaomi.ming.electricbicycle.ui.weight.custom.RoundView
+            android:layout_margin="3dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            ming:icon_img="@mipmap/ic_about_white"
+            ming:below_text="Followers"
+            ming:below_text_size="12sp"
+            ming:fill_color="#50000000"
+            ming:below_text_color="#ffffff"
+            />
+        <com.wxxiaomi.ming.electricbicycle.ui.weight.custom.RoundView
+            android:layout_margin="3dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            ming:icon_img="@mipmap/ic_about_white"
+            ming:below_text="Followers"
+            ming:below_text_size="12sp"
+            ming:fill_color="#50000000"
+            ming:below_text_color="#ffffff"
+            />
+        <com.wxxiaomi.ming.electricbicycle.ui.weight.custom.RoundView
+            android:layout_margin="3dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            ming:icon_img="@mipmap/ic_about_white"
+            ming:below_text="Followers"
+            ming:below_text_size="12sp"
+            ming:fill_color="#50000000"
+            ming:below_text_color="#ffffff"
+            />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_below="@+id/ll_round_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:scaleType="fitXY"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+
+</RelativeLayout>

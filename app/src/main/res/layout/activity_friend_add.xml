@@ -8,34 +8,30 @@
     android:orientation="vertical"
     >
     <android.support.v7.widget.Toolbar
+        android:theme="@style/searchBar"
+        android:background="@color/titleBlue"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/titleBlue"
-        />
+        >
 
-  <EditText
-      android:gravity="center_vertical"
-      android:textColor="#80000000"
-      android:background="#10666666"
-        android:paddingLeft="15dp"
-      android:textColorHint="#80000000"
-      android:drawablePadding="15dp"
-      android:id="@+id/et_name"
-      android:imeOptions="actionSearch"
-      android:drawableLeft="@mipmap/ic_launcher"
-      android:hint="搜索好友"
-      android:textSize="17sp"
-      android:layout_width="match_parent"
-      android:layout_height="65dp" />
+        <android.support.v7.widget.SearchView
+            android:paddingLeft="0dp"
+            android:layout_marginLeft="0dp"
+            android:id="@+id/searchView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionSearch"
+            app:defaultQueryHint="搜索" />
+    </android.support.v7.widget.Toolbar>
 
-    <android.support.v7.widget.RecyclerView
-        android:background="#ffffff"
-        android:id="@+id/list"
+    <com.wxxiaomi.ming.electricbicycle.ui.weight.pulltorefresh.recycleview.PullToRefreshRecyclerView
+        android:background="#f3f3f3"
+        android:id="@+id/mRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:cacheColorHint="@null"
-        android:scrollbars="none" />
+        />
 
 </LinearLayout>
 

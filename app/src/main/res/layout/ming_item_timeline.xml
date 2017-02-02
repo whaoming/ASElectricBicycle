@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <com.wxxiaomi.ming.electricbicycle.ui.weight.timelineview.TimelineView
+        android:id="@+id/time_marker"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:line="@color/colorPrimary"
+        app:line_size="2dp"
+        app:marker_size="15dp" />
+
+    <android.support.v7.widget.CardView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_margin="20dp">
+
+        <LinearLayout
+            android:padding="6dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/user_head"
+                    android:layout_margin="5dp"
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/ic_launcher"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp" />
+                <TextView
+                    android:id="@+id/user_name"
+                    android:textColor="#666666"
+                    android:textSize="12sp"
+                    android:gravity="center_vertical"
+                    android:layout_toRightOf="@+id/user_head"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="wang评论了文章" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:padding="5dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <ImageView
+                    android:id="@+id/info_pic"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/demo10"
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp" />
+                <TextView
+                    android:id="@+id/info_content"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="5dp"
+                    android:textSize="15sp"
+                    android:textColor="#000000"
+                    android:layout_alignParentLeft="true"
+                    android:text="听说今天这里发生了火灾"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/rl_foot"
+                android:padding="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+
+                    android:textColor="#666666"
+                    android:textSize="12sp"
+                    android:layout_alignParentLeft="true"
+                    android:id="@+id/info_locat_tag"
+                    android:text="科技馆"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+                <TextView
+                    android:id="@+id/info_star"
+                    android:textColor="#666666"
+                    android:textSize="12sp"
+                    android:layout_alignParentRight="true"
+                    android:text="0 赞"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

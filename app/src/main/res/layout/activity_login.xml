@@ -1,15 +1,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/titleBlue"
+
     android:orientation="vertical" >
 
     <!-- android:background="?attr/colorPrimary" -->
 
     <android.support.v7.widget.Toolbar
-        xmlns:app1="http://schemas.android.com/apk/res/com.wxxiaomi.electricbicycle"
-
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -18,12 +16,14 @@
         />
 
     <LinearLayout
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="8dp"
         android:orientation="vertical" >
 
         <android.support.design.widget.TextInputLayout
+            android:theme="@style/Theme.AppCompat.NoActionBar"
             android:id="@+id/til_username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -36,11 +36,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
-                android:textColor="@color/white" >
+                >
             </EditText>
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
+            android:theme="@style/Theme.AppCompat.NoActionBar"
             android:id="@+id/til_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -60,7 +61,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="@drawable/selector_demo"
             android:text="确定"
             android:textColor="@color/titleBlue" />
 

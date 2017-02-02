@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-xlarge-v4\\values-xlarge-v4.xml",
+        "outputFile": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-xlarge-v4\\values-xlarge-v4.xml",
         "map": [
             {
                 "to": {
@@ -11,13 +11,13 @@
                     "endOffset": 103
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-xlarge\\ease_dimens.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-xlarge\\ease_dimens.xml",
                     "position": {
                         "startLine": 19,
                         "startColumn": 4,
-                        "startOffset": 663,
+                        "startOffset": 700,
                         "endColumn": 52,
-                        "endOffset": 711
+                        "endOffset": 748
                     }
                 }
             },
@@ -30,13 +30,13 @@
                     "endOffset": 157
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-xlarge\\ease_dimens.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-xlarge\\ease_dimens.xml",
                     "position": {
                         "startLine": 20,
                         "startColumn": 4,
-                        "startOffset": 716,
+                        "startOffset": 754,
                         "endColumn": 53,
-                        "endOffset": 765
+                        "endOffset": 803
                     }
                 }
             }

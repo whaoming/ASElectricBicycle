@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-ru-rRU\\values-ru-rRU.xml",
+        "outputFile": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-ru-rRU\\values-ru-rRU.xml",
         "map": [
             {
                 "to": {
@@ -11,13 +11,13 @@
                     "endOffset": 122
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 72,
                         "startColumn": 4,
-                        "startOffset": 4398,
+                        "startOffset": 4470,
                         "endColumn": 71,
-                        "endOffset": 4465
+                        "endOffset": 4537
                     }
                 }
             },
@@ -30,13 +30,13 @@
                     "endOffset": 184
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 78,
                         "startColumn": 4,
-                        "startOffset": 4718,
+                        "startOffset": 4796,
                         "endColumn": 61,
-                        "endOffset": 4775
+                        "endOffset": 4853
                     }
                 }
             },
@@ -49,13 +49,13 @@
                     "endOffset": 256
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 88,
                         "startColumn": 4,
-                        "startOffset": 5333,
+                        "startOffset": 5421,
                         "endColumn": 71,
-                        "endOffset": 5400
+                        "endOffset": 5488
                     }
                 }
             },
@@ -68,13 +68,13 @@
                     "endOffset": 318
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 113,
                         "startColumn": 4,
-                        "startOffset": 6835,
+                        "startOffset": 6948,
                         "endColumn": 61,
-                        "endOffset": 6892
+                        "endOffset": 7005
                     }
                 }
             },
@@ -87,13 +87,13 @@
                     "endOffset": 362
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 109,
                         "startColumn": 4,
-                        "startOffset": 6561,
+                        "startOffset": 6670,
                         "endColumn": 43,
-                        "endOffset": 6600
+                        "endOffset": 6709
                     }
                 }
             },
@@ -106,13 +106,13 @@
                     "endOffset": 431
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 92,
                         "startColumn": 4,
-                        "startOffset": 5613,
+                        "startOffset": 5705,
                         "endColumn": 68,
-                        "endOffset": 5677
+                        "endOffset": 5769
                     }
                 }
             },
@@ -125,13 +125,13 @@
                     "endOffset": 492
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 83,
                         "startColumn": 4,
-                        "startOffset": 5001,
+                        "startOffset": 5084,
                         "endColumn": 60,
-                        "endOffset": 5057
+                        "endOffset": 5140
                     }
                 }
             },
@@ -144,13 +144,13 @@
                     "endOffset": 548
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 93,
                         "startColumn": 4,
-                        "startOffset": 5682,
+                        "startOffset": 5775,
                         "endColumn": 55,
-                        "endOffset": 5733
+                        "endOffset": 5826
                     }
                 }
             },
@@ -163,13 +163,13 @@
                     "endOffset": 612
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 103,
                         "startColumn": 4,
-                        "startOffset": 6241,
+                        "startOffset": 6344,
                         "endColumn": 63,
-                        "endOffset": 6300
+                        "endOffset": 6403
                     }
                 }
             },
@@ -182,13 +182,13 @@
                     "endOffset": 662
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 94,
                         "startColumn": 4,
-                        "startOffset": 5738,
+                        "startOffset": 5832,
                         "endColumn": 49,
-                        "endOffset": 5783
+                        "endOffset": 5877
                     }
                 }
             },
@@ -201,13 +201,13 @@
                     "endOffset": 719
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 79,
                         "startColumn": 4,
-                        "startOffset": 4780,
+                        "startOffset": 4859,
                         "endColumn": 56,
-                        "endOffset": 4832
+                        "endOffset": 4911
                     }
                 }
             },
@@ -220,13 +220,13 @@
                     "endOffset": 777
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 86,
                         "startColumn": 4,
-                        "startOffset": 5223,
+                        "startOffset": 5309,
                         "endColumn": 57,
-                        "endOffset": 5276
+                        "endOffset": 5362
                     }
                 }
             },
@@ -239,13 +239,13 @@
                     "endOffset": 868
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 85,
                         "startColumn": 4,
-                        "startOffset": 5132,
+                        "startOffset": 5217,
                         "endColumn": 90,
-                        "endOffset": 5218
+                        "endOffset": 5303
                     }
                 }
             },
@@ -258,13 +258,13 @@
                     "endOffset": 957
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 111,
                         "startColumn": 1,
-                        "startOffset": 6655,
+                        "startOffset": 6766,
                         "endColumn": 85,
-                        "endOffset": 6739
+                        "endOffset": 6850
                     }
                 }
             },
@@ -277,13 +277,13 @@
                     "endOffset": 1028
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 91,
                         "startColumn": 4,
-                        "startOffset": 5542,
+                        "startOffset": 5633,
                         "endColumn": 70,
-                        "endOffset": 5608
+                        "endOffset": 5699
                     }
                 }
             },
@@ -296,13 +296,13 @@
                     "endOffset": 1108
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 89,
                         "startColumn": 4,
-                        "startOffset": 5405,
+                        "startOffset": 5494,
                         "endColumn": 79,
-                        "endOffset": 5480
+                        "endOffset": 5569
                     }
                 }
             },
@@ -315,13 +315,13 @@
                     "endOffset": 1167
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 81,
                         "startColumn": 4,
-                        "startOffset": 4894,
+                        "startOffset": 4975,
                         "endColumn": 58,
-                        "endOffset": 4948
+                        "endOffset": 5029
                     }
                 }
             },
@@ -334,13 +334,13 @@
                     "endOffset": 1240
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 95,
                         "startColumn": 4,
-                        "startOffset": 5788,
+                        "startOffset": 5883,
                         "endColumn": 72,
-                        "endOffset": 5856
+                        "endOffset": 5951
                     }
                 }
             },
@@ -353,13 +353,13 @@
                     "endOffset": 1297
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 80,
                         "startColumn": 4,
-                        "startOffset": 4837,
+                        "startOffset": 4917,
                         "endColumn": 56,
-                        "endOffset": 4889
+                        "endOffset": 4969
                     }
                 }
             },
@@ -372,13 +372,13 @@
                     "endOffset": 1367
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 84,
                         "startColumn": 4,
-                        "startOffset": 5062,
+                        "startOffset": 5146,
                         "endColumn": 69,
-                        "endOffset": 5127
+                        "endOffset": 5211
                     }
                 }
             },
@@ -391,13 +391,13 @@
                     "endOffset": 1424
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 74,
                         "startColumn": 4,
-                        "startOffset": 4513,
+                        "startOffset": 4587,
                         "endColumn": 56,
-                        "endOffset": 4565
+                        "endOffset": 4639
                     }
                 }
             },
@@ -410,13 +410,13 @@
                     "endOffset": 1474
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 69,
                         "startColumn": 4,
-                        "startOffset": 4231,
+                        "startOffset": 4300,
                         "endColumn": 49,
-                        "endOffset": 4276
+                        "endOffset": 4345
                     }
                 }
             },
@@ -429,13 +429,13 @@
                     "endOffset": 1517
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 108,
                         "startColumn": 4,
-                        "startOffset": 6518,
+                        "startOffset": 6626,
                         "endColumn": 42,
-                        "endOffset": 6556
+                        "endOffset": 6664
                     }
                 }
             },
@@ -448,13 +448,13 @@
                     "endOffset": 1561
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 105,
                         "startColumn": 4,
-                        "startOffset": 6351,
+                        "startOffset": 6456,
                         "endColumn": 43,
-                        "endOffset": 6390
+                        "endOffset": 6495
                     }
                 }
             },
@@ -467,13 +467,13 @@
                     "endOffset": 1610
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 13,
                         "startColumn": 4,
-                        "startOffset": 574,
+                        "startOffset": 587,
                         "endColumn": 48,
-                        "endOffset": 618
+                        "endOffset": 631
                     }
                 }
             },
@@ -486,13 +486,13 @@
                     "endOffset": 1669
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 12,
                         "startColumn": 4,
-                        "startOffset": 515,
+                        "startOffset": 527,
                         "endColumn": 58,
-                        "endOffset": 569
+                        "endOffset": 581
                     }
                 }
             },
@@ -505,13 +505,13 @@
                     "endOffset": 1724
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 10,
                         "startColumn": 4,
-                        "startOffset": 403,
+                        "startOffset": 413,
                         "endColumn": 54,
-                        "endOffset": 453
+                        "endOffset": 463
                     }
                 }
             },
@@ -524,13 +524,13 @@
                     "endOffset": 1772
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 9,
                         "startColumn": 4,
-                        "startOffset": 355,
+                        "startOffset": 364,
                         "endColumn": 47,
-                        "endOffset": 398
+                        "endOffset": 407
                     }
                 }
             },
@@ -543,13 +543,13 @@
                     "endOffset": 1829
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 11,
                         "startColumn": 4,
-                        "startOffset": 458,
+                        "startOffset": 469,
                         "endColumn": 56,
-                        "endOffset": 510
+                        "endOffset": 521
                     }
                 }
             },
@@ -562,13 +562,13 @@
                     "endOffset": 1891
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 14,
                         "startColumn": 4,
-                        "startOffset": 623,
+                        "startOffset": 637,
                         "endColumn": 61,
-                        "endOffset": 680
+                        "endOffset": 694
                     }
                 }
             },
@@ -581,13 +581,13 @@
                     "endOffset": 1930
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
-                        "startOffset": 167,
+                        "startOffset": 172,
                         "endColumn": 38,
-                        "endOffset": 201
+                        "endOffset": 206
                     }
                 }
             },
@@ -600,13 +600,13 @@
                     "endOffset": 1983
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 76,
                         "startColumn": 4,
-                        "startOffset": 4611,
+                        "startOffset": 4687,
                         "endColumn": 52,
-                        "endOffset": 4659
+                        "endOffset": 4735
                     }
                 }
             },
@@ -619,13 +619,13 @@
                     "endOffset": 2035
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 87,
                         "startColumn": 4,
-                        "startOffset": 5281,
+                        "startOffset": 5368,
                         "endColumn": 51,
-                        "endOffset": 5328
+                        "endOffset": 5415
                     }
                 }
             },
@@ -638,13 +638,13 @@
                     "endOffset": 2088
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 67,
                         "startColumn": 4,
-                        "startOffset": 4135,
+                        "startOffset": 4202,
                         "endColumn": 52,
-                        "endOffset": 4183
+                        "endOffset": 4250
                     }
                 }
             },
@@ -657,13 +657,13 @@
                     "endOffset": 2136
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 47,
                         "startColumn": 4,
-                        "startOffset": 2711,
+                        "startOffset": 2758,
                         "endColumn": 47,
-                        "endOffset": 2754
+                        "endOffset": 2801
                     }
                 }
             },
@@ -676,13 +676,13 @@
                     "endOffset": 2188
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 44,
                         "startColumn": 4,
-                        "startOffset": 2561,
+                        "startOffset": 2605,
                         "endColumn": 51,
-                        "endOffset": 2608
+                        "endOffset": 2652
                     }
                 }
             },
@@ -695,13 +695,13 @@
                     "endOffset": 2236
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 30,
                         "startColumn": 4,
-                        "startOffset": 1747,
+                        "startOffset": 1777,
                         "endColumn": 47,
-                        "endOffset": 1790
+                        "endOffset": 1820
                     }
                 }
             },
@@ -714,13 +714,13 @@
                     "endOffset": 2294
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
-                        "startOffset": 249,
+                        "startOffset": 256,
                         "endColumn": 57,
-                        "endOffset": 302
+                        "endOffset": 309
                     }
                 }
             },
@@ -733,13 +733,13 @@
                     "endOffset": 2344
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 45,
                         "startColumn": 4,
-                        "startOffset": 2613,
+                        "startOffset": 2658,
                         "endColumn": 49,
-                        "endOffset": 2658
+                        "endOffset": 2703
                     }
                 }
             },
@@ -752,13 +752,13 @@
                     "endOffset": 2392
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 46,
                         "startColumn": 4,
-                        "startOffset": 2663,
+                        "startOffset": 2709,
                         "endColumn": 47,
-                        "endOffset": 2706
+                        "endOffset": 2752
                     }
                 }
             },
@@ -771,13 +771,13 @@
                     "endOffset": 2440
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 8,
                         "startColumn": 4,
-                        "startOffset": 307,
+                        "startOffset": 315,
                         "endColumn": 47,
-                        "endOffset": 350
+                        "endOffset": 358
                     }
                 }
             },
@@ -790,13 +790,13 @@
                     "endOffset": 2519
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 31,
                         "startColumn": 4,
-                        "startOffset": 1795,
+                        "startOffset": 1826,
                         "endColumn": 78,
-                        "endOffset": 1869
+                        "endOffset": 1900
                     }
                 }
             },
@@ -809,13 +809,13 @@
                     "endOffset": 2561
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 32,
                         "startColumn": 4,
-                        "startOffset": 1874,
+                        "startOffset": 1906,
                         "endColumn": 41,
-                        "endOffset": 1911
+                        "endOffset": 1943
                     }
                 }
             },
@@ -828,13 +828,13 @@
                     "endOffset": 2615
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 65,
                         "startColumn": 4,
-                        "startOffset": 3990,
+                        "startOffset": 4055,
                         "endColumn": 53,
-                        "endOffset": 4039
+                        "endOffset": 4104
                     }
                 }
             },
@@ -847,13 +847,13 @@
                     "endOffset": 2705
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 35,
                         "startColumn": 4,
-                        "startOffset": 2020,
+                        "startOffset": 2055,
                         "endColumn": 89,
-                        "endOffset": 2105
+                        "endOffset": 2140
                     }
                 }
             },
@@ -866,13 +866,13 @@
                     "endOffset": 2763
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 34,
                         "startColumn": 4,
-                        "startOffset": 1962,
+                        "startOffset": 1996,
                         "endColumn": 57,
-                        "endOffset": 2015
+                        "endOffset": 2049
                     }
                 }
             },
@@ -885,13 +885,13 @@
                     "endOffset": 2853
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 52,
                         "startColumn": 4,
-                        "startOffset": 3044,
+                        "startOffset": 3096,
                         "endColumn": 89,
-                        "endOffset": 3129
+                        "endOffset": 3181
                     }
                 }
             },
@@ -904,13 +904,13 @@
                     "endOffset": 2948
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 25,
                         "startColumn": 4,
-                        "startOffset": 1317,
+                        "startOffset": 1342,
                         "endColumn": 94,
-                        "endOffset": 1407
+                        "endOffset": 1432
                     }
                 }
             },
@@ -923,13 +923,13 @@
                     "endOffset": 3011
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 100,
                         "startColumn": 4,
-                        "startOffset": 6049,
+                        "startOffset": 6149,
                         "endColumn": 62,
-                        "endOffset": 6107
+                        "endOffset": 6207
                     }
                 }
             },
@@ -942,13 +942,13 @@
                     "endOffset": 3118
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 58,
                         "startColumn": 4,
-                        "startOffset": 3530,
+                        "startOffset": 3588,
                         "endColumn": 106,
-                        "endOffset": 3632
+                        "endOffset": 3690
                     }
                 }
             },
@@ -961,13 +961,13 @@
                     "endOffset": 3244
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 26,
                         "startColumn": 4,
-                        "startOffset": 1412,
+                        "startOffset": 1438,
                         "endColumn": 125,
-                        "endOffset": 1533
+                        "endOffset": 1559
                     }
                 }
             },
@@ -980,13 +980,13 @@
                     "endOffset": 3288
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 28,
                         "startColumn": 4,
-                        "startOffset": 1657,
+                        "startOffset": 1685,
                         "endColumn": 43,
-                        "endOffset": 1696
+                        "endOffset": 1724
                     }
                 }
             },
@@ -999,13 +999,13 @@
                     "endOffset": 3350
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 20,
                         "startColumn": 4,
-                        "startOffset": 1034,
+                        "startOffset": 1054,
                         "endColumn": 61,
-                        "endOffset": 1091
+                        "endOffset": 1111
                     }
                 }
             },
@@ -1018,13 +1018,13 @@
                     "endOffset": 3393
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 23,
                         "startColumn": 4,
-                        "startOffset": 1220,
+                        "startOffset": 1243,
                         "endColumn": 42,
-                        "endOffset": 1258
+                        "endOffset": 1281
                     }
                 }
             },
@@ -1037,13 +1037,13 @@
                     "endOffset": 3454
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 19,
                         "startColumn": 4,
-                        "startOffset": 973,
+                        "startOffset": 992,
                         "endColumn": 60,
-                        "endOffset": 1029
+                        "endOffset": 1048
                     }
                 }
             },
@@ -1056,13 +1056,13 @@
                     "endOffset": 3509
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 22,
                         "startColumn": 4,
-                        "startOffset": 1165,
+                        "startOffset": 1187,
                         "endColumn": 54,
-                        "endOffset": 1215
+                        "endOffset": 1237
                     }
                 }
             },
@@ -1075,13 +1075,13 @@
                     "endOffset": 3578
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 21,
                         "startColumn": 4,
-                        "startOffset": 1096,
+                        "startOffset": 1117,
                         "endColumn": 68,
-                        "endOffset": 1160
+                        "endOffset": 1181
                     }
                 }
             },
@@ -1094,13 +1094,13 @@
                     "endOffset": 3632
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 77,
                         "startColumn": 4,
-                        "startOffset": 4664,
+                        "startOffset": 4741,
                         "endColumn": 53,
-                        "endOffset": 4713
+                        "endOffset": 4790
                     }
                 }
             },
@@ -1113,13 +1113,13 @@
                     "endOffset": 3689
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 90,
                         "startColumn": 4,
-                        "startOffset": 5485,
+                        "startOffset": 5575,
                         "endColumn": 56,
-                        "endOffset": 5537
+                        "endOffset": 5627
                     }
                 }
             },
@@ -1132,13 +1132,13 @@
                     "endOffset": 3780
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 56,
                         "startColumn": 4,
-                        "startOffset": 3394,
+                        "startOffset": 3450,
                         "endColumn": 90,
-                        "endOffset": 3480
+                        "endOffset": 3536
                     }
                 }
             },
@@ -1151,13 +1151,13 @@
                     "endOffset": 3866
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 101,
                         "startColumn": 4,
-                        "startOffset": 6112,
+                        "startOffset": 6213,
                         "endColumn": 85,
-                        "endOffset": 6193
+                        "endOffset": 6294
                     }
                 }
             },
@@ -1170,13 +1170,13 @@
                     "endOffset": 3942
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 59,
                         "startColumn": 4,
-                        "startOffset": 3637,
+                        "startOffset": 3696,
                         "endColumn": 75,
-                        "endOffset": 3708
+                        "endOffset": 3767
                     }
                 }
             },
@@ -1189,13 +1189,13 @@
                     "endOffset": 3987
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 57,
                         "startColumn": 4,
-                        "startOffset": 3485,
+                        "startOffset": 3542,
                         "endColumn": 44,
-                        "endOffset": 3525
+                        "endOffset": 3582
                     }
                 }
             },
@@ -1208,13 +1208,13 @@
                     "endOffset": 4078
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 55,
                         "startColumn": 4,
-                        "startOffset": 3303,
+                        "startOffset": 3358,
                         "endColumn": 90,
-                        "endOffset": 3389
+                        "endOffset": 3444
                     }
                 }
             },
@@ -1227,13 +1227,13 @@
                     "endOffset": 4122
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 42,
                         "startColumn": 4,
-                        "startOffset": 2460,
+                        "startOffset": 2502,
                         "endColumn": 43,
-                        "endOffset": 2499
+                        "endOffset": 2541
                     }
                 }
             },
@@ -1246,13 +1246,13 @@
                     "endOffset": 4168
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 29,
                         "startColumn": 4,
-                        "startOffset": 1701,
+                        "startOffset": 1730,
                         "endColumn": 45,
-                        "endOffset": 1742
+                        "endOffset": 1771
                     }
                 }
             },
@@ -1265,13 +1265,13 @@
                     "endOffset": 4211
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 73,
                         "startColumn": 4,
-                        "startOffset": 4470,
+                        "startOffset": 4543,
                         "endColumn": 42,
-                        "endOffset": 4508
+                        "endOffset": 4581
                     }
                 }
             },
@@ -1284,13 +1284,13 @@
                     "endOffset": 4259
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 82,
                         "startColumn": 4,
-                        "startOffset": 4953,
+                        "startOffset": 5035,
                         "endColumn": 47,
-                        "endOffset": 4996
+                        "endOffset": 5078
                     }
                 }
             },
@@ -1303,13 +1303,13 @@
                     "endOffset": 4305
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 104,
                         "startColumn": 4,
-                        "startOffset": 6305,
+                        "startOffset": 6409,
                         "endColumn": 45,
-                        "endOffset": 6346
+                        "endOffset": 6450
                     }
                 }
             },
@@ -1322,13 +1322,13 @@
                     "endOffset": 4396
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 112,
                         "startColumn": 4,
-                        "startOffset": 6744,
+                        "startOffset": 6856,
                         "endColumn": 90,
-                        "endOffset": 6830
+                        "endOffset": 6942
                     }
                 }
             },
@@ -1341,13 +1341,13 @@
                     "endOffset": 4469
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 37,
                         "startColumn": 4,
-                        "startOffset": 2172,
+                        "startOffset": 2209,
                         "endColumn": 72,
-                        "endOffset": 2240
+                        "endOffset": 2277
                     }
                 }
             },
@@ -1360,13 +1360,13 @@
                     "endOffset": 4534
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 39,
                         "startColumn": 4,
-                        "startOffset": 2303,
+                        "startOffset": 2342,
                         "endColumn": 64,
-                        "endOffset": 2363
+                        "endOffset": 2402
                     }
                 }
             },
@@ -1379,13 +1379,13 @@
                     "endOffset": 4596
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 36,
                         "startColumn": 4,
-                        "startOffset": 2110,
+                        "startOffset": 2146,
                         "endColumn": 61,
-                        "endOffset": 2167
+                        "endOffset": 2203
                     }
                 }
             },
@@ -1398,13 +1398,13 @@
                     "endOffset": 4636
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 96,
                         "startColumn": 4,
-                        "startOffset": 5861,
+                        "startOffset": 5957,
                         "endColumn": 39,
-                        "endOffset": 5896
+                        "endOffset": 5992
                     }
                 }
             },
@@ -1417,13 +1417,13 @@
                     "endOffset": 4677
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 53,
                         "startColumn": 4,
-                        "startOffset": 3134,
+                        "startOffset": 3187,
                         "endColumn": 40,
-                        "endOffset": 3170
+                        "endOffset": 3223
                     }
                 }
             },
@@ -1436,13 +1436,13 @@
                     "endOffset": 4805
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 54,
                         "startColumn": 4,
-                        "startOffset": 3175,
+                        "startOffset": 3229,
                         "endColumn": 127,
-                        "endOffset": 3298
+                        "endOffset": 3352
                     }
                 }
             },
@@ -1455,13 +1455,13 @@
                     "endOffset": 4886
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 16,
                         "startColumn": 4,
-                        "startOffset": 741,
+                        "startOffset": 757,
                         "endColumn": 80,
-                        "endOffset": 817
+                        "endOffset": 833
                     }
                 }
             },
@@ -1474,13 +1474,13 @@
                     "endOffset": 4929
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 102,
                         "startColumn": 4,
-                        "startOffset": 6198,
+                        "startOffset": 6300,
                         "endColumn": 42,
-                        "endOffset": 6236
+                        "endOffset": 6338
                     }
                 }
             },
@@ -1493,13 +1493,13 @@
                     "endOffset": 4997
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 49,
                         "startColumn": 4,
-                        "startOffset": 2807,
+                        "startOffset": 2856,
                         "endColumn": 67,
-                        "endOffset": 2870
+                        "endOffset": 2919
                     }
                 }
             },
@@ -1512,13 +1512,13 @@
                     "endOffset": 5116
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 27,
                         "startColumn": 4,
-                        "startOffset": 1538,
+                        "startOffset": 1565,
                         "endColumn": 118,
-                        "endOffset": 1652
+                        "endOffset": 1679
                     }
                 }
             },
@@ -1531,13 +1531,13 @@
                     "endOffset": 5164
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 107,
                         "startColumn": 4,
-                        "startOffset": 6470,
+                        "startOffset": 6577,
                         "endColumn": 47,
-                        "endOffset": 6513
+                        "endOffset": 6620
                     }
                 }
             },
@@ -1550,13 +1550,13 @@
                     "endOffset": 5247
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 62,
                         "startColumn": 4,
-                        "startOffset": 3820,
+                        "startOffset": 3882,
                         "endColumn": 82,
-                        "endOffset": 3898
+                        "endOffset": 3960
                     }
                 }
             },
@@ -1569,13 +1569,13 @@
                     "endOffset": 5300
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 110,
                         "startColumn": 4,
-                        "startOffset": 6605,
+                        "startOffset": 6715,
                         "endColumn": 52,
-                        "endOffset": 6653
+                        "endOffset": 6763
                     }
                 }
             },
@@ -1588,13 +1588,13 @@
                     "endOffset": 5365
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 61,
                         "startColumn": 4,
-                        "startOffset": 3755,
+                        "startOffset": 3816,
                         "endColumn": 64,
-                        "endOffset": 3815
+                        "endOffset": 3876
                     }
                 }
             },
@@ -1607,13 +1607,13 @@
                     "endOffset": 5436
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 71,
                         "startColumn": 4,
-                        "startOffset": 4327,
+                        "startOffset": 4398,
                         "endColumn": 70,
-                        "endOffset": 4393
+                        "endOffset": 4464
                     }
                 }
             },
@@ -1626,13 +1626,13 @@
                     "endOffset": 5480
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 98,
                         "startColumn": 4,
-                        "startOffset": 5956,
+                        "startOffset": 6054,
                         "endColumn": 43,
-                        "endOffset": 5995
+                        "endOffset": 6093
                     }
                 }
             },
@@ -1645,13 +1645,13 @@
                     "endOffset": 5530
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 40,
                         "startColumn": 4,
-                        "startOffset": 2368,
+                        "startOffset": 2408,
                         "endColumn": 49,
-                        "endOffset": 2413
+                        "endOffset": 2453
                     }
                 }
             },
@@ -1664,13 +1664,13 @@
                     "endOffset": 5576
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 33,
                         "startColumn": 4,
-                        "startOffset": 1916,
+                        "startOffset": 1949,
                         "endColumn": 45,
-                        "endOffset": 1957
+                        "endOffset": 1990
                     }
                 }
             },
@@ -1683,13 +1683,13 @@
                     "endOffset": 5677
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 50,
                         "startColumn": 4,
-                        "startOffset": 2875,
+                        "startOffset": 2925,
                         "endColumn": 100,
-                        "endOffset": 2971
+                        "endOffset": 3021
                     }
                 }
             },
@@ -1702,13 +1702,13 @@
                     "endOffset": 5735
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 38,
                         "startColumn": 4,
-                        "startOffset": 2245,
+                        "startOffset": 2283,
                         "endColumn": 57,
-                        "endOffset": 2298
+                        "endOffset": 2336
                     }
                 }
             },
@@ -1721,13 +1721,13 @@
                     "endOffset": 5784
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 99,
                         "startColumn": 4,
-                        "startOffset": 6000,
+                        "startOffset": 6099,
                         "endColumn": 48,
-                        "endOffset": 6044
+                        "endOffset": 6143
                     }
                 }
             },
@@ -1740,13 +1740,13 @@
                     "endOffset": 5866
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 17,
                         "startColumn": 4,
-                        "startOffset": 822,
+                        "startOffset": 839,
                         "endColumn": 81,
-                        "endOffset": 899
+                        "endOffset": 916
                     }
                 }
             },
@@ -1759,13 +1759,13 @@
                     "endOffset": 5920
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 24,
                         "startColumn": 4,
-                        "startOffset": 1263,
+                        "startOffset": 1287,
                         "endColumn": 53,
-                        "endOffset": 1312
+                        "endOffset": 1336
                     }
                 }
             },
@@ -1778,13 +1778,13 @@
                     "endOffset": 5963
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
-                        "startOffset": 206,
+                        "startOffset": 212,
                         "endColumn": 42,
-                        "endOffset": 244
+                        "endOffset": 250
                     }
                 }
             },
@@ -1797,13 +1797,13 @@
                     "endOffset": 6004
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 75,
                         "startColumn": 4,
-                        "startOffset": 4570,
+                        "startOffset": 4645,
                         "endColumn": 40,
-                        "endOffset": 4606
+                        "endOffset": 4681
                     }
                 }
             },
@@ -1816,13 +1816,13 @@
                     "endOffset": 6052
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 48,
                         "startColumn": 4,
-                        "startOffset": 2759,
+                        "startOffset": 2807,
                         "endColumn": 47,
-                        "endOffset": 2802
+                        "endOffset": 2850
                     }
                 }
             },
@@ -1835,13 +1835,13 @@
                     "endOffset": 6120
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 51,
                         "startColumn": 4,
-                        "startOffset": 2976,
+                        "startOffset": 3027,
                         "endColumn": 67,
-                        "endOffset": 3039
+                        "endOffset": 3090
                     }
                 }
             },
@@ -1854,13 +1854,13 @@
                     "endOffset": 6189
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 18,
                         "startColumn": 4,
-                        "startOffset": 904,
+                        "startOffset": 922,
                         "endColumn": 68,
-                        "endOffset": 968
+                        "endOffset": 986
                     }
                 }
             },
@@ -1873,13 +1873,13 @@
                     "endOffset": 6232
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 68,
                         "startColumn": 4,
-                        "startOffset": 4188,
+                        "startOffset": 4256,
                         "endColumn": 42,
-                        "endOffset": 4226
+                        "endOffset": 4294
                     }
                 }
             },
@@ -1892,13 +1892,13 @@
                     "endOffset": 6274
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 60,
                         "startColumn": 4,
-                        "startOffset": 3713,
+                        "startOffset": 3773,
                         "endColumn": 41,
-                        "endOffset": 3750
+                        "endOffset": 3810
                     }
                 }
             },
@@ -1911,13 +1911,13 @@
                     "endOffset": 6320
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 70,
                         "startColumn": 4,
-                        "startOffset": 4281,
+                        "startOffset": 4351,
                         "endColumn": 45,
-                        "endOffset": 4322
+                        "endOffset": 4392
                     }
                 }
             },
@@ -1930,13 +1930,13 @@
                     "endOffset": 6363
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 64,
                         "startColumn": 4,
-                        "startOffset": 3947,
+                        "startOffset": 4011,
                         "endColumn": 42,
-                        "endOffset": 3985
+                        "endOffset": 4049
                     }
                 }
             },
@@ -1949,13 +1949,13 @@
                     "endOffset": 6416
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
-                        "startOffset": 56,
+                        "startOffset": 59,
                         "endColumn": 52,
-                        "endOffset": 104
+                        "endOffset": 107
                     }
                 }
             },
@@ -1968,13 +1968,13 @@
                     "endOffset": 6474
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
-                        "startOffset": 109,
+                        "startOffset": 113,
                         "endColumn": 57,
-                        "endOffset": 162
+                        "endOffset": 166
                     }
                 }
             },
@@ -1987,13 +1987,13 @@
                     "endOffset": 6549
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 106,
                         "startColumn": 4,
-                        "startOffset": 6395,
+                        "startOffset": 6501,
                         "endColumn": 74,
-                        "endOffset": 6465
+                        "endOffset": 6571
                     }
                 }
             },
@@ -2006,13 +2006,13 @@
                     "endOffset": 6605
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 15,
                         "startColumn": 4,
-                        "startOffset": 685,
+                        "startOffset": 700,
                         "endColumn": 55,
-                        "endOffset": 736
+                        "endOffset": 751
                     }
                 }
             },
@@ -2025,13 +2025,13 @@
                     "endOffset": 6660
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 97,
                         "startColumn": 4,
-                        "startOffset": 5901,
+                        "startOffset": 5998,
                         "endColumn": 54,
-                        "endOffset": 5951
+                        "endOffset": 6048
                     }
                 }
             },
@@ -2044,13 +2044,13 @@
                     "endOffset": 6702
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 41,
                         "startColumn": 4,
-                        "startOffset": 2418,
+                        "startOffset": 2459,
                         "endColumn": 41,
-                        "endOffset": 2455
+                        "endOffset": 2496
                     }
                 }
             },
@@ -2063,13 +2063,13 @@
                     "endOffset": 6746
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 63,
                         "startColumn": 4,
-                        "startOffset": 3903,
+                        "startOffset": 3966,
                         "endColumn": 43,
-                        "endOffset": 3942
+                        "endOffset": 4005
                     }
                 }
             },
@@ -2082,13 +2082,13 @@
                     "endOffset": 6803
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 43,
                         "startColumn": 4,
-                        "startOffset": 2504,
+                        "startOffset": 2547,
                         "endColumn": 56,
-                        "endOffset": 2556
+                        "endOffset": 2599
                     }
                 }
             },
@@ -2101,13 +2101,13 @@
                     "endOffset": 6894
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-ru-rRU\\ease_strings.xml",
                     "position": {
                         "startLine": 66,
                         "startColumn": 4,
-                        "startOffset": 4044,
+                        "startOffset": 4110,
                         "endColumn": 90,
-                        "endOffset": 4130
+                        "endOffset": 4196
                     }
                 }
             }

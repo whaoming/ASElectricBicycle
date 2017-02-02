@@ -1,16 +1,33 @@
 
 <resources>
+    <color name="mygred">#f3f3f3</color>
 
     <color name="white">#FFFFFF</color><!--白色 -->
     <color name="titleBlue">#4876FF</color><!--天兰色 -->
     <color name="gray">#808080</color><!--灰色 -->
     <color name="text_like_counter">#2b5a83</color>
+    <color name="black_alpha_112">#70000000</color>
+    <color name="black_alpha_128">#80000000</color>
+    <color name="black_alpha_144">#90000000</color>
+    <color name="black_alpha_16">#10000000</color>
+    <color name="black_alpha_160">#a0000000</color>
+    <color name="black_alpha_176">#b0000000</color>
+    <color name="black_alpha_192">#c0000000</color>
+    <color name="black_alpha_208">#d0000000</color>
+    <color name="black_alpha_224">#e0000000</color>
+    <color name="black_alpha_240">#f0000000</color>
+    <color name="black_alpha_32">#20000000</color>
+    <color name="black_alpha_48">#30000000</color>
+    <color name="black_alpha_64">#40000000</color>
+    <color name="black_alpha_80">#50000000</color>
+    <color name="black_alpha_96">#60000000</color>
 
     <color name="dark">#FF222222</color>
     <color name="light">#FFEEEEEE</color>
 
     <color name="ltgray">#FFCCCCCC</color>
-
+    <color name="gray_de">#666666</color>
+    <color name="list_item_press">#216b74ff</color>
     <color name="color1">#ff0f9d58</color>
     <color name="color2">#ffdb4437</color>
     <color name="color3">#ff4285f4</color>

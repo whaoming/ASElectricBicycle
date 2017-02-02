@@ -1,12 +1,8 @@
 package com.wxxiaomi.ming.electricbicycle.api;
 
-import android.util.Log;
-
-import com.wxxiaomi.ming.electricbicycle.support.util.RxUnitTestTools;
+import com.wxxiaomi.ming.electricbicycle.common.util.RxUnitTestTools;
 
 import junit.framework.TestCase;
-
-import rx.Observer;
 
 /**
  * Created by 12262 on 2016/11/8.

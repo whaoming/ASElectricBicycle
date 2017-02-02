@@ -10,8 +10,9 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/easeUI" />
-            <option value="$PROJECT_DIR$/takephoto_library" />
+            <option value="$PROJECT_DIR$/carddevice" />
+            <option value="$PROJECT_DIR$/easeui" />
+            <option value="$PROJECT_DIR$/gallerypick" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="E:\WorkPlace\Android\AS\20160424\ElectricBicycle\easeUI\src\main\shaders"/></dataSet><dataSet config="release"><source path="E:\WorkPlace\Android\AS\20160424\ElectricBicycle\easeUI\src\release\shaders"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="E:\WorkPlace\Android\AS\20160424\ASElectricBicycle\easeui\src\main\shaders"/></dataSet><dataSet config="release"><source path="E:\WorkPlace\Android\AS\20160424\ASElectricBicycle\easeui\src\release\shaders"/></dataSet></merger>

@@ -10,13 +10,17 @@
     <string name="drawer_close">close</string>
     <string name="title_activity_friend_add">FriendAddActivity</string>
     <string name="send_locat">发送位置</string>
-
     <string name="id_avatar">avatar</string>
-
     <string name="search_hint">search_hint</string>
     <string name="menu_share">share</string>
     <string name="hint_share_to">hint_share_to</string>
     <string name="notify_need_login">notify_need_login</string>
     <string name="click_to_login">click_to_login</string>
     <string name="title_activity_search_actiity1">SearchActiity1</string>
+
+
+    <string name="setting_open_near">setting_open_near</string>
+    <string name="setting_notify_sound">setting_notify_sound</string>
+    <string name="setting_notify_vibrate">setting_notify_vibrate</string>
+    <string name="setting_logout">setting_logout</string>
 </resources>

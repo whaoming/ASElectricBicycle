@@ -1,18 +1,28 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-   
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@mipmap/eb_splash"
+    android:background="#ffffff"
     android:orientation="vertical"
+    android:layout_height="match_parent"
     >
-
-    <android.support.v7.widget.Toolbar
-         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/sd"
+    <RelativeLayout
+        android:id="@+id/content"
+        android:layout_weight="5"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#000000"
-        android:minHeight="@dimen/abc_action_bar_default_height_material" />
+        android:layout_height="0dp">
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+        <TextView
+            android:gravity="center"
+            android:id="@+id/tv_tv"
+            android:layout_centerInParent="true"
+            android:textColor="#000000"
+            android:layout_width="match_parent"
+            android:text="正在初始化..."
+            android:layout_height="match_parent" />
+    </RelativeLayout>
 
 </LinearLayout>

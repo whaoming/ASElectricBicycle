@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -51,7 +52,6 @@ public abstract class EaseConversationListFragment extends EaseBaseFragment{
     protected boolean isConflict;
     
     protected EMConversationListener convListener = new EMConversationListener(){
-
 		@Override
 		public void onCoversationUpdate() {
 			refresh();
@@ -140,7 +140,6 @@ public abstract class EaseConversationListFragment extends EaseBaseFragment{
         });
     }
     
-    
     protected EMConnectionListener connectionListener = new EMConnectionListener() {
         
         @Override
@@ -173,7 +172,10 @@ public abstract class EaseConversationListFragment extends EaseBaseFragment{
 	            {
 	            	conversationList.clear();
 	                conversationList.addAll(loadConversationList());
-	                conversationListView.refresh();
+                    if(conversationListView!=null){
+                        conversationListView.refresh();
+                    }
+
 	                break;
 	            }
             default:
@@ -212,6 +214,7 @@ public abstract class EaseConversationListFragment extends EaseBaseFragment{
      * @return
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         +    */
     protected List<EMConversation> loadConversationList(){
+        Log.i("wang","EaseConversationListFragment中loadConversationList方法进行的线程："+Thread.currentThread().getName());
         // get all conversations
         Map<String, EMConversation> conversations = EMClient.getInstance().chatManager().getAllConversations();
         List<Pair<Long, EMConversation>> sortList = new ArrayList<Pair<Long, EMConversation>>();
@@ -282,7 +285,7 @@ public abstract class EaseConversationListFragment extends EaseBaseFragment{
     public void onResume() {
         super.onResume();
         if (!hidden) {
-            refresh();
+//            refresh();
         }
     }
     

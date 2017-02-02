@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="GalleryBaseTheme" parent="Theme.AppCompat.Light.NoActionBar" />
+
+
+    <style name="GalleryTheme" parent="GalleryBaseTheme" />
+
+
+    <style name="galleryBtnBackground" parent="GalleryBaseTheme">
+        <item name="android:background">@null</item>
+    </style>
+
+
+    <!--PopupWindow动画-->
+    <style name="popupAnimation" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/in_fade</item>
+        <item name="android:windowExitAnimation">@anim/out_fade</item>
+    </style>
+
+</resources>

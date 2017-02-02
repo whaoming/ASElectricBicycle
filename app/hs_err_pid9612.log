@@ -8,7 +8,7 @@
 #   Reduce memory load on the system
 #   Increase physical memory or swap space
 #   Check if swap backing store is full
-#   Use 64 bit Java on a 64 bit OS
+#   Use 64 bit Java on com.wxxiaomi.ming.a 64 bit OS
 #   Decrease Java heap size (-Xmx/-Xms)
 #   Decrease number of Java threads
 #   Decrease Java thread stack sizes (-Xss)
@@ -61,7 +61,7 @@ Other Threads:
 
 VM state:not at safepoint (normal execution)
 
-VM Mutex/Monitor currently owned by a thread: None
+VM Mutex/Monitor currently owned by com.wxxiaomi.ming.a thread: None
 
 Heap:
  PSYoungGen      total 859136K, used 643876K [0x000000076ab00000, 0x00000007ad780000, 0x00000007c0000000)
@@ -206,7 +206,7 @@ Heap after GC invocations=20 (full 3):
 }
 
 Deoptimization events (10 events):
-Event: 23.516 Thread 0x0000000003182800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x000000000359f628 method=com.android.dx.cf.direct.StdAttributeFactory.parse0(Lcom/android/dx/cf/direct/DirectClassFile;ILjava/lang/String;IILcom/android/dx/cf/iface/ParseObserver;)Lcom/android/dx/cf/qâqÿNÎ7@
+Event: 23.516 Thread 0x0000000003182800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x000000000359f628 method=com.android.dx.cf.direct.StdAttributeFactory.parse0(Lcom/android/dx/cf/direct/DirectClassFile;ILjava/lang/String;IILcom/android/dx/cf/iface/ParseObserver;)Lcom/android/dx/cf/qï¿½qï¿½Nï¿½7@
 Event: 23.806 Thread 0x000000001eeb6000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000000003e6748c method=java.util.HashMap$TreeNode.find(ILjava/lang/Object;Ljava/lang/Class;)Ljava/util/HashMap$TreeNode; @ 68
 Event: 23.806 Thread 0x000000001eeb6000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000000003e6748c method=java.util.HashMap$TreeNode.find(ILjava/lang/Object;Ljava/lang/Class;)Ljava/util/HashMap$TreeNode; @ 68
 Event: 23.806 Thread 0x000000001eeb6000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000000003e6748c method=java.util.HashMap$TreeNode.find(ILjava/lang/Object;Ljava/lang/Class;)Ljava/util/HashMap$TreeNode; @ 68
@@ -218,8 +218,8 @@ Event: 24.320 Thread 0x000000001eeb6000 Uncommon trap: reason=bimorphic action=m
 Event: 24.320 Thread 0x000000001eeb6000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000000003fa8cd4 method=com.android.dx.cf.code.BytecodeArray.parseInstruction(ILcom/android/dx/cf/code/BytecodeArray$Visitor;)I @ 1573
 
 Internal exceptions (10 events):
-Event: 0.733 Thread 0x0000000003182800 Exception <a 'java/lang/ArrayIndexOutOfBoundsException': 145> (0x000000076accae90) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u74\6087\hotspot\src\share\vm\interpreter\interpreterRuntime.cpp, line 366]
-Event: 0.734 Thread 0x0000000003182800 Exception <a 'java/lang/ArrayIndexOutOfBoundsException': 40> (0x000000076accc178) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u74\6087\hotspot\src\share\vm\interpreter\interpreterRuntime.cpp, line 366]
+Event: 0.733 Thread 0x0000000003182800 Exception <com.wxxiaomi.ming.a 'java/lang/ArrayIndexOutOfBoundsException': 145> (0x000000076accae90) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u74\6087\hotspot\src\share\vm\interpreter\interpreterRuntime.cpp, line 366]
+Event: 0.734 Thread 0x0000000003182800 Exception <com.wxxiaomi.ming.a 'java/lang/ArrayIndexOutOfBoundsException': 40> (0x000000076accc178) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u74\6087\hotspot\src\share\vm\interpreter\interpreterRuntime.cpp, line 366]
 Event: 4.877 Thread 0x000000001eec2800 Implicit null exception at 0x0000000003c1f4e1 to 0x0000000003c1f88d
 Event: 4.878 Thread 0x000000001eec2800 Implicit null exception at 0x0000000003b76f8e to 0x0000000003b7939d
 Event: 7.395 Thread 0x000000001eec3000 Implicit null exception at 0x0000000003d86282 to 0x0000000003d87bb0

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.wxxiaomi.ming.electricbicycle">
-
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
     <!-- 这个权限用于进行网络定位 -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -31,26 +33,74 @@
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <!-- 来电消音 -->
     <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
 
-    <!-- 摄影机 -->
+    <!-- GCM required, remember replace "com.hyphenate.chatuidemo" to your own package -->
+    <!-- <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" /> -->
+    <!-- <permission -->
+    <!-- android:name="com.hyphenate.chatuidemo.permission.C2D_MESSAGE" -->
+    <!-- android:protectionLevel="signature" /> -->
+    <!-- <uses-permission android:name="com.hyphenate.chatuidemo.permission.C2D_MESSAGE" /> -->
+    <!-- <permission -->
+    <!-- android:name="com.hyphenate.chatuidemo.permission.MIPUSH_RECEIVE" -->
+    <!-- android:protectionLevel="signatureOrSystem" /> -->
+    <!-- <uses-permission android:name="com.hyphenate.chatuidemo.permission.MIPUSH_RECEIVE" /> -->
     <application
         android:name=".EBApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <!-- <service -->
+        <!-- android:name="com.wxxiaomi.ming.electricbicycle.improve.im.service.ImService" -->
+        <!-- android:exported="false" -->
+        <!-- android:process="com.wxxiaomi.ming.electricbicycle.improve.im.service.ImService"  /> -->
+
+        <service
+            android:name="com.hyphenate.chat.EMChatService"
+            android:exported="true" />
+        <service
+            android:name="com.hyphenate.chat.EMJobService"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+
+        <meta-data
+            android:name="EASEMOB_APPKEY"
+            android:value="122627018#huanxindemowithming" />
+
         <service
             android:name="com.baidu.location.f"
             android:enabled="true"
             android:process=":remote" />
         <!-- 设置环信应用的appkey -->
-        <meta-data
-            android:name="EASEMOB_APPKEY"
-            android:value="122627018#huanxindemowithming" />
+
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="2to346qHei1zkbu5YPAYDfv5m5iW3fAT" />
+        <!-- GGB2vANaF687GBICtVGSdPB2jE1lZMlr -->
+        <!-- 2to346qHei1zkbu5YPAYDfv5m5iW3fAT -->
         <meta-data
             android:name="BaiduMobAd_CELL_LOCATION"
             android:value="true" />
@@ -61,9 +111,8 @@
             android:name="BaiduMobAd_WIFI_LOCATION"
             android:value="true" />
         <!-- 声明sdk所需的service SDK核心功能 -->
-        <service
-            android:name="com.hyphenate.chat.EMChatService"
-            android:exported="true" />
+
+
         <!-- 声明sdk所需的receiver -->
         <receiver android:name="com.hyphenate.chat.EMMonitorReceiver">
             <intent-filter>
@@ -71,8 +120,6 @@
 
                 <data android:scheme="package" />
             </intent-filter>
-            <!-- 可选filter -->
-            -
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.intent.action.USER_PRESENT" />
@@ -80,7 +127,7 @@
         </receiver>
 
         <activity
-            android:name=".core.ui.activity.WelcomeActivity"
+            android:name=".ui.SplashActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -89,11 +136,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".core.ui.activity.ScanCodeActivity"
+            android:name=".ui.activity.ScanCodeActivity"
             android:screenOrientation="portrait" />
-
         <activity
-            android:name=".core.em.ChatActivity"
+            android:name=".improve.im.ui.ChatActivity"
             android:screenOrientation="portrait" />
         <!-- <activity -->
         <!-- android:name=".view.activity.RoutePlanActivity" -->
@@ -122,45 +168,42 @@
         <!-- android:name=".view.activity.LoginActivity" -->
         <!-- android:screenOrientation="portrait" /> -->
         <activity
-            android:name=".core.ui.activity.LoginActivity"
+            android:name=".ui.activity.LoginActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".core.ui.activity.PersonalAct"
+            android:name=".ui.activity.PersonalAct"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".core.ui.activity.SplashActivity"
+            android:name=".ui.activity.HomeActivity"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".core.ui.activity.HomeActivity"
+            android:name=".ui.activity.ContactActivity"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".core.ui.activity.ContactActivity"
+            android:name=".ui.activity.FriendAddActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".core.ui.activity.ChatActivity"
+            android:name=".ui.activity.UserInfoAct"
             android:screenOrientation="portrait" />
+        <!-- <activity -->
+        <!-- android:name=".core.ui.view.activity.RegisterOneAct" -->
+        <!-- android:screenOrientation="portrait" /> -->
+        <!-- <activity -->
+        <!-- android:name=".core.ui.view.activity.RoutePlanActivity" -->
+        <!-- android:screenOrientation="portrait" /> -->
+        <!-- <activity -->
+        <!-- android:name=".core.ui.view.activity.BaiduNavActivity" -->
+        <!-- android:screenOrientation="portrait" /> -->
         <activity
-            android:name=".core.ui.activity.FriendAddActivity"
+            android:name=".bridge.web.TestWebActivity"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".core.ui.activity.UserInfoAct"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".core.ui.activity.RegisterOneAct"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".core.ui.activity.RoutePlanActivity"
-            android:screenOrientation="portrait" />
-        <activity
-        android:name=".core.ui.activity.BaiduNavActivity"
-        android:screenOrientation="portrait" />
-        <activity
-            android:name=".core.web.SimpleWebActivity"
-            android:screenOrientation="portrait" />
+        <activity android:name="com.squareup.leakcanary.internal.DisplayLeakActivity" />
 
-        <activity
-            android:name=".core.web.WebTabsActivity"
-            android:screenOrientation="portrait" />
+        <service android:name="com.squareup.leakcanary.internal.HeapAnalyzerService" />
+        <service android:name="com.squareup.leakcanary.DisplayLeakService" />
+
         <!-- <activity -->
         <!-- android:name=".view.activity.RegisterTwoActivity" -->
         <!-- android:screenOrientation="portrait" /> -->
@@ -190,14 +233,23 @@
         <!-- android:name=".view.activity.FriendAddActivity" -->
         <!-- android:label="@string/title_activity_friend_add" -->
         <!-- android:theme="@style/AppTheme" /> -->
+        <!-- <activity -->
+        <!-- android:name=".core.ui.view.activity.SearchActiity" -->
+        <!-- android:label="@string/title_activity_search_actiity1" -->
+        <!-- android:theme="@style/AppTheme" /> -->
+        <activity android:name=".ui.activity.MyInfoEditActivity" />
+        <activity android:name=".ui.activity.RegisterActivity" />
+        <activity android:name="com.hyphenate.easeui.ui.EaseShowBigImageActivity" />
         <activity
-            android:name=".core.ui.activity.SearchActiity"
-            android:label="@string/title_activity_search_actiity1"
-            android:theme="@style/AppTheme" />
-        <activity android:name=".core.web.TopicWebActivity" />
-        <activity android:name=".core.web.TopicDetailWebActivty" />
-        <activity android:name=".core.web.TestBaseActivity" />
-        <activity android:name=".core.web.TopicPersonalActivity"></activity>
+            android:name=".ui.activity.SettingActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".ui.activity.UserInfoActivity" />
+        <activity android:name=".ui.activity.FootPrintShowActivity" />
+        <activity android:name=".ui.activity.FootPublishActivity" />
+        <activity android:name=".ui.activity.InviteMsgActivity" />
+        <activity android:name=".improve.car.TouchBoundActivity" />
+        <activity android:name=".improve.car.DriveActivity" />
+        <activity android:name=".improve.car.CarSettingActivity"></activity>
     </application>
 
 </manifest>

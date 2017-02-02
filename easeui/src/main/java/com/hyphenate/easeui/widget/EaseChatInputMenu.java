@@ -67,7 +67,6 @@ public class EaseChatInputMenu extends LinearLayout {
         primaryMenuContainer = (FrameLayout) findViewById(R.id.primary_menu_container);
         emojiconMenuContainer = (FrameLayout) findViewById(R.id.emojicon_menu_container);
         chatExtendMenuContainer = (FrameLayout) findViewById(R.id.extend_menu_container);
-
          // extend menu
          chatExtendMenu = (EaseChatExtendMenu) findViewById(R.id.extend_menu);
         

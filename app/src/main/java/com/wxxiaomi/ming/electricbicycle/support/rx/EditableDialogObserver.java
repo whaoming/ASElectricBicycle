@@ -3,7 +3,7 @@ package com.wxxiaomi.ming.electricbicycle.support.rx;
 import android.content.Context;
 import android.content.DialogInterface;
 
-import com.wxxiaomi.ming.electricbicycle.core.weight.custom.EditableDialog;
+import com.wxxiaomi.ming.electricbicycle.ui.weight.custom.EditableDialog;
 
 import rx.Observable;
 import rx.Subscriber;
@@ -11,7 +11,7 @@ import rx.Subscriber;
 
 /**
  * Created by 12262 on 2016/7/2.
-用rx展示一个dialog
+    用rx展示一个dialog
  */
 public class EditableDialogObserver{
 

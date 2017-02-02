@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_invite_msg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.wxxiaomi.ming.electricbicycle.ui.activity.InviteMsgActivity">
+    <android.support.v7.widget.Toolbar
+        android:background="@color/titleBlue"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        />
+
+    <com.wxxiaomi.ming.electricbicycle.ui.weight.pulltorefresh.recycleview.PullToRefreshRecyclerView
+        android:layout_below="@+id/toolbar"
+        android:id="@+id/mRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+</RelativeLayout>

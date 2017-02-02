@@ -69,7 +69,7 @@
     <string name="ease_user_remove">This user has been removed</string>
     <string name="set">Settings</string>
     <string name="notify">New message notification</string>
-    <string name="newnotify">Receiving a new message</string>
+    <string name="newnotify">Receiving com.wxxiaomi.ming.a new message</string>
     <string name="shake">Shake</string>
     <string name="chatset">Chat settings</string>
     <string name="yangshengqi">Use speaker</string>
@@ -108,7 +108,7 @@
     <string name="password">Password</string>
     <string name="register">Register</string>
     <string name="confirmpassword">Confirm password</string>
-    <string name="downwaiting">Downloading the file, please wait a moment</string>
+    <string name="downwaiting">Downloading the file, please wait com.wxxiaomi.ming.a moment</string>
     <string name="mute">Mute</string>
     <string name="Hands_free">Hands free</string>
     <string name="hang_up">Hang up</string>
@@ -119,9 +119,9 @@
     <string name="Group_chat">Group chat</string>
     <string name="chat_room">Chat room</string>
     <string name="not_download">Did not download:</string>
-    <string name="is_down_please_wait">Downloading video, please wait a moment</string>
+    <string name="is_down_please_wait">Downloading video, please wait com.wxxiaomi.ming.a moment</string>
     <string name="Exit_the_group_chat">Exit the group</string>
-    <string name="Please_enter_a_username">Please enter a username</string>
+    <string name="Please_enter_a_username">Please enter com.wxxiaomi.ming.a username</string>
 
     <string name="not_add_myself">"Can't add myself"</string>
     <string name="This_user_is_already_your_friend">This user is already your friend</string>
@@ -183,7 +183,7 @@
     <string name="group_of_shielding">Group of shielding failure, please check the network or try again later</string>
     <string name="sure_to_empty_this">Clear all messages?</string>
     <string name="The_delete_button_is_clicked">The delete button is clicked</string>
-    <string name="Add_a_button_was_clicked">Add a button was clicked</string>
+    <string name="Add_a_button_was_clicked">Add com.wxxiaomi.ming.a button was clicked</string>
     <string name="not_delete_myself">Cannot delete myself</string>
     <string name="Are_removed">Removing</string>
     <string name="confirm_the_members">Move this member to group blacklist?</string>
@@ -241,7 +241,7 @@
     <string name="Have_downloaded">Already downloaded</string>
     <string name="Did_not_download">Not yet downloaded</string>
     <string name="Has_agreed_to_your_friend_request">Accepted your request</string>
-    <string name="Request_to_add_you_as_a_friend">You got a friend request</string>
+    <string name="Request_to_add_you_as_a_friend">You got com.wxxiaomi.ming.a friend request</string>
     <string name="Apply_to_the_group_of">Apply to join the group</string>
     <string name="Has_agreed_to">Accepted</string>
     <string name="Has_refused_to">Refused</string>
@@ -266,7 +266,7 @@
     <string name="chatroom_allow_owner_leave">Allow chatroom owner leave</string>
     <string name="group_id">Group ID</string>
     <string name="move_out_backlist">Remove from blacklist</string>
-    <string name="input_new_nick_hint">Input a new nick</string>
+    <string name="input_new_nick_hint">Input com.wxxiaomi.ming.a new nick</string>
     <string name="search_pubic_group">Search public group</string>
     <string name="group_not_existed">The group does not exist</string>
     <string name="group_search_failed">Search failed</string>

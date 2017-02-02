@@ -7,9 +7,11 @@ package com.wxxiaomi.ming.electricbicycle;
 ///**
 // * To work on unit tests, switch the Test Artifact in the Build Variants view.
 // */
-//public class ExampleUnitTest {
-//    @Test
-//    public void addition_isCorrect() throws Exception {
+public class ExampleUnitTest {
+    public void addition_isCorrect() throws Exception {
 //        assertEquals(4, 2 + 2);
-//    }
-//}
+//        Log.i("wang","asd");
+//        GlobalParams.username = "122627018";
+//        List<UserCommonInfo> friendList = UserFunctionProvider.getInstance().getFriendList();
+    }
+}

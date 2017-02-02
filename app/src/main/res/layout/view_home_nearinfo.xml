@@ -15,7 +15,7 @@
         android:layout_margin="5dp"
         android:layout_weight="1">
 
-        <com.wxxiaomi.ming.electricbicycle.core.weight.custom.CircularImageView
+        <com.wxxiaomi.ming.electricbicycle.ui.weight.custom.CircularImageView
             android:id="@+id/near_iv_head"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

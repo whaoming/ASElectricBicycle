@@ -5,38 +5,33 @@ public interface ConstantValue {
 	/**
 	 * 是否开启聊天服务器
 	 */
-	static final boolean isEMOpen = true;
+	 boolean isEMOpen = true;
 	/**
 	 * 是否开启调试模式
 	 */
-	 static final boolean isDeBug = true;
+	 boolean isDeBug = true;
 
 	/**
 	 * 是否开启扫描
 	 */
-	static final boolean openScan = false;
-	/**
-	 * 百度地图api key
-	 */
-	String KEY="7586D98848407A4891F6FBA3C2E64ACD1F4D08BE";
-	
-	/**
-	 *新浪sae服务器地址
-	 */
-//	public static String SERVER_URL = "http://haoming1994.applinzi.com/";
-	
-	
+	 boolean openScan = false;
+
 	/**
 	 * 校园网wifi笔记本
 	 */
-//	public static String SERVER_URL = "http://10.0.2.2:8080/ElectricBicycleServer/";
-//	public static String SERVER_URL = "http://210.38.162.23:8080/ElectricBicycleServer/";
-//	public static String SERVER_URL = "http://192.168.56.1:8080/ElectricBicycleServer/";
-	public static String SERVER_URL = "http://192.168.1.46:8080/ElectricBicycleServer/";
-//	public static String SERVER_URL = "http:/10.15.75.175:8080/ElectricBicycleServer/";
-	
+	String SERVER_URL = "http://192.168.1.106:8080/ElectricBicycleServer/";
+
 	/**
 	 * 登录操作的url
 	 */
-	public static String LOGIN_URL = "ActionServlet?action=login";
+	 String OSS_MY_URL = "http://139.199.182.29/OssTokenGetServer/Oss";
+
+
+	//标识去往userinfo页面要加载的是目标user还是自己
+	String INTENT_ISMINE = "intent_runmine";
+	String INTENT_USERID = "intent_userid";
+	//在userinfoactivity中传userinfo给fragment的标识
+	String BUNDLE_USERINFO = "bundle_userinfo";
+	String BUNDLE_OPTIONS = "bundle_options";
+	String INTENT_USERINFO = "intent_userinfo";
 }

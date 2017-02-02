@@ -2,7 +2,7 @@ package com.wxxiaomi.ming.electricbicycle.support.rx;
 
 
 
-import com.wxxiaomi.ming.electricbicycle.api.exception.ApiException;
+import com.wxxiaomi.ming.electricbicycle.api.exp.ApiException;
 
 import rx.Subscriber;
 

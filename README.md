@@ -1,62 +1,119 @@
-#随车行App
-ps：由于项目前期架构是mvc，现在正从mvc修改成MVP的过程中，所以包结构有点混乱。并有部分功能尚未完成，正在紧张开发中
-
-> 前期的版本：https://github.com/122627018/ElectricBicycle
+# 随车行App
 
 
+描述(包括功能和技术亮点)
 
-##效果图
+(最近在琢磨方案，把服务器的web模块分离出来，就是我想做一个以定位，好友，xx模块为主，然后其他模块为辅的app，所以web模块就是所谓的其他模块，我可以使用h5编写好，然后通过主服务器暴露的接口来实现数据同步(类似微信的授权)，也就是说，我的web模块可以任意，我可以做一个二手交易系统，或者例如滴滴打车系统，然后主模块会把账号信息通过授权的方式给你，这样的话，当我们要开发新的模块的时候，只需要取得主模块的接口即可，这样还有一个好处，就是当我们的主模块足够完善的时候，每次更新我们只需要通过增量更新h5信息，而不用更新整个app。由于自己的js水平不是很高，所以一直卡在js这一块，有木有有兴趣的小伙伴来一起搞一搞)
 
-![这里写图片描述](http://img.blog.csdn.net/20160617130323086)![这里写图片描述](http://img.blog.csdn.net/20160617130338466)![这里写图片描述](http://img.blog.csdn.net/20160617130351153)![这里写图片描述](http://img.blog.csdn.net/20160617130417497)![这里写图片描述](http://img.blog.csdn.net/20160617130630076)![这里写图片描述](http://img.blog.csdn.net/20160617130432212)![这里写图片描述](http://img.blog.csdn.net/20160617130448119)![这里写图片描述](http://img.blog.csdn.net/20160617130454622)![这里写图片描述](http://img.blog.csdn.net/20160617130508701)![这里写图片描述](http://img.blog.csdn.net/20160617130515888)![这里写图片描述](http://img.blog.csdn.net/20160617130522041)
-
-##项目介绍
-###背景
-开发这款应用的目的是为了适配学校的另外一个创业项目，那个项目开发了一辆代步车(像自行车又像小时候玩的滑板)。所以老师希望独立开发一个可以搭配辆车进行线上线下交互的app(实验室的人都哪去了)，就是随车行app。
-###项目特点
-+ 基于百度地图api,实现地图功能，提供地点搜索，路线查询，实时路线导航的功能
-+ 设计用户模块，实现用户-电动车一对一，用户-用户多对多关系的数据模型实现
-+ 基于环信IM实现好友聊天，表情发送，位置共享功能
-+ 基于geohash算法实现附近的人查找
-+ 基于CoordinatorLayout的多层嵌套原理，通过多层自定义的behavior实现三个控件的联动
-+ 基于自定义RxJava操作符，拦截RxJava+Retrofit获取数据过程中的异常，通过一个异常驱动器，优雅地完成了整个项目的异常处理机制
-+ 基于自封装的MVP结构，使整体项目代码简洁，业务逻辑清晰
-
-
-
-##技术特点
-###MVP基础框架
-lz自己封装的一个实用性很强的mvp基础框架
-> https://github.com/122627018/BaseMVP
-
-###增强版Retrofit+RxJava网络访问框架
-在本项目中，P与M的数据交互基本都是发生在RxAndroid的工作流中，那么怎么去处理流中的异常事件呢？具体：
-> 优雅地处理服务器返回的错误和客户端访问网络过程中产生的错误
-> https://github.com/122627018/Retorfit_RxJava_Exception
-
-###走在潮流前线的动画效果
-通过自定义的CoordinatorLayout behavior实现控件联动
+----------  
+## 更新日志
+2017-2-2 加入驾驶模式  
+通过蓝牙与STC进行实时通信，获取STC各个硬件信息通过app进行实时展示，比如速度，电量等(暂时只实现了速度实时展示),关于此模块我特意写了一篇文章：[SCMAndroidCommunicate](https://github.com/whaoming/SCMAndroidCommunicate "悬停显示4")，蓝牙小车的源程序也是我自己写的，都放在这个项目里面了
+## guide  
+ -  [预览](#yulan)
+ - [支持功能](#gongneng)  
+ - [运行环境](#yunxinghuanjing)  
+ - [模块](#mokuai)  
+ - [运行环境](#yunxinghuanjing)  
+ - [搭建说明](#yunxinghuanjing)  
+ - [bug提交](#yunxinghuanjing)  
+ - [关于我](#aboutme)    
 
 
+<h2 id="yulan">预览</h2>  
+### native部分
+| 启动界面        | 首页一角           | 好友界面  |
+|:-------------:|:-------------:|:-------------:|
+    ![image](https://github.com/whaoming/aboutme/blob/master/image/%E5%90%AF%E5%8A%A8%E7%95%8C%E9%9D%A2.gif?raw=true)     | ![image](https://github.com/whaoming/aboutme/blob/master/image/%E9%A6%96%E9%A1%B5%E9%99%84%E8%BF%91%E7%9A%84%E4%BA%BA%E5%8A%A8%E7%94%BB.gif?raw=true) | ![image](https://github.com/whaoming/aboutme/blob/master/image/%E5%A5%BD%E5%8F%8B%E7%95%8C%E9%9D%A2+%E6%9F%A5%E6%89%BE%E5%A5%BD%E5%8F%8B%E6%93%8D%E4%BD%9C.gif?raw=true)  
+| 个人头像修改 | 图片选择  | 聊天界面 |
+![image](https://github.com/whaoming/aboutme/blob/master/image/%E5%A4%B4%E5%83%8F%E4%BF%AE%E6%94%B9.gif?raw=true) | ![image](https://github.com/whaoming/aboutme/blob/master/image/%E5%9B%BE%E7%89%87%E9%80%89%E6%8B%A9%E9%A1%B5%E9%9D%A2.png?raw=true) | 总是截不了gif
+### hybrid部分
+ps：本来觉得hybrid部分不用传上来的，因为全部都是h5写的，但是想展示下原生部分，由下图可以看到标题栏还有浮动按钮都是原生的，是以JsBridge为桥梁来做到html与原生的双向通信，从而达到js中也能控制原生ui的展示，也就是说我可以通过html来修改app中的控件，从而达到这个模块可以热更新的效果(但是现在这个方案还不太成熟，我还在不断完善中)  
 
-![这里写图片描述](https://github.com/122627018/ASElectricBicycle/blob/master/demo1.gif)
+| 信息列表       | 详情           | 发布界面  |
+|:-------------:|:-------------:|:-------------:|
+    ![image](https://github.com/whaoming/aboutme/blob/master/image/web%E5%88%97%E8%A1%A8%E9%A1%B5%E9%9D%A2.png?raw=true)     | ![image](https://github.com/whaoming/aboutme/blob/master/image/web_%E5%85%B7%E4%BD%93%E9%A1%B5%E9%9D%A2.png?raw=true) | ![image](https://github.com/whaoming/aboutme/blob/master/image/web_%E5%8F%91%E8%A1%A8%E9%A1%B5%E9%9D%A2.png?raw=true)  
+| 查看个人发布信息 | 
+![image](https://github.com/whaoming/aboutme/blob/master/image/web_%E4%B8%AA%E4%BA%BA%E9%A1%B5%E9%9D%A2.png) |   
+### 硬件通信部分  
+实现了STC与android通过蓝牙通信从而达到信息交互，可以看看我的文章：[SCMAndroidCommunicate](https://github.com/whaoming/SCMAndroidCommunicate "悬停显示4")，只要遵守我制定好的数据协议，便可以与app的驾驶模块进行交互  
 
-双层CoordinatorLayout嵌套(在控件的底部其实还有一个snackBar一起联动)，但是自定义控件的behavior实现方式跟snackBar完全不相同
-
-
-##其他
-###服务器代码
-服务器使用JavaWeb+Tomcat7.0，完全自己编写，使用servlet回应，与客户端的交互采用json的数据格式
-(服务器也需要集成环信的im，客户端的用户注册功能是由服务器来完成的)
-
-![这里写图片描述](http://img.blog.csdn.net/20160617111507607)
-
-> 传送门：https://github.com/122627018/ElectricBicycleServer
-
-###关于一些其他知识点可以留意lz博客：
-
-> http://blog.csdn.net/qq122627018
+![这里写图片描述](https://raw.githubusercontent.com/whaoming/aboutme/master/image/201702022059.BMP)![这里写图片描述](https://raw.githubusercontent.com/whaoming/aboutme/master/image/2017020220591.BMP)   
+[在线演示视频观看](http://v.youku.com/v_show/id_XMjQ5MTgyMTAwMA==.html "悬停显示")(模块在线演示地址)  
 
 
+<h2 id="yunxinghuanjing">运行环境</h2>
+服务器框架ssh(有点笨重，将考虑换成node.js)，然后图片服务器本来自己有写了一个，但是后面还是用回阿里云的oss，因为我的云服务器是腾讯云的学生机，硬盘容量不忍直视啊，阿里云oss对于我这种独立户来说基本等于免费，关于app中模块的前端框架是使用阿里的SuiMobile，感觉对于我这种不是很精通前端的人来说简直就是神器：</br> 
+1.服务器 
+ - MyEclipse 10.7 + Tomcat7
+ - J2EE:structs2+hibernate+spring
+ - MySQL5.0 
+ 
+2.图片服务器 
+ - 阿里云oss
+ - node.js    
+ 
+3.android 
+ - android studio 1.0+
+ - android sdk r16+  
+ 
+4.其他   
+ - hybrid前端框架：SuiMobile
+ - 单片机：STC89C51，c语言  
+ 
+<h2 id="gongneng">功能</h2>
+已经差不多可以媲美一个成熟的app了，该有的功能都有，下面拿几个平常开源项目可能比较少关注的点提一提：</br>
+ - 用户模块：支持好友的添加，拉黑，同意请求等，离线消息接收，多处登陆(挤下线)，消息多种提醒方式。
+ - 自动登陆:双token机制保证了用户在本机app中只需登陆一次，即可做到以后都自动登陆
+ - 位置系统：服务器端使用geo编码来实现附近的人，每次登陆都会自动上传自己当前的位置并展示出附近的人。足迹功能：在移动端用户也可以主动记录自己当前的位置和发表动态与上传照片，服务器会根据时间来判断是否符合发表的条件，用户可以查看自己的足迹(百度地图的覆盖物有点小问题，这个功能很快可以完善，现在只有一个雏形)  
+ 
+ 
+<h2 id="mokuai">模块</h2>  
+### 第三方框架
+ - Retrofit+Rxjava
+ - Glide
+ - Materia Design
+ - 即时通讯|推送：环信sdk
+ - 百度地图sdk
+ - 图片上传：阿里云oss
+ - 本地图片选取：[GalleryPick](https://github.com/YancyYe/GalleryPick "悬停显示")，自带图片裁剪，对activity的入侵比较小 
+ - easeui：环信sdk的工具类
+ - JsBridge：webview与js沟通的桥梁(正在研究新方案)  
+ - (已去除) ~~内存泄漏检测 LeakCommpany~~
+ 
+### 错误信息处理模块  
+ 自己写的一个RxJava风格的网络访问异常处理机制：
+ - 识别网络访问过程中的各种异常和错误
+ - 根据与服务器约定好的错误码进行友好的信息提示
+ - 不入侵view层，大大降低耦合度
+ - 密钥过期处理：当发现token过期会自动向服务器索取token并重新发起之前失败的那个请求
+ - 了解更多：[传送门](http://blog.csdn.net/qq122627018/article/details/51689891 "悬停显示")  
+ 
+
+### 图片压缩缓存模块
+ 这个模块暂时只用于webview中图片处理相关，因为在native中有glide的存在了，完全没有必要再用自己的 
+ 基本原理：CacheManager会先根据图片url去md5为key去检查本地二重缓存(内存缓存和硬盘缓存)，当发现没有的时候再从网络去读取，然后压缩，存储，再让webview去加载，特点：  
+ - 利用RxJava的多个操作符完成缓存的层级检查
+ - 内存和硬盘存储的算法都是采用LRU算法
+ - 在webview中发挥这个模块作用的地方有俩个：1.当加载网络图片的时候  2.当从手机本地选取大量图片加载到webview中的时候  
+ - [github地址](https://github.com/whaoming/WebViewCacheModule "悬停显示1")，guthub的图片显示有点不正常，也可以去  [CSDN地址](http://blog.csdn.net/qq122627018/article/details/53351781 "悬停显示2") 看看  
+ 
+### 全局缓存  
+整个app各个模块都有独立的缓存管理器(DiskLruCache)，在各种弱网络的环境下都能取出缓存中的数据提前进行展示，用户体验棒棒哒。每个模块都可以指定缓存文件大小的最大值，根据LRU算法可以设置定时自动清理，当然也可以由用户手动进行缓存的清理。
+
+### RecyclerView
+用到俩个开源项目：[Othershe的RecyclerViewAdapter](https://github.com/Othershe/RecyclerViewAdapter "悬停显示3")和[LinHongHong的PullToRefreshRecyclerView](https://github.com/HomHomLin/Android-PullToRefreshRecyclerView "悬停显示4")
+把这俩个轮子合在了一起，不知道会不会翻车，反正现在用着是挺好的。
+当时太纠结了，PullToRefreshRecyclerView有SwipeRefreshLayout(太喜欢这个控件了)，而RecyclerViewAdapter的公共view处理我又太喜欢了，结果就自己动手把这PullToRefreshRecyclerView的多余功能删掉，只保留SwipeRefreshLayout和header部分。然后adapter加入loading监听，特点：
+ - 一键设置空数据提示，网络错误提示，重新加载提示的view
+ - SwipeRefreshLayout嵌套recycleView，效果跟知乎首页一样
+ - 具备下拉刷新和上拉加载更多的功能
+ - (地址下次po上，不知道是何原因那个demo一直push不上来)  
 
 
+
+ 
+<h2 id="aboutme">关于我</h2>  
+ - 邮箱：122627018@qq.com
+ 
 

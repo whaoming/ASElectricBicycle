@@ -8,7 +8,7 @@
      >
 
     
-    <com.wxxiaomi.ming.electricbicycle.core.weight.custom.CircularImageView
+    <com.wxxiaomi.ming.electricbicycle.ui.weight.custom.CircularImageView
         android:padding="3dp"
         android:layout_marginLeft="4dp"
         android:layout_marginRight="2dp"

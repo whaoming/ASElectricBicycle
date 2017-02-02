@@ -5,7 +5,7 @@
     android:orientation="horizontal"
     android:id="@+id/ll_all"
      >
-    <com.wxxiaomi.ming.electricbicycle.core.weight.custom.CircularImageView
+    <com.wxxiaomi.ming.electricbicycle.ui.weight.custom.CircularImageView
             android:id="@+id/iv_my_head"
             android:layout_width="0dp"
             android:layout_weight="1"

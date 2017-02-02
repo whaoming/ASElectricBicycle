@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-v11\\values-v11.xml",
+        "outputFile": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-v11\\values-v11.xml",
         "map": [
             {
                 "to": {
@@ -12,14 +12,14 @@
                     "endOffset": 219
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-v11\\ease_styles.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-v11\\ease_styles.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
-                        "startOffset": 56,
+                        "startOffset": 59,
                         "endLine": 5,
                         "endColumn": 12,
-                        "endOffset": 220
+                        "endOffset": 225
                     }
                 }
             },
@@ -33,14 +33,14 @@
                     "endOffset": 394
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-v11\\ease_styles.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-v11\\ease_styles.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
-                        "startOffset": 226,
+                        "startOffset": 233,
                         "endLine": 9,
                         "endColumn": 12,
-                        "endOffset": 396
+                        "endOffset": 405
                     }
                 }
             },
@@ -53,13 +53,13 @@
                     "endOffset": 479
                 },
                 "from": {
-                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ElectricBicycle\\easeUI\\src\\main\\res\\values-v11\\ease_styles.xml",
+                    "file": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\src\\main\\res\\values-v11\\ease_styles.xml",
                     "position": {
                         "startLine": 11,
                         "startColumn": 4,
-                        "startOffset": 402,
+                        "startOffset": 413,
                         "endColumn": 91,
-                        "endOffset": 489
+                        "endOffset": 500
                     }
                 }
             }

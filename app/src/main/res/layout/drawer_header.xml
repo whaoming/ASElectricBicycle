@@ -10,7 +10,7 @@
         android:id="@+id/backdrop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@mipmap/activity_welcome_backgroud" >
+         >
 
         <RelativeLayout
             android:id="@+id/drawer_ll"
