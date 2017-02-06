@@ -1,6 +1,5 @@
 package com.wxxiaomi.ming.electricbicycle.net;
 
-
 import android.util.Log;
 
 import com.wxxiaomi.ming.common.net.ExceptionProvider;
@@ -35,8 +34,10 @@ import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 
 /**
- * Created by 12262 on 2016/5/31.
- *
+ * Created by 12262 on 
+=======
+ * 111111
+ * 2222222222
  */
 public class HttpMethods {
     private ApiService demoService;
