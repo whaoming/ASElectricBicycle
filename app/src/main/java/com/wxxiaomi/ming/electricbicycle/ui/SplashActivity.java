@@ -10,20 +10,20 @@ import android.support.multidex.MultiDex;
 import android.util.Log;
 import android.widget.RelativeLayout;
 
+import com.wxxiaomi.ming.common.base.AppContext;
+import com.wxxiaomi.ming.electricbicycle.support.cache.DiskCache;
 import com.wxxiaomi.ming.electricbicycle.EBApplication;
 import com.wxxiaomi.ming.electricbicycle.common.util.AppManager;
 import com.wxxiaomi.ming.electricbicycle.R;
-import com.wxxiaomi.ming.electricbicycle.improve.common.AppConfig;
-import com.wxxiaomi.ming.electricbicycle.improve.common.AppContext;
+import com.wxxiaomi.ming.electricbicycle.AppConfig;
 import com.wxxiaomi.ming.electricbicycle.improve.im.ImHelper1;
 import com.wxxiaomi.ming.electricbicycle.improve.im.notice.NoticeManager;
 import com.wxxiaomi.ming.electricbicycle.improve.update.CheckUpdateManager;
 import com.wxxiaomi.ming.electricbicycle.improve.update.Version;
-import com.wxxiaomi.ming.electricbicycle.service.AccountHelper;
-import com.wxxiaomi.ming.electricbicycle.support.cache.DiskCache;
+import com.wxxiaomi.ming.electricbicycle.manager.AccountHelper;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.HomeActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.RegisterActivity;
-import com.wxxiaomi.ming.electricbicycle.service.UserFunctionProvider;
+import com.wxxiaomi.ming.electricbicycle.manager.UserFunctionProvider;
 import com.wxxiaomi.ming.electricbicycle.bridge.aliyun.OssEngine;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.custom.SplashView;
 

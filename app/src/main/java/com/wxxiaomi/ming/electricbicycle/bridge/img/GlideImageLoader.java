@@ -3,7 +3,7 @@ package com.wxxiaomi.ming.electricbicycle.bridge.img;
 import android.app.Activity;
 import android.content.Context;
 
-import com.wxxiaomi.ming.electricbicycle.service.ShowerProvider;
+import com.wxxiaomi.ming.electricbicycle.manager.ShowerProvider;
 import com.yancy.gallerypick.inter.ImageLoader;
 import com.yancy.gallerypick.widget.GalleryImageView;
 

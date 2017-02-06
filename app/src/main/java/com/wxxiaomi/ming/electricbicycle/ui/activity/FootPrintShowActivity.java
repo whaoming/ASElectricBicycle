@@ -24,7 +24,7 @@ import com.wxxiaomi.ming.electricbicycle.support.rx.ProgressObserver;
 import com.wxxiaomi.ming.electricbicycle.common.util.OverlayManager;
 import com.wxxiaomi.ming.electricbicycle.db.bean.FootPrintDetail;
 import com.wxxiaomi.ming.electricbicycle.db.bean.format.FootPrintGet;
-import com.wxxiaomi.ming.electricbicycle.service.UserFunctionProvider;
+import com.wxxiaomi.ming.electricbicycle.manager.UserFunctionProvider;
 
 import java.util.ArrayList;
 import java.util.List;

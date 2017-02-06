@@ -30,7 +30,7 @@ import com.hyphenate.easeui.ui.EaseContactListFragment;
 import com.hyphenate.util.NetUtils;
 import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.db.bean.UserCommonInfo;
-import com.wxxiaomi.ming.electricbicycle.service.UserFunctionProvider;
+import com.wxxiaomi.ming.electricbicycle.manager.UserFunctionProvider;
 
 import java.util.HashMap;
 import java.util.Hashtable;

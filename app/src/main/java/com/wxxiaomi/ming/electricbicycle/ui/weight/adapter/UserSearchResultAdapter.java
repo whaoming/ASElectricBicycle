@@ -1,7 +1,6 @@
 package com.wxxiaomi.ming.electricbicycle.ui.weight.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView.ViewHolder;
 import android.view.LayoutInflater;
@@ -11,11 +10,9 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.db.bean.UserCommonInfo;
-import com.wxxiaomi.ming.electricbicycle.db.bean.UserLocatInfo;
-import com.wxxiaomi.ming.electricbicycle.service.ShowerProvider;
+import com.wxxiaomi.ming.electricbicycle.manager.ShowerProvider;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.adapter.base.BaseAdapter;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.custom.CircularImageView;
 

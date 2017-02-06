@@ -5,13 +5,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.wxxiaomi.ming.common.net.cons.OptionType;
 import com.wxxiaomi.ming.electricbicycle.R;
 
 import com.wxxiaomi.ming.electricbicycle.common.util.TimeUtil;
 import com.wxxiaomi.ming.electricbicycle.db.bean.Option;
-import com.wxxiaomi.ming.electricbicycle.api.constant.OptionType;
-import com.wxxiaomi.ming.electricbicycle.service.AccountHelper;
-import com.wxxiaomi.ming.electricbicycle.service.ShowerProvider;
+import com.wxxiaomi.ming.electricbicycle.manager.AccountHelper;
+import com.wxxiaomi.ming.electricbicycle.manager.ShowerProvider;
 
 import java.util.List;
 

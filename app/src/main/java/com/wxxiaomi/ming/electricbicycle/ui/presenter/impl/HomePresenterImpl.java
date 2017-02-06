@@ -2,10 +2,7 @@ package com.wxxiaomi.ming.electricbicycle.ui.presenter.impl;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
-import android.support.v4.content.LocalBroadcastManager;
-import android.util.Log;
 import android.widget.TextView;
 
 import com.baidu.location.Address;
@@ -23,21 +20,20 @@ import com.wxxiaomi.ming.electricbicycle.db.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.db.bean.UserLocatInfo;
 import com.wxxiaomi.ming.electricbicycle.improve.car.DriveActivity;
 import com.wxxiaomi.ming.electricbicycle.improve.car.TouchBoundActivity;
-import com.wxxiaomi.ming.electricbicycle.service.AccountHelper;
-import com.wxxiaomi.ming.electricbicycle.service.ShowerProvider;
+import com.wxxiaomi.ming.electricbicycle.manager.AccountHelper;
+import com.wxxiaomi.ming.electricbicycle.manager.ShowerProvider;
 import com.wxxiaomi.ming.electricbicycle.improve.im.EmConstant;
-import com.wxxiaomi.ming.electricbicycle.service.UserFunctionProvider;
+import com.wxxiaomi.ming.electricbicycle.manager.UserFunctionProvider;
 import com.wxxiaomi.ming.electricbicycle.improve.im.notice.NoticeBean;
 import com.wxxiaomi.ming.electricbicycle.improve.im.notice.NoticeManager;
 import com.wxxiaomi.ming.electricbicycle.support.rx.ToastObserver;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.FootPrintShowActivity;
-import com.wxxiaomi.ming.electricbicycle.ui.activity.FootPublishActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.LoginActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.UserInfoActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.SettingActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.base.BasePreImpl;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.HomePresenter;
-import com.wxxiaomi.ming.electricbicycle.service.LocatProvider;
+import com.wxxiaomi.ming.electricbicycle.manager.LocatProvider;
 import com.wxxiaomi.ming.electricbicycle.bridge.web.TestWebActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.ContactActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.view.HomeView;
@@ -46,9 +42,6 @@ import com.wxxiaomi.ming.electricbicycle.ui.weight.custom.CircularImageView;
 import com.wxxiaomi.ming.touch.BluetoothHelper;
 
 import java.util.List;
-
-import rx.Observer;
-import rx.functions.Action1;
 
 /**
  * Created by 12262 on 2016/6/6.
@@ -169,14 +162,18 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
 
     @Override
     public void onNewIntent(Intent intent) {
-        Log.i("wang", "onNewIntent");
-        mView.buildAlertDialog("确定", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                mView.runActivity(LoginActivity.class, null, true);
-            }
-        }, null, null, "提示", "您的账号在别的设备中登陆");
-        mView.showDialog();
+//        Log.i("wang", "onNewIntent");
+//        //EmConstant.ACCOUNT_CONFLICT
+        boolean booleanExtra = intent.getBooleanExtra(EmConstant.ACCOUNT_CONFLICT, false);
+        if(booleanExtra){
+            mView.buildAlertDialog("确定", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    mView.runActivity(LoginActivity.class, null, true);
+                }
+            }, null, null, "提示", "您的账号在别的设备中登陆");
+            mView.showDialog();
+        }
     }
 
     @Override

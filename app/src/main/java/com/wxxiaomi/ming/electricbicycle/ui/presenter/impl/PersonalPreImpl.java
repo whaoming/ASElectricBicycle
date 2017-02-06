@@ -1,11 +1,11 @@
 package com.wxxiaomi.ming.electricbicycle.ui.presenter.impl;
 
 
-import com.wxxiaomi.ming.electricbicycle.service.AccountHelper;
-import com.wxxiaomi.ming.electricbicycle.service.UserFunctionProvider;
+import com.wxxiaomi.ming.electricbicycle.manager.AccountHelper;
+import com.wxxiaomi.ming.electricbicycle.manager.UserFunctionProvider;
 import com.wxxiaomi.ming.electricbicycle.support.rx.ProgressObserver;
 import com.wxxiaomi.ming.electricbicycle.db.bean.Option;
-import com.wxxiaomi.ming.electricbicycle.service.ShowerProvider;
+import com.wxxiaomi.ming.electricbicycle.manager.ShowerProvider;
 import com.wxxiaomi.ming.electricbicycle.bridge.img.PhotoTakeUtil;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.SettingActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.base.BasePreImpl;

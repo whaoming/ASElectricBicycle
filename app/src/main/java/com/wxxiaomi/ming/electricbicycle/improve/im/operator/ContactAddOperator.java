@@ -2,7 +2,7 @@ package com.wxxiaomi.ming.electricbicycle.improve.im.operator;
 
 import com.wxxiaomi.ming.electricbicycle.db.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.improve.im.ImHelper1;
-import com.wxxiaomi.ming.electricbicycle.service.UserFunctionProvider;
+import com.wxxiaomi.ming.electricbicycle.manager.UserFunctionProvider;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -43,7 +43,6 @@ public class FriendAddActivity extends BaseActivity<FriendAddView, FriendAddPres
         searchView.onActionViewExpanded();// 写上此句后searchView初始是可以点击输入的状态，如果不写，那么就需要点击下放大镜，才能出现输入框,也就是设置为ToolBar的ActionView，默认展开
         searchView.requestFocus();//输入焦点
         searchView.setIconified(false);//输入框内icon不显示
-//        searchView.requestFocusFromTouch();//模拟焦点点击事件
         header = View.inflate(this, R.layout.view_header_friend_serach, null);
         tv_search = (TextView) header.findViewById(R.id.tv_search);
         header.setOnClickListener(new View.OnClickListener() {
@@ -54,7 +53,6 @@ public class FriendAddActivity extends BaseActivity<FriendAddView, FriendAddPres
         });
         mRecyclerView = (PullToRefreshRecyclerView) findViewById(R.id.mRecyclerView);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-//        mRecyclerView.setRefreshing(true);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {

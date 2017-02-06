@@ -6,11 +6,10 @@ import android.widget.TextView;
 
 import com.hyphenate.easeui.controller.EaseUI;
 import com.hyphenate.easeui.domain.EaseUser;
+import com.wxxiaomi.ming.common.cache.LRUCache;
 import com.wxxiaomi.ming.electricbicycle.db.bean.UserCommonInfo;
-import com.wxxiaomi.ming.electricbicycle.service.AccountHelper;
-import com.wxxiaomi.ming.electricbicycle.service.ShowerProvider;
-import com.wxxiaomi.ming.electricbicycle.service.UserFunctionProvider;
-import com.wxxiaomi.ming.electricbicycle.support.cache.LRUCache;
+import com.wxxiaomi.ming.electricbicycle.manager.AccountHelper;
+import com.wxxiaomi.ming.electricbicycle.manager.ShowerProvider;
 
 import java.util.List;
 

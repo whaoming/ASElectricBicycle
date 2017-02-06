@@ -23,7 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:imeOptions="actionSearch"
-            app:defaultQueryHint="搜索" />
+            app:defaultQueryHint="请输入用户昵称" />
     </android.support.v7.widget.Toolbar>
 
     <com.wxxiaomi.ming.electricbicycle.ui.weight.pulltorefresh.recycleview.PullToRefreshRecyclerView

@@ -5,7 +5,7 @@ import android.support.design.widget.TextInputLayout;
 import com.wxxiaomi.ming.electricbicycle.ConstantValue;
 import com.wxxiaomi.ming.electricbicycle.common.util.AppManager;
 import com.wxxiaomi.ming.electricbicycle.common.util.UniqueUtil;
-import com.wxxiaomi.ming.electricbicycle.service.UserFunctionProvider;
+import com.wxxiaomi.ming.electricbicycle.manager.UserFunctionProvider;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.RegisterActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.base.BasePreImpl;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.HomeActivity;

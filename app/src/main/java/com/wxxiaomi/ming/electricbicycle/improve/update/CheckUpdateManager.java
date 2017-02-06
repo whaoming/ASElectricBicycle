@@ -5,10 +5,10 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
 
-import com.wxxiaomi.ming.electricbicycle.api.HttpMethods;
-import com.wxxiaomi.ming.electricbicycle.improve.common.AppConfig;
-import com.wxxiaomi.ming.electricbicycle.improve.common.AppContext;
-import com.wxxiaomi.ming.electricbicycle.improve.common.DialogHelper;
+import com.wxxiaomi.ming.common.base.AppContext;
+import com.wxxiaomi.ming.electricbicycle.net.HttpMethods;
+import com.wxxiaomi.ming.electricbicycle.AppConfig;
+import com.wxxiaomi.ming.common.weight.DialogHelper;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.custom.SimplexToast;
 
 

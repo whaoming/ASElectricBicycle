@@ -1,10 +1,8 @@
 package com.wxxiaomi.ming.electricbicycle.support.rx;
 
 import android.content.Context;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 
-import com.wxxiaomi.ming.electricbicycle.api.exp.ApiException;
+import com.wxxiaomi.ming.common.net.ApiException;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.custom.SimplexToast;
 
 /**

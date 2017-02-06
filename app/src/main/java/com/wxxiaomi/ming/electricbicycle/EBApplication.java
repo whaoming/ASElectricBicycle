@@ -2,17 +2,14 @@ package com.wxxiaomi.ming.electricbicycle;
 
 
 import android.app.ActivityManager;
-import android.app.Application;
 import android.content.Context;
 import android.support.multidex.MultiDex;
-import android.util.Log;
 
 import com.baidu.mapapi.SDKInitializer;
-import com.wxxiaomi.ming.electricbicycle.improve.common.AppContext;
+import com.wxxiaomi.ming.common.base.AppContext;
+import com.wxxiaomi.ming.common.cache.CacheManager;
 import com.wxxiaomi.ming.electricbicycle.improve.im.ImHelper1;
-import com.wxxiaomi.ming.electricbicycle.service.AccountHelper;
-import com.wxxiaomi.ming.electricbicycle.service.UserFunctionProvider;
-import com.wxxiaomi.ming.electricbicycle.support.cache.CacheManager;
+import com.wxxiaomi.ming.electricbicycle.manager.AccountHelper;
 
 import java.util.List;
 

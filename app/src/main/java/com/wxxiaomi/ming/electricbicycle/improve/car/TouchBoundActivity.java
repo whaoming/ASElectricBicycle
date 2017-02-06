@@ -1,6 +1,5 @@
 package com.wxxiaomi.ming.electricbicycle.improve.car;
 
-import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
@@ -20,7 +19,7 @@ import android.widget.Toast;
 
 import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.improve.car.adapter.BluetoothDeviceAdapter;
-import com.wxxiaomi.ming.electricbicycle.improve.common.DialogHelper;
+import com.wxxiaomi.ming.common.weight.DialogHelper;
 import com.wxxiaomi.ming.touch.BluetoothHelper;
 
 import java.util.Collections;

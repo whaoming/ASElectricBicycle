@@ -10,7 +10,7 @@ import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.db.bean.Option;
 import com.wxxiaomi.ming.electricbicycle.db.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.improve.im.ImHelper1;
-import com.wxxiaomi.ming.electricbicycle.service.UserFunctionProvider;
+import com.wxxiaomi.ming.electricbicycle.manager.UserFunctionProvider;
 import com.wxxiaomi.ming.electricbicycle.support.rx.ProgressObserver;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.adapter.OptionAdapter2;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.base.BasePreImpl;

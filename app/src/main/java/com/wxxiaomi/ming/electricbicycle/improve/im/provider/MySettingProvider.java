@@ -2,8 +2,8 @@ package com.wxxiaomi.ming.electricbicycle.improve.im.provider;
 
 import com.hyphenate.chat.EMMessage;
 import com.hyphenate.easeui.controller.EaseUI;
-import com.wxxiaomi.ming.electricbicycle.improve.common.AppConfig;
-import com.wxxiaomi.ming.electricbicycle.improve.common.AppContext;
+import com.wxxiaomi.ming.common.base.AppContext;
+import com.wxxiaomi.ming.electricbicycle.AppConfig;
 
 /**
  * Created by Mr.W on 2016/12/16.

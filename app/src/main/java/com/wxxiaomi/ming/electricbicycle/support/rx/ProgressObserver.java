@@ -6,8 +6,8 @@ import android.content.Context;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
 
+import com.wxxiaomi.ming.common.net.ApiException;
 import com.wxxiaomi.ming.electricbicycle.R;
-import com.wxxiaomi.ming.electricbicycle.api.exp.ApiException;
 
 /**
  * Created by 12262 on 2016/6/5.
@@ -41,7 +41,6 @@ public abstract class ProgressObserver<T> extends MyObserver<T>{
 
     @Override
     protected void onError(ApiException ex) {
-        Log.i("wang","ProgressObserver-onError-"+ex.getDisplayMessage());
         if(dialog.isShowing()) {
             dialog.dismiss();
         }

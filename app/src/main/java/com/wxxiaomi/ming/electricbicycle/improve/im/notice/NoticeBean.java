@@ -2,7 +2,7 @@ package com.wxxiaomi.ming.electricbicycle.improve.im.notice;
 
 import android.content.Context;
 
-import com.wxxiaomi.ming.electricbicycle.improve.common.SharedPreferencesHelper;
+import com.wxxiaomi.ming.common.util.SharedPreferencesHelper;
 
 import java.io.Serializable;
 

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.wxxiaomi.ming.electricbicycle.ui.weight.custom.CircularImageView
+        android:layout_above="@+id/tv_err"
+        android:id="@+id/iv_my_head"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerInParent="true"
+        android:layout_margin="8dp"
+        android:src="@mipmap/laugh" />
+    <TextView
+        android:layout_margin="8dp"
+        android:textColor="#666666"
+        android:textSize="25sp"
+        android:gravity="center"
+        android:id="@+id/tv_err"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:text="数据加载失败"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:id="@+id/tv_check"
+        android:layout_below="@+id/tv_err"
+        android:text="请检查您的手机是否联网"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:layout_margin="5dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/btn_reload"
+        android:layout_below="@+id/tv_check"
+        android:text="重新加载"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</RelativeLayout>

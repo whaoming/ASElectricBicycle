@@ -170,9 +170,9 @@
         <activity
             android:name=".ui.activity.LoginActivity"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".ui.activity.PersonalAct"
-            android:screenOrientation="portrait" />
+        <!--<activity-->
+            <!--android:name=".ui.activity.PersonalAct"-->
+            <!--android:screenOrientation="portrait" />-->
         <activity
             android:name=".ui.activity.HomeActivity"
             android:launchMode="singleTask"
@@ -183,10 +183,11 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.FriendAddActivity"
+            android:windowSoftInputMode="adjustPan|stateHidden"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".ui.activity.UserInfoAct"
-            android:screenOrientation="portrait" />
+        <!--<activity-->
+            <!--android:name=".ui.activity.UserInfoAct"-->
+            <!--android:screenOrientation="portrait" />-->
         <!-- <activity -->
         <!-- android:name=".core.ui.view.activity.RegisterOneAct" -->
         <!-- android:screenOrientation="portrait" /> -->
@@ -199,10 +200,10 @@
         <activity
             android:name=".bridge.web.TestWebActivity"
             android:screenOrientation="portrait" />
-        <activity android:name="com.squareup.leakcanary.internal.DisplayLeakActivity" />
+        <!--<activity android:name="com.squareup.leakcanary.internal.DisplayLeakActivity" />-->
 
-        <service android:name="com.squareup.leakcanary.internal.HeapAnalyzerService" />
-        <service android:name="com.squareup.leakcanary.DisplayLeakService" />
+        <!--<service android:name="com.squareup.leakcanary.internal.HeapAnalyzerService" />-->
+        <!--<service android:name="com.squareup.leakcanary.DisplayLeakService" />-->
 
         <!-- <activity -->
         <!-- android:name=".view.activity.RegisterTwoActivity" -->
