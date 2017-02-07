@@ -9,7 +9,7 @@ import com.wxxiaomi.ming.electricbicycle.db.bean.UserLocatInfo;
 
 import com.wxxiaomi.ming.electricbicycle.db.bean.format.FootPrintGet;
 import com.wxxiaomi.ming.electricbicycle.db.bean.format.UserInfo;
-import com.wxxiaomi.ming.electricbicycle.improve.update.Version;
+import com.wxxiaomi.ming.electricbicycle.manager.update.Version;
 
 import java.util.List;
 import java.util.Map;

@@ -7,7 +7,7 @@
 //import com.wxxiaomi.ming.electricbicycle.api.HttpMethods;
 //import com.wxxiaomi.ming.electricbicycle.service.GlobalManager;
 //import com.wxxiaomi.ming.electricbicycle.service.PreferenceManager;
-//import com.wxxiaomi.ming.electricbicycle.support.rx.ProgressObserver;
+//import com.wxxiaomi.ming.electricbicycle.common.rx.ProgressObserver;
 //import com.wxxiaomi.ming.electricbicycle.common.util.AppManager;
 //import com.wxxiaomi.ming.electricbicycle.common.util.UniqueUtil;
 //import com.wxxiaomi.ming.electricbicycle.db.bean.User;
@@ -18,8 +18,8 @@
 //import com.wxxiaomi.ming.electricbicycle.db.impl.AppDaoImpl;
 //import com.wxxiaomi.ming.electricbicycle.db.impl.FriendDaoImpl2;
 //import com.wxxiaomi.ming.electricbicycle.db.impl.UserDaoImpl;
-//import com.wxxiaomi.ming.electricbicycle.bridge.aliyun.OssEngine;
-////import com.wxxiaomi.ming.electricbicycle.support.cache.base.DiskCache;
+//import com.wxxiaomi.ming.electricbicycle.common.aliyun.OssEngine;
+////import com.wxxiaomi.ming.electricbicycle.common.cache.base.DiskCache;
 //import com.wxxiaomi.ming.electricbicycle.ui.activity.RegisterActivity;
 //import com.wxxiaomi.ming.electricbicycle.ui.activity.base.BaseView;
 //import com.wxxiaomi.ming.electricbicycle.ui.presenter.base.BasePreImpl;

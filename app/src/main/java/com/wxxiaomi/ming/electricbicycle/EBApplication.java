@@ -8,7 +8,7 @@ import android.support.multidex.MultiDex;
 import com.baidu.mapapi.SDKInitializer;
 import com.wxxiaomi.ming.common.base.AppContext;
 import com.wxxiaomi.ming.common.cache.CacheManager;
-import com.wxxiaomi.ming.electricbicycle.improve.im.ImHelper1;
+import com.wxxiaomi.ming.electricbicycle.im.ImHelper1;
 import com.wxxiaomi.ming.electricbicycle.manager.AccountHelper;
 
 import java.util.List;

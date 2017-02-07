@@ -13,10 +13,10 @@ import android.view.ViewGroup;
 import com.wxxiaomi.ming.common.base.AppContext;
 import com.wxxiaomi.ming.common.cache.CacheManager;
 import com.wxxiaomi.ming.electricbicycle.R;
-import com.wxxiaomi.ming.electricbicycle.common.util.AppManager;
-import com.wxxiaomi.ming.electricbicycle.improve.update.CheckUpdateManager;
+import com.wxxiaomi.ming.common.util.AppManager;
+import com.wxxiaomi.ming.electricbicycle.manager.update.CheckUpdateManager;
 import com.wxxiaomi.ming.common.weight.DialogHelper;
-import com.wxxiaomi.ming.electricbicycle.improve.update.Version;
+import com.wxxiaomi.ming.electricbicycle.manager.update.Version;
 import com.wxxiaomi.ming.electricbicycle.manager.AccountHelper;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.LoginActivity;
 

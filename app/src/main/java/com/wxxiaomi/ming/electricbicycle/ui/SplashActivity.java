@@ -11,20 +11,20 @@ import android.util.Log;
 import android.widget.RelativeLayout;
 
 import com.wxxiaomi.ming.common.base.AppContext;
-import com.wxxiaomi.ming.electricbicycle.support.cache.DiskCache;
+import com.wxxiaomi.ming.electricbicycle.common.cache.DiskCache;
 import com.wxxiaomi.ming.electricbicycle.EBApplication;
-import com.wxxiaomi.ming.electricbicycle.common.util.AppManager;
+import com.wxxiaomi.ming.common.util.AppManager;
 import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.AppConfig;
-import com.wxxiaomi.ming.electricbicycle.improve.im.ImHelper1;
-import com.wxxiaomi.ming.electricbicycle.improve.im.notice.NoticeManager;
-import com.wxxiaomi.ming.electricbicycle.improve.update.CheckUpdateManager;
-import com.wxxiaomi.ming.electricbicycle.improve.update.Version;
+import com.wxxiaomi.ming.electricbicycle.im.ImHelper1;
+import com.wxxiaomi.ming.electricbicycle.im.notice.NoticeManager;
+import com.wxxiaomi.ming.electricbicycle.manager.update.CheckUpdateManager;
+import com.wxxiaomi.ming.electricbicycle.manager.update.Version;
 import com.wxxiaomi.ming.electricbicycle.manager.AccountHelper;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.HomeActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.RegisterActivity;
 import com.wxxiaomi.ming.electricbicycle.manager.UserFunctionProvider;
-import com.wxxiaomi.ming.electricbicycle.bridge.aliyun.OssEngine;
+import com.wxxiaomi.ming.electricbicycle.common.aliyun.OssEngine;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.custom.SplashView;
 
 import java.util.concurrent.CountDownLatch;

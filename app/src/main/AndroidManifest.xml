@@ -15,7 +15,7 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
     <!-- 获取运营商信息，用于支持提供运营商信息相关的接口 -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
@@ -74,9 +74,9 @@
         android:theme="@style/AppTheme">
 
         <!-- <service -->
-        <!-- android:name="com.wxxiaomi.ming.electricbicycle.improve.im.service.ImService" -->
+        <!-- android:name="com.wxxiaomi.ming.electricbicycle.im.service.ImService" -->
         <!-- android:exported="false" -->
-        <!-- android:process="com.wxxiaomi.ming.electricbicycle.improve.im.service.ImService"  /> -->
+        <!-- android:process="com.wxxiaomi.ming.electricbicycle.im.service.ImService"  /> -->
 
         <service
             android:name="com.hyphenate.chat.EMChatService"
@@ -139,7 +139,7 @@
             android:name=".ui.activity.ScanCodeActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".improve.im.ui.ChatActivity"
+            android:name=".im.ui.ChatActivity"
             android:screenOrientation="portrait" />
         <!-- <activity -->
         <!-- android:name=".view.activity.RoutePlanActivity" -->
@@ -198,7 +198,7 @@
         <!-- android:name=".core.ui.view.activity.BaiduNavActivity" -->
         <!-- android:screenOrientation="portrait" /> -->
         <activity
-            android:name=".bridge.web.TestWebActivity"
+            android:name=".web.TestWebActivity"
             android:screenOrientation="portrait" />
         <!--<activity android:name="com.squareup.leakcanary.internal.DisplayLeakActivity" />-->
 
@@ -248,9 +248,9 @@
         <activity android:name=".ui.activity.FootPrintShowActivity" />
         <activity android:name=".ui.activity.FootPublishActivity" />
         <activity android:name=".ui.activity.InviteMsgActivity" />
-        <activity android:name=".improve.car.TouchBoundActivity" />
-        <activity android:name=".improve.car.DriveActivity" />
-        <activity android:name=".improve.car.CarSettingActivity"></activity>
+        <activity android:name=".car.TouchBoundActivity" />
+        <activity android:name=".car.DriveActivity" />
+        <activity android:name=".car.CarSettingActivity"></activity>
     </application>
 
 </manifest>

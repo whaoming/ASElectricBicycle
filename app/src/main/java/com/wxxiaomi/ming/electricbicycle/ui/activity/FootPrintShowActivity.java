@@ -20,7 +20,7 @@ import com.baidu.mapapi.map.TextureMapView;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.inner.GeoPoint;
 import com.wxxiaomi.ming.electricbicycle.R;
-import com.wxxiaomi.ming.electricbicycle.support.rx.ProgressObserver;
+import com.wxxiaomi.ming.electricbicycle.common.rx.ProgressObserver;
 import com.wxxiaomi.ming.electricbicycle.common.util.OverlayManager;
 import com.wxxiaomi.ming.electricbicycle.db.bean.FootPrintDetail;
 import com.wxxiaomi.ming.electricbicycle.db.bean.format.FootPrintGet;

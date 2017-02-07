@@ -6,13 +6,13 @@ import com.wxxiaomi.ming.common.net.ExceptionProvider;
 import com.wxxiaomi.ming.common.net.RetrofitHelper;
 import com.wxxiaomi.ming.common.net.ServerException;
 import com.wxxiaomi.ming.common.net.cons.Result;
+import com.wxxiaomi.ming.common.util.TDevice;
 import com.wxxiaomi.ming.electricbicycle.ConstantValue;
 import com.wxxiaomi.ming.electricbicycle.EBApplication;
 import com.wxxiaomi.ming.electricbicycle.net.interceptor.TokenInterceptor;
 import com.wxxiaomi.ming.electricbicycle.net.service.ApiService;
-import com.wxxiaomi.ming.electricbicycle.improve.update.Version;
+import com.wxxiaomi.ming.electricbicycle.manager.update.Version;
 import com.wxxiaomi.ming.electricbicycle.manager.AccountHelper;
-import com.wxxiaomi.ming.electricbicycle.common.util.UniqueUtil;
 import com.wxxiaomi.ming.electricbicycle.db.bean.Option;
 import com.wxxiaomi.ming.electricbicycle.db.bean.User;
 import com.wxxiaomi.ming.electricbicycle.db.bean.UserCommonInfo;
@@ -261,8 +261,8 @@ public class HttpMethods {
      * @return
      */
     public Observable<String> Token_Long2Short(){
-        UniqueUtil util = new UniqueUtil(EBApplication.applicationContext);
-        String uniqueID = util.getUniqueID();
+//        UniqueUtil util = new UniqueUtil(EBApplication.applicationContext);
+        String uniqueID = TDevice.getUniqueID(EBApplication.applicationContext);
         String long_token = AccountHelper.getLongCookie();
         return demoService.getSToken(long_token,uniqueID)
                 .map(new ServerResultFunc<String>())

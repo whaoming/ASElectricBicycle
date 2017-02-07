@@ -6,7 +6,7 @@ import android.util.Log;
 import com.hyphenate.easeui.domain.EaseUser;
 import com.wxxiaomi.ming.electricbicycle.EBApplication;
 import com.wxxiaomi.ming.electricbicycle.net.HttpMethods;
-import com.wxxiaomi.ming.electricbicycle.common.util.TimeUtil;
+import com.wxxiaomi.ming.common.util.TimeUtil;
 import com.wxxiaomi.ming.electricbicycle.db.FriendDao;
 import com.wxxiaomi.ming.electricbicycle.db.bean.InviteMessage;
 import com.wxxiaomi.ming.electricbicycle.db.bean.Option;
@@ -19,8 +19,8 @@ import com.wxxiaomi.ming.electricbicycle.db.bean.format.UserInfo;
 import com.wxxiaomi.ming.electricbicycle.db.UserDao;
 import com.wxxiaomi.ming.electricbicycle.db.impl.*;
 import com.wxxiaomi.ming.electricbicycle.db.impl.FriendDaoImpl2;
-import com.wxxiaomi.ming.electricbicycle.bridge.aliyun.OssEngine;
-import com.wxxiaomi.ming.electricbicycle.improve.im.ImHelper1;
+import com.wxxiaomi.ming.electricbicycle.common.aliyun.OssEngine;
+import com.wxxiaomi.ming.electricbicycle.im.ImHelper1;
 
 
 import java.util.Collections;

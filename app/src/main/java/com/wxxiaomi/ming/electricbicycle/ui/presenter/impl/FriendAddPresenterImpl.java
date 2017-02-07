@@ -15,7 +15,7 @@ import com.wxxiaomi.ming.electricbicycle.db.bean.UserLocatInfo;
 import com.wxxiaomi.ming.common.weight.DialogHelper;
 import com.wxxiaomi.ming.electricbicycle.manager.AccountHelper;
 import com.wxxiaomi.ming.electricbicycle.manager.UserFunctionProvider;
-import com.wxxiaomi.ming.electricbicycle.support.rx.MyObserver;
+import com.wxxiaomi.ming.electricbicycle.common.rx.MyObserver;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.HomeActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.base.BasePreImpl;
 

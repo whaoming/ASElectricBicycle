@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import com.wxxiaomi.ming.common.net.cons.OptionType;
 import com.wxxiaomi.ming.electricbicycle.R;
 
-import com.wxxiaomi.ming.electricbicycle.common.util.TimeUtil;
+import com.wxxiaomi.ming.common.util.TimeUtil;
 import com.wxxiaomi.ming.electricbicycle.db.bean.Option;
 import com.wxxiaomi.ming.electricbicycle.manager.AccountHelper;
 import com.wxxiaomi.ming.electricbicycle.manager.ShowerProvider;

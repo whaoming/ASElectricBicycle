@@ -10,7 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.wxxiaomi.ming.electricbicycle.common.util.AppManager;
+import com.wxxiaomi.ming.common.util.AppManager;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.base.BasePre;
 
 /**
