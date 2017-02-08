@@ -2,6 +2,7 @@ package com.wxxiaomi.ming.electricbicycle.manager;
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -21,6 +22,8 @@ public class ShowerProvider {
                     .dontAnimate()
                     .placeholder(R.mipmap.noone)
                     .into(imageView);
+        }else{
+            Log.i("wang","头像路径为空");
         }
 
     }

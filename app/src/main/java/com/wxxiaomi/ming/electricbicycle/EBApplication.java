@@ -4,6 +4,7 @@ package com.wxxiaomi.ming.electricbicycle;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.support.multidex.MultiDex;
+import android.util.Log;
 
 import com.baidu.mapapi.SDKInitializer;
 import com.wxxiaomi.ming.common.base.AppContext;
@@ -31,9 +32,12 @@ public class EBApplication extends AppContext {
         if(processName!=null && !processName.equalsIgnoreCase(getPackageName())){
             return;
         }
+
         SDKInitializer.initialize(getApplicationContext());
-        ImHelper1.getInstance().init(this);
         AccountHelper.init(this);
+        ImHelper1.getInstance().init(this);
+        Log.i("wang","当前登录的环信用户："+ImHelper1.getInstance().getCurrentEmUser());
+//        ImHelper1.getInstance().get
 //        if (LeakCanary.isInAnalyzerProcess(this)) {
 //            return;
 //        }

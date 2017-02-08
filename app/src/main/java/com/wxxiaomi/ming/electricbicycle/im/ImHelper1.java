@@ -321,6 +321,9 @@ public class ImHelper1 implements Contract.IService {
                 ;
 
     }
+    public String getCurrentEmUser(){
+        return EMClient.getInstance().getCurrentUser();
+    }
 
     /**
      * 从em服务器拉取好友列表

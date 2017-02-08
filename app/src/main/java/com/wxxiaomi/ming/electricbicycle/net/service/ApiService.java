@@ -52,7 +52,7 @@ public interface ApiService {
 
     @FormUrlEncoded
     @POST("android/user_updateuserfriends")
-    Observable<Result<List<UserCommonInfo>>> updateUserFriend3(@Field("friends") String friends);
+    Observable<Result<List<UserCommonInfo>>>  updateUserFriend3(@Field("friends") String friends);
 
     @POST("android/user_updateuserfriends")
     Observable<Result<List<UserCommonInfo>>> updateUserFriend(@Body Map<String,String> friends);
