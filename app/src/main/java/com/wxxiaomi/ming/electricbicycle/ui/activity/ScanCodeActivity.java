@@ -23,7 +23,7 @@ import android.widget.Toast;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.Result;
-import com.wxxiaomi.ming.electricbicycle.common.util.AppManager;
+import com.wxxiaomi.ming.common.util.AppManager;
 import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.codeview.camera.CameraManager;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.codeview.decoding.CaptureActivityHandler;

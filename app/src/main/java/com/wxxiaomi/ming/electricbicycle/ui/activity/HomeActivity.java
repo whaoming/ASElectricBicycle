@@ -14,7 +14,6 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewStub;
 import android.view.animation.Animation;
 import android.view.animation.OvershootInterpolator;
 import android.view.animation.TranslateAnimation;
@@ -41,7 +40,7 @@ import com.wxxiaomi.ming.electricbicycle.ui.presenter.HomePresenter;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.impl.HomePresenterImpl;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.view.HomeView;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.custom.CircularImageView;
-import com.wxxiaomi.ming.electricbicycle.service.LocatProvider;
+import com.wxxiaomi.ming.electricbicycle.manager.LocatProvider;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.custom.MsgActionProvider;
 
 /**

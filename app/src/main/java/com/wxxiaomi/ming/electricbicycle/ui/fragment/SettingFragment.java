@@ -6,21 +6,18 @@ import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
-import android.support.v7.app.AlertDialog;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.wxxiaomi.ming.common.base.AppContext;
+import com.wxxiaomi.ming.common.cache.CacheManager;
 import com.wxxiaomi.ming.electricbicycle.R;
-import com.wxxiaomi.ming.electricbicycle.common.util.AppManager;
-import com.wxxiaomi.ming.electricbicycle.improve.common.AppContext;
-import com.wxxiaomi.ming.electricbicycle.improve.update.CheckUpdateManager;
-import com.wxxiaomi.ming.electricbicycle.improve.common.DialogHelper;
-import com.wxxiaomi.ming.electricbicycle.improve.update.Version;
-import com.wxxiaomi.ming.electricbicycle.service.AccountHelper;
-import com.wxxiaomi.ming.electricbicycle.support.cache.CacheManager;
-import com.wxxiaomi.ming.electricbicycle.ui.activity.HomeActivity;
+import com.wxxiaomi.ming.common.util.AppManager;
+import com.wxxiaomi.ming.electricbicycle.manager.update.CheckUpdateManager;
+import com.wxxiaomi.ming.common.weight.DialogHelper;
+import com.wxxiaomi.ming.electricbicycle.manager.update.Version;
+import com.wxxiaomi.ming.electricbicycle.manager.AccountHelper;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.LoginActivity;
 
 /**

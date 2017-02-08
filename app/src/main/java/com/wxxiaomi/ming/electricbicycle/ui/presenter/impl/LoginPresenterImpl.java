@@ -2,17 +2,18 @@ package com.wxxiaomi.ming.electricbicycle.ui.presenter.impl;
 
 import android.support.design.widget.TextInputLayout;
 
+import com.wxxiaomi.ming.common.util.CommonUtil;
+import com.wxxiaomi.ming.common.util.TDevice;
 import com.wxxiaomi.ming.electricbicycle.ConstantValue;
-import com.wxxiaomi.ming.electricbicycle.common.util.AppManager;
-import com.wxxiaomi.ming.electricbicycle.common.util.UniqueUtil;
-import com.wxxiaomi.ming.electricbicycle.service.UserFunctionProvider;
+import com.wxxiaomi.ming.common.util.AppManager;
+import com.wxxiaomi.ming.electricbicycle.EBApplication;
+import com.wxxiaomi.ming.electricbicycle.manager.UserFunctionProvider;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.RegisterActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.base.BasePreImpl;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.HomeActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.LoginPresenter;
-import com.wxxiaomi.ming.electricbicycle.support.rx.ProgressObserver;
+import com.wxxiaomi.ming.electricbicycle.common.rx.ProgressObserver;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.view.LoginView;
-import com.wxxiaomi.ming.electricbicycle.common.util.MyUtils;
 
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
@@ -23,11 +24,11 @@ import rx.schedulers.Schedulers;
  * 登陆页面的控制器
  */
 public class LoginPresenterImpl extends BasePreImpl<LoginView> implements LoginPresenter<LoginView> {
-    UniqueUtil util;
+//    UniqueUtil util;
 
     @Override
     public void init() {
-        util = new UniqueUtil(mView.getContext());
+//        util = new UniqueUtil(mView.getContext());
     }
 
     private boolean checkFormat(TextInputLayout strLayout) {
@@ -39,7 +40,7 @@ public class LoginPresenterImpl extends BasePreImpl<LoginView> implements LoginP
         } else if (str.contains(" ")) {
             strLayout.setError("出现非法字符");
             return false;
-        } else if (MyUtils.checkChainse(str)) {
+        } else if (CommonUtil.checkChainse(str)) {
             strLayout.setError("不能包含中文");
             return false;
         } else if (str.length() < 6) {
@@ -66,7 +67,7 @@ public class LoginPresenterImpl extends BasePreImpl<LoginView> implements LoginP
     }
 
     private void sendRequest(String username, String password) {
-        String uniqueID = util.getUniqueID();
+        String uniqueID = TDevice.getUniqueID(EBApplication.applicationContext);
         UserFunctionProvider.getInstance().HandLogin(username, password,ConstantValue.isEMOpen,uniqueID)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

@@ -15,12 +15,11 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
-import com.wxxiaomi.ming.electricbicycle.EBApplication;
 import com.wxxiaomi.ming.electricbicycle.R;
-import com.wxxiaomi.ming.electricbicycle.service.AccountHelper;
+import com.wxxiaomi.ming.electricbicycle.manager.AccountHelper;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.base.BaseActivity;
-import com.wxxiaomi.ming.electricbicycle.improve.im.ui.ContactListFragment;
-import com.wxxiaomi.ming.electricbicycle.improve.im.ui.ConversationListFragment;
+import com.wxxiaomi.ming.electricbicycle.im.ui.ContactListFragment;
+import com.wxxiaomi.ming.electricbicycle.im.ui.ConversationListFragment;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.ContactPresenter;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.impl.ContactPresenterImpl;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.view.ContactView;

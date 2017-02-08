@@ -4,20 +4,19 @@ import android.content.Intent;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
-import com.wxxiaomi.ming.electricbicycle.improve.im.notice.NoticeBean;
-import com.wxxiaomi.ming.electricbicycle.improve.im.notice.NoticeManager;
-import com.wxxiaomi.ming.electricbicycle.improve.im.ImHelper1;
+import com.wxxiaomi.ming.electricbicycle.im.notice.NoticeBean;
+import com.wxxiaomi.ming.electricbicycle.im.notice.NoticeManager;
+import com.wxxiaomi.ming.electricbicycle.im.ImHelper1;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.InviteMsgActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.base.BasePreImpl;
 
-import com.wxxiaomi.ming.electricbicycle.improve.im.ui.ChatActivity;
-import com.wxxiaomi.ming.electricbicycle.improve.im.Constant;
+import com.wxxiaomi.ming.electricbicycle.im.ui.ChatActivity;
+import com.wxxiaomi.ming.electricbicycle.im.Constant;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.ContactPresenter;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.FriendAddActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.view.ContactView;
 
 import rx.Observer;
-import rx.functions.Action1;
 
 /**
  * Created by 12262 on 2016/6/9.

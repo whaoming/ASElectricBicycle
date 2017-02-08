@@ -2,7 +2,6 @@ package com.wxxiaomi.ming.electricbicycle.ui.weight.adapter2;
 
 import android.content.Context;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -12,12 +11,12 @@ import com.baidu.mapapi.map.MapStatusUpdate;
 import com.baidu.mapapi.map.MapStatusUpdateFactory;
 import com.baidu.mapapi.map.TextureMapView;
 import com.baidu.mapapi.model.LatLng;
+import com.wxxiaomi.ming.common.net.cons.OptionType;
 import com.wxxiaomi.ming.electricbicycle.R;
-import com.wxxiaomi.ming.electricbicycle.api.constant.OptionType;
-import com.wxxiaomi.ming.electricbicycle.common.util.TimeUtil;
+import com.wxxiaomi.ming.common.util.TimeUtil;
 import com.wxxiaomi.ming.electricbicycle.db.bean.Option;
-import com.wxxiaomi.ming.electricbicycle.service.AccountHelper;
-import com.wxxiaomi.ming.electricbicycle.service.ShowerProvider;
+import com.wxxiaomi.ming.electricbicycle.manager.AccountHelper;
+import com.wxxiaomi.ming.electricbicycle.manager.ShowerProvider;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.pulltorefresh.baseadapter.ViewHolder;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.pulltorefresh.baseadapter.base.MultiBaseAdapter;
 

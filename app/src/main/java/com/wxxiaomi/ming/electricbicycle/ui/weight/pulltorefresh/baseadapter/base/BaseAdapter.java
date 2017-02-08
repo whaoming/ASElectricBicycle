@@ -366,7 +366,6 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<RecyclerView.V
                     if (mDatas != null && mDatas.size() > 0) {
                         mLoadMoreListener.onLoadMore(true);
                     }
-
                 }
             }
         });

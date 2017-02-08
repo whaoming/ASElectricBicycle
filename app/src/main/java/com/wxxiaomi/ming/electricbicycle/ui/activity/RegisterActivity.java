@@ -4,23 +4,21 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.wxxiaomi.ming.common.util.TDevice;
 import com.wxxiaomi.ming.electricbicycle.R;
-import com.wxxiaomi.ming.electricbicycle.api.HttpMethods;
-import com.wxxiaomi.ming.electricbicycle.common.util.AppManager;
-import com.wxxiaomi.ming.electricbicycle.common.util.UniqueUtil;
+import com.wxxiaomi.ming.electricbicycle.net.HttpMethods;
+import com.wxxiaomi.ming.common.util.AppManager;
 import com.wxxiaomi.ming.electricbicycle.db.bean.User;
-import com.wxxiaomi.ming.electricbicycle.improve.im.ImHelper1;
-import com.wxxiaomi.ming.electricbicycle.service.AccountHelper;
-import com.wxxiaomi.ming.electricbicycle.support.rx.ProgressObserver;
+import com.wxxiaomi.ming.electricbicycle.im.ImHelper1;
+import com.wxxiaomi.ming.electricbicycle.manager.AccountHelper;
+import com.wxxiaomi.ming.electricbicycle.common.rx.ProgressObserver;
 
 import rx.Observable;
-import rx.functions.Action1;
 import rx.functions.Func1;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
@@ -62,8 +60,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void register() {
-        UniqueUtil util = new UniqueUtil(getApplicationContext());
-        String uniqueID = util.getUniqueID();
+//        UniqueUtil util = new UniqueUtil(getApplicationContext());
+        String uniqueID = TDevice.getUniqueID(getApplicationContext());
         String username = et_username.getText().toString().trim();
         String password = et_password.getText().toString().trim();
         HttpMethods.getInstance().registerUser(username, password, uniqueID)

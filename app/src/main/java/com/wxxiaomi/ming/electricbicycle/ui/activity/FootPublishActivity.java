@@ -13,12 +13,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.wxxiaomi.ming.electricbicycle.R;
-import com.wxxiaomi.ming.electricbicycle.api.HttpMethods;
-import com.wxxiaomi.ming.electricbicycle.support.rx.ProgressObserver;
-import com.wxxiaomi.ming.electricbicycle.service.ShowerProvider;
-import com.wxxiaomi.ming.electricbicycle.bridge.aliyun.OssEngine;
-import com.wxxiaomi.ming.electricbicycle.service.LocatProvider;
-import com.wxxiaomi.ming.electricbicycle.bridge.img.PhotoTakeUtil;
+import com.wxxiaomi.ming.electricbicycle.net.HttpMethods;
+import com.wxxiaomi.ming.electricbicycle.common.rx.ProgressObserver;
+import com.wxxiaomi.ming.electricbicycle.manager.ShowerProvider;
+import com.wxxiaomi.ming.electricbicycle.common.aliyun.OssEngine;
+import com.wxxiaomi.ming.electricbicycle.manager.LocatProvider;
+import com.wxxiaomi.ming.electricbicycle.common.photoget.PhotoTakeUtil;
 
 import java.util.List;
 

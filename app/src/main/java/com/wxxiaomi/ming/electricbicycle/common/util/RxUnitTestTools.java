@@ -7,10 +7,13 @@ import rx.plugins.RxJavaPlugins;
 import rx.plugins.RxJavaSchedulersHook;
 import rx.schedulers.Schedulers;
 
-/**
- * Created by 12262 on 2016/10/29.
- */
 
+/**
+* @author whaoming
+* github：https://github.com/whaoming
+* created at 2017/2/7 14:58
+* Description: 用于rxjava的调试模式
+*/
 public class RxUnitTestTools {
     private static boolean isInitRxTools = false;
 

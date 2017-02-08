@@ -17,23 +17,21 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.GlideDrawableImageViewTarget;
+import com.wxxiaomi.ming.common.base.AppContext;
 import com.wxxiaomi.ming.electricbicycle.R;
-import com.wxxiaomi.ming.electricbicycle.improve.common.AppContext;
-import com.wxxiaomi.ming.electricbicycle.improve.common.DialogHelper;
-import com.wxxiaomi.ming.electricbicycle.service.AccountHelper;
-import com.wxxiaomi.ming.electricbicycle.service.UserFunctionProvider;
-import com.wxxiaomi.ming.electricbicycle.support.rx.ProgressObserver;
-import com.wxxiaomi.ming.electricbicycle.service.ShowerProvider;
-import com.wxxiaomi.ming.electricbicycle.bridge.aliyun.OssEngine;
-import com.wxxiaomi.ming.electricbicycle.bridge.img.PhotoTakeUtil;
+import com.wxxiaomi.ming.common.weight.DialogHelper;
+import com.wxxiaomi.ming.electricbicycle.manager.AccountHelper;
+import com.wxxiaomi.ming.electricbicycle.manager.UserFunctionProvider;
+import com.wxxiaomi.ming.electricbicycle.common.rx.ProgressObserver;
+import com.wxxiaomi.ming.electricbicycle.manager.ShowerProvider;
+import com.wxxiaomi.ming.electricbicycle.common.aliyun.OssEngine;
+import com.wxxiaomi.ming.electricbicycle.common.photoget.PhotoTakeUtil;
 
 import java.util.List;
 
 import rx.Observable;
-import rx.Observer;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Action1;
 import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 

@@ -11,15 +11,12 @@ import android.view.ViewGroup;
 import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.db.bean.InviteMessage;
 import com.wxxiaomi.ming.electricbicycle.db.impl.InviteMessgeDaoImpl2;
-import com.wxxiaomi.ming.electricbicycle.improve.im.notice.NoticeManager;
+import com.wxxiaomi.ming.electricbicycle.im.notice.NoticeManager;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.adapter2.InviteAdapter;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.pulltorefresh.recycleview.PullToRefreshRecyclerView;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-import rx.Observable;
 import rx.functions.Action1;
 
 public class InviteMsgActivity extends AppCompatActivity {

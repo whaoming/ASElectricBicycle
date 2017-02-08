@@ -1039,10 +1039,16 @@ containing a value of this type.
         public static int Anim_style=0x7f070009;
         public static int Anim_style2=0x7f070000;
         public static int AppTheme=0x7f07000a;
+        /**  模糊 
+         */
         public static int HeadScale=0x7f07000b;
         public static int MyAlertDialog=0x7f07000c;
         public static int MyDialogStyle=0x7f07000d;
+        /**  模糊 
+         */
         public static int MyDialogStyleBottom=0x7f07000e;
+        /**  模糊 
+         */
         public static int MyDialogStyleTop=0x7f07000f;
         public static int bottom_line_edit_text_style=0x7f070010;
         public static int chat_content_date_style=0x7f070011;

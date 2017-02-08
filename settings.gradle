@@ -1,2 +1,2 @@
-include ':app', ':gallerypick', ':carddevice'
+include ':app', ':gallerypick', ':carddevice', ':common'
 include ':easeUI'

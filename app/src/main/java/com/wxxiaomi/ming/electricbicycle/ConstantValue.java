@@ -34,4 +34,6 @@ public interface ConstantValue {
 	String BUNDLE_USERINFO = "bundle_userinfo";
 	String BUNDLE_OPTIONS = "bundle_options";
 	String INTENT_USERINFO = "intent_userinfo";
+
+	String key = "123456789aaaaaaa";
 }

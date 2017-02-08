@@ -5,9 +5,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.wxxiaomi.ming.common.net.cons.OptionType;
 import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.db.bean.Option;
-import com.wxxiaomi.ming.electricbicycle.api.constant.OptionType;
 
 import java.util.List;
 

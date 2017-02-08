@@ -56,12 +56,7 @@ dependencies {
     compile 'com.google.android.gms:play-services-appindexing:8.1.0'
     //compile 'com.facebook.fresco:fresco:0.9.0+'
     compile 'com.miguelcatalan:materialsearchview:1.4.0'
-    compile 'com.squareup.retrofit2:retrofit:2.0.1'
-    compile 'com.squareup.retrofit2:converter-gson:2.0.1'
-    compile 'com.squareup.retrofit2:adapter-rxjava:2.0.1'
-    compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
-    compile 'com.squareup.okhttp3:okhttp:3.4.1'
-    compile 'com.squareup.retrofit2:converter-scalars:2.0.0'
+
     compile 'com.github.lzyzsd:jsbridge:1.0.4'
     //  compile ('com.jph.takephoto:takephoto_library:3.0.4'){
     //     // exclude 'com.google.android:support-v4'
@@ -76,7 +71,7 @@ dependencies {
     //    classpath 'me.tatarka:gradle-retrolambda:3.2.2'
     //testCompile 'org.mockito:mockito-core:1.9.5'
     compile project(':easeUI')
-    compile 'com.jakewharton:disklrucache:2.0.2'
+
     //    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
     //    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
     //    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
@@ -87,4 +82,5 @@ dependencies {
     //开源关于listview的轮子- -!
     //    compile 'com.mylhyl:commonrefreshlayout:2.0'
     compile project(':carddevice')
+    compile project(path: ':common')
 }

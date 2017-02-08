@@ -1,6 +1,5 @@
 package com.wxxiaomi.ming.electricbicycle.ui.activity;
 
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -8,7 +7,7 @@ import android.util.Log;
 import android.view.MenuItem;
 
 import com.wxxiaomi.ming.electricbicycle.R;
-import com.wxxiaomi.ming.electricbicycle.common.util.AppManager;
+import com.wxxiaomi.ming.common.util.AppManager;
 import com.wxxiaomi.ming.electricbicycle.ui.fragment.SettingFragment;
 
 public class SettingActivity extends AppCompatActivity {
