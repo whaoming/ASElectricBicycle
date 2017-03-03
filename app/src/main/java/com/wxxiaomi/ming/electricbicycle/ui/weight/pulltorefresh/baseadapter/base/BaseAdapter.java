@@ -16,8 +16,6 @@ import com.wxxiaomi.ming.electricbicycle.ui.weight.pulltorefresh.baseadapter.int
 import java.util.ArrayList;
 import java.util.List;
 
-
-
 /**
  * Author: Othershe
  * Time: 2016/8/29 09:46

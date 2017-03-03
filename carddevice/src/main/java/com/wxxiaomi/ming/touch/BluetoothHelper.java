@@ -27,7 +27,7 @@ public class BluetoothHelper {
 
     private Context context;
     private BluetoothDevice currentDevice;
-    private BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+    private BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();  ;
     BluetoothConnector connector;
     BluetoothConnector.BluetoothSocketWrapper connect;
     TouchMsgThread thread;

@@ -35,7 +35,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.wxxiaomi.ming.electricbicycle.R;
-import com.wxxiaomi.ming.electricbicycle.ui.activity.base.BaseActivity;
+import com.wxxiaomi.ming.electricbicycle.ui.activity.base.MvpActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.HomePresenter;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.impl.HomePresenterImpl;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.view.HomeView;
@@ -47,7 +47,7 @@ import com.wxxiaomi.ming.electricbicycle.ui.weight.custom.MsgActionProvider;
  * Created by 12262 on 2016/6/6.
  * 主页面
  */
-public class HomeActivity extends BaseActivity<HomeView,HomePresenter> implements HomeView<HomePresenter> {
+public class HomeActivity extends MvpActivity<HomeView,HomePresenter> implements HomeView<HomePresenter> {
 
     public static HomeActivity INSTANCE;
 

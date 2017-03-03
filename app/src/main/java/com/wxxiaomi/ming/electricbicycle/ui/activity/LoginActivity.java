@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.wxxiaomi.ming.electricbicycle.R;
-import com.wxxiaomi.ming.electricbicycle.ui.activity.base.BaseActivity;
+import com.wxxiaomi.ming.electricbicycle.ui.activity.base.MvpActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.LoginPresenter;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.impl.LoginPresenterImpl;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.view.LoginView;
@@ -19,7 +19,7 @@ import com.wxxiaomi.ming.electricbicycle.ui.activity.view.LoginView;
  * 登陆页面
  * @author Mr.W
  */
-public class LoginActivity extends BaseActivity<LoginView,LoginPresenter> implements LoginView {
+public class LoginActivity extends MvpActivity<LoginView,LoginPresenter> implements LoginView {
 
 	private TextInputLayout til_username;
 	private TextInputLayout til_password;

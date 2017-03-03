@@ -1,11 +1,11 @@
 [
     {
-        "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4\\ease_chat_image_normal.png",
-        "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\ease_chat_image_normal.png"
-    },
-    {
         "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4\\ease_delete_expression.png",
         "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\ease_delete_expression.png"
+    },
+    {
+        "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4\\ease_chat_image_normal.png",
+        "source": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\ease_chat_image_normal.png"
     },
     {
         "merged": "E:\\WorkPlace\\Android\\AS\\20160424\\ASElectricBicycle\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4\\ease_unread_dot.9.png",

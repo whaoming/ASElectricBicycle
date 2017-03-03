@@ -8,8 +8,8 @@ import com.wxxiaomi.ming.electricbicycle.ui.activity.base.BaseView;
  */
 public interface ContactPresenter<V extends BaseView> extends BasePre<V> {
     void initDrawerData();
-    void onAddFriendBtnClick();
 
+    void onAddFriendBtnClick();
 
     void onDrawClick();
 

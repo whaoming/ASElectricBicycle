@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import com.wxxiaomi.ming.electricbicycle.db.bean.format.LoginResponseBean;
 import com.wxxiaomi.ming.electricbicycle.net.HttpMethods;
 import com.wxxiaomi.ming.electricbicycle.db.bean.User;
 import com.wxxiaomi.ming.electricbicycle.db.bean.UserCommonInfo;
@@ -59,7 +60,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public Observable<User> Login(String username, String password,String num) {
+    public Observable<LoginResponseBean> Login(String username, String password, String num) {
         return HttpMethods.getInstance().login(username, password,num);
     }
 

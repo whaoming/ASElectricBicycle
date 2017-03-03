@@ -42,7 +42,7 @@ public final class NoticeManager {
 //        // 启动服务
 //        NoticeServer.startAction(context);
 //        // 注册广播
-        Log.i("wang","NoticeManager初始化了");
+//        Log.i("wang","NoticeManager初始化了");
         NoticeBean nb = NoticeBean.getInstance(context);
         INSTANCE.onNoticeChanged(nb);
 

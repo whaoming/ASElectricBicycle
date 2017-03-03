@@ -28,6 +28,7 @@ public class AESInterceptor implements Interceptor {
     @Override
     public Response intercept(Chain chain) throws IOException {
         Request request = chain.request();
+        Log.i("wang","aes拦截器");
         try {
             Request newRequest = null;
             if (request.body() instanceof FormBody) {
@@ -36,6 +37,7 @@ public class AESInterceptor implements Interceptor {
                 String keyMI = null;
                 for (int i = 0; i < formBody.size(); i++) {
                     if (formBody.name(i).equals("param")) {
+                        Log.i("wang","发现param");
                         String json = AESUtil.encrypt(formBody.value(i), key);
                         if (!TextUtils.isEmpty(json)) {
                             formBuilder.add("data", json);

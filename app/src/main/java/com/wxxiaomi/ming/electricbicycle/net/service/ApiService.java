@@ -8,6 +8,7 @@ import com.wxxiaomi.ming.electricbicycle.db.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.db.bean.UserLocatInfo;
 
 import com.wxxiaomi.ming.electricbicycle.db.bean.format.FootPrintGet;
+import com.wxxiaomi.ming.electricbicycle.db.bean.format.LoginResponseBean;
 import com.wxxiaomi.ming.electricbicycle.db.bean.format.UserInfo;
 import com.wxxiaomi.ming.electricbicycle.manager.update.Version;
 
@@ -29,8 +30,11 @@ import retrofit2.http.Url;
 import rx.Observable;
 
 /**
- * Created by 12262 on 2016/5/31.
- */
+* @author whaoming
+* github：https://github.com/whaoming
+* created at 2016/5/31 10:46
+* Description:
+*/
 public interface ApiService {
     @FormUrlEncoded
     @POST("android/lbs_publishfootprint")
@@ -40,8 +44,9 @@ public interface ApiService {
     @GET("android/lbs_listfootprint")
     Observable<Result<FootPrintGet>> listUserFootPrint(@Query("target_id") int userid);
 
+    @FormUrlEncoded
     @POST("android/user_upLoadCover")
-    Observable<Result<String>> upLoadUserCover(@Query("coverPath") String coverPath);
+    Observable<Result<String>> upLoadUserCover(@Field("param") String param);
 
 
     @FormUrlEncoded
@@ -50,9 +55,8 @@ public interface ApiService {
     @GET("version.json")
     Observable<Version> checkUpdate();
 
-    @FormUrlEncoded
-    @POST("android/user_updateuserfriends")
-    Observable<Result<List<UserCommonInfo>>>  updateUserFriend3(@Field("friends") String friends);
+    @GET("android/user_updateuserfriends")
+    Observable<Result<List<UserCommonInfo>>>  updateUserFriend3(@Query("friends") String friends);
 
     @POST("android/user_updateuserfriends")
     Observable<Result<List<UserCommonInfo>>> updateUserFriend(@Body Map<String,String> friends);
@@ -61,10 +65,10 @@ public interface ApiService {
     Observable<Result<String>> updateUserInfo3(@Body UserCommonInfo userinfo);
     @FormUrlEncoded
     @POST("android/user_updateuserinfo")
-    Observable<Result<String>> updateUserInfo(@FieldMap Map<String, String> options);
-    @FormUrlEncoded
-    @POST("android/user_updateuserinfo")
-    Observable<Result<String>> updateUserInfo2(@Field("name") String name);
+    Observable<Result<String>> updateUserInfo(@Field("param") String param);
+//    @FormUrlEncoded
+//    @POST("android/user_updateuserinfo")
+//    Observable<Result<String>> updateUserInfo2(@Field("name") String name);
     @GET("android/user_userinfobyid")
     Observable<Result<UserCommonInfo>> getUserInfoById(@Query("taget_userid")int userid);
     @GET("android/user_userinfoandoptions")
@@ -73,8 +77,9 @@ public interface ApiService {
     @GET("android/user_longToken")
     Observable<Result<String>> getSToken(@Query("long_token")String long_token,@Query("phoneId")String phoneId);
 
-    @GET("android/user_login")
-    Observable<Result<User>> readBaidu(@Query("username") String username, @Query("password") String password,@Query("uniqueNum") String uniqueNum);
+    @FormUrlEncoded
+    @POST("android/user_login")
+    Observable<Result<LoginResponseBean>> readBaidu(@Field("param") String param);
 
     @GET("ActionServlet?action=inituserinfo")
     Observable<Result<List<UserCommonInfo>>> initUserInfo(@Query("username") String username, @Query("password") String password);

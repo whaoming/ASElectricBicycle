@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Menu;
@@ -20,7 +21,7 @@ import com.bumptech.glide.request.target.GlideDrawableImageViewTarget;
 import com.wxxiaomi.ming.common.base.AppContext;
 import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.common.weight.DialogHelper;
-import com.wxxiaomi.ming.electricbicycle.manager.AccountHelper;
+import com.wxxiaomi.ming.electricbicycle.manager.Account;
 import com.wxxiaomi.ming.electricbicycle.manager.UserFunctionProvider;
 import com.wxxiaomi.ming.electricbicycle.common.rx.ProgressObserver;
 import com.wxxiaomi.ming.electricbicycle.manager.ShowerProvider;
@@ -62,12 +63,12 @@ public class MyInfoEditActivity extends AppCompatActivity implements View.OnClic
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         userHead = (ImageView) findViewById(R.id.userHead);
         userHead.setOnClickListener(this);
-        ShowerProvider.showHead(this,userHead, AccountHelper.getAccountInfo().avatar);
+        ShowerProvider.showHead(this,userHead, Account.getAccountInfo().avatar);
         util = new PhotoTakeUtil(this);
-        et_nickname.setText(AccountHelper.getAccountInfo().nickname);
-        et_description.setText(AccountHelper.getAccountInfo().description);
+        et_nickname.setText(Account.getAccountInfo().nickname);
+        et_description.setText(Account.getAccountInfo().description);
         et_city = (EditText) findViewById(R.id.et_city);
-        et_city.setText(AccountHelper.getAccountInfo().city);
+        et_city.setText(Account.getAccountInfo().city);
         et_city.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -81,7 +82,7 @@ public class MyInfoEditActivity extends AppCompatActivity implements View.OnClic
 
             @Override
             public void afterTextChanged(Editable editable) {
-                if(!editable.toString().equals(AccountHelper.getAccountInfo().city)){
+                if(!editable.toString().equals(Account.getAccountInfo().city)){
                     city = editable.toString();
                 }else{
                     city = null;
@@ -102,7 +103,7 @@ public class MyInfoEditActivity extends AppCompatActivity implements View.OnClic
 
             @Override
             public void afterTextChanged(Editable editable) {
-                if(!editable.toString().equals(AccountHelper.getAccountInfo().description)){
+                if(!editable.toString().equals(Account.getAccountInfo().description)){
                     description = editable.toString();
                 }else{
                     description = null;
@@ -122,7 +123,7 @@ public class MyInfoEditActivity extends AppCompatActivity implements View.OnClic
 
             @Override
             public void afterTextChanged(Editable editable) {
-                if(!editable.toString().equals(AccountHelper.getAccountInfo().nickname)){
+                if(!editable.toString().equals(Account.getAccountInfo().nickname)){
                     name = editable.toString();
                 }else{
                     name = null;
@@ -159,11 +160,25 @@ public class MyInfoEditActivity extends AppCompatActivity implements View.OnClic
     private void onSumbitBtnClick() {
 
         if(tmpHeadUrl!=null){
-            head = tmpHeadUrl;
+
         }
-        if(head==null&&name==null&&description==null&&city==null){
+        if(tmpHeadUrl==null&&name==null&&description==null&&city==null){
             finish();
         }
+        if(!TextUtils.isEmpty(tmpHeadUrl)){
+            head = tmpHeadUrl;
+        }
+        if(name==null){
+            name = Account.getAccountInfo().nickname;
+        }
+        if (description==null) {
+            description = Account.getAccountInfo().description;
+        }
+
+        if(city==null){
+            city = Account.getAccountInfo().city;
+        }
+
         UserFunctionProvider.getInstance().updateUserInfo(name,head,description,city)
                 .subscribeOn(Schedulers.io())
                 .subscribe(new ProgressObserver<Integer>(this) {

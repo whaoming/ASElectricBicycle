@@ -1,5 +1,7 @@
 package com.wxxiaomi.ming.electricbicycle.common.rx;
 
+import android.util.Log;
+
 import com.wxxiaomi.ming.common.base.AppContext;
 import com.wxxiaomi.ming.common.net.ApiException;
 
@@ -16,6 +18,8 @@ public abstract class ToastObserver<T> extends MyObserver<T>{
     @Override
     protected void onError(ApiException ex) {
 //        Snackbar.make(view,ex.getDisplayMessage(),Snackbar.LENGTH_SHORT).show();
+        ex.printStackTrace();
+        Log.i("wang","ToastObserver中onerror");
         AppContext.showToast(ex.getDisplayMessage());
     }
 

@@ -19,7 +19,7 @@ import com.google.gson.GsonBuilder;
 import com.wxxiaomi.ming.common.util.CommonUtil;
 import com.wxxiaomi.ming.electricbicycle.net.WebMethods;
 import com.wxxiaomi.ming.electricbicycle.web.TestWebActivity;
-import com.wxxiaomi.ming.electricbicycle.manager.AccountHelper;
+import com.wxxiaomi.ming.electricbicycle.manager.Account;
 import com.wxxiaomi.ming.electricbicycle.common.cache.ImgCacheEngine;
 import com.wxxiaomi.ming.webmodule.action.dialog.AlertAction;
 import com.wxxiaomi.ming.webmodule.action.dialog.DialogACtion;
@@ -218,16 +218,16 @@ public abstract class ComBuildImpl extends BuilderDetail {
         mWebView.registerHandler("getUserId", new BridgeHandler() {
             @Override
             public void handler(String data, CallBackFunction function) {
-                int id = AccountHelper.getAccountInfo().id;
+                int id = Account.getAccountInfo().id;
                 function.onCallBack(id+"");
             }
         });
         mWebView.registerHandler("getUser", new BridgeHandler() {
             @Override
             public void handler(String data, CallBackFunction function) {
-                String json = "{\"id\":\""+AccountHelper.getAccountInfo().id
-                        +"\",\"name\":\""+AccountHelper.getAccountInfo().nickname
-                        +"\",\"head\":\""+AccountHelper.getAccountInfo().avatar+"\"}";
+                String json = "{\"id\":\""+ Account.getAccountInfo().id
+                        +"\",\"name\":\""+ Account.getAccountInfo().nickname
+                        +"\",\"head\":\""+ Account.getAccountInfo().avatar+"\"}";
                 function.onCallBack(json);
             }
         });
@@ -235,7 +235,7 @@ public abstract class ComBuildImpl extends BuilderDetail {
         mWebView.registerHandler("usrSimInfo", new BridgeHandler() {
             @Override
             public void handler(String data, CallBackFunction function) {
-                function.onCallBack(new Gson().toJson(AccountHelper.getAccountInfo()));
+                function.onCallBack(new Gson().toJson(Account.getAccountInfo()));
             }
         });
     }

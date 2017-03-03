@@ -5,23 +5,20 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
 import com.wxxiaomi.ming.electricbicycle.R;
-import com.wxxiaomi.ming.electricbicycle.ui.activity.base.BaseActivity;
+import com.wxxiaomi.ming.electricbicycle.ui.activity.base.MvpActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.FriendAddPresenter;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.impl.FriendAddPresenterImpl;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.view.FriendAddView;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.pulltorefresh.recycleview.PullToRefreshRecyclerView;
 
-import java.lang.reflect.Field;
-
 /**
  * Created by 12262 on 2016/6/15.
  */
-public class FriendAddActivity extends BaseActivity<FriendAddView, FriendAddPresenter> implements FriendAddView<FriendAddPresenter> {
+public class FriendAddActivity extends MvpActivity<FriendAddView, FriendAddPresenter> implements FriendAddView<FriendAddPresenter> {
 
     private Toolbar toolbar;
     private SearchView searchView;
@@ -73,11 +70,6 @@ public class FriendAddActivity extends BaseActivity<FriendAddView, FriendAddPres
     public FriendAddPresenter getPresenter() {
         return new FriendAddPresenterImpl();
     }
-
-//    @Override
-//    public void setListAdaper(NearFriendRecommendAdapter1 adapter) {
-//        mRecyclerView.setAdapter(adapter);
-//    }
 
     @Override
     public PullToRefreshRecyclerView getListView() {

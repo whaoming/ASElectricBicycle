@@ -3,6 +3,7 @@ package com.wxxiaomi.ming.electricbicycle.db;
 import com.wxxiaomi.ming.electricbicycle.db.bean.User;
 import com.wxxiaomi.ming.electricbicycle.db.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.db.bean.UserLocatInfo;
+import com.wxxiaomi.ming.electricbicycle.db.bean.format.LoginResponseBean;
 
 import java.util.List;
 
@@ -49,7 +50,7 @@ public interface UserDao {
      * @param password
      * @return
      */
-    Observable<User> Login(String username, String password,String num);
+    Observable<LoginResponseBean> Login(String username, String password, String num);
 
     /**
      * 判断是否存在当前临时用户表中

@@ -15,7 +15,7 @@ import com.wxxiaomi.ming.electricbicycle.net.HttpMethods;
 import com.wxxiaomi.ming.common.util.AppManager;
 import com.wxxiaomi.ming.electricbicycle.db.bean.User;
 import com.wxxiaomi.ming.electricbicycle.im.ImHelper1;
-import com.wxxiaomi.ming.electricbicycle.manager.AccountHelper;
+import com.wxxiaomi.ming.electricbicycle.manager.Account;
 import com.wxxiaomi.ming.electricbicycle.common.rx.ProgressObserver;
 
 import rx.Observable;
@@ -68,7 +68,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 .flatMap(new Func1<User, Observable<Boolean>>() {
                     @Override
                     public Observable<Boolean> call(User user) {
-                        AccountHelper.updateUserCache(user);
+                        Account.updateUserCache(user);
                         return ImHelper1.getInstance().LoginFromEm(user.username, user.password);
                     }
                 }).subscribe(new ProgressObserver<Boolean>(this) {

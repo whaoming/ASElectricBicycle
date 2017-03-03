@@ -8,9 +8,11 @@ import com.google.gson.JsonParseException;
 import java.lang.reflect.Type;
 
 /**
- * Created by 12262 on 2016/11/13.
- */
-
+* @author whaoming
+* github：https://github.com/whaoming
+* created at 2017/2/24 9:50
+* TODO: 用于dialog相关的json解析
+*/
 public class DialogTypeAdapter implements JsonDeserializer<DialogACtion> {
     @Override
     public DialogACtion deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {

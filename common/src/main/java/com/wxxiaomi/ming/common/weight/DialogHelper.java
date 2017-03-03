@@ -3,10 +3,14 @@ package com.wxxiaomi.ming.common.weight;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.AppCompatEditText;
 import android.text.TextUtils;
+import android.view.Gravity;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.wxxiaomi.ming.common.R;
 
@@ -21,6 +25,22 @@ public final class DialogHelper {
     public static AlertDialog.Builder getDialog(Context context) {
         return new AlertDialog.Builder(context, R.style.App_Theme_Dialog_Alert);
     }
+    public static AlertDialog.Builder getBottomDialog(Context context) {
+        return new AlertDialog.Builder(context, R.style.BottomDialogs);
+    }
+
+
+    public static void showBottomDialog(AlertDialog dialog){
+        dialog.show();
+        Window window = dialog.getWindow();
+        window.setGravity(Gravity.BOTTOM);
+        WindowManager.LayoutParams lp = window.getAttributes();
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        window.setAttributes(lp);
+    }
+
+
 
     /**
      * 获取一个普通的消息对话框，没有取消按钮
@@ -351,7 +371,7 @@ public final class DialogHelper {
             Context context, String title, String[] items,
             String positiveText,
             DialogInterface.OnClickListener itemListener) {
-        return getDialog(context)
+        return getBottomDialog(context)
                 .setTitle(title)
                 .setItems(items, itemListener)
                 .setPositiveButton(positiveText, null);
@@ -374,4 +394,21 @@ public final class DialogHelper {
                 .setView(view)
                 .setPositiveButton(positiveText, null);
     }
+//    public class MyAlertDialog extends AlertDialog{
+//
+//        protected MyAlertDialog(@NonNull Context context) {
+//            super(context);
+//        }
+//
+//        @Override
+//        public void show() {
+//            super.show();
+//            WindowManager.LayoutParams lp = getWindow().getAttributes();
+//            lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+//            lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+//            getWindow().setAttributes(lp);
+//        }
+//
+//
+//    }
 }

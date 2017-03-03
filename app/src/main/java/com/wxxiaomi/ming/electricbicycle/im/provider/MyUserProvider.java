@@ -8,7 +8,7 @@ import com.hyphenate.easeui.controller.EaseUI;
 import com.hyphenate.easeui.domain.EaseUser;
 import com.wxxiaomi.ming.common.cache.LRUCache;
 import com.wxxiaomi.ming.electricbicycle.db.bean.UserCommonInfo;
-import com.wxxiaomi.ming.electricbicycle.manager.AccountHelper;
+import com.wxxiaomi.ming.electricbicycle.manager.Account;
 import com.wxxiaomi.ming.electricbicycle.manager.ShowerProvider;
 
 import java.util.List;
@@ -34,7 +34,7 @@ public class MyUserProvider implements EaseUI.EaseUserProfileProvider {
 
             userCache.put(info.emname, user);
         }
-        UserCommonInfo info = AccountHelper.getAccountInfo();
+        UserCommonInfo info = Account.getAccountInfo();
         putUser(info);
     }
 

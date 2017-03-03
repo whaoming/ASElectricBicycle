@@ -308,6 +308,7 @@ public class ImHelper1 implements Contract.IService {
             public void call(Subscriber<? super Boolean> subscriber) {
                 try {
                     EMClient.getInstance().contactManager().addContact(emname, content);
+//                    EMClient.getInstance().contactManager().ad
                     subscriber.onNext(true);
                 } catch (HyphenateException e) {
                     e.printStackTrace();

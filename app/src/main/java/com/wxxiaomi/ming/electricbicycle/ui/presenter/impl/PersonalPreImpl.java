@@ -1,7 +1,7 @@
 package com.wxxiaomi.ming.electricbicycle.ui.presenter.impl;
 
 
-import com.wxxiaomi.ming.electricbicycle.manager.AccountHelper;
+import com.wxxiaomi.ming.electricbicycle.manager.Account;
 import com.wxxiaomi.ming.electricbicycle.manager.UserFunctionProvider;
 import com.wxxiaomi.ming.electricbicycle.common.rx.ProgressObserver;
 import com.wxxiaomi.ming.electricbicycle.db.bean.Option;
@@ -34,7 +34,7 @@ public class PersonalPreImpl extends BasePreImpl<PersonaView> implements Persona
     public void init() {
         listView = mView.getListView();
         listView.setRefreshing(true);
-        String cover = AccountHelper.getAccountInfo().cover;
+        String cover = Account.getAccountInfo().cover;
         if(cover!=null){
             ShowerProvider.showNormalImage(mView.getContext(), mView.getBackImgContent(),cover);
         }
@@ -45,12 +45,12 @@ public class PersonalPreImpl extends BasePreImpl<PersonaView> implements Persona
     @Override
     public void onViewResume() {
         super.onViewResume();
-        ShowerProvider.showHead(mView.getContext(), mView.getHeadView(), AccountHelper.getAccountInfo().avatar);
-        mView.setViewData(AccountHelper.getAccountInfo());
+        ShowerProvider.showHead(mView.getContext(), mView.getHeadView(), Account.getAccountInfo().avatar);
+        mView.setViewData(Account.getAccountInfo());
     }
 
     private void requestOptionData() {
-        UserFunctionProvider.getInstance().getUserOptions(AccountHelper.getAccountInfo().id)
+        UserFunctionProvider.getInstance().getUserOptions(Account.getAccountInfo().id)
                 .subscribe(new Action1<List<Option>>() {
                     @Override
                     public void call(List<Option> options) {

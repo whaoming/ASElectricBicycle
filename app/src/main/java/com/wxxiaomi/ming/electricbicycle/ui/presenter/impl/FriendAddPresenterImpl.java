@@ -13,7 +13,7 @@ import com.wxxiaomi.ming.electricbicycle.db.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.db.bean.UserLocatInfo;
 
 import com.wxxiaomi.ming.common.weight.DialogHelper;
-import com.wxxiaomi.ming.electricbicycle.manager.AccountHelper;
+import com.wxxiaomi.ming.electricbicycle.manager.Account;
 import com.wxxiaomi.ming.electricbicycle.manager.UserFunctionProvider;
 import com.wxxiaomi.ming.electricbicycle.common.rx.MyObserver;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.HomeActivity;
@@ -82,7 +82,7 @@ public class FriendAddPresenterImpl extends BasePreImpl<FriendAddView> implement
 //            }
 //        };
 
-        UserFunctionProvider.getInstance().getNearPeople(AccountHelper.getAccountInfo().id
+        UserFunctionProvider.getInstance().getNearPeople(Account.getAccountInfo().id
                 , LocatProvider.getInstance().getLatitude()
                 , LocatProvider.getInstance().getLongitude())
                 .subscribe(new MyObserver<List<UserLocatInfo>>() {
@@ -158,13 +158,6 @@ public class FriendAddPresenterImpl extends BasePreImpl<FriendAddView> implement
                         adapter1.setNewData(userCommonInfos);
                     }
                 });
-//                .subscribe(new ProgressObserver<List<UserCommonInfo>>(mView.getContext()) {
-//                    @Override
-//                    public void onNext(List<UserCommonInfo> initUserInfo) {
-//                            isNear = false;
-//                             adapter1.setNewData(initUserInfo);
-//                    }
-//                });
     }
 
     @Override

@@ -20,7 +20,7 @@ import com.wxxiaomi.ming.electricbicycle.db.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.db.bean.UserLocatInfo;
 import com.wxxiaomi.ming.electricbicycle.car.DriveActivity;
 import com.wxxiaomi.ming.electricbicycle.car.TouchBoundActivity;
-import com.wxxiaomi.ming.electricbicycle.manager.AccountHelper;
+import com.wxxiaomi.ming.electricbicycle.manager.Account;
 import com.wxxiaomi.ming.electricbicycle.manager.ShowerProvider;
 import com.wxxiaomi.ming.electricbicycle.im.EmConstant;
 import com.wxxiaomi.ming.electricbicycle.manager.UserFunctionProvider;
@@ -42,6 +42,9 @@ import com.wxxiaomi.ming.electricbicycle.ui.weight.custom.CircularImageView;
 import com.wxxiaomi.ming.touch.BluetoothHelper;
 
 import java.util.List;
+
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 /**
  * Created by 12262 on 2016/6/6.
@@ -244,8 +247,8 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
 
     @Override
     public void onViewResume() {
-        ShowerProvider.showHead(mView.getContext(), mView.getHeadView(), AccountHelper.getAccountInfo().avatar);
-        ShowerProvider.showHead(mView.getContext(), mView.getDrawerAvatar(), AccountHelper.getAccountInfo().avatar);
+        ShowerProvider.showHead(mView.getContext(), mView.getHeadView(), Account.getAccountInfo().avatar);
+        ShowerProvider.showHead(mView.getContext(), mView.getDrawerAvatar(), Account.getAccountInfo().avatar);
     }
 
     @Override
@@ -295,7 +298,10 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
 
     public void getNearByFromServer(final double latitude,
                                     final double longitude) {
-        UserFunctionProvider.getInstance().getNearPeople(AccountHelper.getAccountInfo().id, latitude, longitude)
+        UserFunctionProvider.getInstance().getNearPeople(Account.getAccountInfo().id, latitude, longitude)
+                .subscribeOn(Schedulers.io())
+//                .unsubscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
                         new ToastObserver<List<UserLocatInfo>>() {
                             @Override

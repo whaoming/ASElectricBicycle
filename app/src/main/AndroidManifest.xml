@@ -2,8 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.wxxiaomi.ming.electricbicycle">
+
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.SET_DEBUG_APP" />
     <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
     <!-- 这个权限用于进行网络定位 -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -170,9 +172,9 @@
         <activity
             android:name=".ui.activity.LoginActivity"
             android:screenOrientation="portrait" />
-        <!--<activity-->
-            <!--android:name=".ui.activity.PersonalAct"-->
-            <!--android:screenOrientation="portrait" />-->
+        <!-- <activity -->
+        <!-- android:name=".ui.activity.PersonalAct" -->
+        <!-- android:screenOrientation="portrait" /> -->
         <activity
             android:name=".ui.activity.HomeActivity"
             android:launchMode="singleTask"
@@ -183,11 +185,11 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.FriendAddActivity"
-            android:windowSoftInputMode="adjustPan|stateHidden"
-            android:screenOrientation="portrait" />
-        <!--<activity-->
-            <!--android:name=".ui.activity.UserInfoAct"-->
-            <!--android:screenOrientation="portrait" />-->
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <!-- <activity -->
+        <!-- android:name=".ui.activity.UserInfoAct" -->
+        <!-- android:screenOrientation="portrait" /> -->
         <!-- <activity -->
         <!-- android:name=".core.ui.view.activity.RegisterOneAct" -->
         <!-- android:screenOrientation="portrait" /> -->
@@ -200,10 +202,12 @@
         <activity
             android:name=".web.TestWebActivity"
             android:screenOrientation="portrait" />
-        <!--<activity android:name="com.squareup.leakcanary.internal.DisplayLeakActivity" />-->
+        <!-- <activity android:name="com.squareup.leakcanary.internal.DisplayLeakActivity" /> -->
 
-        <!--<service android:name="com.squareup.leakcanary.internal.HeapAnalyzerService" />-->
-        <!--<service android:name="com.squareup.leakcanary.DisplayLeakService" />-->
+
+        <!-- <service android:name="com.squareup.leakcanary.internal.HeapAnalyzerService" /> -->
+        <!-- <service android:name="com.squareup.leakcanary.DisplayLeakService" /> -->
+
 
         <!-- <activity -->
         <!-- android:name=".view.activity.RegisterTwoActivity" -->
@@ -250,7 +254,8 @@
         <activity android:name=".ui.activity.InviteMsgActivity" />
         <activity android:name=".car.TouchBoundActivity" />
         <activity android:name=".car.DriveActivity" />
-        <activity android:name=".car.CarSettingActivity"></activity>
+        <activity android:name=".car.CarSettingActivity" />
+        <activity android:name=".ui.activity.BlackListActivity"></activity>
     </application>
 
 </manifest>

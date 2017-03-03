@@ -10,7 +10,7 @@ import com.wxxiaomi.ming.electricbicycle.R;
 
 import com.wxxiaomi.ming.common.util.TimeUtil;
 import com.wxxiaomi.ming.electricbicycle.db.bean.Option;
-import com.wxxiaomi.ming.electricbicycle.manager.AccountHelper;
+import com.wxxiaomi.ming.electricbicycle.manager.Account;
 import com.wxxiaomi.ming.electricbicycle.manager.ShowerProvider;
 
 import java.util.List;
@@ -42,7 +42,7 @@ public class OptionAdapter3 extends RecyclerView.Adapter<RecyclerView.ViewHolder
             Option option = list.get(position);
             if(option!=null){
                 int flag = option.type;
-                String avatar = AccountHelper.getAccountInfo().avatar;
+                String avatar = Account.getAccountInfo().avatar;
                 ShowerProvider.showHead(mContext,holder.iv_avatar,avatar);
                 switch (flag){
                     case OptionType.TOPIC_PUBLISH:

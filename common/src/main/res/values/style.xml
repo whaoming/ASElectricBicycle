@@ -5,4 +5,44 @@
     <style name="App.Theme.Dialog.Alert" parent="ThemeOverlay.AppCompat.Dialog.Alert">
         <item name="android:textColorPrimary">@color/black_alpha_240</item>
     </style>
+
+    <style name="BottomDialogs" parent="ThemeOverlay.AppCompat.Dialog.Alert">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowAnimationStyle">@style/BottomDialogsAnimation</item>
+    </style>
+
+    <style name="BottomDialogsAnimation">
+        <item name="android:windowEnterAnimation">@anim/sheet_show</item>
+        <item name="android:windowExitAnimation">@anim/sheet_hide</item>
+    </style>
+
+    <!--&lt;!&ndash;沉底对话框样式2(背景透明)&ndash;&gt;-->
+    <!--<style name="BottomDialogStyle2"  parent="@android:style/Theme.Dialog">-->
+        <!--<item name="android:windowBackground">@android:color/transparent</item>-->
+        <!--<item name="android:windowFrame">@null</item>-->
+        <!--<item name="android:windowContentOverlay">@null</item>-->
+        <!--&lt;!&ndash; 弹出的时候是否有动画效果 &ndash;&gt;-->
+        <!--<item name="android:windowAnimationStyle">@style/LocationStyleAnimation</item>-->
+        <!--&lt;!&ndash; 背后有阴影 &ndash;&gt;-->
+        <!--<item name="android:backgroundDimEnabled">true</item>-->
+        <!--&lt;!&ndash; 透明状态 &ndash;&gt;-->
+        <!--<item name="android:windowIsTranslucent">true</item>-->
+        <!--&lt;!&ndash; 去掉标题 &ndash;&gt;-->
+        <!--<item name="android:windowNoTitle">true</item>-->
+        <!--&lt;!&ndash; 点击外部允许取消对话框 &ndash;&gt;-->
+        <!--<item name="android:windowCloseOnTouchOutside">true</item>-->
+    <!--</style>-->
+
+    <!--&lt;!&ndash; 定义动画样式 &ndash;&gt;-->
+    <!--<style name="LocationStyleAnimation">-->
+        <!--<item name="android:windowEnterAnimation">@anim/input_method_enter</item>-->
+        <!--<item name="android:windowExitAnimation">@anim/input_method_exit</item>-->
+    <!--</style>-->
+
+
 </resources>
