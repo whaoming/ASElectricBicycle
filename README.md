@@ -21,9 +21,9 @@
 
 
 <h2 id="yulan">预览</h2>  
-### native部分
-| 启动界面        | 首页一角           | 好友界面  |
-|:-------------:|:-------------:|:-------------:|
+### native部分  
+| 启动界面        | 首页一角           | 好友界面  |  
+|:-------------:|:-------------:|:-------------:|  
     ![image](https://github.com/whaoming/aboutme/blob/master/image/%E5%90%AF%E5%8A%A8%E7%95%8C%E9%9D%A2.gif?raw=true)     | ![image](https://github.com/whaoming/aboutme/blob/master/image/%E9%A6%96%E9%A1%B5%E9%99%84%E8%BF%91%E7%9A%84%E4%BA%BA%E5%8A%A8%E7%94%BB.gif?raw=true) | ![image](https://github.com/whaoming/aboutme/blob/master/image/%E5%A5%BD%E5%8F%8B%E7%95%8C%E9%9D%A2+%E6%9F%A5%E6%89%BE%E5%A5%BD%E5%8F%8B%E6%93%8D%E4%BD%9C.gif?raw=true)  
 | 个人头像修改 | 图片选择  | 聊天界面 |
 ![image](https://github.com/whaoming/aboutme/blob/master/image/%E5%A4%B4%E5%83%8F%E4%BF%AE%E6%94%B9.gif?raw=true) | ![image](https://github.com/whaoming/aboutme/blob/master/image/%E5%9B%BE%E7%89%87%E9%80%89%E6%8B%A9%E9%A1%B5%E9%9D%A2.png?raw=true) | 总是截不了gif
