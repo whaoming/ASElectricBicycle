@@ -45,7 +45,6 @@ public final class NoticeManager {
 //        Log.i("wang","NoticeManager初始化了");
         NoticeBean nb = NoticeBean.getInstance(context);
         INSTANCE.onNoticeChanged(nb);
-
         LocalBroadcastManager broadcastManager = LocalBroadcastManager.getInstance(context);
         IntentFilter filter = new IntentFilter();
         filter.addAction(ImHelper1.NOTICE_MESSAGE_RECEIVE);

@@ -50,7 +50,6 @@ public class ImHelper1 implements Contract.IService {
     public static final String ACTION_INVITE = "action_invite";
     public static final String ACTION_INVITE_AGREE = "action_invite_agree";
 
-
     private ImHelper1() {
     }
 
@@ -251,10 +250,12 @@ public class ImHelper1 implements Contract.IService {
         return Observable.create(new Observable.OnSubscribe<Boolean>() {
             @Override
             public void call(final Subscriber<? super Boolean> subscriber) {
+                Log.i("wang","在登录环信的过程中");
                 EMClient.getInstance().login(username, password,
                         new EMCallBack() {
                             @Override
                             public void onSuccess() {
+
                                 // ** 第一次登录或者之前logout后再登录，加载所有本地群和回话
                                 try {
                                     EMClient.getInstance().groupManager().loadAllGroups();
@@ -262,6 +263,8 @@ public class ImHelper1 implements Contract.IService {
                                             .loadAllConversations();
                                     EMClient.getInstance().updateCurrentUserNick(
                                             username);
+
+                                    Log.d("wang","登录环信成功:"+EMClient.getInstance().getCurrentUser());
                                     subscriber.onNext(true);
                                 } catch (Exception e) {
                                     e.printStackTrace();
@@ -322,6 +325,8 @@ public class ImHelper1 implements Contract.IService {
                 ;
 
     }
+
+
     public String getCurrentEmUser(){
         return EMClient.getInstance().getCurrentUser();
     }
@@ -430,7 +435,6 @@ public class ImHelper1 implements Contract.IService {
     public void notifyMsg(String action) {
         if(ACTION_INVITE.equals(action)){
             getNotifier().vibrateAndPlayTone(null);
-//            broadcastManager.sendBroadcast(new Intent(EmConstant.ACTION_CONTACT_CHANAGED));
             Intent intent = new Intent(NOTICE_MESSAGE_RECEIVE);
             NoticeBean n = new NoticeBean();
             n.setInvite(1);

@@ -19,7 +19,7 @@ import android.widget.Toast;
 
 import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.car.adapter.BluetoothDeviceAdapter;
-import com.wxxiaomi.ming.common.weight.DialogHelper;
+import com.wxxiaomi.ming.common.widget.DialogHelper;
 import com.wxxiaomi.ming.touch.BluetoothHelper;
 
 import java.util.Collections;

@@ -1,4 +1,4 @@
-package com.wxxiaomi.ming.common.weight;
+package com.wxxiaomi.ming.common.widget;
 
 import android.content.Context;
 import android.view.Gravity;

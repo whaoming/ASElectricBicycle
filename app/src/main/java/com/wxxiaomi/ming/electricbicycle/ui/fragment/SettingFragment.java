@@ -15,7 +15,7 @@ import com.wxxiaomi.ming.common.cache.CacheManager;
 import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.common.util.AppManager;
 import com.wxxiaomi.ming.electricbicycle.manager.update.CheckUpdateManager;
-import com.wxxiaomi.ming.common.weight.DialogHelper;
+import com.wxxiaomi.ming.common.widget.DialogHelper;
 import com.wxxiaomi.ming.electricbicycle.manager.update.Version;
 import com.wxxiaomi.ming.electricbicycle.manager.Account;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.LoginActivity;

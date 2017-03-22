@@ -9,7 +9,7 @@ import android.support.v4.content.SharedPreferencesCompat;
 import android.view.Gravity;
 import android.widget.Toast;
 
-import com.wxxiaomi.ming.common.weight.SimplexToast;
+import com.wxxiaomi.ming.common.widget.SimplexToast;
 
 
 @SuppressLint("InflateParams")

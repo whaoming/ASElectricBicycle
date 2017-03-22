@@ -131,29 +131,15 @@ public class HttpMethods {
         for (String e : emnamelist) {
             temp += e + "<>";
         }
-//        return demoService.getUserListByEmList(temp)
-//                .flatMap(new Direct<List<UserCommonInfo>>(new TokenProviderImpl()))
-//                .subscribeOn(Schedulers.io());
         return  Direct2.create( demoService.getUserListByEmList(temp),new TokenProviderImpl());
     }
 
     public Observable<List<UserCommonInfo>> getUserCommonInfo2ByEmname(String emname) {
         emname = emname + "<>";
-//        return demoService.getUserListByEmList(emname)
-//                .flatMap(new Direct<List<UserCommonInfo>>(new TokenProviderImpl()));
        return  Direct2.create(demoService.getUserListByEmList(emname),new TokenProviderImpl());
     }
 
     public Observable<List<UserLocatInfo>> getNearByFromServer(int userid, double latitude, double longitude) {
-//        return demoService.getNearByFromServer(latitude, longitude)
-//                .flatMap(new Direct<List<UserLocatInfo>>(new TokenProviderImpl()))
-//                .onErrorResumeNext(new Func1<Throwable, Observable<? extends List<UserLocatInfo>>>() {
-//                    @Override
-//                    public Observable<? extends List<UserLocatInfo>> call(Throwable throwable) {
-//                        Log.i("wang","拦截到错误1");
-//                        return null;
-//                    }
-//                });
         return Direct2.create(demoService.getNearByFromServer(latitude, longitude),new TokenProviderImpl());
     }
 

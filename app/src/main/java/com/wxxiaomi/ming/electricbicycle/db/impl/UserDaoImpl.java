@@ -54,15 +54,15 @@ public class UserDaoImpl implements UserDao {
         return HttpMethods.getInstance().getUserListByEmList(usernames);
     }
 
-    @Override
-    public Observable<List<UserLocatInfo>> getNearPeople(int userid, double latitude, double longitude) {
-        return HttpMethods.getInstance().getNearByFromServer(userid, latitude, longitude);
-    }
-
-    @Override
-    public Observable<LoginResponseBean> Login(String username, String password, String num) {
-        return HttpMethods.getInstance().login(username, password,num);
-    }
+//    @Override
+//    public Observable<List<UserLocatInfo>> getNearPeople(int userid, double latitude, double longitude) {
+//        return HttpMethods.getInstance().getNearByFromServer(userid, latitude, longitude);
+//    }
+//
+//    @Override
+//    public Observable<LoginResponseBean> Login(String username, String password, String num) {
+//        return HttpMethods.getInstance().login(username, password,num);
+//    }
 
     @Override
     public Observable<Boolean> isTempUserExist(final String emname) {
@@ -118,17 +118,17 @@ public class UserDaoImpl implements UserDao {
         });
     }
 
-    @Override
-    public Observable<List<UserCommonInfo>> getUserCommonInfo2ByName(String name) {
-        return HttpMethods.getInstance().getUserCommonInfo2ByName(name);
-    }
-
-
-    @Override
-    public Observable<String> upLoadHead(String fileName, String filePath) {
-        RequestBody requestBody = RequestBody.create(MediaType.parse("image/*"), new File(filePath));
-        return HttpMethods.getInstance().upLoadHead(fileName, requestBody);
-    }
+//    @Override
+//    public Observable<List<UserCommonInfo>> getUserCommonInfo2ByName(String name) {
+//        return HttpMethods.getInstance().getUserCommonInfo2ByName(name);
+//    }
+//
+//
+//    @Override
+//    public Observable<String> upLoadHead(String fileName, String filePath) {
+//        RequestBody requestBody = RequestBody.create(MediaType.parse("image/*"), new File(filePath));
+//        return HttpMethods.getInstance().upLoadHead(fileName, requestBody);
+//    }
 
     @Override
     public Observable<UserCommonInfo> InsertUser(final UserCommonInfo info) {

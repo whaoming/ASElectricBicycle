@@ -18,9 +18,11 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.wxxiaomi.ming.electricbicycle.common.util.HashUtil;
 import com.wxxiaomi.ming.electricbicycle.db.FriendDao;
 import com.wxxiaomi.ming.electricbicycle.db.InviteMessgeDao;
 import com.wxxiaomi.ming.electricbicycle.db.UserDao;
+import com.wxxiaomi.ming.electricbicycle.manager.Account;
 
 
 /**
@@ -48,6 +50,7 @@ public class DbOpenHelper extends SQLiteOpenHelper{
 			+ InviteMessgeDao.COLUMN_NAME_NICK + " TEXT, "
 			+ InviteMessgeDao.COLUMN_NAME_AVATAR + " TEXT, "
 			+ InviteMessgeDao.COLUMN_NAME_UNREAD_MSG_COUNT + " INTEGER, "
+			+ InviteMessgeDao.COLUMN_NAME_ISACCEPT + " INTEGER, "
 			+ InviteMessgeDao.COLUMN_NAME_TIME + " TEXT); ";
 //
 //	private static final String TEMP_USERNAME_TABLE_CREATE = "CREATE TABLE "
@@ -67,6 +70,7 @@ public class DbOpenHelper extends SQLiteOpenHelper{
 //			+ FriendDao.COLUMN_NAME_DESCRIPTION + " TEXT, "
 			+ FriendDao.COLUMN_NAME_EMNAME + " TEXT, "
 			+ FriendDao.COLUMN_NAME_NAME + " TEXT, "
+			+ FriendDao.COLUMN_NAME_BLACK + " INTEGER, "
 //			+ FriendDao.COLUMN_NAME_SEX + " INTEGER, "
 			+ FriendDao.COLUMN_NAME_UPDATETIME + " TEXT, "
 			+ FriendDao.COLUMN_NAME_ID + " INTEGER PRIMARY KEY);";
@@ -119,8 +123,7 @@ public class DbOpenHelper extends SQLiteOpenHelper{
 	}
 	
 	private static String getUserDatabaseName() {
-//        return  DemoHelper.getInstance().getCurrentUsernName() + "_demo.db";
-		return "demo.db";
+		return HashUtil.hashKeyForDisk(Account.getUser().userCommonInfo.emname)+".db";
     }
 	
 	@Override

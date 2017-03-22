@@ -21,6 +21,7 @@ public class Direct2 {
    public static<T> Observable<T> create(Observable<Result<T>> resurce,TokenProvider tokenProvider){
        return resurce
                .map(new ResultParseInterceptor<T>())
+
                .retryWhen(new TokenExpireInterceptor(tokenProvider))
                .onErrorResumeNext(new ErrorInterceptor<T>())
                 .observeOn(AndroidSchedulers.mainThread())

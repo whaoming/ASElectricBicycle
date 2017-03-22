@@ -2,6 +2,7 @@ package com.wxxiaomi.ming.electricbicycle.ui.fragment;
 
 import android.os.Bundle;
 import android.support.v4.widget.NestedScrollView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
@@ -30,7 +31,7 @@ public class InfoDetailFragment extends BaseFragment{
             case 1:
                 userinfo = (UserCommonInfo) bundle.getSerializable(ConstantValue.BUNDLE_USERINFO);
                 isMine = bundle.getBoolean(ConstantValue.INTENT_ISMINE);
-                tv_locat.setText(userinfo.city==null?"月球":userinfo.city);
+                tv_locat.setText(TextUtils.isEmpty(userinfo.city)?"月球":userinfo.city);
                 time_registe.setText(userinfo.create_time);
                 break;
         }

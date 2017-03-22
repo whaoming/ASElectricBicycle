@@ -284,7 +284,7 @@ int drawable ic_launcher 0x7f0200a7
 int drawable ic_message_grey600_24dp 0x7f0200a8
 int drawable ic_mic_grey600_24dp 0x7f0200a9
 int id alert_message 0x7f09000d
-int id avatar 0x7f090024
+int id avatar 0x7f090025
 int id avatar_container 0x7f090023
 int id bmapView 0x7f090007
 int id btn_cancel 0x7f09000e
@@ -306,7 +306,6 @@ int id chatting_video_data_area 0x7f09003b
 int id close 0x7f090003
 int id contact_list 0x7f09001c
 int id content_container 0x7f09001b
-int id demo 0x7f090026
 int id edittext_layout 0x7f090053
 int id emojicon 0x7f09001f
 int id emojicon_menu_container 0x7f09004e
@@ -343,12 +342,13 @@ int id message_list 0x7f090018
 int id mic_image 0x7f090068
 int id msg_state 0x7f090029
 int id msg_status 0x7f090043
-int id name 0x7f090027
+int id name 0x7f090028
 int id none 0x7f090000
 int id open 0x7f090004
 int id pager_view 0x7f09005c
 int id pb_load_local 0x7f090009
 int id percentage 0x7f090039
+int id portrait_panel 0x7f090024
 int id primary_menu 0x7f09001e
 int id primary_menu_container 0x7f09004b
 int id progressBar 0x7f09000b
@@ -372,7 +372,7 @@ int id tab_bar 0x7f09005e
 int id tab_container 0x7f090060
 int id text 0x7f090010
 int id textView 0x7f09000c
-int id time 0x7f090028
+int id time 0x7f090026
 int id timestamp 0x7f09002e
 int id title 0x7f090005
 int id title_bar 0x7f090016
@@ -386,7 +386,7 @@ int id tv_length 0x7f090041
 int id tv_location 0x7f090036
 int id tv_name 0x7f090021
 int id tv_userid 0x7f090031
-int id unread_msg_number 0x7f090025
+int id unread_msg_number 0x7f090027
 int id vPager 0x7f090014
 int id voice_recorder 0x7f090019
 int layout ease_activity_baidumap 0x7f030000

@@ -2,6 +2,7 @@ package com.wxxiaomi.ming.electricbicycle.im.operator;
 
 import com.hyphenate.easeui.domain.EaseUser;
 import com.wxxiaomi.ming.electricbicycle.EBApplication;
+import com.wxxiaomi.ming.electricbicycle.db.InviteMessgeDao;
 import com.wxxiaomi.ming.electricbicycle.db.bean.InviteMessage;
 import com.wxxiaomi.ming.electricbicycle.db.impl.InviteMessgeDaoImpl2;
 import com.wxxiaomi.ming.electricbicycle.im.ImHelper1;
@@ -54,7 +55,7 @@ public class InviteGetOperator implements Contract.IOperator {
                         msg.setReason(reason);
                         msg.setNickname(easeUser.getNick());
                         msg.setAvatar(easeUser.getAvatar());
-                        InviteMessgeDaoImpl2 dao = new InviteMessgeDaoImpl2(EBApplication.applicationContext);
+                        InviteMessgeDao dao = new InviteMessgeDaoImpl2(EBApplication.applicationContext);
                         dao.saveMessage(msg);
                         return Observable.just(1);
                     }

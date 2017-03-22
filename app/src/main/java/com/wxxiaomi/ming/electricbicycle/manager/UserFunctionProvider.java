@@ -10,9 +10,7 @@ import com.wxxiaomi.ming.common.util.TimeUtil;
 import com.wxxiaomi.ming.electricbicycle.db.FriendDao;
 import com.wxxiaomi.ming.electricbicycle.db.bean.InviteMessage;
 import com.wxxiaomi.ming.electricbicycle.db.bean.Option;
-import com.wxxiaomi.ming.electricbicycle.db.bean.User;
 import com.wxxiaomi.ming.electricbicycle.db.bean.UserCommonInfo;
-import com.wxxiaomi.ming.electricbicycle.db.bean.UserLocatInfo;
 
 import com.wxxiaomi.ming.electricbicycle.db.bean.format.FootPrintGet;
 import com.wxxiaomi.ming.electricbicycle.db.bean.format.UserInfo;
@@ -180,9 +178,9 @@ public class UserFunctionProvider {
                 });
     }
 
-    public Observable<List<UserLocatInfo>> getNearPeople(int userid, double latitude, double longitude) {
-        return userDao.getNearPeople(userid, latitude, longitude);
-    }
+//    public Observable<List<UserLocatInfo>> getNearPeople(int userid, double latitude, double longitude) {
+//        return userDao.getNearPeople(userid, latitude, longitude);
+//    }
 
     public Observable<List<UserCommonInfo>> getUserByNameFWeb(String name) {
         return HttpMethods.getInstance().getUserCommonInfo2ByName(name);

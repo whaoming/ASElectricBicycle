@@ -42,7 +42,7 @@ public interface UserDao {
      * @param longitude
      * @return
      */
-    Observable<List<UserLocatInfo>> getNearPeople(int userid, double latitude, double longitude);
+//    Observable<List<UserLocatInfo>> getNearPeople(int userid, double latitude, double longitude);
 
     /**
      * 登录到服务器
@@ -50,7 +50,7 @@ public interface UserDao {
      * @param password
      * @return
      */
-    Observable<LoginResponseBean> Login(String username, String password, String num);
+//    Observable<LoginResponseBean> Login(String username, String password, String num);
 
     /**
      * 判断是否存在当前临时用户表中
@@ -71,7 +71,7 @@ public interface UserDao {
      * @param name
      * @return
      */
-    Observable<List<UserCommonInfo>> getUserCommonInfo2ByName(String name);
+//    Observable<List<UserCommonInfo>> getUserCommonInfo2ByName(String name);
 
     /**
      * 注册一个用户
@@ -82,11 +82,11 @@ public interface UserDao {
 
     /**
      * 上传用户头像到服务器
-     * @param fileName
-     * @param filePath
+//     * @param fileName
+//     * @param filePath
      * @return
      */
-    Observable<String> upLoadHead(String fileName,String filePath);
+//    Observable<String> upLoadHead(String fileName,String filePath);
 
     Observable<UserCommonInfo> InsertUser(UserCommonInfo info);
 

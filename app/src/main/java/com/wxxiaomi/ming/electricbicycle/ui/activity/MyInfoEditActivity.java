@@ -20,7 +20,7 @@ import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.GlideDrawableImageViewTarget;
 import com.wxxiaomi.ming.common.base.AppContext;
 import com.wxxiaomi.ming.electricbicycle.R;
-import com.wxxiaomi.ming.common.weight.DialogHelper;
+import com.wxxiaomi.ming.common.widget.DialogHelper;
 import com.wxxiaomi.ming.electricbicycle.manager.Account;
 import com.wxxiaomi.ming.electricbicycle.manager.UserFunctionProvider;
 import com.wxxiaomi.ming.electricbicycle.common.rx.ProgressObserver;

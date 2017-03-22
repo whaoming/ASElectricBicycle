@@ -1,4 +1,4 @@
-package com.wxxiaomi.ming.electricbicycle.im.ui;
+package com.wxxiaomi.ming.electricbicycle.im.widget;
 
 import android.content.Context;
 import android.text.Spannable;
@@ -42,7 +42,6 @@ public class MyChatRowText extends EaseChatRow {
         Spannable span = EaseSmileUtils.getSmiledText(context, txtBody.getMessage());
         // 设置内容
         contentView.setText(span, TextView.BufferType.SPANNABLE);
-
         handleTextMessage();
     }
 

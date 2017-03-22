@@ -18,21 +18,34 @@ public interface FriendDao {
     String COLUMN_NAME_EMNAME = "emname";
     String COLUMN_NAME_NAME = "nickname";
     String COLUMN_NAME_HEAD = "avatar";
-//    String COLUMN_NAME_ALBUMID = "album_id";
     String COLUMN_NAME_UPDATETIME = "update_time";
-//    String COLUMN_NAME_CREATETIME = "create_time";
-//    String COLUMN_NAME_DESCRIPTION = "description";
-//    String COLUMN_NAME_CITY = "city";
-//    String COLUMN_NAME_SEX = "sex";
-//    String COLUMN_NAME_COVER = "cover";
+    //是否拉黑 1-是  0-不是
+    String COLUMN_NAME_BLACK = "black";
 
 
     /**
      * 更新好友列表
+     * 多的删除，少的添加
+     * 已经存在的进行更新
      * @param userList
      * @return
      */
     int updateFriendsList(List<UserCommonInfo> userList);
+
+    /**
+     * 更新黑名单列表
+     * 多的删除，少的添加
+     * 已经存在的进行更新
+     * @param userList
+     * @return 修改的条目数
+     */
+    int updateBlackList(List<UserCommonInfo> userList);
+
+    /**
+     * 获取黑名单列表
+     * @return
+     */
+    List<UserCommonInfo> getBlackList();
 
 
     /**
@@ -70,6 +83,7 @@ public interface FriendDao {
      * @param emnames
      * @return
      */
+    @Deprecated
     String getErrorFriend(List<String> emnames);
 
     List<UserCommonInfo> getEFriends();

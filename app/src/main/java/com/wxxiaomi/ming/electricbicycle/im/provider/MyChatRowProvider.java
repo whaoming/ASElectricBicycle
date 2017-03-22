@@ -13,7 +13,7 @@ import com.hyphenate.easeui.widget.chatrow.EaseChatRowLocation;
 import com.hyphenate.easeui.widget.chatrow.EaseChatRowVideo;
 import com.hyphenate.easeui.widget.chatrow.EaseChatRowVoice;
 import com.hyphenate.easeui.widget.chatrow.EaseCustomChatRowProvider;
-import com.wxxiaomi.ming.electricbicycle.im.ui.MyChatRowText;
+import com.wxxiaomi.ming.electricbicycle.im.widget.MyChatRowText;
 
 /**
  * Created by Administrator on 2016/12/16.

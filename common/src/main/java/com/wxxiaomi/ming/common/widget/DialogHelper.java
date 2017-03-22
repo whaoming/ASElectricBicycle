@@ -1,9 +1,8 @@
-package com.wxxiaomi.ming.common.weight;
+package com.wxxiaomi.ming.common.widget;
 
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.AppCompatEditText;
 import android.text.TextUtils;

@@ -20,13 +20,12 @@ public interface ConstantValue {
 	 * 校园网wifi笔记本
 	 */
 //	String SERVER_URL = "http://139.199.182.29/ElectricBicycleServer/";
-	String SERVER_URL = "http://192.168.1.103:8080/ElectricBicycleServer/";
+	String SERVER_URL = "http://192.168.1.101:8080/ElectricBicycleServer/";
 
 	/**
 	 * 登录操作的url
 	 */
 	 String OSS_MY_URL = "http://139.199.182.29/OssTokenGetServer/Oss";
-
 
 	//标识去往userinfo页面要加载的是目标user还是自己
 	String INTENT_ISMINE = "intent_runmine";

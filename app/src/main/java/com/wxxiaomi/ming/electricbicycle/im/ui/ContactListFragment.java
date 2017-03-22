@@ -16,6 +16,7 @@ package com.wxxiaomi.ming.electricbicycle.im.ui;
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.util.Log;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.LayoutInflater;
@@ -194,6 +195,7 @@ public class ContactListFragment extends EaseContactListFragment {
                     startActivity(intent);
                     break;
                 case R.id.black_list:
+                    Log.i("wang","black_list");
                     Intent intent1 = new Intent(getActivity(), BlackListActivity.class);
                     startActivity(intent1);
                     //黑名单页面

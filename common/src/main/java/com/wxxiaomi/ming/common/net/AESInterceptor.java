@@ -43,7 +43,7 @@ public class AESInterceptor implements Interceptor {
                             formBuilder.add("data", json);
                             RSAPublicKey pk = RSAKeyProvider.loadPublicKeyByStr(AppContext.getPublicKeyStore());
                             keyMI = RSAUtils.encryptByPublicKey(key,pk);
-                            formBuilder.add("key",keyMI);
+//                            formBuilder.add("key",keyMI);
                         }
                     }else{
                         formBuilder.addEncoded(formBody.encodedName(i), formBody.encodedValue(i));
@@ -52,8 +52,9 @@ public class AESInterceptor implements Interceptor {
                 FormBody newFormBody = formBuilder.build();
                 Request.Builder builder = request.newBuilder();
                 Log.i("wang","keyMI:"+keyMI);
-                if(keyMI!=null){
-                    builder.addHeader("key",keyMI);
+                if(!TextUtils.isEmpty(keyMI)){
+//                    builder.addHeader("key",keyMI);
+                    builder.header("key",keyMI);
                 }
                 newRequest = builder
                         .method(request.method(), newFormBody)

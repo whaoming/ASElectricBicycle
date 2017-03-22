@@ -17,6 +17,7 @@ public class DialogTypeAdapter implements JsonDeserializer<DialogACtion> {
     @Override
     public DialogACtion deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
         String type = json.getAsJsonObject().get("type").getAsString();
+        DialogACtion a = new AlertAction();
         if(type.equals("loading")){
             return context.deserialize(json, LoadingAction.class);
         }else if(type.equals("alert")){

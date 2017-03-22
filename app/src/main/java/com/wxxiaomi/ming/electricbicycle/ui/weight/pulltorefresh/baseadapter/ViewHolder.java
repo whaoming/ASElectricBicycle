@@ -35,7 +35,7 @@ public class ViewHolder extends RecyclerView.ViewHolder {
     public static ViewHolder create(View itemView) {
         return new ViewHolder(itemView);
     }
-
+//    TextView a = (TextView)getView(R);
     /**
      * 通过id获得控件
      *

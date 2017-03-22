@@ -55,11 +55,9 @@ public class RetrofitHelper {
 //        }
 
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
-//        builder.;
         builder.readTimeout(20, TimeUnit.SECONDS)
                 .addInterceptor(loggingInterceptor)
-                .
-        addInterceptor(new AESInterceptor());
+                .addInterceptor(new AESInterceptor());
         for(Interceptor i : interceptors){
             builder.addInterceptor(i);
         }

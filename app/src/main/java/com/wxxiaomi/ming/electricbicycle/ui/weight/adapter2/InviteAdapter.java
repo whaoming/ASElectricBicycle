@@ -25,14 +25,12 @@ public class InviteAdapter extends CommonBaseAdapter<InviteMessage> {
 
     @Override
     protected void convert(final ViewHolder holder, final InviteMessage data, int position) {
-    //ib_contact,tv_reason,tv_name,iv_head
         ShowerProvider.showHead(mContext,(ImageView)holder.getView(R.id.iv_head),data.getAvatar());
         holder.setText(R.id.tv_reason,data.getReason());
         holder.setText(R.id.tv_name,data.getNickname());
         holder.setOnClickListener(R.id.ib_contact, new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                ImHelper1.getInstance().agreeInvite(data.getFrom());
             }
         });
     }

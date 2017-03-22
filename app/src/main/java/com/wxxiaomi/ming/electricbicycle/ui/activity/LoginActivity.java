@@ -1,13 +1,13 @@
 package com.wxxiaomi.ming.electricbicycle.ui.activity;
 
 import android.os.Bundle;
-import android.support.design.widget.TextInputLayout;
 import android.support.v7.widget.Toolbar;
-import android.view.MenuItem;
+import android.util.Log;
 import android.view.View;
-import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
+import com.wxxiaomi.ming.common.widget.ClearableEditTextWithIcon;
 import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.base.MvpActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.LoginPresenter;
@@ -21,25 +21,26 @@ import com.wxxiaomi.ming.electricbicycle.ui.activity.view.LoginView;
  */
 public class LoginActivity extends MvpActivity<LoginView,LoginPresenter> implements LoginView {
 
-	private TextInputLayout til_username;
-	private TextInputLayout til_password;
+	private ClearableEditTextWithIcon et_login_usr;
+	private ClearableEditTextWithIcon et_login_pwd;
 	private Toolbar toolbar;
 	private TextView tv_debug;
+	private TextView tv_register;
 
 	@Override
 	protected void initView(Bundle savedInstanceState) {
-		setContentView(R.layout.activity_login);
-		til_username = (TextInputLayout) findViewById(R.id.til_username);
-		til_password = (TextInputLayout) findViewById(R.id.til_password);
-		Button btn_ok = (Button) findViewById(R.id.btn_ok);
+		setContentView(R.layout.activity_login2);
+		et_login_usr = (ClearableEditTextWithIcon) findViewById(R.id.et_login_usr);
+		et_login_pwd = (ClearableEditTextWithIcon) findViewById(R.id.et_login_pwd);
+		et_login_usr.setIconResource(R.mipmap.user_account_icon);
+		et_login_pwd.setIconResource(R.mipmap.user_pwd_lock_icon);
+		TextView btn_ok = (TextView) findViewById(R.id.btn_ok);
 		assert btn_ok != null;
 		btn_ok.setOnClickListener(this);
 		toolbar = (Toolbar) this.findViewById(R.id.toolbar);
 		setSupportActionBar(toolbar);
-		assert getSupportActionBar() != null;
-		getSupportActionBar().setHomeButtonEnabled(true); // 设置返回键可用
-		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-		assert til_username.getEditText() != null;
+		tv_register = (TextView) findViewById(R.id.tv_register);
+		tv_register.setOnClickListener(this);
 		tv_debug = (TextView) findViewById(R.id.tv_debug);
 		tv_debug.setOnClickListener(this);
 	}
@@ -61,19 +62,20 @@ public class LoginActivity extends MvpActivity<LoginView,LoginPresenter> impleme
 	public void onClick(View v) {
 		switch (v.getId()){
 			case R.id.btn_ok:
-				presenter.onLoginBtnClick(til_username,til_password);
+				String username =  et_login_usr.getEditableText().toString().toLowerCase();
+				String password =  et_login_pwd.getEditableText().toString().toLowerCase();
+				presenter.onLoginBtnClick(username,password);
 				break;
 			case R.id.tv_debug:
 				presenter.onDebugBtnClick();
+			case R.id.tv_register:
+				Log.i("wang","reister has click");
+				break;
 		}
 	}
 
 	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		if (item.getItemId() == android.R.id.home) {
-			finish();
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
+	public EditText getEditText() {
+		return et_login_usr;
 	}
 }

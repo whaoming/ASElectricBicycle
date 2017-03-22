@@ -16,8 +16,11 @@ import com.wxxiaomi.ming.electricbicycle.ui.activity.view.FriendAddView;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.pulltorefresh.recycleview.PullToRefreshRecyclerView;
 
 /**
- * Created by 12262 on 2016/6/15.
- */
+* @author whaoming
+* github：https://github.com/whaoming
+* created at 2016/6/15
+* TODO: 添加好友的页面
+*/
 public class FriendAddActivity extends MvpActivity<FriendAddView, FriendAddPresenter> implements FriendAddView<FriendAddPresenter> {
 
     private Toolbar toolbar;
@@ -25,7 +28,6 @@ public class FriendAddActivity extends MvpActivity<FriendAddView, FriendAddPrese
     private PullToRefreshRecyclerView mRecyclerView;
     private View header;
     private TextView tv_search;
-
 
     @Override
     protected void initView(Bundle savedInstanceState) {
@@ -86,5 +88,4 @@ public class FriendAddActivity extends MvpActivity<FriendAddView, FriendAddPrese
         tv_search.setText(text);
     }
 
-//
 }

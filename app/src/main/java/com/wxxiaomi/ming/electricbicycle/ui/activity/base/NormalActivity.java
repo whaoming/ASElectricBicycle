@@ -12,8 +12,8 @@ import android.os.PersistableBundle;
 public abstract class NormalActivity extends BaseActivity {
 
     @Override
-    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
+    protected void onCreate(Bundle savedInstanceState ){
+        super.onCreate(savedInstanceState);
         initView(savedInstanceState);
     }
 

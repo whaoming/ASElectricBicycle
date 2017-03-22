@@ -7,6 +7,7 @@ import android.support.v7.app.AlertDialog;
 import android.util.Log;
 
 import com.wxxiaomi.ming.common.net.ApiException;
+import com.wxxiaomi.ming.common.widget.DialogHelper;
 import com.wxxiaomi.ming.electricbicycle.R;
 
 /**
@@ -22,15 +23,11 @@ public abstract class ProgressObserver<T> extends MyObserver<T>{
 
 
     public ProgressObserver(Context context) {
-//        new ProgressDialog(context)
-        dialog = new ProgressDialog(context);
-        dialog = new ProgressDialog(context);
-        dialog.setTitle("请等待");//设置标题
-        dialog.setMessage("正在加载");
-        dialog.setProgressStyle(R.style.MingDialog);
         this.context = context;
-        msgDialog = new AlertDialog.Builder(context, R.style.MingDialog).setPositiveButton("确定", null).create();
+        dialog = DialogHelper.getProgressDialog(context,"请稍等...",false);
+        msgDialog = DialogHelper.getMessageDialog(context,"").create();
 
+//        msgDialog = new AlertDialog.Builder(context, R.style.MingDialog).setPositiveButton("确定", null).create();
     }
 
     @Override
@@ -51,7 +48,6 @@ public abstract class ProgressObserver<T> extends MyObserver<T>{
 
     @Override
     public void onCompleted() {
-        Log.i("wang","ProgressObserver-onCompleted()");
         if(showMsg)
         {
             dialog.dismiss();

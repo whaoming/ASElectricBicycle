@@ -27,6 +27,7 @@ import com.wxxiaomi.ming.electricbicycle.manager.UserFunctionProvider;
 import com.wxxiaomi.ming.electricbicycle.im.notice.NoticeBean;
 import com.wxxiaomi.ming.electricbicycle.im.notice.NoticeManager;
 import com.wxxiaomi.ming.electricbicycle.common.rx.ToastObserver;
+import com.wxxiaomi.ming.electricbicycle.net.HttpMethods;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.FootPrintShowActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.LoginActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.UserInfoActivity;
@@ -298,7 +299,7 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
 
     public void getNearByFromServer(final double latitude,
                                     final double longitude) {
-        UserFunctionProvider.getInstance().getNearPeople(Account.getAccountInfo().id, latitude, longitude)
+        HttpMethods.getInstance().getNearByFromServer(Account.getAccountInfo().id, latitude, longitude)
                 .subscribeOn(Schedulers.io())
 //                .unsubscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
