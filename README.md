@@ -79,7 +79,7 @@ ps：本来觉得hybrid部分不用传上来的，因为全部都是h5写的，�
  
  
 <h2 id="mokuai">模块</h2>  
-### 第三方框架
+### 第三方框架  
  - Retrofit+Rxjava
  - Glide
  - Materia Design
@@ -98,7 +98,7 @@ ps：本来觉得hybrid部分不用传上来的，因为全部都是h5写的，�
  - 不入侵view层，大大降低耦合度
  - 密钥过期处理：当发现token过期会自动向服务器索取token并重新发起之前失败的那个请求
  - 了解更多：[传送门](http://blog.csdn.net/qq122627018/article/details/51689891 "悬停显示")  
- 
+  
 
 ### 图片压缩缓存模块
  这个模块暂时只用于webview中图片处理相关，因为在native中有glide的存在了，完全没有必要再用自己的 
