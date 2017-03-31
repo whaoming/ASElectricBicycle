@@ -25,7 +25,7 @@
 
 
 <h2 id="yulan">预览</h2>  
-### native部分  /br
+### native部分  
 
 | 启动界面        | 首页一角           | 好友界面  |   
 |:-------------:|:-------------:|:-------------:|  
@@ -35,10 +35,10 @@
 ### hybrid部分
 ps：本来觉得hybrid部分不用传上来的，因为全部都是h5写的，但是想展示下原生部分，由下图可以看到标题栏还有浮动按钮都是原生的，是以JsBridge为桥梁来做到html与原生的双向通信，从而达到js中也能控制原生ui的展示，也就是说我可以通过html来修改app中的控件，从而达到这个模块可以热更新的效果(但是现在这个方案还不太成熟，我还在不断完善中)  
 
-| 信息列表       | 详情           | 发布界面  |
-|:-------------:|:-------------:|:-------------:|
-    ![image](https://github.com/whaoming/aboutme/blob/master/image/web%E5%88%97%E8%A1%A8%E9%A1%B5%E9%9D%A2.png?raw=true)     | ![image](https://github.com/whaoming/aboutme/blob/master/image/web_%E5%85%B7%E4%BD%93%E9%A1%B5%E9%9D%A2.png?raw=true) | ![image](https://github.com/whaoming/aboutme/blob/master/image/web_%E5%8F%91%E8%A1%A8%E9%A1%B5%E9%9D%A2.png?raw=true)  
-| 查看个人发布信息 | 
+| 信息列表       | 详情           | 发布界面  |  
+|:-------------:|:-------------:|:-------------:|  
+![image](https://github.com/whaoming/aboutme/blob/master/image/web%E5%88%97%E8%A1%A8%E9%A1%B5%E9%9D%A2.png?raw=true)     | ![image](https://github.com/whaoming/aboutme/blob/master/image/web_%E5%85%B7%E4%BD%93%E9%A1%B5%E9%9D%A2.png?raw=true) | ![image](https://github.com/whaoming/aboutme/blob/master/image/web_%E5%8F%91%E8%A1%A8%E9%A1%B5%E9%9D%A2.png?raw=true)    
+| 查看个人发布信息 |   
 ![image](https://github.com/whaoming/aboutme/blob/master/image/web_%E4%B8%AA%E4%BA%BA%E9%A1%B5%E9%9D%A2.png) |   
 ### 硬件通信部分  
 实现了STC与android通过蓝牙通信从而达到信息交互，可以看看我的文章：[SCMAndroidCommunicate](https://github.com/whaoming/SCMAndroidCommunicate "悬停显示4")，只要遵守我制定好的数据协议，便可以与app的驾驶模块进行交互  
