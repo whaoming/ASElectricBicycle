@@ -112,7 +112,6 @@ public class BluetoothHelper {
 
     /**
      * 绑定设备
-     *
      * @param device BluetoothDevice对象
      * @return 是否绑定成功
      */

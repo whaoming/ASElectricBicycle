@@ -131,11 +131,17 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
 //        mView.runActivity(SearchActiity.class,null);
     }
 
+    /**
+     * 联系人按钮的点击
+     */
     @Override
     public void contactBtnOnClick() {
         mView.runActivity(ContactActivity.class, null);
     }
 
+    /***
+     * 我自己的头像的点击
+     */
     @Override
     public void headBtnOnClick() {
         Bundle bundle = new Bundle();
@@ -143,11 +149,17 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
         mView.runActivity(UserInfoActivity.class, bundle);
     }
 
+    /**
+     * 定位按钮的点击
+     */
     @Override
     public void locatBtnOnClick() {
         mView.scrollToMyLocat();
     }
 
+    /**
+     * 附近的人的view的头像点击
+     */
     @Override
     public void nearHeadBtnOnClick() {
 //        Bundle bundle = new Bundle();
@@ -157,6 +169,9 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
         UserInfoActivity.show(mView.getContext(),currentNearPerson);
     }
 
+    /**
+     * 话题按钮的点击
+     */
     @Override
     public void topicBtnOnClick() {
         Intent intent = new Intent(mView.getContext(), TestWebActivity.class);
@@ -164,10 +179,12 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
         mView.getContext().startActivity(intent);
     }
 
+    /**
+     * 处理当账号在别处登录的情况
+     * @param intent
+     */
     @Override
     public void onNewIntent(Intent intent) {
-//        Log.i("wang", "onNewIntent");
-//        //EmConstant.ACCOUNT_CONFLICT
         boolean booleanExtra = intent.getBooleanExtra(EmConstant.ACCOUNT_CONFLICT, false);
         if(booleanExtra){
             mView.buildAlertDialog("确定", new DialogInterface.OnClickListener() {
@@ -201,6 +218,10 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
         mView.showSnackBar("收藏功能暂未开放");
     }
 
+    /**
+     * 这里是搜索按钮的点击,这里命名不规范
+     * 进入应该到搜索蓝牙界面
+     */
     @Override
     public void onFootPrintActionClick() {
         BluetoothHelper.getInstance().init(mView.getContext().getApplicationContext());
@@ -234,7 +255,6 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
 
     @Override
     public void onViewDestory() {
-
         try {
             NoticeManager.unBindNotify(this);
             mLocClient.unRegisterLocationListener(myListener);
