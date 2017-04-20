@@ -20,9 +20,11 @@ import rx.schedulers.Schedulers;
 public class Direct2 {
    public static<T> Observable<T> create(Observable<Result<T>> resurce,TokenProvider tokenProvider){
        return resurce
+               //解析固定格式json
                .map(new ResultParseInterceptor<T>())
-
+               //处理token过期,tokenProvider为具体的处理方式
                .retryWhen(new TokenExpireInterceptor(tokenProvider))
+               //检查是否有错误
                .onErrorResumeNext(new ErrorInterceptor<T>())
                 .observeOn(AndroidSchedulers.mainThread())
                .subscribeOn(Schedulers.io());

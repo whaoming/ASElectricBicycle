@@ -20,7 +20,7 @@ public interface ConstantValue {
 	 * 校园网wifi笔记本
 	 */
 //	String SERVER_URL = "http://139.199.182.29/ElectricBicycleServer/";
-	String SERVER_URL = "http://192.168.1.120:8080/ElectricBicycleServer/";
+	String SERVER_URL = "http://192.168.1.104:8080/ElectricBicycleServer/";
 
 	/**
 	 * 登录操作的url

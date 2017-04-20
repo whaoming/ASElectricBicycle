@@ -28,6 +28,9 @@ public class TokenExpireInterceptor implements Func1<Observable<? extends Throwa
                     ServerException ex = (ServerException)throwable;
                     if(ex.getCode() == 304){
                             return tokenProvider.getToken();
+                    }else if(ex.getCode()==402){
+                        //登录标志确定过期
+
                     }
                 }
                 return Observable.error(throwable);

@@ -4,13 +4,20 @@
     android:id="@+id/activity_touch_bound"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
     tools:context=".car.TouchBoundActivity">
-    <ListView
-        android:id="@+id/lv_bluetooth_devices"
+
+    <android.support.v7.widget.Toolbar
+        android:background="@color/titleBlue"
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="?attr/actionBarSize"
+        >
+    </android.support.v7.widget.Toolbar>
+    <com.wxxiaomi.ming.electricbicycle.ui.weight.pulltorefresh.recycleview.PullToRefreshRecyclerView
+        android:background="#f3f3f3"
+        android:id="@+id/mRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
 </LinearLayout>

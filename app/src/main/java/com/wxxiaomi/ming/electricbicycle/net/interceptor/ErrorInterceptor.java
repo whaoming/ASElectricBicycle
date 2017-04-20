@@ -16,7 +16,6 @@ import rx.functions.Func1;
 public class ErrorInterceptor<T> implements Func1<Throwable, Observable<T>> {
     @Override
     public Observable<T> call(Throwable throwable) {
-//        Log.i("wang","拦截到异常咯哈哈哈哈");
         throwable.printStackTrace();
         return Observable.error(ExceptionProvider.handleException(throwable));
     }

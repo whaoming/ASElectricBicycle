@@ -24,6 +24,7 @@ import com.wxxiaomi.ming.electricbicycle.db.bean.format.UserInfo;
 
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -44,8 +45,9 @@ public class HttpMethods {
     //构造方法私有
     private HttpMethods() {
         //手动创建一个OkHttpClient并设置超时时间
+        Map<String,String> headers = new HashMap<>();
         List<Interceptor> is = new ArrayList<>();
-        is.add(new TokenGetInterceptor());
+        is.add(new TokenGetInterceptor(headers));
         RetrofitHelper.getInstance().init(ConstantValue.SERVER_URL,is);
         demoService = RetrofitHelper.getInstance().createService(ApiService.class);
     }
@@ -193,8 +195,10 @@ public class HttpMethods {
     }
 
 
+    /**
+     * 当token过期时的处理操作
+     */
     public class TokenProviderImpl implements TokenProvider{
-
         @Override
         public Observable<String> getToken() {
             String uniqueID = TDevice.getUniqueID(EBApplication.applicationContext);

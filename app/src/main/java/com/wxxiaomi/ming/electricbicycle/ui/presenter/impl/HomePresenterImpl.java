@@ -225,13 +225,13 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
     @Override
     public void onFootPrintActionClick() {
         BluetoothHelper.getInstance().init(mView.getContext().getApplicationContext());
-        if(BluetoothHelper.isEverDevice()){
-//            intent = new Intent(HomeActivity.this,RunActivity2.class);
-            mView.runActivity(DriveActivity.class, null);
-        }else{
+//        if(BluetoothHelper.isEverDevice()){
+////            intent = new Intent(HomeActivity.this,RunActivity2.class);
+//            mView.runActivity(DriveActivity.class, null);
+//        }else{
 //            intent = new Intent(HomeActivity.this,BoundActivity.class);
             mView.runActivity(TouchBoundActivity.class, null);
-        }
+//        }
 
 //        mView.runActivity(FootPublishActivity.class, null);
     }
