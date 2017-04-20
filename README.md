@@ -21,11 +21,13 @@
 
 
 <h2 id="yulan">预览</h2>  
-### native部分
-| 启动界面        | 首页一角           | 好友界面  |
-|:-------------:|:-------------:|:-------------:|
-    ![image](https://github.com/whaoming/aboutme/blob/master/image/%E5%90%AF%E5%8A%A8%E7%95%8C%E9%9D%A2.gif?raw=true)     | ![image](https://github.com/whaoming/aboutme/blob/master/image/%E9%A6%96%E9%A1%B5%E9%99%84%E8%BF%91%E7%9A%84%E4%BA%BA%E5%8A%A8%E7%94%BB.gif?raw=true) | ![image](https://github.com/whaoming/aboutme/blob/master/image/%E5%A5%BD%E5%8F%8B%E7%95%8C%E9%9D%A2+%E6%9F%A5%E6%89%BE%E5%A5%BD%E5%8F%8B%E6%93%8D%E4%BD%9C.gif?raw=true)  
-| 个人头像修改 | 图片选择  | 聊天界面 |
+### native部分</br>
+| 启动界面        | 首页一角           | 好友界面  |  </br>
+|:-------------:|:-------------:|:-------------:|  </br>
+    ![image](https://github.com/whaoming/aboutme/blob/master/image/%E5%90%AF%E5%8A%A8%E7%95%8C%E9%9D%A2.gif?raw=true)     | ![image](https://github.com/whaoming/aboutme/blob/master/image/%E9%A6%96%E9%A1%B5%E9%99%84%E8%BF%91%E7%9A%84%E4%BA%BA%E5%8A%A8%E7%94%BB.gif?raw=true) | ![image](https://github.com/whaoming/aboutme/blob/master/image/%E5%A5%BD%E5%8F%8B%E7%95%8C%E9%9D%A2+%E6%9F%A5%E6%89%BE%E5%A5%BD%E5%8F%8B%E6%93%8D%E4%BD%9C.gif?raw=true) 
+    
+    
+| 个人头像修改 | 图片选择  | 聊天界面 |</br>
 ![image](https://github.com/whaoming/aboutme/blob/master/image/%E5%A4%B4%E5%83%8F%E4%BF%AE%E6%94%B9.gif?raw=true) | ![image](https://github.com/whaoming/aboutme/blob/master/image/%E5%9B%BE%E7%89%87%E9%80%89%E6%8B%A9%E9%A1%B5%E9%9D%A2.png?raw=true) | 总是截不了gif
 ### hybrid部分
 ps：本来觉得hybrid部分不用传上来的，因为全部都是h5写的，但是想展示下原生部分，由下图可以看到标题栏还有浮动按钮都是原生的，是以JsBridge为桥梁来做到html与原生的双向通信，从而达到js中也能控制原生ui的展示，也就是说我可以通过html来修改app中的控件，从而达到这个模块可以热更新的效果(但是现在这个方案还不太成熟，我还在不断完善中)  
