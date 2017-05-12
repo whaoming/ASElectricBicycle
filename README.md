@@ -3,25 +3,7 @@
 根据摩拜单车的理念开发的一款app，app通过蓝牙与车子进行连接，在行走过程app可以提供车子信息实时展示的功能，在此功能之上，app还提供当前位置信息，并以当前位置为基点提供附近用户位置并可进行好友的添加，聊天等。app还提供了一套hybrid框架用于功能的扩展,通过原生提供的一些接口，可以通过H5快速增加某些特定模块.   
 
 
-## 更新日志
-#### 2017-2-2 
- - 通信加密  
-  - RSA+AES   
-  - Android aes密钥通过rsa公钥加密，放在http请求头中，rsa公钥由服务器生成放在assets中,rsa密钥存放在服务器  
- - 加入驾驶模式
-  - 通过特定的协议，app使用蓝牙模块与STC进行通信，从而实时对蓝牙小车的速度进行展示(暂时只显示PWM的占空比，测速模块还在快递路上)  
-  - [硬件模块传送门](https://github.com/whaoming/SCMAndroidCommunicate "悬停显示4")，主要通过k1，k2按键来改变PWM从而达到调速效果，蓝牙模块使用HC-06，协议也是我自己制定的，具体可以进去看看  
- 
- 
-## guide  
- -  [预览](#yulan)
- - [支持功能](#gongneng)  
- - [运行环境](#yunxinghuanjing)  
- - [模块](#mokuai)  
- - [运行环境](#yunxinghuanjing)  
- - [搭建说明](#yunxinghuanjing)  
- - [bug提交](#yunxinghuanjing)  
- - [关于我](#aboutme)    
+
 
 
 <h2 id="yulan">预览</h2>  
