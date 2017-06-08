@@ -124,8 +124,8 @@ public class InfoCardFragment extends BaseFragment {
     private void adapterView() {
         if(mRecyclerView!=null){
 //            mRecyclerView.setRefreshing(false);
-            header = View.inflate(getActivity(),R.layout.header_infocard,null);
-            mRecyclerView.addHeaderView(header);
+//            header = View.inflate(getActivity(),R.layout.header_infocard,null);
+//            mRecyclerView.addHeaderView(header);
         }
 
     }

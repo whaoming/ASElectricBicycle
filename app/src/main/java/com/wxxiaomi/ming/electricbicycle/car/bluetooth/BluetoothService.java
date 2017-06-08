@@ -71,7 +71,6 @@ public class BluetoothService {
     private synchronized void setState(int state) {
         Log.d(TAG, "setState() " + mState + " -> " + state);
         mState = state;
-        
         // Give the new state to the Handler so the UI Activity can update
         mHandler.obtainMessage(BluetoothState.MESSAGE_STATE_CHANGE, state, -1).sendToTarget();
     }
@@ -135,7 +134,7 @@ public class BluetoothService {
             mSecureAcceptThread.cancel();
             mSecureAcceptThread = null;
         }
-
+        Log.i("wang","在绑定了");
         // Start the thread to manage the connection and perform transmissions
         mConnectedThread = new ConnectedThread(socket, socketType);
         mConnectedThread.start();
@@ -280,7 +279,6 @@ public class BluetoothService {
         public ConnectThread(BluetoothDevice device) {
             mmDevice = device;
             BluetoothSocket tmp = null;
-
             // Get a BluetoothSocket for a connection with the
             // given BluetoothDevice
             try {
@@ -289,16 +287,14 @@ public class BluetoothService {
                 else
                     tmp = device.createRfcommSocketToServiceRecord(UUID_OTHER_DEVICE);
             } catch (IOException e) {
-                Log.i("wang","连接服务中间出错了");
+//                Log.i("wang","连接服务中间出错了");
                 e.printStackTrace();
             }
             mmSocket = tmp;
         }
-
         public void run() {
             // Always cancel discovery because it will slow down a connection
             mAdapter.cancelDiscovery();
-
             // Make a connection to the BluetoothSocket
             try {
                 // This is a blocking call and will only return on a
@@ -317,7 +313,6 @@ public class BluetoothService {
             synchronized (BluetoothService.this) {
                 mConnectThread = null;
             }
-
             // Start the connected thread
             connected(mmSocket, mmDevice, mSocketType);
         }
@@ -371,34 +366,11 @@ public class BluetoothService {
                             mHandler.obtainMessage(BluetoothState.MESSAGE_READ
                                     , buffer.length, -1, buffer).sendToTarget();
                             arr_byte = new ArrayList<Integer>();
-
                         }
                         isFirst = !isFirst;
                     }  else {
                         arr_byte.add(data);
                     }
-
-//                    int count = 5;
-//                    byte[] bytes = new byte[count];
-//                    int readCount = 0; // 已经成功读取的字节的个数
-//                    while (readCount < count) {
-//                        readCount += mmInStream.read(bytes, readCount, count - readCount);
-//                    }
-//
-//                    mHandler.obtainMessage(BluetoothState.MESSAGE_READ
-//                                , bytes.length, -1, bytes).sendToTarget();
-
-//                    int count=0;
-//                    int data = mmInStream.read();
-//                    if(data==0xff){
-//                        //可能是第一个标识位或者最后一个
-//                        if (count==0) {
-//
-//                        }
-//                    }else if(){
-//
-//                    }
-
                 } catch (IOException e) {
 //                    connectionLost();
                     // Start the service over to restart listening mode

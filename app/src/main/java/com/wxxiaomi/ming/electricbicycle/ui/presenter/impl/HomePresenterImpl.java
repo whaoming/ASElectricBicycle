@@ -3,6 +3,7 @@ package com.wxxiaomi.ming.electricbicycle.ui.presenter.impl;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import com.baidu.location.Address;
@@ -15,7 +16,9 @@ import com.baidu.mapapi.map.Marker;
 import com.baidu.mapapi.map.MyLocationConfiguration;
 import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.model.LatLng;
+import com.wxxiaomi.ming.common.widget.DialogHelper;
 import com.wxxiaomi.ming.electricbicycle.ConstantValue;
+import com.wxxiaomi.ming.electricbicycle.car.CarManager;
 import com.wxxiaomi.ming.electricbicycle.db.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.db.bean.UserLocatInfo;
 import com.wxxiaomi.ming.electricbicycle.car.DriveActivity;
@@ -40,7 +43,6 @@ import com.wxxiaomi.ming.electricbicycle.ui.activity.ContactActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.view.HomeView;
 
 import com.wxxiaomi.ming.electricbicycle.ui.weight.custom.CircularImageView;
-import com.wxxiaomi.ming.touch.BluetoothHelper;
 
 import java.util.List;
 
@@ -74,8 +76,13 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
     public void init() {
         initMap(mView.getMap());
         NoticeManager.bindNotify(this);
+//        CarManager.getInstance().bindSpeedNotify(new CarManager.OnSpeedMessageGet() {
+//            @Override
+//            public void onSpeedGet(int speed) {
+//                Log.i("wang","首页收到速度显示:"+speed);
+//            }
+//        });
     }
-
 
 
     @Override
@@ -166,7 +173,7 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
 //        bundle.putSerializable(ConstantValue.INTENT_USERINFO, currentNearPerson);
 //        bundle.putBoolean(ConstantValue.INTENT_ISMINE, false);
 //        mView.runActivity(UserInfoActivity.class, bundle);
-        UserInfoActivity.show(mView.getContext(),currentNearPerson);
+        UserInfoActivity.show(mView.getContext(), currentNearPerson);
     }
 
     /**
@@ -181,12 +188,13 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
 
     /**
      * 处理当账号在别处登录的情况
+     *
      * @param intent
      */
     @Override
     public void onNewIntent(Intent intent) {
         boolean booleanExtra = intent.getBooleanExtra(EmConstant.ACCOUNT_CONFLICT, false);
-        if(booleanExtra){
+        if (booleanExtra) {
             mView.buildAlertDialog("确定", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
@@ -202,9 +210,19 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
         mView.runActivity(SettingActivity.class, null);
     }
 
+    //此方法已经过时
     @Override
     public void onFootPrintClick() {
-        mView.runActivity(FootPrintShowActivity.class, null);
+//        if(CarManager.getInstance().isConnecting()){
+//            DialogHelper.getConfirmDialog(mView.getContext(), "当前蓝牙正在绑定其他设备，是否结束绑定？", new DialogInterface.OnClickListener() {
+//                @Override
+//                public void onClick(DialogInterface dialogInterface, int i) {
+//                    CarManager.getInstance().destoryDevice();
+//                    mView.runActivity(FootPrintShowActivity.class, null);
+//                }
+//            }).show();
+//        }
+
 //        mView.showSnackBar("足迹功能暂未开放");
     }
 
@@ -224,16 +242,18 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
      */
     @Override
     public void onFootPrintActionClick() {
-        BluetoothHelper.getInstance().init(mView.getContext().getApplicationContext());
-//        if(BluetoothHelper.isEverDevice()){
-////            intent = new Intent(HomeActivity.this,RunActivity2.class);
-//            mView.runActivity(DriveActivity.class, null);
-//        }else{
-//            intent = new Intent(HomeActivity.this,BoundActivity.class);
+        if(CarManager.getInstance().isConnecting()){
+            DialogHelper.getConfirmDialog(mView.getContext(), "当前蓝牙正在绑定其他设备，是否结束绑定？", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    CarManager.getInstance().destoryDevice();
+                    mView.runActivity(TouchBoundActivity.class, null);
+                }
+            }).show();
+        }else {
             mView.runActivity(TouchBoundActivity.class, null);
-//        }
+        }
 
-//        mView.runActivity(FootPublishActivity.class, null);
     }
 
     public void updateUnreadLabel() {
@@ -260,7 +280,7 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
             mLocClient.unRegisterLocationListener(myListener);
             mLocClient.stop();
             mBaiduMap.setMyLocationEnabled(false);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 //
@@ -286,15 +306,12 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
         @Override
         public void onReceiveLocation(BDLocation location) {
             int locType = location.getLocType();
-//            Log.i("wang","locType:"+locType);
-
             // map view 销毁后不在处理新接收的位置
             if (location == null || mBaiduMap == null) {
                 return;
             }
             double latitude = location.getLatitude();
             double longitude = location.getLongitude();
-//            Log.i("wang", "获取到自己的位置latitude："+latitude+",longitude:"+longitude);
             Address address = location.getAddress();
             String locat_tag = location.getLocationDescribe();
             LocatProvider.getInstance().init(latitude, longitude, address, locat_tag);
@@ -321,7 +338,6 @@ public class HomePresenterImpl extends BasePreImpl<HomeView> implements HomePres
                                     final double longitude) {
         HttpMethods.getInstance().getNearByFromServer(Account.getAccountInfo().id, latitude, longitude)
                 .subscribeOn(Schedulers.io())
-//                .unsubscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
                         new ToastObserver<List<UserLocatInfo>>() {

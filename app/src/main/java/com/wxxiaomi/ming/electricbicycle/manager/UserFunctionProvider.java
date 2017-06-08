@@ -346,30 +346,24 @@ return null;
                     @Override
                     public Integer call(String s) {
                         if (name != null) {
-//                            pars.put("nickname",name);
                             Account.getAccountInfo().nickname = name;
                         }
                         if (head != null) {
-//                            pars.put("avatar",head);
                             Log.i("wang", "head:" + head);
                             Account.getAccountInfo().avatar = head;
                         }
 
                         if (description != null) {
-//                            pars.put("description",description);
                             Account.getAccountInfo().description = description;
                         }
                         if (city != null) {
                             Account.getAccountInfo().city = city;
                         }
-//                        GlobalManager.getInstance().getUser().userCommonInfo.nickname = name;
-//                        GlobalManager.getInstance().getUser().userCommonInfo.avatar = head;
                         return 1;
                     }
                 }).map(new Func1<Integer, Integer>() {
                     @Override
                     public Integer call(Integer integer) {
-//                        AppDao dao = new AppDaoImpl(EBApplication.applicationContext);
                         UserCommonInfo userCommonInfo =  Account.getAccountInfo();
                         Account.getUser().userCommonInfo = userCommonInfo;
                         Account.updateUserCache(Account.getUser());

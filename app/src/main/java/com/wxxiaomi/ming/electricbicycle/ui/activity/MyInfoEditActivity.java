@@ -202,7 +202,6 @@ public class MyInfoEditActivity extends AppCompatActivity implements View.OnClic
                 .flatMap(new Func1<List<String>, Observable<String>>() {
                     @Override
                     public Observable<String> call(List<String> strings) {
-                        Log.i("wang","strings.get(0):"+strings.get(0));
                         progressDialog.show();
                         OssEngine.getInstance().initOssEngine(MyInfoEditActivity.this.getApplicationContext());
                         return UserFunctionProvider.getInstance().upLoadImgToOss(strings.get(0));

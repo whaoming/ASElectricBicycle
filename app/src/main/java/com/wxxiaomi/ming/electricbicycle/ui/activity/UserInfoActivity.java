@@ -19,10 +19,12 @@ import com.wxxiaomi.ming.common.cache.CacheManager;
 import com.wxxiaomi.ming.common.net.ApiException;
 import com.wxxiaomi.ming.electricbicycle.ConstantValue;
 import com.wxxiaomi.ming.electricbicycle.R;
+import com.wxxiaomi.ming.electricbicycle.im.Constant;
 import com.wxxiaomi.ming.electricbicycle.im.ImHelper1;
 import com.wxxiaomi.ming.electricbicycle.db.bean.Option;
 import com.wxxiaomi.ming.electricbicycle.db.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.db.bean.format.UserInfo;
+import com.wxxiaomi.ming.electricbicycle.im.ui.ChatActivity;
 import com.wxxiaomi.ming.electricbicycle.manager.Account;
 import com.wxxiaomi.ming.electricbicycle.manager.UserFunctionProvider;
 import com.wxxiaomi.ming.electricbicycle.manager.ShowerProvider;
@@ -332,8 +334,15 @@ public class UserInfoActivity extends AppCompatActivity implements FragmentCallb
                 dialog.show();
                 break;
             case R.id.action_edit:
-                intent = new Intent(this, MyInfoEditActivity.class);
-                startActivity(intent);
+                if(isMine){
+                    intent = new Intent(this, MyInfoEditActivity.class);
+                    startActivity(intent);
+                }else{
+                    Intent intent1 = new Intent(UserInfoActivity.this, ChatActivity.class);
+                    intent1.putExtra(Constant.EXTRA_USER_ID, targetUser.emname);
+                    startActivity(intent1);
+                }
+
                 break;
             case R.id.action_talk:
                 intent = new Intent(this, MyInfoEditActivity.class);

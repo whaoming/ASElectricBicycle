@@ -102,7 +102,8 @@ public class FriendDaoImpl2 implements FriendDao {
         SQLiteDatabase db = helper.getReadableDatabase();
         List<UserCommonInfo> list = new ArrayList<>();
         if (db.isOpen()) {
-            Cursor cursor = db.rawQuery("select * from " + FriendDao.TABLE_NAME + " where " + FriendDao.COLUMN_NAME_BLACK + "=1 order by " + FriendDao.COLUMN_NAME_ID + " desc", null);
+            Cursor cursor = db.rawQuery("select * from " + FriendDao.TABLE_NAME + " where " + FriendDao.COLUMN_NAME_BLACK + "=1 order " +
+                    "by " + FriendDao.COLUMN_NAME_ID + " desc", null);
             while (cursor.moveToNext()) {
                 UserCommonInfo info = new UserCommonInfo();
                 int id = cursor.getInt(cursor.getColumnIndex(FriendDao.COLUMN_NAME_ID));

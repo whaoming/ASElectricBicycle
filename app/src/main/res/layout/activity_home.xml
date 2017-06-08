@@ -30,11 +30,30 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent" />
         </android.support.v7.widget.Toolbar>
+
+
         <com.baidu.mapapi.map.TextureMapView
             android:layout_below="@+id/toolbar1"
             android:id="@+id/mpaview"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
+        <com.wxxiaomi.ming.speedlib.PointerSpeedometer
+            android:visibility="gone"
+            android:layout_below="@+id/toolbar1"
+            android:layout_centerInParent="true"
+            android:id="@+id/pointerSpeedometer"
+            android:layout_alignParentRight="true"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center_horizontal"
+            app:backgroundCircleColor="@color/titleBlue"
+            app:pointerColor="#f00"
+            app:speedometerColor="#ffffff"
+            app:unitTextSize="0.5dp"
+            app:speedTextSize="0dp"
+            app:speedometerWidth="1dp"
+            app:indicatorWidth="1dp"
+            />
 
 
 
@@ -46,11 +65,10 @@
             android:layout_height="match_parent" >
 
             <android.support.design.widget.CoordinatorLayout
-                xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/layout1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:layout_behavior="com.wxxiaomi.ming.electricbicycle.ui.weight.custom.HomeSnackBarBehavior" >
+                app:layout_behavior="com.wxxiaomi.ming.electricbicycle.ui.weight.custom.HomeSnackBarBehavior">
 
                 <android.support.design.widget.FloatingActionButton
                     android:id="@+id/btn_go"
@@ -58,9 +76,9 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|right"
                     android:layout_margin="10dp"
-                    app:layout_behavior="com.wxxiaomi.ming.electricbicycle.ui.weight.custom.HomeButtonBehavior"
                     android:src="@mipmap/ic_search_white_24dp"
-                    app:borderWidth="0dp" />
+                    app:borderWidth="0dp"
+                    app:layout_behavior="com.wxxiaomi.ming.electricbicycle.ui.weight.custom.HomeButtonBehavior" />
 
                 <android.support.design.widget.FloatingActionButton
                     android:id="@+id/btn_locat"
@@ -68,9 +86,9 @@
                     android:layout_height="40dp"
                     android:layout_gravity="bottom|left"
                     android:layout_margin="10dp"
-                    app:layout_behavior="com.wxxiaomi.ming.electricbicycle.ui.weight.custom.HomeButtonBehavior"
                     android:src="@mipmap/ic_room_white_24dp"
-                    app:borderWidth="0dp" />
+                    app:borderWidth="0dp"
+                    app:layout_behavior="com.wxxiaomi.ming.electricbicycle.ui.weight.custom.HomeButtonBehavior" />
 
                 <include
                     android:id="@+id/ll_nearby_view"

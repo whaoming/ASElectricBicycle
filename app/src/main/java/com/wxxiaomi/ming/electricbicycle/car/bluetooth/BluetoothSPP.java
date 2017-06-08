@@ -219,6 +219,10 @@ public class BluetoothSPP {
             }
         }
     };
+
+    public boolean isConnecting(){
+        return isConnecting;
+    }
     
     public void stopAutoConnect() {
         isAutoConnectionEnabled = false;
@@ -227,8 +231,8 @@ public class BluetoothSPP {
     public void connect(Intent data) {
         String address = data.getExtras().getString(BluetoothState.EXTRA_DEVICE_ADDRESS);
         BluetoothDevice device = mBluetoothAdapter.getRemoteDevice(address);
-        Log.i("wang","device.address:"+device.getAddress());
-        Log.i("wang","device.name:"+device.getName());
+//        Log.i("wang","device.address:"+device.getAddress());
+//        Log.i("wang","device.name:"+device.getName());
         mChatService.connect(device);
     }
     

@@ -32,8 +32,7 @@ public class EBApplication extends AppContext {
         if(processName!=null && !processName.equalsIgnoreCase(getPackageName())){
             return;
         }
-
-        SDKInitializer.initialize(getApplicationContext());
+        initBaiduMap();
         Account.init(this);
         ImHelper1.getInstance().init(this);
         Log.i("wang","当前登录的环信用户："+ImHelper1.getInstance().getCurrentEmUser());
@@ -43,6 +42,13 @@ public class EBApplication extends AppContext {
 //        }
         CacheManager.init(this);
 //        sRefWatcher = LeakCanary.install(this);
+    }
+
+    /**
+     * 初始化百度地图
+     */
+    public void initBaiduMap(){
+        SDKInitializer.initialize(getApplicationContext());
     }
 
     public static EBApplication getInstance() {

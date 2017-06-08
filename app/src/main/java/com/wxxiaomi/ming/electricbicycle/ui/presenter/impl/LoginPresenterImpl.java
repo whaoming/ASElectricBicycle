@@ -103,17 +103,17 @@ public class LoginPresenterImpl extends BasePreImpl<LoginView> implements LoginP
 
             }
         };
+        //登录到app服务器
         HttpMethods.getInstance().login(username, password, uniqueID)
                 .flatMap(new Func1<LoginResponseBean, Observable<LoginResponseBean>>() {
                     @Override
                     public Observable<LoginResponseBean> call(LoginResponseBean loginResponseBean) {
-//                        String currentEmUser = ImHelper1.getInstance().getCurrentEmUser();
-////                        if (loginResponseBean.user.username.equals(currentEmUser)) {
-////                            return Observable.just(loginResponseBean);
-////                        }
                         ImHelper1.getInstance().logout();
-                        Observable<Boolean> loginEm = ImHelper1.getInstance().LoginFromEm(loginResponseBean.user.username, loginResponseBean.user.password);
-                        Observable<LoginResponseBean> zip = Observable.zip(loginEm, Observable.just(loginResponseBean), new Func2<Boolean, LoginResponseBean, LoginResponseBean>() {
+                        //登录到环信服务器
+                        Observable<Boolean> loginEm = ImHelper1.getInstance().LoginFromEm(
+                                loginResponseBean.user.username, loginResponseBean.user.password);
+                        Observable<LoginResponseBean> zip = Observable.zip(loginEm, Observable.just(loginResponseBean)
+                                , new Func2<Boolean, LoginResponseBean, LoginResponseBean>() {
                             @Override
                             public LoginResponseBean call(Boolean aBoolean, LoginResponseBean loginResponseBean) {
                                 if (aBoolean) {

@@ -1,5 +1,7 @@
 package com.wxxiaomi.ming.electricbicycle.car.bluetooth.improve;
 
+import android.bluetooth.BluetoothDevice;
+
 import java.io.Serializable;
 
 /**
@@ -13,4 +15,5 @@ public class DeviceBoundBean implements Serializable{
     public String name;
     public String macDevice;
     public boolean isHistory;
+    public BluetoothDevice device;
 }

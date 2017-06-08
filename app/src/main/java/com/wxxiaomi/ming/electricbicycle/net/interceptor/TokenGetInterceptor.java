@@ -27,18 +27,7 @@ public class TokenGetInterceptor implements Interceptor {
     @Override
     public Response intercept(Chain chain) throws IOException {
         Request newRequest;
-//        if (!Account.isShortCookieEmpty()) {
-//            newRequest = chain.request().newBuilder()
-//                    .addHeader("token", Account.getShortCookie())
-//                    .build();
-//        } else {
-//            newRequest = chain.request().newBuilder()
-//                    .build();
-//        }
         if (headers!=null || !Account.isShortCookieEmpty()) {
-//            newRequest = chain.request().newBuilder()
-//                    .addHeader("token", Account.getShortCookie())
-//                    .build();
             Request.Builder builder = chain.request().newBuilder();
             if(headers!=null){
                 for(Map.Entry<String,String> item : headers.entrySet()){
@@ -48,7 +37,6 @@ public class TokenGetInterceptor implements Interceptor {
             if (!Account.isShortCookieEmpty()) {
                 builder.addHeader("token", Account.getShortCookie());
             }
-
             newRequest = builder.build();
         } else {
             newRequest = chain.request().newBuilder()
@@ -56,12 +44,10 @@ public class TokenGetInterceptor implements Interceptor {
         }
         Response response = chain.proceed(newRequest);
         if (response.header("token") != null) {
-            Log.i("wangwang", "发现短的token");
             Account.updateSCookie(response.header("token"));
         }
         String long_token = response.header("long_token");
         if (long_token != null) {
-            Log.i("wangwang", "发现长的token");
             Account.updateLCookie(long_token);
         }
         return response;

@@ -25,12 +25,12 @@ import android.widget.Toast;
 import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.car.adapter.BluetoothDeviceAdapter;
 import com.wxxiaomi.ming.common.widget.DialogHelper;
+import com.wxxiaomi.ming.electricbicycle.car.bluetooth.BluetoothState;
 import com.wxxiaomi.ming.electricbicycle.car.bluetooth.improve.DeviceBoundAdapter;
 import com.wxxiaomi.ming.electricbicycle.car.bluetooth.improve.DeviceBoundBean;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.base.NormalActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.custom.SimplexToast;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.pulltorefresh.recycleview.PullToRefreshRecyclerView;
-import com.wxxiaomi.ming.touch.BluetoothHelper;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -57,8 +57,9 @@ public class TouchBoundActivity extends NormalActivity {
     @Override
     protected void initView(Bundle savedInstanceState) {
         setContentView(R.layout.activity_touch_bound);
+        Log.i("wang","TouchBoundActivity");
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("蓝牙绑定");
+
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -66,6 +67,12 @@ public class TouchBoundActivity extends NormalActivity {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         registerListener();
         loadData();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        toolbar.setTitle("蓝牙绑定");
     }
 
     private void registerListener() {
@@ -86,6 +93,15 @@ public class TouchBoundActivity extends NormalActivity {
         mAdapter = new DeviceBoundAdapter(this,mDatas,false,mRecyclerView);
         mAdapter.onAttachedToRecyclerView(mRecyclerView.getRecyclerView());
         mRecyclerView.setAdapter(mAdapter);
+        mAdapter.setOnMyItemClickListener(new DeviceBoundAdapter.onMyItemClick() {
+            @Override
+            public void onClick(int position, DeviceBoundBean data) {
+                if(mBtAdapter.isDiscovering())
+                    mBtAdapter.cancelDiscovery();
+                DriveActivity.runDriveActivity(TouchBoundActivity.this,data.device.getAddress());
+                finish();
+            }
+        });
         if (mBtAdapter.isDiscovering()) {
             mBtAdapter.cancelDiscovery();
         }
@@ -98,8 +114,6 @@ public class TouchBoundActivity extends NormalActivity {
 //            super.handleMessage(msg);
             switch (msg.what){
                 case 1:
-                    Log.i("wang","哈哈哈");
-//                    mAdapter.notifyItemChanged(mDatas.size());
                     mAdapter.notifyDataSetChanged();
                     break;
             }
@@ -112,7 +126,6 @@ public class TouchBoundActivity extends NormalActivity {
             String action = intent.getAction();
             // When discovery finds a device(发现设备的时候)
             if (BluetoothDevice.ACTION_FOUND.equals(action)) {
-                Log.i("wang","发现设备拉");
                 // Get the BluetoothDevice object from the Intent(从intent里面获取设备实体)
                 BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
                 // If it's already paired, skip it, because it's been listed already
@@ -123,6 +136,7 @@ public class TouchBoundActivity extends NormalActivity {
                     bean.isHistory = false;
                     bean.macDevice = device.getAddress();
                     bean.name = device.getName();
+                    bean.device = device;
                     mDatas.add(bean);
                 }else{
                     //已经存在的
@@ -130,6 +144,7 @@ public class TouchBoundActivity extends NormalActivity {
                     bean.isHistory = true;
                     bean.macDevice = device.getAddress();
                     bean.name = device.getName();
+                    bean.device = device;
 //                    mAdapter.
                     mDatas.add(bean);
 //                    mAdapter.notifyItemChanged(mDatas.size());

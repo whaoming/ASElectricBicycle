@@ -86,5 +86,38 @@ public abstract class BaseActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+    * @author whaoming
+    * github：https://github.com/whaoming
+    * created at 2017/5/8 22:31
+    * Description: 基类activity的接口
+    */
+    public interface BaseActivityInterface{
+        /**
+         * activity入口函数，负责做一些初始化操作
+         * @param savedInstanceState
+         * @param persistentState
+         */
+        void onCreate(Bundle savedInstanceState, PersistableBundle persistentState);
+
+        /**
+         * 负责ui的初始化操作
+         * @param savedInstanceState
+         */
+        void initView(Bundle savedInstanceState);
+
+        /**
+         * 生命周期的结束函数，负责做一些资源的释放
+         */
+        void onDestroy();
+
+        /**
+         * 跳转函数
+         * @param clazz
+         * @param bundle
+         * @param isFinish
+         */
+        void runActivity(Class clazz, Bundle bundle, boolean isFinish);
+    }
 
 }

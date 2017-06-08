@@ -21,6 +21,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.BitmapDescriptor;
@@ -35,13 +36,16 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.wxxiaomi.ming.electricbicycle.R;
+import com.wxxiaomi.ming.electricbicycle.car.CarManager;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.base.MvpActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.HomePresenter;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.impl.HomePresenterImpl;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.view.HomeView;
+import com.wxxiaomi.ming.electricbicycle.ui.weight.codeview.camera.CameraManager;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.custom.CircularImageView;
 import com.wxxiaomi.ming.electricbicycle.manager.LocatProvider;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.custom.MsgActionProvider;
+import com.wxxiaomi.ming.speedlib.PointerSpeedometer;
 
 /**
  * Created by 12262 on 2016/6/6.
@@ -77,6 +81,10 @@ public class HomeActivity extends MvpActivity<HomeView,HomePresenter> implements
     private RelativeLayout rl_myfriend;
     private RelativeLayout rl_foot_print;
     private TextView drawer_nick;
+    private PointerSpeedometer pointerSpeedometer;
+
+
+
 
 
     @Override
@@ -86,6 +94,7 @@ public class HomeActivity extends MvpActivity<HomeView,HomePresenter> implements
         toolbar = (Toolbar) findViewById(R.id.toolbar1);
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
+        pointerSpeedometer = (PointerSpeedometer) findViewById(R.id.pointerSpeedometer);
         iv_avatar = (ImageView) findViewById(R.id.iv_avatar);
         iv_avatar.setOnClickListener(this);
         sn_layout = (CoordinatorLayout) findViewById(R.id.sn_layout);
@@ -119,9 +128,33 @@ public class HomeActivity extends MvpActivity<HomeView,HomePresenter> implements
         rl_foot_print.setOnClickListener(this);
         initAnimation();
         initMapMarkerClickListener();
+        initNormalListener();
 //
 //        ViewStub stub = (ViewStub) findViewById(R.id.stub);
 //        View inflated = stub.inflate();
+    }
+
+    private void initNormalListener() {
+        CarManager.getInstance().bindSpeedNotify(new CarManager.OnSpeedMessageGet() {
+            @Override
+            public void onSpeedGet(int speed) {
+                if(!pointerSpeedometer.isShown()){
+                    pointerSpeedometer.setVisibility(View.VISIBLE);
+                }
+                pointerSpeedometer.speedTo(speed);
+            }
+
+            @Override
+            public void onDeviceDisconnected() {
+                pointerSpeedometer.setVisibility(View.GONE);
+
+            }
+
+            @Override
+            public void onDeviceConnectionFailed() {
+
+            }
+        });
     }
 
     @Override
@@ -362,6 +395,11 @@ public class HomeActivity extends MvpActivity<HomeView,HomePresenter> implements
     protected void onResume() {
         super.onResume();
         mMapView.onResume();
+        if(CarManager.getInstance().isConnecting()){
+            pointerSpeedometer.setVisibility(View.VISIBLE);
+        }else{
+            pointerSpeedometer.setVisibility(View.GONE);
+        }
     }
 
     @Override

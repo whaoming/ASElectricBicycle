@@ -163,12 +163,10 @@ public class SplashActivity extends Activity {
                             public void onCompleted() {
 
                             }
-
                             @Override
                             public void onError(Throwable e) {
 
                             }
-
                             @Override
                             public void onNext(Boolean aBoolean) {
                                 isLogin = true;

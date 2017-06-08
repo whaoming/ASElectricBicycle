@@ -28,7 +28,6 @@ public class AESInterceptor implements Interceptor {
     @Override
     public Response intercept(Chain chain) throws IOException {
         Request request = chain.request();
-        Log.i("wang","aes拦截器");
         try {
             Request newRequest = null;
             if (request.body() instanceof FormBody) {
@@ -37,13 +36,11 @@ public class AESInterceptor implements Interceptor {
                 String keyMI = null;
                 for (int i = 0; i < formBody.size(); i++) {
                     if (formBody.name(i).equals("param")) {
-                        Log.i("wang","发现param");
                         String json = AESUtil.encrypt(formBody.value(i), key);
                         if (!TextUtils.isEmpty(json)) {
                             formBuilder.add("data", json);
                             RSAPublicKey pk = RSAKeyProvider.loadPublicKeyByStr(AppContext.getPublicKeyStore());
                             keyMI = RSAUtils.encryptByPublicKey(key,pk);
-//                            formBuilder.add("key",keyMI);
                         }
                     }else{
                         formBuilder.addEncoded(formBody.encodedName(i), formBody.encodedValue(i));
@@ -53,7 +50,6 @@ public class AESInterceptor implements Interceptor {
                 Request.Builder builder = request.newBuilder();
                 Log.i("wang","keyMI:"+keyMI);
                 if(!TextUtils.isEmpty(keyMI)){
-//                    builder.addHeader("key",keyMI);
                     builder.header("key",keyMI);
                 }
                 newRequest = builder

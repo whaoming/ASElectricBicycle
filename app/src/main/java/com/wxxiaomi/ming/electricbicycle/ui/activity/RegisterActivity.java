@@ -60,7 +60,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void register() {
-//        UniqueUtil util = new UniqueUtil(getApplicationContext());
         String uniqueID = TDevice.getUniqueID(getApplicationContext());
         String username = et_username.getText().toString().trim();
         String password = et_password.getText().toString().trim();

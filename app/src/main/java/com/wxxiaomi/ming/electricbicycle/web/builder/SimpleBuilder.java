@@ -76,7 +76,6 @@ public class SimpleBuilder extends ComBuildImpl {
     }
     /**
      * 处理ui初始化事件
-     *
      * @param data s
      */
     private void handlerUiInitEvent(String data) {
