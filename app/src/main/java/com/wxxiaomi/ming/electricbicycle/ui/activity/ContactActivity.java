@@ -16,8 +16,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.wxxiaomi.ming.electricbicycle.R;
-import com.wxxiaomi.ming.electricbicycle.manager.AccountHelper;
-import com.wxxiaomi.ming.electricbicycle.ui.activity.base.BaseActivity;
+import com.wxxiaomi.ming.electricbicycle.manager.Account;
+import com.wxxiaomi.ming.electricbicycle.ui.activity.base.MvpActivity;
 import com.wxxiaomi.ming.electricbicycle.im.ui.ContactListFragment;
 import com.wxxiaomi.ming.electricbicycle.im.ui.ConversationListFragment;
 import com.wxxiaomi.ming.electricbicycle.ui.presenter.ContactPresenter;
@@ -33,9 +33,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by 12262 on 2016/6/9.
- */
-public class ContactActivity extends BaseActivity<ContactView,ContactPresenter> implements ContactView<ContactPresenter>,FragmentCallback {
+* @author whaoming
+* github：https://github.com/whaoming
+* created at 2017/2/24 9:50
+* TODO: 联系人页面
+*/
+public class ContactActivity extends MvpActivity<ContactView,ContactPresenter> implements ContactView<ContactPresenter>,FragmentCallback {
 
     private Toolbar toolbar;
     private TabLayout tabLayout;
@@ -45,15 +48,12 @@ public class ContactActivity extends BaseActivity<ContactView,ContactPresenter> 
     private List<String> list_title;
     private ConversationListFragment demoFragment;
     private ContactListFragment contactFragment;
+//    private LinearLayout drawer;
+//    private LinearLayoutManager mLayoutManager;
 
-//    private DrawerLayout mDrawerLayout;
-//    private RecyclerView mRecyclerView;
-    private LinearLayout drawer;
-    private LinearLayoutManager mLayoutManager;
-
-    private RelativeLayout drawer_ll;
+//    private RelativeLayout drawer_ll;
     private MsgActionProvider mActionProvider;
-    private MsgActionProvider mActionProvider2;
+//    private MsgActionProvider mActionProvider2;
 
     @Override
     protected void initView(Bundle savedInstanceState) {
@@ -63,34 +63,19 @@ public class ContactActivity extends BaseActivity<ContactView,ContactPresenter> 
         tabLayout.setTabMode(TabLayout.MODE_FIXED);
         viewPager = (ViewPager) findViewById(R.id.vp_FindFragment_pager);
         toolbar = (Toolbar) this.findViewById(R.id.toolbar1);
-        toolbar.setTitle(AccountHelper.getAccountInfo().nickname);
+        toolbar.setTitle(Account.getAccountInfo().nickname);
         setSupportActionBar(toolbar);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//        mDrawerLayout = (DrawerLayout) findViewById(R.id.dl_left);
-
-//        drawer = (LinearLayout) findViewById(R.id.drawer);
-//        drawer.setOnClickListener(this);
-//        drawer_ll = (RelativeLayout)drawer.findViewById(R.id.drawer_ll);
-//        drawer_ll.setOnClickListener(this);
-//        mRecyclerView = (RecyclerView) drawer.findViewById(R.id.list);
-        mLayoutManager = new LinearLayoutManager(this);
-//        mRecyclerView.setLayoutManager(mLayoutManager);
-//        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+//        mLayoutManager = new LinearLayoutManager(this);
         list_fragment = new ArrayList<Fragment>();
         contactFragment = new ContactListFragment();
         demoFragment = new ConversationListFragment();
         list_fragment.add(demoFragment);
         list_fragment.add(contactFragment);
         list_title = new ArrayList<String>();
-//        list_title.add("最近联系人");
-//        list_title.add("我的好友");
         list_title.add("");
         list_title.add("");
-//        tabLayout.addTab(tabLayout.newTab().setText(list_title.get(0)));
-//        tabLayout.addTab(tabLayout.newTab().setText(list_title.get(1)));
-//        tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_add_white_24dp));
-//        tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_camera_alt_white_48dp));
         fAdapter = new IndexFragmentTabAdapter(getSupportFragmentManager(),
                 list_fragment, list_title);
         viewPager.setAdapter(fAdapter);

@@ -52,7 +52,6 @@ public class ConversationListFragment extends EaseConversationListFragment {
                 if (username.equals(EMClient.getInstance().getCurrentUser()))
                     Toast.makeText(getActivity(), R.string.Cant_chat_with_yourself, Toast.LENGTH_SHORT).show();
                 else {
-                    // start chat acitivity
                     Intent intent = new Intent(getActivity(), ChatActivity.class);
                     if(conversation.isGroup()){
                         if(conversation.getType() == EMConversationType.ChatRoom){

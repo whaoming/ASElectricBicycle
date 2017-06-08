@@ -20,7 +20,7 @@ import com.wxxiaomi.ming.electricbicycle.im.ImHelper1;
 import com.wxxiaomi.ming.electricbicycle.im.notice.NoticeManager;
 import com.wxxiaomi.ming.electricbicycle.manager.update.CheckUpdateManager;
 import com.wxxiaomi.ming.electricbicycle.manager.update.Version;
-import com.wxxiaomi.ming.electricbicycle.manager.AccountHelper;
+import com.wxxiaomi.ming.electricbicycle.manager.Account;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.HomeActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.RegisterActivity;
 import com.wxxiaomi.ming.electricbicycle.manager.UserFunctionProvider;
@@ -153,22 +153,20 @@ public class SplashActivity extends Activity {
     }
 
     private void thisAutoLogin() {
-        boolean login = AccountHelper.isLogin();
+        boolean login = Account.isLogin();
         if (login) {
             //允许登陆
             if(!ImHelper1.getInstance().isLogin()){
-                ImHelper1.getInstance().LoginFromEm(AccountHelper.getUser().username,AccountHelper.getUser().password)
+                ImHelper1.getInstance().LoginFromEm(Account.getUser().username, Account.getUser().password)
                         .subscribe(new Observer<Boolean>() {
                             @Override
                             public void onCompleted() {
 
                             }
-
                             @Override
                             public void onError(Throwable e) {
 
                             }
-
                             @Override
                             public void onNext(Boolean aBoolean) {
                                 isLogin = true;

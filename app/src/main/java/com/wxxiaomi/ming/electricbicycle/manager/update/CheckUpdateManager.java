@@ -8,7 +8,7 @@ import android.support.v7.app.AlertDialog;
 import com.wxxiaomi.ming.common.base.AppContext;
 import com.wxxiaomi.ming.electricbicycle.net.HttpMethods;
 import com.wxxiaomi.ming.electricbicycle.AppConfig;
-import com.wxxiaomi.ming.common.weight.DialogHelper;
+import com.wxxiaomi.ming.common.widget.DialogHelper;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.custom.SimplexToast;
 
 

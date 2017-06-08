@@ -30,7 +30,8 @@ public class ExceptionProvider {
     private static final int SERVICE_UNAVAILABLE = 503;
     private static final int GATEWAY_TIMEOUT = 504;
 
-    public static ApiException handleException(Throwable e){
+    public static ApiException
+    handleException(Throwable e){
         ApiException ex;
         if (e instanceof HttpException){
             Log.i("wang","e instanceof HttpException");

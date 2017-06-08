@@ -42,10 +42,9 @@ public final class NoticeManager {
 //        // 启动服务
 //        NoticeServer.startAction(context);
 //        // 注册广播
-        Log.i("wang","NoticeManager初始化了");
+//        Log.i("wang","NoticeManager初始化了");
         NoticeBean nb = NoticeBean.getInstance(context);
         INSTANCE.onNoticeChanged(nb);
-
         LocalBroadcastManager broadcastManager = LocalBroadcastManager.getInstance(context);
         IntentFilter filter = new IntentFilter();
         filter.addAction(ImHelper1.NOTICE_MESSAGE_RECEIVE);

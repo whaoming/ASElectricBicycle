@@ -15,7 +15,7 @@ import com.wxxiaomi.ming.common.net.cons.OptionType;
 import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.common.util.TimeUtil;
 import com.wxxiaomi.ming.electricbicycle.db.bean.Option;
-import com.wxxiaomi.ming.electricbicycle.manager.AccountHelper;
+import com.wxxiaomi.ming.electricbicycle.manager.Account;
 import com.wxxiaomi.ming.electricbicycle.manager.ShowerProvider;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.pulltorefresh.baseadapter.ViewHolder;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.pulltorefresh.baseadapter.base.MultiBaseAdapter;
@@ -109,7 +109,7 @@ public class OptionAdapter4  extends MultiBaseAdapter<Option> {
 
     private void fillNormalData(ViewHolder holder,Option option) {
         int flag = option.type;
-        String avatar = AccountHelper.getAccountInfo().avatar;
+        String avatar = Account.getAccountInfo().avatar;
         ShowerProvider.showHead(mContext,(ImageView) holder.getView(R.id.iv_avatar),avatar);
         switch (flag){
             case OptionType.TOPIC_PUBLISH:

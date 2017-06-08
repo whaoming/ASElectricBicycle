@@ -18,6 +18,7 @@
         <attr name="textSize" format="dimension" />
         <attr name="unit" format="string" />
 
+        <!-- km/h的大小-->
         <attr name="unitTextSize" format="dimension"/>
         <attr name="trembleDegree" format="float" />
         <attr name="trembleDuration" format="integer" />

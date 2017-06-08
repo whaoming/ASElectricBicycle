@@ -23,7 +23,11 @@ public class ShowerProvider {
                     .placeholder(R.mipmap.noone)
                     .into(imageView);
         }else{
-            Log.i("wang","头像路径为空");
+            Glide.with(context)
+                    .load(R.mipmap.noone)
+                    .dontAnimate()
+//                    .placeholder(R.mipmap.noone)
+                    .into(imageView);
         }
 
     }

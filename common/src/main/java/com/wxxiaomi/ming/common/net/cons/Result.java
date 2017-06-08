@@ -11,6 +11,7 @@ public class Result<T> {
 	public String error;
 	public T infos;
 
+
 	@Override
 	public String toString() {
 		return "Result{" +

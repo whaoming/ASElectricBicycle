@@ -15,9 +15,9 @@ import com.wxxiaomi.ming.common.cache.CacheManager;
 import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.common.util.AppManager;
 import com.wxxiaomi.ming.electricbicycle.manager.update.CheckUpdateManager;
-import com.wxxiaomi.ming.common.weight.DialogHelper;
+import com.wxxiaomi.ming.common.widget.DialogHelper;
 import com.wxxiaomi.ming.electricbicycle.manager.update.Version;
-import com.wxxiaomi.ming.electricbicycle.manager.AccountHelper;
+import com.wxxiaomi.ming.electricbicycle.manager.Account;
 import com.wxxiaomi.ming.electricbicycle.ui.activity.LoginActivity;
 
 /**
@@ -71,7 +71,7 @@ public class SettingFragment extends PreferenceFragment {
 
     private void logout() {
         try {
-            AccountHelper.logout(root, new Runnable() {
+            Account.logout(root, new Runnable() {
                 @Override
                 public void run() {
                     AppManager.getAppManager().finishAllActivity(getActivity().getClass());

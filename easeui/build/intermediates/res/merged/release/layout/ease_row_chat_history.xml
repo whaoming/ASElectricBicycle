@@ -2,56 +2,70 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="78dp"
+    android:layout_height="wrap_content"
      android:id="@+id/list_itease_layout"
      android:background="@drawable/em_chat_conversation_item"
-
-    android:gravity="center_vertical" >
+    >
 
     <RelativeLayout
-        android:padding="10dp"
+        android:layout_marginTop="1dp"
         android:id="@+id/avatar_container"
-        android:layout_width="78dp"
-        android:layout_height="match_parent"
-        android:layout_alignParentLeft="true" >
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="70dp"
+        >
+
+        <FrameLayout
+            android:id="@+id/portrait_panel"
+            android:layout_width="70dip"
+            android:layout_height="70dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true">
 
       <com.hyphenate.easeui.widget.CircularImageView
+          android:layout_marginLeft="10dp"
+          android:layout_marginRight="12dp"
             android:id="@+id/avatar"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-          android:layout_centerInParent="true"
-            android:scaleType="fitXY"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             app:border_width="0dp"
+          android:layout_gravity="center_vertical"
             android:src="@drawable/ease_default_avatar" />
+        </FrameLayout>
 
         <TextView
+            android:layout_below="@+id/time"
             android:id="@+id/unread_msg_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="2dp"
+            android:layout_marginRight="10dp"
             android:layout_marginTop="3dp"
             android:background="@drawable/ease_unread_count_bg"
             android:gravity="center"
             android:textColor="@android:color/white"
             android:textSize="12sp" />
-    </RelativeLayout>
-    <RelativeLayout
-        android:layout_marginLeft="6dp"
-        android:id="@+id/demo"
-        android:layout_toRightOf="@+id/avatar_container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <!--</RelativeLayout>-->
+    <!--<RelativeLayout-->
+        <!--android:layout_marginLeft="1dp"-->
+        <!--android:id="@+id/demo"-->
+        <!--android:layout_toRightOf="@+id/avatar_container"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent">-->
         <TextView
             android:layout_alignParentTop="true"
             android:text="admin"
             android:id="@+id/name"
+            android:layout_marginRight="6dp"
+            android:layout_marginTop="16dip"
+            android:layout_toRightOf="@id/portrait_panel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="7dp"
-            android:layout_marginTop="14dp"
-            android:textColor="@color/grid_state_focused"
-            android:textSize="17sp" />
+            android:textColor="#333333"
+            android:textSize="16sp"
+            android:ellipsize="end"
+            android:includeFontPadding="false"
+            />
 
         <TextView
             android:text="pm 05:25"
@@ -60,19 +74,21 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_marginRight="12dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="16dp"
             android:textColor="@color/grid_state_focused"
             android:textSize="10sp" />
 
         <ImageView
             android:id="@+id/msg_state"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="5dp"
-            android:layout_marginLeft="7dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/name"
+            android:layout_marginRight="6dp"
+            android:layout_marginTop="6dp"
+            android:layout_toRightOf="@id/portrait_panel"
+            android:visibility="visible"
             android:src="@drawable/ease_msg_state_fail_resend"
-            android:visibility="gone" />
+             />
 
         <TextView
             android:layout_width="wrap_content"
@@ -90,25 +106,29 @@
             />
 
         <TextView
-            android:layout_below="@+id/name"
-            android:maxLines="1"
+
             android:text="asasdasdasdasdasdsadad"
             android:id="@+id/message"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_toRightOf="@id/mentioned"
+            android:layout_below="@id/name"
+            android:layout_marginRight="40dip"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/msg_state"
+            android:autoLink="none"
             android:ellipsize="end"
-            android:padding="5dp"
-            android:textColor="@color/voip_interface_text_color"
-            android:textSize="12sp" />
+            android:lines="1"
+            android:scrollHorizontally="true"
+            android:textColor="#ffaaaaaa"
+            android:textSize="13sp"
+             />
 
         <View
-            android:layout_marginTop="5dp"
             android:layout_alignParentBottom="true"
-            android:background="#6666"
+            android:background="#d9d9d9"
             android:layout_width="match_parent"
-            android:layout_height="0.01dp"/>
+            android:layout_marginLeft="70dp"
+            android:layout_height="2px"/>
     </RelativeLayout>
 
 

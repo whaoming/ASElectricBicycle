@@ -29,10 +29,8 @@ public class ContactPresenterImpl extends BasePreImpl<ContactView> implements Co
 
     @Override
     public void init() {
-//        initDrawerData();
         NoticeManager.bindNotify(this);
         NoticeManager.clearNotice(mView.getContext().getApplicationContext(),NoticeManager.FLAG_CLEAR_MESSAGE);
-//        registerBroadcastReceiver();
     }
 
     private void registerBroadcastReceiver() {

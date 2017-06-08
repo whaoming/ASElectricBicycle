@@ -12,6 +12,8 @@ import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.db.bean.InviteMessage;
 import com.wxxiaomi.ming.electricbicycle.db.impl.InviteMessgeDaoImpl2;
 import com.wxxiaomi.ming.electricbicycle.im.notice.NoticeManager;
+import com.wxxiaomi.ming.electricbicycle.ui.activity.base.BaseActivity;
+import com.wxxiaomi.ming.electricbicycle.ui.activity.base.NormalActivity;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.adapter2.InviteAdapter;
 import com.wxxiaomi.ming.electricbicycle.ui.weight.pulltorefresh.recycleview.PullToRefreshRecyclerView;
 
@@ -19,24 +21,11 @@ import java.util.List;
 
 import rx.functions.Action1;
 
-public class InviteMsgActivity extends AppCompatActivity {
+public class InviteMsgActivity extends NormalActivity {
     private Toolbar toolbar;
     private PullToRefreshRecyclerView mRecyclerView;
     private InviteAdapter mAdapter;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_invite_msg);
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("邀请信息");
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        mRecyclerView = (PullToRefreshRecyclerView) findViewById(R.id.mRecyclerView);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        initListview();
-        initData();
-    }
     private void initData() {
         //从数据库取出邀请信息
         //根据邀请信息取得用户信息传入
@@ -49,31 +38,6 @@ public class InviteMsgActivity extends AppCompatActivity {
                 mAdapter.setNewData(inviteMessages);
             }
         });
-
-//        InviteMessgeDaoImpl.getInstance().getMessagesList()
-//                .
-//        UserFunctionProvider.getInstance().getInviteMsgs()
-//                .flatMap(new Func1<List<InviteMessage>, Observable<InviteMessage>>() {
-//                    @Override
-//                    public Observable<InviteMessage> call(List<InviteMessage> inviteMessages) {
-//                        msgs = inviteMessages;
-//                        return Observable.from(inviteMessages);
-//                    }
-//                })
-//                .subscribe(new Action1<InviteMessage>() {
-//                    @Override
-//                    public void call(final InviteMessage inviteMessage) {
-//                        UserFunctionProvider.getInstance().getEaseUserByEmname(inviteMessage.getFrom())
-//                                .subscribe(new Action1<EaseUser>() {
-//                                    @Override
-//                                    public void call(EaseUser easeUser) {
-//                                        users.put(inviteMessage.getId(),easeUser);
-//                                        mAdapter.initData(msgs,users);
-//                                    }
-//                                });
-//                    }
-//                });
-
     }
 
     private void initListview() {
@@ -81,5 +45,18 @@ public class InviteMsgActivity extends AppCompatActivity {
         View emptyView = LayoutInflater.from(this).inflate(R.layout.view_list_empty, (ViewGroup) mRecyclerView.getParent(), false);
         mAdapter.setEmptyView(emptyView);
         mRecyclerView.setAdapter(mAdapter);
+    }
+
+    @Override
+    protected void initView(Bundle savedInstanceState) {
+        setContentView(R.layout.activity_invite_msg);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("邀请信息");
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        mRecyclerView = (PullToRefreshRecyclerView) findViewById(R.id.mRecyclerView);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        initListview();
+        initData();
     }
 }

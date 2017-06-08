@@ -13,17 +13,17 @@ import com.wxxiaomi.ming.common.util.SharedPreferencesHelper;
  * Created by Administrator on 2017/1/3.
  */
 
-public class AccountHelper {
+public class Account {
     private User user;
     private Application application;
-    private static AccountHelper instances;
+    private static Account instances;
 
-    private AccountHelper(Application application) {
+    private Account(Application application) {
         this.application = application;
     }
 
     public static void init(Application application) {
-        instances = new AccountHelper(application);
+        instances = new Account(application);
     }
 
     public static boolean isLogin() {

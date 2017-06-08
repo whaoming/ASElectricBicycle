@@ -16,6 +16,7 @@ package com.wxxiaomi.ming.electricbicycle.im.ui;
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.util.Log;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.LayoutInflater;
@@ -31,6 +32,10 @@ import com.hyphenate.util.NetUtils;
 import com.wxxiaomi.ming.electricbicycle.R;
 import com.wxxiaomi.ming.electricbicycle.db.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.manager.UserFunctionProvider;
+import com.wxxiaomi.ming.electricbicycle.ui.activity.BlackListActivity;
+import com.wxxiaomi.ming.electricbicycle.ui.activity.FriendAddActivity;
+import com.wxxiaomi.ming.electricbicycle.ui.activity.InviteMsgActivity;
+import com.wxxiaomi.ming.electricbicycle.ui.activity.UserInfoActivity;
 
 import java.util.HashMap;
 import java.util.Hashtable;
@@ -44,9 +49,6 @@ import java.util.Map;
 public class ContactListFragment extends EaseContactListFragment {
 	
     private static final String TAG = ContactListFragment.class.getSimpleName();
-//    private ContactSyncListener contactSyncListener;
-//    private BlackListSyncListener blackListSyncListener;
-//    private ContactInfoSyncListener contactInfoSyncListener;
     private View loadingView;
     private ContactItemView applicationItem;
 
@@ -54,19 +56,25 @@ public class ContactListFragment extends EaseContactListFragment {
     @Override
     protected void initView() {
         super.initView();
-        @SuppressLint("InflateParams") View headerView = LayoutInflater.from(getActivity()).inflate(R.layout.em_contacts_header, null);
+        @SuppressLint("InflateParams")
+        View headerView = LayoutInflater.from(getActivity()).inflate(R.layout.em_contacts_header, null);
         HeaderItemClickListener clickListener = new HeaderItemClickListener();
-        applicationItem = (ContactItemView) headerView.findViewById(R.id.application_item);
+        applicationItem = (ContactItemView) headerView.findViewById(R.id.new_frined);
         applicationItem.setOnClickListener(clickListener);
-        headerView.findViewById(R.id.group_item).setOnClickListener(clickListener);
-        headerView.findViewById(R.id.chat_room_item).setOnClickListener(clickListener);
-        headerView.findViewById(R.id.robot_item).setOnClickListener(clickListener);
-        //listView.addHeaderView(headerView);
+        headerView.findViewById(R.id.black_list).setOnClickListener(clickListener);
+//        headerView.findViewById(R.id.chat_room_item).setOnClickListener(clickListener);
+//        headerView.findViewById(R.id.robot_item).setOnClickListener(clickListener);
+        listView.addHeaderView(headerView);
         //add loading view
         loadingView = LayoutInflater.from(getActivity()).inflate(R.layout.em_layout_loading_data, null);
         contentContainer.addView(loadingView);
-
         registerForContextMenu(listView);
+        setContactListItemClickListener(new EaseContactListItemClickListener() {
+            @Override
+            public void onListItemClicked(EaseUser user) {
+                UserInfoActivity.show(getActivity(),user.getUsername());
+            }
+        });
     }
     
     @Override
@@ -181,6 +189,17 @@ public class ContactListFragment extends EaseContactListFragment {
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
+                case R.id.new_frined:
+                    //添加好友页面
+                    Intent intent = new Intent(getActivity(), InviteMsgActivity.class);
+                    startActivity(intent);
+                    break;
+                case R.id.black_list:
+                    Log.i("wang","black_list");
+                    Intent intent1 = new Intent(getActivity(), BlackListActivity.class);
+                    startActivity(intent1);
+                    //黑名单页面
+                    break;
 //            case R.id.application_item:
 //                // 进入申请与通知页面
 //                startActivity(new Intent(getActivity(), NewFriendsMsgActivity.class));

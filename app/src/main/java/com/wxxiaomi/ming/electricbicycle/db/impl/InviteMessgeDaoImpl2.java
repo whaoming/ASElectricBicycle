@@ -16,10 +16,13 @@ import java.util.List;
 import rx.Observable;
 import rx.Subscriber;
 
-/**
- * Created by Administrator on 2016/12/14.
- */
 
+/**
+* @author whaoming
+* github：https://github.com/whaoming
+* created at 2016/12/14 9:26
+* TODO: 邀请消息dao的实现类
+*/
 public class InviteMessgeDaoImpl2 implements InviteMessgeDao {
     DbOpenHelper helper;
     public InviteMessgeDaoImpl2(Context context){
@@ -50,6 +53,7 @@ public class InviteMessgeDaoImpl2 implements InviteMessgeDao {
             values.put(InviteMessgeDao.COLUMN_NAME_TIME, message.getTime());
             values.put(InviteMessgeDao.COLUMN_NAME_AVATAR, message.getAvatar());
             values.put(InviteMessgeDao.COLUMN_NAME_NICK, message.getNickname());
+            values.put(InviteMessgeDao.COLUMN_NAME_ISACCEPT, 0);
             db.replace(InviteMessgeDao.TABLE_NAME, null, values);
             Cursor cursor = db.rawQuery("select last_insert_rowid() from " + InviteMessgeDao.TABLE_NAME, null);
             if (cursor.moveToFirst()) {
@@ -74,14 +78,14 @@ public class InviteMessgeDaoImpl2 implements InviteMessgeDao {
                 long time = cursor.getLong(cursor.getColumnIndex(InviteMessgeDao.COLUMN_NAME_TIME));
                 String avatar = cursor.getString(cursor.getColumnIndex(InviteMessgeDao.COLUMN_NAME_AVATAR));
                 String nickname = cursor.getString(cursor.getColumnIndex(InviteMessgeDao.COLUMN_NAME_NICK));
-
+                int isAccept  = cursor.getInt(cursor.getColumnIndex(InviteMessgeDao.COLUMN_NAME_ISACCEPT));
                 msg.setId(id);
                 msg.setFrom(from);
                 msg.setReason(reason);
                 msg.setTime(time);
                 msg.setAvatar(avatar);
                 msg.setNickname(nickname);
-
+                msg.setAccept(isAccept==1?true:false);
                 msgs.add(msg);
             }
             cursor.close();
@@ -107,9 +111,10 @@ public class InviteMessgeDaoImpl2 implements InviteMessgeDao {
                             long time = cursor.getLong(cursor.getColumnIndex(InviteMessgeDao.COLUMN_NAME_TIME));
                             String avatar = cursor.getString(cursor.getColumnIndex(InviteMessgeDao.COLUMN_NAME_AVATAR));
                             String nickname = cursor.getString(cursor.getColumnIndex(InviteMessgeDao.COLUMN_NAME_NICK));
+                            int isAccept  = cursor.getInt(cursor.getColumnIndex(InviteMessgeDao.COLUMN_NAME_ISACCEPT));
                             msg.setAvatar(avatar);
                             msg.setNickname(nickname);
-
+                            msg.setAccept(isAccept==1?true:false);
                             msg.setId(id);
                             msg.setFrom(from);
                             msg.setReason(reason);
@@ -128,5 +133,10 @@ public class InviteMessgeDaoImpl2 implements InviteMessgeDao {
                 subscriber.onCompleted();
             }
         });
+    }
+
+    @Override
+    public List<InviteMessage> updateInviteMsgAccept(int msgId) {
+        return null;
     }
 }

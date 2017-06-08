@@ -40,6 +40,9 @@ public abstract class BuilderDetail implements Builder {
         return mWebView;
     }
 
+    /**
+     * 初始化页面数据
+     */
     @Override
     public void initPageData() {
         String url = getTargetUrl();

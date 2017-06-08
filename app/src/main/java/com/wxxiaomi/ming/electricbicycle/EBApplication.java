@@ -10,7 +10,7 @@ import com.baidu.mapapi.SDKInitializer;
 import com.wxxiaomi.ming.common.base.AppContext;
 import com.wxxiaomi.ming.common.cache.CacheManager;
 import com.wxxiaomi.ming.electricbicycle.im.ImHelper1;
-import com.wxxiaomi.ming.electricbicycle.manager.AccountHelper;
+import com.wxxiaomi.ming.electricbicycle.manager.Account;
 
 import java.util.List;
 
@@ -32,9 +32,8 @@ public class EBApplication extends AppContext {
         if(processName!=null && !processName.equalsIgnoreCase(getPackageName())){
             return;
         }
-
-        SDKInitializer.initialize(getApplicationContext());
-        AccountHelper.init(this);
+        initBaiduMap();
+        Account.init(this);
         ImHelper1.getInstance().init(this);
         Log.i("wang","当前登录的环信用户："+ImHelper1.getInstance().getCurrentEmUser());
 //        ImHelper1.getInstance().get
@@ -43,6 +42,13 @@ public class EBApplication extends AppContext {
 //        }
         CacheManager.init(this);
 //        sRefWatcher = LeakCanary.install(this);
+    }
+
+    /**
+     * 初始化百度地图
+     */
+    public void initBaiduMap(){
+        SDKInitializer.initialize(getApplicationContext());
     }
 
     public static EBApplication getInstance() {

@@ -569,7 +569,7 @@ containing a value of this type.
     }
     public static final class id {
         public static int alert_message=0x7f09000d;
-        public static int avatar=0x7f090024;
+        public static int avatar=0x7f090025;
         public static int avatar_container=0x7f090023;
         public static int bmapView=0x7f090007;
         public static int btn_cancel=0x7f09000e;
@@ -591,7 +591,6 @@ containing a value of this type.
         public static int close=0x7f090003;
         public static int contact_list=0x7f09001c;
         public static int content_container=0x7f09001b;
-        public static int demo=0x7f090026;
         public static int edittext_layout=0x7f090053;
         public static int emojicon=0x7f09001f;
         public static int emojicon_menu_container=0x7f09004e;
@@ -628,12 +627,13 @@ containing a value of this type.
         public static int mic_image=0x7f090068;
         public static int msg_state=0x7f090029;
         public static int msg_status=0x7f090043;
-        public static int name=0x7f090027;
+        public static int name=0x7f090028;
         public static int none=0x7f090000;
         public static int open=0x7f090004;
         public static int pager_view=0x7f09005c;
         public static int pb_load_local=0x7f090009;
         public static int percentage=0x7f090039;
+        public static int portrait_panel=0x7f090024;
         public static int primary_menu=0x7f09001e;
         public static int primary_menu_container=0x7f09004b;
         public static int progressBar=0x7f09000b;
@@ -657,7 +657,7 @@ containing a value of this type.
         public static int tab_container=0x7f090060;
         public static int text=0x7f090010;
         public static int textView=0x7f09000c;
-        public static int time=0x7f090028;
+        public static int time=0x7f090026;
         public static int timestamp=0x7f09002e;
         public static int title=0x7f090005;
         public static int title_bar=0x7f090016;
@@ -671,7 +671,7 @@ containing a value of this type.
         public static int tv_location=0x7f090036;
         public static int tv_name=0x7f090021;
         public static int tv_userid=0x7f090031;
-        public static int unread_msg_number=0x7f090025;
+        public static int unread_msg_number=0x7f090027;
         public static int vPager=0x7f090014;
         public static int voice_recorder=0x7f090019;
     }

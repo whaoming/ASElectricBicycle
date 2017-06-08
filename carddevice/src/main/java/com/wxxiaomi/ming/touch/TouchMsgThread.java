@@ -33,7 +33,6 @@ public class TouchMsgThread extends Thread {
         this.outputStream = output;
     }
     public void run() {
-//
         while (true) {
             try {
                 int count = 5;

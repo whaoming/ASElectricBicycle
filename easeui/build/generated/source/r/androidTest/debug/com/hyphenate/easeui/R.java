@@ -304,7 +304,7 @@ public final class R {
 	}
 	public static final class id {
 		public static final int alert_message = 0x7f09000d;
-		public static final int avatar = 0x7f090024;
+		public static final int avatar = 0x7f090025;
 		public static final int avatar_container = 0x7f090023;
 		public static final int bmapView = 0x7f090007;
 		public static final int btn_cancel = 0x7f09000e;
@@ -326,7 +326,6 @@ public final class R {
 		public static final int close = 0x7f090003;
 		public static final int contact_list = 0x7f09001c;
 		public static final int content_container = 0x7f09001b;
-		public static final int demo = 0x7f090026;
 		public static final int edittext_layout = 0x7f090053;
 		public static final int emojicon = 0x7f09001f;
 		public static final int emojicon_menu_container = 0x7f09004e;
@@ -363,12 +362,13 @@ public final class R {
 		public static final int mic_image = 0x7f090068;
 		public static final int msg_state = 0x7f090029;
 		public static final int msg_status = 0x7f090043;
-		public static final int name = 0x7f090027;
+		public static final int name = 0x7f090028;
 		public static final int none = 0x7f090000;
 		public static final int open = 0x7f090004;
 		public static final int pager_view = 0x7f09005c;
 		public static final int pb_load_local = 0x7f090009;
 		public static final int percentage = 0x7f090039;
+		public static final int portrait_panel = 0x7f090024;
 		public static final int primary_menu = 0x7f09001e;
 		public static final int primary_menu_container = 0x7f09004b;
 		public static final int progressBar = 0x7f09000b;
@@ -392,7 +392,7 @@ public final class R {
 		public static final int tab_container = 0x7f090060;
 		public static final int text = 0x7f090010;
 		public static final int textView = 0x7f09000c;
-		public static final int time = 0x7f090028;
+		public static final int time = 0x7f090026;
 		public static final int timestamp = 0x7f09002e;
 		public static final int title = 0x7f090005;
 		public static final int title_bar = 0x7f090016;
@@ -406,7 +406,7 @@ public final class R {
 		public static final int tv_location = 0x7f090036;
 		public static final int tv_name = 0x7f090021;
 		public static final int tv_userid = 0x7f090031;
-		public static final int unread_msg_number = 0x7f090025;
+		public static final int unread_msg_number = 0x7f090027;
 		public static final int vPager = 0x7f090014;
 		public static final int voice_recorder = 0x7f090019;
 	}

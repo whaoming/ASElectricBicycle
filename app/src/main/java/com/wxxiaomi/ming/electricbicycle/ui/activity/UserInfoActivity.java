@@ -19,11 +19,13 @@ import com.wxxiaomi.ming.common.cache.CacheManager;
 import com.wxxiaomi.ming.common.net.ApiException;
 import com.wxxiaomi.ming.electricbicycle.ConstantValue;
 import com.wxxiaomi.ming.electricbicycle.R;
+import com.wxxiaomi.ming.electricbicycle.im.Constant;
 import com.wxxiaomi.ming.electricbicycle.im.ImHelper1;
 import com.wxxiaomi.ming.electricbicycle.db.bean.Option;
 import com.wxxiaomi.ming.electricbicycle.db.bean.UserCommonInfo;
 import com.wxxiaomi.ming.electricbicycle.db.bean.format.UserInfo;
-import com.wxxiaomi.ming.electricbicycle.manager.AccountHelper;
+import com.wxxiaomi.ming.electricbicycle.im.ui.ChatActivity;
+import com.wxxiaomi.ming.electricbicycle.manager.Account;
 import com.wxxiaomi.ming.electricbicycle.manager.UserFunctionProvider;
 import com.wxxiaomi.ming.electricbicycle.manager.ShowerProvider;
 import com.wxxiaomi.ming.electricbicycle.common.rx.ProgressObserver;
@@ -87,7 +89,7 @@ public class UserInfoActivity extends AppCompatActivity implements FragmentCallb
     }
 
     public static void show(final Context context,String emname){
-        if(AccountHelper.getAccountInfo().emname.equals(emname)){
+        if(Account.getAccountInfo().emname.equals(emname)){
             show(context);
         }else{
             UserFunctionProvider.getInstance().getUserInfoByEname(emname)
@@ -106,7 +108,7 @@ public class UserInfoActivity extends AppCompatActivity implements FragmentCallb
     }
 
     public static void show(Context context,UserCommonInfo info){
-        if(AccountHelper.getAccountInfo().id == info.id){
+        if(Account.getAccountInfo().id == info.id){
             show(context);
         }else{
             Intent intent = new Intent(context, UserInfoActivity.class);
@@ -133,7 +135,7 @@ public class UserInfoActivity extends AppCompatActivity implements FragmentCallb
         toolbar = (Toolbar) this.findViewById(R.id.toolbar1);
         if (isMine) {
             //只有简单的字段
-            toolbar.setTitle(AccountHelper.getAccountInfo().nickname);
+            toolbar.setTitle(Account.getAccountInfo().nickname);
         } else {
             targetUser = (UserCommonInfo) bundle.getSerializable(ConstantValue.INTENT_USERINFO);
             toolbar.setTitle(targetUser.nickname);
@@ -198,11 +200,11 @@ public class UserInfoActivity extends AppCompatActivity implements FragmentCallb
     private void initData() {
         if (isMine) {
             Bundle bundle = new Bundle();
-            bundle.putSerializable(ConstantValue.BUNDLE_USERINFO, AccountHelper.getAccountInfo());
+            bundle.putSerializable(ConstantValue.BUNDLE_USERINFO, Account.getAccountInfo());
             bundle.putBoolean(ConstantValue.INTENT_ISMINE, isMine);
             infoDetailFragment.receiveData(1, bundle);
             infoCardFragment.receiveData(1, bundle);
-            UserFunctionProvider.getInstance().getUserOptions(AccountHelper.getAccountInfo().id)
+            UserFunctionProvider.getInstance().getUserOptions(Account.getAccountInfo().id)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(new ToastObserver2<List<Option>>(this) {
@@ -214,7 +216,7 @@ public class UserInfoActivity extends AppCompatActivity implements FragmentCallb
                             list.addAll(options);
                             userInfo.options = list;
                             userInfo.userCommonInfo = null;
-                            CacheManager.savaUserInfo(AccountHelper.getAccountInfo().id,userInfo);
+                            CacheManager.savaUserInfo(Account.getAccountInfo().id,userInfo);
 
                             Bundle bundle2 = new Bundle();
                             bundle2.putParcelableArrayList(ConstantValue.BUNDLE_OPTIONS, list);
@@ -228,7 +230,7 @@ public class UserInfoActivity extends AppCompatActivity implements FragmentCallb
                         }
                     });
 
-            UserInfo userInfo = CacheManager.getUserInfo(AccountHelper.getAccountInfo().id);
+            UserInfo userInfo = CacheManager.getUserInfo(Account.getAccountInfo().id);
             if(userInfo!=null){
                 ArrayList<Option> list = new ArrayList();
                 list.addAll(userInfo.options);
@@ -332,8 +334,15 @@ public class UserInfoActivity extends AppCompatActivity implements FragmentCallb
                 dialog.show();
                 break;
             case R.id.action_edit:
-                intent = new Intent(this, MyInfoEditActivity.class);
-                startActivity(intent);
+                if(isMine){
+                    intent = new Intent(this, MyInfoEditActivity.class);
+                    startActivity(intent);
+                }else{
+                    Intent intent1 = new Intent(UserInfoActivity.this, ChatActivity.class);
+                    intent1.putExtra(Constant.EXTRA_USER_ID, targetUser.emname);
+                    startActivity(intent1);
+                }
+
                 break;
             case R.id.action_talk:
                 intent = new Intent(this, MyInfoEditActivity.class);
@@ -355,10 +364,10 @@ public class UserInfoActivity extends AppCompatActivity implements FragmentCallb
     protected void onResume() {
         super.onResume();
         if (isMine) {
-            toolbar.setTitle(AccountHelper.getAccountInfo().nickname);
-            ShowerProvider.showHead(this, iv_avatar, AccountHelper.getAccountInfo().avatar);
-            if (AccountHelper.getAccountInfo().cover != null) {
-                ShowerProvider.showNormalImage(this, iv_back, AccountHelper.getAccountInfo().cover);
+            toolbar.setTitle(Account.getAccountInfo().nickname);
+            ShowerProvider.showHead(this, iv_avatar, Account.getAccountInfo().avatar);
+            if (Account.getAccountInfo().cover != null) {
+                ShowerProvider.showNormalImage(this, iv_back, Account.getAccountInfo().cover);
             }
         }
     }

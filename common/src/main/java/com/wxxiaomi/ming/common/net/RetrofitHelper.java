@@ -53,14 +53,17 @@ public class RetrofitHelper {
 //        } else {
 //            loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.NONE);
 //        }
+
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
+        builder.readTimeout(20, TimeUnit.SECONDS)
+                .addInterceptor(loggingInterceptor)
+                .addInterceptor(new AESInterceptor());
         for(Interceptor i : interceptors){
             builder.addInterceptor(i);
         }
-        builder.addInterceptor(new AESInterceptor());
-        OkHttpClient okHttpClient = builder.readTimeout(20, TimeUnit.SECONDS)
-                .addInterceptor(loggingInterceptor).build();
-        mRetrofit = new Retrofit.Builder()
+        OkHttpClient okHttpClient =builder.build();
+
+                mRetrofit = new Retrofit.Builder()
                 .baseUrl(baseURL)
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())

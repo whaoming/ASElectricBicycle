@@ -57,14 +57,16 @@ public class AppManager {
 		 * 结束指定的Activity
 		 */
 		public void finishActivity(Activity activity) {
-
-			if (activity != null) {
-				if(activityStack.contains(activity)){
-					activityStack.remove(activity);
-					activity.finish();
-				}
-
+			try {
+				if (activity != null) {
+					if (activityStack.contains(activity)) {
+						activityStack.remove(activity);
+						activity.finish();
+					}
 //				activity = null;
+				}
+			}catch (Exception e){
+				Log.i("wang","结束activity的时候发生一点小错误");
 			}
 		}
 

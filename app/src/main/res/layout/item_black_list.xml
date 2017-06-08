@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dip"
+        android:minHeight="60dip">
+
+        <com.hyphenate.easeui.widget.CircularImageView
+            android:id="@+id/head_image"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="12dp"/>
+
+        <TextView
+            android:id="@+id/account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="6dp"
+            android:layout_toRightOf="@id/head_image"
+            android:ellipsize="end"
+            android:includeFontPadding="false"
+            android:singleLine="true"
+            android:textColor="#333333"
+            android:textSize="16sp"/>
+
+        <Button
+            android:id="@+id/remove"
+            android:layout_width="54dip"
+            android:layout_height="34dip"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dip"
+            android:background="@drawable/nim_team_create_btn_selector"
+            android:text="移除"
+            android:textColor="@color/white"
+            android:textSize="14dp"/>
+    </RelativeLayout>
+    <View
+        android:background="#d9d9d9"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="62dip"
+        android:layout_marginRight="10dip"
+        android:layout_height="2px"/>
+
+
+
+</LinearLayout>
