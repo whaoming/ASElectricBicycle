@@ -7,7 +7,7 @@ import com.wxxiaomi.ming.common.base.AppContext;
 /**
  * 应用程序配置类
  * 用于保存用户相关信息及设置
- * config
+ * config1111
  */
 public class AppConfig {
     public static final String SETTING_OPEN_USER_NEAR = AppContext.context().getString(R.string.setting_open_near);
